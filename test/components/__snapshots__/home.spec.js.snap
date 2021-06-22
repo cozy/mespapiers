@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home components: Home should be rendered correctly 1`] = `
+<div>
+  <p>
+    Wait&See ... Mes papiers
+  </p>
+</div>
+`;
