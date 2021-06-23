@@ -6,11 +6,12 @@ branches:
   - master
 env:
   global:
-  # GITHUB_TOKEN for yarn deploy script
-  # to generate yours : travis encrypt GITHUB_TOKEN=<your_GITHUB_TOKEN> -r cozy/mespapiers 
-  # REGISTRY_TOKEN for yarn cozyPublish script
-  # to generate yours : travis encrypt REGISTRY_TOKEN=<your_REGISTRY_TOKEN> -r cozy/mespapiers
-  # N.B.: the --org option is needed only for public repositories
+    # MATTERMOST_HOOK_URL
+    - secure: "M9AsiCREqvJIMNl79X+9WShz1KqBg3fuakfdOM4gu7lSGe5vdP5JvoCZdAgQSzuGmLv3uBG4qPb/5Zenf1alHPFQczwxJCove3sMdsRcc7TvvnexfP/UzTPsj/nFiEQ5ikIUI3yZcOWFce48SqvlLfgMtapeGrDvwixz1prcV7c0+D3fiKLdv900RIo9lf/Pxy4kh9IlIO5/lpt7MvWX+212tliM68VRB+3Tml24xLZt1eAIPGva6cNy8Jsrmpc88ukLyCHn9NU6/2qhz/Idwgbcy8lPRnzIUdat++OJEnVP+KSpEeia3VuUAvcZIUpiVn1BVgFNqqe5LPLHPm79rjf4faCjUJl3BGwkdB+4vNYqVFzhO1sviv1KMU4IM3iEBg1rYOK/ENTON0Mo66HU6da4vKxmql4wpts3I2q9xAkorkbmKPiwigRegFu/3B0k4QfvxVUN+9/F+UOql054rJr+QPtjwM3ZhpK7okkmkZVl4sWlsfugBoP2VoaH7XA8EvNGhsAR9lvQZAYhF3oVkqpffPbX3+TIw9BMs7pvGm/+/o1pseFea1f3aupE3uc8CpmTpvJ9e+skxOARjJZuemUADshjxsPVyKH5g3wbeI6OvINYUPnDDcc6uofo1+v3hBm8mRcvy/dGEHMmOmRQ6zho1hKc9z81FUOCPn3zY/s="
+    # GITHUB_TOKEN
+    - secure: "FWk9rCl7I3wlwYWLVNOfyX3lADAHwi93qoP2TgyNkyyXabB20B1o9Qc5oHyv4eKOYTq7U43NtBn5JbHkFeNplf1peP8r6rqO7QV30ViVnUK5jPI0KMWA9dLePZc8v5i8fWi8SaWW4C9rKV4GAfFialm0bHyxf7dfmylrIXt6BvkZZUlvWxdxqGfvVq1tf4frkiOBvHSC63Jyz+/25xC8+ykEswm6HhniUGrizuIQtjm/vVtMfPG8q+RMlC5BnZcTonP0xmvDmYK3yBUH54DG1CVWhoNBd35ieR7P6ujLKwnCiw9wV4uYKfhR4xNhSFOEdVrL5G3MMTOpn5JRO0bIZql1dUgCuTQuMlylNmJtAy+Uf3imGgxsJhOuMbMW/0oUIVLvtTOQuRlqCvfN+44EMntBoJTmClhkOPbXycBUn7iy5y0yWUgGQkI4czWrceMAdO6rZSSgbRtRiW8TqJ4ok1qXYk38htg/Hwpxeva4GDfl62vq+aIey+MjwvEhY7JjIPynL6O/fksS527JYs4KSN5tsIDXDh/PXEbOpiZzW1D5UlDcwGbv7amb8eXDb2NF+389X/7a/1tJSfm9hPtq+C0m72nK7W2rM/Gxi8yrPy7yh8c+8hJeqt+HKPiqaDRMFkabbjp6x9/tgrGOJ9x/siQpjnYoH7Xq8j4RELht5jc="
+    # REGISTRY_TOKEN
+    - secure: "YUcg+1uVQYz6nm0h7YNPfgKkH5lkNd0SU07QHrh9zRj5ECw2mWsyMt79EkYFs7drXg0b+7oD6H/TRzhbPc/HORnl9h71rAZAUKPRu1534Ophmr6nr7U8j9m9XLV32DgtS8b5xqEWUDqY6fLLp5EAxyUy5UhCJeYyx3VhpGgbGaGK0wqfRi/rObYgPFFpOJ4mWRJWbLhddPpLo8Ps568pDP8NtTa6E4e+pR2yg6uNcGIRR51zlSINSprXjZM+lnXzSbNdrsmppvuuex/7C14YDmGApgd0RcOX67hi+x0C0M2v8NK8gxh20tXYBd3n5SzVMK4sJ7f2nt69hlPYWi1/l5lPAkBcF+kY1PR2I5ELRlCli1gR4O1K33lvRnKhqTLIGPNu64jc0cDOI5iYxt/tGGaxHnC8iQ8lfMX2ZGPmUILeyWWEzfzEq2GIy5PfAl3k6Gf3Tiq4d1ephrj2QMqHtsSW8Cag9s+aLWxAKtCY0ATlz6VjxIoL0Mi96PFRxwPc0cX8f6iPOhAKERRo4NTrN4o4j5Txp+rLBPCY85kwVWSWs+E33eVkIgHo7i3zWU9UME6TWSxb9t/83fCb8iqRnIrsK6ptIeLIQABl+JncQCT0lrsy8c+fQn7vtaYuF2/h9t5s/iJDqFxjIiPCTHO8NeiLQtCNT+dBEvaQaiw+kPU="
 cache:
   yarn: true
   directories:
@@ -18,6 +19,8 @@ cache:
 stages:
   - prebuild
   - build
+before_install:
+  - openssl aes-256-cbc -K $encrypted_fdd8b84f377d_key -iv $encrypted_fdd8b84f377d_iv -in id_rsa_downcloud_mespapiers.enc -out id_rsa_downcloud_mespapiers -d
 jobs:
   include:
     - name: 'Lint'
