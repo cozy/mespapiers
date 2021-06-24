@@ -30,6 +30,11 @@ $ yarn install
 
 Cozy's apps use a standard set of _npm scripts_ to run common tasks, like watch, lint, test, build…
 
+### Install the Husky script to be able to commit
+```sh
+$ yarn prepare:husky
+```
+
 
 ### Run it inside a Cozy using Docker
 
@@ -42,10 +47,10 @@ $ yarn start
 ```
 
 ```sh
-# in an other terminal, run the docker image 
+# in an other terminal, run the docker image
 $ cd mespapiers
 $ yarn stack:docker:dev
-``` 
+```
 
 After the build and the docker image launched, your app is now available at http://mespapiers.cozy.tools:8080.
 

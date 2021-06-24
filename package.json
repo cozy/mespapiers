@@ -1,6 +1,6 @@
 {
   "name": "mespapiers",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "lint": "yarn lint:js && yarn lint:styles",
     "lint:js": "cs lint '{src,test}/**/*.{js,jsx}'",
@@ -17,7 +17,8 @@
     "test": "cs test --verbose --coverage",
     "cozyPublish": "cozy-app-publish --token $REGISTRY_TOKEN --prepublish downcloud --postpublish mattermost --space default",
     "stack:docker:dev": "cs stackDocker",
-    "stack:docker:prod": "cs stackDocker --prod"
+    "stack:docker:prod": "cs stackDocker --prod",
+    "prepare:husky": "husky install"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
     "eslint": "5.9.0",
     "eslint-config-cozy-app": "2.1.0",
     "git-directory-deploy": "1.5.1",
+    "husky": "6.0.0",
     "react-hot-loader": "4.13.0",
     "react-test-renderer": "16.14.0",
     "redux-mock-store": "1.5.4",
