@@ -1,9 +1,13 @@
 language: node_js
+matrix:
+  fast_finish: true
 node_js:
-- '10'
+  - '10'
 branches:
   only:
-  - master
+    - master
+    # tags
+    - /^\d+\.\d+\.\d+(\-beta.\d+)?$/
 env:
   global:
     # MATTERMOST_HOOK_URL
@@ -15,12 +19,18 @@ env:
 cache:
   yarn: true
   directories:
-  - node_modules
+    - node_modules
 stages:
   - prebuild
   - build
 before_install:
-  - openssl aes-256-cbc -K $encrypted_fdd8b84f377d_key -iv $encrypted_fdd8b84f377d_iv -in id_rsa_downcloud_mespapiers.enc -out id_rsa_downcloud_mespapiers -d
+  - 'if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then openssl aes-256-cbc -K $encrypted_fdd8b84f377d_key -iv $encrypted_fdd8b84f377d_iv -in id_rsa_downcloud_mespapiers.enc -out id_rsa_downcloud_mespapiers -d; fi'
+  - 'if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then eval "$(ssh-agent -s)"; fi'
+  - 'if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then chmod 600 id_rsa_downcloud_mespapiers; fi'
+  - 'if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then ssh-add id_rsa_downcloud_mespapiers; fi'
+before_deploy:
+  - yarn add cozy-app-publish
+
 jobs:
   include:
     - name: 'Lint'
