@@ -1,6 +1,4 @@
 language: node_js
-matrix:
-  fast_finish: true
 node_js:
   - '10'
 branches:
@@ -10,6 +8,7 @@ branches:
     - /^\d+\.\d+\.\d+(\-beta.\d+)?$/
 env:
   global:
+    - MATTERMOST_CHANNEL='{"dev":"app---mes-papiers","beta":"app---mes-papiers,publication","stable":"app---mes-papiers,publication"}'
     # MATTERMOST_HOOK_URL
     - secure: "M9AsiCREqvJIMNl79X+9WShz1KqBg3fuakfdOM4gu7lSGe5vdP5JvoCZdAgQSzuGmLv3uBG4qPb/5Zenf1alHPFQczwxJCove3sMdsRcc7TvvnexfP/UzTPsj/nFiEQ5ikIUI3yZcOWFce48SqvlLfgMtapeGrDvwixz1prcV7c0+D3fiKLdv900RIo9lf/Pxy4kh9IlIO5/lpt7MvWX+212tliM68VRB+3Tml24xLZt1eAIPGva6cNy8Jsrmpc88ukLyCHn9NU6/2qhz/Idwgbcy8lPRnzIUdat++OJEnVP+KSpEeia3VuUAvcZIUpiVn1BVgFNqqe5LPLHPm79rjf4faCjUJl3BGwkdB+4vNYqVFzhO1sviv1KMU4IM3iEBg1rYOK/ENTON0Mo66HU6da4vKxmql4wpts3I2q9xAkorkbmKPiwigRegFu/3B0k4QfvxVUN+9/F+UOql054rJr+QPtjwM3ZhpK7okkmkZVl4sWlsfugBoP2VoaH7XA8EvNGhsAR9lvQZAYhF3oVkqpffPbX3+TIw9BMs7pvGm/+/o1pseFea1f3aupE3uc8CpmTpvJ9e+skxOARjJZuemUADshjxsPVyKH5g3wbeI6OvINYUPnDDcc6uofo1+v3hBm8mRcvy/dGEHMmOmRQ6zho1hKc9z81FUOCPn3zY/s="
     # GITHUB_TOKEN
@@ -20,9 +19,10 @@ cache:
   yarn: true
   directories:
     - node_modules
-stages:
-  - prebuild
-  - build
+script:
+  - yarn lint
+  - yarn test
+  - yarn build
 before_install:
   - 'if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then openssl aes-256-cbc -K $encrypted_fdd8b84f377d_key -iv $encrypted_fdd8b84f377d_iv -in id_rsa_downcloud_mespapiers.enc -out id_rsa_downcloud_mespapiers -d; fi'
   - 'if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then eval "$(ssh-agent -s)"; fi'
@@ -31,29 +31,18 @@ before_install:
 before_deploy:
   - yarn add cozy-app-publish
 
-jobs:
-  include:
-    - name: 'Lint'
-      stage: 'prebuild'
-      script: yarn lint
-    - name: 'Tests'
-      stage: 'prebuild'
-      script: yarn test
-    - name: 'Build app'
-      stage: 'build'
-      script: yarn build
-      deploy:
-        - provider: script
-          repo: cozy/mespapiers
-          skip-cleanup: true
-          # deploy the build on a build branch and publish to the Cozy registry
-          script: DEPLOY_BRANCH=build && yarn deploy && yarn cozyPublish
-          on:
-            branch: master
-        - provider: script
-          repo: cozy/mespapiers
-          skip-cleanup: true
-          # publish stable or beta versions using Github Releases (git tag)
-          script: DEPLOY_BRANCH=build && yarn cozyPublish
-          on:
-            tags: true
+deploy:
+  - provider: script
+    repo: cozy/mespapiers
+    skip-cleanup: true
+    # deploy the build on a build branch and publish to the Cozy registry
+    script: DEPLOY_BRANCH=build && yarn deploy && yarn cozyPublish
+    on:
+      branch: master
+  - provider: script
+    repo: cozy/mespapiers
+    skip-cleanup: true
+    # publish stable or beta versions using Github Releases (git tag)
+    script: DEPLOY_BRANCH=build && yarn cozyPublish
+    on:
+      tags: true
