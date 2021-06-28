@@ -8,7 +8,7 @@ import Home from './Home'
 
 export const App = () => (
   <HashRouter>
-    <Layout>
+    <Layout monoColumn>
       <Main>
         <Content className="app-content">
           <Switch>
