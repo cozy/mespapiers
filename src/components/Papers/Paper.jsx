@@ -1,19 +1,24 @@
 import React from 'react'
 
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
-import { Avatar } from 'cozy-ui/transpiled/react/Avatar'
-import { TableCell } from 'cozy-ui/transpiled/react/Table'
+import ListItemIcon from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItemIcon'
+import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
 import Typography from 'cozy-ui/transpiled/react/Typography'
+import { Icon } from 'cozy-ui/transpiled/react'
+import IconPdf from 'cozy-ui/transpiled/react/Icons/FileTypePdf'
 
-// TODO
+// TODO Improve Icon
 const Paper = ({ paper, divider }) => {
   return (
-    <ListItem divider={divider}>
-      <TableCell>
-        <Avatar size="small" />
-      </TableCell>
-      <Typography variant="body1">{paper.name}</Typography>
-    </ListItem>
+    <>
+      <ListItem key={paper.name}>
+        <ListItemIcon>
+          <Icon icon={IconPdf} size={32} />
+        </ListItemIcon>
+        <Typography variant="body1">{paper.name}</Typography>
+      </ListItem>
+      {divider && <Divider variant="inset" component="li" />}
+    </>
   )
 }
 

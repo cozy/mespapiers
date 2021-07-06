@@ -2,37 +2,51 @@ import React from 'react'
 
 import { useQuery, isQueryLoading } from 'cozy-client'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
-import Empty from 'cozy-ui/transpiled/react/Empty'
 import { useI18n } from 'cozy-ui/react/I18n'
+import Fab from 'cozy-ui/transpiled/react/Fab'
+import Icon from 'cozy-ui/transpiled/react/Icon'
+import PlusIcon from 'cozy-ui/transpiled/react/Icons/Plus'
 
 import HomeCloud from '../../assets/icons/HomeCloud.svg'
 
-import { queryAllPapers } from '../../utils/queries'
-import PapersList from '../Papers/PapersList'
-import PlaceholdersList from '../Placeholders/PlaceholdersList'
+import { getAllPapers } from '../../utils/queries'
+import { PapersList } from '../Papers'
+import { PlaceholdersList } from '../Placeholders'
+import CompositeHeader from '../CompositeHeader'
 
 const Home = () => {
   const { t } = useI18n()
   const { data, ...rest } = useQuery(
-    queryAllPapers.definition,
-    queryAllPapers.options
+    getAllPapers.definition,
+    getAllPapers.options
   )
 
   return (
     <>
       {isQueryLoading(rest) ? (
-        <Spinner size="xxlarge" />
-      ) : data.length === 0 ? (
-        <Empty
-          layout={false}
+        <Spinner
+          size="xxlarge"
+          className="u-flex u-flex-justify-center u-mt-2 u-h-5"
+        />
+      ) : data && data.length === 0 ? (
+        <CompositeHeader
+          width={247}
           icon={HomeCloud}
-          title={t('NotFound.title')}
-          text={t('NotFound.text')}
+          title={t('Home.Empty.title')}
+          text={t('Home.Empty.text')}
         />
       ) : (
-        <PapersList papers={data} />
+        <PapersList papers={data || []} />
       )}
-      <PlaceholdersList papers={data} />
+      <PlaceholdersList papers={data || []} />
+      <Fab
+        color="primary"
+        aria-label="add"
+        style={{ position: 'fixed' }}
+        className="u-bottom-l u-right-l"
+      >
+        <Icon icon={PlusIcon} />
+      </Fab>
     </>
   )
 }

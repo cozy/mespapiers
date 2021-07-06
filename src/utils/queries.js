@@ -2,14 +2,16 @@ import { Q } from 'cozy-client'
 
 import { FILES_DOCTYPE } from '../doctypes'
 
-export const queryAllPapers = {
+export const getAllPapers = {
   definition: () =>
     Q(FILES_DOCTYPE).where({
       type: 'file',
       trashed: false,
-      [`metadata.qualificationsAttributes`]: true
+      'metadata.qualificationsAttributes': {
+        $exists: true
+      }
     }),
   options: {
-    as: `allPapers`
+    as: `getAllPapers`
   }
 }
