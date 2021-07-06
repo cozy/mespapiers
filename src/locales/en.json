@@ -1,7 +1,9 @@
 {
-  "NotFound": {
-    "title": "Add your personal documents",
-    "text": "Always keep them with you in a secure space to simplify your administrative procedures. They will never be used without your explicit consent."
+  "Home": {
+    "Empty": {
+      "title": "Add your personal documents",
+      "text": "Always keep them with you in a secure space to simplify your administrative procedures. They will never be used without your explicit consent."
+    }
   },
   "items": {
     "identity": "Identity",
@@ -75,5 +77,15 @@
     "other_bank_document": "Other banking document",
     "invoices": "Invoices",
     "other_invoice": "Other invoice"
+  },
+  "PapersList": {
+    "List": {
+      "ListSubheader": "Existing"
+    }
+  },
+  "PlaceholdersList": {
+    "List": {
+      "ListSubheader": "Suggestions"
+    }
   }
 }

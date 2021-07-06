@@ -1,7 +1,9 @@
 {
-  "NotFound": {
-    "title": "Ajoutez vos documents personnels",
-    "text": "Gardez les toujours sur vous dans un espace sécurisé pour simplifier vos démarches administratives. Ils ne seront jamais utilisés sans votre consentement explicite."
+  "Home": {
+    "Empty": {
+      "text": "Gardez les toujours sur vous dans un espace sécurisé pour simplifier vos démarches administratives. Ils ne seront jamais utilisés sans votre consentement explicite.",
+      "title": "Ajoutez vos documents personnels"
+    }
   },
   "items": {
     "identity": "Identité",
@@ -75,5 +77,15 @@
     "other_bank_document": "Autre document bancaire",
     "invoices": "Factures",
     "other_invoice": "Autre facture"
+  },
+  "PapersList": {
+    "List": {
+      "ListSubheader": "Existants"
+    }
+  },
+  "PlaceholdersList": {
+    "List": {
+      "ListSubheader": "Suggestions"
+    }
   }
 }
