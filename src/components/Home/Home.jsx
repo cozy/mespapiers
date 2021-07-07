@@ -30,7 +30,6 @@ const Home = () => {
         />
       ) : data && data.length === 0 ? (
         <CompositeHeader
-          width={247}
           icon={HomeCloud}
           title={t('Home.Empty.title')}
           text={t('Home.Empty.text')}
