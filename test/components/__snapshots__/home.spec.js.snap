@@ -2,8 +2,149 @@
 
 exports[`Home components: Home should be rendered correctly 1`] = `
 <div>
-  <p>
-    Wait&See ... Mes papiers
-  </p>
+  <div
+    class="styles__c-spinner___1snK7 u-flex u-flex-justify-center u-mt-2 u-h-5"
+  >
+    <svg
+      aria-busy="true"
+      class="styles__icon___23x3R styles__icon--spin___ybfC1"
+      height="80"
+      role="progressbar"
+      style="fill: var(--spinnerColor);"
+      viewBox="0 0 32 32"
+      width="80"
+    >
+      <path
+        d="M16 0a16 16 0 000 32 16 16 0 000-32m0 4a12 12 0 010 24 12 12 0 010-24"
+        opacity="0.25"
+      />
+      <path
+        d="M16 0a16 16 0 0116 16h-4A12 12 0 0016 4z"
+      />
+    </svg>
+    
+  </div>
+  <ul
+    class="MuiList-root MuiList-padding"
+  >
+    <li
+      class="MuiListItem-root MuiListItem-gutters"
+    >
+      <div
+        class="MuiListItemIcon-root"
+      >
+        <span
+          class="MuiBadge-root Component-root-3"
+        >
+          <div
+            class="styles__IconStack-wrapper___10dhG"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="32"
+              style="fill: #fff;"
+              viewBox="0 0 26 32"
+              width="32"
+            >
+              <g
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 2.002C0 .896.89 0 1.997 0H19l7 7v22.996A2 2 0 0124.003 32H1.997A1.995 1.995 0 010 29.998C.048 16 0 16 0 2.002z"
+                  fill="#FFF"
+                />
+                <path
+                  d="M18.5 0c-.276 0-.5.23-.5.5V8h7.5c.276 0 .5-.232.5-.5V7l-7-7h-.5z"
+                  fill="#FFF"
+                />
+                <path
+                  d="M0 2.002C0 .896.89 0 1.997 0H19l7 7v22.996A2 2 0 0124.003 32H1.997A1.995 1.995 0 010 29.998C.048 16 0 16 0 2.002z"
+                  opacity="0.242"
+                />
+                <path
+                  d="M18.5 0c-.276 0-.5.23-.5.5V8h7.5c.276 0 .5-.232.5-.5V7l-7-7h-.5z"
+                />
+              </g>
+            </svg>
+            <div
+              class="styles__IconStack-foregroundIcon___ZvY-t"
+            >
+              <svg
+                class="styles__icon___23x3R"
+                height="16"
+                style="fill: #fff;"
+                viewBox="0 0 16 16"
+                width="16"
+              >
+                <path
+                  d="M8 9c2.21 0 4-2.015 4-4.5S10.21 0 8 0 4 2.015 4 4.5 5.79 9 8 9zm-8 5c0-1 2-4 4-4s1 1 4 1 2-1 4-1 4 3 4 4 0 2-1 2H1c-1 0-1-1-1-2z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+          <span
+            class="MuiBadge-badge Component-badge-2 Component-qualifier-1 Component-bottom-5 Component-right-7 Component-medium-9 MuiBadge-anchorOriginTopRightRectangle"
+          >
+            <svg
+              class="styles__icon___23x3R"
+              height="10"
+              style="fill: #fff;"
+              viewBox="0 0 16 16"
+              width="10"
+            >
+              <defs>
+                <path
+                  d="M7 0h2v7h7v2H9v7H7V9H0V7h7z"
+                  id="plus_svg__a"
+                />
+              </defs>
+              <use
+                fill-rule="evenodd"
+                xlink:href="#plus_svg__a"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <p
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
+      >
+        ID card
+      </p>
+    </li>
+  </ul>
+  <button
+    aria-label="add"
+    class="MuiButtonBase-root MuiFab-root u-bottom-l u-right-l MuiFab-primary"
+    style="position: fixed;"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiFab-label"
+    >
+      <svg
+        class="styles__icon___23x3R"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+      >
+        <defs>
+          <path
+            d="M7 0h2v7h7v2H9v7H7V9H0V7h7z"
+            id="plus_svg__a"
+          />
+        </defs>
+        <use
+          fill-rule="evenodd"
+          xlink:href="#plus_svg__a"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
 </div>
 `;
