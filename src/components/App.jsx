@@ -6,7 +6,7 @@ import { Route, Switch, Redirect, HashRouter } from 'react-router-dom'
 import { useClient } from 'cozy-client'
 import { Layout, Main, Content } from 'cozy-ui/react/Layout'
 import { Sprite as IconSprite } from 'cozy-ui/react/Icon'
-import useBreakpoints from 'cozy-ui/react/hooks/useBreakpoints'
+import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 

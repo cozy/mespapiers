@@ -13,7 +13,7 @@ import {
 import { CozyProvider } from 'cozy-client'
 import { I18n } from 'cozy-ui/react/I18n'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
-import { BreakpointsProvider } from 'cozy-ui/react/hooks/useBreakpoints'
+import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
 import setupApp from './setupApp'
 import App from '../../components/App'

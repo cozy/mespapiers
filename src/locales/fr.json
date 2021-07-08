@@ -5,6 +5,16 @@
       "title": "Ajoutez vos documents personnels"
     }
   },
+  "ImportDropdown": {
+    "importAuto": {
+      "title": "Importer automatiquement",
+      "text": "Connectez vos services d’énergie ou de telecom à votre Cozy pour récupérer vos factures. Vos justificatifs seront mis à jour automatiquement"
+    },
+    "importPicture": {
+      "title": "Prendre en photo",
+      "text": "Utiliser votre appareil photo ou un document existant"
+    }
+  },
   "items": {
     "identity": "Identité",
     "family": "Famille",

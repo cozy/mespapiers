@@ -2,25 +2,27 @@
   "papersDefinitions": [
     {
       "label": "national_id_card",
+      "icon": "people",
       "featuredPlaceholder": true,
       "rankPlaceholder": 1,
-      "pageNumber": 2,
+      "pagesNumber": 2,
       "pages": [
         {
+          "pageNumber": 1,
           "pageName": "recto",
           "illustration": "illu_id_card_recto.svg",
           "attributes": [
             {
               "name": "number",
-              "type": "french_id_card_number",
-              "OCRRule": "french_id_card_number"
+              "type": "french_id_card_number"
             }
           ]
         },
         {
+          "pageNumber": 2,
           "pageName": "verso",
-          "Illustration": "illu_id_card_verso.svg",
-          "Attributes": [
+          "illustration": "illu_id_card_verso.svg",
+          "attributes": [
             {
               "name": "peremptionDate",
               "type": "date"
@@ -33,25 +35,27 @@
     },
     {
       "label": "passport",
+      "icon": "people",
       "featuredPlaceholder": false,
       "rankPlaceholder": 0,
-      "pageNumber": 2,
+      "pagesNumber": 2,
       "pages": [
         {
+          "pageNumber": 1,
           "pageName": "recto",
           "illustration": "illu_passport_recto.svg",
           "attributes": [
             {
               "name": "number",
-              "type": "french_passport_number",
-              "OCRRule": "french_passport_number"
+              "type": "french_passport_number"
             }
           ]
         },
         {
+          "pageNumber": 2,
           "pageName": "verso",
-          "Illustration": "illu_passport_verso.svg",
-          "Attributes": [
+          "illustration": "illu_passport_verso.svg",
+          "attributes": [
             {
               "name": "peremptionDate",
               "type": "date"
