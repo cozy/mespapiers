@@ -3614,7 +3614,7 @@ cozy-device-helper@^1.12.0, cozy-device-helper@^1.7.3:
   dependencies:
     lodash "^4.17.19"
 
-cozy-doctypes@^1.82.2:
+cozy-doctypes@1.82.2:
   version "1.82.2"
   resolved "https://registry.yarnpkg.com/cozy-doctypes/-/cozy-doctypes-1.82.2.tgz#7c7d6f44e3aaee18ba51253468e84d2d1a70fde6"
   integrity sha512-NWbQ6rKj2a+Rq19MX9uNa8GNlzwdlye9pxiC1V3jd+76T5fQMQN+tjHr9jK468V/NJvC/oQowAcWsRoMaB5A+Q==

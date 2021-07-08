@@ -47,7 +47,7 @@
   "dependencies": {
     "@material-ui/core": "4",
     "cozy-client": "23.13.1",
-    "cozy-doctypes": "^1.82.2",
+    "cozy-doctypes": "1.82.2",
     "cozy-scripts": "5.7.0",
     "cozy-ui": "50.9.1",
     "react": "16.14.0",
