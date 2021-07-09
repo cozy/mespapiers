@@ -6,11 +6,11 @@
     }
   },
   "ImportDropdown": {
-    "ImportAuto": {
+    "importAuto": {
       "title": "Auto import",
       "text": "Connect your energy or telecom services to your Cozy to get your bills. Your supporting documents will be updated automatically"
     },
-    "ImportPicture": {
+    "importPicture": {
       "title": "Take a picture",
       "text": "Use your camera or an existing document"
     }
