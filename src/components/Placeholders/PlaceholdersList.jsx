@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListSubheader from 'cozy-ui/transpiled/react/MuiCozyTheme/ListSubheader'
-import { useI18n } from 'cozy-ui/react/I18n'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import { Placeholder } from '.'
-import { getPlaceholders } from '../../utils/placeholder'
+import { getPlaceholders } from '../../utils/getPlaceholders'
 
 const PlaceholdersList = ({ papers }) => {
   const { t } = useI18n()
