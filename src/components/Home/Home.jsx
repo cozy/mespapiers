@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 
 import { useQuery, isQueryLoading } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { Empty } from 'cozy-ui/transpiled/react'
 import Fab from 'cozy-ui/transpiled/react/Fab'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import PlusIcon from 'cozy-ui/transpiled/react/Icons/Plus'
@@ -12,7 +13,6 @@ import { PapersList } from '../Papers'
 import { PlaceholdersList } from '../Placeholders'
 import { DialogModalContext } from '../Contexts'
 import Stepper from '../Stepper'
-import CompositeHeader from '../CompositeHeader'
 import HomeCloud from '../../assets/icons/HomeCloud.svg'
 
 const Home = () => {
@@ -31,10 +31,11 @@ const Home = () => {
           className="u-flex u-flex-justify-center u-mt-2 u-h-5"
         />
       ) : data && data.length === 0 ? (
-        <CompositeHeader
+        <Empty
           icon={HomeCloud}
           title={t('Home.Empty.title')}
           text={t('Home.Empty.text')}
+          layout={false}
         />
       ) : (
         <PapersList papers={data || []} />
