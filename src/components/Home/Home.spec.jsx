@@ -2,26 +2,14 @@
 import React from 'react'
 import { render, waitFor } from '@testing-library/react'
 
-import { isQueryLoading } from 'cozy-client'
-
 import AppLike from '../../../test/components/AppLike'
-import Home from '.'
+import Home from './Home'
+import { fakeData } from './__mocks__/fakeData'
 
-jest.mock('cozy-client/dist/hooks/useQuery', () =>
-  jest.fn(() => ({
-    data: [{ name: 'File01' }]
-  }))
-)
-jest.mock('cozy-client/dist/utils', () => ({
-  ...jest.requireActual('cozy-client/dist/utils'),
-  isQueryLoading: jest.fn()
-}))
-
-const setup = (isLoading = true) => {
-  isQueryLoading.mockReturnValue(isLoading)
+const setup = (data = []) => {
   return render(
     <AppLike>
-      <Home />
+      <Home data={data} />
     </AppLike>
   )
 }
@@ -33,17 +21,17 @@ describe('Home components:', () => {
     expect(container).toBeDefined()
   })
 
-  it('should display Spinner & Suggestions when all data are not loaded', async () => {
-    const { container, getByText } = setup(true)
+  it('should display Empty text & Placeholder when no data exists', async () => {
+    const { getByText } = setup()
 
     await waitFor(() => {
-      expect(container.querySelector('[role="progressbar"]')).toBeDefined()
-      expect(getByText('Suggestions'))
+      expect(getByText('Add your personal documents'))
+      expect(getByText('ID card'))
     })
   })
 
-  it('should display Existing data & Suggestions when all data are loaded', async () => {
-    const { getByText } = setup(false)
+  it('should display subtitle Existing & Suggestions when all data exists', async () => {
+    const { getByText } = setup(fakeData)
 
     await waitFor(() => {
       expect(getByText('Existing'))
