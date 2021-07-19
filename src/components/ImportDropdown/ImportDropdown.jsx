@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 
 import { useClient } from 'cozy-client'
@@ -12,15 +12,24 @@ import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 
+import { DialogModalContext } from '../Contexts'
 import { getFilteredStoreUrl } from '../../utils/getFilteredStoreUrl'
 import Konnector from '../../assets/icons/Konnectors.svg'
 
 const ImportDropdown = ({ label, icon }) => {
   const { t } = useI18n()
   const client = useClient()
+  const { setIsDialogModalOpen, setDialogModalLabel } = useContext(
+    DialogModalContext
+  )
 
   const goToStore = () => {
     window.location = getFilteredStoreUrl(client)
+  }
+
+  const showModal = () => {
+    setIsDialogModalOpen(true)
+    setDialogModalLabel(label)
   }
 
   return (
@@ -48,7 +57,7 @@ const ImportDropdown = ({ label, icon }) => {
           ellipsis={false}
         />
       </ListItem>
-      <ListItem onClick={() => console.log('Trigger camera phone device')}>
+      <ListItem onClick={showModal}>
         <ListItemIcon>
           <Icon icon={Camera} size={16} />
         </ListItemIcon>

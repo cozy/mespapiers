@@ -88,6 +88,36 @@
     "invoices": "Factures",
     "other_invoice": "Autre facture"
   },
+  "PaperJSON": {
+    "IDCard": {
+      "page01": {
+        "text": "Photographier la face avant de votre carte d’identité"
+      },
+      "page02": {
+        "text": "Photographier la face arrière de votre carte d’identité"
+      },
+      "page03": {
+        "text": "Quelle est le numéro de votre carte de crédit ? (inscrit à l'avant)"
+      },
+      "page04": {
+        "text": "À quelle date votre carte a-t-elle été délivrée ? (inscrite à l’arrière)"
+      }
+    },
+    "Passport": {
+      "page01": {
+        "text": "TODO"
+      },
+      "page02": {
+        "text": "TODO"
+      },
+      "page03": {
+        "text": "TODO"
+      },
+      "page04": {
+        "text": "TODO"
+      }
+    }
+  },
   "PapersList": {
     "List": {
       "ListSubheader": "Existants"

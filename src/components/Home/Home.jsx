@@ -1,21 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { useQuery, isQueryLoading } from 'cozy-client'
-import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Fab from 'cozy-ui/transpiled/react/Fab'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import PlusIcon from 'cozy-ui/transpiled/react/Icons/Plus'
-
-import HomeCloud from '../../assets/icons/HomeCloud.svg'
+import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 import { getAllPapers } from '../../utils/queries'
 import { PapersList } from '../Papers'
 import { PlaceholdersList } from '../Placeholders'
+import { DialogModalContext } from '../Contexts'
+import Stepper from '../Stepper'
 import CompositeHeader from '../CompositeHeader'
+import HomeCloud from '../../assets/icons/HomeCloud.svg'
 
 const Home = () => {
   const { t } = useI18n()
+  const { isDialogModalOpen } = useContext(DialogModalContext)
   const { data, ...rest } = useQuery(
     getAllPapers.definition,
     getAllPapers.options
@@ -46,6 +48,8 @@ const Home = () => {
       >
         <Icon icon={PlusIcon} />
       </Fab>
+
+      {isDialogModalOpen && <Stepper />}
     </>
   )
 }
