@@ -10,7 +10,7 @@ import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 
-import Home from './Home'
+import { HomeWrapper } from './HomeWrapper'
 
 export const App = () => {
   const client = useClient()
@@ -30,7 +30,7 @@ export const App = () => {
         <Main>
           <Content className="app-content">
             <Switch>
-              <Route path="/" component={Home} />
+              <Route path="/" component={HomeWrapper} />
               <Redirect from="*" to="/" />
             </Switch>
           </Content>
