@@ -31,6 +31,7 @@ const Placeholder = ({ placeholder, divider }) => {
             }
           >
             <IconStack
+              backgroundClassName={'u-o-50'}
               backgroundIcon={
                 <Icon
                   icon={FileDuotoneIcon}

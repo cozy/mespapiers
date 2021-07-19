@@ -5,12 +5,21 @@
       "icon": "people",
       "featuredPlaceholder": true,
       "rankPlaceholder": 1,
-      "pagesNumber": 2,
       "pages": [
         {
           "pageNumber": 1,
-          "pageName": "recto",
           "illustration": "illu_id_card_recto.svg",
+          "text": "PaperJSON.IDCard.page01.text"
+        },
+        {
+          "pageNumber": 2,
+          "illustration": "illu_id_card_verso.svg",
+          "text": "PaperJSON.IDCard.page02.text"
+        },
+        {
+          "pageNumber": 3,
+          "illustration": "illu_id_card_number.svg",
+          "text": "PaperJSON.IDCard.page03.text",
           "attributes": [
             {
               "name": "number",
@@ -19,9 +28,9 @@
           ]
         },
         {
-          "pageNumber": 2,
-          "pageName": "verso",
-          "illustration": "illu_id_card_verso.svg",
+          "pageNumber": 4,
+          "illustration": "illu_id_card_peremptionDate.svg",
+          "text": "PaperJSON.IDCard.page04.text",
           "attributes": [
             {
               "name": "peremptionDate",
@@ -37,13 +46,22 @@
       "label": "passport",
       "icon": "people",
       "featuredPlaceholder": false,
-      "rankPlaceholder": 0,
-      "pagesNumber": 2,
+      "rankPlaceholder": 2,
       "pages": [
         {
           "pageNumber": 1,
-          "pageName": "recto",
           "illustration": "illu_passport_recto.svg",
+          "text": "PaperJSON.Passport.page01.text"
+        },
+        {
+          "pageNumber": 2,
+          "illustration": "illu_passport_verso.svg",
+          "text": "PaperJSON.Passport.page02.text"
+        },
+        {
+          "pageNumber": 3,
+          "illustration": "illu_passport_number.svg",
+          "text": "PaperJSON.Passport.page03.text",
           "attributes": [
             {
               "name": "number",
@@ -52,9 +70,9 @@
           ]
         },
         {
-          "pageNumber": 2,
-          "pageName": "verso",
-          "illustration": "illu_passport_verso.svg",
+          "pageNumber": 4,
+          "illustration": "illu_passport_peremptionDate.svg",
+          "text": "PaperJSON.Passport.page04.text",
           "attributes": [
             {
               "name": "peremptionDate",

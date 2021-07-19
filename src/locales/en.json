@@ -88,6 +88,36 @@
     "invoices": "Invoices",
     "other_invoice": "Other invoice"
   },
+  "PaperJSON": {
+    "IDCard": {
+      "page01": {
+        "text": "Take a picture of the front of your ID card"
+      },
+      "page02": {
+        "text": "Take a picture of the back of your ID card"
+      },
+      "page03": {
+        "text": "What is your credit card number? (written on the front)"
+      },
+      "page04": {
+        "text": "When was your card issued? (written on the back)"
+      }
+    },
+    "Passport": {
+      "page01": {
+        "text": "TODO"
+      },
+      "page02": {
+        "text": "TODO"
+      },
+      "page03": {
+        "text": "TODO"
+      },
+      "page04": {
+        "text": "TODO"
+      }
+    }
+  },
   "PapersList": {
     "List": {
       "ListSubheader": "Existing"
