@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { useClient } from 'cozy-client'
@@ -19,6 +19,8 @@ import Konnector from '../../assets/icons/Konnectors.svg'
 const ImportDropdown = ({ label, icon }) => {
   const { t } = useI18n()
   const client = useClient()
+  const [showModal, setShowModal] = useState(false)
+
   const { setIsDialogModalOpen, setDialogModalLabel } = useContext(
     DialogModalContext
   )
@@ -27,10 +29,17 @@ const ImportDropdown = ({ label, icon }) => {
     window.location = getFilteredStoreUrl(client)
   }
 
-  const showModal = () => {
-    setIsDialogModalOpen(true)
-    setDialogModalLabel(label)
-  }
+  // Avoid a potential memory leak.
+  // When calling "setIsDialogModalOpen" to "true", "Home" is unmounted to be replaced by the "Stepper".
+  // The "onClose" callback of "ActionMenu" in the "Placeholder" is unmounted during the process and causes a memory leak.
+  useEffect(() => {
+    return () => {
+      if (showModal) {
+        setIsDialogModalOpen(true)
+        setDialogModalLabel(label)
+      }
+    }
+  })
 
   return (
     <>
@@ -57,7 +66,7 @@ const ImportDropdown = ({ label, icon }) => {
           ellipsis={false}
         />
       </ListItem>
-      <ListItem onClick={showModal}>
+      <ListItem onClick={() => setShowModal(true)}>
         <ListItemIcon>
           <Icon icon={Camera} size={16} />
         </ListItemIcon>
