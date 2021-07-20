@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { useClient } from 'cozy-client'
@@ -12,7 +12,7 @@ import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 
-import { DialogModalContext } from '../Contexts'
+import { useDialogModalContext } from '../Hooks'
 import { getFilteredStoreUrl } from '../../utils/getFilteredStoreUrl'
 import Konnector from '../../assets/icons/Konnectors.svg'
 
@@ -21,7 +21,7 @@ const ImportDropdown = ({ label, icon }) => {
   const client = useClient()
   const [showModal, setShowModal] = useState(false)
 
-  const { setIsDialogModalOpen } = useContext(DialogModalContext)
+  const { setIsDialogModalOpen } = useDialogModalContext()
 
   const goToStore = () => {
     window.location = getFilteredStoreUrl(client)

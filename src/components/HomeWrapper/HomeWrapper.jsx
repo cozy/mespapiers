@@ -1,15 +1,15 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import { useQuery, isQueryLoading } from 'cozy-client'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 import { getAllPapers } from '../../utils/queries'
-import { DialogModalContext } from '../Contexts'
-import DialogInStepperWrapper from '../DialogInStepperWrapper'
+import { useDialogModalContext } from '../Hooks'
+import { DialogInStepperWrapper } from '../DialogInStepperWrapper'
 import Home from '../Home'
 
 const HomeWrapper = () => {
-  const { isDialogModalOpen } = useContext(DialogModalContext)
+  const { isDialogModalOpen } = useDialogModalContext()
   const { data, ...rest } = useQuery(
     getAllPapers.definition,
     getAllPapers.options

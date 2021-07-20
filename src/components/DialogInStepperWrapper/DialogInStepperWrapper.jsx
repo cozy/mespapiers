@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
-import { DialogModalContext, StepperContext } from '../Contexts'
+import { useDialogModalContext, useStepperContext } from '../Hooks'
 
 const DialogInStepperWrapper = () => {
-  const { currentPages } = useContext(DialogModalContext)
-  const { currentStep } = useContext(StepperContext)
+  const { currentPages } = useDialogModalContext()
+  const { currentStep } = useStepperContext()
 
   return currentPages.map((page, i) => (
     <React.Fragment key={i}>
