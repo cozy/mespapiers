@@ -21,9 +21,7 @@ const ImportDropdown = ({ label, icon }) => {
   const client = useClient()
   const [showModal, setShowModal] = useState(false)
 
-  const { setIsDialogModalOpen, setDialogModalLabel } = useContext(
-    DialogModalContext
-  )
+  const { setIsDialogModalOpen } = useContext(DialogModalContext)
 
   const goToStore = () => {
     window.location = getFilteredStoreUrl(client)
@@ -34,10 +32,7 @@ const ImportDropdown = ({ label, icon }) => {
   // The "onClose" callback of "ActionMenu" in the "Placeholder" is unmounted during the process and causes a memory leak.
   useEffect(() => {
     return () => {
-      if (showModal) {
-        setIsDialogModalOpen(true)
-        setDialogModalLabel(label)
-      }
+      if (showModal) setIsDialogModalOpen(true)
     }
   })
 

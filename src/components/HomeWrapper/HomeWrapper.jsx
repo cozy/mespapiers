@@ -5,7 +5,7 @@ import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 import { getAllPapers } from '../../utils/queries'
 import { DialogModalContext } from '../Contexts'
-import Stepper from '../Stepper'
+import DialogInStepperWrapper from '../DialogInStepperWrapper'
 import Home from '../Home'
 
 const HomeWrapper = () => {
@@ -25,7 +25,7 @@ const HomeWrapper = () => {
       <Home data={data || []} />
     )
   ) : (
-    <Stepper />
+    <DialogInStepperWrapper />
   )
 }
 
