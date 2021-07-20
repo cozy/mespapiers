@@ -1,3 +1,5 @@
-import DialogModalContext, { DialogModalProvider } from './DialogModalProvider'
-
-export { DialogModalContext, DialogModalProvider }
+export {
+  default as DialogModalContext,
+  DialogModalProvider
+} from './DialogModalProvider'
+export { default as StepperContext, StepperProvider } from './StepperProvider'
