@@ -1,21 +1,25 @@
 import React, { createContext, useState } from 'react'
 
-import useCycle from 'cozy-ui/transpiled/react/hooks/useCycle'
-
 const StepperContext = createContext()
 
 const StepperProvider = ({ children }) => {
-  const [maxStep, setMaxStep] = useState(1)
-
-  // REVIEW Check relevance to use `useCycle`
-  const [currentStep, setPrev, setNext] = useCycle(1, 1, maxStep)
+  const [{ currentStep, maxStep }, setStepper] = useState({
+    currentStep: 1,
+    maxStep: 1
+  })
 
   const previousStep = () => {
-    currentStep > 1 && setPrev()
+    currentStep > 1 &&
+      setStepper(prev => ({ ...prev, currentStep: prev.currentStep - 1 }))
   }
 
   const nextStep = () => {
-    maxStep > currentStep && setNext()
+    maxStep > currentStep &&
+      setStepper(prev => ({ ...prev, currentStep: prev.currentStep + 1 }))
+  }
+
+  const setMaxStep = maxStep => {
+    setStepper(prev => ({ ...prev, maxStep }))
   }
 
   return (

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useContext } from 'react'
 
 import ActionMenu from 'cozy-ui/transpiled/react/ActionMenu'
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
@@ -13,12 +13,28 @@ import Plus from 'cozy-ui/transpiled/react/Icons/Plus'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import ImportDropdown from '../ImportDropdown'
+import papersJSON from '../../constants/papersDefinitions.json'
+import { DialogModalContext, StepperContext } from '../Contexts'
+
+const papers = papersJSON.papersDefinitions
 
 const Placeholder = ({ placeholder, divider }) => {
   const { t } = useI18n()
   const [isDrawerDisplayed, setIsDrawerDisplayed] = useState(false)
+  const { setCurrentPages, setDialogModalTitle } = useContext(
+    DialogModalContext
+  )
+  const { setMaxStep } = useContext(StepperContext)
 
-  const showDrawer = useCallback(() => setIsDrawerDisplayed(true), [])
+  const showDrawer = useCallback(() => {
+    const formModel = papers.find(paper => paper.label === placeholder.label)
+    if (formModel) {
+      setDialogModalTitle(formModel.label)
+      setCurrentPages(formModel.pages)
+      setMaxStep(formModel.pages.length)
+    }
+    setIsDrawerDisplayed(true)
+  }, [placeholder.label, setCurrentPages, setDialogModalTitle, setMaxStep])
   const hideDrawer = useCallback(() => setIsDrawerDisplayed(false), [])
 
   return (

@@ -4,12 +4,16 @@ const DialogModalContext = createContext()
 
 const DialogModalProvider = ({ children }) => {
   const [isDialogModalOpen, setIsDialogModalOpen] = useState(false)
-  const [dialogModalLabel, setDialogModalLabel] = useState('')
+  const [dialogModalTitle, setDialogModalTitle] = useState('')
+  const [currentPages, setCurrentPages] = useState([])
+
   const dialogModal = {
     isDialogModalOpen,
     setIsDialogModalOpen,
-    dialogModalLabel,
-    setDialogModalLabel
+    currentPages,
+    setCurrentPages,
+    dialogModalTitle,
+    setDialogModalTitle
   }
 
   return (
