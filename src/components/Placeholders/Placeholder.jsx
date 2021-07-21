@@ -14,27 +14,30 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import ImportDropdown from '../ImportDropdown'
 import papersJSON from '../../constants/papersDefinitions.json'
-import { useStepperDialogContext, useStepperContext } from '../Hooks'
+import { useStepperDialogContext } from '../Hooks'
 
 const papers = papersJSON.papersDefinitions
 
 const Placeholder = ({ placeholder, divider }) => {
   const { t } = useI18n()
   const [isDrawerDisplayed, setIsDrawerDisplayed] = useState(false)
-  const { setCurrentPages, setStepperDialogTitle } = useStepperDialogContext()
-  const { setMaxStep } = useStepperContext()
+  const {
+    setAllCurrentPages,
+    setStepperDialogTitle
+  } = useStepperDialogContext()
 
   const showDrawer = useCallback(() => {
     const formModel = papers.find(
       paper => paper.label && paper.label === placeholder.label
     )
     if (formModel) {
+      // Set Dialog modal
       setStepperDialogTitle(formModel.label)
-      setCurrentPages(formModel.pages)
-      setMaxStep(formModel.pages.length)
+      setAllCurrentPages(formModel.pages)
+      // Set ActionMenu
       setIsDrawerDisplayed(true)
     }
-  }, [placeholder.label, setCurrentPages, setStepperDialogTitle, setMaxStep])
+  }, [placeholder.label, setAllCurrentPages, setStepperDialogTitle])
   const hideDrawer = useCallback(() => setIsDrawerDisplayed(false), [])
 
   return (
