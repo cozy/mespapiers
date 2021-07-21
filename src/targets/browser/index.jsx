@@ -17,10 +17,7 @@ import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoin
 
 import setupApp from './setupApp'
 import App from '../../components/App'
-import {
-  StepperDialogProvider,
-  StepperProvider
-} from '../../components/Contexts'
+import { StepperDialogProvider } from '../../components/Contexts'
 
 /*
 With MUI V4, it is possible to generate deterministic class names.
@@ -41,11 +38,9 @@ const init = () => {
         <I18n lang={lang} polyglot={polyglot}>
           <MuiCozyTheme>
             <BreakpointsProvider>
-              <StepperProvider>
-                <StepperDialogProvider>
-                  <App />
-                </StepperDialogProvider>
-              </StepperProvider>
+              <StepperDialogProvider>
+                <App />
+              </StepperDialogProvider>
             </BreakpointsProvider>
           </MuiCozyTheme>
         </I18n>
