@@ -5,7 +5,7 @@ import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoin
 import { HashRouter } from 'react-router-dom'
 import enLocale from '../../src/locales/en.json'
 import {
-  DialogModalProvider,
+  StepperDialogProvider,
   StepperProvider
 } from '../../src/components/Contexts'
 
@@ -14,9 +14,9 @@ const AppLike = ({ children, client }) => (
     <I18n dictRequire={() => enLocale} lang={'en'}>
       <BreakpointsProvider>
         <StepperProvider>
-          <DialogModalProvider>
+          <StepperDialogProvider>
             <HashRouter>{children}</HashRouter>
-          </DialogModalProvider>
+          </StepperDialogProvider>
         </StepperProvider>
       </BreakpointsProvider>
     </I18n>

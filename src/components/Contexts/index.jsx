@@ -1,5 +1,5 @@
 export {
-  default as DialogModalContext,
-  DialogModalProvider
-} from './DialogModalProvider'
+  default as StepperDialogContext,
+  StepperDialogProvider
+} from './StepperDialogProvider'
 export { default as StepperContext, StepperProvider } from './StepperProvider'

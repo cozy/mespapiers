@@ -13,7 +13,8 @@ import MUIDialog, {
 } from 'cozy-ui/transpiled/react/Dialog'
 import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
 
-const DialogInStepper = props => {
+// TODO Test and improve it & PR cozy-ui
+const StepperDialog = props => {
   const { onClose, title, content } = props
   const { dialogProps, dialogTitleProps, fullScreen, id } = useCozyDialog(props)
 
@@ -40,7 +41,7 @@ const DialogInStepper = props => {
   )
 }
 
-DialogInStepper.propTypes = {
+StepperDialog.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func,
   title: PropTypes.node,
@@ -48,4 +49,4 @@ DialogInStepper.propTypes = {
   size: PropTypes.oneOf(['small', 'medium', 'large'])
 }
 
-export default DialogInStepper
+export default StepperDialog

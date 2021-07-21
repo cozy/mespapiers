@@ -1,2 +1,2 @@
-export { useDialogModalContext } from './useDialogModalContext'
+export { useStepperDialogContext } from './useStepperDialogContext'
 export { useStepperContext } from './useStepperContext'

@@ -4,18 +4,18 @@ import { useQuery, isQueryLoading } from 'cozy-client'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 import { getAllPapers } from '../../utils/queries'
-import { useDialogModalContext } from '../Hooks'
-import { DialogInStepperWrapper } from '../DialogInStepperWrapper'
+import { useStepperDialogContext } from '../Hooks'
+import { StepperDialogWrapper } from '../StepperDialogWrapper'
 import Home from '../Home'
 
 const HomeWrapper = () => {
-  const { isDialogModalOpen } = useDialogModalContext()
+  const { isStepperDialogOpen } = useStepperDialogContext()
   const { data, ...rest } = useQuery(
     getAllPapers.definition,
     getAllPapers.options
   )
 
-  return !isDialogModalOpen ? (
+  return !isStepperDialogOpen ? (
     isQueryLoading(rest) ? (
       <Spinner
         size="xxlarge"
@@ -25,7 +25,7 @@ const HomeWrapper = () => {
       <Home data={data || []} />
     )
   ) : (
-    <DialogInStepperWrapper />
+    <StepperDialogWrapper />
   )
 }
 
