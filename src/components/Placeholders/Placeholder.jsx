@@ -22,7 +22,7 @@ const Placeholder = ({ placeholder, divider }) => {
   const { t } = useI18n()
   const [isDrawerDisplayed, setIsDrawerDisplayed] = useState(false)
   const {
-    setAllCurrentPages,
+    setAllCurrentPagesDefinitions,
     setStepperDialogTitle
   } = useStepperDialogContext()
 
@@ -33,11 +33,11 @@ const Placeholder = ({ placeholder, divider }) => {
     if (formModel) {
       // Set Dialog modal
       setStepperDialogTitle(formModel.label)
-      setAllCurrentPages(formModel.pages)
+      setAllCurrentPagesDefinitions(formModel.pages)
       // Set ActionMenu
       setIsDrawerDisplayed(true)
     }
-  }, [placeholder.label, setAllCurrentPages, setStepperDialogTitle])
+  }, [placeholder.label, setAllCurrentPagesDefinitions, setStepperDialogTitle])
   const hideDrawer = useCallback(() => setIsDrawerDisplayed(false), [])
 
   return (

@@ -3,17 +3,14 @@ import React from 'react'
 import { useStepperDialogContext } from '../Hooks'
 
 const StepperDialogWrapper = () => {
-  const { allCurrentPages, currentPage } = useStepperDialogContext()
+  const { allCurrentPages, currentPageIndex } = useStepperDialogContext()
 
-  return allCurrentPages.map((page, i) => (
-    <React.Fragment key={i}>
-      {page.pageNumber === currentPage && (
-        <>
-          {/* <StepperDialog ... title={via StepperDialogContext} content={<LazyLoad currentPage={page} />} ... */}
-        </>
-      )}
-    </React.Fragment>
-  ))
+  return allCurrentPages.map(
+    page =>
+      page.pageIndex === currentPageIndex && (
+        <React.Fragment key={page.pageIndex}></React.Fragment>
+      )
+  )
 }
 
 export default StepperDialogWrapper
