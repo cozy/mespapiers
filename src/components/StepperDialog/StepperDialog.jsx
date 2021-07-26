@@ -11,12 +11,16 @@ import MUIDialog, {
   DialogTitle,
   DialogContent
 } from 'cozy-ui/transpiled/react/Dialog'
+import Typography from 'cozy-ui/transpiled/react/Typography'
 import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
 
 // TODO Test and improve it & PR cozy-ui
 const StepperDialog = props => {
   const { onClose, title, content } = props
-  const { dialogProps, dialogTitleProps, fullScreen, id } = useCozyDialog(props)
+
+  // TODO While waiting for the update of useCozyDialog which should destruct "stepper"
+  const { stepper, ...rest } = props
+  const { dialogProps, dialogTitleProps, fullScreen, id } = useCozyDialog(rest)
 
   return (
     <MUIDialog {...dialogProps}>
@@ -28,10 +32,16 @@ const StepperDialog = props => {
       )}
       <DialogTitle
         {...dialogTitleProps}
-        className={cx('u-ellipsis', { dialogTitleFull: !onClose })}
+        className={cx('u-ellipsis', {
+          dialogTitleFull: !onClose,
+          ['u-flex u-flex-justify-between u-flex-items-center']: stepper
+        })}
       >
-        {fullScreen && onClose && <DialogBackButton onClick={onClose} />}
-        {title}
+        <div className={'u-flex'}>
+          {fullScreen && onClose && <DialogBackButton onClick={onClose} />}
+          <Typography variant="h4">{title}</Typography>
+        </div>
+        {stepper && <Typography variant="h6">{stepper}</Typography>}
       </DialogTitle>
       <Divider />
       <DialogContent classes={{ root: 'actionsInContent' }}>
