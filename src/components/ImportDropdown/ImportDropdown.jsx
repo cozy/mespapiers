@@ -12,9 +12,9 @@ import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 
-import { useStepperDialogContext } from '../Hooks'
-import { getFilteredStoreUrl } from '../../utils/getFilteredStoreUrl'
-import Konnector from '../../assets/icons/Konnectors.svg'
+import { useStepperDialogContext } from 'components/Hooks'
+import { getFilteredStoreUrl } from 'utils/getFilteredStoreUrl'
+import Konnector from 'assets/icons/Konnectors.svg'
 
 const ImportDropdown = ({ label, icon }) => {
   const { t } = useI18n()

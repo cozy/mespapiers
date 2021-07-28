@@ -2,9 +2,9 @@
 import React from 'react'
 import { render, waitFor } from '@testing-library/react'
 
-import AppLike from '../../../test/components/AppLike'
-import Home from './Home'
-import { fakeData } from './__mocks__/fakeData'
+import AppLike from 'test/components/AppLike'
+import Home from 'components/Home'
+import { fakeData } from 'components/Home/__mocks__/fakeData'
 
 const setup = (data = []) => {
   return render(

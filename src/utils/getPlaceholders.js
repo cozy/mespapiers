@@ -1,6 +1,6 @@
 import get from 'lodash/get'
 
-import papersJSON from '../constants/papersDefinitions.json'
+import papersJSON from 'constants/papersDefinitions.json'
 
 export const getPlaceholders = (papers = []) => {
   return papersJSON.papersDefinitions.filter(

@@ -12,9 +12,9 @@ import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Plus from 'cozy-ui/transpiled/react/Icons/Plus'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-import ImportDropdown from '../ImportDropdown'
-import papersJSON from '../../constants/papersDefinitions.json'
-import { useStepperDialogContext } from '../Hooks'
+import ImportDropdown from 'components/ImportDropdown'
+import { useStepperDialogContext } from 'components/Hooks'
+import papersJSON from 'constants/papersDefinitions.json'
 
 const papers = papersJSON.papersDefinitions
 

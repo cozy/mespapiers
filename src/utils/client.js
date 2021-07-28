@@ -1,6 +1,6 @@
 import CozyClient from 'cozy-client'
 import manifest from '../../manifest.webapp'
-import schema from '../doctypes'
+import schema from 'root/doctypes'
 
 /**
  * Returns cozy client instance

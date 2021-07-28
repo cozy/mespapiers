@@ -5,7 +5,7 @@ import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListSubheader from 'cozy-ui/transpiled/react/MuiCozyTheme/ListSubheader'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-import { Paper } from '.'
+import { Paper } from 'components/Papers'
 
 const PapersList = ({ papers }) => {
   const { t } = useI18n()
