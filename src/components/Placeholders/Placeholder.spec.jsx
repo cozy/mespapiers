@@ -2,9 +2,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import AppLike from '../../../test/components/AppLike'
-import Placeholder from './Placeholder'
-import paperJSON from '../../constants/papersDefinitions.json'
+import AppLike from 'test/components/AppLike'
+import { Placeholder } from 'components/Placeholders'
+import paperJSON from 'constants/papersDefinitions.json'
 const papersList = paperJSON.papersDefinitions
 
 const setup = (placeholder = papersList[0]) => {

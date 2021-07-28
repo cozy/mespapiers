@@ -1,6 +1,6 @@
 import { Q } from 'cozy-client'
 
-import { FILES_DOCTYPE } from '../doctypes'
+import { FILES_DOCTYPE } from 'root/doctypes'
 
 export const getAllPapers = {
   definition: () =>

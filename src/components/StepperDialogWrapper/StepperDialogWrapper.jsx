@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useStepperDialogContext } from '../Hooks'
+import { useStepperDialogContext } from 'components/Hooks'
 
 const StepperDialogWrapper = () => {
   const { allCurrentPages, currentPageIndex } = useStepperDialogContext()

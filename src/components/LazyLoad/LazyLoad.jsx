@@ -1,9 +1,9 @@
 import React, { Suspense, useMemo, useEffect, memo, lazy } from 'react'
+import capitalize from 'lodash/capitalize'
 
 import log from 'cozy-logger'
 
-import { useStepperDialogContext } from '../Hooks'
-import capitalize from 'lodash/capitalize'
+import { useStepperDialogContext } from 'components/Hooks'
 
 const LazyLoadError = err => {
   const { setIsStepperDialogOpen } = useStepperDialogContext()

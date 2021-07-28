@@ -2,7 +2,7 @@
 
 /* eslint-env jest */
 
-import { filesQuery, FILES_DOCTYPE } from 'doctypes'
+import { filesQuery, FILES_DOCTYPE } from 'root/doctypes'
 
 const mockClient = {
   find: jest.fn(),
