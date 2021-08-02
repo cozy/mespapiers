@@ -12,7 +12,7 @@ import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 
-import { useStepperDialogContext } from 'components/Hooks'
+import { useStepperDialogContext } from 'components/Hooks/useStepperDialogContext'
 import { getFilteredStoreUrl } from 'utils/getFilteredStoreUrl'
 import Konnector from 'assets/icons/Konnectors.svg'
 

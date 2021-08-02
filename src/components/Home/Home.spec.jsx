@@ -3,7 +3,7 @@ import React from 'react'
 import { render, waitFor } from '@testing-library/react'
 
 import AppLike from 'test/components/AppLike'
-import Home from 'components/Home'
+import Home from 'components/Home/Home'
 import { fakeData } from 'components/Home/__mocks__/fakeData'
 
 const setup = (data = []) => {

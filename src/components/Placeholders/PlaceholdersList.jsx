@@ -4,7 +4,7 @@ import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListSubheader from 'cozy-ui/transpiled/react/MuiCozyTheme/ListSubheader'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-import { Placeholder } from 'components/Placeholders'
+import Placeholder from 'components/Placeholders/Placeholder'
 import { getPlaceholders } from 'utils/getPlaceholders'
 
 const PlaceholdersList = ({ papers }) => {

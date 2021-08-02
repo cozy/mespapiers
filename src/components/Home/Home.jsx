@@ -6,8 +6,8 @@ import Fab from 'cozy-ui/transpiled/react/Fab'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import PlusIcon from 'cozy-ui/transpiled/react/Icons/Plus'
 
-import { PapersList } from 'components/Papers'
-import { PlaceholdersList } from 'components/Placeholders'
+import PapersList from 'components/Papers/PapersList'
+import PlaceholdersList from 'components/Placeholders/PlaceholdersList'
 import HomeCloud from 'assets/icons/HomeCloud.svg'
 
 const Home = ({ data }) => {
