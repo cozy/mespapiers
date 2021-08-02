@@ -3664,6 +3664,13 @@ cozy-release@1.10.0:
   dependencies:
     exec-sh "0.3.2"
 
+cozy-scanner@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/cozy-scanner/-/cozy-scanner-1.1.1.tgz#6d5183641a64ba0c8a8e8ad7251555fe90ffc69c"
+  integrity sha512-BjvR+R9H9ar0sFCNKh1/zNYUCPaoE3aex8Bcu9o78y9ZakpOxwfemAqyIlWcD61WsQS6f4VeNl2c1JWmib7lvw==
+  dependencies:
+    cozy-device-helper "^1.12.0"
+
 cozy-scripts@5.8.0:
   version "5.8.0"
   resolved "https://registry.yarnpkg.com/cozy-scripts/-/cozy-scripts-5.8.0.tgz#43cc9f3d8d34da09768c50763b2484dc66a13663"
