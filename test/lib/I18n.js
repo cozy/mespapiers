@@ -4,7 +4,7 @@ import { I18n } from 'cozy-ui/transpiled/react/I18n'
 
 const I18nComponent = new I18n({
   lang: 'en',
-  dictRequire: lang => require(`root/locales/${lang}`)
+  dictRequire: lang => require(`src/locales/${lang}`)
 })
 
 export const mockT = I18nComponent.getChildContext().t

@@ -6,7 +6,7 @@ import I18n from 'cozy-ui/transpiled/react/I18n'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
 import { StepperDialogProvider } from 'components/Contexts'
-import enLocale from 'root/locales/en.json'
+import enLocale from 'src/locales/en.json'
 
 const AppLike = ({ children, client }) => (
   <CozyProvider client={client || createMockClient({})}>

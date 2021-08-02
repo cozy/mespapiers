@@ -7,7 +7,7 @@ module.exports = {
     alias: {
       // For autocompletion, remember to inform the "jsconfig.json" file in the project root
       // For tests, remember to inform the "jest.config.js" file in the project root
-      root: SRC_DIR,
+      src: SRC_DIR,
       components: path.resolve(SRC_DIR, './components'),
       utils: path.resolve(SRC_DIR, './utils'),
       assets: path.resolve(SRC_DIR, './assets'),
