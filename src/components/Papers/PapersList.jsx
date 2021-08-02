@@ -12,7 +12,7 @@ const PapersList = ({ papers }) => {
 
   return (
     <List>
-      <ListSubheader>{t('PapersList.List.ListSubheader')}</ListSubheader>
+      <ListSubheader>{t('papersList.list.listSubheader')}</ListSubheader>
       {papers.map((paper, idx) => (
         <Paper key={idx} paper={paper} divider={idx !== papers.length - 1} />
       ))}

@@ -1,29 +1,28 @@
 import React from 'react'
 
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
-
 import { useStepperDialogContext } from 'components/Hooks/useStepperDialogContext'
+import { useScannerI18nContext } from 'components/Hooks/useScannerI18nContext'
 import StepperDialog from 'components/StepperDialog/StepperDialog'
 
 const StepperDialogWrapper = () => {
-  const { t } = useI18n()
+  const scannerT = useScannerI18nContext()
   const {
     allCurrentPages,
-    currentPage,
+    currentPageIndex,
     stepperDialogTitle,
     previousPage
   } = useStepperDialogContext()
 
   return allCurrentPages.map(
     page =>
-      page.pageNumber === currentPage && (
+      page.pageIndex === currentPageIndex && (
         <StepperDialog
-          key={page.pageNumber}
+          key={page.pageIndex}
           open
           onClose={previousPage}
-          title={t(`items.${stepperDialogTitle}`)}
+          title={scannerT(`Scan.items.${stepperDialogTitle}`)}
           // TODO content={<LazyloadComponent />}
-          stepper={`${currentPage}/${allCurrentPages.length}`}
+          stepper={`${currentPageIndex}/${allCurrentPages.length}`}
         />
       )
   )

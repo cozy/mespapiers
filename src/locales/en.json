@@ -1,11 +1,11 @@
 {
-  "Home": {
-    "Empty": {
+  "home": {
+    "empty": {
       "title": "Add your personal documents",
       "text": "Always keep them with you in a secure space to simplify your administrative procedures. They will never be used without your explicit consent."
     }
   },
-  "ImportDropdown": {
+  "importDropdown": {
     "importAuto": {
       "title": "Auto import",
       "text": "Connect your energy or telecom services to your Cozy to get your bills. Your supporting documents will be updated automatically"
@@ -15,117 +15,34 @@
       "text": "Use your camera or an existing document"
     }
   },
-  "items": {
-    "identity": "Identity",
-    "family": "Family",
-    "work_study": "Work",
-    "health": "Health",
-    "home": "Home",
-    "transport": "Transport",
-    "invoice": "Invoice",
-    "others": "Others",
-    "national_id_card": "ID card",
-    "passport": "Passeport",
-    "residence_permit": "Residence permit",
-    "family_record_book": "Family record book",
-    "birth_certificate": "Birth certificate",
-    "driver_license": "Driving license",
-    "other_identity_document": "Other identity",
-    "wedding": "Wedding contract",
-    "pacs": "Civil union",
-    "divorce": "Divorce",
-    "large_family_card": " Large Family Card",
-    "caf": "Social benefit",
-    "other_family_document": "Other family document",
-    "diploma": "Diploma",
-    "work_contract": "Work contract",
-    "pay_sheet": "Pay sheet",
-    "unemployment_benefit": "Unemployment benefit",
-    "pension": "Pension",
-    "other_revenue": "Other revenues",
-    "gradebook": "Gradebook",
-    "student_card": "Student card",
-    "resume": "Resume",
-    "motivation_letter": "Motivation letter",
-    "other_work_document": "Other work document",
-    "health_book": "Health Record",
-    "national_insurance_card": "National insurance card",
-    "health_insurance_card": "Insurance card",
-    "prescription": "Prescription",
-    "health_invoice": "Health invoice",
-    "other_health_document": "Other health document",
-    "vehicle_registration": "Vehicle registration",
-    "car_insurance": "Car insurance",
-    "mechanic_invoice": "Repair bill",
-    "transport_invoice": "Transport invoice",
-    "other_transport_document": "Other transport document",
-    "phone_invoice": "Phone invoice",
-    "isp_invoice": "ISP invoice",
-    "telecom_invoice": "Telecom invoice",
-    "energy_invoice": "Energy invoice",
-    "water_invoice": "Water invoice",
-    "web_service_invoice": "Web service invoice",
-    "appliance_invoice": "Appliance invoice",
-    "restaurant_invoice": "Restaurant invoice",
-    "house_sale_agreeement": "House sale agreement",
-    "building_permit": "Building permit",
-    "technical_diagnostic_record": "Technical diagnostic record",
-    "lease": "Lease",
-    "house_insurance": "Home insurance",
-    "rent_receipt": "Rent receipt",
-    "work_quote": "Work quote",
-    "work_invoice": "Work invoice",
-    "other_house_document": "Other house document",
-    "tax_return": "Tax return",
-    "tax_notice": "Tax notice",
-    "tax_timetable": "Payment Plans Installment Agreements",
-    "receipt": "Receipt",
-    "other_tax_document": "Other tax document",
-    "bank_details": "Bank details",
-    "bank_statement": "Bank statement",
-    "loan_agreement": "Loan agreement",
-    "other_bank_document": "Other banking document",
-    "invoices": "Invoices",
-    "other_invoice": "Other invoice"
-  },
-  "PaperJSON": {
-    "IDCard": {
-      "page01": {
-        "text": "Take a picture of the front of your ID card"
+  "paperDefinitions": {
+    "nationalIdCard": {
+      "scan": {
+        "recto": {
+          "text": "Take a picture of the front of your ID card"
+        },
+        "verso": {
+          "text": "Take a picture of the back of your ID card"
+        }
       },
-      "page02": {
-        "text": "Take a picture of the back of your ID card"
-      },
-      "page03": {
-        "text": "What is your credit card number? (written on the front)"
-      },
-      "page04": {
-        "text": "When was your card issued? (written on the back)"
-      }
-    },
-    "Passport": {
-      "page01": {
-        "text": "TODO"
-      },
-      "page02": {
-        "text": "TODO"
-      },
-      "page03": {
-        "text": "TODO"
-      },
-      "page04": {
-        "text": "TODO"
+      "information": {
+        "number": {
+          "text": "What is your credit card number? (written on the front)"
+        },
+        "peremptionDate": {
+          "text": "When was your card issued? (written on the back)"
+        }
       }
     }
   },
-  "PapersList": {
-    "List": {
-      "ListSubheader": "Existing"
+  "papersList": {
+    "list": {
+      "listSubheader": "Existing"
     }
   },
-  "PlaceholdersList": {
-    "List": {
-      "ListSubheader": "Suggestions"
+  "placeholdersList": {
+    "list": {
+      "listSubheader": "Suggestions"
     }
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import { Empty } from 'cozy-ui/transpiled/react'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Fab from 'cozy-ui/transpiled/react/Fab'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import PlusIcon from 'cozy-ui/transpiled/react/Icons/Plus'
@@ -18,8 +18,8 @@ const Home = ({ data }) => {
       {data.length === 0 ? (
         <Empty
           icon={HomeCloud}
-          title={t('Home.Empty.title')}
-          text={t('Home.Empty.text')}
+          title={t('home.empty.title')}
+          text={t('home.empty.text')}
           layout={false}
         />
       ) : (

@@ -10,16 +10,16 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import InfosBadge from 'cozy-ui/transpiled/react/InfosBadge'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Plus from 'cozy-ui/transpiled/react/Icons/Plus'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import ImportDropdown from 'components/ImportDropdown/ImportDropdown'
 import { useStepperDialogContext } from 'components/Hooks/useStepperDialogContext'
 import papersJSON from 'constants/papersDefinitions.json'
+import { useScannerI18nContext } from 'components/Hooks/useScannerI18nContext'
 
 const papers = papersJSON.papersDefinitions
 
 const Placeholder = ({ placeholder, divider }) => {
-  const { t } = useI18n()
+  const scannerT = useScannerI18nContext()
   const [isDrawerDisplayed, setIsDrawerDisplayed] = useState(false)
   const {
     setAllCurrentPagesDefinitions,
@@ -69,7 +69,7 @@ const Placeholder = ({ placeholder, divider }) => {
           </InfosBadge>
         </ListItemIcon>
         <Typography variant="body1" color="textSecondary">
-          {t(`items.${placeholder.label}`)}
+          {scannerT(`Scan.items.${placeholder.label}`)}
         </Typography>
       </ListItem>
       {divider && <Divider variant="inset" component="li" />}

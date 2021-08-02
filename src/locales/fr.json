@@ -1,11 +1,11 @@
 {
-  "Home": {
-    "Empty": {
+  "home": {
+    "empty": {
       "text": "Gardez les toujours sur vous dans un espace sécurisé pour simplifier vos démarches administratives. Ils ne seront jamais utilisés sans votre consentement explicite.",
       "title": "Ajoutez vos documents personnels"
     }
   },
-  "ImportDropdown": {
+  "importDropdown": {
     "importAuto": {
       "title": "Importer automatiquement",
       "text": "Connectez vos services d’énergie ou de telecom à votre Cozy pour récupérer vos factures. Vos justificatifs seront mis à jour automatiquement"
@@ -15,117 +15,34 @@
       "text": "Utiliser votre appareil photo ou un document existant"
     }
   },
-  "items": {
-    "identity": "Identité",
-    "family": "Famille",
-    "work_study": "Travail",
-    "health": "Santé",
-    "home": "Logement",
-    "transport": "Transport",
-    "invoice": "Factures",
-    "others": "Autres",
-    "national_id_card": "Carte d'identité",
-    "passport": "Passeport",
-    "residence_permit": "Titre de séjour",
-    "family_record_book": "Livret de famille",
-    "birth_certificate": "Certificat de naissance",
-    "driver_license": "Permis",
-    "other_identity_document": "Autre identité",
-    "wedding": "Contrat de mariage",
-    "pacs": "Attestation de PACS",
-    "divorce": "Attestation de divorce",
-    "large_family_card": "Carte famille nombreuse",
-    "caf": "CAF",
-    "other_family_document": "Autre document de famille",
-    "diploma": "Diplôme",
-    "work_contract": "Contrat de travail",
-    "pay_sheet": "Fiche de paie",
-    "unemployment_benefit": "Allocations chômage",
-    "pension": "Retraite",
-    "other_revenue": "Autres revenues",
-    "gradebook": "Bulletin de notes",
-    "student_card": "Carte d'étudiant",
-    "resume": "CV",
-    "motivation_letter": "Lettre de motivation",
-    "other_work_document": "Autre document de travail",
-    "health_book": "Carnet de Santé",
-    "national_insurance_card": "Carte vitale",
-    "health_insurance_card": "Carte de mutuelle",
-    "prescription": "Ordonnance",
-    "health_invoice": "Facture médicale",
-    "other_health_document": "Autre document de santé",
-    "vehicle_registration": "Carte grise",
-    "car_insurance": "Assurance voiture",
-    "mechanic_invoice": "Facture de réparation",
-    "transport_invoice": "Facture de transport",
-    "other_transport_document": "Autre document de transport",
-    "phone_invoice": "Facture de téléphone",
-    "isp_invoice": "Facture d'internet",
-    "telecom_invoice": "Facture de télécom",
-    "energy_invoice": "Facture d'électricité",
-    "water_invoice": "Facture d'eau",
-    "web_service_invoice": "Facture de service web",
-    "appliance_invoice": "Facture d'électroménager",
-    "restaurant_invoice": "Facture de restaurant",
-    "house_sale_agreeement": "Compromis de vente",
-    "building_permit": "Permis de construire",
-    "technical_diagnostic_record": "Dossier de diagnostic technique",
-    "lease": "Bail",
-    "house_insurance": "Assurance logement",
-    "rent_receipt": "Quittance de loyer",
-    "work_quote": "Devis de travaux",
-    "work_invoice": "Facture de travaux",
-    "other_house_document": "Autre document de logement",
-    "tax_return": "Déclaration d'impôt",
-    "tax_notice": "Avis d'imposition",
-    "tax_timetable": "Echéancier d'imposition",
-    "receipt": "Accusé de réception",
-    "other_tax_document": "Autre document d'impôt",
-    "bank_details": "RIB",
-    "bank_statement": "Relevé de compte",
-    "loan_agreement": "Contrat de prêt",
-    "other_bank_document": "Autre document bancaire",
-    "invoices": "Factures",
-    "other_invoice": "Autre facture"
-  },
-  "PaperJSON": {
-    "IDCard": {
-      "page01": {
-        "text": "Photographier la face avant de votre carte d’identité"
+  "paperDefinitions": {
+    "nationalIdCard": {
+      "scan": {
+        "recto": {
+          "text": "Photographier la face avant de votre carte d’identité"
+        },
+        "verso": {
+          "text": "Photographier la face arrière de votre carte d’identité"
+        }
       },
-      "page02": {
-        "text": "Photographier la face arrière de votre carte d’identité"
-      },
-      "page03": {
-        "text": "Quelle est le numéro de votre carte de crédit ? (inscrit à l'avant)"
-      },
-      "page04": {
-        "text": "À quelle date votre carte a-t-elle été délivrée ? (inscrite à l’arrière)"
-      }
-    },
-    "Passport": {
-      "page01": {
-        "text": "TODO"
-      },
-      "page02": {
-        "text": "TODO"
-      },
-      "page03": {
-        "text": "TODO"
-      },
-      "page04": {
-        "text": "TODO"
+      "information": {
+        "number": {
+          "text": "Quelle est le numéro de votre carte de crédit ? (inscrit à l'avant)"
+        },
+        "peremptionDate": {
+          "text": "À quelle date votre carte a-t-elle été délivrée ? (inscrite à l’arrière)"
+        }
       }
     }
   },
-  "PapersList": {
-    "List": {
-      "ListSubheader": "Existants"
+  "papersList": {
+    "list": {
+      "listSubheader": "Existants"
     }
   },
-  "PlaceholdersList": {
-    "List": {
-      "ListSubheader": "Suggestions"
+  "placeholdersList": {
+    "list": {
+      "listSubheader": "Suggestions"
     }
   }
 }

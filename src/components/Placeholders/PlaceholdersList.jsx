@@ -19,7 +19,7 @@ const PlaceholdersList = ({ papers }) => {
     <List>
       {papers.length > 0 && (
         <ListSubheader>
-          {t('PlaceholdersList.List.ListSubheader')}
+          {t('placeholdersList.list.listSubheader')}
         </ListSubheader>
       )}
       {placeholders.map((placeholder, idx) => (

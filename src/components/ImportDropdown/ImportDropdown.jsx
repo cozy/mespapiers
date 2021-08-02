@@ -13,11 +13,13 @@ import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 
 import { useStepperDialogContext } from 'components/Hooks/useStepperDialogContext'
+import { useScannerI18nContext } from 'components/Hooks/useScannerI18nContext'
 import { getFilteredStoreUrl } from 'utils/getFilteredStoreUrl'
 import Konnector from 'assets/icons/Konnectors.svg'
 
 const ImportDropdown = ({ label, icon }) => {
   const { t } = useI18n()
+  const scannerT = useScannerI18nContext()
   const client = useClient()
   const [showModal, setShowModal] = useState(false)
 
@@ -48,7 +50,7 @@ const ImportDropdown = ({ label, icon }) => {
           }
         />
         <Typography variant="h6" className="u-mh-1">
-          {t(`items.${label}`)}
+          {scannerT(`Scan.items.${label}`)}
         </Typography>
       </ListItem>
       <ListItem onClick={goToStore}>
@@ -56,8 +58,8 @@ const ImportDropdown = ({ label, icon }) => {
           <Icon icon={Konnector} size={24} />
         </ListItemIcon>
         <ListItemText
-          primary={t('ImportDropdown.importAuto.title')}
-          secondary={t('ImportDropdown.importAuto.text')}
+          primary={t('importDropdown.importAuto.title')}
+          secondary={t('importDropdown.importAuto.text')}
           ellipsis={false}
         />
       </ListItem>
@@ -66,8 +68,8 @@ const ImportDropdown = ({ label, icon }) => {
           <Icon icon={Camera} size={16} />
         </ListItemIcon>
         <ListItemText
-          primary={t('ImportDropdown.importPicture.title')}
-          secondary={t('ImportDropdown.importPicture.text')}
+          primary={t('importDropdown.importPicture.title')}
+          secondary={t('importDropdown.importPicture.text')}
           ellipsis={false}
         />
       </ListItem>
