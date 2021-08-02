@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import AppLike from 'test/components/AppLike'
-import { Placeholder } from 'components/Placeholders'
+import Placeholder from 'components/Placeholders/Placeholder'
 import paperJSON from 'constants/papersDefinitions.json'
 const papersList = paperJSON.papersDefinitions
 

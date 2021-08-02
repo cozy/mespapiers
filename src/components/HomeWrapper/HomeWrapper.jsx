@@ -4,9 +4,9 @@ import { useQuery, isQueryLoading } from 'cozy-client'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 import { getAllPapers } from 'utils/queries'
-import { useStepperDialogContext } from 'components/Hooks'
-import { StepperDialogWrapper } from 'components/StepperDialogWrapper'
-import Home from 'components/Home'
+import { useStepperDialogContext } from 'components/Hooks/useStepperDialogContext'
+import StepperDialogWrapper from 'components/StepperDialogWrapper/StepperDialogWrapper'
+import Home from 'components/Home/Home'
 
 const HomeWrapper = () => {
   const { isStepperDialogOpen } = useStepperDialogContext()
