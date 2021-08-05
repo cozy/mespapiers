@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import AppLike from 'test/components/AppLike'
-import PlaceholdersList from 'components/Placeholders/PlaceholdersList'
+import PlaceholdersList from 'src/components/Placeholders/PlaceholdersList'
 
 const fakePapers = [
   {

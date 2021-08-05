@@ -1,6 +1,6 @@
 import People from 'cozy-ui/transpiled/react/Icons/People'
 
-import { getIconByLabel } from 'utils/getIconByLabel'
+import { getIconByLabel } from 'src/utils/getIconByLabel'
 
 describe('getIconByLabel', () => {
   it('should return correct Icon if label is found', () => {

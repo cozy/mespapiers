@@ -11,7 +11,7 @@ const getDataOrDefault = (data, defaultData) =>
  */
 export const getValues = ({ app, locale }) => {
   const defaultValues = {
-    appIconDefault: require('root/targets/vendor/assets/icon.svg'),
+    appIconDefault: require('src/targets/vendor/assets/icon.svg'),
     appNamePrefixDefault: manifest.name_prefix,
     appNameDefault: manifest.name,
     appLocaleDefault: 'en'

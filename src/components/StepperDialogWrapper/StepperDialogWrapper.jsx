@@ -2,8 +2,8 @@ import React from 'react'
 
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-import { useStepperDialogContext } from 'components/Hooks/useStepperDialogContext'
-import StepperDialog from 'components/StepperDialog/StepperDialog'
+import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
+import StepperDialog from 'src/components/StepperDialog/StepperDialog'
 
 const StepperDialogWrapper = () => {
   const { t } = useI18n()

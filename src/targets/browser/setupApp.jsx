@@ -2,8 +2,8 @@ import memoize from 'lodash/memoize'
 
 import { initTranslation } from 'cozy-ui/transpiled/react/I18n'
 
-import { getClient } from 'utils/client'
-import { getValues, initBar } from 'utils/bar'
+import { getClient } from 'src/utils/client'
+import { getValues, initBar } from 'src/utils/bar'
 
 /**
  * Memoize this function in its own file so that it is correctly memoized
