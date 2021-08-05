@@ -5,7 +5,7 @@ import { render } from '@testing-library/react'
 import People from 'cozy-ui/transpiled/react/Icons/People'
 
 import AppLike from 'test/components/AppLike'
-import ImportDropdown from 'components/ImportDropdown/ImportDropdown'
+import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
 
 const setup = (label = 'national_id_card') => {
   return render(

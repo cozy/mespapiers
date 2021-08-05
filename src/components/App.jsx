@@ -10,7 +10,7 @@ import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 
-import HomeWrapper from 'components/HomeWrapper/HomeWrapper'
+import HomeWrapper from 'src/components/HomeWrapper/HomeWrapper'
 
 export const App = () => {
   const client = useClient()

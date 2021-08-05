@@ -1,4 +1,4 @@
-import { getPlaceholders } from 'utils/getPlaceholders'
+import { getPlaceholders } from 'src/utils/getPlaceholders'
 
 const fakePapers = [
   {

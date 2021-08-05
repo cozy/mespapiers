@@ -1,6 +1,6 @@
 import get from 'lodash/get'
 
-import papersJSON from 'constants/papersDefinitions.json'
+import papersJSON from 'src/constants/papersDefinitions.json'
 
 /**
  * @typedef {Object} PageAttributes

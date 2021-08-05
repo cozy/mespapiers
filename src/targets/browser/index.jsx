@@ -15,9 +15,9 @@ import { I18n } from 'cozy-ui/transpiled/react/I18n'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
-import setupApp from 'root/targets/browser/setupApp'
-import App from 'components/App'
-import { StepperDialogProvider } from 'components/Contexts/StepperDialogProvider'
+import setupApp from 'src/targets/browser/setupApp'
+import App from 'src/components/App'
+import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
 
 /*
 With MUI V4, it is possible to generate deterministic class names.
