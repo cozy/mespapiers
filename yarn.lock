@@ -3664,10 +3664,10 @@ cozy-release@1.10.0:
   dependencies:
     exec-sh "0.3.2"
 
-cozy-scripts@5.8.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/cozy-scripts/-/cozy-scripts-5.8.0.tgz#43cc9f3d8d34da09768c50763b2484dc66a13663"
-  integrity sha512-fCXT9lVswXv/firkk4tM7jOr+OauGaudHChRAXb53tYjOI6LQDD8KN6FZ+oBTHYasQmIbM6zWFPISuz+hu1xRg==
+cozy-scripts@5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/cozy-scripts/-/cozy-scripts-5.10.0.tgz#674751a85b51f6e5e11cb498d24737b25fe68d99"
+  integrity sha512-mFo96X8nwaQ9jvPbLK2xq7mZtwrxgkN9/bjRAXyBf/y3QsFr+NJQIXRocAYzVMdD0NYYu5ecOSC/Is3E8BUGTQ==
   dependencies:
     "@babel/core" "7.9.0"
     "@babel/polyfill" "^7.10.4"
@@ -3717,6 +3717,7 @@ cozy-scripts@5.8.0:
     stylus-loader "3.0.2"
     svg-sprite-loader "4.2.3"
     svgo "1.3.2"
+    typescript "^4.3.5"
     validate-npm-package-name "3.0.0"
     webpack "4.42.1"
     webpack-bundle-analyzer "3.6.1"
@@ -11488,6 +11489,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typescript@^4.3.5:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.5.tgz#4d1c37cc16e893973c45a06886b7113234f119f4"
+  integrity sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==
 
 uglify-js@3.4.x:
   version "3.4.10"
