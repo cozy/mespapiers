@@ -58,19 +58,22 @@
       "pages": [
         {
           "pageIndex": 1,
-          "occurrence": 2,
+          "occurrence": 1,
+          "model": "upload",
           "illustration": "illu_passport_recto.svg",
           "text": "PaperJSON.Passport.page01.text"
         },
         {
           "pageIndex": 2,
           "occurrence": 1,
+          "model": "upload",
           "illustration": "illu_passport_verso.svg",
           "text": "PaperJSON.Passport.page02.text"
         },
         {
           "pageIndex": 3,
-          "occurrence": 3,
+          "occurrence": 1,
+          "model": "information",
           "illustration": "illu_passport_number.svg",
           "text": "PaperJSON.Passport.page03.text",
           "attributes": [
@@ -83,6 +86,7 @@
         {
           "pageIndex": 4,
           "occurrence": 1,
+          "model": "information",
           "illustration": "illu_passport_peremptionDate.svg",
           "text": "PaperJSON.Passport.page04.text",
           "attributes": [

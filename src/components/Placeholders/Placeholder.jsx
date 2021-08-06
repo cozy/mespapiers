@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react'
+import PropTypes from 'prop-types'
 
 import ActionMenu from 'cozy-ui/transpiled/react/ActionMenu'
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
@@ -14,11 +15,18 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
+import { paperDefinitionsProptypes } from 'src/components/Placeholders/PaperDefinitionsPropTypes'
 import papersJSON from 'src/constants/papersDefinitions.json'
+import { makeStyles } from '@material-ui/core/styles'
 
-const papers = papersJSON.papersDefinitions
+const useStyles = makeStyles({
+  qualifier: {
+    top: '70%'
+  }
+})
 
 const Placeholder = ({ placeholder, divider }) => {
+  const classes = useStyles()
   const { t } = useI18n()
   const [isDrawerDisplayed, setIsDrawerDisplayed] = useState(false)
   const {
@@ -27,7 +35,7 @@ const Placeholder = ({ placeholder, divider }) => {
   } = useStepperDialogContext()
 
   const showDrawer = useCallback(() => {
-    const formModel = papers.find(
+    const formModel = papersJSON.papersDefinitions.find(
       paper => paper.label && paper.label === placeholder.label
     )
     if (formModel) {
@@ -45,6 +53,7 @@ const Placeholder = ({ placeholder, divider }) => {
       <ListItem key={placeholder.label} onClick={showDrawer}>
         <ListItemIcon>
           <InfosBadge
+            classes={{ qualifier: classes.qualifier }}
             badgeContent={
               <Icon icon={Plus} size={10} color="var(--charcoalGrey)" />
             }
@@ -81,6 +90,11 @@ const Placeholder = ({ placeholder, divider }) => {
       )}
     </>
   )
+}
+
+Placeholder.propTypes = {
+  placeholder: paperDefinitionsProptypes.isRequired,
+  divider: PropTypes.bool
 }
 
 export default Placeholder

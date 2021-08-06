@@ -1,30 +1,31 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListSubheader from 'cozy-ui/transpiled/react/MuiCozyTheme/ListSubheader'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-import Paper from 'src/components/Papers/Paper'
+import { getAllPapers } from 'src/utils/queries'
+import { useQuery } from 'src/components/Hooks/useQuery'
+import PaperLine from 'src/components/Papers/PaperLine'
 
-const PapersList = ({ papers }) => {
+const PapersList = () => {
   const { t } = useI18n()
+  const { allPapers } = useQuery(getAllPapers)
 
   return (
     <List>
       <ListSubheader>{t('PapersList.List.ListSubheader')}</ListSubheader>
-      {papers.map((paper, idx) => (
-        <Paper key={idx} paper={paper} divider={idx !== papers.length - 1} />
-      ))}
+      <div className={'u-pv-half'}>
+        {allPapers.map((paper, idx) => (
+          <PaperLine
+            key={idx}
+            paper={paper}
+            divider={idx !== allPapers.length - 1}
+          />
+        ))}
+      </div>
     </List>
   )
-}
-
-PapersList.propTypes = {
-  papers: PropTypes.arrayOf(PropTypes.object).isRequired
-}
-PapersList.defaultProps = {
-  papers: []
 }
 
 export default PapersList
