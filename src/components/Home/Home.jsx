@@ -10,22 +10,23 @@ import PapersList from 'src/components/Papers/PapersList'
 import PlaceholdersList from 'src/components/Placeholders/PlaceholdersList'
 import HomeCloud from 'src/assets/icons/HomeCloud.svg'
 
-const Home = ({ data }) => {
+const Home = ({ allPapers }) => {
   const { t } = useI18n()
 
   return (
     <>
-      {data.length === 0 ? (
+      {allPapers.length === 0 ? (
         <Empty
           icon={HomeCloud}
           title={t('Home.Empty.title')}
           text={t('Home.Empty.text')}
           layout={false}
+          className={'u-ph-1'}
         />
       ) : (
-        <PapersList papers={data} />
+        <PapersList />
       )}
-      <PlaceholdersList papers={data} />
+      <PlaceholdersList />
       <Fab
         color="primary"
         aria-label="add"

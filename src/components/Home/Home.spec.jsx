@@ -1,41 +1,33 @@
 'use strict'
 import React from 'react'
-import { render, waitFor } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 import AppLike from 'test/components/AppLike'
 import Home from 'src/components/Home/Home'
-import { fakeData } from 'src/components/Home/__mocks__/fakeData'
 
 const setup = (data = []) => {
   return render(
     <AppLike>
-      <Home data={data} />
+      <Home allPapers={data} />
     </AppLike>
   )
 }
 
 describe('Home components:', () => {
+  afterAll(() => {
+    jest.clearAllMocks()
+  })
+
   it('should be rendered correctly', () => {
     const { container } = setup()
 
     expect(container).toBeDefined()
   })
 
-  it('should display Empty text & Placeholder when no data exists', async () => {
+  it('should display Empty text & Placeholder when no data exists', () => {
     const { getByText } = setup()
 
-    await waitFor(() => {
-      expect(getByText('Add your personal documents'))
-      expect(getByText('ID card'))
-    })
-  })
-
-  it('should display subtitle Existing & Suggestions when all data exists', async () => {
-    const { getByText } = setup(fakeData)
-
-    await waitFor(() => {
-      expect(getByText('Existing'))
-      expect(getByText('Suggestions'))
-    })
+    expect(getByText('Add your personal documents'))
+    expect(getByText('ID card'))
   })
 })
