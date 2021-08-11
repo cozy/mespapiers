@@ -27,3 +27,16 @@ export const getAllPapers = {
     fetchPolicy: defaultFetchPolicy
   }
 }
+
+export const buildViewerFileQuery = fileId => ({
+  definition: () =>
+    Q(FILES_DOCTYPE)
+      .where({
+        _id: fileId
+      })
+      .indexFields(['_id']),
+  options: {
+    as: `buildViewerFileQuery:${fileId}`,
+    fetchPolicy: defaultFetchPolicy
+  }
+})
