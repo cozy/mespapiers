@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import get from 'lodash/get'
 
@@ -16,6 +17,7 @@ import IconPdf from 'cozy-ui/transpiled/react/Icons/FileTypePdf'
 import papersJSON from 'src/constants/papersDefinitions.json'
 
 const PaperLine = ({ paper, divider }) => {
+  const history = useHistory()
   const { f } = useI18n()
   const paperDefinition = useMemo(
     () =>
@@ -35,7 +37,15 @@ const PaperLine = ({ paper, divider }) => {
 
   return (
     <>
-      <ListItem key={paper.id} button>
+      <ListItem
+        key={paper.id}
+        button
+        onClick={() =>
+          history.push({
+            pathname: `file/${paper.id}`
+          })
+        }
+      >
         <ListItemIcon>
           {/* TODO Improve Icon (dynamic rendering), https://github.com/cozy/mespapiers/pull/24#discussion_r686609349 */}
           <Icon icon={IconPdf} size={32} />

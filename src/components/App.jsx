@@ -30,7 +30,8 @@ export const App = () => {
         <Main>
           <Content className="app-content">
             <Switch>
-              <Route path="/" component={HomeWrapper} />
+              <Route exact path="/" component={HomeWrapper} />
+              <Route exact path="/file/:fileId" component={<></>} />
               <Redirect from="*" to="/" />
             </Switch>
           </Content>
