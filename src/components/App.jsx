@@ -11,6 +11,7 @@ import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 
 import HomeWrapper from 'src/components/HomeWrapper/HomeWrapper'
+import FileViewerWithQuery from 'src/components/Viewer/FileViewerWithQuery'
 
 export const App = () => {
   const client = useClient()
@@ -31,7 +32,11 @@ export const App = () => {
           <Content className="app-content">
             <Switch>
               <Route exact path="/" component={HomeWrapper} />
-              <Route exact path="/file/:fileId" component={<></>} />
+              <Route
+                exact
+                path="/file/:fileId"
+                component={FileViewerWithQuery}
+              />
               <Redirect from="*" to="/" />
             </Switch>
           </Content>
