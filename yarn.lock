@@ -3360,6 +3360,11 @@ classnames@^2.2.5:
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
+classnames@^2.2.6:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
+  integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
+
 clean-css@4.2.x:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.2.3.tgz#507b5de7d97b48ee53d84adb0160ff6216380f78"
@@ -3656,6 +3661,11 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
+copy-text-to-clipboard@^2.1.1:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/copy-text-to-clipboard/-/copy-text-to-clipboard-2.2.0.tgz#329dd6daf8c42034c763ace567418401764579ae"
+  integrity sha512-WRvoIdnTs1rgPMkgA2pUOa/M4Enh2uzCwdKsOMYNAJiz/4ZvEJgmbF4OmninPmlFdAWisfeh0tH+Cpf7ni3RqQ==
+
 copy-webpack-plugin@4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.6.0.tgz#e7f40dd8a68477d405dd1b7a854aae324b158bae"
@@ -3947,6 +3957,20 @@ cozy-scripts@5.10.0:
     webpack-bundle-analyzer "3.6.1"
     webpack-dev-server "3.10.3"
     webpack-merge "4.2.2"
+
+cozy-sharing@3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/cozy-sharing/-/cozy-sharing-3.5.0.tgz#cfb477ba3d59ddbd9bd3b8d4beafb26c964b9096"
+  integrity sha512-01ZVr9moWw688EwLLjaSeexKBwXoIeG7JLRDPsZ3U2TQ7OflfNuwQERdNHVsjfV6JWo3YtS7uIA/PjzfFRn+pg==
+  dependencies:
+    "@cozy/minilog" "^1.0.0"
+    classnames "^2.2.6"
+    copy-text-to-clipboard "^2.1.1"
+    cozy-device-helper "^1.12.0"
+    cozy-doctypes "^1.82.2"
+    lodash "^4.17.19"
+    react-autosuggest "^9.4.3"
+    react-tooltip "^3.11.1"
 
 cozy-stack-client@^13.8.3:
   version "13.20.2"
@@ -9826,7 +9850,7 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-autosuggest@9.4.3:
+react-autosuggest@9.4.3, react-autosuggest@^9.4.3:
   version "9.4.3"
   resolved "https://registry.yarnpkg.com/react-autosuggest/-/react-autosuggest-9.4.3.tgz#eb46852422a48144ab9f39fb5470319222f26c7c"
   integrity sha512-wFbp5QpgFQRfw9cwKvcgLR8theikOUkv8PFsuLYqI2PUgVlx186Cz8MYt5bLxculi+jxGGUUVt+h0esaBZZouw==
@@ -10136,6 +10160,13 @@ react-themeable@^1.1.0:
   integrity sha1-fURm3ZsrX6dQWHJ4JenxUro3mg4=
   dependencies:
     object-assign "^3.0.0"
+
+react-tooltip@^3.11.1:
+  version "3.11.6"
+  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-3.11.6.tgz#4f9735a2a4aa50580af351ce23e74a56f41afc0c"
+  integrity sha512-nTc1yHHaPCHHURvMpf/VNF17pIZiU4zwUGFJBUVr1fZkezFC7E0VPMMVrCfDjt+IpwTHICyzlyx+1FiQ7lw5LQ==
+  dependencies:
+    prop-types "^15.6.0"
 
 react-transition-group@^2.2.1:
   version "2.9.0"
