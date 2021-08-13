@@ -1,0 +1,13 @@
+{
+  "Viewers": {
+    "actions": {
+      "download": "Download"
+    },
+    "error": {
+      "generic": "An error occurred when opening this file, please try again."
+    },
+    "panel": {
+      "title": "Useful information"
+    }
+  }
+}

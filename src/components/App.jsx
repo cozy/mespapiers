@@ -9,6 +9,7 @@ import { Sprite as IconSprite } from 'cozy-ui/transpiled/react/Icon'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
 import Typography from 'cozy-ui/transpiled/react/Typography'
+import Alerter from 'cozy-ui/transpiled/react/Alerter'
 
 import HomeWrapper from 'src/components/HomeWrapper/HomeWrapper'
 import FileViewerWithQuery from 'src/components/Viewer/FileViewerWithQuery'
@@ -41,6 +42,7 @@ export const App = () => {
             </Switch>
           </Content>
         </Main>
+        <Alerter />
         <IconSprite />
       </Layout>
     </HashRouter>
