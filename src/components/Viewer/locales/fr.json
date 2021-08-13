@@ -1,0 +1,13 @@
+{
+  "Viewer": {
+    "actions": {
+      "download": "Télécharger"
+    },
+    "error": {
+      "generic": "Une erreur s'est produite lors de l'ouverture de ce fichier, veuillez réessayer."
+    },
+    "panel": {
+      "title": "Informations utiles"
+    }
+  }
+}
