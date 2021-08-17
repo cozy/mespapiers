@@ -1,5 +1,5 @@
 {
-  "Viewers": {
+  "viewer": {
     "actions": {
       "download": "Download"
     },
@@ -7,7 +7,13 @@
       "generic": "An error occurred when opening this file, please try again."
     },
     "panel": {
-      "title": "Useful information"
+      "title": "Useful information",
+      "qualification": {
+        "qualification": "Qualification",
+        "label": "Label",
+        "identity": "Identity",
+        "date": "Delivered on"
+      }
     }
   }
 }

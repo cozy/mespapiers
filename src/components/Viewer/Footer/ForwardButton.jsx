@@ -9,6 +9,12 @@ import Button from 'cozy-ui/transpiled/react/Button'
 import ReplyIcon from 'cozy-ui/transpiled/react/Icons/Reply'
 import ShareIosIcon from 'cozy-ui/transpiled/react/Icons/ShareIos'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
+import withLocales from 'cozy-ui/transpiled/react/I18n/withLocales'
+
+import fr from '../locales/fr.json'
+import en from '../locales/fr.json'
+
+const locales = { fr, en }
 
 const isMissingFileError = error => error.status === 404
 
@@ -94,7 +100,7 @@ const ForwardButton = ({ file }) => {
       extension="full"
       theme="secondary"
       icon={ForwardIcon}
-      label={t('Viewer.actions.forward')}
+      label={t('viewer.actions.forward')}
       onClick={() => onFileOpen(file)}
     />
   )
@@ -104,4 +110,4 @@ ForwardButton.propTypes = {
   file: PropTypes.object.isRequired
 }
 
-export default ForwardButton
+export default withLocales(locales)(ForwardButton)
