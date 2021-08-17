@@ -19,7 +19,7 @@ const DownloadButton = ({ file, t }) => {
     try {
       await client.collection('io.cozy.files').download(file)
     } catch (error) {
-      Alerter.info('Viewer.error.generic')
+      Alerter.info('viewer.error.generic')
     }
   }
 
@@ -28,7 +28,7 @@ const DownloadButton = ({ file, t }) => {
       extension="full"
       theme="secondary"
       icon={DownloadIcon}
-      label={t('Viewer.actions.download')}
+      label={t('viewer.actions.download')}
       onClick={() => handleClick(file)}
     />
   )

@@ -23,7 +23,7 @@ const PanelContent = ({ file, t }) => {
         elevation={2}
         square
       >
-        <Typography variant="h4">{t('Viewer.panel.title')}</Typography>
+        <Typography variant="h4">{t('viewer.panel.title')}</Typography>
       </Paper>
       {panelBlocks.map((PanelBlock, index) => (
         <Paper
