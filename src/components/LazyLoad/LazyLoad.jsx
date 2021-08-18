@@ -3,10 +3,13 @@ import capitalize from 'lodash/capitalize'
 
 import log from 'cozy-logger'
 
-import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
+import { useStepperDialogContext } from 'components/Hooks/useStepperDialogContext'
 
 const LazyLoadError = err => {
-  const { setIsStepperDialogOpen } = useStepperDialogContext()
+  const {
+    setIsStepperDialogOpen,
+    setCurrentPageIndex
+  } = useStepperDialogContext()
 
   useEffect(() => {
     log(
@@ -17,8 +20,9 @@ const LazyLoadError = err => {
           : 'is not defined in the JSON file'
       }`
     )
+    setCurrentPageIndex(1)
     setIsStepperDialogOpen(false)
-  }, [err, setIsStepperDialogOpen])
+  }, [err, setCurrentPageIndex, setIsStepperDialogOpen])
 
   return null
 }
