@@ -49,6 +49,7 @@
     "cozy-client": "23.13.1",
     "cozy-doctypes": "1.82.2",
     "cozy-harvest-lib": "6.4.0",
+    "cozy-scanner": "1.1.1",
     "cozy-scripts": "5.10.0",
     "cozy-sharing": "3.5.0",
     "cozy-ui": "51.3.0",
