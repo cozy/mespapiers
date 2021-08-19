@@ -3,6 +3,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import { useQuery } from 'cozy-client'
+import { getBoundT } from 'cozy-scanner'
 
 import AppLike from 'test/components/AppLike'
 import PlaceholdersList from 'src/components/Placeholders/PlaceholdersList'
@@ -18,13 +19,16 @@ const fakePapers = [
   {
     metadata: {
       qualification: {
-        label: 'Passport'
+        label: 'passport'
       }
     }
   }
 ]
 
 jest.mock('cozy-client/dist/hooks/useQuery', () => jest.fn())
+jest.mock('cozy-scanner', () => ({
+  getBoundT: jest.fn(() => jest.fn())
+}))
 
 const setup = () => {
   return render(
@@ -58,15 +62,20 @@ describe('PlaceholdersList components:', () => {
   })
 
   it('should display Suggestions', () => {
+    getBoundT.mockReturnValueOnce(() => 'Others...')
     useQuery.mockReturnValueOnce({
       data: fakePapers
     })
     const { getByText } = setup()
 
     expect(getByText('Suggestions'))
+    expect(getByText('Others...'))
   })
 
   it('should display Suggestions & list of placeholder filtered', () => {
+    getBoundT
+      .mockReturnValueOnce(() => 'ID card')
+      .mockReturnValueOnce(() => 'Others...')
     useQuery.mockReturnValueOnce({
       data: [fakePapers[1]]
     })
@@ -74,5 +83,6 @@ describe('PlaceholdersList components:', () => {
 
     expect(getByText('Suggestions'))
     expect(getByText('ID card'))
+    expect(getByText('Others...'))
   })
 })
