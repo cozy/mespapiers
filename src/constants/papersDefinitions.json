@@ -9,14 +9,14 @@
         {
           "pageIndex": 1,
           "occurrence": 1,
-          "model": "upload",
+          "model": "scan",
           "illustration": "illu_id_card_recto.svg",
           "text": "PaperJSON.IDCard.page01.text"
         },
         {
           "pageIndex": 2,
-          "occurrence": 2,
-          "model": "upload",
+          "occurrence": 1,
+          "model": "scan",
           "illustration": "illu_id_card_verso.svg",
           "text": "PaperJSON.IDCard.page02.text"
         },
@@ -59,14 +59,14 @@
         {
           "pageIndex": 1,
           "occurrence": 1,
-          "model": "upload",
+          "model": "scan",
           "illustration": "illu_passport_recto.svg",
           "text": "PaperJSON.Passport.page01.text"
         },
         {
           "pageIndex": 2,
           "occurrence": 1,
-          "model": "upload",
+          "model": "scan",
           "illustration": "illu_passport_verso.svg",
           "text": "PaperJSON.Passport.page02.text"
         },
@@ -99,6 +99,14 @@
       ],
       "featureDate": "peremptionDate",
       "maxDisplay": 2
+    },
+    {
+      "label": "other",
+      "icon": "",
+      "featuredPlaceholder": true,
+      "pages": [],
+      "featureDate": "",
+      "maxDisplay": 0
     }
   ]
 }

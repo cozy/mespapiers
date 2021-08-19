@@ -18,7 +18,7 @@ export const paperDefinitionsProptypes = PropTypes.shape({
   label: PropTypes.string.isRequired,
   icon: PropTypes.string,
   featuredPlaceholder: PropTypes.bool.isRequired,
-  placeholderIndex: PropTypes.number.isRequired,
+  placeholderIndex: PropTypes.number,
   pages: PropTypes.arrayOf(paperDefinitionsPageProptypes).isRequired,
   featureDate: PropTypes.string,
   maxDisplay: PropTypes.number.isRequired
