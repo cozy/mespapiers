@@ -18,21 +18,24 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
 import { paperDefinitionsProptypes } from 'src/components/Placeholders/PaperDefinitionsPropTypes'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import papersJSON from 'src/constants/papersDefinitions.json'
 
 const useStyles = makeStyles({
   qualifier: { top: '70%' }
 })
 
+const isOtherPaper = label => label === 'other'
+
 const AllPlaceholdersChoices = ({ onClick }) => {
   const classes = useStyles()
-  const { t } = useI18n()
+  const scannerT = useScannerI18n()
 
   return (
     <List>
       {papersJSON.papersDefinitions.map((placeholder, idx) => (
         <React.Fragment key={`${placeholder.label}${idx}`}>
-          {placeholder.label !== 'other' && (
+          {!isOtherPaper(placeholder.label) && (
             <>
               <ListItem key={placeholder.label} onClick={onClick}>
                 <ListItemIcon>
@@ -66,7 +69,7 @@ const AllPlaceholdersChoices = ({ onClick }) => {
                   </InfosBadge>
                 </ListItemIcon>
                 <Typography variant="body1" color="textSecondary">
-                  {t(`items.${placeholder.label}`)}
+                  {scannerT(`items.${placeholder.label}`)}
                 </Typography>
               </ListItem>
               {idx !== papersJSON.papersDefinitions.length - 1 && (
@@ -83,6 +86,7 @@ const AllPlaceholdersChoices = ({ onClick }) => {
 const Placeholder = ({ placeholder, divider }) => {
   const classes = useStyles()
   const { t } = useI18n()
+  const scannerT = useScannerI18n()
   const [isImportDropdownDisplayed, setIsImportDropdownDisplayed] = useState(
     false
   )
@@ -123,7 +127,7 @@ const Placeholder = ({ placeholder, divider }) => {
       <ListItem
         key={placeholder.label}
         onClick={
-          placeholder.label !== 'other'
+          !isOtherPaper(placeholder.label)
             ? showImportDropdown
             : showAllPapersChoices
         }
@@ -155,7 +159,9 @@ const Placeholder = ({ placeholder, divider }) => {
           </InfosBadge>
         </ListItemIcon>
         <Typography variant="body1" color="textSecondary">
-          {t(`items.${placeholder.label}`)}
+          {isOtherPaper(placeholder.label)
+            ? t(`items.${placeholder.label}`)
+            : scannerT(`items.${placeholder.label}`)}
         </Typography>
       </ListItem>
       {divider && <Divider variant="inset" component="li" />}

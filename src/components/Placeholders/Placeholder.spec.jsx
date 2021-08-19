@@ -2,10 +2,16 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
+import { getBoundT } from 'cozy-scanner'
+
 import AppLike from 'test/components/AppLike'
 import Placeholder from 'src/components/Placeholders/Placeholder'
 import paperJSON from 'src/constants/papersDefinitions.json'
 const papersList = paperJSON.papersDefinitions
+
+jest.mock('cozy-scanner', () => ({
+  getBoundT: jest.fn(() => jest.fn())
+}))
 
 const setup = (placeholder = papersList[0]) => {
   return render(
@@ -16,6 +22,10 @@ const setup = (placeholder = papersList[0]) => {
 }
 
 describe('Placeholder components:', () => {
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   it('should be rendered correctly', () => {
     const { container } = setup()
 
@@ -23,14 +33,16 @@ describe('Placeholder components:', () => {
   })
 
   it('should display ID card', () => {
+    getBoundT.mockReturnValueOnce(() => 'ID card')
     const { getByText } = setup(papersList[0])
 
     expect(getByText('ID card'))
   })
 
   it('should display Passeport', () => {
+    getBoundT.mockReturnValueOnce(() => 'Passport')
     const { getByText } = setup(papersList[1])
 
-    expect(getByText('Passeport'))
+    expect(getByText('Passport'))
   })
 })

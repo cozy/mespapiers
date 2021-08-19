@@ -3,6 +3,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import { useQuery } from 'cozy-client'
+import { getBoundT } from 'cozy-scanner'
 
 import AppLike from 'test/components/AppLike'
 import PapersList from 'src/components/Papers/PapersList'
@@ -10,6 +11,9 @@ import PapersList from 'src/components/Papers/PapersList'
 const fakeData = [{ id: '00', name: 'ID card' }, { id: '01', name: 'Passport' }]
 
 jest.mock('cozy-client/dist/hooks/useQuery', () => jest.fn())
+jest.mock('cozy-scanner', () => ({
+  getBoundT: jest.fn(() => jest.fn())
+}))
 
 const setup = () => {
   return render(
@@ -20,7 +24,7 @@ const setup = () => {
 }
 
 describe('PapersList components:', () => {
-  afterAll(() => {
+  afterEach(() => {
     jest.clearAllMocks()
   })
 
@@ -34,6 +38,9 @@ describe('PapersList components:', () => {
   })
 
   it('should display "ID card" & "Passport"', () => {
+    getBoundT
+      .mockReturnValueOnce(() => 'ID card')
+      .mockReturnValueOnce(() => 'Passport')
     useQuery.mockReturnValueOnce({
       data: fakeData
     })

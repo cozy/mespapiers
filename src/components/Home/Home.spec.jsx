@@ -5,6 +5,10 @@ import { render } from '@testing-library/react'
 import AppLike from 'test/components/AppLike'
 import Home from 'src/components/Home/Home'
 
+jest.mock('cozy-scanner', () => ({
+  getBoundT: jest.fn(() => jest.fn())
+}))
+
 const setup = (data = []) => {
   return render(
     <AppLike>
@@ -14,7 +18,7 @@ const setup = (data = []) => {
 }
 
 describe('Home components:', () => {
-  afterAll(() => {
+  afterEach(() => {
     jest.clearAllMocks()
   })
 
@@ -28,6 +32,5 @@ describe('Home components:', () => {
     const { getByText } = setup()
 
     expect(getByText('Add your personal documents'))
-    expect(getByText('ID card'))
   })
 })
