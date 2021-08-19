@@ -1,7 +1,9 @@
 import React, { useCallback, useState } from 'react'
 import PropTypes from 'prop-types'
+import { makeStyles } from '@material-ui/core/styles'
 
 import ActionMenu from 'cozy-ui/transpiled/react/ActionMenu'
+import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
 import ListItemIcon from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItemIcon'
 import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
@@ -17,24 +19,84 @@ import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
 import { paperDefinitionsProptypes } from 'src/components/Placeholders/PaperDefinitionsPropTypes'
 import papersJSON from 'src/constants/papersDefinitions.json'
-import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles({
-  qualifier: {
-    top: '70%'
-  }
+  qualifier: { top: '70%' }
 })
+
+const AllPlaceholdersChoices = ({ onClick }) => {
+  const classes = useStyles()
+  const { t } = useI18n()
+
+  return (
+    <List>
+      {papersJSON.papersDefinitions.map((placeholder, idx) => (
+        <React.Fragment key={`${placeholder.label}${idx}`}>
+          {placeholder.label !== 'other' && (
+            <>
+              <ListItem key={placeholder.label} onClick={onClick}>
+                <ListItemIcon>
+                  <InfosBadge
+                    classes={{ qualifier: classes.qualifier }}
+                    badgeContent={
+                      <Icon
+                        icon={Plus}
+                        size={10}
+                        color="var(--primaryTextColor)"
+                      />
+                    }
+                  >
+                    <IconStack
+                      backgroundClassName={'u-o-50'}
+                      backgroundIcon={
+                        <Icon
+                          icon={FileDuotoneIcon}
+                          color="var(--primaryColor)"
+                          size={32}
+                        />
+                      }
+                      foregroundIcon={
+                        <Icon
+                          icon={placeholder.icon}
+                          color="var(--primaryColor)"
+                          size={16}
+                        />
+                      }
+                    />
+                  </InfosBadge>
+                </ListItemIcon>
+                <Typography variant="body1" color="textSecondary">
+                  {t(`items.${placeholder.label}`)}
+                </Typography>
+              </ListItem>
+              {idx !== papersJSON.papersDefinitions.length - 1 && (
+                <Divider variant="inset" component="li" />
+              )}
+            </>
+          )}
+        </React.Fragment>
+      ))}
+    </List>
+  )
+}
 
 const Placeholder = ({ placeholder, divider }) => {
   const classes = useStyles()
   const { t } = useI18n()
-  const [isDrawerDisplayed, setIsDrawerDisplayed] = useState(false)
+  const [isImportDropdownDisplayed, setIsImportDropdownDisplayed] = useState(
+    false
+  )
+  const [isPapersLabelsList, setIsPapersLabelsList] = useState(false)
   const {
     setAllCurrentPagesDefinitions,
     setStepperDialogTitle
   } = useStepperDialogContext()
 
-  const showDrawer = useCallback(() => {
+  const hideImportDropdown = useCallback(
+    () => setIsImportDropdownDisplayed(false),
+    []
+  )
+  const showImportDropdown = useCallback(() => {
     const formModel = papersJSON.papersDefinitions.find(
       paper => paper.label && paper.label === placeholder.label
     )
@@ -43,19 +105,34 @@ const Placeholder = ({ placeholder, divider }) => {
       setStepperDialogTitle(formModel.label)
       setAllCurrentPagesDefinitions(formModel.pages)
       // Set ActionMenu
-      setIsDrawerDisplayed(true)
+      setIsImportDropdownDisplayed(true)
     }
   }, [placeholder.label, setAllCurrentPagesDefinitions, setStepperDialogTitle])
-  const hideDrawer = useCallback(() => setIsDrawerDisplayed(false), [])
+
+  const showAllPapersChoices = useCallback(
+    () => setIsPapersLabelsList(true),
+    []
+  )
+  const hideAllPapersChoices = useCallback(
+    () => setIsPapersLabelsList(false),
+    []
+  )
 
   return (
     <>
-      <ListItem key={placeholder.label} onClick={showDrawer}>
+      <ListItem
+        key={placeholder.label}
+        onClick={
+          placeholder.label !== 'other'
+            ? showImportDropdown
+            : showAllPapersChoices
+        }
+      >
         <ListItemIcon>
           <InfosBadge
             classes={{ qualifier: classes.qualifier }}
             badgeContent={
-              <Icon icon={Plus} size={10} color="var(--charcoalGrey)" />
+              <Icon icon={Plus} size={10} color="var(--primaryTextColor)" />
             }
           >
             <IconStack
@@ -63,14 +140,14 @@ const Placeholder = ({ placeholder, divider }) => {
               backgroundIcon={
                 <Icon
                   icon={FileDuotoneIcon}
-                  color="var(--dodgerBlue)"
+                  color="var(--primaryColor)"
                   size={32}
                 />
               }
               foregroundIcon={
                 <Icon
                   icon={placeholder.icon}
-                  color="var(--dodgerBlue)"
+                  color="var(--primaryColor)"
                   size={16}
                 />
               }
@@ -83,9 +160,14 @@ const Placeholder = ({ placeholder, divider }) => {
       </ListItem>
       {divider && <Divider variant="inset" component="li" />}
 
-      {isDrawerDisplayed && (
-        <ActionMenu onClose={hideDrawer}>
+      {isImportDropdownDisplayed && (
+        <ActionMenu onClose={hideImportDropdown}>
           <ImportDropdown label={placeholder.label} icon={placeholder.icon} />
+        </ActionMenu>
+      )}
+      {isPapersLabelsList && (
+        <ActionMenu onClose={hideAllPapersChoices}>
+          <AllPlaceholdersChoices onClick={showImportDropdown} />
         </ActionMenu>
       )}
     </>
