@@ -1,9 +1,16 @@
 {
+  "common": {
+    "next": "Next"
+  },
   "Home": {
     "Empty": {
       "title": "Add your personal documents",
       "text": "Always keep them with you in a secure space to simplify your administrative procedures. They will never be used without your explicit consent."
     }
+  },
+  "FileInputAdapter": {
+    "alreadyPic": "I already have a picture",
+    "takePic": "Take a picture"
   },
   "ImportDropdown": {
     "importAuto": {
@@ -35,27 +42,23 @@
     },
     "Passport": {
       "page01": {
-        "text": "TODO"
+        "text": "TODO Passport01"
       },
       "page02": {
-        "text": "TODO"
+        "text": "TODO Passport02"
       },
       "page03": {
-        "text": "TODO"
+        "text": "TODO Passport03"
       },
       "page04": {
-        "text": "TODO"
+        "text": "TODO Passport04"
       }
     }
   },
   "PapersList": {
-    "List": {
-      "ListSubheader": "Existing"
-    }
+    "subheader": "Existing"
   },
   "PlaceholdersList": {
-    "List": {
-      "ListSubheader": "Suggestions"
-    }
+    "subheader": "Suggestions"
   }
 }

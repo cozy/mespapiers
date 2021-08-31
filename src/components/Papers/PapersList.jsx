@@ -14,7 +14,7 @@ const PapersList = () => {
 
   return (
     <List>
-      <ListSubheader>{t('PapersList.List.ListSubheader')}</ListSubheader>
+      <ListSubheader>{t('PapersList.subheader')}</ListSubheader>
       <div className={'u-pv-half'}>
         {allPapers.map((paper, idx) => (
           <PaperLine

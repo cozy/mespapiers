@@ -1,9 +1,16 @@
 {
+  "common": {
+    "next": "Suivant"
+  },
   "Home": {
     "Empty": {
       "text": "Gardez les toujours sur vous dans un espace sécurisé pour simplifier vos démarches administratives. Ils ne seront jamais utilisés sans votre consentement explicite.",
       "title": "Ajoutez vos documents personnels"
     }
+  },
+  "FileInputAdapter": {
+    "alreadyPic": "J'ai déjà une photo",
+    "takePic": "Prendre en photo"
   },
   "ImportDropdown": {
     "importAuto": {
@@ -35,27 +42,23 @@
     },
     "Passport": {
       "page01": {
-        "text": "TODO"
+        "text": "TODO Passport01"
       },
       "page02": {
-        "text": "TODO"
+        "text": "TODO Passport02"
       },
       "page03": {
-        "text": "TODO"
+        "text": "TODO Passport03"
       },
       "page04": {
-        "text": "TODO"
+        "text": "TODO Passport04"
       }
     }
   },
   "PapersList": {
-    "List": {
-      "ListSubheader": "Existants"
-    }
+    "subheader": "Existants"
   },
   "PlaceholdersList": {
-    "List": {
-      "ListSubheader": "Suggestions"
-    }
+    "subheader": "Suggestions"
   }
 }

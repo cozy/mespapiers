@@ -69,13 +69,10 @@ describe('PlaceholdersList components:', () => {
     const { getByText } = setup()
 
     expect(getByText('Suggestions'))
-    expect(getByText('Others...'))
   })
 
   it('should display Suggestions & list of placeholder filtered', () => {
-    getBoundT
-      .mockReturnValueOnce(() => 'ID card')
-      .mockReturnValueOnce(() => 'Others...')
+    getBoundT.mockReturnValueOnce(() => 'ID card')
     useQuery.mockReturnValueOnce({
       data: [fakePapers[1]]
     })
@@ -83,6 +80,5 @@ describe('PlaceholdersList components:', () => {
 
     expect(getByText('Suggestions'))
     expect(getByText('ID card'))
-    expect(getByText('Others...'))
   })
 })
