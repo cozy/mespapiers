@@ -1,22 +1,9 @@
 import React from 'react'
 
-import { useStepperDialogContext } from 'components/Hooks/useStepperDialogContext'
+import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
-import StepperDialog from 'components/StepperDialog/StepperDialog'
-import LazyLoad from 'components/LazyLoad/LazyLoad'
-
-const Content = () => {
-  const { allCurrentPages, currentPageIndex } = useStepperDialogContext()
-
-  return allCurrentPages.map(
-    page =>
-      page.pageIndex === currentPageIndex && (
-        <React.Fragment key={page.pageIndex}>
-          <LazyLoad currentPage={page} />
-        </React.Fragment>
-      )
-  )
-}
+import StepperDialog from 'src/components/StepperDialog/StepperDialog'
+import FormSchema from 'src/components/Form/FormSchema'
 
 const StepperDialogWrapper = () => {
   const scannerT = useScannerI18n()
@@ -32,7 +19,7 @@ const StepperDialogWrapper = () => {
       open
       onClose={previousPage}
       title={scannerT(`items.${stepperDialogTitle}`)}
-      content={<Content />}
+      content={<FormSchema />}
       stepper={`${currentPageIndex}/${allCurrentPages.length}`}
     />
   )

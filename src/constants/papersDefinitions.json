@@ -9,23 +9,73 @@
         {
           "pageIndex": 1,
           "occurrence": 1,
-          "model": "scan",
-          "illustration": "illu_id_card_recto.svg",
-          "text": "PaperJSON.IDCard.page01.text"
+          "model": {
+            "schema": {
+              "type": "object",
+              "required": ["scan01"],
+              "properties": {
+                "scan01": {
+                  "type": "string",
+                  "format": "data-url",
+                  "illustration": "IlluIdCardRecto.svg",
+                  "text": "PaperJSON.IDCard.page01.text"
+                }
+              }
+            },
+            "uiSchema": {
+              "scan01": {
+                "ui:widget": "FileInputAdapter",
+                "ui:options": { "label": false }
+              }
+            }
+          }
         },
         {
           "pageIndex": 2,
           "occurrence": 1,
-          "model": "scan",
-          "illustration": "illu_id_card_verso.svg",
-          "text": "PaperJSON.IDCard.page02.text"
+          "model": {
+            "schema": {
+              "type": "object",
+              "required": ["scan02"],
+              "properties": {
+                "scan02": {
+                  "type": "string",
+                  "format": "data-url",
+                  "illustration": "IlluIdCardRecto.svg",
+                  "text": "PaperJSON.IDCard.page02.text"
+                }
+              }
+            },
+            "uiSchema": {
+              "scan02": {
+                "ui:widget": "FileInputAdapter",
+                "ui:options": { "label": false }
+              }
+            }
+          }
         },
         {
           "pageIndex": 3,
           "occurrence": 1,
-          "model": "information",
-          "illustration": "illu_id_card_number.svg",
-          "text": "PaperJSON.IDCard.page03.text",
+          "model": {
+            "schema": {
+              "type": "object",
+              "required": ["info01"],
+              "properties": {
+                "info01": {
+                  "type": "string",
+                  "illustration": "IlluIdCardRecto.svg",
+                  "text": "PaperJSON.IDCard.page03.text"
+                }
+              }
+            },
+            "uiSchema": {
+              "info01": {
+                "ui:widget": "InputAdapter",
+                "ui:options": { "label": false }
+              }
+            }
+          },
           "attributes": [
             {
               "name": "number",
@@ -36,9 +86,25 @@
         {
           "pageIndex": 4,
           "occurrence": 1,
-          "model": "information",
-          "illustration": "illu_id_card_peremptionDate.svg",
-          "text": "PaperJSON.IDCard.page04.text",
+          "model": {
+            "schema": {
+              "type": "object",
+              "required": ["info02"],
+              "properties": {
+                "info02": {
+                  "type": "string",
+                  "illustration": "IlluIdCardRecto.svg",
+                  "text": "PaperJSON.IDCard.page04.text"
+                }
+              }
+            },
+            "uiSchema": {
+              "info02": {
+                "ui:widget": "InputAdapter",
+                "ui:options": { "label": false }
+              }
+            }
+          },
           "attributes": [
             {
               "name": "peremptionDate",
@@ -59,54 +125,112 @@
         {
           "pageIndex": 1,
           "occurrence": 1,
-          "model": "scan",
-          "illustration": "illu_passport_recto.svg",
-          "text": "PaperJSON.Passport.page01.text"
+          "model": {
+            "schema": {
+              "type": "object",
+              "required": ["scan01"],
+              "properties": {
+                "scan01": {
+                  "type": "string",
+                  "format": "data-url",
+                  "illustration": "Illu_passport_recto.svg",
+                  "text": "PaperJSON.Passport.page01.text"
+                }
+              }
+            },
+            "uiSchema": {
+              "scan01": {
+                "ui:widget": "FileInputAdapter",
+                "ui:options": { "label": false }
+              }
+            }
+          }
         },
         {
           "pageIndex": 2,
           "occurrence": 1,
-          "model": "scan",
-          "illustration": "illu_passport_verso.svg",
-          "text": "PaperJSON.Passport.page02.text"
+          "model": {
+            "schema": {
+              "type": "object",
+              "required": ["scan02"],
+              "properties": {
+                "scan02": {
+                  "type": "string",
+                  "format": "data-url",
+                  "illustration": "illu_passport_verso.svg",
+                  "text": "PaperJSON.Passport.page02.text"
+                }
+              }
+            },
+            "uiSchema": {
+              "scan02": {
+                "ui:widget": "FileInputAdapter",
+                "ui:options": { "label": false }
+              }
+            }
+          }
         },
         {
           "pageIndex": 3,
           "occurrence": 1,
-          "model": "information",
-          "illustration": "illu_passport_number.svg",
-          "text": "PaperJSON.Passport.page03.text",
           "attributes": [
             {
               "name": "number",
               "type": "french_passport_number"
             }
-          ]
+          ],
+          "model": {
+            "schema": {
+              "type": "object",
+              "required": ["info01"],
+              "properties": {
+                "info01": {
+                  "type": "string",
+                  "illustration": "illu_passport_number.svg",
+                  "text": "PaperJSON.Passport.page03.text"
+                }
+              }
+            },
+            "uiSchema": {
+              "info01": {
+                "ui:widget": "InputAdapter",
+                "ui:options": { "label": false }
+              }
+            }
+          }
         },
         {
           "pageIndex": 4,
           "occurrence": 1,
-          "model": "information",
-          "illustration": "illu_passport_peremptionDate.svg",
-          "text": "PaperJSON.Passport.page04.text",
           "attributes": [
             {
               "name": "peremptionDate",
               "type": "date"
             }
-          ]
+          ],
+          "model": {
+            "schema": {
+              "type": "object",
+              "required": ["info02"],
+              "properties": {
+                "info02": {
+                  "type": "string",
+                  "illustration": "illu_passport_peremptionDate.svg",
+                  "text": "PaperJSON.Passport.page04.text"
+                }
+              }
+            },
+            "uiSchema": {
+              "info02": {
+                "ui:widget": "InputAdapter",
+                "ui:options": { "label": false }
+              }
+            }
+          }
         }
       ],
       "featureDate": "peremptionDate",
       "maxDisplay": 2
-    },
-    {
-      "label": "other",
-      "icon": "",
-      "featuredPlaceholder": true,
-      "pages": [],
-      "featureDate": "",
-      "maxDisplay": 0
     }
   ]
 }

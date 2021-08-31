@@ -1,46 +1,44 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 import { ButtonLink } from 'cozy-ui/transpiled/react/Button'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import FileInput from 'cozy-ui/transpiled/react/FileInput'
 import { isMobileApp } from 'cozy-device-helper'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-import ID from 'assets/icons/Identity.svg'
+import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
+import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 
-import { useStepperDialogContext } from '../Hooks/useStepperDialogContext'
-import CompositeHeader from '../CompositeHeader/CompositeHeader'
-
-const Scan = ({ currentPage }) => {
+const FileInputAdapter = ({ onChange, schema }) => {
   const { t } = useI18n()
   const { nextPage } = useStepperDialogContext()
-  const { occurrence } = currentPage
-  const [currentOccurrence, setCurrentOccurrence] = useState(1)
 
   const onFileChange = file => {
     if (file) {
-      // Set CreatePaperProvider
-      if (currentOccurrence === occurrence) return nextPage()
+      onChange(file)
 
-      setCurrentOccurrence(prev => prev + 1)
+      // Timeout is required for "react-jsonschema-form" defines formData
+      setTimeout(() => {
+        nextPage()
+      }, 0)
     }
   }
 
   return (
     <>
-      <CompositeHeader icon={ID} title={t(currentPage.text)} />
+      <CompositeHeader icon={schema.illustration} title={t(schema.text)} />
       <DialogActions disableSpacing className={'columnLayout'}>
         <FileInput
           onChange={onFileChange}
           className={'u-w-100 u-ta-center'}
           onClick={e => e.stopPropagation()}
-          accept={'image/*,.pdf'}
+          accept={'.pdf'}
         >
           <ButtonLink
             subtle
             className={'u-w-100'}
-            label={"J'ai déjà une photo"}
+            label={t('FileInputAdapter.alreadyPic')}
           />
         </FileInput>
 
@@ -55,7 +53,7 @@ const Scan = ({ currentPage }) => {
             <ButtonLink
               icon={Camera}
               className={'u-w-100'}
-              label={'Prendre en photo'}
+              label={t('FileInputAdapter.takePic')}
             />
           </FileInput>
         )}
@@ -64,4 +62,4 @@ const Scan = ({ currentPage }) => {
   )
 }
 
-export default Scan
+export default FileInputAdapter

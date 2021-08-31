@@ -19,9 +19,7 @@ const PlaceholdersList = () => {
   return (
     <List>
       {allPapers.length > 0 && (
-        <ListSubheader>
-          {t('PlaceholdersList.List.ListSubheader')}
-        </ListSubheader>
+        <ListSubheader>{t('PlaceholdersList.subheader')}</ListSubheader>
       )}
       <div className={'u-pv-half'}>
         {allPlaceholders.map((placeholder, idx) => (
