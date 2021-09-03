@@ -1,6 +1,10 @@
 {
+  "Acquisition": {
+    "success": "Acquisition réussie"
+  },
   "common": {
-    "next": "Suivant"
+    "next": "Suivant",
+    "replace": "Remplacer"
   },
   "Home": {
     "Empty": {

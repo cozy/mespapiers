@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 import { ButtonLink } from 'cozy-ui/transpiled/react/Button'
@@ -7,25 +7,23 @@ import FileInput from 'cozy-ui/transpiled/react/FileInput'
 import { isMobileApp } from 'cozy-device-helper'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
+import AcquisitionResult from 'src/components/ModelPages/AcquisitionResult'
 
 const FileInputAdapter = ({ onChange, schema }) => {
   const { t } = useI18n()
-  const { nextPage } = useStepperDialogContext()
+  const [file, setFile] = useState(null)
 
   const onFileChange = file => {
     if (file) {
       onChange(file)
-
-      // Timeout is required for "react-jsonschema-form" defines formData
-      setTimeout(() => {
-        nextPage()
-      }, 0)
+      setFile(file)
     }
   }
 
-  return (
+  return file ? (
+    <AcquisitionResult file={file} setFile={setFile} />
+  ) : (
     <>
       <CompositeHeader icon={schema.illustration} title={t(schema.text)} />
       <DialogActions disableSpacing className={'columnLayout'}>
@@ -33,7 +31,7 @@ const FileInputAdapter = ({ onChange, schema }) => {
           onChange={onFileChange}
           className={'u-w-100 u-ta-center'}
           onClick={e => e.stopPropagation()}
-          accept={'.pdf'}
+          accept={'image/*,.pdf'}
         >
           <ButtonLink
             subtle
