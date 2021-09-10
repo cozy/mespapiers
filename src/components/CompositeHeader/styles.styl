@@ -7,14 +7,30 @@
     height 100%
     justify-content center
     max-width 100%
-    padding rem(32) 0
     text-align center
 
 .composite-header-img
     display block
+    margin 0 auto rem(16)
+    height rem(128)
+
+    +medium-screen()
+        height rem(96)
+
+.composite-header-img--small
+    height rem(96)
+
+    +medium-screen()
+        height rem(64)
+
+.composite-header-img--medium
     height rem(160)
-    margin  0 auto rem(16)
+
+    +medium-screen()
+        height rem(128)
+
+.composite-header-img--large
+    height rem(192)
 
     +medium-screen()
         height rem(160)
-        margin-bottom rem(8)
