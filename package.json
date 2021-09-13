@@ -52,7 +52,7 @@
     "cozy-scanner": "1.1.1",
     "cozy-scripts": "5.10.0",
     "cozy-sharing": "3.5.0",
-    "cozy-ui": "51.3.0",
+    "cozy-ui": "51.11.0",
     "mui-bottom-sheet": "https://github.com/cozy/mui-bottom-sheet.git#v1.0.6",
     "react": "16.14.0",
     "react-dom": "16.14.0",
