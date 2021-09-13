@@ -100,7 +100,7 @@
             },
             "uiSchema": {
               "info02": {
-                "ui:widget": "InputAdapter",
+                "ui:widget": "InputDateAdapter",
                 "ui:options": { "label": false }
               }
             }
@@ -222,7 +222,7 @@
             },
             "uiSchema": {
               "info02": {
-                "ui:widget": "InputAdapter",
+                "ui:widget": "InputDateAdapter",
                 "ui:options": { "label": false }
               }
             }

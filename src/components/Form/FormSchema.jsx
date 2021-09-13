@@ -4,6 +4,7 @@ import Form from 'react-jsonschema-form'
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
 import FileInputAdapter from 'src/components/ModelPages/widgets/FileInputAdapter'
 import InputAdapter from 'src/components/ModelPages/widgets/InputAdapter'
+import InputDateAdapter from 'src/components/ModelPages/widgets/InputDateAdapter'
 import './styles.styl'
 
 const ObjectFieldTemplate = props => {
@@ -12,7 +13,7 @@ const ObjectFieldTemplate = props => {
   })
 }
 
-const widgets = { FileInputAdapter, InputAdapter }
+const widgets = { FileInputAdapter, InputAdapter, InputDateAdapter }
 const FormSchema = () => {
   const { allCurrentPages, currentPageIndex } = useStepperDialogContext()
   const [state, setState] = useState({})

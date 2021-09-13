@@ -3,6 +3,7 @@
     "success": "Acquisition success"
   },
   "common": {
+    "cancel": "Cancel",
     "next": "Next",
     "replace": "Replace"
   },
