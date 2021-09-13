@@ -41,7 +41,7 @@
                 "scan02": {
                   "type": "string",
                   "format": "data-url",
-                  "illustration": "IlluIdCardRecto.svg",
+                  "illustration": "IlluIdCardVerso.svg",
                   "text": "PaperJSON.IDCard.page02.text"
                 }
               }
@@ -93,7 +93,7 @@
               "properties": {
                 "info02": {
                   "type": "string",
-                  "illustration": "IlluIdCardRecto.svg",
+                  "illustration": "IlluIdCardVersoHelp.svg",
                   "text": "PaperJSON.IDCard.page04.text"
                 }
               }
