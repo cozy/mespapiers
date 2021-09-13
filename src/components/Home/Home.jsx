@@ -18,6 +18,7 @@ const Home = ({ allPapers }) => {
       {allPapers.length === 0 ? (
         <Empty
           icon={HomeCloud}
+          iconSize={'large'}
           title={t('Home.Empty.title')}
           text={t('Home.Empty.text')}
           layout={false}
