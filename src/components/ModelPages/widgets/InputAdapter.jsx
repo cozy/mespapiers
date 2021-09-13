@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 import Button from 'cozy-ui/transpiled/react/Button'
-import Input from 'cozy-ui/transpiled/react/Input'
+import TextField from 'cozy-ui/transpiled/react/MuiCozyTheme/TextField'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
@@ -17,12 +17,18 @@ const InputAdapter = ({ onChange, schema }) => {
 
   return (
     <>
-      <div>
-        <CompositeHeader icon={schema.illustration} title={t(schema.text)} />
-        <Input
-          onChange={evt => setValue(evt.target.value)}
-          placeholder="..."
-          value={value}
+      <div className={'u-h-100'}>
+        <CompositeHeader
+          icon={schema.illustration}
+          title={t(schema.text)}
+          text={
+            <TextField
+              onChange={evt => setValue(evt.target.value)}
+              className={'u-mt-1'}
+              value={value}
+              variant="outlined"
+            />
+          }
         />
       </div>
       <DialogActions disableSpacing className={'columnLayout'}>

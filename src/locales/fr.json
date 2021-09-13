@@ -3,6 +3,7 @@
     "success": "Acquisition réussie"
   },
   "common": {
+    "cancel": "Annuler",
     "next": "Suivant",
     "replace": "Remplacer"
   },
