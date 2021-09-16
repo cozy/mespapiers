@@ -7,6 +7,7 @@ import { useQuery } from 'src/components/Hooks/useQuery'
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
 import StepperDialogWrapper from 'src/components/StepperDialogWrapper/StepperDialogWrapper'
 import Home from 'src/components/Home/Home'
+import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
 
 const HomeWrapper = () => {
   const { isStepperDialogOpen } = useStepperDialogContext()
@@ -22,7 +23,9 @@ const HomeWrapper = () => {
       <Home allPapers={allPapers || []} />
     )
   ) : (
-    <StepperDialogWrapper />
+    <FormDataProvider>
+      <StepperDialogWrapper />
+    </FormDataProvider>
   )
 }
 

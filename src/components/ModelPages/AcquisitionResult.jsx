@@ -12,18 +12,33 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
+import { useFormDataContext } from 'src/components/Hooks/useFormDataContext'
 
 const isPDF = file => file.type === 'application/pdf'
 
-const AcquisitionResult = ({ file, setFile }) => {
+const AcquisitionResult = ({ file, setFile, currentPage }) => {
   const { t } = useI18n()
   const { isMobile } = useBreakpoints()
   const { nextPage } = useStepperDialogContext()
+  const { setFormData } = useFormDataContext()
+
+  const onValid = () => {
+    setFormData(prev => ({
+      ...prev,
+      [currentPage.pageIndex]: {
+        file,
+        metadata: null
+      }
+    }))
+    nextPage()
+  }
 
   return (
     <>
       <div className={!isMobile ? 'u-mh-2' : ''}>
-        <div className={'u-flex u-flex-column u-flex-items-center u-mv-3'}>
+        <div
+          className={'u-flex u-flex-column u-flex-items-center u-mt-3 u-mb-1'}
+        >
           <Avatar
             icon={Check}
             size="xlarge"
@@ -43,7 +58,10 @@ const AcquisitionResult = ({ file, setFile }) => {
                 style={{ maxWidth: '100%' }}
               />
             ) : (
-              <Icon icon={FileTypePdfIcon} size={80} />
+              <>
+                <Icon icon={FileTypePdfIcon} size={80} />
+                <Typography variant={'body1'}>{file.name}</Typography>
+              </>
             )}
           </div>
           <Button
@@ -58,7 +76,7 @@ const AcquisitionResult = ({ file, setFile }) => {
           className="u-db"
           extension="full"
           label={t('common.next')}
-          onClick={nextPage}
+          onClick={onValid}
         />
       </DialogActions>
     </>

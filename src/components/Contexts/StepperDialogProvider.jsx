@@ -37,6 +37,7 @@ const StepperDialogProvider = ({ children }) => {
     currentPageIndex,
     stepperDialogTitle,
     setIsStepperDialogOpen,
+    setCurrentPageIndex,
     setAllCurrentPagesDefinitions,
     setStepperDialogTitle,
     previousPage,
