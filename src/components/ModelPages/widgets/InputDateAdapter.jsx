@@ -1,26 +1,40 @@
 import React, { useState, useEffect } from 'react'
 import DateFnsUtils from '@date-io/date-fns'
-import { MuiPickersUtilsProvider } from '@material-ui/pickers'
-import { DatePicker } from '@material-ui/pickers'
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker
+} from '@material-ui/pickers'
+import { makeStyles } from '@material-ui/styles'
 
-import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
-import Button from 'cozy-ui/transpiled/react/Button'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
-import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
+const useStyles = makeStyles(() => ({
+  overrides: {
+    width: '100%',
+    MuiOutlinedInput: {
+      '&:focused': {
+        notchedOutline: {
+          borderColor: 'var(--primaryColor)'
+        }
+      }
+    }
+  }
+}))
 
-const InputDateAdapter = ({ onChange, schema }) => {
+const InputDateAdapter = ({ attrs, setValue }) => {
+  const { name, inputLabel, metadata } = attrs
   const { t, lang } = useI18n()
-  const { nextPage } = useStepperDialogContext()
+  const classes = useStyles()
   const [locales, setLocales] = useState('')
-  const [selectedDate, handleDateChange] = useState(new Date())
+  const [selectedDate, handleDateChange] = useState(
+    metadata ? metadata[name] : new Date()
+  )
 
   useEffect(() => {
     let isMounted = true
     ;(async () => {
-      const src = await import(`date-fns/locale/${lang}`)
-      isMounted && setLocales(src.default)
+      const src = require(`date-fns/locale/${lang}/index.js`)
+      isMounted && setLocales(src)
     })()
 
     return () => {
@@ -28,40 +42,23 @@ const InputDateAdapter = ({ onChange, schema }) => {
     }
   }, [lang])
 
-  useEffect(() => onChange(selectedDate.toISOString()), [
-    onChange,
-    selectedDate
-  ])
+  useEffect(() => {
+    setValue(prev => ({ ...prev, [name]: selectedDate }))
+  }, [name, selectedDate, setValue])
 
   return (
-    <>
-      <div className={'u-h-100'}>
-        <CompositeHeader
-          icon={schema.illustration}
-          title={t(schema.text)}
-          text={
-            <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locales}>
-              <DatePicker
-                value={selectedDate}
-                onChange={handleDateChange}
-                inputVariant={'outlined'}
-                cancelLabel={t('common.cancel')}
-                format={lang === 'fr' ? 'dd/MM/yyyy' : 'MM/dd/yyyy'}
-              />
-            </MuiPickersUtilsProvider>
-          }
-        />
-      </div>
-      <DialogActions disableSpacing className={'columnLayout'}>
-        <Button
-          className="u-db"
-          extension="full"
-          label={t('common.next')}
-          disabled={selectedDate.length === 0}
-          onClick={nextPage}
-        />
-      </DialogActions>
-    </>
+    <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locales}>
+      <KeyboardDatePicker
+        className={classes.overrides}
+        value={selectedDate}
+        label={inputLabel ? t(inputLabel) : ''}
+        invalidDateMessage={t('InputDateAdapter.invalidDateMessage')}
+        onChange={handleDateChange}
+        inputVariant={'outlined'}
+        cancelLabel={t('common.cancel')}
+        format={lang === 'fr' ? 'dd/MM/yyyy' : 'MM/dd/yyyy'}
+      />
+    </MuiPickersUtilsProvider>
   )
 }
 

@@ -13,8 +13,8 @@
       "text": "Always keep them with you in a secure space to simplify your administrative procedures. They will never be used without your explicit consent."
     }
   },
-  "FileInputAdapter": {
-    "alreadyPic": "I already have a picture",
+  "Scan": {
+    "useExistingPic": "I already have a picture",
     "takePic": "Take a picture"
   },
   "ImportDropdown": {
@@ -26,6 +26,9 @@
       "title": "Take a picture",
       "text": "Use your camera or an existing document"
     }
+  },
+  "InputDateAdapter": {
+    "invalidDateMessage": "Invalid Date Format"
   },
   "items": {
     "other": "Others..."
@@ -39,9 +42,11 @@
         "text": "Take a picture of the back of your ID card"
       },
       "page03": {
+        "inputLabel": "Card number",
         "text": "What is your credit card number? (written on the front)"
       },
       "page04": {
+        "inputLabel": "Expiration date",
         "text": "When was your card issued? (written on the back)"
       }
     },
@@ -53,9 +58,11 @@
         "text": "TODO Passport02"
       },
       "page03": {
+        "inputLabel": "TODO Passport03 inputLabel",
         "text": "TODO Passport03"
       },
       "page04": {
+        "inputLabel": "TODO Passport04 inputLabel",
         "text": "TODO Passport04"
       }
     }

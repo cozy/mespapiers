@@ -13,8 +13,8 @@
       "title": "Ajoutez vos documents personnels"
     }
   },
-  "FileInputAdapter": {
-    "alreadyPic": "J'ai déjà une photo",
+  "Scan": {
+    "useExistingPic": "J'ai déjà une photo",
     "takePic": "Prendre en photo"
   },
   "ImportDropdown": {
@@ -26,6 +26,9 @@
       "title": "Prendre en photo",
       "text": "Utiliser votre appareil photo ou un document existant"
     }
+  },
+  "InputDateAdapter": {
+    "invalidDateMessage": "Format de la date invalide"
   },
   "items": {
     "other": "Autres..."
@@ -39,9 +42,11 @@
         "text": "Photographier la face arrière de votre carte d’identité"
       },
       "page03": {
+        "inputLabel": "Numéro de la carte",
         "text": "Quelle est le numéro de votre carte de crédit ? (inscrit à l'avant)"
       },
       "page04": {
+        "inputLabel": "Valable jusqu'au",
         "text": "À quelle date votre carte a-t-elle été délivrée ? (inscrite à l’arrière)"
       }
     },
@@ -53,10 +58,12 @@
         "text": "TODO Passport02"
       },
       "page03": {
-        "text": "TODO Passport03"
+        "inputLabel": "TODO Passport03 inputLabel",
+        "text": "TODO Passport03 text"
       },
       "page04": {
-        "text": "TODO Passport04"
+        "inputLabel": "TODO Passport04 inputLabel",
+        "text": "TODO Passport04 text"
       }
     }
   },
