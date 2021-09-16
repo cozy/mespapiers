@@ -1,10 +1,12 @@
 import React, { useState, useEffect, isValidElement } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import './styles.styl'
+import isArray from 'lodash/isArray'
 
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import Icon, { iconPropType } from 'cozy-ui/transpiled/react/Icon'
+
+import './styles.styl'
 
 // TODO Test and improve it & PR cozy-ui
 const CompositeHeader = ({
@@ -44,15 +46,15 @@ const CompositeHeader = ({
         (isValidElement(Title) ? (
           Title
         ) : (
-          <Typography gutterBottom variant="h5" color="textPrimary">
+          <Typography variant="h5" color="textPrimary">
             {Title}
           </Typography>
         ))}
       {Text &&
-        (isValidElement(Text) ? (
-          Text
+        (isValidElement(Text) || isArray(Text) ? (
+          <div className={'u-mt-1'}>{Text}</div>
         ) : (
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="body1" className={'u-mt-1'}>
             {Text}
           </Typography>
         ))}
@@ -64,7 +66,11 @@ CompositeHeader.propTypes = {
   icon: iconPropType,
   iconSize: PropTypes.oneOf(['small', 'normal', 'medium', 'large']),
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  text: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.arrayOf(PropTypes.node)
+  ]),
   className: PropTypes.string
 }
 CompositeHeader.defaultProps = {
