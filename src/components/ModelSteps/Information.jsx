@@ -7,14 +7,14 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import { useFormDataContext } from 'src/components/Hooks/useFormDataContext'
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
-import InputDateAdapter from 'src/components/ModelPages/widgets/InputDateAdapter'
-import InputTextAdapter from 'src/components/ModelPages/widgets/InputTextAdapter'
+import InputDateAdapter from 'src/components/ModelSteps/widgets/InputDateAdapter'
+import InputTextAdapter from 'src/components/ModelSteps/widgets/InputTextAdapter'
 
-const Information = ({ currentPage }) => {
+const Information = ({ currentStep }) => {
   const { t } = useI18n()
-  const { illustration, text, attributes, rel } = currentPage
+  const { illustration, text, attributes, rel } = currentStep
   const { formData, setFormData } = useFormDataContext()
-  const { nextPage } = useStepperDialogContext()
+  const { nextStep } = useStepperDialogContext()
   const [value, setValue] = useState({})
 
   const submit = () => {
@@ -23,7 +23,7 @@ const Information = ({ currentPage }) => {
         ...prev,
         [rel]: { ...prev[rel], metadata: value }
       }))
-      nextPage()
+      nextStep()
     }
   }
 

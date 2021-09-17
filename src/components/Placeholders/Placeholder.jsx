@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -34,7 +34,7 @@ const AllPlaceholdersChoices = ({ onClick }) => {
   return (
     <List>
       {papersJSON.papersDefinitions.map((placeholder, idx) => (
-        <React.Fragment key={`${placeholder.label}${idx}`}>
+        <Fragment key={`${placeholder.label}${idx}`}>
           {!isOtherPaper(placeholder.label) && (
             <>
               <ListItem key={placeholder.label} onClick={onClick}>
@@ -77,7 +77,7 @@ const AllPlaceholdersChoices = ({ onClick }) => {
               )}
             </>
           )}
-        </React.Fragment>
+        </Fragment>
       ))}
     </List>
   )
@@ -92,7 +92,7 @@ const Placeholder = ({ placeholder, divider }) => {
   )
   const [isPapersLabelsList, setIsPapersLabelsList] = useState(false)
   const {
-    setAllCurrentPagesDefinitions,
+    setAllCurrentStepsDefinitions,
     setStepperDialogTitle
   } = useStepperDialogContext()
 
@@ -107,11 +107,11 @@ const Placeholder = ({ placeholder, divider }) => {
     if (formModel) {
       // Set Dialog modal
       setStepperDialogTitle(formModel.label)
-      setAllCurrentPagesDefinitions(formModel.pages)
+      setAllCurrentStepsDefinitions(formModel.steps)
       // Set ActionMenu
       setIsImportDropdownDisplayed(true)
     }
-  }, [placeholder.label, setAllCurrentPagesDefinitions, setStepperDialogTitle])
+  }, [placeholder.label, setAllCurrentStepsDefinitions, setStepperDialogTitle])
 
   const showAllPapersChoices = useCallback(
     () => setIsPapersLabelsList(true),

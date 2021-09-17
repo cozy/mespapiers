@@ -5,14 +5,14 @@ import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import StepperDialog from 'src/components/StepperDialog/StepperDialog'
 import LazyLoad from 'src/components/LazyLoad/LazyLoad'
 
-const PageContent = () => {
-  const { allCurrentPages, currentPageIndex } = useStepperDialogContext()
+const StepContent = () => {
+  const { allCurrentSteps, currentStepIndex } = useStepperDialogContext()
 
-  return allCurrentPages.map(
-    page =>
-      page.pageIndex === currentPageIndex && (
-        <Fragment key={page.pageIndex}>
-          <LazyLoad currentPage={page} />
+  return allCurrentSteps.map(
+    step =>
+      step.stepIndex === currentStepIndex && (
+        <Fragment key={step.stepIndex}>
+          <LazyLoad currentStep={step} />
         </Fragment>
       )
   )
@@ -21,19 +21,19 @@ const PageContent = () => {
 const StepperDialogWrapper = () => {
   const scannerT = useScannerI18n()
   const {
-    allCurrentPages,
-    currentPageIndex,
-    previousPage,
+    allCurrentSteps,
+    currentStepIndex,
+    previousStep,
     stepperDialogTitle
   } = useStepperDialogContext()
 
   return (
     <StepperDialog
       open
-      onClose={previousPage}
+      onClose={previousStep}
       title={scannerT(`items.${stepperDialogTitle}`)}
-      content={<PageContent />}
-      stepper={`${currentPageIndex}/${allCurrentPages.length}`}
+      content={<StepContent />}
+      stepper={`${currentStepIndex}/${allCurrentSteps.length}`}
     />
   )
 }
