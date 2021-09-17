@@ -35,6 +35,10 @@
   },
   "PaperJSON": {
     "IDCard": {
+      "pageName": {
+        "recto": "Face avant",
+        "verso": "Face arrière"
+      },
       "step01": {
         "text": "Photographier la face avant de votre carte d’identité"
       },
@@ -51,6 +55,10 @@
       }
     },
     "Passport": {
+      "pageName": {
+        "recto": "TODO Passport recto",
+        "verso": "TODO Passport verso"
+      },
       "step01": {
         "text": "TODO Passport01"
       },

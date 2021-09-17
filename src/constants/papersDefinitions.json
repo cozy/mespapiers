@@ -10,7 +10,7 @@
           "stepIndex": 1,
           "model": "scan",
           "page": "recto",
-          "pageName": "PaperJSON.IDCard.step01.pageName",
+          "pageName": "PaperJSON.IDCard.pageName.recto",
           "illustration": "IlluIdCardRecto.svg",
           "text": "PaperJSON.IDCard.step01.text"
         },
@@ -18,7 +18,7 @@
           "stepIndex": 2,
           "model": "scan",
           "page": "verso",
-          "pageName": "PaperJSON.IDCard.step02.pageName",
+          "pageName": "PaperJSON.IDCard.pageName.verso",
           "illustration": "IlluIdCardVerso.svg",
           "text": "PaperJSON.IDCard.step02.text"
         },
@@ -27,7 +27,6 @@
           "model": "information",
           "illustration": "IlluIdCardRectoHelp.svg",
           "text": "PaperJSON.IDCard.step03.text",
-          "rel": 1,
           "attributes": [
             {
               "name": "number",
@@ -41,7 +40,6 @@
           "model": "information",
           "illustration": "IlluIdCardVersoHelp.svg",
           "text": "PaperJSON.IDCard.step04.text",
-          "rel": 2,
           "attributes": [
             {
               "name": "peremptionDate",
@@ -82,7 +80,6 @@
           "model": "information",
           "illustration": "IlluIdCardRectoHelp.svg",
           "text": "PaperJSON.Passport.step03.text",
-          "rel": 1,
           "attributes": [
             {
               "name": "number",
@@ -96,7 +93,6 @@
           "model": "information",
           "illustration": "IlluIdCardVersoHelp.svg",
           "text": "PaperJSON.Passport.step04.text",
-          "rel": 2,
           "attributes": [
             {
               "name": "peremptionDate",
