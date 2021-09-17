@@ -6,7 +6,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 const InputTextAdapter = ({ attrs, setValue }) => {
   const { name, inputLabel, metadata } = attrs
   const { t } = useI18n()
-  const [value, setState] = useState(metadata ? metadata[name] : '')
+  const [value, setState] = useState(metadata[name] || '')
 
   useEffect(() => {
     setValue(prev => ({ ...prev, [name]: value }))

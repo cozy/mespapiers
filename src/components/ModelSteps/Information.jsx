@@ -12,7 +12,7 @@ import InputTextAdapter from 'src/components/ModelSteps/widgets/InputTextAdapter
 
 const Information = ({ currentStep }) => {
   const { t } = useI18n()
-  const { illustration, text, attributes, rel } = currentStep
+  const { illustration, text, attributes } = currentStep
   const { formData, setFormData } = useFormDataContext()
   const { nextStep } = useStepperDialogContext()
   const [value, setValue] = useState({})
@@ -21,7 +21,10 @@ const Information = ({ currentStep }) => {
     if (value) {
       setFormData(prev => ({
         ...prev,
-        [rel]: { ...prev[rel], metadata: value }
+        metadata: {
+          ...prev.metadata,
+          ...value
+        }
       }))
       nextStep()
     }
@@ -32,14 +35,14 @@ const Information = ({ currentStep }) => {
       case 'date':
         return (
           <InputDateAdapter
-            attrs={{ metadata: formData[rel].metadata, name, inputLabel }}
+            attrs={{ metadata: formData.metadata, name, inputLabel }}
             setValue={setValue}
           />
         )
       case 'frenchIdCardNumber':
         return (
           <InputTextAdapter
-            attrs={{ metadata: formData[rel].metadata, name, inputLabel }}
+            attrs={{ metadata: formData.metadata, name, inputLabel }}
             setValue={setValue}
           />
         )

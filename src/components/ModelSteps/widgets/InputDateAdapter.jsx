@@ -27,7 +27,7 @@ const InputDateAdapter = ({ attrs, setValue }) => {
   const classes = useStyles()
   const [locales, setLocales] = useState('')
   const [selectedDate, handleDateChange] = useState(
-    metadata ? metadata[name] : new Date()
+    metadata[name] || new Date()
   )
 
   useEffect(() => {
