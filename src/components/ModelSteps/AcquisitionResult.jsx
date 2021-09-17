@@ -16,21 +16,21 @@ import { useFormDataContext } from 'src/components/Hooks/useFormDataContext'
 
 const isPDF = file => file.type === 'application/pdf'
 
-const AcquisitionResult = ({ file, setFile, currentPage }) => {
+const AcquisitionResult = ({ file, setFile, currentStep }) => {
   const { t } = useI18n()
   const { isMobile } = useBreakpoints()
-  const { nextPage } = useStepperDialogContext()
+  const { nextStep } = useStepperDialogContext()
   const { setFormData } = useFormDataContext()
 
   const onValid = () => {
     setFormData(prev => ({
       ...prev,
-      [currentPage.pageIndex]: {
+      [currentStep.stepIndex]: {
         file,
         metadata: null
       }
     }))
-    nextPage()
+    nextStep()
   }
 
   return (

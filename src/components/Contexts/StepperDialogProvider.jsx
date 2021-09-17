@@ -5,43 +5,43 @@ const StepperDialogContext = createContext()
 const StepperDialogProvider = ({ children }) => {
   const [isStepperDialogOpen, setIsStepperDialogOpen] = useState(false)
   const [stepperDialogTitle, setStepperDialogTitle] = useState('')
-  const [allCurrentPagesDefinitions, setAllCurrentPagesDefinitions] = useState(
+  const [allCurrentStepsDefinitions, setAllCurrentStepsDefinitions] = useState(
     []
   )
-  const [allCurrentPages, setAllCurrentPages] = useState([])
-  const [currentPageIndex, setCurrentPageIndex] = useState(1)
+  const [allCurrentSteps, setAllCurrentSteps] = useState([])
+  const [currentStepIndex, setCurrentStepIndex] = useState(1)
 
   useEffect(() => {
-    if (allCurrentPagesDefinitions.length > 0) {
-      const allCurrentPagesDefinitionsSorted = allCurrentPagesDefinitions.sort(
-        (a, b) => a.pageIndex - b.pageIndex
+    if (allCurrentStepsDefinitions.length > 0) {
+      const allCurrentStepsDefinitionsSorted = allCurrentStepsDefinitions.sort(
+        (a, b) => a.stepIndex - b.stepIndex
       )
-      setAllCurrentPages(allCurrentPagesDefinitionsSorted)
+      setAllCurrentSteps(allCurrentStepsDefinitionsSorted)
     }
-  }, [allCurrentPagesDefinitions])
+  }, [allCurrentStepsDefinitions])
 
-  const previousPage = useCallback(() => {
-    currentPageIndex > 1
-      ? setCurrentPageIndex(prev => prev - 1)
+  const previousStep = useCallback(() => {
+    currentStepIndex > 1
+      ? setCurrentStepIndex(prev => prev - 1)
       : setIsStepperDialogOpen(false)
-  }, [currentPageIndex])
+  }, [currentStepIndex])
 
-  const nextPage = useCallback(() => {
-    allCurrentPages.length > currentPageIndex &&
-      setCurrentPageIndex(prev => prev + 1)
-  }, [allCurrentPages.length, currentPageIndex])
+  const nextStep = useCallback(() => {
+    allCurrentSteps.length > currentStepIndex &&
+      setCurrentStepIndex(prev => prev + 1)
+  }, [allCurrentSteps.length, currentStepIndex])
 
   const stepperDialog = {
     isStepperDialogOpen,
-    allCurrentPages,
-    currentPageIndex,
+    allCurrentSteps,
+    currentStepIndex,
     stepperDialogTitle,
     setIsStepperDialogOpen,
-    setCurrentPageIndex,
-    setAllCurrentPagesDefinitions,
+    setCurrentStepIndex,
+    setAllCurrentStepsDefinitions,
     setStepperDialogTitle,
-    previousPage,
-    nextPage
+    previousStep,
+    nextStep
   }
 
   return (

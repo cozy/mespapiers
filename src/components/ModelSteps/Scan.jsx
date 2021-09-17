@@ -8,11 +8,11 @@ import FileInput from 'cozy-ui/transpiled/react/FileInput'
 import { isMobileApp } from 'cozy-device-helper'
 
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
-import AcquisitionResult from 'src/components/ModelPages/AcquisitionResult'
+import AcquisitionResult from 'src/components/ModelSteps/AcquisitionResult'
 
-const Scan = ({ currentPage }) => {
+const Scan = ({ currentStep }) => {
   const { t } = useI18n()
-  const { illustration, text } = currentPage
+  const { illustration, text } = currentStep
   const [file, setFile] = useState(null)
 
   const onFileChange = file => file && setFile(file)
@@ -21,7 +21,7 @@ const Scan = ({ currentPage }) => {
     <AcquisitionResult
       file={file}
       setFile={setFile}
-      currentPage={currentPage}
+      currentStep={currentStep}
     />
   ) : (
     <>

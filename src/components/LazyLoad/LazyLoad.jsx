@@ -5,34 +5,34 @@ import log from 'cozy-logger'
 
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
 
-const LazyLoadError = ({ currentPage }) => {
+const LazyLoadError = ({ currentStep }) => {
   const {
     setIsStepperDialogOpen,
-    setCurrentPageIndex
+    setCurrentStepIndex
   } = useStepperDialogContext()
 
   useEffect(() => {
     log(
       'error',
       `LazyLoadError: The Component model ${
-        currentPage.model
-          ? `'/ModelPages/${currentPage.model}' not found`
+        currentStep.model
+          ? `'/ModelSteps/${currentStep.model}' not found`
           : 'is not defined in the JSON file'
       }`
     )
-    setCurrentPageIndex(1)
+    setCurrentStepIndex(1)
     setIsStepperDialogOpen(false)
-  }, [currentPage.model, setCurrentPageIndex, setIsStepperDialogOpen])
+  }, [currentStep.model, setCurrentStepIndex, setIsStepperDialogOpen])
 
   return null
 }
 
-const LazyLoad = ({ currentPage }) => {
-  const modelPage = capitalize(currentPage.model)
+const LazyLoad = ({ currentStep }) => {
+  const modelPage = capitalize(currentStep.model)
   const Component = useMemo(
     () =>
       lazy(() =>
-        import(`src/components/ModelPages/${modelPage}.jsx`).catch(() => ({
+        import(`src/components/ModelSteps/${modelPage}.jsx`).catch(() => ({
           default: LazyLoadError
         }))
       ),
@@ -42,7 +42,7 @@ const LazyLoad = ({ currentPage }) => {
 
   return (
     <Suspense fallback={<></>}>
-      <Component currentPage={currentPage} />
+      <Component currentStep={currentStep} />
     </Suspense>
   )
 }

@@ -35,33 +35,33 @@
   },
   "PaperJSON": {
     "IDCard": {
-      "page01": {
+      "step01": {
         "text": "Photographier la face avant de votre carte d’identité"
       },
-      "page02": {
+      "step02": {
         "text": "Photographier la face arrière de votre carte d’identité"
       },
-      "page03": {
+      "step03": {
         "inputLabel": "Numéro de la carte",
         "text": "Quelle est le numéro de votre carte de crédit ? (inscrit à l'avant)"
       },
-      "page04": {
+      "step04": {
         "inputLabel": "Valable jusqu'au",
         "text": "À quelle date votre carte a-t-elle été délivrée ? (inscrite à l’arrière)"
       }
     },
     "Passport": {
-      "page01": {
+      "step01": {
         "text": "TODO Passport01"
       },
-      "page02": {
+      "step02": {
         "text": "TODO Passport02"
       },
-      "page03": {
+      "step03": {
         "inputLabel": "TODO Passport03 inputLabel",
         "text": "TODO Passport03 text"
       },
-      "page04": {
+      "step04": {
         "inputLabel": "TODO Passport04 inputLabel",
         "text": "TODO Passport04 text"
       }

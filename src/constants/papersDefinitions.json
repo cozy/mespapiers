@@ -5,45 +5,48 @@
       "icon": "people",
       "featuredPlaceholder": true,
       "placeholderIndex": 1,
-      "pages": [
+      "steps": [
         {
-          "pageIndex": 1,
-          "occurrence": 1,
+          "stepIndex": 1,
           "model": "scan",
+          "page": "recto",
+          "pageName": "PaperJSON.IDCard.step01.pageName",
           "illustration": "IlluIdCardRecto.svg",
-          "text": "PaperJSON.IDCard.page01.text"
+          "text": "PaperJSON.IDCard.step01.text"
         },
         {
-          "pageIndex": 2,
+          "stepIndex": 2,
           "model": "scan",
+          "page": "verso",
+          "pageName": "PaperJSON.IDCard.step02.pageName",
           "illustration": "IlluIdCardVerso.svg",
-          "text": "PaperJSON.IDCard.page02.text"
+          "text": "PaperJSON.IDCard.step02.text"
         },
         {
-          "pageIndex": 3,
+          "stepIndex": 3,
           "model": "information",
           "illustration": "IlluIdCardRectoHelp.svg",
-          "text": "PaperJSON.IDCard.page03.text",
+          "text": "PaperJSON.IDCard.step03.text",
           "rel": 1,
           "attributes": [
             {
               "name": "number",
               "type": "frenchIdCardNumber",
-              "inputLabel": "PaperJSON.IDCard.page03.inputLabel"
+              "inputLabel": "PaperJSON.IDCard.step03.inputLabel"
             }
           ]
         },
         {
-          "pageIndex": 4,
+          "stepIndex": 4,
           "model": "information",
           "illustration": "IlluIdCardVersoHelp.svg",
-          "text": "PaperJSON.IDCard.page04.text",
+          "text": "PaperJSON.IDCard.step04.text",
           "rel": 2,
           "attributes": [
             {
               "name": "peremptionDate",
               "type": "date",
-              "inputLabel": "PaperJSON.IDCard.page04.inputLabel"
+              "inputLabel": "PaperJSON.IDCard.step04.inputLabel"
             }
           ]
         }
@@ -57,43 +60,48 @@
       "icon": "people",
       "featuredPlaceholder": true,
       "placeholderIndex": 2,
-      "pages": [
+      "steps": [
         {
-          "pageIndex": 1,
-          "occurrence": 1,
+          "stepIndex": 1,
           "model": "scan",
+          "page": "recto",
+          "pageName": "PaperJSON.Passport.step01.pageName",
           "illustration": "IlluIdCardRecto.svg",
-          "text": "PaperJSON.Passport.page01.text"
+          "text": "PaperJSON.Passport.step01.text"
         },
         {
-          "pageIndex": 2,
+          "stepIndex": 2,
           "model": "scan",
+          "page": "verso",
+          "pageName": "PaperJSON.Passport.step02.pageName",
           "illustration": "IlluIdCardVerso.svg",
-          "text": "PaperJSON.Passport.page02.text"
+          "text": "PaperJSON.Passport.step02.text"
         },
         {
-          "pageIndex": 3,
+          "stepIndex": 3,
           "model": "information",
           "illustration": "IlluIdCardRectoHelp.svg",
-          "text": "PaperJSON.Passport.page03.text",
+          "text": "PaperJSON.Passport.step03.text",
+          "rel": 1,
           "attributes": [
             {
               "name": "number",
               "type": "frenchIdCardNumber",
-              "inputLabel": "PaperJSON.Passport.page03.inputLabel"
+              "inputLabel": "PaperJSON.Passport.step03.inputLabel"
             }
           ]
         },
         {
-          "pageIndex": 4,
+          "stepIndex": 4,
           "model": "information",
           "illustration": "IlluIdCardVersoHelp.svg",
-          "text": "PaperJSON.Passport.page04.text",
+          "text": "PaperJSON.Passport.step04.text",
+          "rel": 2,
           "attributes": [
             {
               "name": "peremptionDate",
               "type": "date",
-              "inputLabel": "PaperJSON.Passport.page04.inputLabel"
+              "inputLabel": "PaperJSON.Passport.step04.inputLabel"
             }
           ]
         }
