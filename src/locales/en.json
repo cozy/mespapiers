@@ -7,6 +7,11 @@
     "next": "Next",
     "replace": "Replace"
   },
+  "ContactAdapter": {
+    "description": "Whose ID card is this?",
+    "me": "Me (%{name})",
+    "other": "Someone else"
+  },
   "Home": {
     "Empty": {
       "title": "Add your personal documents",
