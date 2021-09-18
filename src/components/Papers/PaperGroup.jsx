@@ -23,7 +23,7 @@ const PaperGroup = () => {
   const history = useHistory()
   const { t } = useI18n()
   const scannerT = useScannerI18n()
-  const { allPapers } = useQuery(getAllQualificationLabel)
+  const { data: allPapers } = useQuery(getAllQualificationLabel)
 
   // TODO When ".select" will be used in the query, refacto this
   const categories = [
