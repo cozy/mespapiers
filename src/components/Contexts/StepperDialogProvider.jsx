@@ -16,7 +16,19 @@ const StepperDialogProvider = ({ children }) => {
       const allCurrentStepsDefinitionsSorted = allCurrentStepsDefinitions.sort(
         (a, b) => a.stepIndex - b.stepIndex
       )
-      setAllCurrentSteps(allCurrentStepsDefinitionsSorted)
+
+      const {
+        stepIndex: lastStepIndex
+      } = allCurrentStepsDefinitionsSorted.slice(-1).pop()
+      setAllCurrentSteps([
+        ...allCurrentStepsDefinitionsSorted,
+        {
+          stepIndex: lastStepIndex + 1,
+          illustration: 'Account.svg',
+          text: 'ContactAdapter.description',
+          model: 'contact'
+        }
+      ])
     }
   }, [allCurrentStepsDefinitions])
 

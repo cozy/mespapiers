@@ -7,6 +7,11 @@
     "next": "Suivant",
     "replace": "Remplacer"
   },
+  "ContactAdapter": {
+    "description": "À qui appartient cette carte d’identité ?",
+    "me": "Moi (%{name})",
+    "other": "Une autre personne"
+  },
   "Home": {
     "Empty": {
       "text": "Gardez les toujours sur vous dans un espace sécurisé pour simplifier vos démarches administratives. Ils ne seront jamais utilisés sans votre consentement explicite.",
