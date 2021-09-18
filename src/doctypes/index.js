@@ -11,3 +11,4 @@ export default {
 
 // export all doctypes for the application
 export * from './files'
+export * from './apps'
