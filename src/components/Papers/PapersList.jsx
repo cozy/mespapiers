@@ -20,7 +20,7 @@ const PapersList = ({ history, match }) => {
     [match]
   )
   const { t } = useI18n()
-  const { allPapers } = useQuery(getPapersByLabel(currentFileCategory))
+  const { data: allPapers } = useQuery(getPapersByLabel(currentFileCategory))
 
   return (
     <>

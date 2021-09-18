@@ -12,7 +12,7 @@ describe('useQuery', () => {
     const result = useQuery({ definition: '', options: '' })
     expect(result).toEqual({
       isQueryLoading: true,
-      allPapers: []
+      data: []
     })
   })
 
@@ -24,7 +24,7 @@ describe('useQuery', () => {
     const result = useQuery({ definition: '', options: '' })
     expect(result).toEqual({
       isQueryLoading: true,
-      allPapers: []
+      data: []
     })
   })
 
@@ -36,7 +36,7 @@ describe('useQuery', () => {
     const result = useQuery({ definition: '', options: '' })
     expect(result).toEqual({
       isQueryLoading: false,
-      allPapers: [{ id: '00', name: 'ID card' }, { id: '01', name: 'Passport' }]
+      data: [{ id: '00', name: 'ID card' }, { id: '01', name: 'Passport' }]
     })
   })
 })

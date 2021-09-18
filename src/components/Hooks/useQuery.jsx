@@ -5,6 +5,6 @@ export const useQuery = query => {
 
   return {
     isQueryLoading: isQueryLoading(rest),
-    allPapers: data || []
+    data: data || []
   }
 }

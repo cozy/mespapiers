@@ -11,7 +11,7 @@ import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
 
 const HomeWrapper = () => {
   const { isStepperDialogOpen } = useStepperDialogContext()
-  const { allPapers, isQueryLoading } = useQuery(getAllQualificationLabel)
+  const { data: allPapers, isQueryLoading } = useQuery(getAllQualificationLabel)
 
   return !isStepperDialogOpen ? (
     isQueryLoading ? (
@@ -20,7 +20,7 @@ const HomeWrapper = () => {
         className="u-flex u-flex-justify-center u-mt-2 u-h-5"
       />
     ) : (
-      <Home allPapers={allPapers || []} />
+      <Home allPapers={allPapers} />
     )
   ) : (
     <FormDataProvider>
