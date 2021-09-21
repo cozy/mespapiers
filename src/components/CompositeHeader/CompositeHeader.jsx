@@ -11,6 +11,7 @@ import './styles.styl'
 // TODO Test and improve it & PR cozy-ui
 const CompositeHeader = ({
   icon,
+  fallbackIcon,
   iconSize,
   title: Title,
   text: Text,
@@ -22,14 +23,16 @@ const CompositeHeader = ({
   useEffect(() => {
     let isMounted = true
     ;(async () => {
-      const src = await import(`src/assets/icons/${icon}`)
+      let src = await import(`src/assets/icons/${icon}`).catch(() => ({
+        default: fallbackIcon
+      }))
       isMounted && setImgSrc(src.default)
     })()
 
     return () => {
       isMounted = false
     }
-  }, [icon])
+  }, [icon, fallbackIcon])
 
   return (
     <div className={cx('composite-header-container', className)} {...restProps}>
@@ -64,6 +67,7 @@ const CompositeHeader = ({
 
 CompositeHeader.propTypes = {
   icon: iconPropType,
+  fallbackIcon: iconPropType,
   iconSize: PropTypes.oneOf(['small', 'normal', 'medium', 'large']),
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   text: PropTypes.oneOfType([

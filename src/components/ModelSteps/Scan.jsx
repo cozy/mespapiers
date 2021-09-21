@@ -9,6 +9,7 @@ import { isMobileApp } from 'cozy-device-helper'
 
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import AcquisitionResult from 'src/components/ModelSteps/AcquisitionResult'
+import GenericScan from 'src/assets/icons/GenericScan.svg'
 
 const Scan = ({ currentStep }) => {
   const { t } = useI18n()
@@ -25,7 +26,11 @@ const Scan = ({ currentStep }) => {
     />
   ) : (
     <>
-      <CompositeHeader icon={illustration} title={t(text)} />
+      <CompositeHeader
+        icon={illustration}
+        fallbackIcon={GenericScan}
+        title={t(text)}
+      />
       <DialogActions disableSpacing className={'columnLayout'}>
         <FileInput
           onChange={onFileChange}
