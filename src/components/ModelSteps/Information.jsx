@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState } from 'react'
 
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 import Button from 'cozy-ui/transpiled/react/Button'
@@ -47,6 +47,13 @@ const Information = ({ currentStep }) => {
             setValue={setValue}
           />
         )
+      case 'Numbers12Digits':
+        return (
+          <InputTextAdapter
+            attrs={{ metadata: formData.metadata, name, inputLabel }}
+            setValue={setValue}
+          />
+        )
     }
   })
 
@@ -59,7 +66,12 @@ const Information = ({ currentStep }) => {
           iconSize={'medium'}
           title={t(text)}
           text={inputs.map((Input, idx) => (
-            <Fragment key={idx}>{Input}</Fragment>
+            <div
+              key={idx}
+              className={idx !== inputs.length - 1 ? 'u-mb-1' : ''}
+            >
+              {Input}
+            </div>
           ))}
         />
       </div>
