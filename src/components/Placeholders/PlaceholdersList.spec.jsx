@@ -76,9 +76,9 @@ describe('PlaceholdersList components:', () => {
     useQuery.mockReturnValueOnce({
       data: [fakePapers[1]]
     })
-    const { getByText } = setup()
+    const { getByText, getAllByText } = setup()
 
     expect(getByText('Suggestions'))
-    expect(getByText('ID card'))
+    expect(getAllByText('ID card'))
   })
 })
