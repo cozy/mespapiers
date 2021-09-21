@@ -9,6 +9,7 @@ import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogCo
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import InputDateAdapter from 'src/components/ModelSteps/widgets/InputDateAdapter'
 import InputTextAdapter from 'src/components/ModelSteps/widgets/InputTextAdapter'
+import GenericInputText from 'src/assets/icons/GenericInputText.svg'
 
 const Information = ({ currentStep }) => {
   const { t } = useI18n()
@@ -54,6 +55,7 @@ const Information = ({ currentStep }) => {
       <div className={'u-h-100'}>
         <CompositeHeader
           icon={illustration}
+          fallbackIcon={GenericInputText}
           iconSize={'medium'}
           title={t(text)}
           text={inputs.map((Input, idx) => (
