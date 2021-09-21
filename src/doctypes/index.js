@@ -1,6 +1,6 @@
-import { FILES_DOCTYPE } from 'src/doctypes/files'
-
+export const APPS_DOCTYPE = 'io.cozy.apps'
 export const CONTACTS_DOCTYPE = 'io.cozy.contacts'
+export const FILES_DOCTYPE = 'io.cozy.files'
 
 // the documents schema, necessary for CozyClient
 export default {
@@ -15,7 +15,3 @@ export default {
     relationships: {}
   }
 }
-
-// export all doctypes for the application
-export * from './files'
-export * from './apps'
