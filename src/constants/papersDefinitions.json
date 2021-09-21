@@ -1,109 +1,158 @@
 {
   "papersDefinitions": [
-    {
-      "label": "national_id_card",
-      "icon": "people",
-      "featuredPlaceholder": true,
-      "placeholderIndex": 1,
-      "steps": [
-        {
-          "stepIndex": 1,
-          "model": "scan",
-          "page": "recto",
-          "pageName": "PaperJSON.IDCard.pageName.recto",
-          "illustration": "IlluIdCardRecto.svg",
-          "text": "PaperJSON.IDCard.step01.text"
-        },
-        {
-          "stepIndex": 2,
-          "model": "scan",
-          "page": "verso",
-          "pageName": "PaperJSON.IDCard.pageName.verso",
-          "illustration": "IlluIdCardVerso.svg",
-          "text": "PaperJSON.IDCard.step02.text"
-        },
-        {
-          "stepIndex": 3,
-          "model": "information",
-          "illustration": "IlluIdCardRectoHelp.svg",
-          "text": "PaperJSON.IDCard.step03.text",
-          "attributes": [
-            {
-              "name": "number",
-              "type": "frenchIdCardNumber",
-              "inputLabel": "PaperJSON.IDCard.step03.inputLabel"
-            }
-          ]
-        },
-        {
-          "stepIndex": 4,
-          "model": "information",
-          "illustration": "IlluIdCardVersoHelp.svg",
-          "text": "PaperJSON.IDCard.step04.text",
-          "attributes": [
-            {
-              "name": "peremptionDate",
-              "type": "date",
-              "inputLabel": "PaperJSON.IDCard.step04.inputLabel"
-            }
-          ]
-        }
-      ],
-      "featureDate": "peremptionDate",
-      "maxDisplay": 2
-    },
-
-    {
-      "label": "passport",
-      "icon": "people",
+    { "label": "driver_licence",
       "featuredPlaceholder": true,
       "placeholderIndex": 2,
+      "icon": "car",
+      "featureDate": "carOptentionDate",
+      "maxDisplay": 2,
       "steps": [
         {
           "stepIndex": 1,
           "model": "scan",
           "page": "recto",
-          "pageName": "PaperJSON.Passport.step01.pageName",
-          "illustration": "IlluIdCardRecto.svg",
-          "text": "PaperJSON.Passport.step01.text"
+          "pageName": "PaperJSON.generic.pageName.recto",
+          "illustration": "IlluDriverLicenceRecto.svg",
+          "text": "PaperJSON.generic.recto.text" // ToDo create with "Ajouter la face avant"
         },
         {
           "stepIndex": 2,
           "model": "scan",
           "page": "verso",
-          "pageName": "PaperJSON.Passport.step02.pageName",
-          "illustration": "IlluIdCardVerso.svg",
-          "text": "PaperJSON.Passport.step02.text"
+          "pageName": "PaperJSON.generic.pageName.verso",
+          "illustration": "IlluDriverLicenceVerso.svg",
+          "text": "PaperJSON.generic.verso.text" // ToDo create with "Ajouter la face arrière"
         },
         {
           "stepIndex": 3,
           "model": "information",
-          "illustration": "IlluIdCardRectoHelp.svg",
-          "text": "PaperJSON.Passport.step03.text",
+          "illustration": "IlluDriverLicenceNumberHelp.svg",
+          "text": "PaperJSON.driverLicence.number.text",
           "attributes": [
             {
               "name": "number",
-              "type": "frenchIdCardNumber",
-              "inputLabel": "PaperJSON.Passport.step03.inputLabel"
+              "type": "Numbers12Digits", // ToDo ?
+              "inputLabel": "PaperJSON.driverLicence.number.inputLabel" // ToDo create
             }
           ]
         },
         {
           "stepIndex": 4,
           "model": "information",
-          "illustration": "IlluIdCardVersoHelp.svg",
-          "text": "PaperJSON.Passport.step04.text",
+          "illustration": "IlluDriverLicenceObtentionDateHelp.svg",
+          "text": "PaperJSON.driverLicence.obtentionDate.text", // ToDo rename le fic PaperJSON.IDCard.step04.text
+          "attributes": [
+            {
+              "name": "carObtentionDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.IDCard.CarOptentionDate.inputLabel" // ToDo create "Date d'obtention du permis B (moto)"
+            }
+            {
+              "name": "motoObtentionDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.IDCard.MotoOptentionDate.inputLabel" // ToDo create "Date d'obtention du permis A (voiture)"
+            }
+          ]
+        }
+      ]
+     },
+    { "label": "family_record_book",
+      "featuredPlaceholder": false,
+      "icon": "people",
+      "featureDate": "referenceDate",
+      "maxDisplay": 3,
+      "steps": [
+        {
+          "stepIndex": 1,
+          "model": "scanMultiPage",
+          "illustration": "illuGenericNewPage.svg",
+          "text": "PaperJSON.generic_PhotoMultiPages.text" // ToDo: create file "Photographier le(s) page(s) du document"
+        },
+        {
+          "pageIndex": 2,
+          "occurrence": 1,
+          "model": "information",
+          "illustration": "illuGenericDate.svg",
+          "text": "PaperJSON.generic.date.text", // ToDo create file with "Quelle est la date de ce document ?"
+          "attributes": [
+            {
+              "name": "Date",
+              "type": "date",
+              "inputLabel": "PaperJSON.IDCard.genericDate.inputLabel" // ToDo create with "Date"
+            }
+          ]
+        }
+      ]
+     },
+    { "label": "national_healthInsurance_card", // ToDo rename national_insurance_card
+      "featuredPlaceholder": true,
+      "placeholderIndex": 3,
+      "icon": "health",
+      "featureDate": "carOptentionDate",
+      "maxDisplay": 2
+     },  
+    { "label": "national_id_card",
+      "featuredPlaceholder": true,
+      "placeholderIndex": 1,
+      "icon": "people",
+      "featureDate": "peremptionDate",
+      "maxDisplay": 2, 
+      "steps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "page": "recto",
+          "pageName": "PaperJSON.generic.pageName.recto", // ToDo rename le fic PaperJSON.IDCard.pageName.recto
+          "illustration": "IlluIdCardRecto.svg",
+          "text": "PaperJSON.IDCard.recto.text" // ToDo rename PaperJSON.IDCard.step01.text
+        },
+        {
+          "stepIndex": 2,
+          "model": "scan",
+          "page": "verso",
+          "pageName": "PaperJSON.generic.pageName.verso", // ToDo rename le fic PaperJSON.IDCard.pageName.verso
+          "illustration": "IlluIdCardVerso.svg",
+          "text": "PaperJSON.IDCard.verso.text" // ToDo rename PaperJSON.IDCard.step02.text
+        },
+        {
+          "stepIndex": 3,
+          "model": "information",
+          "illustration": "IlluIdCardNumberHelp.svg", // ToDo rename IlluIdCardRectoHelp.svg
+          "text": "PaperJSON.IDCard.number.text", // ToDo rename le fic PaperJSON.IDCard.step03.text
+          "attributes": [
+            {
+              "name": "number",
+              "type": "frenchIdCardNumber",
+              "inputLabel": "PaperJSON.IDCard.number.inputLabel" // ToDo rename PaperJSON.IDCard.step03.inputLabel
+            }
+          ]
+        },
+        {
+          "stepIndex": 4,
+          "model": "information",
+          "illustration": "IlluIdCardPeremptionDateHelp.svg", // ToDo rename IlluIdCardVersoHelp.svg
+          "text": "PaperJSON.IDCard.peremptionDate.text", // ToDo rename le fic PaperJSON.IDCard.step04.text
           "attributes": [
             {
               "name": "peremptionDate",
               "type": "date",
-              "inputLabel": "PaperJSON.Passport.step04.inputLabel"
+              "inputLabel": "PaperJSON.IDCard.peremptionDate.inputLabel" // ToDo rename le fic PaperJSON.IDCard.step04.inputLabel
             }
           ]
         }
+      ]
+     },
+    { "label": "taxe_notice",
+      "featuredPlaceholder": false,
+      "icon": "finance",
+      "steps": [
+        {
+          "stepIndex": 1,
+          "model": "connector", // ToDO SPEC - Définir comment on indique qu'il se capture par un connecteur ?
+          "filter": "ToDo..." 
+        },
       ],
-      "featureDate": "peremptionDate",
-      "maxDisplay": 2
-    }
+      "featureDate": "referenceYear",
+      "maxDisplay": 3 }
   ]
 }
