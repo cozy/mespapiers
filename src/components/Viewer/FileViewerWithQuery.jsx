@@ -37,11 +37,7 @@ const FilesViewerWithQuery = props => {
           fileId={currentFileId}
           files={filesQuery.data}
           filesQuery={filesQuery}
-          onClose={() =>
-            history.push({
-              pathname: `/`
-            })
-          }
+          onClose={() => history.goBack()}
           onChange={fileId =>
             history.push({
               pathname: `file/${fileId}`

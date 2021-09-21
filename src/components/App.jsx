@@ -10,29 +10,41 @@ import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
+import IconButton from 'cozy-ui/transpiled/react/IconButton'
+import { Icon } from 'cozy-ui/transpiled/react'
+import DotsIcon from 'cozy-ui/transpiled/react/Icons/Dots'
 
 import HomeWrapper from 'src/components/HomeWrapper/HomeWrapper'
+import PapersList from 'src/components/Papers/PapersList'
 import FileViewerWithQuery from 'src/components/Viewer/FileViewerWithQuery'
 
 export const App = () => {
   const client = useClient()
   const { isMobile } = useBreakpoints()
-  const { BarCenter } = cozy.bar
+  const { BarCenter, BarRight } = cozy.bar
 
   return (
     <HashRouter>
       <Layout monoColumn>
         {isMobile && (
-          <BarCenter>
-            <MuiCozyTheme>
-              <Typography variant="h5">{client.appMetadata.slug}</Typography>
-            </MuiCozyTheme>
-          </BarCenter>
+          <>
+            <BarCenter>
+              <MuiCozyTheme>
+                <Typography variant="h5">{client.appMetadata.slug}</Typography>
+              </MuiCozyTheme>
+            </BarCenter>
+            <BarRight>
+              <IconButton className={'u-pr-1'}>
+                <Icon icon={DotsIcon} size={16} />
+              </IconButton>
+            </BarRight>
+          </>
         )}
         <Main>
           <Content className="app-content">
             <Switch>
               <Route exact path="/" component={HomeWrapper} />
+              <Route exact path="/files/:fileCategory" component={PapersList} />
               <Route
                 exact
                 path="/file/:fileId"
