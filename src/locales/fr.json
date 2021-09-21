@@ -34,44 +34,47 @@
     "other": "Autres..."
   },
   "PaperJSON": {
-    "IDCard": {
+    "driverLicense": {
+      "carOptentionDate": {
+        "inputLabel": "Date d'obtention du permis A (voiture)"
+      },
+      "motoOptentionDate": {
+        "inputLabel": "Date d'obtention du permis B (moto)"
+      },
+      "number": {
+        "inputLabel": "Numéro de votre permis",
+        "text": "Quel est le numéro de votre permis ?"
+      },
+      "obtentionDate": {
+        "text": "À quelle date votre permis a-t-il été délivré ?"
+      }
+    },
+    "generic": {
       "pageName": {
         "recto": "Face avant",
         "verso": "Face arrière"
       },
-      "step01": {
-        "text": "Photographier la face avant de votre carte d’identité"
+      "recto": {
+        "text": "Ajouter la face avant"
       },
-      "step02": {
-        "text": "Photographier la face arrière de votre carte d’identité"
-      },
-      "step03": {
-        "inputLabel": "Numéro de la carte",
-        "text": "Quelle est le numéro de votre carte de crédit ? (inscrit à l'avant)"
-      },
-      "step04": {
-        "inputLabel": "Valable jusqu'au",
-        "text": "À quelle date votre carte a-t-elle été délivrée ? (inscrite à l’arrière)"
+      "verso": {
+        "text": "Ajouter la face arrière"
       }
     },
-    "Passport": {
-      "pageName": {
-        "recto": "TODO Passport recto",
-        "verso": "TODO Passport verso"
+    "IDCard": {
+      "number": {
+        "inputLabel": "Numéro de la carte",
+        "text": "Quel est le numéro de votre carte de crédit ? (inscrit à l'avant)"
       },
-      "step01": {
-        "text": "TODO Passport01"
+      "peremptionDate": {
+        "inputLabel": "Valable jusqu'au",
+        "text": "À quelle date votre carte a-t-elle été délivrée ? (inscrite à l’arrière)"
       },
-      "step02": {
-        "text": "TODO Passport02"
+      "recto": {
+        "text": "Photographier la face avant de votre carte d’identité"
       },
-      "step03": {
-        "inputLabel": "TODO Passport03 inputLabel",
-        "text": "TODO Passport03 text"
-      },
-      "step04": {
-        "inputLabel": "TODO Passport04 inputLabel",
-        "text": "TODO Passport04 text"
+      "verso": {
+        "text": "Photographier la face arrière de votre carte d’identité"
       }
     }
   },

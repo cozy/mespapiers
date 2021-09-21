@@ -1,109 +1,122 @@
 {
   "papersDefinitions": [
     {
-      "label": "national_id_card",
-      "icon": "people",
-      "featuredPlaceholder": true,
-      "placeholderIndex": 1,
-      "steps": [
-        {
-          "stepIndex": 1,
-          "model": "scan",
-          "page": "recto",
-          "pageName": "PaperJSON.IDCard.pageName.recto",
-          "illustration": "IlluIdCardRecto.svg",
-          "text": "PaperJSON.IDCard.step01.text"
-        },
-        {
-          "stepIndex": 2,
-          "model": "scan",
-          "page": "verso",
-          "pageName": "PaperJSON.IDCard.pageName.verso",
-          "illustration": "IlluIdCardVerso.svg",
-          "text": "PaperJSON.IDCard.step02.text"
-        },
-        {
-          "stepIndex": 3,
-          "model": "information",
-          "illustration": "IlluIdCardRectoHelp.svg",
-          "text": "PaperJSON.IDCard.step03.text",
-          "attributes": [
-            {
-              "name": "number",
-              "type": "frenchIdCardNumber",
-              "inputLabel": "PaperJSON.IDCard.step03.inputLabel"
-            }
-          ]
-        },
-        {
-          "stepIndex": 4,
-          "model": "information",
-          "illustration": "IlluIdCardVersoHelp.svg",
-          "text": "PaperJSON.IDCard.step04.text",
-          "attributes": [
-            {
-              "name": "peremptionDate",
-              "type": "date",
-              "inputLabel": "PaperJSON.IDCard.step04.inputLabel"
-            }
-          ]
-        }
-      ],
-      "featureDate": "peremptionDate",
-      "maxDisplay": 2
-    },
-
-    {
-      "label": "passport",
-      "icon": "people",
+      "label": "driver_license",
       "featuredPlaceholder": true,
       "placeholderIndex": 2,
+      "icon": "car",
+      "featureDate": "carObtentionDate",
+      "maxDisplay": 2,
       "steps": [
         {
           "stepIndex": 1,
           "model": "scan",
           "page": "recto",
-          "pageName": "PaperJSON.Passport.step01.pageName",
-          "illustration": "IlluIdCardRecto.svg",
-          "text": "PaperJSON.Passport.step01.text"
+          "pageName": "PaperJSON.generic.pageName.recto",
+          "illustration": "IlluDriverLicenseRecto.svg",
+          "text": "PaperJSON.generic.recto.text"
         },
         {
           "stepIndex": 2,
           "model": "scan",
           "page": "verso",
-          "pageName": "PaperJSON.Passport.step02.pageName",
-          "illustration": "IlluIdCardVerso.svg",
-          "text": "PaperJSON.Passport.step02.text"
+          "pageName": "PaperJSON.generic.pageName.verso",
+          "illustration": "IlluDriverLicenseVerso.svg",
+          "text": "PaperJSON.generic.verso.text"
         },
         {
           "stepIndex": 3,
           "model": "information",
-          "illustration": "IlluIdCardRectoHelp.svg",
-          "text": "PaperJSON.Passport.step03.text",
+          "illustration": "IlluDriverLicenseNumberHelp.svg",
+          "text": "PaperJSON.driverLicense.number.text",
           "attributes": [
             {
               "name": "number",
-              "type": "frenchIdCardNumber",
-              "inputLabel": "PaperJSON.Passport.step03.inputLabel"
+              "type": "Numbers12Digits",
+              "inputLabel": "PaperJSON.driverLicense.number.inputLabel"
             }
           ]
         },
         {
           "stepIndex": 4,
           "model": "information",
-          "illustration": "IlluIdCardVersoHelp.svg",
-          "text": "PaperJSON.Passport.step04.text",
+          "illustration": "IlluDriverLicenseObtentionDateHelp.svg",
+          "text": "PaperJSON.driverLicense.obtentionDate.text",
+          "attributes": [
+            {
+              "name": "carObtentionDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.driverLicense.carObtentionDate.inputLabel"
+            },
+            {
+              "name": "motoObtentionDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.driverLicense.motoObtentionDate.inputLabel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "national_insurance_card",
+      "featuredPlaceholder": true,
+      "placeholderIndex": 3,
+      "icon": "heart",
+      "featureDate": "carObtentionDate",
+      "maxDisplay": 2,
+      "steps": []
+    },
+    {
+      "label": "national_id_card",
+      "featuredPlaceholder": true,
+      "placeholderIndex": 1,
+      "icon": "people",
+      "featureDate": "peremptionDate",
+      "maxDisplay": 2,
+      "steps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "page": "recto",
+          "pageName": "PaperJSON.generic.pageName.recto",
+          "illustration": "IlluIdCardRecto.svg",
+          "text": "PaperJSON.IDCard.recto.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "scan",
+          "page": "verso",
+          "pageName": "PaperJSON.generic.pageName.verso",
+          "illustration": "IlluIdCardVerso.svg",
+          "text": "PaperJSON.IDCard.verso.text"
+        },
+        {
+          "stepIndex": 3,
+          "model": "information",
+          "illustration": "IlluIdCardNumberHelp.svg",
+          "text": "PaperJSON.IDCard.number.text",
+          "attributes": [
+            {
+              "name": "number",
+              "type": "frenchIdCardNumber",
+              "inputLabel": "PaperJSON.IDCard.number.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 4,
+          "model": "information",
+          "illustration": "IlluIdCardPeremptionDateHelp.svg",
+          "text": "PaperJSON.IDCard.peremptionDate.text",
           "attributes": [
             {
               "name": "peremptionDate",
               "type": "date",
-              "inputLabel": "PaperJSON.Passport.step04.inputLabel"
+              "inputLabel": "PaperJSON.IDCard.peremptionDate.inputLabel"
             }
           ]
         }
-      ],
-      "featureDate": "peremptionDate",
-      "maxDisplay": 2
+      ]
     }
   ]
 }
