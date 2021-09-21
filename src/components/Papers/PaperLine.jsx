@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import get from 'lodash/get'
 
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
@@ -22,19 +21,17 @@ const PaperLine = ({ paper, divider }) => {
   const paperDefinition = useMemo(
     () =>
       papersJSON.papersDefinitions.find(
-        p => p.label === get(paper, 'metadata.qualification.label', null)
+        p => p.label === paper?.metadata?.qualification?.label
       ),
     [paper]
   )
   const papersFeatureDate = useMemo(
     () =>
-      paperDefinition &&
-      paperDefinition.featureDate &&
-      get(paper, `metadata.qualification[${paperDefinition.featureDate}]`),
+      paperDefinition?.featureDate &&
+      paper?.metadata?.qualification?.[paperDefinition.featureDate],
     [paper, paperDefinition]
   )
-  const paperLabel =
-    get(paper, 'metadata.qualification.pageName', null) || paper.name
+  const paperLabel = paper?.metadata?.qualification?.pageName || paper.name
   const paperDate = f(papersFeatureDate || paper.created_at, 'DD/MM/YYYY')
 
   return (
@@ -49,7 +46,6 @@ const PaperLine = ({ paper, divider }) => {
         }
       >
         <ListItemIcon>
-          {/* TODO Improve Icon (dynamic rendering), https://github.com/cozy/mespapiers/pull/24#discussion_r686609349 */}
           <Icon icon={IconPdf} size={32} />
         </ListItemIcon>
         <ListItemText primary={paperLabel} secondary={paperDate} />
