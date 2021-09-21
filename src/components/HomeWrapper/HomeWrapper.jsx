@@ -2,7 +2,7 @@ import React from 'react'
 
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
-import { getAllPapers } from 'src/utils/queries'
+import { getAllQualificationLabel } from 'src/utils/queries'
 import { useQuery } from 'src/components/Hooks/useQuery'
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
 import StepperDialogWrapper from 'src/components/StepperDialogWrapper/StepperDialogWrapper'
@@ -11,7 +11,7 @@ import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
 
 const HomeWrapper = () => {
   const { isStepperDialogOpen } = useStepperDialogContext()
-  const { allPapers, isQueryLoading } = useQuery(getAllPapers)
+  const { allPapers, isQueryLoading } = useQuery(getAllQualificationLabel)
 
   return !isStepperDialogOpen ? (
     isQueryLoading ? (

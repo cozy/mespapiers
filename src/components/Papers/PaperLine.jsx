@@ -33,7 +33,9 @@ const PaperLine = ({ paper, divider }) => {
       get(paper, `metadata.qualification[${paperDefinition.featureDate}]`),
     [paper, paperDefinition]
   )
-  const date = f(papersFeatureDate || paper.created_at, 'DD/MM/YYYY')
+  const paperLabel =
+    get(paper, 'metadata.qualification.pageName', null) || paper.name
+  const paperDate = f(papersFeatureDate || paper.created_at, 'DD/MM/YYYY')
 
   return (
     <>
@@ -42,7 +44,7 @@ const PaperLine = ({ paper, divider }) => {
         button
         onClick={() =>
           history.push({
-            pathname: `file/${paper.id}`
+            pathname: `/file/${paper.id}`
           })
         }
       >
@@ -50,7 +52,7 @@ const PaperLine = ({ paper, divider }) => {
           {/* TODO Improve Icon (dynamic rendering), https://github.com/cozy/mespapiers/pull/24#discussion_r686609349 */}
           <Icon icon={IconPdf} size={32} />
         </ListItemIcon>
-        <ListItemText primary={paper.name} secondary={date} />
+        <ListItemText primary={paperLabel} secondary={paperDate} />
         <ListItemSecondaryAction>
           <IconButton className={'u-pr-1'}>
             <Icon icon={DotsIcon} size={16} />

@@ -6,7 +6,7 @@ import Fab from 'cozy-ui/transpiled/react/Fab'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import PlusIcon from 'cozy-ui/transpiled/react/Icons/Plus'
 
-import PapersList from 'src/components/Papers/PapersList'
+import PaperGroup from 'src/components/Papers/PaperGroup'
 import PlaceholdersList from 'src/components/Placeholders/PlaceholdersList'
 import HomeCloud from 'src/assets/icons/HomeCloud.svg'
 
@@ -25,7 +25,7 @@ const Home = ({ allPapers }) => {
           className={'u-ph-1'}
         />
       ) : (
-        <PapersList />
+        <PaperGroup />
       )}
       <PlaceholdersList />
       <Fab
