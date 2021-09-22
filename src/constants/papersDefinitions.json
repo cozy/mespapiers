@@ -58,6 +58,52 @@
       ]
     },
     {
+      "label": "family_record_book",
+      "featuredPlaceholder": false,
+      "icon": "people",
+      "featureDate": "LastUpdate",
+      "maxDisplay": 3,
+      "steps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "illustration": "illuGenericNewPage.svg",
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "pageIndex": 2,
+          "model": "information",
+          "illustration": "illuGenericDate.svg",
+          "text": "PaperJSON.generic.date.text",
+          "attributes": [
+            {
+              "name": "Date",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.date.inputLabel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "health_insurance_card",
+      "featuredPlaceholder": true,
+      "placeholderIndex": 4,
+      "icon": "invoice",
+      "featureDate": "expirationDate",
+      "maxDisplay": 2,
+      "steps": []
+    }
+    {
+      "label": "isp_invoice",
+      "featuredPlaceholder": true,
+      "placeholderIndex": 5,
+      "icon": "invoice",
+      "featureDate": "issueDate",
+      "maxDisplay": 6,
+      "steps": []
+    }
+    {
       "label": "national_insurance_card",
       "featuredPlaceholder": true,
       "placeholderIndex": 3,
@@ -71,7 +117,7 @@
       "featuredPlaceholder": true,
       "placeholderIndex": 1,
       "icon": "people",
-      "featureDate": "peremptionDate",
+      "featureDate": "expirationDate",
       "maxDisplay": 2,
       "steps": [
         {
@@ -117,6 +163,23 @@
           ]
         }
       ]
+    },
+    {
+      "label": "pay_sheet",
+      "featuredPlaceholder": false,
+      "icon": "finance",
+      "featureDate": "referenceDate",
+      "maxDisplay": 3,
+      "steps": []
+    },
+    {
+      "label": "taxe_notice",
+      "featuredPlaceholder": true,
+      "placeholderIndex": 6,
+      "icon": "finance",
+      "featureDate": "referenceYear",
+      "maxDisplay": 3,
+      "steps": []
     }
   ]
 }
