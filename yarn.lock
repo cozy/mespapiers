@@ -3828,10 +3828,10 @@ cozy-client@13.8.3:
     sift "^6.0.0"
     url-search-params-polyfill "^7.0.0"
 
-cozy-client@23.13.1:
-  version "23.13.1"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-23.13.1.tgz#f88415751b2c1a9618bfd6d2f772404c476b10fe"
-  integrity sha512-UQ3IqcbbKsIRYCbkwk/T+imX/S37fFhU2Tz7aVVwl7zU/EiqetOgiVJnqMswASjoMKTHOc6DBaokrkUzoeLvAw==
+cozy-client@24.9.0:
+  version "24.9.0"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-24.9.0.tgz#595bbc501d7b616e221ab1958189a52a99086aeb"
+  integrity sha512-FAjY/nDNXTICnHBwCkoN8Jl0lFQ6A4k9CKkXuzypLO7zBBGNUW9Mic3aUEL04+XafxGyFo+8V+A4yRGjh2Fl6Q==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
@@ -3840,18 +3840,19 @@ cozy-client@23.13.1:
     cozy-device-helper "^1.12.0"
     cozy-flags "2.7.1"
     cozy-logger "^1.6.0"
-    cozy-stack-client "^23.13.1"
+    cozy-stack-client "^24.8.1"
+    json-stable-stringify "^1.0.1"
     lodash "^4.17.13"
     microee "^0.0.6"
     node-fetch "^2.6.1"
-    open "^7.0.2"
+    open "^8.0.0"
     prop-types "^15.6.2"
     react-redux "^7.2.0"
     redux "3 || 4"
     redux-thunk "^2.3.0"
     server-destroy "^1.0.1"
     sift "^6.0.0"
-    url-search-params-polyfill "^7.0.0"
+    url-search-params-polyfill "^8.0.0"
 
 cozy-device-helper@1.8.0:
   version "1.8.0"
@@ -4026,10 +4027,10 @@ cozy-stack-client@^13.8.3:
     mime "^2.4.0"
     qs "^6.7.0"
 
-cozy-stack-client@^23.13.1:
-  version "23.13.1"
-  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-23.13.1.tgz#d3a02e71dde5c3c16f2e492f3d3ccf2b4670f63c"
-  integrity sha512-99WSNXE5UQOKoMrT6v2ltn1KqfTYDMxAe1OoSgzguMUwA47R/TnNJidRHSXhQW+dZL/W40I5QAkY0X8ZdH8Bxg==
+cozy-stack-client@^24.8.1:
+  version "24.8.1"
+  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-24.8.1.tgz#26ebb121b8cc19eb2853c28279a574d5e920b7f1"
+  integrity sha512-rESFGNMp1QSzcIfR3Z4w4FpT50yxKT/1dqIGawO5AxZlSb5upx2BaTwhi1SkdQAkQ+d1ooDihwju/6Dir6wnTw==
   dependencies:
     cozy-flags "2.7.1"
     detect-node "^2.0.4"
@@ -4441,6 +4442,11 @@ defaults@^1.0.3:
   integrity sha1-xlYFHpgX2f8I7YgUd/P+QBnz730=
   dependencies:
     clone "^1.0.2"
+
+define-lazy-prop@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/define-lazy-prop/-/define-lazy-prop-2.0.0.tgz#3f7ae421129bcaaac9bc74905c98a0009ec9ee7f"
+  integrity sha512-Ds09qNh8yw3khSjiJjiUInaGX9xlqZDY7JVryGxdxV7NPeuqQfplOpQ66yJFZut3jLa5zOwkXw1g9EI2uKh4Og==
 
 define-properties@^1.1.2, define-properties@^1.1.3:
   version "1.1.3"
@@ -6810,7 +6816,7 @@ is-directory@^0.3.1:
   resolved "https://registry.yarnpkg.com/is-directory/-/is-directory-0.3.1.tgz#61339b6f2475fc772fd9c9d83f5c8575dc154ae1"
   integrity sha1-YTObbyR1/Hcv2cnYP1yFddwVSuE=
 
-is-docker@^2.0.0:
+is-docker@^2.0.0, is-docker@^2.1.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/is-docker/-/is-docker-2.2.1.tgz#33eeabe23cfe86f14bde4408a02c0cfb853acdaa"
   integrity sha512-F+i2BKsFrH66iaUFc0woD8sLy8getkwTwtOBjvs56Cx4CgJDeKQeqfz8wAYiSb8JOprWhHH5p77PbmYCvvUuXQ==
@@ -7642,6 +7648,13 @@ json-stable-stringify-without-jsonify@^1.0.1:
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
   integrity sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=
 
+json-stable-stringify@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/json-stable-stringify/-/json-stable-stringify-1.0.1.tgz#9a759d39c5f2ff503fd5300646ed445f88c4f9af"
+  integrity sha1-mnWdOcXy/1A/1TAGRu1EX4jE+a8=
+  dependencies:
+    jsonify "~0.0.0"
+
 json-stringify-safe@5.0.1, json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
@@ -7677,6 +7690,11 @@ jsonfile@^4.0.0:
   integrity sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=
   optionalDependencies:
     graceful-fs "^4.1.6"
+
+jsonify@~0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
+  integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
 
 jsprim@^1.2.2:
   version "1.4.1"
@@ -8965,6 +8983,15 @@ open@^7.0.2:
   dependencies:
     is-docker "^2.0.0"
     is-wsl "^2.1.1"
+
+open@^8.0.0:
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/open/-/open-8.2.1.tgz#82de42da0ccbf429bc12d099dad2e0975e14e8af"
+  integrity sha512-rXILpcQlkF/QuFez2BJDf3GsqpjGKbkUUToAIGo9A0Q6ZkoSGogZJulrUdwRkrAsoQvoZsrjCYt8+zblOk7JQQ==
+  dependencies:
+    define-lazy-prop "^2.0.0"
+    is-docker "^2.1.1"
+    is-wsl "^2.2.0"
 
 opener@^1.5.1:
   version "1.5.2"
@@ -12179,6 +12206,11 @@ url-search-params-polyfill@^7.0.0:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/url-search-params-polyfill/-/url-search-params-polyfill-7.0.1.tgz#b900cd9a0d9d2ff757d500135256f2344879cbff"
   integrity sha512-bAw7L2E+jn9XHG5P9zrPnHdO0yJub4U+yXJOdpcpkr7OBd9T8oll4lUos0iSGRcDvfZoLUKfx9a6aNmIhJ4+mQ==
+
+url-search-params-polyfill@^8.0.0:
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/url-search-params-polyfill/-/url-search-params-polyfill-8.1.1.tgz#9e69e4dba300a71ae7ad3cead62c7717fd99329f"
+  integrity sha512-KmkCs6SjE6t4ihrfW9JelAPQIIIFbJweaaSLTh/4AO+c58JlDcb+GbdPt8yr5lRcFg4rPswRFRRhBGpWwh0K/Q==
 
 url-slug@2.0.0:
   version "2.0.0"
