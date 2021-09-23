@@ -14,11 +14,11 @@ describe('getPlaceholders', () => {
   it('should return correct list of placeholders whitout param', () => {
     const placeholders = getPlaceholders()
 
-    expect(placeholders).toHaveLength(7)
+    expect(placeholders).toHaveLength(6)
   })
   it('should return correct list of placeholders with param', () => {
     const placeholders = getPlaceholders(fakePapers)
 
-    expect(placeholders).toHaveLength(6)
+    expect(placeholders).toHaveLength(5)
   })
 })
