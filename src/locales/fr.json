@@ -1,5 +1,6 @@
 {
   "Acquisition": {
+    "retry": "Reprendre la photo",
     "success": "Acquisition réussie"
   },
   "common": {
@@ -27,13 +28,14 @@
     "takePic": "Prendre en photo"
   },
   "ImportDropdown": {
+    "title": "Ajout: %{name}",
     "importAuto": {
       "title": "Importer automatiquement",
       "text": "Connectez vos services d’énergie ou de telecom à votre Cozy pour récupérer vos factures. Vos justificatifs seront mis à jour automatiquement"
     },
     "importPicture": {
-      "title": "Prendre en photo",
-      "text": "Utiliser votre appareil photo ou un document existant"
+      "title": "Scanner avec mon appareil photo",
+      "text": "Utiliser votre téléphone ou un document existant"
     }
   },
   "InputDateAdapter": {
@@ -75,7 +77,7 @@
         "inputLabel": "Numéro de la carte",
         "text": "Quel est le numéro de votre carte de crédit ? (inscrit à l'avant)"
       },
-      "peremptionDate": {
+      "expirationDate": {
         "inputLabel": "Valable jusqu'au",
         "text": "À quelle date votre carte a-t-elle été délivrée ? (inscrite à l’arrière)"
       },

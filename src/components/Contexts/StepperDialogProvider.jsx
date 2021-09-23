@@ -33,9 +33,11 @@ const StepperDialogProvider = ({ children }) => {
   }, [allCurrentStepsDefinitions])
 
   const previousStep = useCallback(() => {
-    currentStepIndex > 1
-      ? setCurrentStepIndex(prev => prev - 1)
-      : setIsStepperDialogOpen(false)
+    if (currentStepIndex > 1) {
+      setCurrentStepIndex(prev => prev - 1)
+    } else {
+      setIsStepperDialogOpen(false)
+    }
   }, [currentStepIndex])
 
   const nextStep = useCallback(() => {

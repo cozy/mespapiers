@@ -5,7 +5,6 @@ import { ButtonLink } from 'cozy-ui/transpiled/react/Button'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import FileInput from 'cozy-ui/transpiled/react/FileInput'
-import { isMobileApp } from 'cozy-device-helper'
 
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import AcquisitionResult from 'src/components/ModelSteps/AcquisitionResult'
@@ -44,20 +43,19 @@ const Scan = ({ currentStep }) => {
           />
         </FileInput>
 
-        {isMobileApp() && (
-          <FileInput
-            onChange={onFileChange}
-            className={'u-w-100 u-ta-center'}
-            onClick={e => e.stopPropagation()}
-            capture={'environment'}
-          >
-            <ButtonLink
-              icon={Camera}
-              className={'u-w-100'}
-              label={t('Scan.takePic')}
-            />
-          </FileInput>
-        )}
+        <FileInput
+          onChange={onFileChange}
+          className={'u-w-100 u-ta-center'}
+          onClick={e => e.stopPropagation()}
+          capture={'environment'}
+          accept={'image/*,.pdf'}
+        >
+          <ButtonLink
+            icon={Camera}
+            className={'u-w-100'}
+            label={t('Scan.takePic')}
+          />
+        </FileInput>
       </DialogActions>
     </>
   )

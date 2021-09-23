@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
@@ -11,8 +12,8 @@ import en from '../locales/fr.json'
 
 const locales = { fr, en }
 
-const Qualification = ({ file, t, f }) => {
-  const { created_at, name, metadata } = file || {}
+const Qualification = ({ file, t }) => {
+  const { name, metadata } = file || {}
   const qualificationLabel = metadata?.qualification.label
 
   return (
@@ -25,12 +26,21 @@ const Qualification = ({ file, t, f }) => {
           disableTypography
           primary={
             <Typography variant={'caption'}>
-              {t('viewer.panel.qualification.qualification')}
+              {t('viewer.panel.qualification.date')}
             </Typography>
           }
-          secondary={
-            <Typography variant={'body1'}>{qualificationLabel}</Typography>
+          secondary={<Typography variant={'body1'}>In coming</Typography>}
+        />
+      </ListItem>
+      <ListItem>
+        <ListItemText
+          disableTypography
+          primary={
+            <Typography variant={'caption'}>
+              {t('viewer.panel.qualification.identity')}
+            </Typography>
           }
+          secondary={<Typography variant={'body1'}>In coming</Typography>}
         />
       </ListItem>
       <ListItem>
@@ -49,25 +59,10 @@ const Qualification = ({ file, t, f }) => {
           disableTypography
           primary={
             <Typography variant={'caption'}>
-              {t('viewer.panel.qualification.identity')}
+              {t('viewer.panel.qualification.qualification')}
             </Typography>
           }
-          secondary={<Typography variant={'body1'}>...</Typography>}
-        />
-      </ListItem>
-      <ListItem>
-        <ListItemText
-          disableTypography
-          primary={
-            <Typography variant={'caption'}>
-              {t('viewer.panel.qualification.date')}
-            </Typography>
-          }
-          secondary={
-            <Typography variant={'body1'}>
-              {f(created_at, 'DD/MM/YYYY')}
-            </Typography>
-          }
+          secondary={<Typography variant={'body1'}>In coming</Typography>}
         />
       </ListItem>
     </List>

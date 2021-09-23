@@ -168,7 +168,11 @@ const Placeholder = ({ placeholder, divider }) => {
 
       {isImportDropdownDisplayed && (
         <ActionMenu onClose={hideImportDropdown}>
-          <ImportDropdown label={placeholder.label} icon={placeholder.icon} />
+          <ImportDropdown
+            label={placeholder.label}
+            icon={placeholder.icon}
+            hasSteps={placeholder?.steps.length > 0}
+          />
         </ActionMenu>
       )}
       {isPapersLabelsList && (
