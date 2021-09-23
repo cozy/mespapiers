@@ -94,10 +94,19 @@
       ]
     },
     {
+      "label": "health_certificate",
+      "featuredPlaceholder": true,
+      "placeholderIndex": 7,
+      "icon": "health",
+      "featureDate": "issueDate",
+      "maxDisplay": 4,
+      "steps": []
+    }
+    {
       "label": "health_insurance_card",
       "featuredPlaceholder": true,
       "placeholderIndex": 4,
-      "icon": "invoice",
+      "icon": "health",
       "featureDate": "expirationDate",
       "maxDisplay": 2,
       "steps": []
