@@ -19,7 +19,10 @@ export const paperDefinitionsProptypes = PropTypes.shape({
   icon: PropTypes.string,
   featuredPlaceholder: PropTypes.bool.isRequired,
   placeholderIndex: PropTypes.number,
-  steps: PropTypes.arrayOf(paperDefinitionsStepProptypes).isRequired,
+  steps: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.arrayOf(paperDefinitionsStepProptypes).isRequired
+  ]),
   featureDate: PropTypes.string,
   maxDisplay: PropTypes.number.isRequired
 })

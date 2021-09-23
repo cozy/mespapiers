@@ -58,6 +58,69 @@
       ]
     },
     {
+      "label": "energy_invoice",
+      "featuredPlaceholder": false,
+      "icon": "bill",
+      "featureDate": "issueDate",
+      "maxDisplay": 4,
+      "steps": []
+    },
+    {
+      "label": "family_record_book",
+      "featuredPlaceholder": false,
+      "icon": "people",
+      "featureDate": "LastUpdate",
+      "maxDisplay": 3,
+      "steps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "pageIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.date.text",
+          "attributes": [
+            {
+              "name": "date",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.date.inputLabel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "birth_certificate",
+      "featuredPlaceholder": true,
+      "placeholderIndex": 7,
+      "icon": "heart",
+      "featureDate": "issueDate",
+      "maxDisplay": 4,
+      "steps": []
+    },
+    {
+      "label": "health_insurance_card",
+      "featuredPlaceholder": true,
+      "placeholderIndex": 4,
+      "icon": "heart",
+      "featureDate": "expirationDate",
+      "maxDisplay": 2,
+      "steps": []
+    },
+    {
+      "label": "isp_invoice",
+      "featuredPlaceholder": true,
+      "placeholderIndex": 5,
+      "icon": "bill",
+      "featureDate": "issueDate",
+      "maxDisplay": 6,
+      "steps": []
+    },
+    {
       "label": "national_insurance_card",
       "featuredPlaceholder": true,
       "placeholderIndex": 3,
@@ -71,7 +134,7 @@
       "featuredPlaceholder": true,
       "placeholderIndex": 1,
       "icon": "people",
-      "featureDate": "peremptionDate",
+      "featureDate": "expirationDate",
       "maxDisplay": 2,
       "steps": [
         {
@@ -106,17 +169,34 @@
         {
           "stepIndex": 4,
           "model": "information",
-          "illustration": "IlluIdCardPeremptionDateHelp.svg",
-          "text": "PaperJSON.IDCard.peremptionDate.text",
+          "illustration": "IlluIdCardExpirationDateHelp.svg",
+          "text": "PaperJSON.IDCard.expirationDate.text",
           "attributes": [
             {
-              "name": "peremptionDate",
+              "name": "expirationDate",
               "type": "date",
-              "inputLabel": "PaperJSON.IDCard.peremptionDate.inputLabel"
+              "inputLabel": "PaperJSON.IDCard.expirationDate.inputLabel"
             }
           ]
         }
       ]
+    },
+    {
+      "label": "pay_sheet",
+      "featuredPlaceholder": false,
+      "icon": "bill",
+      "featureDate": "referenceDate",
+      "maxDisplay": 3,
+      "steps": []
+    },
+    {
+      "label": "tax_notice",
+      "featuredPlaceholder": true,
+      "placeholderIndex": 6,
+      "icon": "bank",
+      "featureDate": "referenceYear",
+      "maxDisplay": 3,
+      "steps": []
     }
   ]
 }

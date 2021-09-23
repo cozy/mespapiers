@@ -16,7 +16,7 @@ import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogCo
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import Konnector from 'src/assets/icons/Konnectors.svg'
 
-const ImportDropdown = ({ label, icon }) => {
+const ImportDropdown = ({ label, icon, hasSteps }) => {
   const { t } = useI18n()
   const scannerT = useScannerI18n()
   const [showModal, setShowModal] = useState(false)
@@ -49,11 +49,26 @@ const ImportDropdown = ({ label, icon }) => {
             }
           />
           <Typography variant="h6" className="u-mh-1">
-            {scannerT(`items.${label}`)}
+            {t('ImportDropdown.title', {
+              name: scannerT(`items.${label}`)
+            })}
           </Typography>
         </ListItem>
       </List>
       <List>
+        <ListItem
+          onClick={() => hasSteps && setShowModal(true)}
+          disabled={!hasSteps}
+        >
+          <ListItemIcon>
+            <Icon icon={Camera} size={16} />
+          </ListItemIcon>
+          <ListItemText
+            primary={t('ImportDropdown.importPicture.title')}
+            secondary={t('ImportDropdown.importPicture.text')}
+            ellipsis={false}
+          />
+        </ListItem>
         <ListItem disabled>
           <ListItemIcon>
             <Icon icon={Konnector} size={24} />
@@ -64,16 +79,6 @@ const ImportDropdown = ({ label, icon }) => {
             ellipsis={false}
           />
         </ListItem>
-        <ListItem onClick={() => setShowModal(true)}>
-          <ListItemIcon>
-            <Icon icon={Camera} size={16} />
-          </ListItemIcon>
-          <ListItemText
-            primary={t('ImportDropdown.importPicture.title')}
-            secondary={t('ImportDropdown.importPicture.text')}
-            ellipsis={false}
-          />
-        </ListItem>
       </List>
     </>
   )
@@ -81,7 +86,8 @@ const ImportDropdown = ({ label, icon }) => {
 
 ImportDropdown.propTypes = {
   label: PropTypes.string.isRequired,
-  icon: iconPropType.isRequired
+  icon: iconPropType.isRequired,
+  hasSteps: PropTypes.bool
 }
 
 export default ImportDropdown

@@ -1,5 +1,6 @@
 {
   "Acquisition": {
+    "retry": "Take over",
     "success": "Acquisition success"
   },
   "common": {
@@ -27,12 +28,13 @@
     "takePic": "Take a picture"
   },
   "ImportDropdown": {
+    "title": "Add: %{name}",
     "importAuto": {
       "title": "Auto import",
       "text": "Connect your energy or telecom services to your Cozy to get your bills. Your supporting documents will be updated automatically"
     },
     "importPicture": {
-      "title": "Take a picture",
+      "title": "Scan with my camera",
       "text": "Use your camera or an existing document"
     }
   },
@@ -75,7 +77,7 @@
         "inputLabel": "Card number",
         "text": "What is your credit card number? (written on the front)"
       },
-      "peremptionDate": {
+      "expirationDate": {
         "inputLabel": "Expiration date",
         "text": "When was your card issued? (written on the back)"
       },

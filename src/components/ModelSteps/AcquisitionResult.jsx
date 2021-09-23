@@ -42,9 +42,7 @@ const AcquisitionResult = ({ file, setFile, currentStep }) => {
   return (
     <>
       <div className={!isMobile ? 'u-mh-2' : ''}>
-        <div
-          className={'u-flex u-flex-column u-flex-items-center u-mt-3 u-mb-1'}
-        >
+        <div className={'u-flex u-flex-column u-flex-items-center u-mv-1'}>
           <Avatar
             icon={Check}
             size="xlarge"
@@ -57,11 +55,14 @@ const AcquisitionResult = ({ file, setFile, currentStep }) => {
           <Typography variant={'h5'}>{t('Acquisition.success')}</Typography>
         </div>
         <Card className={'u-ta-center'}>
-          <div className={'u-mb-1'}>
+          <div className={'u-mb-1 u-h-5'}>
             {!isPDF(file) ? (
               <img
                 src={URL.createObjectURL(file)}
-                style={{ maxWidth: '100%' }}
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '100%'
+                }}
               />
             ) : (
               <>
@@ -71,7 +72,7 @@ const AcquisitionResult = ({ file, setFile, currentStep }) => {
             )}
           </div>
           <Button
-            label={t('common.replace')}
+            label={t('Acquisition.retry')}
             theme={'text'}
             onClick={() => setFile(null)}
           />
