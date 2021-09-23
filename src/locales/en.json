@@ -7,6 +7,10 @@
     "next": "Next",
     "replace": "Replace"
   },
+  "folder": {
+    "administrative": "Administrative",
+    "papers": "Papers"
+  },
   "ContactAdapter": {
     "description": "Whose ID card is this?",
     "me": "Me (%{name})",
@@ -40,10 +44,10 @@
   },
   "PaperJSON": {
     "driverLicence": {
-      "carOptentionDate": {
+      "carObtentionDate": {
         "inputLabel": "Date of obtaining license A (car)"
       },
-      "motoOptentionDate": {
+      "motoObtentionDate": {
         "inputLabel": "Date of obtaining license B (moto)"
       },
       "number": {

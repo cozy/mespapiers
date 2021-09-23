@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
+import { useClient } from 'cozy-client'
 import Paper from 'cozy-ui/transpiled/react/Paper'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
@@ -13,29 +14,28 @@ import Avatar from 'cozy-ui/transpiled/react/Avatar'
 import RightIcon from 'cozy-ui/transpiled/react/Icons/Right'
 
 import { useFormDataContext } from 'src/components/Hooks/useFormDataContext'
-import { useQuery } from 'src/components/Hooks/useQuery'
-import { getCurrentUser } from 'src/utils/queries'
+import { fetchCurrentUser } from 'src/utils/fetchCurrentUser'
 
 const ContactAdapter = () => {
+  const client = useClient()
   const { t } = useI18n()
-  const { setFormData } = useFormDataContext()
-  const ref = useRef(null)
-  const { data: currentUser } = useQuery(getCurrentUser)
-  const [contactId, setContactId] = useState('')
+  const { formSubmit } = useFormDataContext()
+  const [currentUser, setCurrentUser] = useState(null)
 
   useEffect(() => {
-    setFormData(prev => ({
-      ...prev,
-      contactId
-    }))
-  }, [contactId, setFormData])
+    let isMounted = true
+    ;(async () => {
+      const user = await fetchCurrentUser(client)
+      isMounted && setCurrentUser(user)
+    })()
+
+    return () => {
+      isMounted = false
+    }
+  }, [client])
 
   return (
-    <Paper
-      elevation={2}
-      onClick={() => setContactId(currentUser?.[0]?.id || '')}
-      className={'u-mt-1'}
-    >
+    <Paper elevation={2} onClick={formSubmit} className={'u-mt-1'}>
       <List>
         <ListItem>
           <ListItemIcon>
@@ -46,11 +46,10 @@ const ContactAdapter = () => {
                 backgroundColor: 'var(--primaryColorLightest)'
               }}
             />
-            <button type="submit" hidden ref={ref} />
           </ListItemIcon>
           <ListItemText
             primary={t('ContactAdapter.me', {
-              name: currentUser?.[0]?.fullname || ''
+              name: currentUser?.fullname || ''
             })}
           />
         </ListItem>

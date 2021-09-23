@@ -25,16 +25,16 @@ const AcquisitionResult = ({ file, setFile, currentStep }) => {
   const onValid = () => {
     setFormData(prev => ({
       ...prev,
-      data: {
+      data: [
         ...prev.data,
-        [currentStep.stepIndex]: {
+        {
           file,
           fileMetadata: {
             page: currentStep.page,
             pageName: currentStep.pageName
           }
         }
-      }
+      ]
     }))
     nextStep()
   }

@@ -17,7 +17,7 @@ import papersJSON from 'src/constants/papersDefinitions.json'
 
 const PaperLine = ({ paper, divider }) => {
   const history = useHistory()
-  const { f } = useI18n()
+  const { f, t } = useI18n()
   const paperDefinition = useMemo(
     () =>
       papersJSON.papersDefinitions.find(
@@ -31,7 +31,7 @@ const PaperLine = ({ paper, divider }) => {
       paper?.metadata?.qualification?.[paperDefinition.featureDate],
     [paper, paperDefinition]
   )
-  const paperLabel = paper?.metadata?.qualification?.pageName || paper.name
+  const paperLabel = paper?.metadata?.qualification?.pageName
   const paperDate = f(papersFeatureDate || paper.created_at, 'DD/MM/YYYY')
 
   return (
@@ -48,7 +48,10 @@ const PaperLine = ({ paper, divider }) => {
         <ListItemIcon>
           <Icon icon={IconPdf} size={32} />
         </ListItemIcon>
-        <ListItemText primary={paperLabel} secondary={paperDate} />
+        <ListItemText
+          primary={paperLabel ? t(paperLabel) : paper.name}
+          secondary={paperDate}
+        />
         <ListItemSecondaryAction>
           <IconButton className={'u-pr-1'}>
             <Icon icon={DotsIcon} size={16} />

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import { Empty } from 'cozy-ui/transpiled/react'
@@ -10,12 +11,12 @@ import PaperGroup from 'src/components/Papers/PaperGroup'
 import PlaceholdersList from 'src/components/Placeholders/PlaceholdersList'
 import HomeCloud from 'src/assets/icons/HomeCloud.svg'
 
-const Home = ({ allPapers }) => {
+const Home = ({ hasPapers }) => {
   const { t } = useI18n()
 
   return (
     <>
-      {allPapers.length === 0 ? (
+      {!hasPapers ? (
         <Empty
           icon={HomeCloud}
           iconSize={'large'}
@@ -38,6 +39,10 @@ const Home = ({ allPapers }) => {
       </Fab>
     </>
   )
+}
+
+Home.propTypes = {
+  hasPapers: PropTypes.bool.isRequired
 }
 
 export default Home

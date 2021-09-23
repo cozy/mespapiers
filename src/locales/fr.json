@@ -7,6 +7,10 @@
     "next": "Suivant",
     "replace": "Remplacer"
   },
+  "folder": {
+    "administrative": "Administratif",
+    "papers": "Papiers"
+  },
   "ContactAdapter": {
     "description": "À qui appartient cette carte d’identité ?",
     "me": "Moi (%{name})",
@@ -40,10 +44,10 @@
   },
   "PaperJSON": {
     "driverLicense": {
-      "carOptentionDate": {
+      "carObtentionDate": {
         "inputLabel": "Date d'obtention du permis A (voiture)"
       },
-      "motoOptentionDate": {
+      "motoObtentionDate": {
         "inputLabel": "Date d'obtention du permis B (moto)"
       },
       "number": {
