@@ -28,7 +28,7 @@
     "takePic": "Prendre en photo"
   },
   "ImportDropdown": {
-    "title": "Ajout: %{name}",
+    "title": "Ajout : %{name}",
     "importAuto": {
       "title": "Importer automatiquement",
       "text": "Connectez vos services d’énergie ou de telecom à votre Cozy pour récupérer vos factures. Vos justificatifs seront mis à jour automatiquement"

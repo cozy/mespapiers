@@ -95,7 +95,7 @@
     },
     {
       "label": "birth_certificate",
-      "featuredPlaceholder": true,
+      "featuredPlaceholder": false,
       "placeholderIndex": 7,
       "icon": "heart",
       "featureDate": "issueDate",
