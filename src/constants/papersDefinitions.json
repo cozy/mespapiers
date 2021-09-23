@@ -101,7 +101,7 @@
       "featureDate": "issueDate",
       "maxDisplay": 4,
       "steps": []
-    }
+    },
     {
       "label": "health_insurance_card",
       "featuredPlaceholder": true,
@@ -110,7 +110,7 @@
       "featureDate": "expirationDate",
       "maxDisplay": 2,
       "steps": []
-    }
+    },
     {
       "label": "isp_invoice",
       "featuredPlaceholder": true,
@@ -119,7 +119,7 @@
       "featureDate": "issueDate",
       "maxDisplay": 6,
       "steps": []
-    }
+    },
     {
       "label": "national_insurance_card",
       "featuredPlaceholder": true,
