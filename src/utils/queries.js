@@ -47,19 +47,6 @@ export const getPapersByLabel = label => ({
   }
 })
 
-export const getCurrentUser = {
-  definition: () =>
-    Q(CONTACTS_DOCTYPE)
-      .where({
-        me: { $exists: true }
-      })
-      .indexFields(['me']),
-  options: {
-    as: `getCurrentUser`,
-    fetchPolicy: defaultFetchPolicy
-  }
-}
-
 export const getContactById = id => ({
   definition: () =>
     Q(CONTACTS_DOCTYPE)

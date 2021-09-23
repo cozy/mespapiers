@@ -9,10 +9,10 @@ jest.mock('cozy-scanner', () => ({
   getBoundT: jest.fn(() => jest.fn())
 }))
 
-const setup = (data = []) => {
+const setup = (hasPapers = false) => {
   return render(
     <AppLike>
-      <Home allPapers={data} />
+      <Home hasPapers={hasPapers} />
     </AppLike>
   )
 }

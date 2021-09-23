@@ -3,11 +3,8 @@ const { ensureMagicFolder, getReferencedFolder } = models.folder
 
 import getOrCreateFolderWithReference from 'src/utils/getFolderWithReference'
 
-jest.mock('src/utils/client', () => ({
-  getClient: jest.fn()
-}))
-
 jest.mock('cozy-client', () => ({
+  ...jest.requireActual('cozy-client'),
   models: {
     folder: {
       ensureMagicFolder: jest.fn(),
