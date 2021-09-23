@@ -64,7 +64,7 @@
       "featureDate": "issueDate",
       "maxDisplay": 4,
       "steps": []
-    }
+    },
     {
       "label": "family_record_book",
       "featuredPlaceholder": false,
