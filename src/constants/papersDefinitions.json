@@ -58,6 +58,14 @@
       ]
     },
     {
+      "label": "energy_invoice",
+      "featuredPlaceholder": false,
+      "icon": "invoice",
+      "featureDate": "issueDate",
+      "maxDisplay": 4,
+      "steps": []
+    }
+    {
       "label": "family_record_book",
       "featuredPlaceholder": false,
       "icon": "people",
