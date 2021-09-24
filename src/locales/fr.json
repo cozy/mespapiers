@@ -47,10 +47,10 @@
   "PaperJSON": {
     "driverLicense": {
       "carObtentionDate": {
-        "inputLabel": "Date d'obtention du permis A (voiture)"
+        "inputLabel": "Date d'obtention du permis B (voiture)"
       },
       "motoObtentionDate": {
-        "inputLabel": "Date d'obtention du permis B (moto)"
+        "inputLabel": "Date d'obtention du permis A (moto)"
       },
       "number": {
         "inputLabel": "Numéro de votre permis",
@@ -75,7 +75,7 @@
     "IDCard": {
       "number": {
         "inputLabel": "Numéro de la carte",
-        "text": "Quel est le numéro de votre carte de crédit ? (inscrit à l'avant)"
+        "text": "Saisir le numéro de votre carte (inscrite à l’avant)"
       },
       "expirationDate": {
         "inputLabel": "Valable jusqu'au",
