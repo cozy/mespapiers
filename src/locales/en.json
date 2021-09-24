@@ -47,10 +47,10 @@
   "PaperJSON": {
     "driverLicence": {
       "carObtentionDate": {
-        "inputLabel": "Date of obtaining license A (car)"
+        "inputLabel": "Date of obtaining license B (car)"
       },
       "motoObtentionDate": {
-        "inputLabel": "Date of obtaining license B (moto)"
+        "inputLabel": "Date of obtaining license A (moto)"
       },
       "number": {
         "inputLabel": "Your license number",
