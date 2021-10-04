@@ -20,7 +20,8 @@ export const getAllQualificationLabel = {
         type: 'file',
         trashed: false
       })
-      .indexFields(['metadata.qualification.label']),
+      .indexFields(['metadata.qualification.label'])
+      .sortBy([{ 'metadata.qualification.label': 'desc' }]),
   options: {
     as: `getAllQualificationLabelqq`,
     fetchPolicy: defaultFetchPolicy
@@ -40,7 +41,7 @@ export const getPapersByLabel = label => ({
         trashed: false
       })
       .indexFields(['name', 'metadata.qualification'])
-      .sortBy([{ name: 'desc' }]),
+      .sortBy([{ name: 'asc' }]),
   options: {
     as: `getPapersByLabel:${label}`,
     fetchPolicy: defaultFetchPolicy
