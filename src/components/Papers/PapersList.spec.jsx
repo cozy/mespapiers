@@ -1,16 +1,19 @@
 'use strict'
 import React from 'react'
-import { render } from '@testing-library/react'
+import { waitFor, render } from '@testing-library/react'
 
-import { useQuery } from 'cozy-client'
-import { getBoundT } from 'cozy-scanner'
+import { useQuery as useQueryCozy } from 'cozy-client'
 
 import AppLike from 'test/components/AppLike'
 import PapersList from 'src/components/Papers/PapersList'
 
-const fakeData = [{ id: '00', name: 'ID card' }, { id: '01', name: 'Passport' }]
+const fakeData = {
+  data: [{ id: '00', name: 'ID card' }, { id: '01', name: 'Passport' }]
+}
 
-jest.mock('cozy-client/dist/hooks/useQuery', () => jest.fn())
+jest.mock('cozy-client/dist/hooks/useQuery', () =>
+  jest.fn(() => ({ data: [] }))
+)
 jest.mock('cozy-scanner', () => ({
   getBoundT: jest.fn(() => jest.fn())
 }))
@@ -28,25 +31,21 @@ describe('PapersList components:', () => {
     jest.clearAllMocks()
   })
 
-  it('should be rendered correctly', () => {
-    useQuery.mockReturnValueOnce({
-      data: []
-    })
+  it('should be rendered correctly', async () => {
     const { container } = setup()
 
-    expect(container).toBeDefined()
+    await waitFor(() => {
+      expect(container).toBeDefined()
+    })
   })
 
-  it('should display "ID card" & "Passport"', () => {
-    getBoundT
-      .mockReturnValueOnce(() => 'ID card')
-      .mockReturnValueOnce(() => 'Passport')
-    useQuery.mockReturnValueOnce({
-      data: fakeData
-    })
+  it('should display "ID card" & "Passport"', async () => {
+    useQueryCozy.mockReturnValueOnce(fakeData)
     const { getByText } = setup()
 
-    expect(getByText('ID card'))
-    expect(getByText('Passport'))
+    await waitFor(() => {
+      expect(getByText('ID card'))
+      expect(getByText('Passport'))
+    })
   })
 })
