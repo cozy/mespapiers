@@ -30,8 +30,7 @@ const AcquisitionResult = ({ file, setFile, currentStep }) => {
         {
           file,
           fileMetadata: {
-            page: currentStep.page,
-            pageName: currentStep.pageName
+            page: currentStep.page
           }
         }
       ]

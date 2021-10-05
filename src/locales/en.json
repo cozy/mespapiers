@@ -61,14 +61,10 @@
       }
     },
     "generic": {
-      "pageName": {
-        "recto": "Front side",
-        "verso": "Back side"
-      },
-      "recto": {
+      "front": {
         "text": "Add front side"
       },
-      "verso": {
+      "back": {
         "text": "Add back side"
       }
     },
@@ -81,15 +77,19 @@
         "inputLabel": "Expiration date",
         "text": "When was your card issued? (written on the back)"
       },
-      "recto": {
+      "front": {
         "text": "Take a picture of the front of your ID card"
       },
-      "verso": {
+      "back": {
         "text": "Take a picture of the back of your ID card"
       }
     }
   },
   "PapersList": {
+    "label": {
+      "front": "Front side",
+      "back": "Back side"
+    },
     "subheader": "Existing"
   },
   "PlaceholdersList": {

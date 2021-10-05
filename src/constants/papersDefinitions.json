@@ -11,18 +11,16 @@
         {
           "stepIndex": 1,
           "model": "scan",
-          "page": "recto",
-          "pageName": "PaperJSON.generic.pageName.recto",
-          "illustration": "IlluDriverLicenseRecto.svg",
-          "text": "PaperJSON.generic.recto.text"
+          "page": "front",
+          "illustration": "IlluDriverLicenseFront.svg",
+          "text": "PaperJSON.generic.front.text"
         },
         {
           "stepIndex": 2,
           "model": "scan",
-          "page": "verso",
-          "pageName": "PaperJSON.generic.pageName.verso",
-          "illustration": "IlluDriverLicenseVerso.svg",
-          "text": "PaperJSON.generic.verso.text"
+          "page": "back",
+          "illustration": "IlluDriverLicenseBack.svg",
+          "text": "PaperJSON.generic.back.text"
         },
         {
           "stepIndex": 3,
@@ -140,18 +138,16 @@
         {
           "stepIndex": 1,
           "model": "scan",
-          "page": "recto",
-          "pageName": "PaperJSON.generic.pageName.recto",
-          "illustration": "IlluIdCardRecto.svg",
-          "text": "PaperJSON.IDCard.recto.text"
+          "page": "front",
+          "illustration": "IlluIdCardFront.svg",
+          "text": "PaperJSON.IDCard.front.text"
         },
         {
           "stepIndex": 2,
           "model": "scan",
-          "page": "verso",
-          "pageName": "PaperJSON.generic.pageName.verso",
-          "illustration": "IlluIdCardVerso.svg",
-          "text": "PaperJSON.IDCard.verso.text"
+          "page": "back",
+          "illustration": "IlluIdCardBack.svg",
+          "text": "PaperJSON.IDCard.back.text"
         },
         {
           "stepIndex": 3,
