@@ -15,6 +15,8 @@ import IconPdf from 'cozy-ui/transpiled/react/Icons/FileTypePdf'
 
 import papersJSON from 'src/constants/papersDefinitions.json'
 
+const validPageName = page => page === 'front' || page === 'back'
+
 const PaperLine = ({ paper, divider }) => {
   const history = useHistory()
   const { f, t } = useI18n()
@@ -31,7 +33,7 @@ const PaperLine = ({ paper, divider }) => {
       paper?.metadata?.qualification?.[paperDefinition.featureDate],
     [paper, paperDefinition]
   )
-  const paperLabel = paper?.metadata?.qualification?.pageName
+  const paperLabel = paper?.metadata?.qualification?.page
   const paperDate = f(papersFeatureDate || paper.created_at, 'DD/MM/YYYY')
 
   return (
@@ -49,7 +51,11 @@ const PaperLine = ({ paper, divider }) => {
           <Icon icon={IconPdf} size={32} />
         </ListItemIcon>
         <ListItemText
-          primary={paperLabel ? t(paperLabel) : paper.name}
+          primary={
+            validPageName(paperLabel)
+              ? t(`PapersList.label.${paperLabel}`)
+              : paper.name
+          }
           secondary={paperDate}
         />
         <ListItemSecondaryAction>

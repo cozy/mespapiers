@@ -61,14 +61,10 @@
       }
     },
     "generic": {
-      "pageName": {
-        "recto": "Face avant",
-        "verso": "Face arrière"
-      },
-      "recto": {
+      "front": {
         "text": "Ajouter la face avant"
       },
-      "verso": {
+      "back": {
         "text": "Ajouter la face arrière"
       }
     },
@@ -81,15 +77,19 @@
         "inputLabel": "Valable jusqu'au",
         "text": "À quelle date votre carte a-t-elle été délivrée ? (inscrite à l’arrière)"
       },
-      "recto": {
+      "front": {
         "text": "Photographier la face avant de votre carte d’identité"
       },
-      "verso": {
+      "back": {
         "text": "Photographier la face arrière de votre carte d’identité"
       }
     }
   },
   "PapersList": {
+    "label": {
+      "front": "Face avant",
+      "back": "Face arrière"
+    },
     "subheader": "Existants"
   },
   "PlaceholdersList": {

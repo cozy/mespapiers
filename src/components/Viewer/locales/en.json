@@ -10,9 +10,20 @@
       "title": "Useful information",
       "qualification": {
         "qualification": "Qualification",
-        "label": "Label",
+        "label": {
+          "title": "Label",
+          "front": "Front side",
+          "back": "Back side"
+        },
         "identity": "Identity",
-        "date": "Delivered on"
+        "date": {
+          "title": {
+            "obtentionDate": "Delivered on",
+            "carObtentionDate": "Delivered on",
+            "motoObtentionDate": "Delivered on",
+            "expirationDate": "Expiration date"
+          }
+        }
       }
     }
   }
