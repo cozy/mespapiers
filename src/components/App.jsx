@@ -13,6 +13,7 @@ import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import IconButton from 'cozy-ui/transpiled/react/IconButton'
 import { Icon } from 'cozy-ui/transpiled/react'
 import DotsIcon from 'cozy-ui/transpiled/react/Icons/Dots'
+import { RealTimeQueries } from 'cozy-client'
 
 import HomeWrapper from 'src/components/HomeWrapper/HomeWrapper'
 import PapersList from 'src/components/Papers/PapersList'
@@ -53,8 +54,9 @@ export const App = () => {
               <Redirect from="*" to="/" />
             </Switch>
           </Content>
+          <RealTimeQueries doctype="io.cozy.files" />
+          <Alerter />
         </Main>
-        <Alerter />
         <IconSprite />
       </Layout>
     </HashRouter>
