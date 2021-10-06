@@ -1,5 +1,4 @@
 import React, { createContext, useState } from 'react'
-import { useHistory } from 'react-router-dom'
 
 import { models, useClient } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
@@ -14,9 +13,11 @@ const FormDataContext = createContext()
 
 const FormDataProvider = ({ children }) => {
   const client = useClient()
-  const history = useHistory()
   const { t } = useI18n()
-  const { stepperDialogTitle } = useStepperDialogContext()
+  const {
+    stepperDialogTitle,
+    setIsStepperDialogOpen
+  } = useStepperDialogContext()
   const [formData, setFormData] = useState({
     metadata: {},
     data: []
@@ -43,8 +44,8 @@ const FormDataProvider = ({ children }) => {
           metadata: { qualification: newQualification },
           dirId: appFolderID
         })
+        setIsStepperDialogOpen(false)
       }
-      history.go(0)
     })()
   }
 
