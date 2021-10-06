@@ -5,32 +5,35 @@ const StepperDialogContext = createContext()
 const StepperDialogProvider = ({ children }) => {
   const [isStepperDialogOpen, setIsStepperDialogOpen] = useState(false)
   const [stepperDialogTitle, setStepperDialogTitle] = useState('')
-  const [allCurrentStepsDefinitions, setAllCurrentStepsDefinitions] = useState(
-    []
-  )
+
   const [allCurrentSteps, setAllCurrentSteps] = useState([])
   const [currentStepIndex, setCurrentStepIndex] = useState(1)
+  const [currentDefinition, setCurrentDefinition] = useState(null)
 
   useEffect(() => {
-    if (allCurrentStepsDefinitions.length > 0) {
-      const allCurrentStepsDefinitionsSorted = allCurrentStepsDefinitions.sort(
-        (a, b) => a.stepIndex - b.stepIndex
-      )
+    if (currentDefinition) {
+      setStepperDialogTitle(currentDefinition.label)
+      const allCurrentStepsDefinitions = currentDefinition.steps
+      if (allCurrentStepsDefinitions.length > 0) {
+        const allCurrentStepsDefinitionsSorted = allCurrentStepsDefinitions.sort(
+          (a, b) => a.stepIndex - b.stepIndex
+        )
 
-      const {
-        stepIndex: lastStepIndex
-      } = allCurrentStepsDefinitionsSorted.slice(-1).pop()
-      setAllCurrentSteps([
-        ...allCurrentStepsDefinitionsSorted,
-        {
-          stepIndex: lastStepIndex + 1,
-          illustration: 'Account.svg',
-          text: 'ContactAdapter.description',
-          model: 'contact'
-        }
-      ])
+        const {
+          stepIndex: lastStepIndex
+        } = allCurrentStepsDefinitionsSorted.slice(-1).pop()
+        setAllCurrentSteps([
+          ...allCurrentStepsDefinitionsSorted,
+          {
+            stepIndex: lastStepIndex + 1,
+            illustration: 'Account.svg',
+            text: 'ContactAdapter.description',
+            model: 'contact'
+          }
+        ])
+      }
     }
-  }, [allCurrentStepsDefinitions])
+  }, [currentDefinition])
 
   const previousStep = useCallback(() => {
     if (currentStepIndex > 1) {
@@ -50,9 +53,10 @@ const StepperDialogProvider = ({ children }) => {
     allCurrentSteps,
     currentStepIndex,
     stepperDialogTitle,
+    currentDefinition,
     setIsStepperDialogOpen,
     setCurrentStepIndex,
-    setAllCurrentStepsDefinitions,
+    setCurrentDefinition,
     setStepperDialogTitle,
     previousStep,
     nextStep

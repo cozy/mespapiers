@@ -91,10 +91,7 @@ const Placeholder = ({ placeholder, divider }) => {
     false
   )
   const [isPapersLabelsList, setIsPapersLabelsList] = useState(false)
-  const {
-    setAllCurrentStepsDefinitions,
-    setStepperDialogTitle
-  } = useStepperDialogContext()
+  const { setCurrentDefinition } = useStepperDialogContext()
 
   const hideImportDropdown = useCallback(
     () => setIsImportDropdownDisplayed(false),
@@ -106,12 +103,11 @@ const Placeholder = ({ placeholder, divider }) => {
     )
     if (formModel) {
       // Set Dialog modal
-      setStepperDialogTitle(formModel.label)
-      setAllCurrentStepsDefinitions(formModel.steps)
+      setCurrentDefinition(formModel)
       // Set ActionMenu
       setIsImportDropdownDisplayed(true)
     }
-  }, [placeholder.label, setAllCurrentStepsDefinitions, setStepperDialogTitle])
+  }, [placeholder.label, setCurrentDefinition])
 
   const showAllPapersChoices = useCallback(
     () => setIsPapersLabelsList(true),
