@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "engines": {
     "node": "~16"
-    },
+  },
   "scripts": {
     "lint": "yarn lint:js && yarn lint:styles",
     "lint:js": "cs lint '{src,test}/**/*.{js,jsx}'",
@@ -54,6 +54,7 @@
     "cozy-client": "24.9.0",
     "cozy-doctypes": "1.82.2",
     "cozy-harvest-lib": "6.4.0",
+    "cozy-realtime": "3.13.1",
     "cozy-scanner": "1.1.1",
     "cozy-scripts": "5.10.0",
     "cozy-sharing": "3.5.0",
