@@ -15,14 +15,14 @@ const locales = { fr, en }
 
 const validPageLabel = page => page === 'front' || page === 'back'
 
-const Qualification = ({ file, t, f, lang }) => {
+const Qualification = ({ file = {}, t, f, lang }) => {
   const scannerT = getBoundT(lang)
   const client = useClient()
   const [currentUser, setCurrentUser] = useState(null)
 
-  const { name: filename, metadata } = file || {}
-  const { qualification } = metadata || {}
-  const { label, page: pageLabel, featureDate } = qualification || {}
+  const { name: filename, metadata = {} } = file
+  const { qualification = {} } = metadata
+  const { label, page: pageLabel, featureDate } = qualification
 
   // TODO Improve it when other contact choices are needed
   useEffect(() => {

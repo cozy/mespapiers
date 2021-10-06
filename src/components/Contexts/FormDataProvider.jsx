@@ -15,9 +15,11 @@ const FormDataProvider = ({ children }) => {
   const client = useClient()
   const { t } = useI18n()
   const {
+    currentDefinition,
     stepperDialogTitle,
     setIsStepperDialogOpen
   } = useStepperDialogContext()
+  const { featureDate } = currentDefinition || {}
   const [formData, setFormData] = useState({
     metadata: {},
     data: []
@@ -25,13 +27,15 @@ const FormDataProvider = ({ children }) => {
 
   const formSubmit = () => {
     const qualification = Qualification.getByLabel(stepperDialogTitle)
+    const { metadata } = formData
 
     ;(async () => {
       for (const { file, fileMetadata } of formData.data) {
         const newQualification = {
           ...qualification,
           ...fileMetadata,
-          ...formData.metadata
+          ...metadata,
+          featureDate
         }
 
         const { _id: appFolderID } = await getOrCreateAppFolderWithReference(
