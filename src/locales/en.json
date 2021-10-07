@@ -6,7 +6,11 @@
   "common": {
     "cancel": "Cancel",
     "next": "Next",
-    "replace": "Replace"
+    "replace": "Replace",
+    "saveFile": {
+      "error": "An error has occurred, please try again later",
+      "success": "Successfully saved file"
+    }
   },
   "folder": {
     "administrative": "Administrative",
