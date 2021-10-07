@@ -6,7 +6,11 @@
   "common": {
     "cancel": "Annuler",
     "next": "Suivant",
-    "replace": "Remplacer"
+    "replace": "Remplacer",
+    "saveFile": {
+      "error": "Une erreur est survenue, veuillez réessayer ultérieurement",
+      "success": "Fichier enregistré avec succès"
+    }
   },
   "folder": {
     "administrative": "Administratif",
