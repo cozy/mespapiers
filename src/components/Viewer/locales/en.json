@@ -1,7 +1,8 @@
 {
   "viewer": {
     "actions": {
-      "download": "Download"
+      "download": "Download",
+      "forward": "Forward"
     },
     "error": {
       "generic": "An error occurred when opening this file, please try again."
@@ -14,6 +15,11 @@
         "identity": "Identity",
         "date": "Delivered on"
       }
+    },
+    "shareData": {
+      "title": "Share link to file %{name}",
+      "text": "Link to share the file %{name}: ",
+      "error": "Problem with link recovery: %{error}"
     }
   }
 }
