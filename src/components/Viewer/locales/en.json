@@ -28,8 +28,8 @@
       }
     },
     "shareData": {
-      "title": "Share link to file %{name}",
-      "text": "Link to share the file %{name}: ",
+      "title": "Link to my document %{name}",
+      "text": "Link to my document %{name}: ",
       "error": "Problem with link recovery: %{error}"
     }
   }

@@ -28,8 +28,8 @@
       }
     },
     "shareData": {
-      "title": "Lien de partage vers le fichier %{name}",
-      "text": "Voici le lien de partage du fichier %{name} : ",
+      "title": "Lien vers mon document %{name}",
+      "text": "Voici un lien vers mon document %{name} : ",
       "error": "Problème avec la récupération du lien : %{error}"
     }
   }
