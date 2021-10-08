@@ -3,14 +3,11 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { isMobileApp } from 'cozy-device-helper'
 import Paper from 'cozy-ui/transpiled/react/Paper'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import Stack from 'cozy-ui/transpiled/react/Stack'
 
 import Sharing from './Sharing'
-import ForwardButton from './ForwardButton'
-import DownloadButton from './DownloadButton'
 import getPanelBlocks, { panelBlocksSpecs } from '../Panel/getPanelBlocks'
 
 const useStyles = makeStyles(theme => ({
@@ -19,9 +16,8 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const BottomSheetContent = forwardRef(({ file }, ref) => {
+const BottomSheetContent = forwardRef(({ file, FileActionButton }, ref) => {
   const panelBlocks = getPanelBlocks({ panelBlocksSpecs, file })
-  const FileActionButton = isMobileApp() ? ForwardButton : DownloadButton
   const styles = useStyles()
 
   return (
