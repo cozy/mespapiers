@@ -11,6 +11,15 @@ const StepperDialogProvider = ({ children }) => {
   const [currentDefinition, setCurrentDefinition] = useState(null)
 
   useEffect(() => {
+    if (!isStepperDialogOpen) {
+      setCurrentDefinition(null)
+      setStepperDialogTitle('')
+      setAllCurrentSteps([])
+      setCurrentStepIndex(1)
+    }
+  }, [isStepperDialogOpen])
+
+  useEffect(() => {
     if (currentDefinition) {
       setStepperDialogTitle(currentDefinition.label)
       const allCurrentStepsDefinitions = currentDefinition.steps
