@@ -14,8 +14,7 @@ export const getAllQualificationLabel = {
           $in: papersLabel
         }
       })
-      // TODO When "select" could be used
-      // .select(['metadata.qualification.label'])
+      .select(['metadata.qualification.label'])
       .partialIndex({
         type: 'file',
         trashed: false
@@ -23,7 +22,7 @@ export const getAllQualificationLabel = {
       .indexFields(['metadata.qualification.label'])
       .sortBy([{ 'metadata.qualification.label': 'desc' }]),
   options: {
-    as: `getAllQualificationLabelqq`,
+    as: `getAllQualificationLabel`,
     fetchPolicy: defaultFetchPolicy
   }
 }
