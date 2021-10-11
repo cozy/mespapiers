@@ -4,7 +4,7 @@ import { APPS_DOCTYPE } from 'src/doctypes'
 
 const { MAGIC_FOLDERS, ensureMagicFolder, getReferencedFolder } = models.folder
 
-const APP_DIR_REF = `${APPS_DOCTYPE}/papers`
+const APP_DIR_REF = `${APPS_DOCTYPE}/mypapers`
 
 const getOrCreateAppFolderWithReference = async (client, t) => {
   const existingFolders = await getReferencedFolder(client, {
