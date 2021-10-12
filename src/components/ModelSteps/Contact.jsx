@@ -12,10 +12,10 @@ import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
 import Button from 'cozy-ui/transpiled/react/Button'
 import Avatar from 'cozy-ui/transpiled/react/Avatar'
 import RightIcon from 'cozy-ui/transpiled/react/Icons/Right'
+import { Spinner } from 'cozy-ui/transpiled/react'
 
 import { useFormDataContext } from 'src/components/Hooks/useFormDataContext'
 import { fetchCurrentUser } from 'src/utils/fetchCurrentUser'
-
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 
 const Contact = () => {
@@ -23,6 +23,7 @@ const Contact = () => {
   const { t } = useI18n()
   const { formSubmit } = useFormDataContext()
   const [currentUser, setCurrentUser] = useState(null)
+  const [onLoad, setOnLoad] = useState(false)
 
   useEffect(() => {
     let isMounted = true
@@ -36,10 +37,15 @@ const Contact = () => {
     }
   }, [client])
 
+  const submit = () => {
+    setOnLoad(true)
+    formSubmit()
+  }
+
   return (
     <Paper elevation={2} className={'u-mt-1'}>
       <List>
-        <ListItem onClick={formSubmit}>
+        <ListItem onClick={!onLoad && submit} disabled={onLoad}>
           <ListItemIcon>
             <Avatar
               size={'small'}
@@ -54,6 +60,11 @@ const Contact = () => {
               name: currentUser?.fullname || ''
             })}
           />
+          {onLoad && (
+            <ListItemSecondaryAction className={'u-mr-half'}>
+              <Spinner color={'var(--secondaryTextColor)'} />
+            </ListItemSecondaryAction>
+          )}
         </ListItem>
 
         <Divider variant="inset" component="li" />
