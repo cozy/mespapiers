@@ -1,8 +1,8 @@
-# 0.1.0-beta.3
+# 0.1.0-beta.4
 
 ## ✨ Features
 
-* Add a button to generate documents and simulate the selection of its own contact
+* Added option menu for the files (actions not working)
 
 ## 🐛 Bug Fixes
 
@@ -11,6 +11,13 @@
 ## 🔧 Tech
 
 *
+
+# 0.1.0-beta.3
+
+## ✨ Features
+
+* Add a button to generate documents and simulate the selection of its own contact
+
 
 # 0.1.0-beta.2
 

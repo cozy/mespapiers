@@ -3,6 +3,15 @@
     "retry": "Take over",
     "success": "Acquisition success"
   },
+  "actions": {
+    "download": "Download",
+    "moveTo": "Move to…",
+    "qualify": "Qualify",
+    "rename": "Rename",
+    "share": "Share",
+    "trash": "Remove",
+    "version": "Versions"
+  },
   "common": {
     "cancel": "Cancel",
     "next": "Next",
@@ -48,7 +57,7 @@
     "invalidDateMessage": "Invalid Date Format"
   },
   "items": {
-    "other": "Others..."
+    "other": "Others…"
   },
   "PaperJSON": {
     "driverLicence": {

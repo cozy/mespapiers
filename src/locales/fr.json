@@ -3,6 +3,15 @@
     "retry": "Reprendre la photo",
     "success": "Acquisition réussie"
   },
+  "action": {
+    "download": "Télécharger",
+    "moveTo": "Déplacer vers…",
+    "qualify": "Qualifier",
+    "rename": "Renommer",
+    "share": "Partager",
+    "trash": "Supprimer",
+    "version": "Versions"
+  },
   "common": {
     "cancel": "Annuler",
     "next": "Suivant",
@@ -48,7 +57,7 @@
     "invalidDateMessage": "Format de la date invalide"
   },
   "items": {
-    "other": "Autres..."
+    "other": "Autres…"
   },
   "PaperJSON": {
     "driverLicense": {
