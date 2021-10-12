@@ -7,6 +7,8 @@ import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListSubheader from 'cozy-ui/transpiled/react/MuiCozyTheme/ListSubheader'
 import { Icon } from 'cozy-ui/transpiled/react'
 import IconButton from 'cozy-ui/transpiled/react/IconButton'
+import UIBarTitle from 'cozy-ui/transpiled/react/BarTitle'
+import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
 import Left from 'cozy-ui/transpiled/react/Icons/Left'
 
 import { getPapersByLabel } from 'src/utils/queries'
@@ -18,7 +20,7 @@ const PapersList = ({ history, match }) => {
   const client = useClient()
   const scannerT = useScannerI18n()
   const [subheaderLabel, setSubheaderLabel] = useState(null)
-  const { BarLeft } = cozy.bar
+  const { BarLeft, BarCenter } = cozy.bar
   const currentFileCategory = useMemo(
     () => match?.params?.fileCategory || null,
     [match]
@@ -49,6 +51,13 @@ const PapersList = ({ history, match }) => {
           <Icon icon={Left} size={16} />
         </IconButton>
       </BarLeft>
+      <BarCenter>
+        {/* Need to repeat the theme since the bar is in another react portal */}
+        <CozyTheme variant="normal">
+          <UIBarTitle>{categoryLabel}</UIBarTitle>
+        </CozyTheme>
+      </BarCenter>
+
       <List>
         <ListSubheader>{subheaderLabel}</ListSubheader>
         <div className={'u-pv-half'}>
