@@ -1,4 +1,18 @@
-# 0.2.0
+# 0.1.0-beta.3
+
+## ✨ Features
+
+* Add a button to generate documents and simulate the selection of its own contact
+
+## 🐛 Bug Fixes
+
+*
+
+## 🔧 Tech
+
+*
+
+# 0.1.0-beta.2
 
 ## ✨ Features
 
@@ -12,3 +26,12 @@
 ## 🔧 Tech
 
 *
+
+# 0.1.0-beta.1
+
+## ✨ Features
+
+* Initialization of the first beta
+
+## What's Changed
+**Full Changelog**: https://github.com/cozy/mespapiers/commits/0.1.0-beta.1

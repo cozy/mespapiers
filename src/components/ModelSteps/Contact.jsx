@@ -12,7 +12,8 @@ import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
 import Button from 'cozy-ui/transpiled/react/Button'
 import Avatar from 'cozy-ui/transpiled/react/Avatar'
 import RightIcon from 'cozy-ui/transpiled/react/Icons/Right'
-import { Spinner } from 'cozy-ui/transpiled/react'
+import Radio from 'cozy-ui/transpiled/react/Radio'
+import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 
 import { useFormDataContext } from 'src/components/Hooks/useFormDataContext'
 import { fetchCurrentUser } from 'src/utils/fetchCurrentUser'
@@ -21,9 +22,7 @@ import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 const Contact = () => {
   const client = useClient()
   const { t } = useI18n()
-  const { formSubmit } = useFormDataContext()
   const [currentUser, setCurrentUser] = useState(null)
-  const [onLoad, setOnLoad] = useState(false)
 
   useEffect(() => {
     let isMounted = true
@@ -37,15 +36,10 @@ const Contact = () => {
     }
   }, [client])
 
-  const submit = () => {
-    setOnLoad(true)
-    formSubmit()
-  }
-
   return (
     <Paper elevation={2} className={'u-mt-1'}>
       <List>
-        <ListItem onClick={!onLoad && submit} disabled={onLoad}>
+        <ListItem>
           <ListItemIcon>
             <Avatar
               size={'small'}
@@ -56,15 +50,13 @@ const Contact = () => {
             />
           </ListItemIcon>
           <ListItemText
-            primary={t('ContactAdapter.me', {
-              name: currentUser?.fullname || ''
-            })}
+            primary={`${t('ContactStep.me')} ${
+              currentUser ? `(${currentUser.fullname})` : ''
+            }`}
           />
-          {onLoad && (
-            <ListItemSecondaryAction className={'u-mr-half'}>
-              <Spinner color={'var(--secondaryTextColor)'} />
-            </ListItemSecondaryAction>
-          )}
+          <ListItemSecondaryAction className={'u-mr-half'}>
+            <Radio defaultChecked />
+          </ListItemSecondaryAction>
         </ListItem>
 
         <Divider variant="inset" component="li" />
@@ -79,10 +71,10 @@ const Contact = () => {
               }}
             />
           </ListItemIcon>
-          <ListItemText primary={t('ContactAdapter.other')} />
+          <ListItemText primary={t('ContactStep.other')} />
           <ListItemSecondaryAction>
             <Button
-              label={t('ContactAdapter.other')}
+              label={t('ContactStep.other')}
               theme="text"
               icon={RightIcon}
               extension="narrow"
@@ -102,14 +94,33 @@ const Contact = () => {
 const ContactWrapper = ({ currentStep }) => {
   const { t } = useI18n()
   const { illustration, text } = currentStep
+  const { formSubmit } = useFormDataContext()
+  const [onLoad, setOnLoad] = useState(false)
+
+  const submit = () => {
+    setOnLoad(true)
+    formSubmit()
+  }
 
   return (
-    <CompositeHeader
-      icon={illustration}
-      iconSize={'small'}
-      title={t(text)}
-      text={<Contact />}
-    />
+    <>
+      <CompositeHeader
+        icon={illustration}
+        iconSize={'small'}
+        title={t(text)}
+        text={<Contact />}
+      />
+      <DialogActions className={'u-w-100 u-mh-0'}>
+        <Button
+          className="u-db"
+          extension="full"
+          label={t(!onLoad ? 'ContactStep.finish' : 'ContactStep.onLoad')}
+          onClick={submit}
+          disabled={onLoad}
+          busy={onLoad}
+        />
+      </DialogActions>
+    </>
   )
 }
 

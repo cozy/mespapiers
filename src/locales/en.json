@@ -16,9 +16,11 @@
     "administrative": "Administrative",
     "papers": "My papers"
   },
-  "ContactAdapter": {
+  "ContactStep": {
     "description": "Whose ID card is this?",
-    "me": "Me (%{name})",
+    "finish": "Finish",
+    "me": "Me",
+    "onLoad": "Document generation",
     "other": "Someone else"
   },
   "Home": {
