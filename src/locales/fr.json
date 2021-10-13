@@ -16,9 +16,11 @@
     "administrative": "Administratif",
     "papers": "Mes papiers"
   },
-  "ContactAdapter": {
+  "ContactStep": {
     "description": "À qui appartient cette carte d’identité ?",
-    "me": "Moi (%{name})",
+    "finish": "Terminer",
+    "me": "Moi",
+    "onLoad": "Génération du document",
     "other": "Une autre personne"
   },
   "Home": {

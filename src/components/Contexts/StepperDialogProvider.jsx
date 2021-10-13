@@ -36,7 +36,7 @@ const StepperDialogProvider = ({ children }) => {
           {
             stepIndex: lastStepIndex + 1,
             illustration: 'Account.svg',
-            text: 'ContactAdapter.description',
+            text: 'ContactStep.description',
             model: 'contact'
           }
         ])
