@@ -2,15 +2,11 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
+import AppLike from 'test/components/AppLike'
 import People from 'cozy-ui/transpiled/react/Icons/People'
 import { getBoundT } from 'cozy-scanner'
 
-import AppLike from 'test/components/AppLike'
 import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
-
-jest.mock('cozy-scanner', () => ({
-  getBoundT: jest.fn(() => jest.fn())
-}))
 
 const setup = (label = 'national_id_card') => {
   return render(
@@ -21,10 +17,6 @@ const setup = (label = 'national_id_card') => {
 }
 
 describe('ImportDropdown components:', () => {
-  afterEach(() => {
-    jest.clearAllMocks()
-  })
-
   it('should be rendered correctly', () => {
     const { container } = setup()
 

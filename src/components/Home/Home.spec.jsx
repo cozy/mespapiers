@@ -5,10 +5,6 @@ import { render } from '@testing-library/react'
 import AppLike from 'test/components/AppLike'
 import Home from 'src/components/Home/Home'
 
-jest.mock('cozy-scanner', () => ({
-  getBoundT: jest.fn(() => jest.fn())
-}))
-
 const setup = (hasPapers = false) => {
   return render(
     <AppLike>
@@ -18,10 +14,6 @@ const setup = (hasPapers = false) => {
 }
 
 describe('Home components:', () => {
-  afterEach(() => {
-    jest.clearAllMocks()
-  })
-
   it('should be rendered correctly', () => {
     const { container } = setup()
 

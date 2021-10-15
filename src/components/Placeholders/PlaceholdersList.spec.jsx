@@ -2,10 +2,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
+import AppLike from 'test/components/AppLike'
 import { useQuery } from 'cozy-client'
 import { getBoundT } from 'cozy-scanner'
 
-import AppLike from 'test/components/AppLike'
 import PlaceholdersList from 'src/components/Placeholders/PlaceholdersList'
 
 const fakePapers = [
@@ -26,9 +26,6 @@ const fakePapers = [
 ]
 
 jest.mock('cozy-client/dist/hooks/useQuery', () => jest.fn())
-jest.mock('cozy-scanner', () => ({
-  getBoundT: jest.fn(() => jest.fn())
-}))
 
 const setup = () => {
   return render(
@@ -39,10 +36,6 @@ const setup = () => {
 }
 
 describe('PlaceholdersList components:', () => {
-  afterEach(() => {
-    jest.clearAllMocks()
-  })
-
   it('should be rendered correctly', () => {
     useQuery.mockReturnValueOnce({
       data: []

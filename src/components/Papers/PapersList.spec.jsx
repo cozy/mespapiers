@@ -14,9 +14,6 @@ const fakeData = {
 jest.mock('cozy-client/dist/hooks/useQuery', () =>
   jest.fn(() => ({ data: [] }))
 )
-jest.mock('cozy-scanner', () => ({
-  getBoundT: jest.fn(() => jest.fn())
-}))
 
 const setup = () => {
   return render(
@@ -27,10 +24,6 @@ const setup = () => {
 }
 
 describe('PapersList components:', () => {
-  afterEach(() => {
-    jest.clearAllMocks()
-  })
-
   it('should be rendered correctly', async () => {
     const { container } = setup()
 

@@ -24,3 +24,12 @@ window.cozy = {
     BarRight: () => null
   }
 }
+
+// Don't print console.warn, console.error, console.info & console.debug in tests
+global.console = {
+  ...global.console,
+  warn: jest.fn(),
+  error: jest.fn(),
+  info: jest.fn(),
+  debug: jest.fn()
+}
