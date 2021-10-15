@@ -15,7 +15,7 @@ import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
 import { useFormDataContext } from 'src/components/Hooks/useFormDataContext'
-import { paperDefinitionsStepProptypes } from 'src/constants/PaperDefinitionsPropTypes'
+import { PaperDefinitionsStepPropTypes } from 'src/constants/PaperDefinitionsPropTypes'
 
 const isPDF = file => file.type === 'application/pdf'
 
@@ -107,7 +107,7 @@ const AcquisitionResult = ({ file, setFile, currentStep }) => {
 AcquisitionResult.propTypes = {
   file: PropTypes.object.isRequired,
   setFile: PropTypes.func.isRequired,
-  currentStep: paperDefinitionsStepProptypes
+  currentStep: PaperDefinitionsStepPropTypes
 }
 
 export default AcquisitionResult

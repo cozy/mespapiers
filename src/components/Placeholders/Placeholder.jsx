@@ -17,7 +17,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
-import { paperDefinitionsProptypes } from 'src/constants/PaperDefinitionsPropTypes'
+import { PaperDefinitionsPropTypes } from 'src/constants/PaperDefinitionsPropTypes'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import papersJSON from 'src/constants/papersDefinitions.json'
 
@@ -181,7 +181,7 @@ const Placeholder = ({ placeholder, divider }) => {
 }
 
 Placeholder.propTypes = {
-  placeholder: paperDefinitionsProptypes.isRequired,
+  placeholder: PaperDefinitionsPropTypes.isRequired,
   divider: PropTypes.bool
 }
 
