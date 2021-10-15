@@ -22,7 +22,7 @@ const StepperDialogProvider = ({ children }) => {
   useEffect(() => {
     if (currentDefinition) {
       setStepperDialogTitle(currentDefinition.label)
-      const allCurrentStepsDefinitions = currentDefinition.steps
+      const allCurrentStepsDefinitions = currentDefinition.acquisitionSteps
       if (allCurrentStepsDefinitions.length > 0) {
         const allCurrentStepsDefinitionsSorted = allCurrentStepsDefinitions.sort(
           (a, b) => a.stepIndex - b.stepIndex

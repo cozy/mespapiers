@@ -167,7 +167,7 @@ const Placeholder = ({ placeholder, divider }) => {
           <ImportDropdown
             label={placeholder.label}
             icon={placeholder.icon}
-            hasSteps={placeholder?.steps.length > 0}
+            hasSteps={placeholder?.acquisitionSteps.length > 0}
           />
         </ActionMenu>
       )}

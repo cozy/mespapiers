@@ -40,17 +40,10 @@ const Information = ({ currentStep }) => {
             setValue={setValue}
           />
         )
-      case 'frenchIdCardNumber':
+      default:
         return (
           <InputTextAdapter
-            attrs={{ metadata: formData.metadata, name, inputLabel }}
-            setValue={setValue}
-          />
-        )
-      case 'Numbers12Digits':
-        return (
-          <InputTextAdapter
-            attrs={{ metadata: formData.metadata, name, inputLabel }}
+            attrs={{ metadata: formData.metadata, name, inputLabel, type }}
             setValue={setValue}
           />
         )

@@ -8,7 +8,7 @@ import papersJSON from 'src/constants/papersDefinitions.json'
  * @property {string} type - Type of the attribute.
  */
 /**
- * @typedef {Object} Step
+ * @typedef {Object} AcquisitionSteps
  * @property {number} stepIndex - Position of the step.
  * @property {number} occurrence - Number of occurrence for this step.
  * @property {string} illustration - Name of the illustration.
@@ -19,9 +19,8 @@ import papersJSON from 'src/constants/papersDefinitions.json'
  * @typedef {Object} Paper
  * @property {string} label - Label of Paper.
  * @property {string} icon - Icon of Paper.
- * @property {boolean} featuredPlaceholder - Is visible on the Homepage.
  * @property {number} placeholderIndex - Position on the Placeholder list.
- * @property {Step[]} steps - Array of steps.
+ * @property {AcquisitionSteps[]} acquisitionSteps - Array of acquisition steps.
  * @property {string} featureDate - Reference the attribute "name" to be used as main date.
  * @property {number} maxDisplay - Number of document beyond which a "see more" button is displayed.
  */
@@ -29,7 +28,7 @@ import papersJSON from 'src/constants/papersDefinitions.json'
 /**
  * Filters and sorts the list of PlaceHolders
  * @param {Paper[]} papers Array of Papers
- * @returns an array of Papers filtered with the prop "featuredPlaceholder",
+ * @returns an array of Papers filtered with the prop "placeholderIndex",
  * which does not already exist in DB and
  * which sorted with the prop "placeholderIndex"
  */
@@ -40,6 +39,6 @@ export const getPlaceholders = (papers = []) =>
         !papers.some(
           paper =>
             get(paper, 'metadata.qualification.label') === paperDefinition.label
-        ) && paperDefinition.featuredPlaceholder
+        ) && paperDefinition.placeholderIndex
     )
     .sort((a, b) => a.placeholderIndex - b.placeholderIndex)
