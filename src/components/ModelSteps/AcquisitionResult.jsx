@@ -1,18 +1,21 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Card from 'cozy-ui/transpiled/react/Card'
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import Avatar from 'cozy-ui/transpiled/react/Avatar'
-import Button from 'cozy-ui/transpiled/react/Button'
-import Icon from 'cozy-ui/transpiled/react/Icon'
-import Check from 'cozy-ui/transpiled/react/Icons/Check'
-import FileTypePdfIcon from 'cozy-ui/transpiled/react/Icons/FileTypePdf'
+import Button, { ButtonLink } from 'cozy-ui/transpiled/react/Button'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import FileTypePdfIcon from 'cozy-ui/transpiled/react/Icons/FileTypePdf'
+import Icon from 'cozy-ui/transpiled/react/Icon'
+import Check from 'cozy-ui/transpiled/react/Icons/Check'
+import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
 import { useFormDataContext } from 'src/components/Hooks/useFormDataContext'
+import { paperDefinitionsStepProptypes } from 'src/constants/PaperDefinitionsPropTypes'
 
 const isPDF = file => file.type === 'application/pdf'
 
@@ -21,8 +24,9 @@ const AcquisitionResult = ({ file, setFile, currentStep }) => {
   const { isMobile } = useBreakpoints()
   const { nextStep } = useStepperDialogContext()
   const { setFormData } = useFormDataContext()
+  const { page, multipage } = currentStep
 
-  const onValid = () => {
+  const onValid = (repeat = false) => {
     setFormData(prev => ({
       ...prev,
       data: [
@@ -30,12 +34,13 @@ const AcquisitionResult = ({ file, setFile, currentStep }) => {
         {
           file,
           fileMetadata: {
-            page: currentStep.page
+            page: !multipage ? page : undefined
           }
         }
       ]
     }))
-    nextStep()
+    if (!repeat) nextStep()
+    else setFile(null)
   }
 
   return (
@@ -77,16 +82,32 @@ const AcquisitionResult = ({ file, setFile, currentStep }) => {
           />
         </Card>
       </div>
-      <DialogActions disableSpacing className={'columnLayout'}>
+      <DialogActions disableSpacing className={'columnLayout u-mh-0'}>
         <Button
           className="u-db"
           extension="full"
           label={t('common.next')}
-          onClick={onValid}
+          onClick={() => onValid(false)}
         />
+        {multipage && (
+          <ButtonLink
+            className={'u-ml-0 u-mb-half'}
+            extension="full"
+            theme={'secondary'}
+            icon={Camera}
+            label={t('Acquisition.repeat')}
+            onClick={() => onValid(true)}
+          />
+        )}
       </DialogActions>
     </>
   )
+}
+
+AcquisitionResult.propTypes = {
+  file: PropTypes.object.isRequired,
+  setFile: PropTypes.func.isRequired,
+  currentStep: paperDefinitionsStepProptypes
 }
 
 export default AcquisitionResult

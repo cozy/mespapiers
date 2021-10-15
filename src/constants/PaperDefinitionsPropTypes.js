@@ -5,10 +5,11 @@ const paperDefinitionsStepAttrProptypes = PropTypes.shape({
   type: PropTypes.string.isRequired
 })
 
-const paperDefinitionsStepProptypes = PropTypes.shape({
+export const paperDefinitionsStepProptypes = PropTypes.shape({
   stepIndex: PropTypes.number.isRequired,
-  occurrence: PropTypes.number,
   model: PropTypes.string.isRequired,
+  multipage: PropTypes.bool,
+  page: PropTypes.string,
   illustration: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   attributes: PropTypes.arrayOf(paperDefinitionsStepAttrProptypes)

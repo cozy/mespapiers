@@ -1,5 +1,6 @@
 {
   "Acquisition": {
+    "repeat": "Scan an additional page",
     "retry": "Take over",
     "success": "Acquisition success"
   },
