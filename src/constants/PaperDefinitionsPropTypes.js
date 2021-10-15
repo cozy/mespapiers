@@ -1,27 +1,27 @@
 import PropTypes from 'prop-types'
 
-const paperDefinitionsStepAttrProptypes = PropTypes.shape({
+const PaperDefinitionsStepAttrPropTypes = PropTypes.shape({
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired
 })
 
-export const paperDefinitionsStepProptypes = PropTypes.shape({
+export const PaperDefinitionsStepPropTypes = PropTypes.shape({
   stepIndex: PropTypes.number.isRequired,
   model: PropTypes.string.isRequired,
   multipage: PropTypes.bool,
   page: PropTypes.string,
   illustration: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  attributes: PropTypes.arrayOf(paperDefinitionsStepAttrProptypes)
+  attributes: PropTypes.arrayOf(PaperDefinitionsStepAttrPropTypes)
 })
 
-export const paperDefinitionsProptypes = PropTypes.shape({
+export const PaperDefinitionsPropTypes = PropTypes.shape({
   label: PropTypes.string.isRequired,
   icon: PropTypes.string,
   placeholderIndex: PropTypes.number,
   acquisitionSteps: PropTypes.oneOfType([
     PropTypes.array,
-    PropTypes.arrayOf(paperDefinitionsStepProptypes).isRequired
+    PropTypes.arrayOf(PaperDefinitionsStepPropTypes).isRequired
   ]),
   featureDate: PropTypes.string,
   maxDisplay: PropTypes.number.isRequired
