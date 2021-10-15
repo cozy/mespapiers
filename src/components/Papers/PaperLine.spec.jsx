@@ -2,19 +2,15 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
+import AppLike from 'test/components/AppLike'
 import { getBoundT } from 'cozy-scanner'
 
-import AppLike from 'test/components/AppLike'
 import PaperLine from 'src/components/Papers/PaperLine'
 
 const mockPapers = [
   { id: '00', name: 'ID card' },
   { id: '01', name: 'Passport' }
 ]
-
-jest.mock('cozy-scanner', () => ({
-  getBoundT: jest.fn(() => jest.fn())
-}))
 
 const setup = (paper = mockPapers[0]) => {
   return render(
@@ -25,10 +21,6 @@ const setup = (paper = mockPapers[0]) => {
 }
 
 describe('PaperLine components:', () => {
-  afterAll(() => {
-    jest.clearAllMocks()
-  })
-
   it('should be rendered correctly', () => {
     const { container } = setup()
 

@@ -11,9 +11,6 @@ jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useHistory: jest.fn()
 }))
-jest.mock('cozy-scanner', () => ({
-  getBoundT: jest.fn(() => jest.fn())
-}))
 jest.mock('cozy-client/dist/hooks/useQuery', () => {
   return jest.fn(() => ({ data: [] }))
 })
@@ -32,10 +29,6 @@ const setup = (isLoading = true) => {
 }
 
 describe('HomeWrapper components:', () => {
-  afterAll(() => {
-    jest.clearAllMocks()
-  })
-
   it('should be rendered correctly', () => {
     const { container } = setup()
 

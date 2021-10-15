@@ -9,6 +9,10 @@ import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProv
 import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider'
 import enLocale from 'src/locales/en.json'
 
+jest.mock('cozy-scanner', () => ({
+  getBoundT: jest.fn(() => jest.fn())
+}))
+
 const AppLike = ({ children, client }) => (
   <CozyProvider client={client || createMockClient({})}>
     <I18n dictRequire={() => enLocale} lang={'en'}>
