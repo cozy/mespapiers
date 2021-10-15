@@ -69,31 +69,39 @@
         {
           "stepIndex": 1,
           "model": "scan",
+          "multipage": true,
           "illustration": "IlluGenericNewPage.svg",
           "text": "PaperJSON.generic.multiPages.text"
-        },
-        {
-          "pageIndex": 2,
-          "model": "information",
-          "illustration": "IlluGenericDate.svg",
-          "text": "PaperJSON.generic.date.text",
-          "attributes": [
-            {
-              "name": "date",
-              "type": "date",
-              "inputLabel": "PaperJSON.generic.date.inputLabel"
-            }
-          ]
         }
       ]
     },
     {
-      "label": "birth_certificate",
+      "label": "health_certificate",
       "placeholderIndex": 7,
       "icon": "heart",
       "featureDate": "issueDate",
       "maxDisplay": 4,
-      "steps": []
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "illustration": "illuGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "illuGenericDate.svg",
+          "text": "PaperJSON.generic.date.text",
+          "attributes": [
+            {
+              "name": "issueDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
+            }
+          ]
+        }
+      ]
     },
     {
       "label": "health_insurance_card",
@@ -101,6 +109,13 @@
       "icon": "heart",
       "featureDate": "expirationDate",
       "maxDisplay": 2,
+      "acquisitionSteps": []
+    },
+    {
+      "label": "id_photo",
+      "icon": "people",
+      "featureDate": "Date",
+      "maxDisplay": 1,
       "acquisitionSteps": []
     },
     {
@@ -173,7 +188,28 @@
       "icon": "bill",
       "featureDate": "referenceDate",
       "maxDisplay": 3,
-      "acquisitionSteps": []
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "illuGenericNewPage.svg",
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "illuGenericDate.svg",
+          "text": "PaperJSON.generic.date.text",
+          "attributes": [
+            {
+              "name": "referenceDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.periodeDate.inputLabel"
+            }
+          ]
+        }
+      ]
     },
     {
       "label": "tax_notice",
@@ -181,7 +217,28 @@
       "icon": "bank",
       "featureDate": "referenceYear",
       "maxDisplay": 3,
-      "acquisitionSteps": []
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "illuGenericNewPage.svg",
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "illuGenericDate.svg",
+          "text": "PaperJSON.generic.date.text",
+          "attributes": [
+            {
+              "name": "referenceYear",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.periodeDate.inputLabel"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
