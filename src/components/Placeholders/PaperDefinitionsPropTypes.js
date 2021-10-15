@@ -17,9 +17,8 @@ const paperDefinitionsStepProptypes = PropTypes.shape({
 export const paperDefinitionsProptypes = PropTypes.shape({
   label: PropTypes.string.isRequired,
   icon: PropTypes.string,
-  featuredPlaceholder: PropTypes.bool.isRequired,
   placeholderIndex: PropTypes.number,
-  steps: PropTypes.oneOfType([
+  acquisitionSteps: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.arrayOf(paperDefinitionsStepProptypes).isRequired
   ]),

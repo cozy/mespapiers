@@ -2,12 +2,11 @@
   "papersDefinitions": [
     {
       "label": "driver_license",
-      "featuredPlaceholder": true,
       "placeholderIndex": 2,
       "icon": "car",
       "featureDate": "carObtentionDate",
       "maxDisplay": 2,
-      "steps": [
+      "acquisitionSteps": [
         {
           "stepIndex": 1,
           "model": "scan",
@@ -30,7 +29,7 @@
           "attributes": [
             {
               "name": "number",
-              "type": "Numbers12Digits",
+              "type": "Number:12",
               "inputLabel": "PaperJSON.driverLicense.number.inputLabel"
             }
           ]
@@ -57,19 +56,16 @@
     },
     {
       "label": "energy_invoice",
-      "featuredPlaceholder": false,
       "icon": "bill",
       "featureDate": "issueDate",
       "maxDisplay": 4,
-      "steps": []
+      "acquisitionSteps": []
     },
     {
       "label": "family_record_book",
-      "featuredPlaceholder": false,
       "icon": "people",
-      "featureDate": "LastUpdate",
       "maxDisplay": 3,
-      "steps": [
+      "acquisitionSteps": [
         {
           "stepIndex": 1,
           "model": "scan",
@@ -93,7 +89,6 @@
     },
     {
       "label": "birth_certificate",
-      "featuredPlaceholder": false,
       "placeholderIndex": 7,
       "icon": "heart",
       "featureDate": "issueDate",
@@ -102,39 +97,35 @@
     },
     {
       "label": "health_insurance_card",
-      "featuredPlaceholder": true,
       "placeholderIndex": 4,
       "icon": "heart",
       "featureDate": "expirationDate",
       "maxDisplay": 2,
-      "steps": []
+      "acquisitionSteps": []
     },
     {
       "label": "isp_invoice",
-      "featuredPlaceholder": true,
       "placeholderIndex": 5,
       "icon": "bill",
       "featureDate": "issueDate",
       "maxDisplay": 6,
-      "steps": []
+      "acquisitionSteps": []
     },
     {
       "label": "national_insurance_card",
-      "featuredPlaceholder": true,
       "placeholderIndex": 3,
       "icon": "heart",
       "featureDate": "carObtentionDate",
       "maxDisplay": 2,
-      "steps": []
+      "acquisitionSteps": []
     },
     {
       "label": "national_id_card",
-      "featuredPlaceholder": true,
       "placeholderIndex": 1,
       "icon": "people",
       "featureDate": "expirationDate",
       "maxDisplay": 2,
-      "steps": [
+      "acquisitionSteps": [
         {
           "stepIndex": 1,
           "model": "scan",
@@ -157,7 +148,7 @@
           "attributes": [
             {
               "name": "number",
-              "type": "frenchIdCardNumber",
+              "type": "Number:12",
               "inputLabel": "PaperJSON.IDCard.number.inputLabel"
             }
           ]
@@ -179,20 +170,18 @@
     },
     {
       "label": "pay_sheet",
-      "featuredPlaceholder": false,
       "icon": "bill",
       "featureDate": "referenceDate",
       "maxDisplay": 3,
-      "steps": []
+      "acquisitionSteps": []
     },
     {
       "label": "tax_notice",
-      "featuredPlaceholder": true,
       "placeholderIndex": 6,
       "icon": "bank",
       "featureDate": "referenceYear",
       "maxDisplay": 3,
-      "steps": []
+      "acquisitionSteps": []
     }
   ]
 }
