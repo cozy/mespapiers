@@ -4,11 +4,13 @@ import { getBoundT } from 'cozy-scanner/dist/locales'
 
 const ScannerI18nContext = createContext()
 
+const prefix = `Scan`
 const ScannerI18nProvider = ({ lang, children }) => {
-  const prefix = `Scan`
   const scannerI18n = getBoundT(lang)
 
-  const scannerT = key => scannerI18n(`${prefix}.${key}`)
+  const scannerT = React.useCallback(key => scannerI18n(`${prefix}.${key}`), [
+    scannerI18n
+  ])
 
   return (
     <ScannerI18nContext.Provider value={scannerT}>
