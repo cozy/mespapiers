@@ -123,4 +123,4 @@ PaperLine.propTypes = {
   divider: PropTypes.bool
 }
 
-export default PaperLine
+export default React.memo(PaperLine)

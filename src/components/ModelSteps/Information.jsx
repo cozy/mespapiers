@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 import Button from 'cozy-ui/transpiled/react/Button'
@@ -10,6 +10,7 @@ import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import InputDateAdapter from 'src/components/ModelSteps/widgets/InputDateAdapter'
 import InputTextAdapter from 'src/components/ModelSteps/widgets/InputTextAdapter'
 import GenericInputText from 'src/assets/icons/GenericInputText.svg'
+import { hasNextvalue } from 'src/utils/hasNextvalue'
 
 const Information = ({ currentStep }) => {
   const { t } = useI18n()
@@ -31,24 +32,32 @@ const Information = ({ currentStep }) => {
     }
   }
 
-  const inputs = attributes.map(({ name, type, inputLabel }) => {
-    switch (type) {
-      case 'date':
-        return (
-          <InputDateAdapter
-            attrs={{ metadata: formData.metadata, name, inputLabel }}
-            setValue={setValue}
-          />
-        )
-      default:
-        return (
-          <InputTextAdapter
-            attrs={{ metadata: formData.metadata, name, inputLabel, type }}
-            setValue={setValue}
-          />
-        )
-    }
-  })
+  const inputs = useMemo(
+    () =>
+      attributes.map(({ name, type, inputLabel }) => {
+        switch (type) {
+          case 'date':
+            return (
+              <InputDateAdapter
+                attrs={{ metadata: formData.metadata, name, inputLabel }}
+                setValue={setValue}
+              />
+            )
+          default:
+            return (
+              <InputTextAdapter
+                attrs={{ metadata: formData.metadata, name, inputLabel, type }}
+                setValue={setValue}
+              />
+            )
+        }
+      }),
+    [attributes, formData.metadata]
+  )
+
+  const hasMarginBottom = useCallback(idx => hasNextvalue(idx, inputs), [
+    inputs
+  ])
 
   return (
     <>
@@ -59,10 +68,7 @@ const Information = ({ currentStep }) => {
           iconSize={'medium'}
           title={t(text)}
           text={inputs.map((Input, idx) => (
-            <div
-              key={idx}
-              className={idx !== inputs.length - 1 ? 'u-mb-1' : ''}
-            >
+            <div key={idx} className={hasMarginBottom(idx) ? 'u-mb-1' : ''}>
               {Input}
             </div>
           ))}
@@ -80,4 +86,4 @@ const Information = ({ currentStep }) => {
   )
 }
 
-export default Information
+export default React.memo(Information)

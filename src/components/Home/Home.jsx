@@ -64,4 +64,4 @@ Home.propTypes = {
   hasPapers: PropTypes.bool.isRequired
 }
 
-export default Home
+export default React.memo(Home)

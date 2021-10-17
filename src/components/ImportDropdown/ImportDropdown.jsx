@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import ActionMenu from 'cozy-ui/transpiled/react/ActionMenu'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
@@ -16,7 +17,7 @@ import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogCo
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import Konnector from 'src/assets/icons/Konnectors.svg'
 
-const ImportDropdown = ({ label, icon, hasSteps }) => {
+const ImportDropdown = ({ label, icon, hasSteps, hideImportDropdown }) => {
   const { t } = useI18n()
   const scannerT = useScannerI18n()
   const [showModal, setShowModal] = useState(false)
@@ -33,7 +34,7 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
   })
 
   return (
-    <>
+    <ActionMenu onClose={hideImportDropdown}>
       <List>
         <ListItem divider={true}>
           <IconStack
@@ -80,14 +81,15 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
           />
         </ListItem>
       </List>
-    </>
+    </ActionMenu>
   )
 }
 
 ImportDropdown.propTypes = {
   label: PropTypes.string.isRequired,
   icon: iconPropType.isRequired,
-  hasSteps: PropTypes.bool
+  hasSteps: PropTypes.bool,
+  hideImportDropdown: PropTypes.func
 }
 
-export default ImportDropdown
+export default React.memo(ImportDropdown)
