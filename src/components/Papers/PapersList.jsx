@@ -2,7 +2,7 @@
 import React, { useState, useMemo, useEffect } from 'react'
 
 import { useClient } from 'cozy-client'
-import { fetchCurrentUser } from 'src/utils/fetchCurrentUser'
+import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListSubheader from 'cozy-ui/transpiled/react/MuiCozyTheme/ListSubheader'
 import { Icon } from 'cozy-ui/transpiled/react'
@@ -11,7 +11,7 @@ import UIBarTitle from 'cozy-ui/transpiled/react/BarTitle'
 import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
 import Left from 'cozy-ui/transpiled/react/Icons/Left'
 
-import { getPapersByLabel } from 'src/utils/queries'
+import { getPapersByLabel } from 'src/helpers/queries'
 import { useQuery } from 'src/components/Hooks/useQuery'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import PaperLine from 'src/components/Papers/PaperLine'

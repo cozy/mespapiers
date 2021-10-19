@@ -16,7 +16,7 @@ import Radio from 'cozy-ui/transpiled/react/Radio'
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 
 import { useFormDataContext } from 'src/components/Hooks/useFormDataContext'
-import { fetchCurrentUser } from 'src/utils/fetchCurrentUser'
+import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 
 const Contact = () => {

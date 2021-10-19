@@ -2,7 +2,7 @@ import React from 'react'
 
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
-import { getAllQualificationLabel } from 'src/utils/queries'
+import { getAllQualificationLabel } from 'src/helpers/queries'
 import { useQuery } from 'src/components/Hooks/useQuery'
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
 import StepperDialogWrapper from 'src/components/StepperDialogWrapper/StepperDialogWrapper'
