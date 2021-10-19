@@ -6,7 +6,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
 
 import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
-import getOrCreateAppFolderWithReference from 'src/utils/getFolderWithReference'
+import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
 import { FILES_DOCTYPE } from 'src/doctypes'
 
 const { Qualification } = models.document

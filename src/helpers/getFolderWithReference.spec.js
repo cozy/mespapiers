@@ -1,7 +1,7 @@
 import { models } from 'cozy-client'
 const { ensureMagicFolder, getReferencedFolder } = models.folder
 
-import getOrCreateFolderWithReference from 'src/utils/getFolderWithReference'
+import getOrCreateFolderWithReference from 'src/helpers/getFolderWithReference'
 
 jest.mock('cozy-client', () => ({
   ...jest.requireActual('cozy-client'),

@@ -1,4 +1,4 @@
-import { fetchCurrentUser } from 'src/utils/fetchCurrentUser'
+import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 
 describe('fetchCurrentUser', () => {
   it('should return current user', async () => {

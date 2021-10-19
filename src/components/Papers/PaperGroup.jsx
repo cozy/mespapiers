@@ -15,7 +15,7 @@ import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
 import IconPdf from 'cozy-ui/transpiled/react/Icons/FileTypePdf'
 import Right from 'cozy-ui/transpiled/react/Icons/Right'
 
-import { getAllQualificationLabel } from 'src/utils/queries'
+import { getAllQualificationLabel } from 'src/helpers/queries'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { useQuery } from 'src/components/Hooks/useQuery'
 
