@@ -3,13 +3,10 @@ import capitalize from 'lodash/capitalize'
 
 import log from 'cozy-logger'
 
-import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 
 const LazyLoadError = ({ currentStep }) => {
-  const {
-    setIsStepperDialogOpen,
-    setCurrentStepIndex
-  } = useStepperDialogContext()
+  const { setIsStepperDialogOpen, setCurrentStepIndex } = useStepperDialog()
 
   useEffect(() => {
     log(

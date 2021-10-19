@@ -12,7 +12,7 @@ import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
 import Left from 'cozy-ui/transpiled/react/Icons/Left'
 
 import { getPapersByLabel } from 'src/helpers/queries'
-import { useQuery } from 'src/components/Hooks/useQuery'
+import { useQueryCozy } from 'src/components/Hooks/useQueryCozy'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import PaperLine from 'src/components/Papers/PaperLine'
 
@@ -25,7 +25,9 @@ const PapersList = ({ history, match }) => {
     () => match?.params?.fileCategory || null,
     [match]
   )
-  const { data: allPapers } = useQuery(getPapersByLabel(currentFileCategory))
+  const { data: allPapers } = useQueryCozy(
+    getPapersByLabel(currentFileCategory)
+  )
   const categoryLabel = scannerT(`items.${currentFileCategory}`)
 
   useEffect(() => {

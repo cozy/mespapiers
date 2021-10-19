@@ -17,13 +17,13 @@ import Right from 'cozy-ui/transpiled/react/Icons/Right'
 
 import { getAllQualificationLabel } from 'src/helpers/queries'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
-import { useQuery } from 'src/components/Hooks/useQuery'
+import { useQueryCozy } from 'src/components/Hooks/useQueryCozy'
 
 const PaperGroup = () => {
   const history = useHistory()
   const { t } = useI18n()
   const scannerT = useScannerI18n()
-  const { data: allPapers } = useQuery(getAllQualificationLabel)
+  const { data: allPapers } = useQueryCozy(getAllQualificationLabel)
 
   // TODO When ".select" will be used in the query, refacto this
   const categories = [

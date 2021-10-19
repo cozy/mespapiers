@@ -2,7 +2,7 @@
 import React from 'react'
 import { waitFor, render } from '@testing-library/react'
 
-import { useQuery as useQueryCozy } from 'cozy-client'
+import { useQuery } from 'cozy-client'
 
 import AppLike from 'test/components/AppLike'
 import PapersList from 'src/components/Papers/PapersList'
@@ -33,7 +33,7 @@ describe('PapersList components:', () => {
   })
 
   it('should display "ID card" & "Passport"', async () => {
-    useQueryCozy.mockReturnValueOnce(fakeData)
+    useQuery.mockReturnValueOnce(fakeData)
     const { getByText } = setup()
 
     await waitFor(() => {

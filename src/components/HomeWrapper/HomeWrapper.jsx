@@ -3,15 +3,15 @@ import React from 'react'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 import { getAllQualificationLabel } from 'src/helpers/queries'
-import { useQuery } from 'src/components/Hooks/useQuery'
-import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
+import { useQueryCozy } from 'src/components/Hooks/useQueryCozy'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import StepperDialogWrapper from 'src/components/StepperDialogWrapper/StepperDialogWrapper'
 import Home from 'src/components/Home/Home'
 import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
 
 const HomeWrapper = () => {
-  const { isStepperDialogOpen } = useStepperDialogContext()
-  const { data: allPapersLabel, isQueryLoading } = useQuery(
+  const { isStepperDialogOpen } = useStepperDialog()
+  const { data: allPapersLabel, isQueryLoading } = useQueryCozy(
     getAllQualificationLabel
   )
 

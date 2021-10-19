@@ -14,7 +14,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
-import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { findPlaceholdersByQualification } from 'src/utils/getPlaceholders'
 
 const PlaceholdersList = ({ title, onBack, currentQualifItems }) => {
@@ -29,7 +29,7 @@ const PlaceholdersList = ({ title, onBack, currentQualifItems }) => {
     () => findPlaceholdersByQualification(currentQualifItems),
     [currentQualifItems]
   )
-  const { setCurrentDefinition } = useStepperDialogContext()
+  const { setCurrentDefinition } = useStepperDialog()
   const hideImportDropdown = useCallback(
     () => setIsImportDropdownDisplayed(false),
     []

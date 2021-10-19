@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 
-import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import StepperDialog from 'src/components/StepperDialog/StepperDialog'
 import LazyLoad from 'src/components/LazyLoad/LazyLoad'
 
 const StepContent = () => {
-  const { allCurrentSteps, currentStepIndex } = useStepperDialogContext()
+  const { allCurrentSteps, currentStepIndex } = useStepperDialog()
 
   return allCurrentSteps.map(
     step =>
@@ -25,7 +25,7 @@ const StepperDialogWrapper = () => {
     currentStepIndex,
     previousStep,
     stepperDialogTitle
-  } = useStepperDialogContext()
+  } = useStepperDialog()
 
   return (
     <StepperDialog

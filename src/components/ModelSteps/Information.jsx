@@ -4,8 +4,8 @@ import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 import Button from 'cozy-ui/transpiled/react/Button'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-import { useFormDataContext } from 'src/components/Hooks/useFormDataContext'
-import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
+import { useFormData } from 'src/components/Hooks/useFormData'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import InputDateAdapter from 'src/components/ModelSteps/widgets/InputDateAdapter'
 import InputTextAdapter from 'src/components/ModelSteps/widgets/InputTextAdapter'
@@ -15,8 +15,8 @@ import { hasNextvalue } from 'src/utils/hasNextvalue'
 const Information = ({ currentStep }) => {
   const { t } = useI18n()
   const { illustration, text, attributes } = currentStep
-  const { formData, setFormData } = useFormDataContext()
-  const { nextStep } = useStepperDialogContext()
+  const { formData, setFormData } = useFormData()
+  const { nextStep } = useStepperDialog()
   const [value, setValue] = useState({})
 
   const submit = () => {
