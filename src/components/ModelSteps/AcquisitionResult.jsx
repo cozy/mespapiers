@@ -13,8 +13,8 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import Check from 'cozy-ui/transpiled/react/Icons/Check'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 
-import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
-import { useFormDataContext } from 'src/components/Hooks/useFormDataContext'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useFormData } from 'src/components/Hooks/useFormData'
 import { PaperDefinitionsStepPropTypes } from 'src/constants/PaperDefinitionsPropTypes'
 
 const isPDF = file => file.type === 'application/pdf'
@@ -22,8 +22,8 @@ const isPDF = file => file.type === 'application/pdf'
 const AcquisitionResult = ({ file, setFile, currentStep }) => {
   const { t } = useI18n()
   const { isMobile } = useBreakpoints()
-  const { nextStep } = useStepperDialogContext()
-  const { setFormData } = useFormDataContext()
+  const { nextStep } = useStepperDialog()
+  const { setFormData } = useFormData()
   const { page, multipage } = currentStep
 
   const onValid = (repeat = false) => {

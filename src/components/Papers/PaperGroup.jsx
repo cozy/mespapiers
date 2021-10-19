@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import get from 'lodash/get'
 import { useHistory } from 'react-router-dom'
 
+import { useQuery } from 'cozy-client'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListSubheader from 'cozy-ui/transpiled/react/MuiCozyTheme/ListSubheader'
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
@@ -17,23 +18,26 @@ import Right from 'cozy-ui/transpiled/react/Icons/Right'
 
 import { getAllQualificationLabel } from 'src/helpers/queries'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
-import { useQueryCozy } from 'src/components/Hooks/useQueryCozy'
 
 const PaperGroup = () => {
   const history = useHistory()
   const { t } = useI18n()
   const scannerT = useScannerI18n()
-  const { data: allPapers } = useQueryCozy(getAllQualificationLabel)
+  const { data: allPapers } = useQuery(
+    getAllQualificationLabel.definition,
+    getAllQualificationLabel.options
+  )
 
-  // TODO When ".select" will be used in the query, refacto this
-  const categories = [
-    ...new Set(
-      allPapers.map(paper => {
-        const label = get(paper, 'metadata.qualification.label')
-        return label
-      })
-    )
-  ]
+  const categories = allPapers
+    ? [
+        ...new Set(
+          allPapers.map(paper => {
+            const label = get(paper, 'metadata.qualification.label')
+            return label
+          })
+        )
+      ]
+    : []
 
   return (
     <List>
