@@ -1,7 +1,7 @@
 import {
   getFeaturedPlaceholders,
   findPlaceholdersByQualification
-} from 'src/utils/getPlaceholders'
+} from 'src/helpers/findPlaceholders'
 
 const fakePapers = [
   {

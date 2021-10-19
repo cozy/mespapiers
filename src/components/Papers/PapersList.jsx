@@ -1,7 +1,7 @@
 /* global cozy */
 import React, { useState, useMemo, useEffect } from 'react'
 
-import { useClient } from 'cozy-client'
+import { useClient, useQuery } from 'cozy-client'
 import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListSubheader from 'cozy-ui/transpiled/react/MuiCozyTheme/ListSubheader'
@@ -12,7 +12,6 @@ import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
 import Left from 'cozy-ui/transpiled/react/Icons/Left'
 
 import { getPapersByLabel } from 'src/helpers/queries'
-import { useQueryCozy } from 'src/components/Hooks/useQueryCozy'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import PaperLine from 'src/components/Papers/PaperLine'
 
@@ -25,10 +24,16 @@ const PapersList = ({ history, match }) => {
     () => match?.params?.fileCategory || null,
     [match]
   )
-  const { data: allPapers } = useQueryCozy(
-    getPapersByLabel(currentFileCategory)
-  )
   const categoryLabel = scannerT(`items.${currentFileCategory}`)
+
+  const buildPapersByLabel = useMemo(
+    () => getPapersByLabel(currentFileCategory),
+    [currentFileCategory]
+  )
+  const { data: allPapers } = useQuery(
+    buildPapersByLabel.definition,
+    buildPapersByLabel.options
+  )
 
   useEffect(() => {
     let isMounted = true
@@ -63,7 +68,7 @@ const PapersList = ({ history, match }) => {
       <List>
         <ListSubheader>{subheaderLabel}</ListSubheader>
         <div className={'u-pv-half'}>
-          {allPapers.map((paper, idx) => (
+          {allPapers?.map((paper, idx) => (
             <PaperLine
               key={idx}
               paper={paper}

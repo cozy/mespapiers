@@ -15,7 +15,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
-import { findPlaceholdersByQualification } from 'src/utils/getPlaceholders'
+import { findPlaceholdersByQualification } from 'src/helpers/findPlaceholders'
 
 const PlaceholdersList = ({ title, onBack, currentQualifItems }) => {
   const { t } = useI18n()
