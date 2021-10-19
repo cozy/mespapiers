@@ -15,7 +15,7 @@ import RightIcon from 'cozy-ui/transpiled/react/Icons/Right'
 import Radio from 'cozy-ui/transpiled/react/Radio'
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 
-import { useFormDataContext } from 'src/components/Hooks/useFormDataContext'
+import { useFormData } from 'src/components/Hooks/useFormData'
 import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 
@@ -94,7 +94,7 @@ const Contact = () => {
 const ContactWrapper = ({ currentStep }) => {
   const { t } = useI18n()
   const { illustration, text } = currentStep
-  const { formSubmit } = useFormDataContext()
+  const { formSubmit } = useFormData()
   const [onLoad, setOnLoad] = useState(false)
 
   const submit = () => {

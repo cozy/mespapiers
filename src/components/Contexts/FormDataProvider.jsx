@@ -5,7 +5,7 @@ import { CozyFile } from 'cozy-doctypes'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
 
-import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
 import { FILES_DOCTYPE } from 'src/doctypes'
 
@@ -21,7 +21,7 @@ const FormDataProvider = ({ children }) => {
     currentDefinition,
     stepperDialogTitle,
     setIsStepperDialogOpen
-  } = useStepperDialogContext()
+  } = useStepperDialog()
   const { featureDate } = currentDefinition || {}
   const [formData, setFormData] = useState({
     metadata: {},

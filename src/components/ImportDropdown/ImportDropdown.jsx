@@ -13,7 +13,7 @@ import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 
-import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import Konnector from 'src/assets/icons/Konnectors.svg'
 
@@ -22,7 +22,7 @@ const ImportDropdown = ({ label, icon, hasSteps, hideImportDropdown }) => {
   const scannerT = useScannerI18n()
   const [showModal, setShowModal] = useState(false)
 
-  const { setIsStepperDialogOpen } = useStepperDialogContext()
+  const { setIsStepperDialogOpen } = useStepperDialog()
 
   // Avoid a potential memory leak.
   // When calling "setIsStepperDialogOpen" to "true", "Home" is unmounted to be replaced by the "Stepper".

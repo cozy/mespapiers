@@ -16,7 +16,7 @@ import Plus from 'cozy-ui/transpiled/react/Icons/Plus'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
-import { useStepperDialogContext } from 'src/components/Hooks/useStepperDialogContext'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { PaperDefinitionsPropTypes } from 'src/constants/PaperDefinitionsPropTypes'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import papersJSON from 'src/constants/papersDefinitions.json'
@@ -98,7 +98,7 @@ const Placeholder = ({ placeholder, divider }) => {
     false
   )
   const [isPapersLabelsList, setIsPapersLabelsList] = useState(false)
-  const { setCurrentDefinition } = useStepperDialogContext()
+  const { setCurrentDefinition } = useStepperDialog()
   const formModel = useMemo(() => {
     return papersJSON.papersDefinitions.find(
       paper => paper.label && paper.label === placeholder.label
