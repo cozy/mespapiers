@@ -28,11 +28,16 @@ const StepperDialogProvider = ({ children }) => {
           (a, b) => a.stepIndex - b.stepIndex
         )
 
-        const {
-          stepIndex: lastStepIndex
-        } = allCurrentStepsDefinitionsSorted.slice(-1).pop()
+        // TODO START - Just needed for Beta.4
+        const clearTempOwner = allCurrentStepsDefinitionsSorted.filter(
+          definition => definition.model.toLowerCase() !== 'owner'
+        )
+        // TODO END
+
+        const { stepIndex: lastStepIndex } = clearTempOwner.slice(-1).pop()
+
         setAllCurrentSteps([
-          ...allCurrentStepsDefinitionsSorted,
+          ...clearTempOwner,
           {
             stepIndex: lastStepIndex + 1,
             illustration: 'Account.svg',
