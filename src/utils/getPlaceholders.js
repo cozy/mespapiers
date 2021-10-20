@@ -26,14 +26,14 @@ import papersJSON from 'src/constants/papersDefinitions.json'
  */
 
 /**
- * Filters and sorts the list of PlaceHolders
+ * Filters and sorts the list of featured PlaceHolders
  * @param {Paper[]} papers Array of Papers
  * @returns an array of Papers filtered with the prop "placeholderIndex",
  * which does not already exist in DB and
  * which sorted with the prop "placeholderIndex"
  */
-export const getPlaceholders = (papers = []) =>
-  papersJSON.papersDefinitions
+export const getFeaturedPlaceholders = (papers = []) => {
+  return papersJSON.papersDefinitions
     .filter(
       paperDefinition =>
         !papers.some(
@@ -42,3 +42,16 @@ export const getPlaceholders = (papers = []) =>
         ) && paperDefinition.placeholderIndex
     )
     .sort((a, b) => a.placeholderIndex - b.placeholderIndex)
+}
+
+/**
+ * Find placeholders by Qualification
+ * @param {Array<object>} qualificationItems
+ */
+export const findPlaceholdersByQualification = (qualificationItems = []) => {
+  return papersJSON.papersDefinitions
+    .filter(paperDefinition =>
+      qualificationItems.some(item => item.label === paperDefinition.label)
+    )
+    .sort((a, b) => b.acquisitionSteps.length - a.acquisitionSteps.length)
+}

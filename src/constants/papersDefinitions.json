@@ -71,12 +71,12 @@
           "model": "scan",
           "multipage": true,
           "illustration": "IlluGenericNewPage.svg",
-          "text": "PaperJSON.generic.multiPages.text"
+          "text": "PaperJSON.generic.page.text"
         }
       ]
     },
     {
-      "label": "health_certificate",
+      "label": "health_book",
       "placeholderIndex": 7,
       "icon": "heart",
       "featureDate": "issueDate",
@@ -86,7 +86,7 @@
           "stepIndex": 1,
           "model": "scan",
           "illustration": "illuGenericNewPage.svg",
-          "text": "PaperJSON.generic.singlePages.text"
+          "text": "PaperJSON.generic.page.text"
         },
         {
           "stepIndex": 2,
@@ -194,7 +194,7 @@
           "model": "scan",
           "multipage": true,
           "illustration": "illuGenericNewPage.svg",
-          "text": "PaperJSON.generic.multiPages.text"
+          "text": "PaperJSON.generic.page.text"
         },
         {
           "stepIndex": 2,
@@ -223,7 +223,7 @@
           "model": "scan",
           "multipage": true,
           "illustration": "illuGenericNewPage.svg",
-          "text": "PaperJSON.generic.multiPages.text"
+          "text": "PaperJSON.generic.page.text"
         },
         {
           "stepIndex": 2,

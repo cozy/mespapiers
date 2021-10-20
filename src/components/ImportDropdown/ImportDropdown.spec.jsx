@@ -4,7 +4,7 @@ import { render } from '@testing-library/react'
 
 import AppLike from 'test/components/AppLike'
 import People from 'cozy-ui/transpiled/react/Icons/People'
-import { getBoundT } from 'cozy-scanner'
+import { getBoundT } from 'cozy-scanner/dist/locales'
 
 import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
 

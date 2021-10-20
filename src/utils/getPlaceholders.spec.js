@@ -1,4 +1,7 @@
-import { getPlaceholders } from 'src/utils/getPlaceholders'
+import {
+  getFeaturedPlaceholders,
+  findPlaceholdersByQualification
+} from 'src/utils/getPlaceholders'
 
 const fakePapers = [
   {
@@ -9,16 +12,40 @@ const fakePapers = [
     }
   }
 ]
+const fakeQualificationItems = [
+  {
+    label: 'national_id_card'
+  }
+]
 
 describe('getPlaceholders', () => {
-  it('should return correct list of placeholders whitout param', () => {
-    const placeholders = getPlaceholders()
+  describe('getFeaturedPlaceholders', () => {
+    it('should return correct list of placeholders whitout param', () => {
+      const featuredPlaceholders = getFeaturedPlaceholders()
 
-    expect(placeholders).toHaveLength(7)
+      expect(featuredPlaceholders).toHaveLength(7)
+    })
+
+    it('should return correct list of placeholders with param', () => {
+      const featuredPlaceholders = getFeaturedPlaceholders(fakePapers)
+
+      expect(featuredPlaceholders).toHaveLength(6)
+    })
   })
-  it('should return correct list of placeholders with param', () => {
-    const placeholders = getPlaceholders(fakePapers)
 
-    expect(placeholders).toHaveLength(6)
+  describe('findPlaceholdersByQualification', () => {
+    it('should return correct list of placeholders whitout param', () => {
+      const placeholders = findPlaceholdersByQualification()
+
+      expect(placeholders).toHaveLength(0)
+    })
+
+    it('should return correct list of placeholders with param', () => {
+      const placeholders = findPlaceholdersByQualification(
+        fakeQualificationItems
+      )
+
+      expect(placeholders).toHaveLength(1)
+    })
   })
 })
