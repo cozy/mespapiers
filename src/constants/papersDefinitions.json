@@ -51,6 +51,11 @@
               "inputLabel": "PaperJSON.driverLicense.motoObtentionDate.inputLabel"
             }
           ]
+        },
+        {
+          "stepIndex": 5,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
         }
       ]
     },
@@ -71,7 +76,12 @@
           "model": "scan",
           "multipage": true,
           "illustration": "IlluGenericNewPage.svg",
-          "text": "PaperJSON.generic.page.text"
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
         }
       ]
     },
@@ -100,6 +110,11 @@
               "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
             }
           ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
         }
       ]
     },
@@ -180,6 +195,11 @@
               "inputLabel": "PaperJSON.IDCard.expirationDate.inputLabel"
             }
           ]
+        },
+        {
+          "stepIndex": 5,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
         }
       ]
     },
@@ -208,6 +228,11 @@
               "inputLabel": "PaperJSON.generic.periodeDate.inputLabel"
             }
           ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
         }
       ]
     },
@@ -237,6 +262,11 @@
               "inputLabel": "PaperJSON.generic.periodeDate.inputLabel"
             }
           ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
         }
       ]
     }
