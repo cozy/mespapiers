@@ -31,10 +31,10 @@
   },
   "ContactStep": {
     "description": "Whose ID card is this?",
-    "finish": "Finish",
     "me": "Me",
     "onLoad": "Document generation",
-    "other": "Someone else"
+    "other": "Someone else",
+    "save": "Save"
   },
   "Home": {
     "Empty": {
