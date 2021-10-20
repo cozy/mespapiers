@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import AppLike from 'test/components/AppLike'
-import { getBoundT } from 'cozy-scanner'
+import { getBoundT } from 'cozy-scanner/dist/locales'
 
 import PaperLine from 'src/components/Papers/PaperLine'
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { getBoundT } from 'cozy-scanner'
+import { getBoundT } from 'cozy-scanner/dist/locales'
 import { useClient } from 'cozy-client'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'

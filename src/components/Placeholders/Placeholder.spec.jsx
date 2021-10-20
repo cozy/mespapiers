@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import AppLike from 'test/components/AppLike'
-import { getBoundT } from 'cozy-scanner'
+import { getBoundT } from 'cozy-scanner/dist/locales'
 
 import Placeholder from 'src/components/Placeholders/Placeholder'
 import paperJSON from 'src/constants/papersDefinitions.json'

@@ -1,6 +1,6 @@
 import React, { createContext } from 'react'
 
-import { getBoundT } from 'cozy-scanner'
+import { getBoundT } from 'cozy-scanner/dist/locales'
 
 const ScannerI18nContext = createContext()
 

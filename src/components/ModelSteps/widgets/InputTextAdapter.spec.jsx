@@ -5,7 +5,7 @@ import { render, fireEvent } from '@testing-library/react'
 import AppLike from 'test/components/AppLike'
 import InputTextAdapter from 'src/components/ModelSteps/widgets/InputTextAdapter'
 
-jest.mock('cozy-scanner', () => ({
+jest.mock('cozy-scanner/dist/locales', () => ({
   getBoundT: jest.fn(() => jest.fn())
 }))
 
