@@ -31,10 +31,10 @@
   },
   "ContactStep": {
     "description": "À qui appartient cette carte d’identité ?",
-    "finish": "Terminer",
     "me": "Moi",
     "onLoad": "Génération du document",
-    "other": "Une autre personne"
+    "other": "Une autre personne",
+    "save": "Sauvegarder"
   },
   "Home": {
     "Empty": {

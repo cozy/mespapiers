@@ -114,7 +114,7 @@ const ContactWrapper = ({ currentStep }) => {
         <Button
           className="u-db"
           extension="full"
-          label={t(!onLoad ? 'ContactStep.finish' : 'ContactStep.onLoad')}
+          label={t(!onLoad ? 'ContactStep.save' : 'ContactStep.onLoad')}
           onClick={submit}
           disabled={onLoad}
           busy={onLoad}
