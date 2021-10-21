@@ -20,21 +20,34 @@ const fakeQualificationItems = [
 
 describe('getPlaceholders', () => {
   describe('getFeaturedPlaceholders', () => {
-    it('should return correct list of placeholders whitout param', () => {
+    it('should return list of placeholders whitout param', () => {
       const featuredPlaceholders = getFeaturedPlaceholders()
 
-      expect(featuredPlaceholders).toHaveLength(8)
+      expect(featuredPlaceholders.length).toBeGreaterThan(0)
     })
 
     it('should return correct list of placeholders with param', () => {
       const featuredPlaceholders = getFeaturedPlaceholders(fakePapers)
 
-      expect(featuredPlaceholders).toHaveLength(7)
+      expect(featuredPlaceholders).toEqual(
+        expect.arrayContaining([
+          expect.not.objectContaining({
+            label: 'national_id_card'
+          })
+        ])
+      )
+      expect(featuredPlaceholders).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            label: 'driver_license'
+          })
+        ])
+      )
     })
   })
 
   describe('findPlaceholdersByQualification', () => {
-    it('should return correct list of placeholders whitout param', () => {
+    it('should return an empty list', () => {
       const placeholders = findPlaceholdersByQualification()
 
       expect(placeholders).toHaveLength(0)
@@ -45,7 +58,13 @@ describe('getPlaceholders', () => {
         fakeQualificationItems
       )
 
-      expect(placeholders).toHaveLength(1)
+      expect(placeholders).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            label: 'national_id_card'
+          })
+        ])
+      )
     })
   })
 })
