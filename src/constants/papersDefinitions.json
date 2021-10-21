@@ -1,6 +1,24 @@
 {
   "papersDefinitions": [
     {
+      "label": "birth_certificate",
+      "icon": "people",
+      "maxDisplay": 2,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "illustration": "illuGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
       "label": "driver_license",
       "placeholderIndex": 2,
       "icon": "car",
@@ -131,7 +149,31 @@
       "icon": "people",
       "featureDate": "Date",
       "maxDisplay": 1,
-      "acquisitionSteps": []
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "illustration": "illuGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "illuGenericDate.svg",
+          "text": "PaperJSON.generic.shootingDate.text",
+          "attributes": [
+            {
+              "name": "shootingDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }]
     },
     {
       "label": "isp_invoice",
@@ -140,6 +182,39 @@
       "featureDate": "issueDate",
       "maxDisplay": 6,
       "acquisitionSteps": []
+    },
+    {
+      "label": "loan_agreement",
+      "icon": "bank",
+      "featureDate": "issueDate",
+      "maxDisplay": 3,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "illuGenericNewPage.svg",
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "illuGenericDate.svg",
+          "text": "PaperJSON.IDCard.issueDate.text",
+          "attributes": [
+            {
+              "name": "issueDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.IDCard.issueDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
     },
     {
       "label": "national_insurance_card",
@@ -225,7 +300,40 @@
             {
               "name": "referenceDate",
               "type": "date",
-              "inputLabel": "PaperJSON.generic.periodeDate.inputLabel"
+              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
+      "label": "student_card",
+      "icon": "people",
+      "featureDate": "referencedDate",
+      "maxDisplay": 1,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "illuGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "illuGenericDate.svg",
+          "text": "PaperJSON.generic.referencedDate.text",
+          "attributes": [
+            {
+              "name": "referencedDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
             }
           ]
         },
@@ -242,6 +350,13 @@
       "icon": "bank",
       "featureDate": "referenceYear",
       "maxDisplay": 3,
+      "acquisitionSteps": []
+    },
+    {
+      "label": "taxe_return",
+      "icon": "bank",
+      "featureDate": "referencedDate",
+      "maxDisplay": 3,
       "acquisitionSteps": [
         {
           "stepIndex": 1,
@@ -257,9 +372,9 @@
           "text": "PaperJSON.generic.date.text",
           "attributes": [
             {
-              "name": "referenceYear",
+              "name": "referencedDate",
               "type": "date",
-              "inputLabel": "PaperJSON.generic.periodeDate.inputLabel"
+              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
             }
           ]
         },
@@ -269,6 +384,14 @@
           "text": "PaperJSON.generic.owner.text"
         }
       ]
+    },
+    {
+      "label": "taxe_timetable",
+      "placeholderIndex": 6,
+      "icon": "bank",
+      "featureDate": "referencedDate",
+      "maxDisplay": 3,
+      "acquisitionSteps": []
     }
   ]
 }
