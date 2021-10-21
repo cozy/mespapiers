@@ -45,10 +45,6 @@
       "ariaLabel": "Open the menu of all suggestions"
     }
   },
-  "Scan": {
-    "useExistingPic": "I already have a picture",
-    "takePic": "Take a picture"
-  },
   "ImportDropdown": {
     "title": "Add: %{name}",
     "importAuto": {
@@ -89,8 +85,19 @@
       "front": {
         "text": "Add front side"
       },
-      "page": {
-        "text": "Photograph a document"
+      "multiPages": {
+        "text": "Add a page to the document"
+      },
+      "referencedDate": {
+        "inputLabel": "Referenced date",
+        "text": "Start date of the period covered by this document?"
+      },
+      "singlePage": {
+        "text": "Capture the image of the document"
+      },
+      "shootingDate": {
+        "inputLabel": "Shooting date",
+        "text": "What is the shooting date of this picture? (optional)"
       }
     },
     "IDCard": {
@@ -119,5 +126,9 @@
   },
   "PlaceholdersList": {
     "title": "New paper%{name}"
+  },
+  "Scan": {
+    "useExistingPic": "I already have a picture",
+    "takePic": "Take a picture"
   }
 }

@@ -23,13 +23,13 @@ describe('getPlaceholders', () => {
     it('should return correct list of placeholders whitout param', () => {
       const featuredPlaceholders = getFeaturedPlaceholders()
 
-      expect(featuredPlaceholders).toHaveLength(7)
+      expect(featuredPlaceholders).toHaveLength(8)
     })
 
     it('should return correct list of placeholders with param', () => {
       const featuredPlaceholders = getFeaturedPlaceholders(fakePapers)
 
-      expect(featuredPlaceholders).toHaveLength(6)
+      expect(featuredPlaceholders).toHaveLength(7)
     })
   })
 

@@ -45,20 +45,16 @@
       "ariaLabel": "Ouvrir la menu de toutes les suggestions"
     }
   },
-  "Scan": {
-    "useExistingPic": "J'ai déjà une photo",
-    "takePic": "Prendre en photo"
-  },
   "ImportDropdown": {
-    "title": "Ajout : %{name}",
     "importAuto": {
-      "title": "Importer automatiquement",
-      "text": "Connectez vos services d’énergie ou de telecom à votre Cozy pour récupérer vos factures. Vos justificatifs seront mis à jour automatiquement"
+      "text": "Connectez vos services d’énergie ou de telecom à votre Cozy pour récupérer vos factures. Vos justificatifs seront mis à jour automatiquement",
+      "title": "Importer automatiquement"
     },
     "importPicture": {
-      "title": "Scanner avec mon appareil photo",
-      "text": "Utiliser votre téléphone ou un document existant"
-    }
+      "text": "Utiliser votre téléphone ou un document existant",
+      "title": "Scanner avec mon appareil photo"
+    },
+    "title": "Ajout : %{name}"
   },
   "InputDateAdapter": {
     "invalidDateMessage": "Format de la date invalide"
@@ -89,14 +85,24 @@
       "front": {
         "text": "Ajouter la face avant"
       },
-      "page": {
-        "text": "Photographier le document"
+      "multiPages": {
+        "text": "Ajouter une page du document"
+      },
+      "referencedDate": {
+        "inputLabel": "Date de référence",
+        "text": "Date de début de la période couverte par ce document ?"
+      },
+      "singlePages": {
+        "text": "Ajouter l'image du document"
+      },
+      "shootingDate": {
+        "inputLabel": "Date de prise de vue",
+        "text": "Saisissez la date de la photo (optionelle)"
       }
     },
     "IDCard": {
-      "number": {
-        "inputLabel": "Numéro de la carte",
-        "text": "Saisir le numéro de votre carte (inscrite à l’avant)"
+      "back": {
+        "text": "Photographier la face arrière de votre carte d’identité"
       },
       "expirationDate": {
         "inputLabel": "Valable jusqu'au",
@@ -105,19 +111,24 @@
       "front": {
         "text": "Photographier la face avant de votre carte d’identité"
       },
-      "back": {
-        "text": "Photographier la face arrière de votre carte d’identité"
+      "number": {
+        "inputLabel": "Numéro de la carte",
+        "text": "Saisir le numéro de votre carte (inscrite à l’avant)"
       }
     }
   },
   "PapersList": {
     "label": {
-      "front": "Face avant",
-      "back": "Face arrière"
+      "back": "Face arrière",
+      "front": "Face avant"
     },
     "subheader": "Existants"
   },
   "PlaceholdersList": {
     "title": "Nouveau papier%{name}"
+  },
+  "Scan": {
+    "takePic": "Prendre en photo",
+    "useExistingPic": "J'ai déjà une photo"
   }
 }
