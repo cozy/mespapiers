@@ -386,7 +386,7 @@
       ]
     },
     {
-      "label": "taxe_timetable",
+      "label": "tax_timetable",
       "placeholderIndex": 6,
       "icon": "bank",
       "featureDate": "referencedDate",
