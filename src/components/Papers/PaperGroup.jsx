@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useCallback } from 'react'
 import get from 'lodash/get'
 import { useHistory } from 'react-router-dom'
 
@@ -8,10 +8,8 @@ import ListSubheader from 'cozy-ui/transpiled/react/MuiCozyTheme/ListSubheader'
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
 import ListItemIcon from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
-import ListItemSecondaryAction from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItemSecondaryAction'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Icon from 'cozy-ui/transpiled/react/Icon'
-import IconButton from 'cozy-ui/transpiled/react/IconButton'
 import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
 import IconPdf from 'cozy-ui/transpiled/react/Icons/FileTypePdf'
 import Right from 'cozy-ui/transpiled/react/Icons/Right'
@@ -39,29 +37,31 @@ const PaperGroup = () => {
       ]
     : []
 
+  const goPapersList = useCallback(
+    category => {
+      history.push({
+        pathname: `/files/${category}`
+      })
+    },
+    [history]
+  )
+
   return (
     <List>
       <ListSubheader>{t('PapersList.subheader')}</ListSubheader>
       <div className={'u-pv-half'}>
         {categories.map((category, idx) => (
           <Fragment key={idx}>
-            <ListItem
-              button
-              onClick={() =>
-                history.push({
-                  pathname: `/files/${category}`
-                })
-              }
-            >
+            <ListItem button onClick={() => goPapersList(category)}>
               <ListItemIcon>
                 <Icon icon={IconPdf} size={32} />
               </ListItemIcon>
               <ListItemText primary={scannerT(`items.${category}`)} />
-              <ListItemSecondaryAction>
-                <IconButton className={'u-pr-1'}>
-                  <Icon icon={Right} size={16} />
-                </IconButton>
-              </ListItemSecondaryAction>
+              <Icon
+                icon={Right}
+                size={16}
+                color={'var(--secondaryTextColor)'}
+              />
             </ListItem>
             {idx !== categories.length - 1 && (
               <Divider variant="inset" component="li" />
