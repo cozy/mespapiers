@@ -1,16 +1,16 @@
 import React, { createContext, useState } from 'react'
 
 import { models, useClient } from 'cozy-client'
-import { CozyFile } from 'cozy-doctypes'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
 
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
-import { FILES_DOCTYPE } from 'src/doctypes'
 
-const { Qualification } = models.document
-const HTTP_CODE_CONFLICT = 409
+const {
+  document: { Qualification },
+  file: { uploadFileWithConflictStrategy }
+} = models
 
 const FormDataContext = createContext()
 
@@ -31,66 +31,37 @@ const FormDataProvider = ({ children }) => {
   const formSubmit = () => {
     const qualification = Qualification.getByLabel(stepperDialogTitle)
     const { metadata } = formData
-
     ;(async () => {
-      let submitSucceeded = null
-      for (const { file, fileMetadata } of formData.data) {
-        const newQualification = {
-          ...qualification,
-          ...fileMetadata,
-          ...metadata,
-          featureDate
-        }
-
+      try {
         const { _id: appFolderID } = await getOrCreateAppFolderWithReference(
           client,
           t
         )
 
-        try {
-          await client.create(FILES_DOCTYPE, {
-            data: file,
-            metadata: { qualification: newQualification },
-            dirId: appFolderID
-          })
-          if (submitSucceeded === null) submitSucceeded = true
-        } catch (err) {
-          const objError = JSON.parse(JSON.stringify(err))
-          if (objError.status === HTTP_CODE_CONFLICT) {
-            const { filename, extension } = CozyFile.splitFilename({
-              name: file.name,
-              type: 'file'
-            })
-            const newFilename = CozyFile.generateNewFileNameOnConflict(filename)
-            const newFilenameWithExt = `${newFilename}${extension}`
-            const blob = file.slice(0, file.size, file.type)
-            const renamedFile = new File([blob], newFilenameWithExt, {
-              type: file.type
-            })
-
-            try {
-              await client.create(FILES_DOCTYPE, {
-                data: renamedFile,
-                metadata: { qualification: newQualification },
-                dirId: appFolderID
-              })
-              if (submitSucceeded === null) submitSucceeded = true
-            } catch (err) {
-              submitSucceeded = false
-              break
+        for (const { file, fileMetadata } of formData.data) {
+          const newMetadata = {
+            qualification: {
+              ...qualification,
+              ...fileMetadata,
+              ...metadata,
+              featureDate
             }
-          } else {
-            submitSucceeded = false
-            break
           }
+
+          await uploadFileWithConflictStrategy(client, file, {
+            name: file.name,
+            contentType: file.type,
+            metadata: newMetadata,
+            dirId: appFolderID,
+            conflictStrategy: 'rename'
+          })
         }
-      }
-      setIsStepperDialogOpen(false)
-      if (submitSucceeded) {
+
         Alerter.success(t('common.saveFile.success'))
-      } else {
+      } catch (error) {
         Alerter.error(t(`common.saveFile.error`))
       }
+      setIsStepperDialogOpen(false)
     })()
   }
 
