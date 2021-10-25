@@ -6,6 +6,9 @@ import Alerter from 'cozy-ui/transpiled/react/Alerter'
 
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { formatFilename } from 'src/helpers/formatFilename'
+import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 
 const {
   document: { Qualification },
@@ -16,13 +19,14 @@ const FormDataContext = createContext()
 
 const FormDataProvider = ({ children }) => {
   const client = useClient()
-  const { t } = useI18n()
+  const { f, t } = useI18n()
+  const scannerT = useScannerI18n()
   const {
     currentDefinition,
     stepperDialogTitle,
     setIsStepperDialogOpen
   } = useStepperDialog()
-  const { featureDate } = currentDefinition || {}
+  const { featureDate, label } = currentDefinition || {}
   const [formData, setFormData] = useState({
     metadata: {},
     data: []
@@ -33,11 +37,12 @@ const FormDataProvider = ({ children }) => {
     const { metadata } = formData
     ;(async () => {
       try {
+        // (1/2) For the moment, the current user is the only possible choice
+        const user = await fetchCurrentUser(client)
         const { _id: appFolderID } = await getOrCreateAppFolderWithReference(
           client,
           t
         )
-
         for (const { file, fileMetadata } of formData.data) {
           const newMetadata = {
             qualification: {
@@ -47,9 +52,20 @@ const FormDataProvider = ({ children }) => {
               featureDate
             }
           }
+          const date =
+            formData.metadata[featureDate] &&
+            f(formData.metadata[featureDate], 'YYYY.MM.DD')
+
+          const fileRenamed = formatFilename({
+            name: file.name,
+            qualificationName: scannerT(`items.${label}`),
+            pageName: fileMetadata.page,
+            username: user?.fullname,
+            date
+          })
 
           await uploadFileWithConflictStrategy(client, file, {
-            name: file.name,
+            name: fileRenamed,
             contentType: file.type,
             metadata: newMetadata,
             dirId: appFolderID,
