@@ -6,14 +6,15 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import { makeInputTypeAndLength } from 'src/utils/makeInputTypeAndLength'
 
-const InputTextAdapter = ({ attrs, setValue }) => {
+const InputTextAdapter = ({ attrs, setValue, setValidInput }) => {
   const { name, inputLabel, metadata, type } = attrs
   const { t } = useI18n()
   const [value, setState] = useState(metadata[name] || '')
 
   useEffect(() => {
+    setValidInput(value.length > 0)
     setValue(prev => ({ ...prev, [name]: value }))
-  }, [name, value, setValue])
+  }, [name, value, setValue, setValidInput])
 
   const { inputType, inputMaxLength } = useMemo(
     () => makeInputTypeAndLength(type),

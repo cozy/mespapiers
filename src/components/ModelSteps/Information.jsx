@@ -18,6 +18,7 @@ const Information = ({ currentStep }) => {
   const { formData, setFormData } = useFormData()
   const { nextStep } = useStepperDialog()
   const [value, setValue] = useState({})
+  const [validInput, setValidInput] = useState(false)
 
   const submit = () => {
     if (value) {
@@ -41,6 +42,7 @@ const Information = ({ currentStep }) => {
               <InputDateAdapter
                 attrs={{ metadata: formData.metadata, name, inputLabel }}
                 setValue={setValue}
+                setValidInput={setValidInput}
               />
             )
           default:
@@ -48,6 +50,7 @@ const Information = ({ currentStep }) => {
               <InputTextAdapter
                 attrs={{ metadata: formData.metadata, name, inputLabel, type }}
                 setValue={setValue}
+                setValidInput={setValidInput}
               />
             )
         }
@@ -80,6 +83,7 @@ const Information = ({ currentStep }) => {
           extension="full"
           label={t('common.next')}
           onClick={submit}
+          disabled={!validInput}
         />
       </DialogActions>
     </>
