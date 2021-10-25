@@ -9,6 +9,7 @@ import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReferenc
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { formatFilename } from 'src/helpers/formatFilename'
 import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
+import { CONTACTS_DOCTYPE, FILES_DOCTYPE } from 'src/doctypes'
 
 const {
   document: { Qualification },
@@ -43,6 +44,11 @@ const FormDataProvider = ({ children }) => {
           client,
           t
         )
+        const fileCollection = client.collection(FILES_DOCTYPE)
+        const reference = {
+          _id: user._id,
+          _type: CONTACTS_DOCTYPE
+        }
         for (const { file, fileMetadata } of formData.data) {
           const newMetadata = {
             qualification: {
@@ -64,13 +70,19 @@ const FormDataProvider = ({ children }) => {
             date
           })
 
-          await uploadFileWithConflictStrategy(client, file, {
-            name: fileRenamed,
-            contentType: file.type,
-            metadata: newMetadata,
-            dirId: appFolderID,
-            conflictStrategy: 'rename'
-          })
+          const { data: fileCreated } = await uploadFileWithConflictStrategy(
+            client,
+            file,
+            {
+              name: fileRenamed,
+              contentType: file.type,
+              metadata: newMetadata,
+              dirId: appFolderID,
+              conflictStrategy: 'rename'
+            }
+          )
+          // (2/2) So this user is referenced as a contact on the new papers
+          await fileCollection.addReferencedBy(fileCreated, [reference])
         }
 
         Alerter.success(t('common.saveFile.success'))
