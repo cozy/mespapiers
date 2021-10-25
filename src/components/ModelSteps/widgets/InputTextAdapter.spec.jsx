@@ -20,7 +20,11 @@ const setup = (attrs = mockAttrs()) => {
   const value = attrs.metadata.name01
   const container = render(
     <AppLike>
-      <InputTextAdapter attrs={attrs} setValue={jest.fn()} />
+      <InputTextAdapter
+        attrs={attrs}
+        setValue={jest.fn()}
+        setValidInput={jest.fn()}
+      />
     </AppLike>
   )
   const input = container.getByDisplayValue(value)

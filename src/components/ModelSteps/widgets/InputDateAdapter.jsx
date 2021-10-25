@@ -21,14 +21,12 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-const InputDateAdapter = ({ attrs, setValue }) => {
+const InputDateAdapter = ({ attrs, setValue, setValidInput }) => {
   const { name, inputLabel, metadata } = attrs
   const { t, lang } = useI18n()
   const classes = useStyles()
   const [locales, setLocales] = useState('')
-  const [selectedDate, handleDateChange] = useState(
-    metadata[name] || new Date()
-  )
+  const [selectedDate, handleDateChange] = useState(metadata[name] || null)
 
   useEffect(() => {
     let isMounted = true
@@ -43,12 +41,13 @@ const InputDateAdapter = ({ attrs, setValue }) => {
   }, [lang])
 
   useEffect(() => {
-    setValue(prev => ({ ...prev, [name]: selectedDate }))
+    selectedDate && setValue(prev => ({ ...prev, [name]: selectedDate }))
   }, [name, selectedDate, setValue])
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locales}>
       <KeyboardDatePicker
+        placeholder={'01/01/2022'}
         className={classes.overrides}
         value={selectedDate}
         label={inputLabel ? t(inputLabel) : ''}
@@ -57,6 +56,9 @@ const InputDateAdapter = ({ attrs, setValue }) => {
         inputVariant={'outlined'}
         cancelLabel={t('common.cancel')}
         format={lang === 'fr' ? 'dd/MM/yyyy' : 'MM/dd/yyyy'}
+        onError={(err, val) => {
+          if (new Date(val).getTime()) setValidInput(true)
+        }}
       />
     </MuiPickersUtilsProvider>
   )
