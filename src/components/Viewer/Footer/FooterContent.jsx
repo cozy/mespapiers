@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { showPanel } from '../helpers'
-import Sharing from './Sharing'
 import ForwardWebButton from './ForwardWebButton'
 import DownloadButton from './DownloadButton'
 import BottomSheetWrapper from './BottomSheetWrapper'
@@ -44,7 +43,6 @@ const FooterContent = ({ file, toolbarRef }) => {
 
   return (
     <div className={styles.footer}>
-      <Sharing file={file} />
       <FileActionButton file={file} />
     </div>
   )
