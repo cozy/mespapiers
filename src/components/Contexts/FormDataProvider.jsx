@@ -65,7 +65,9 @@ const FormDataProvider = ({ children }) => {
           const fileRenamed = formatFilename({
             name: file.name,
             qualificationName: scannerT(`items.${label}`),
-            pageName: fileMetadata.page,
+            pageName: fileMetadata.page
+              ? t(`PapersList.label.${fileMetadata.page}`)
+              : null,
             username: user?.fullname,
             date
           })
