@@ -128,7 +128,7 @@
     "title": "New paper%{name}"
   },
   "Scan": {
-    "useExistingPic": "I already have a picture",
-    "takePic": "Take a picture"
+    "takePic": "Take a picture",
+    "useExistingPic": "Use an existing picture"
   }
 }
