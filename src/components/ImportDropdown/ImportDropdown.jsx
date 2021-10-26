@@ -56,7 +56,7 @@ const ImportDropdown = ({ label, icon, hasSteps, hideImportDropdown }) => {
           </Typography>
         </ListItem>
       </List>
-      <List>
+      <List className={'u-mv-half'}>
         <ListItem
           onClick={() => hasSteps && setShowModal(true)}
           disabled={!hasSteps}

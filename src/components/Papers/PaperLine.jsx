@@ -87,6 +87,7 @@ const PaperLine = ({ paper, divider }) => {
               : paper.name
           }
           secondary={paperDate}
+          className={'u-mr-1'}
         />
         <ListItemSecondaryAction>
           <IconButton

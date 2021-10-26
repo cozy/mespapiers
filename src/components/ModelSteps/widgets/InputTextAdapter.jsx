@@ -12,9 +12,9 @@ const InputTextAdapter = ({ attrs, setValue, setValidInput }) => {
   const [value, setState] = useState(metadata[name] || '')
 
   useEffect(() => {
-    setValidInput(value.length > 0)
+    setValidInput(value.length === 0 || value.length === inputMaxLength)
     setValue(prev => ({ ...prev, [name]: value }))
-  }, [name, value, setValue, setValidInput])
+  }, [name, value, setValue, setValidInput, inputMaxLength])
 
   const { inputType, inputMaxLength } = useMemo(
     () => makeInputTypeAndLength(type),

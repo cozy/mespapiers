@@ -45,7 +45,7 @@ const Home = ({ hasPapers }) => {
         color="primary"
         aria-label={t('Home.Fab.ariaLabel')}
         style={{ position: 'fixed' }}
-        className="u-bottom-l u-right-l"
+        className="u-bottom-m u-right-m"
         onClick={showAllPapersChoices}
       >
         <Icon icon={PlusIcon} />

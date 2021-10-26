@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 
 import Card from 'cozy-ui/transpiled/react/Card'
@@ -43,44 +43,52 @@ const AcquisitionResult = ({ file, setFile, currentStep }) => {
     else setFile(null)
   }
 
+  const style = useMemo(
+    () => ({
+      img: {
+        maxWidth: '100%',
+        maxHeight: 'inherit'
+      },
+      avatar: {
+        color: 'var(--paperBackgroundColor)',
+        backgroundColor: 'var(--successColor)'
+      }
+    }),
+    []
+  )
+
   return (
     <>
-      <div className={!isMobile ? 'u-mh-2' : ''}>
-        <div className={'u-flex u-flex-column u-flex-items-center u-mv-1'}>
-          <Avatar
-            icon={Check}
-            size="xlarge"
-            style={{
-              color: 'var(--paperBackgroundColor)',
-              backgroundColor: 'var(--successColor)'
-            }}
-            className={'u-mb-1'}
-          />
-          <Typography variant={'h5'}>{t('Acquisition.success')}</Typography>
-        </div>
-        <Card className={'u-ta-center'}>
-          <div className={'u-mb-1 u-h-5'}>
-            {!isPDF(file) ? (
-              <img
-                src={URL.createObjectURL(file)}
-                style={{
-                  maxWidth: '100%',
-                  maxHeight: '100%'
-                }}
-              />
-            ) : (
-              <>
-                <Icon icon={FileTypePdfIcon} size={80} />
-                <Typography variant={'body1'}>{file.name}</Typography>
-              </>
-            )}
+      <div className={'u-h-100 u-flex u-flex-column u-flex-justify-center'}>
+        <div className={!isMobile ? 'u-mh-2' : ''}>
+          <div className={'u-flex u-flex-column u-flex-items-center u-mb-2'}>
+            <Avatar
+              icon={Check}
+              size="xlarge"
+              style={style.avatar}
+              className={'u-mb-1'}
+            />
+            <Typography variant={'h5'}>{t('Acquisition.success')}</Typography>
           </div>
-          <Button
-            label={t('Acquisition.retry')}
-            theme={'text'}
-            onClick={() => setFile(null)}
-          />
-        </Card>
+          <Card className={'u-ta-center u-p-1 u-pb-half'}>
+            <div className={'u-mah-5'}>
+              {!isPDF(file) ? (
+                <img src={URL.createObjectURL(file)} style={style.img} />
+              ) : (
+                <>
+                  <Icon icon={FileTypePdfIcon} size={80} />
+                  <Typography variant={'body1'}>{file.name}</Typography>
+                </>
+              )}
+            </div>
+            <Button
+              className={'u-mt-half'}
+              label={t('Acquisition.retry')}
+              theme={'text'}
+              onClick={() => setFile(null)}
+            />
+          </Card>
+        </div>
       </div>
       <DialogActions disableSpacing className={'columnLayout u-mh-0'}>
         <Button

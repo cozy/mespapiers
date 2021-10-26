@@ -51,7 +51,7 @@ const Contact = () => {
           </ListItemIcon>
           <ListItemText
             primary={`${t('ContactStep.me')} ${
-              currentUser ? `(${currentUser.fullname})` : ''
+              currentUser?.fullname ? `(${currentUser.fullname})` : ''
             }`}
           />
           <ListItemSecondaryAction className={'u-mr-half'}>

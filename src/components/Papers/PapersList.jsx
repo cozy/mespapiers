@@ -9,7 +9,7 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import IconButton from 'cozy-ui/transpiled/react/IconButton'
 import UIBarTitle from 'cozy-ui/transpiled/react/BarTitle'
 import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
-import Left from 'cozy-ui/transpiled/react/Icons/Left'
+import Previous from 'cozy-ui/transpiled/react/Icons/Previous'
 
 import { getPapersByLabel } from 'src/helpers/queries'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
@@ -55,7 +55,7 @@ const PapersList = ({ history, match }) => {
     <>
       <BarLeft>
         <IconButton className={'u-pr-1'} onClick={() => history.goBack()}>
-          <Icon icon={Left} size={16} />
+          <Icon icon={Previous} size={16} />
         </IconButton>
       </BarLeft>
       <BarCenter>
