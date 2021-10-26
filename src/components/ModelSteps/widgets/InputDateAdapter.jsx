@@ -11,6 +11,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 const useStyles = makeStyles(() => ({
   overrides: {
     width: '100%',
+    height: '2rem',
     MuiOutlinedInput: {
       '&:focused': {
         notchedOutline: {
@@ -45,7 +46,11 @@ const InputDateAdapter = ({ attrs, setValue, setValidInput }) => {
   }, [name, selectedDate, setValue])
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locales}>
+    <MuiPickersUtilsProvider
+      utils={DateFnsUtils}
+      locale={locales}
+      className={'TEST'}
+    >
       <KeyboardDatePicker
         placeholder={'01/01/2022'}
         className={classes.overrides}
@@ -57,7 +62,7 @@ const InputDateAdapter = ({ attrs, setValue, setValidInput }) => {
         cancelLabel={t('common.cancel')}
         format={lang === 'fr' ? 'dd/MM/yyyy' : 'MM/dd/yyyy'}
         onError={(err, val) => {
-          if (new Date(val).getTime()) setValidInput(true)
+          setValidInput(val === null || !!new Date(val).getTime())
         }}
       />
     </MuiPickersUtilsProvider>

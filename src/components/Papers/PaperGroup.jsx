@@ -1,8 +1,10 @@
 import React, { Fragment, useCallback } from 'react'
 import get from 'lodash/get'
 import { useHistory } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles'
 
 import { useQuery } from 'cozy-client'
+import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListSubheader from 'cozy-ui/transpiled/react/MuiCozyTheme/ListSubheader'
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
@@ -17,7 +19,13 @@ import Right from 'cozy-ui/transpiled/react/Icons/Right'
 import { getAllQualificationLabel } from 'src/helpers/queries'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 
+const useStyles = makeStyles({
+  root: { textIndent: '1rem' }
+})
+
 const PaperGroup = () => {
+  const classes = useStyles()
+  const { isMobile } = useBreakpoints()
   const history = useHistory()
   const { t } = useI18n()
   const scannerT = useScannerI18n()
@@ -48,7 +56,9 @@ const PaperGroup = () => {
 
   return (
     <List>
-      <ListSubheader>{t('PapersList.subheader')}</ListSubheader>
+      <ListSubheader classes={isMobile && classes}>
+        {t('PapersList.subheader')}
+      </ListSubheader>
       <div className={'u-pv-half'}>
         {categories.map((category, idx) => (
           <Fragment key={idx}>

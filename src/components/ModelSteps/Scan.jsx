@@ -45,10 +45,10 @@ const Scan = ({ currentStep }) => {
 
         <FileInput
           onChange={onFileChange}
-          className={'u-w-100 u-ta-center'}
+          className={'u-w-100 u-ta-center u-mb-half'}
           onClick={e => e.stopPropagation()}
           capture={'environment'}
-          accept={'image/*,.pdf'}
+          accept={'image/*'}
         >
           <ButtonLink
             icon={Camera}
