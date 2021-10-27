@@ -22,11 +22,12 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-const InputDateAdapter = ({ attrs, setValue, setValidInput }) => {
+const InputDateAdapter = ({ attrs, setValue, setValidInput, idx }) => {
   const { name, inputLabel, metadata } = attrs
   const { t, lang } = useI18n()
   const classes = useStyles()
   const [locales, setLocales] = useState('')
+  const [isError, setIsError] = useState(false)
   const [selectedDate, handleDateChange] = useState(metadata[name] || null)
 
   useEffect(() => {
@@ -45,6 +46,13 @@ const InputDateAdapter = ({ attrs, setValue, setValidInput }) => {
     selectedDate && setValue(prev => ({ ...prev, [name]: selectedDate }))
   }, [name, selectedDate, setValue])
 
+  useEffect(() => {
+    setValidInput(prev => ({
+      ...prev,
+      [idx]: isError
+    }))
+  }, [idx, isError, setValidInput])
+
   return (
     <MuiPickersUtilsProvider
       utils={DateFnsUtils}
@@ -62,7 +70,7 @@ const InputDateAdapter = ({ attrs, setValue, setValidInput }) => {
         cancelLabel={t('common.cancel')}
         format={lang === 'fr' ? 'dd/MM/yyyy' : 'MM/dd/yyyy'}
         onError={(err, val) => {
-          setValidInput(val === null || !!new Date(val).getTime())
+          setIsError(val === null || !!new Date(val).getTime())
         }}
       />
     </MuiPickersUtilsProvider>

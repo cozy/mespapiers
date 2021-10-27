@@ -18,7 +18,7 @@ const Information = ({ currentStep }) => {
   const { formData, setFormData } = useFormData()
   const { nextStep } = useStepperDialog()
   const [value, setValue] = useState({})
-  const [validInput, setValidInput] = useState(false)
+  const [validInput, setValidInput] = useState({})
 
   const submit = () => {
     if (value) {
@@ -38,21 +38,32 @@ const Information = ({ currentStep }) => {
       attributes.map(({ name, type, inputLabel }) => {
         switch (type) {
           case 'date':
-            return (
-              <InputDateAdapter
-                attrs={{ metadata: formData.metadata, name, inputLabel }}
-                setValue={setValue}
-                setValidInput={setValidInput}
-              />
-            )
+            return function InputDate(props) {
+              return (
+                <InputDateAdapter
+                  attrs={{ metadata: formData.metadata, name, inputLabel }}
+                  setValue={setValue}
+                  setValidInput={setValidInput}
+                  {...props}
+                />
+              )
+            }
           default:
-            return (
-              <InputTextAdapter
-                attrs={{ metadata: formData.metadata, name, inputLabel, type }}
-                setValue={setValue}
-                setValidInput={setValidInput}
-              />
-            )
+            return function InputText(props) {
+              return (
+                <InputTextAdapter
+                  attrs={{
+                    metadata: formData.metadata,
+                    name,
+                    inputLabel,
+                    type
+                  }}
+                  setValue={setValue}
+                  setValidInput={setValidInput}
+                  {...props}
+                />
+              )
+            }
         }
       }),
     [attributes, formData.metadata]
@@ -61,6 +72,11 @@ const Information = ({ currentStep }) => {
   const hasMarginBottom = useCallback(idx => hasNextvalue(idx, inputs), [
     inputs
   ])
+
+  const allInputsValid = useMemo(
+    () => Object.keys(validInput).every(val => validInput[val]),
+    [validInput]
+  )
 
   return (
     <>
@@ -71,8 +87,11 @@ const Information = ({ currentStep }) => {
           iconSize={'medium'}
           title={t(text)}
           text={inputs.map((Input, idx) => (
-            <div key={idx} className={hasMarginBottom(idx) ? 'u-mb-1' : ''}>
-              {Input}
+            <div
+              key={idx}
+              className={hasMarginBottom(idx) ? 'u-mb-3 u-pb-1' : ''}
+            >
+              <Input idx={idx} />
             </div>
           ))}
         />
@@ -83,7 +102,7 @@ const Information = ({ currentStep }) => {
           extension="full"
           label={t('common.next')}
           onClick={submit}
-          disabled={!validInput}
+          disabled={!allInputsValid}
         />
       </DialogActions>
     </>
