@@ -26,7 +26,7 @@
     },
     "contacts": {
       "description": "Required to access the contacts",
-      "type": "io.cozy.contacts",
+      "type": "io.cozy.contacts.*",
       "verbs": ["GET"]
     },
     "files": {
@@ -42,6 +42,26 @@
     "settings": {
       "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
       "type": "io.cozy.settings",
+      "verbs": ["GET"]
+    },
+    "permissions": {
+      "description": "Required to run the konnectors",
+      "type": "io.cozy.permissions",
+      "verbs": ["ALL"]
+    },
+    "konnectors": {
+      "description": "Required to display additional information in the viewer for files automatically retrieved by services",
+      "type": "io.cozy.konnectors",
+      "verbs": ["GET"]
+    },
+    "accounts": {
+      "description": "Required to display additional information in the viewer for files automatically retrieved by services",
+      "type": "io.cozy.accounts",
+      "verbs": ["GET"]
+    },
+    "triggers": {
+      "description": "Required to display additional information in the viewer for files automatically retrieved by services",
+      "type": "io.cozy.triggers",
       "verbs": ["GET"]
     }
   }
