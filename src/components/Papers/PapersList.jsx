@@ -14,10 +14,20 @@ import Previous from 'cozy-ui/transpiled/react/Icons/Previous'
 import { getPapersByLabel } from 'src/helpers/queries'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import PaperLine from 'src/components/Papers/PaperLine'
+import makeActions from 'src/components/Actions/makeActions'
+import { useModal } from 'src/components/Hooks/useModal'
+import {
+  download,
+  hr,
+  trash,
+  openWith,
+  offline
+} from 'src/components/Actions/Actions'
 
 const PapersList = ({ history, match }) => {
   const client = useClient()
   const scannerT = useScannerI18n()
+  const { pushModal, popModal } = useModal()
   const [subheaderLabel, setSubheaderLabel] = useState(null)
   const { BarLeft, BarCenter } = cozy.bar
   const currentFileCategory = useMemo(
@@ -51,10 +61,24 @@ const PapersList = ({ history, match }) => {
     }
   }, [client, categoryLabel])
 
+  const actionsOptions = useMemo(
+    () => ({
+      client,
+      pushModal,
+      popModal
+    }),
+    [client, popModal, pushModal]
+  )
+  const actions = useMemo(
+    () =>
+      makeActions([download, hr, openWith, offline, hr, trash], actionsOptions),
+    [actionsOptions]
+  )
+
   return (
     <>
       <BarLeft>
-        <IconButton className={'u-pr-1'} onClick={() => history.goBack()}>
+        <IconButton className={'u-pr-1'} onClick={() => history.push('/')}>
           <Icon icon={Previous} size={16} />
         </IconButton>
       </BarLeft>
@@ -73,6 +97,7 @@ const PapersList = ({ history, match }) => {
               key={idx}
               paper={paper}
               divider={idx !== allPapers.length - 1}
+              actions={actions}
             />
           ))}
         </div>

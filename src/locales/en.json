@@ -7,6 +7,8 @@
   "actions": {
     "download": "Download",
     "moveTo": "Move to…",
+    "openWith": "Open with…",
+    "phoneDownload": "Make available offline",
     "qualify": "Qualify",
     "rename": "Rename",
     "share": "Share",
@@ -15,11 +17,25 @@
   },
   "common": {
     "cancel": "Cancel",
+    "downloadFile": {
+      "error": {
+        "offline": "You should be connected to download this file",
+        "missing": "This file is missing"
+      }
+    },
     "next": "Next",
     "replace": "Replace",
     "saveFile": {
       "error": "An error has occurred, please try again later",
       "success": "Successfully saved file"
+    },
+    "trashFile": {
+      "error": "An error has occurred, please try again in a moment.",
+      "success": "The selection has been moved to the Trash."
+    },
+    "removeQualification": {
+      "error": "An error has occurred, please try again in a moment.",
+      "success": "The document has been removed from My Papers."
     }
   },
   "FeaturedPlaceholdersList": {
@@ -35,6 +51,13 @@
     "onLoad": "Document generation",
     "other": "Someone else",
     "save": "Save"
+  },
+  "DeleteConfirm": {
+    "title": "Delete this file?",
+    "text": "The item is associated with the file \"%{name}\" in your drive.",
+    "choice": "Keep the associated file in my drive.",
+    "cancel": "Cancel",
+    "delete": "Remove"
   },
   "Home": {
     "Empty": {

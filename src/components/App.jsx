@@ -14,9 +14,12 @@ import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import HomeWrapper from 'src/components/HomeWrapper/HomeWrapper'
 import PapersList from 'src/components/Papers/PapersList'
 import FileViewerWithQuery from 'src/components/Viewer/FileViewerWithQuery'
+import { ModalStack } from 'src/components/Contexts/ModalProvider'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 export const App = () => {
   const client = useClient()
+  const { t } = useI18n()
   const { isMobile } = useBreakpoints()
   const { BarCenter } = cozy.bar
 
@@ -46,7 +49,8 @@ export const App = () => {
             </Switch>
           </Content>
           <RealTimeQueries doctype="io.cozy.files" />
-          <Alerter />
+          <Alerter t={t} />
+          <ModalStack />
         </Main>
         <IconSprite />
       </Layout>
