@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
+import { useClient, generateWebLink } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import ActionMenu from 'cozy-ui/transpiled/react/ActionMenu'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
@@ -19,10 +20,24 @@ import Konnector from 'src/assets/icons/Konnectors.svg'
 
 const ImportDropdown = ({ label, icon, hasSteps, hideImportDropdown }) => {
   const { t } = useI18n()
+  const client = useClient()
   const scannerT = useScannerI18n()
   const [showModal, setShowModal] = useState(false)
 
-  const { setIsStepperDialogOpen } = useStepperDialog()
+  const { currentDefinition, setIsStepperDialogOpen } = useStepperDialog()
+  const konnectorCategory = currentDefinition?.connectorCriteria?.category
+
+  const goToStore = () => {
+    const webLink = generateWebLink({
+      slug: 'store',
+      cozyUrl: client.getStackClient().uri,
+      subDomainType: client.getInstanceOptions().subdomain,
+      pathname: '/',
+      hash: `discover?type=konnector&category=${konnectorCategory}`
+    })
+    // TODO Do not use window.open for redirect, prefer use a link (href)
+    window.open(webLink, '_blank')
+  }
 
   // Avoid a potential memory leak.
   // When calling "setIsStepperDialogOpen" to "true", "Home" is unmounted to be replaced by the "Stepper".
@@ -70,7 +85,10 @@ const ImportDropdown = ({ label, icon, hasSteps, hideImportDropdown }) => {
             ellipsis={false}
           />
         </ListItem>
-        <ListItem disabled>
+        <ListItem
+          onClick={konnectorCategory ? goToStore : null}
+          disabled={konnectorCategory ? false : true}
+        >
           <ListItemIcon>
             <Icon icon={Konnector} size={24} />
           </ListItemIcon>
