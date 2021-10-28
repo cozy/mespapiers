@@ -19,6 +19,7 @@ import setupApp from 'src/targets/browser/setupApp'
 import App from 'src/components/App'
 import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
 import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider'
+import { ModalProvider } from 'src/components/Contexts/ModalProvider'
 
 /*
 With MUI V4, it is possible to generate deterministic class names.
@@ -41,7 +42,9 @@ const init = () => {
             <MuiCozyTheme>
               <BreakpointsProvider>
                 <StepperDialogProvider>
-                  <App />
+                  <ModalProvider>
+                    <App />
+                  </ModalProvider>
                 </StepperDialogProvider>
               </BreakpointsProvider>
             </MuiCozyTheme>
