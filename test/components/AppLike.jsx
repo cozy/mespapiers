@@ -6,6 +6,7 @@ import I18n from 'cozy-ui/transpiled/react/I18n'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
 import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
+import { ModalProvider } from 'src/components/Contexts/ModalProvider'
 import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider'
 import enLocale from 'src/locales/en.json'
 
@@ -22,7 +23,9 @@ const AppLike = ({ children, client }) => (
       <ScannerI18nProvider lang={'en'}>
         <BreakpointsProvider>
           <StepperDialogProvider>
-            <HashRouter>{children}</HashRouter>
+            <ModalProvider>
+              <HashRouter>{children}</HashRouter>
+            </ModalProvider>
           </StepperDialogProvider>
         </BreakpointsProvider>
       </ScannerI18nProvider>
