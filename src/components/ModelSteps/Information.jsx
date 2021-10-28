@@ -9,7 +9,8 @@ import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import InputDateAdapter from 'src/components/ModelSteps/widgets/InputDateAdapter'
 import InputTextAdapter from 'src/components/ModelSteps/widgets/InputTextAdapter'
-import GenericInputText from 'src/assets/icons/GenericInputText.svg'
+import IlluGenericInputText from 'src/assets/icons/IlluGenericInputText.svg'
+import IlluGenericInputDate from 'src/assets/icons/IlluGenericInputDate.svg'
 import { hasNextvalue } from 'src/utils/hasNextvalue'
 
 const Information = ({ currentStep }) => {
@@ -35,37 +36,39 @@ const Information = ({ currentStep }) => {
 
   const inputs = useMemo(
     () =>
-      attributes.map(({ name, type, inputLabel }) => {
-        switch (type) {
-          case 'date':
-            return function InputDate(props) {
-              return (
-                <InputDateAdapter
-                  attrs={{ metadata: formData.metadata, name, inputLabel }}
-                  setValue={setValue}
-                  setValidInput={setValidInput}
-                  {...props}
-                />
-              )
+      attributes
+        ? attributes.map(({ name, type, inputLabel }) => {
+            switch (type) {
+              case 'date':
+                return function InputDate(props) {
+                  return (
+                    <InputDateAdapter
+                      attrs={{ metadata: formData.metadata, name, inputLabel }}
+                      setValue={setValue}
+                      setValidInput={setValidInput}
+                      {...props}
+                    />
+                  )
+                }
+              default:
+                return function InputText(props) {
+                  return (
+                    <InputTextAdapter
+                      attrs={{
+                        metadata: formData.metadata,
+                        name,
+                        inputLabel,
+                        type
+                      }}
+                      setValue={setValue}
+                      setValidInput={setValidInput}
+                      {...props}
+                    />
+                  )
+                }
             }
-          default:
-            return function InputText(props) {
-              return (
-                <InputTextAdapter
-                  attrs={{
-                    metadata: formData.metadata,
-                    name,
-                    inputLabel,
-                    type
-                  }}
-                  setValue={setValue}
-                  setValidInput={setValidInput}
-                  {...props}
-                />
-              )
-            }
-        }
-      }),
+          })
+        : [],
     [attributes, formData.metadata]
   )
 
@@ -77,13 +80,17 @@ const Information = ({ currentStep }) => {
     () => Object.keys(validInput).every(val => validInput[val]),
     [validInput]
   )
+  const fallbackIcon =
+    attributes?.[0]?.type === 'date'
+      ? IlluGenericInputDate
+      : IlluGenericInputText
 
   return (
     <>
       <div className={'u-h-100'}>
         <CompositeHeader
           icon={illustration}
-          fallbackIcon={GenericInputText}
+          fallbackIcon={fallbackIcon}
           iconSize={'medium'}
           title={t(text)}
           text={inputs.map((Input, idx) => (
@@ -96,7 +103,7 @@ const Information = ({ currentStep }) => {
           ))}
         />
       </div>
-      <DialogActions disableSpacing className={'columnLayout'}>
+      <DialogActions disableSpacing className={'columnLayout u-mh-0'}>
         <Button
           className="u-db"
           extension="full"

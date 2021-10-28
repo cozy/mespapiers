@@ -8,7 +8,7 @@ import FileInput from 'cozy-ui/transpiled/react/FileInput'
 
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import AcquisitionResult from 'src/components/ModelSteps/AcquisitionResult'
-import GenericScan from 'src/assets/icons/GenericScan.svg'
+import IlluGenericNewPage from 'src/assets/icons/IlluGenericNewPage.svg'
 
 const Scan = ({ currentStep }) => {
   const { t } = useI18n()
@@ -27,10 +27,10 @@ const Scan = ({ currentStep }) => {
     <>
       <CompositeHeader
         icon={illustration}
-        fallbackIcon={GenericScan}
+        fallbackIcon={IlluGenericNewPage}
         title={t(text)}
       />
-      <DialogActions disableSpacing className={'columnLayout'}>
+      <DialogActions disableSpacing className={'columnLayout u-mh-0'}>
         <FileInput
           onChange={onFileChange}
           className={'u-w-100 u-ta-center'}
@@ -45,14 +45,14 @@ const Scan = ({ currentStep }) => {
 
         <FileInput
           onChange={onFileChange}
-          className={'u-w-100 u-ta-center u-mb-half'}
+          className={'u-w-100 u-ta-center u-mb-half u-ml-0'}
           onClick={e => e.stopPropagation()}
           capture={'environment'}
           accept={'image/*'}
         >
           <ButtonLink
             icon={Camera}
-            className={'u-w-100'}
+            className={'u-w-100 u-m-0'}
             label={t('Scan.takePic')}
           />
         </FileInput>
