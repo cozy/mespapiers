@@ -62,6 +62,7 @@
     "cozy-ui": "51.11.0",
     "date-fns": "2.23.0",
     "mui-bottom-sheet": "https://github.com/cozy/mui-bottom-sheet.git#v1.0.6",
+    "pdf-lib": "1.17.0",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-router-dom": "5.2.0"
