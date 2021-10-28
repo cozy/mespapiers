@@ -2,6 +2,7 @@ import React, { useState, useMemo, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
+import { splitFilename } from 'cozy-client/dist/models/file'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import ActionMenu, {
@@ -19,16 +20,17 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import DotsIcon from 'cozy-ui/transpiled/react/Icons/Dots'
 import IconPdf from 'cozy-ui/transpiled/react/Icons/FileTypePdf'
 
-import { getActions } from 'src/components/Actions/Actions'
 import papersJSON from 'src/constants/papersDefinitions.json'
+import { ActionsItems } from 'src/components/Actions/ActionsItems'
 
 const validPageName = page => page === 'front' || page === 'back'
 
-const PaperLine = ({ paper, divider }) => {
+const PaperLine = ({ paper, divider, actions }) => {
   const history = useHistory()
   const { f, t } = useI18n()
   const { isMobile } = useBreakpoints()
   const actionBtnRef = useRef()
+
   const [optionFile, setOptionFile] = useState(false)
   const paperDefinition = useMemo(
     () =>
@@ -49,22 +51,10 @@ const PaperLine = ({ paper, divider }) => {
   const hideActionsMenu = () => setOptionFile(false)
   const toggleActionsMenu = () => setOptionFile(prev => !prev)
 
-  const options = useMemo(
-    () =>
-      getActions([
-        'share',
-        'download',
-        'hr',
-        'qualify',
-        'rename',
-        'moveTo',
-        'hr',
-        'version',
-        'hr',
-        'trash'
-      ]),
-    []
-  )
+  const { filename, extension } = splitFilename({
+    name: paper.name,
+    type: 'file'
+  })
 
   return (
     <>
@@ -105,14 +95,18 @@ const PaperLine = ({ paper, divider }) => {
         <ActionMenu onClose={hideActionsMenu} anchorElRef={actionBtnRef}>
           {isMobile && (
             <ActionMenuHeader>
-              <Filename icon={FileTypePdfIcon} filename={paper.name} />
+              <Filename
+                icon={FileTypePdfIcon}
+                filename={filename}
+                extension={extension}
+              />
             </ActionMenuHeader>
           )}
-          {options.map((option, idx) => {
-            const { action, Component } = option
-
-            return <Component key={idx} className={'u-o-50'} onClick={action} />
-          })}
+          <ActionsItems
+            actions={actions}
+            file={paper}
+            onClose={hideActionsMenu}
+          />
         </ActionMenu>
       )}
     </>
