@@ -49,7 +49,7 @@ const CompositeHeader = ({
         (isValidElement(Title) ? (
           Title
         ) : (
-          <Typography variant="h5" color="textPrimary">
+          <Typography variant="h5" color="textPrimary" className={'u-mh-2'}>
             {Title}
           </Typography>
         ))}
