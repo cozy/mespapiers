@@ -13,7 +13,8 @@
     "rename": "Rename",
     "share": "Share",
     "trash": "Remove",
-    "version": "Versions"
+    "version": "Versions",
+    "viewInDrive": "View in Drive"
   },
   "common": {
     "cancel": "Cancel",

@@ -13,7 +13,8 @@
     "rename": "Renommer",
     "share": "Partager",
     "trash": "Supprimer",
-    "version": "Versions"
+    "version": "Versions",
+    "viewInDrive": "Voir dans Drive"
   },
   "common": {
     "cancel": "Annuler",
