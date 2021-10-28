@@ -46,7 +46,6 @@
     "papers": "My papers"
   },
   "ContactStep": {
-    "description": "Whose ID card is this?",
     "me": "Me",
     "onLoad": "Document generation",
     "other": "Someone else",
@@ -86,41 +85,63 @@
     "other": "Others…"
   },
   "PaperJSON": {
-    "driverLicence": {
-      "carObtentionDate": {
-        "inputLabel": "Date of obtaining license B (car)"
+    "generic": {
+      "front": {
+        "text": "Add front side"
       },
-      "motoObtentionDate": {
-        "inputLabel": "Date of obtaining license A (moto)"
+      "back": {
+        "text": "Add back side"
+      },
+      "singlePage": {
+        "text": "Capture the image of the document"
+      },
+      "multiPages": {
+        "text": "Add a page to the document"
+      },
+      "issueDate": {
+        "inputLabel": "Issued on",
+        "text": "When was the document issued?"
+      },
+      "expirationDate": {
+        "inputLabel": "Expiration date",
+        "text": "When does this document expires?"
+      },
+      "shootingDate": {
+        "inputLabel": "Shooting date",
+        "text": "What is the shooting date of this picture? (optional)"
+      },
+      "referencedDate": {
+        "inputLabel": "Referenced date",
+        "text": "Start date of the period covered by this document?"
+      },
+      "date": {
+        "inputLabel": "Document date",
+        "text": "What is the date of this document?"
+      },
+      "owner": {
+        "inputLabel": "Owner",
+        "text": "Who is the owner of this document?"
+      }
+    },
+    "driverLicence": {
+      "BObtentionDate": {
+        "inputLabel": "Car - since the"
+      },
+      "AObtentionDate": {
+        "inputLabel": "Moto - since the"
       },
       "number": {
         "inputLabel": "Your license number",
         "text": "What is your license number?"
       },
       "obtentionDate": {
-        "text": "When was your license issued?"
-      }
-    },
-    "generic": {
-      "back": {
-        "text": "Add back side"
+        "text": "Fill in the date of each category obtained"
       },
-      "front": {
-        "text": "Add front side"
+      "CobtentionDate": {
+        "text": "Truck - depuis le"
       },
-      "multiPages": {
-        "text": "Add a page to the document"
-      },
-      "referencedDate": {
-        "inputLabel": "Referenced date",
-        "text": "Start date of the period covered by this document?"
-      },
-      "singlePage": {
-        "text": "Capture the image of the document"
-      },
-      "shootingDate": {
-        "inputLabel": "Shooting date",
-        "text": "What is the shooting date of this picture? (optional)"
+      "DobtentionDate": {
+        "text": "Bus - depuis le"
       }
     },
     "IDCard": {
@@ -133,10 +154,10 @@
         "text": "When was your card issued? (written on the back)"
       },
       "front": {
-        "text": "Photograph the front of your ID card"
+        "text": "Take a picture of the front of your ID card"
       },
       "back": {
-        "text": "Photograph the back of your ID card"
+        "text": "Take a picture of the back of your ID card"
       }
     }
   },
@@ -151,7 +172,7 @@
     "title": "New paper%{name}"
   },
   "Scan": {
-    "takePic": "Take a picture",
-    "useExistingPic": "Use an existing picture"
+    "useExistingPic": "I already have a picture",
+    "takePic": "Take a picture"
   }
 }

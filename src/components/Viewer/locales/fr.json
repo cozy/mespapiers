@@ -19,10 +19,12 @@
         "identity": "Identité",
         "date": {
           "title": {
-            "obtentionDate": "Délivré le",
+            "BObtentionDate": "Délivré le",
             "carObtentionDate": "Délivré le",
-            "motoObtentionDate": "Délivré le",
-            "expirationDate": "Expire le"
+            "issueDate": "Délivré le",
+            "AObtentionDate": "Délivré le",
+            "expirationDate": "Expire le",
+            "referencedDate": "Date de référence"
           }
         }
       }
