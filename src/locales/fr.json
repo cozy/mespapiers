@@ -46,7 +46,6 @@
     "papers": "Mes papiers"
   },
   "ContactStep": {
-    "description": "À qui appartient cette carte d’identité ?",
     "me": "Moi",
     "onLoad": "Génération du document",
     "other": "Une autre personne",
@@ -86,57 +85,85 @@
     "other": "Autres…"
   },
   "PaperJSON": {
-    "driverLicense": {
-      "carObtentionDate": {
-        "inputLabel": "Date d'obtention du permis B (voiture)"
+    "generic": {
+      "cover": {
+        "text": "Ajouter la couverture"
       },
-      "motoObtentionDate": {
-        "inputLabel": "Date d'obtention du permis A (moto)"
+      "content": {
+        "text": "Ajouter la page intérieure"
+      },
+      "front": {
+        "text": "Ajouter la face avant"
+      },
+      "back": {
+        "text": "Ajouter la face arrière"
+      },
+      "singlePages": {
+        "text": "Ajouter l'image du document"
+      },
+      "multiPages": {
+        "text": "Ajouter une page du document"
+      },
+      "issueDate": {
+        "inputLabel": "Délivré le",
+        "text": "Quelle est la date d'émission de ce document ?"
+      },
+      "expirationDate": {
+        "inputLabel": "Valable jusqu'au",
+        "text": "Quelle est la date d'expiration de ce document ?"
+      },
+      "shootingDate": {
+        "inputLabel": "Date de prise de vue",
+        "text": "Quand cette photo a-t-elle été prise ? (optionelle)"
+      },
+      "referencedDate": {
+        "inputLabel": "Date de référence",
+        "text": "Date de début de la période couverte par ce document ?"
+      },
+      "date": {
+        "inputLabel": "Date du document",
+        "text": "Quelle est la date de ce document ?"
+      },
+      "owner": {
+        "inputLabel": "Détenteur",
+        "text": "Qui est le détenteur de ce document ?"
+      }
+    },
+    "driverLicense": {
+      "BObtentionDate": {
+        "inputLabel": "Categ. B (Voiture) depuis le"
+      },
+      "AObtentionDate": {
+        "inputLabel": "Categ. A (Moto) depuis le"
       },
       "number": {
         "inputLabel": "Numéro de votre permis",
         "text": "Quel est le numéro de votre permis ?"
       },
       "obtentionDate": {
-        "text": "À quelle date votre permis a-t-il été délivré ?"
+        "text": "Renseignez les dates d'obtention des catégories valables."
+      },
+      "CobtentionDate": {
+        "text": "Categ. C (Camion) depuis le"
+      },
+      "DobtentionDate": {
+        "text": "Categ. D (Bus) depuis le"
       }
     },
-    "generic": {
+    "card": {
       "back": {
-        "text": "Ajouter la face arrière"
-      },
-      "front": {
-        "text": "Ajouter la face avant"
-      },
-      "multiPages": {
-        "text": "Ajouter une page du document"
-      },
-      "referencedDate": {
-        "inputLabel": "Date de référence",
-        "text": "Date de début de la période couverte par ce document ?"
-      },
-      "singlePages": {
-        "text": "Ajouter l'image du document"
-      },
-      "shootingDate": {
-        "inputLabel": "Date de prise de vue",
-        "text": "Saisissez la date de la photo (optionelle)"
-      }
-    },
-    "IDCard": {
-      "back": {
-        "text": "Photographier la face arrière de votre carte d’identité"
+        "text": "Photographier la face arrière de votre carte"
       },
       "expirationDate": {
         "inputLabel": "Valable jusqu'au",
-        "text": "À quelle date votre carte a-t-elle été délivrée ? (inscrite à l’arrière)"
+        "text": "Quelle est la date d'expiration de cette carte ?"
       },
       "front": {
-        "text": "Photographier la face avant de votre carte d’identité"
+        "text": "Photographier la face avant de votre carte"
       },
       "number": {
         "inputLabel": "Numéro de la carte",
-        "text": "Saisir le numéro de votre carte (inscrite à l’avant)"
+        "text": "Saisir le numéro de votre carte"
       }
     }
   },
@@ -152,6 +179,6 @@
   },
   "Scan": {
     "takePic": "Prendre en photo",
-    "useExistingPic": "Utiliser une photo existante"
+    "useExistingPic": "J'ai déjà une photo"
   }
 }
