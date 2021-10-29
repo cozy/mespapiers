@@ -1,8 +1,9 @@
 /* global cozy */
 import React, { useState, useMemo, useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 
 import { useClient, useQuery } from 'cozy-client'
-import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
+import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListSubheader from 'cozy-ui/transpiled/react/MuiCozyTheme/ListSubheader'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -11,6 +12,7 @@ import UIBarTitle from 'cozy-ui/transpiled/react/BarTitle'
 import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
 import Previous from 'cozy-ui/transpiled/react/Icons/Previous'
 
+import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import { getPapersByLabel } from 'src/helpers/queries'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import PaperLine from 'src/components/Papers/PaperLine'
@@ -25,8 +27,14 @@ import {
   viewInDrive
 } from 'src/components/Actions/Actions'
 
+const useStyles = makeStyles({
+  root: { textIndent: '1rem' }
+})
+
 const PapersList = ({ history, match }) => {
   const client = useClient()
+  const classes = useStyles()
+  const { isMobile } = useBreakpoints()
   const scannerT = useScannerI18n()
   const { pushModal, popModal } = useModal()
   const [subheaderLabel, setSubheaderLabel] = useState(null)
@@ -95,7 +103,9 @@ const PapersList = ({ history, match }) => {
       </BarCenter>
 
       <List>
-        <ListSubheader>{subheaderLabel}</ListSubheader>
+        <ListSubheader classes={isMobile && classes}>
+          {subheaderLabel}
+        </ListSubheader>
         <div className={'u-pv-half'}>
           {allPapers?.map((paper, idx) => (
             <PaperLine
