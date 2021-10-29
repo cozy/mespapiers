@@ -138,7 +138,7 @@ const FormDataProvider = ({ children }) => {
             f(formData.metadata[featureDate], 'YYYY.MM.DD')
 
           const fileRenamed = formatFilename({
-            name: file.name,
+            name: 'NOT_USED_NAME.pdf',
             qualificationName: scannerT(`items.${label}`),
             pageName: fileMetadata.page
               ? t(`PapersList.label.${fileMetadata.page}`)
