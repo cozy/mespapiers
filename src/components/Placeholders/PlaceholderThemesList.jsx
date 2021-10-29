@@ -3,13 +3,18 @@ import PropTypes from 'prop-types'
 
 import { themes } from 'cozy-scanner/dist/DocumentTypeData'
 import { FixedDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
-import Grid from 'cozy-ui/transpiled/react/MuiCozyTheme/Grid'
-import Card from 'cozy-ui/transpiled/react/Card'
-import Typography from 'cozy-ui/transpiled/react/Typography'
 import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
+import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
+import ListItemIcon, {
+  smallSize,
+  largeSize
+} from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItemIcon'
+import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
+import RightIcon from 'cozy-ui/transpiled/react/Icons/Right'
 
 import PlaceholdersList from 'src/components/Placeholders/PlaceholdersList'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
@@ -46,47 +51,43 @@ const PlaceholderThemesList = ({ title, onClose }) => {
       transitionDuration={state.onBack ? 0 : undefined}
       open={true}
       content={
-        <Grid container spacing={1}>
+        <List>
           {themes.map((theme, idx) => {
             return (
-              <Grid
+              <ListItem
+                button
+                disableGutters
                 key={idx}
-                item
-                xs={6}
                 onClick={() => setQualifByTheme(theme)}
               >
-                <Card
-                  className={
-                    'u-flex u-flex-column u-flex-items-center u-ph-half u-ov-hidden'
-                  }
-                >
+                <ListItemIcon>
                   <IconStack
                     backgroundIcon={
                       <Icon
                         icon={FileDuotoneIcon}
                         color="var(--primaryColor)"
-                        size={24}
+                        size={largeSize}
                       />
                     }
                     foregroundIcon={
                       <Icon
                         icon={theme.icon}
                         color="var(--primaryColor)"
-                        size={14}
+                        size={smallSize}
                       />
                     }
                   />
-                  <Typography
-                    variant={'body2'}
-                    className={'u-flex-wrap u-pl-half'}
-                  >
-                    {scannerT(`themes.${theme.label}`)}
-                  </Typography>
-                </Card>
-              </Grid>
+                </ListItemIcon>
+                <ListItemText primary={scannerT(`themes.${theme.label}`)} />
+                <Icon
+                  icon={RightIcon}
+                  size={smallSize}
+                  color={'var(--secondaryTextColor)'}
+                />
+              </ListItem>
             )
           })}
-        </Grid>
+        </List>
       }
     />
   ) : (

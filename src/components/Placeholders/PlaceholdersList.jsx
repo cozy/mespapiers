@@ -3,12 +3,16 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import ActionMenu from 'cozy-ui/transpiled/react/ActionMenu'
-import Grid from 'cozy-ui/transpiled/react/MuiCozyTheme/Grid'
-import Card from 'cozy-ui/transpiled/react/Card'
-import Typography from 'cozy-ui/transpiled/react/Typography'
 import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
+import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
+import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
+import ListItemIcon, {
+  smallSize,
+  largeSize
+} from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItemIcon'
+import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 
 import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
@@ -57,49 +61,43 @@ const PlaceholdersList = ({ currentQualifItems }) => {
 
   return (
     <>
-      <Grid container spacing={1}>
+      <List>
         {allPlaceholders.map((placeholder, idx) => {
           const stepsExists = placeholder.acquisitionSteps.length > 0
+
           return (
-            <Grid
+            <ListItem
+              button
+              disableGutters
               key={idx}
-              item
-              xs={6}
               onClick={() => selectPlaceholder(placeholder, stepsExists)}
+              className={cx({
+                ['u-o-50']: !stepsExists
+              })}
             >
-              <Card
-                className={cx('u-flex u-flex-items-center u-ph-half', {
-                  ['u-ov-hidden']: stepsExists,
-                  ['u-o-50']: !stepsExists
-                })}
-              >
+              <ListItemIcon>
                 <IconStack
                   backgroundIcon={
                     <Icon
                       icon={FileDuotoneIcon}
                       color="var(--primaryColor)"
-                      size={24}
+                      size={largeSize}
                     />
                   }
                   foregroundIcon={
                     <Icon
                       icon={placeholder.icon}
                       color="var(--primaryColor)"
-                      size={14}
+                      size={smallSize}
                     />
                   }
                 />
-                <Typography
-                  variant={'body2'}
-                  className={'u-flex-wrap u-pl-half'}
-                >
-                  {scannerT(`items.${placeholder.label}`)}
-                </Typography>
-              </Card>
-            </Grid>
+              </ListItemIcon>
+              <ListItemText primary={scannerT(`items.${placeholder.label}`)} />
+            </ListItem>
           )
         })}
-      </Grid>
+      </List>
       <ActionMenuImportDropdown
         isOpened={shouldDisplayImportDropdown()}
         placeholderSelected={placeholderSelected}
