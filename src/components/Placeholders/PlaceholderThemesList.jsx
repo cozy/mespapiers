@@ -94,7 +94,7 @@ const PlaceholderThemesList = ({ title, onClose }) => {
       onClose={resetCurrentQualif}
       transitionDuration={0}
       title={t('PlaceholdersList.title', {
-        name: ` - ${scannerT(`items.${state.qualificationLabel}`)}`
+        name: ` - ${scannerT(`themes.${state.qualificationLabel}`)}`
       })}
       open={true}
       content={
