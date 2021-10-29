@@ -183,12 +183,13 @@ const Placeholder = ({ placeholder, divider }) => {
       {divider && <Divider variant="inset" component="li" />}
 
       {isImportDropdownDisplayed && (
-        <ImportDropdown
-          label={placeholder.label}
-          icon={placeholder.icon}
-          hasSteps={hasSteps}
-          hideImportDropdown={hideImportDropdown}
-        />
+        <ActionMenu onClose={hideImportDropdown}>
+          <ImportDropdown
+            label={placeholder.label}
+            icon={placeholder.icon}
+            hasSteps={hasSteps}
+          />
+        </ActionMenu>
       )}
       {isPapersLabelsList && (
         <AllPlaceholdersChoices

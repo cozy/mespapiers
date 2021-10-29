@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import { useClient, generateWebLink } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
-import ActionMenu from 'cozy-ui/transpiled/react/ActionMenu'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
@@ -18,7 +17,7 @@ import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import Konnector from 'src/assets/icons/Konnectors.svg'
 
-const ImportDropdown = ({ label, icon, hasSteps, hideImportDropdown }) => {
+const ImportDropdown = ({ label, icon, hasSteps }) => {
   const { t } = useI18n()
   const client = useClient()
   const scannerT = useScannerI18n()
@@ -106,8 +105,7 @@ const ImportDropdown = ({ label, icon, hasSteps, hideImportDropdown }) => {
 ImportDropdown.propTypes = {
   label: PropTypes.string.isRequired,
   icon: iconPropType.isRequired,
-  hasSteps: PropTypes.bool,
-  hideImportDropdown: PropTypes.func
+  hasSteps: PropTypes.bool
 }
 
 export default React.memo(ImportDropdown)
