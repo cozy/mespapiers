@@ -37,22 +37,6 @@ const loadPdfFromFile = async file => {
   })
 }
 
-// FIX For testing (to deleted)
-const downloadFile = (data, fileName) => {
-  const a = document.createElement('a')
-  a.style.display = 'none'
-  document.body.appendChild(a)
-
-  a.href = window.URL.createObjectURL(
-    new Blob([data], { type: 'application/pdf' })
-  )
-  a.setAttribute('download', fileName)
-  a.click()
-
-  window.URL.revokeObjectURL(a.href)
-  document.body.removeChild(a)
-}
-
 const addImageToPdf = async ({ pdf, fileToAdd }) => {
   const fileB64 = await fileToBase64(fileToAdd)
   let img
@@ -221,10 +205,6 @@ const FormDataProvider = ({ children }) => {
             client
           })
         }
-
-        const pdfBytes = await pdfDoc.save()
-        // FIX For testing (to deleted)
-        downloadFile(pdfBytes, 'pdf-lib_example.pdf')
 
         Alerter.success(t('common.saveFile.success'))
       } catch (error) {
