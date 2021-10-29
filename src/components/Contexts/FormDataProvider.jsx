@@ -19,7 +19,7 @@ const {
 
 const FormDataContext = createContext()
 
-const audioToBase64 = async audioFile => {
+const fileToBase64 = async audioFile => {
   return new Promise((resolve, reject) => {
     let reader = new FileReader()
     reader.onerror = reject
@@ -78,7 +78,7 @@ const FormDataProvider = ({ children }) => {
 
         for (const { file, fileMetadata } of formData.data) {
           if (file.type !== 'application/pdf') {
-            const fileB64 = await audioToBase64(file)
+            const fileB64 = await fileToBase64(file)
             let img
             if (file.type === 'image/png') img = await pdfDoc.embedPng(fileB64)
             if (file.type === 'image/jpeg') img = await pdfDoc.embedJpg(fileB64)
