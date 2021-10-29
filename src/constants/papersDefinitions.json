@@ -444,7 +444,7 @@
         {
           "stepIndex": 3,
           "model": "information",
-          "illustration": "IlluCardNumberHelp.svg",
+          "illustration": "IlluResidencePermitNumberHelp.svg",
           "text": "PaperJSON.card.number.text",
           "attributes": [
             {
@@ -457,7 +457,7 @@
         {
           "stepIndex": 4,
           "model": "information",
-          "illustration": "IlluIdCardExpirationDateHelp.svg",
+          "illustration": "IlluIdResidencePermitExpirationDateHelp.svg",
           "text": "PaperJSON.card.expirationDate.text",
           "attributes": [
             {
