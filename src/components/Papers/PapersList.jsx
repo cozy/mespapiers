@@ -21,7 +21,6 @@ import {
   forward,
   hr,
   trash,
-  openWith,
   offline
 } from 'src/components/Actions/Actions'
 
@@ -72,11 +71,7 @@ const PapersList = ({ history, match }) => {
   )
   const actionVariant = navigator.share ? forward : download
   const actions = useMemo(
-    () =>
-      makeActions(
-        [actionVariant, hr, openWith, offline, hr, trash],
-        actionsOptions
-      ),
+    () => makeActions([actionVariant, hr, offline, hr, trash], actionsOptions),
     [actionVariant, actionsOptions]
   )
 
