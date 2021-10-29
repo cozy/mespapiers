@@ -11,13 +11,21 @@ import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
 
 const HomeWrapper = () => {
   const { isStepperDialogOpen } = useStepperDialog()
-  const { data: allPapersLabel, ...rest } = useQuery(
+  const {
+    data: allPapersLabel,
+    hasMore,
+    fetchMore,
+    lastUpdate,
+    ...rest
+  } = useQuery(
     getAllQualificationLabel.definition,
     getAllQualificationLabel.options
   )
-
+  if (hasMore) {
+    fetchMore()
+  }
   return !isStepperDialogOpen ? (
-    isQueryLoading(rest) ? (
+    isQueryLoading(rest) && !lastUpdate ? (
       <Spinner
         size="xxlarge"
         className="u-flex u-flex-justify-center u-mt-2 u-h-5"
