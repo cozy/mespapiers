@@ -1,5 +1,5 @@
 /* global cozy */
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 import { hot } from 'react-hot-loader'
 import { Route, Switch, Redirect, HashRouter } from 'react-router-dom'
 
@@ -20,23 +20,18 @@ import PapersList from 'src/components/Papers/PapersList'
 import FileViewerWithQuery from 'src/components/Viewer/FileViewerWithQuery'
 import { ModalStack } from 'src/components/Contexts/ModalProvider'
 import PlaceholderThemesList from 'src/components/Placeholders/PlaceholderThemesList'
+import { usePlaceholderModal } from 'src/components/Hooks/usePlaceholderModal'
 
 export const App = () => {
   const client = useClient()
   const { t } = useI18n()
   const { isMobile } = useBreakpoints()
   const { BarCenter } = cozy.bar
-  const [showPlaceholderThemesList, setShowPlaceholderThemesList] = useState(
-    false
-  )
-  const hideAllPapersChoices = useCallback(
-    () => setShowPlaceholderThemesList(false),
-    []
-  )
-  const showAllPapersChoices = useCallback(
-    () => setShowPlaceholderThemesList(true),
-    []
-  )
+  const {
+    showPlaceholderThemesList,
+    setShowPlaceholderThemesList
+  } = usePlaceholderModal()
+
   const styleFab = useMemo(() => ({ position: 'fixed', zIndex: 10 }), [])
 
   return (
@@ -69,14 +64,14 @@ export const App = () => {
               aria-label={t('Home.Fab.ariaLabel')}
               style={styleFab}
               className="u-bottom-m u-right-m"
-              onClick={showAllPapersChoices}
+              onClick={() => setShowPlaceholderThemesList(true)}
             >
               <Icon icon={PlusIcon} />
             </Fab>
             {showPlaceholderThemesList && (
               <PlaceholderThemesList
                 title={t('PlaceholdersList.title', { name: '' })}
-                onClose={hideAllPapersChoices}
+                onClose={() => setShowPlaceholderThemesList(false)}
               />
             )}
           </Content>
