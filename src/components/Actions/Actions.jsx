@@ -39,7 +39,7 @@ export const forward = ({ client }) => {
           className={className}
           left={<Icon icon={ReplyIcon} />}
         >
-          {t('action.download')}
+          {t('action.forward')}
         </ActionMenuItem>
       )
     }
