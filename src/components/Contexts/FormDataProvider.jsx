@@ -43,6 +43,28 @@ const downloadFile = (data, fileName) => {
   document.body.removeChild(a)
 }
 
+const addImageToPdf = async ({ pdf, fileToAdd }) => {
+  const fileB64 = await fileToBase64(fileToAdd)
+  let img
+  if (fileToAdd.type === 'image/png') img = await pdf.embedPng(fileB64)
+  if (fileToAdd.type === 'image/jpeg') img = await pdf.embedJpg(fileB64)
+  const imgScaled = img.scale(0.5)
+  const page = pdf.addPage()
+  const { width: pageWidth, height: pageHeight } = page.getSize()
+  page.drawImage(img, {
+    x: pageWidth / 2 - imgScaled.width / 2,
+    y: pageHeight / 2 - imgScaled.height / 2,
+    width: imgScaled.width,
+    height: imgScaled.height
+  })
+}
+
+const addFileToPdf = async ({ pdf, fileToAdd }) => {
+  if (fileToAdd.type !== 'application/pdf') {
+    await addImageToPdf({ pdf, fileToAdd })
+  }
+}
+
 const FormDataProvider = ({ children }) => {
   const client = useClient()
   const { f, t } = useI18n()
@@ -77,21 +99,10 @@ const FormDataProvider = ({ children }) => {
         }
 
         for (const { file, fileMetadata } of formData.data) {
-          if (file.type !== 'application/pdf') {
-            const fileB64 = await fileToBase64(file)
-            let img
-            if (file.type === 'image/png') img = await pdfDoc.embedPng(fileB64)
-            if (file.type === 'image/jpeg') img = await pdfDoc.embedJpg(fileB64)
-            const imgScaled = img.scale(0.5)
-            const page = pdfDoc.addPage()
-            const { width: pageWidth, height: pageHeight } = page.getSize()
-            page.drawImage(img, {
-              x: pageWidth / 2 - imgScaled.width / 2,
-              y: pageHeight / 2 - imgScaled.height / 2,
-              width: imgScaled.width,
-              height: imgScaled.height
-            })
-          }
+          await addFileToPdf({
+            pdf: pdfDoc,
+            fileToAdd: file
+          })
 
           const newMetadata = {
             qualification: {
