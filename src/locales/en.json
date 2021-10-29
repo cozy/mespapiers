@@ -55,7 +55,7 @@
   "DeleteConfirm": {
     "title": "Delete this file?",
     "text": "The item is associated with the file \"%{name}\" in your drive.",
-    "choice": "Keep the associated file in my drive.",
+    "choice": "Do not delete it from my files in Drive.",
     "cancel": "Cancel",
     "delete": "Remove"
   },
