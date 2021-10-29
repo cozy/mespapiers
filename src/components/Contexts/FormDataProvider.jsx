@@ -206,10 +206,10 @@ const FormDataProvider = ({ children }) => {
           })
         }
 
-        Alerter.success(t('common.saveFile.success'))
+        Alerter.success('common.saveFile.success')
       } catch (error) {
         console.error(error)
-        Alerter.error(t(`common.saveFile.error`))
+        Alerter.error('common.saveFile.error')
       }
       setIsStepperDialogOpen(false)
     })()

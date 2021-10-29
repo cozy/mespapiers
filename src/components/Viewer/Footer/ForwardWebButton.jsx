@@ -49,7 +49,7 @@ const ForwardWebButton = ({ file }) => {
       }
       navigator.share(shareData)
     } catch (error) {
-      Alerter.error(t('viewer.shareData.error', { error: error }))
+      Alerter.error('viewer.shareData.error', { error: error })
     }
   }
 
