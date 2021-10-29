@@ -103,14 +103,14 @@
           "text": "PaperJSON.driverLicense.obtentionDate.text",
           "attributes": [
             {
-              "name": "AObtentionDate",
-              "type": "date",
-              "inputLabel": "PaperJSON.driverLicense.AObtentionDate.inputLabel"
-            },
-            {
               "name": "BObtentionDate",
               "type": "date",
               "inputLabel": "PaperJSON.driverLicense.BObtentionDate.inputLabel"
+            },
+            {
+              "name": "AObtentionDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.driverLicense.AObtentionDate.inputLabel"
             }
           ]
         },
@@ -165,36 +165,10 @@
     },
     {
       "label": "health_certificate",
-      "placeholderIndex": 7,
       "icon": "heart",
       "featureDate": "issueDate",
       "maxDisplay": 4,
-      "acquisitionSteps": [
-        {
-          "stepIndex": 1,
-          "model": "scan",
-          "illustration": "IlluCovidVaccineCertificate.svg",
-          "text": "PaperJSON.generic.singlePages.text"
-        },
-        {
-          "stepIndex": 2,
-          "model": "information",
-          "illustration": "IlluGenericDate.svg",
-          "text": "PaperJSON.generic.date.text",
-          "attributes": [
-            {
-              "name": "issueDate",
-              "type": "date",
-              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
-            }
-          ]
-        },
-        {
-          "stepIndex": 3,
-          "model": "owner",
-          "text": "PaperJSON.generic.owner.text"
-        }
-      ]
+      "acquisitionSteps": []
     },
     {
       "label": "health_insurance_card",
@@ -550,7 +524,6 @@
     },
     {
       "label": "tax_timetable",
-      "placeholderIndex": 6,
       "icon": "bank",
       "featureDate": "referencedDate",
       "maxDisplay": 3,
