@@ -35,6 +35,9 @@ const PlaceholdersList = ({ title, onBack, currentQualifItems }) => {
     setPlaceholderSelected(undefined)
   }, [])
 
+  const shouldDisplayImportDropdown = () => {
+    return !!isImportDropdownDisplayed && !!placeholderSelected
+  }
   const showImportDropdown = useCallback(() => {
     const formModel = allPlaceholders.find(
       paper => paper.label && paper.label === placeholderSelected.label
@@ -108,20 +111,30 @@ const PlaceholdersList = ({ title, onBack, currentQualifItems }) => {
                 </Grid>
               )
             })}
-          </Grid>
-          {isImportDropdownDisplayed && (
-            <ActionMenu onClose={hideImportDropdown}>
-              <ImportDropdown
-                label={placeholderSelected.label}
-                icon={placeholderSelected.icon}
-                hasSteps={placeholderSelected?.acquisitionSteps.length > 0}
-              />
-            </ActionMenu>
-          )}
-        </>
-      }
-    />
+      </Grid>
+      <ActionMenuImportDropdown
+        isOpened={shouldDisplayImportDropdown()}
+        placeholderSelected={placeholderSelected}
+        hideImportDropdown={hideImportDropdown}
+      />
+    </>
   )
+}
+
+const ActionMenuImportDropdown = ({
+  isOpened,
+  placeholderSelected,
+  hideImportDropdown
+}) => {
+  return isOpened ? (
+    <ActionMenu onClose={hideImportDropdown}>
+      <ImportDropdown
+        label={placeholderSelected.label}
+        icon={placeholderSelected.icon}
+        hasSteps={placeholderSelected?.acquisitionSteps.length > 0}
+      />
+    </ActionMenu>
+  ) : null
 }
 
 PlaceholdersList.propTypes = {
