@@ -9,11 +9,13 @@ import Typography from 'cozy-ui/transpiled/react/Typography'
 import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import PlaceholdersList from 'src/components/Placeholders/PlaceholdersList'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 
 const PlaceholderThemesList = ({ title, onClose }) => {
+  const { t } = useI18n()
   const scannerT = useScannerI18n()
   const defaultState = useMemo(
     () => ({
@@ -88,10 +90,16 @@ const PlaceholderThemesList = ({ title, onClose }) => {
       }
     />
   ) : (
-    <PlaceholdersList
-      title={state.qualificationLabel}
-      currentQualifItems={state.currentQualifItems}
-      onBack={resetCurrentQualif}
+    <FixedDialog
+      onClose={resetCurrentQualif}
+      transitionDuration={0}
+      title={t('PlaceholdersList.title', {
+        name: ` - ${scannerT(`items.${state.qualificationLabel}`)}`
+      })}
+      open={true}
+      content={
+        <PlaceholdersList currentQualifItems={state.currentQualifItems} />
+      }
     />
   )
 }
