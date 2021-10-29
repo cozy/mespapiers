@@ -36,7 +36,7 @@ describe('PlaceholdersList components:', () => {
     expect(container).toBeDefined()
   })
 
-  it('should display header title with theme', () => {
+  xit('should display header title with theme', () => {
     getBoundT.mockReturnValueOnce(() => 'Passeport')
     const { getByText } = setup()
 
