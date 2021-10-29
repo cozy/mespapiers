@@ -7,12 +7,13 @@ import { ActionMenuItem } from 'cozy-ui/transpiled/react/ActionMenu'
 import DownloadIcon from 'cozy-ui/transpiled/react/Icons/Download'
 import TrashIcon from 'cozy-ui/transpiled/react/Icons/Trash'
 import LinkOutIcon from 'cozy-ui/transpiled/react/Icons/LinkOut'
+import ReplyIcon from 'cozy-ui/transpiled/react/Icons/Reply'
 
 import { isReferencedBy } from 'src/utils/isReferencedBy'
 import { CONTACTS_DOCTYPE } from 'src/doctypes'
 import DeleteConfirm from 'src/components/Actions/DeleteConfirm'
 import MakeAvailableOfflineMenuItem from 'src/components/Actions/MakeAvailableOfflineMenuItem'
-import { downloadFiles } from 'src/components/Actions/utils'
+import { downloadFiles, forwardFile } from 'src/components/Actions/utils'
 
 export const hr = () => {
   return {
@@ -20,6 +21,25 @@ export const hr = () => {
     displayInSelectionBar: false,
     Component: function hr() {
       return <hr />
+    }
+  }
+}
+
+export const forward = ({ client }) => {
+  return {
+    icon: 'forward',
+    action: (files, t) => forwardFile(client, files, t),
+    Component: function Forward({ onClick, className }) {
+      const { t } = useI18n()
+      return (
+        <ActionMenuItem
+          onClick={onClick}
+          className={className}
+          left={<Icon icon={ReplyIcon} />}
+        >
+          {t('action.download')}
+        </ActionMenuItem>
+      )
     }
   }
 }

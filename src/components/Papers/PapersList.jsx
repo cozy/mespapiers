@@ -18,6 +18,7 @@ import makeActions from 'src/components/Actions/makeActions'
 import { useModal } from 'src/components/Hooks/useModal'
 import {
   download,
+  forward,
   hr,
   trash,
   openWith,
@@ -69,10 +70,14 @@ const PapersList = ({ history, match }) => {
     }),
     [client, popModal, pushModal]
   )
+  const actionVariant = navigator.share ? forward : download
   const actions = useMemo(
     () =>
-      makeActions([download, hr, openWith, offline, hr, trash], actionsOptions),
-    [actionsOptions]
+      makeActions(
+        [actionVariant, hr, openWith, offline, hr, trash],
+        actionsOptions
+      ),
+    [actionVariant, actionsOptions]
   )
 
   return (

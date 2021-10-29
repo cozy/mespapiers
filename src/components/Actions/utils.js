@@ -4,6 +4,7 @@ import Alerter from 'cozy-ui/transpiled/react/Alerter'
 
 import { isReferencedBy } from 'src/utils/isReferencedBy'
 import { FILES_DOCTYPE } from 'src/doctypes'
+import { getSharingLink } from 'src/utils/getSharingLink'
 
 export const isAnyFileReferencedBy = (files, doctype) => {
   for (let i = 0, l = files.length; i < l; ++i) {
@@ -18,6 +19,27 @@ const downloadFileError = error => {
   return isMissingFileError(error)
     ? 'common.downloadFile.error.missing'
     : 'common.downloadFile.error.offline'
+}
+
+/**
+ * forwardFile - Triggers the download of one or multiple files by the browser
+ *
+ * @param {CozyClient} client
+ * @param {array} files One or more files to download
+ * @param {func} t i18n function
+ */
+export const forwardFile = async (client, file, t) => {
+  try {
+    const url = await getSharingLink(client, file, true)
+    const shareData = {
+      title: t('viewer.shareData.title', { name: file.name }),
+      text: t('viewer.shareData.text', { name: file.name }),
+      url
+    }
+    navigator.share(shareData)
+  } catch (error) {
+    Alerter.error(t('viewer.shareData.error', { error: error }))
+  }
 }
 
 /**
