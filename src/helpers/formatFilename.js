@@ -1,4 +1,4 @@
-import { CozyFile } from 'cozy-doctypes'
+import { splitFilename } from 'cozy-client/dist/models/file'
 
 export const formatFilename = ({
   name,
@@ -7,11 +7,13 @@ export const formatFilename = ({
   username,
   date
 }) => {
-  const { extension } = CozyFile.splitFilename({
+  const { extension } = splitFilename({
     name,
     type: 'file'
   })
-  const newFilename = `${qualificationName}${pageName ? ` - ${pageName}` : ''}${
+  // TODO If filename contains `/`, an error is occured `status: "422", title: "Invalid Parameter"`
+  const safeFileName = qualificationName.replaceAll('/', '|')
+  const newFilename = `${safeFileName}${pageName ? ` - ${pageName}` : ''}${
     username ? ` - ${username}` : ''
   }${date ? ` - ${date}` : ''}`
 
