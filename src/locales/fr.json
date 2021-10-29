@@ -55,7 +55,7 @@
   "DeleteConfirm": {
     "title": "Supprimer cet élément ?",
     "text": "L’élément est associé au fichier <strong>\"%{name}\"</strong> dans votre drive.",
-    "choice": "Conserver le fichier associé dans mon drive.",
+    "choice": "Ne pas le supprimer de mes fichiers dans Drive.",
     "cancel": "Annuler",
     "delete": "Supprimer"
   },
