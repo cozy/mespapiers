@@ -86,6 +86,67 @@ const addFileToPdf = async ({ pdf, fileToAdd }) => {
   }
 }
 
+const savePdfToCozy = async ({
+  pdf,
+  pdfMetadata,
+  formMetadata,
+  currentDefinition,
+  qualification,
+  user,
+  fileCollection,
+  f,
+  t,
+  scannerT,
+  appFolderID,
+  client
+}) => {
+  const { featureDate, label } = currentDefinition || {}
+
+  const reference = {
+    _id: user._id,
+    _type: CONTACTS_DOCTYPE
+  }
+
+  const newMetadata = {
+    qualification: {
+      ...qualification,
+      ...pdfMetadata,
+      ...formMetadata,
+      featureDate
+    }
+  }
+
+  const date =
+    formMetadata[featureDate] && f(formMetadata[featureDate], 'YYYY.MM.DD')
+
+  const fileRenamed = formatFilename({
+    name: 'NOT_USED_NAME.pdf',
+    qualificationName: scannerT(`items.${label}`),
+    pageName: pdfMetadata.page
+      ? t(`PapersList.label.${pdfMetadata.page}`)
+      : null,
+    username: user?.fullname,
+    date
+  })
+
+  const pdfBytes = await pdf.save()
+
+  const { data: fileCreated } = await uploadFileWithConflictStrategy(
+    client,
+    pdfBytes,
+    {
+      name: fileRenamed,
+      contentType: 'application/pdf',
+      metadata: newMetadata,
+      dirId: appFolderID,
+      conflictStrategy: 'rename'
+    }
+  )
+
+  // The user is referenced as a contact on the new papers
+  await fileCollection.addReferencedBy(fileCreated, [reference])
+}
+
 const FormDataProvider = ({ children }) => {
   const client = useClient()
   const { f, t } = useI18n()
@@ -95,7 +156,6 @@ const FormDataProvider = ({ children }) => {
     stepperDialogTitle,
     setIsStepperDialogOpen
   } = useStepperDialog()
-  const { featureDate, label } = currentDefinition || {}
   const [formData, setFormData] = useState({
     metadata: {},
     data: []
@@ -114,10 +174,6 @@ const FormDataProvider = ({ children }) => {
           t
         )
         const fileCollection = client.collection(FILES_DOCTYPE)
-        const reference = {
-          _id: user._id,
-          _type: CONTACTS_DOCTYPE
-        }
 
         for (const { file, fileMetadata } of formData.data) {
           await addFileToPdf({
@@ -125,43 +181,20 @@ const FormDataProvider = ({ children }) => {
             fileToAdd: file
           })
 
-          const newMetadata = {
-            qualification: {
-              ...qualification,
-              ...fileMetadata,
-              ...metadata,
-              featureDate
-            }
-          }
-          const date =
-            formData.metadata[featureDate] &&
-            f(formData.metadata[featureDate], 'YYYY.MM.DD')
-
-          const fileRenamed = formatFilename({
-            name: 'NOT_USED_NAME.pdf',
-            qualificationName: scannerT(`items.${label}`),
-            pageName: fileMetadata.page
-              ? t(`PapersList.label.${fileMetadata.page}`)
-              : null,
-            username: user?.fullname,
-            date
+          await savePdfToCozy({
+            pdf: pdfDoc,
+            pdfMetadata: fileMetadata,
+            formMetadata: metadata,
+            currentDefinition,
+            qualification,
+            user,
+            fileCollection,
+            appFolderID,
+            f,
+            t,
+            scannerT,
+            client
           })
-
-          const pdfBytes = await pdfDoc.save()
-
-          const { data: fileCreated } = await uploadFileWithConflictStrategy(
-            client,
-            pdfBytes,
-            {
-              name: fileRenamed,
-              contentType: 'application/pdf',
-              metadata: newMetadata,
-              dirId: appFolderID,
-              conflictStrategy: 'rename'
-            }
-          )
-          // (2/2) So this user is referenced as a contact on the new papers
-          await fileCollection.addReferencedBy(fileCreated, [reference])
 
           pdfDoc = await PDFDocument.create()
         }
