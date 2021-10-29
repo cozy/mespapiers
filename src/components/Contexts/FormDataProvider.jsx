@@ -208,6 +208,7 @@ const FormDataProvider = ({ children }) => {
 
         Alerter.success(t('common.saveFile.success'))
       } catch (error) {
+        console.error(error)
         Alerter.error(t(`common.saveFile.error`))
       }
       setIsStepperDialogOpen(false)
