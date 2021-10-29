@@ -7,7 +7,7 @@
   "actions": {
     "download": "Download",
     "moveTo": "Move to…",
-    "openWith": "Open with…",
+    "forward": "Forward",
     "phoneDownload": "Make available offline",
     "qualify": "Qualify",
     "rename": "Rename",

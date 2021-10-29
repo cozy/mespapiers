@@ -7,7 +7,7 @@
   "action": {
     "download": "Télécharger",
     "moveTo": "Déplacer vers…",
-    "openWith": "Ouvrir avec…",
+    "forward": "Transférer",
     "phoneDownload": "Rendre accessible hors-ligne",
     "qualify": "Qualifier",
     "rename": "Renommer",

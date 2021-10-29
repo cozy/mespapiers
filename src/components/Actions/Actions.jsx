@@ -6,7 +6,6 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import { ActionMenuItem } from 'cozy-ui/transpiled/react/ActionMenu'
 import DownloadIcon from 'cozy-ui/transpiled/react/Icons/Download'
 import TrashIcon from 'cozy-ui/transpiled/react/Icons/Trash'
-import LinkOutIcon from 'cozy-ui/transpiled/react/Icons/LinkOut'
 import ReplyIcon from 'cozy-ui/transpiled/react/Icons/Reply'
 
 import { isReferencedBy } from 'src/utils/isReferencedBy'
@@ -81,27 +80,6 @@ export const offline = () => {
     isEnabled: false,
     Component: function MakeAvailableOfflineMenuItemInMenu({ files, ...rest }) {
       return <MakeAvailableOfflineMenuItem file={files[0]} {...rest} />
-    }
-  }
-}
-
-// TODO
-export const openWith = () => {
-  return {
-    icon: 'openWith',
-    isEnabled: false,
-    action: () => undefined,
-    Component: function Open({ onClick, className }) {
-      const { t } = useI18n()
-      return (
-        <ActionMenuItem
-          onClick={onClick}
-          className={className}
-          left={<Icon icon={LinkOutIcon} />}
-        >
-          {t('action.openWith')}
-        </ActionMenuItem>
-      )
     }
   }
 }
