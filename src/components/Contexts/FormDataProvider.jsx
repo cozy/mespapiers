@@ -27,6 +27,16 @@ const fileToBase64 = async audioFile => {
     reader.readAsDataURL(audioFile)
   })
 }
+
+const loadPdfFromFile = async file => {
+  return new Promise((resolve, reject) => {
+    let reader = new FileReader()
+    reader.onerror = reject
+    reader.onload = e => resolve(new Uint8Array(e.target.result))
+    reader.readAsArrayBuffer(file)
+  })
+}
+
 // FIX For testing (to deleted)
 const downloadFile = (data, fileName) => {
   const a = document.createElement('a')
@@ -59,8 +69,19 @@ const addImageToPdf = async ({ pdf, fileToAdd }) => {
   })
 }
 
+const addPdfToPdf = async ({ pdf, fileToAdd }) => {
+  const pdfToAdd = await loadPdfFromFile(fileToAdd)
+
+  const document = await PDFDocument.load(pdfToAdd)
+
+  const copiedPages = await pdf.copyPages(document, document.getPageIndices())
+  copiedPages.forEach(page => pdf.addPage(page))
+}
+
 const addFileToPdf = async ({ pdf, fileToAdd }) => {
-  if (fileToAdd.type !== 'application/pdf') {
+  if (fileToAdd.type === 'application/pdf') {
+    await addPdfToPdf({ pdf, fileToAdd })
+  } else {
     await addImageToPdf({ pdf, fileToAdd })
   }
 }
