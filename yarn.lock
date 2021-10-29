@@ -3835,10 +3835,10 @@ cozy-client@13.8.3:
     sift "^6.0.0"
     url-search-params-polyfill "^7.0.0"
 
-cozy-client@^25.0.5:
-  version "25.0.5"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-25.0.5.tgz#fcbf1921a285a80bf7e74494b2b68b70da419947"
-  integrity sha512-URTi1VJ1bCOqegIqAa62rEi17l6Hj1tzv1/9vz1JlfRnrRiu9R5Zj9WEDBK3EZGaC5jX4B3/5I1Blp8WEcsOWw==
+cozy-client@^26.0.0:
+  version "26.0.0"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-26.0.0.tgz#fac4021f14b308b08c45e16f15719224ad4dee8b"
+  integrity sha512-6Vh1530bN9vhe0kBkUjQsLKTdecQBR71qrBv216t85fTDmTh6t8nQfGQkyTtVUn68FzmjjLGwstvlHTPcAgY4w==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
@@ -3847,7 +3847,7 @@ cozy-client@^25.0.5:
     cozy-device-helper "^1.12.0"
     cozy-flags "2.7.1"
     cozy-logger "^1.6.0"
-    cozy-stack-client "^25.0.5"
+    cozy-stack-client "^26.0.0"
     json-stable-stringify "^1.0.1"
     lodash "^4.17.13"
     microee "^0.0.6"
@@ -3872,6 +3872,13 @@ cozy-device-helper@^1.12.0, cozy-device-helper@^1.7.3:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/cozy-device-helper/-/cozy-device-helper-1.12.0.tgz#619a24b0d3caf2d3f616a1524daef7c7b71eab7a"
   integrity sha512-7pFbltgkD8rSO0PEf8pd6aBB37RUnNYH7fb3pkbcvo5rk4quCfSLREV94gZwXxowzP4vjZcAumTM09DfI42mJA==
+  dependencies:
+    lodash "^4.17.19"
+
+cozy-device-helper@^1.13.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/cozy-device-helper/-/cozy-device-helper-1.13.0.tgz#b1de05d1c84e869b71f41476ac6e9694b939db44"
+  integrity sha512-7GmDVahgzglMIMJ5aFiai930zrt7/elHqDPOdAmgOYfF1I+oA0MChh+xFl0ZO9AZN2LWyV3VDXEmi6Cjjvludg==
   dependencies:
     lodash "^4.17.19"
 
@@ -3952,12 +3959,12 @@ cozy-release@1.10.0:
   dependencies:
     exec-sh "0.3.2"
 
-cozy-scanner@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/cozy-scanner/-/cozy-scanner-1.1.1.tgz#6d5183641a64ba0c8a8e8ad7251555fe90ffc69c"
-  integrity sha512-BjvR+R9H9ar0sFCNKh1/zNYUCPaoE3aex8Bcu9o78y9ZakpOxwfemAqyIlWcD61WsQS6f4VeNl2c1JWmib7lvw==
+cozy-scanner@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/cozy-scanner/-/cozy-scanner-2.0.0.tgz#c6c87ce60d61707628e9bc81ca552cfbea8f313b"
+  integrity sha512-T7gBf9w8eYqGvB+lP+1G60vwMExnuojow5Wa3ZfYgH4oT3TDvq+YrGG4j5vuZBwXsgSFIPF24fRGYAkAPjmvSQ==
   dependencies:
-    cozy-device-helper "^1.12.0"
+    cozy-device-helper "^1.13.0"
 
 cozy-scripts@5.10.0:
   version "5.10.0"
@@ -4042,10 +4049,10 @@ cozy-stack-client@^13.8.3:
     mime "^2.4.0"
     qs "^6.7.0"
 
-cozy-stack-client@^25.0.5:
-  version "25.0.5"
-  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-25.0.5.tgz#090a6cafe25a64372f00f601a81a76b772213ce0"
-  integrity sha512-xuXLv2KO7gM2G3LFRX/XcWhqoTvPQ5A+z9bGyp9+eiNA8PzFoGa2993z7LNQLwu8DtSJtua5vWXq7KhGVJvNTw==
+cozy-stack-client@^26.0.0:
+  version "26.0.0"
+  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-26.0.0.tgz#172b031429943984b4293300eb67e345ab95fc63"
+  integrity sha512-UpUuKL+RNYkCOLmL45STKAnmVUzhf6cQ0A9mSHYP9DCPdrt3B6M90E2sRdYg47NLt0Pbb3hvEO3QOpL/WVi2sg==
   dependencies:
     cozy-flags "2.7.1"
     detect-node "^2.0.4"
