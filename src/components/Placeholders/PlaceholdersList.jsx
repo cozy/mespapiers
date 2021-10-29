@@ -30,10 +30,10 @@ const PlaceholdersList = ({ title, onBack, currentQualifItems }) => {
     [currentQualifItems]
   )
   const { setCurrentDefinition } = useStepperDialog()
-  const hideImportDropdown = useCallback(
-    () => setIsImportDropdownDisplayed(false),
-    []
-  )
+  const hideImportDropdown = useCallback(() => {
+    setIsImportDropdownDisplayed(false)
+    setPlaceholderSelected(undefined)
+  }, [])
 
   const showImportDropdown = useCallback(() => {
     const formModel = allPlaceholders.find(
