@@ -166,7 +166,6 @@ const FormDataProvider = ({ children }) => {
     const { metadata } = formData
     ;(async () => {
       try {
-        let pdfDoc = await PDFDocument.create()
         // (1/2) For the moment, the current user is the only possible choice
         const user = await fetchCurrentUser(client)
         const { _id: appFolderID } = await getOrCreateAppFolderWithReference(
@@ -175,15 +174,41 @@ const FormDataProvider = ({ children }) => {
         )
         const fileCollection = client.collection(FILES_DOCTYPE)
 
+        let pdfDoc = await PDFDocument.create()
+        const isMultiPage = formData.data.some(
+          ({ fileMetadata }) => fileMetadata.multipage
+        )
+
         for (const { file, fileMetadata } of formData.data) {
           await addFileToPdf({
             pdf: pdfDoc,
             fileToAdd: file
           })
 
+          if (!isMultiPage) {
+            await savePdfToCozy({
+              pdf: pdfDoc,
+              pdfMetadata: fileMetadata,
+              formMetadata: metadata,
+              currentDefinition,
+              qualification,
+              user,
+              fileCollection,
+              appFolderID,
+              f,
+              t,
+              scannerT,
+              client
+            })
+
+            pdfDoc = await PDFDocument.create()
+          }
+        }
+
+        if (isMultiPage) {
           await savePdfToCozy({
             pdf: pdfDoc,
-            pdfMetadata: fileMetadata,
+            pdfMetadata: {},
             formMetadata: metadata,
             currentDefinition,
             qualification,
@@ -195,9 +220,8 @@ const FormDataProvider = ({ children }) => {
             scannerT,
             client
           })
-
-          pdfDoc = await PDFDocument.create()
         }
+
         const pdfBytes = await pdfDoc.save()
         // FIX For testing (to deleted)
         downloadFile(pdfBytes, 'pdf-lib_example.pdf')

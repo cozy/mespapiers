@@ -34,7 +34,8 @@ const AcquisitionResult = ({ file, setFile, currentStep }) => {
         {
           file,
           fileMetadata: {
-            page: !multipage ? page : ''
+            page: !multipage ? page : '',
+            multipage
           }
         }
       ]
