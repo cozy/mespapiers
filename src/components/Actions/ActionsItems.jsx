@@ -1,6 +1,8 @@
 /* This code is copy/pasted from Drive */
 import React, { useMemo } from 'react'
 
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+
 export const getActionName = actionObject => {
   return Object.keys(actionObject)[0]
 }
@@ -45,6 +47,7 @@ export const getOnlyNeededActions = (actions, file) => {
  * `file`.
  */
 export const ActionsItems = ({ actions, file, onClose }) => {
+  const { t } = useI18n()
   const cleanedActions = useMemo(() => getOnlyNeededActions(actions, file), [
     actions,
     file
@@ -58,7 +61,7 @@ export const ActionsItems = ({ actions, file, onClose }) => {
 
     const onClick = action
       ? () => {
-          action([file])
+          action([file], t)
           onClose()
         }
       : null
