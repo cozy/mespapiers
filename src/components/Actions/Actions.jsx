@@ -121,14 +121,14 @@ export const viewInDrive = ({ client }) => {
     icon: 'folder',
     Component: function ViewInDrive({ onClick, className, files }) {
       const { t } = useI18n()
-      const parentFolderId = files[0].relationships.parent.data.id
+      const dirId = files[0].dir_id
 
       const webLink = generateWebLink({
         slug: 'drive',
         cozyUrl: client.getStackClient().uri,
         subDomainType: client.getInstanceOptions().subdomain,
         pathname: '/',
-        hash: `folder/${parentFolderId}`
+        hash: `folder/${dirId}`
       })
 
       return (

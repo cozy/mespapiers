@@ -1,5 +1,6 @@
 /* This code is copy/pasted from Drive */
 import React, { useMemo } from 'react'
+import cx from 'classnames'
 
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
@@ -70,7 +71,9 @@ export const ActionsItems = ({ actions, file, onClose }) => {
       <Component
         key={actionName + i}
         onClick={onClick}
-        className={isEnabled === false ? 'u-o-50 u-flex-items-center' : ''}
+        className={cx('u-flex-items-center', {
+          ['u-o-50']: isEnabled === false
+        })}
         files={[file]}
       />
     )
