@@ -34,7 +34,7 @@ const ImportDropdown = ({ label, icon, hasSteps, hideImportDropdown }) => {
   })
 
   return (
-    <ActionMenu onClose={hideImportDropdown}>
+    <>
       <List>
         <ListItem divider={true}>
           <IconStack
@@ -81,7 +81,7 @@ const ImportDropdown = ({ label, icon, hasSteps, hideImportDropdown }) => {
           />
         </ListItem>
       </List>
-    </ActionMenu>
+    </>
   )
 }
 
