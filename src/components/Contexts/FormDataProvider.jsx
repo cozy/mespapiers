@@ -106,7 +106,7 @@ const FormDataProvider = ({ children }) => {
     const { metadata } = formData
     ;(async () => {
       try {
-        const pdfDoc = await PDFDocument.create()
+        let pdfDoc = await PDFDocument.create()
         // (1/2) For the moment, the current user is the only possible choice
         const user = await fetchCurrentUser(client)
         const { _id: appFolderID } = await getOrCreateAppFolderWithReference(
@@ -147,12 +147,14 @@ const FormDataProvider = ({ children }) => {
             date
           })
 
+          const pdfBytes = await pdfDoc.save()
+
           const { data: fileCreated } = await uploadFileWithConflictStrategy(
             client,
-            file,
+            pdfBytes,
             {
               name: fileRenamed,
-              contentType: file.type,
+              contentType: 'application/pdf',
               metadata: newMetadata,
               dirId: appFolderID,
               conflictStrategy: 'rename'
@@ -160,6 +162,8 @@ const FormDataProvider = ({ children }) => {
           )
           // (2/2) So this user is referenced as a contact on the new papers
           await fileCollection.addReferencedBy(fileCreated, [reference])
+
+          pdfDoc = await PDFDocument.create()
         }
         const pdfBytes = await pdfDoc.save()
         // FIX For testing (to deleted)
