@@ -82,6 +82,9 @@
   "InputDateAdapter": {
     "invalidDateMessage": "Format de la date invalide"
   },
+  "InputTextAdapter": {
+    "invalidTextMessage": "Il manque %{smart_count} chiffre |||| Il manque %{smart_count} chiffres"
+  },
   "items": {
     "other": "Autres…"
   },
