@@ -11,7 +11,6 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 const useStyles = makeStyles(() => ({
   overrides: {
     width: '100%',
-    height: '2rem',
     MuiOutlinedInput: {
       '&:focused': {
         notchedOutline: {
@@ -22,13 +21,20 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-const InputDateAdapter = ({ attrs, setValue, setValidInput, idx }) => {
+const InputDateAdapter = ({
+  attrs,
+  setValue,
+  setValidInput,
+  setIsFocus,
+  idx
+}) => {
   const { name, inputLabel, metadata } = attrs
   const { t, lang } = useI18n()
   const classes = useStyles()
   const [locales, setLocales] = useState('')
-  const [isError, setIsError] = useState(false)
+  const [isValidDate, setIsValidDate] = useState(true)
   const [selectedDate, handleDateChange] = useState(metadata[name] || null)
+  const [displayHelper, setDisplayHelper] = useState(false)
 
   useEffect(() => {
     let isMounted = true
@@ -49,9 +55,18 @@ const InputDateAdapter = ({ attrs, setValue, setValidInput, idx }) => {
   useEffect(() => {
     setValidInput(prev => ({
       ...prev,
-      [idx]: isError
+      [idx]: isValidDate
     }))
-  }, [idx, isError, setValidInput])
+  }, [idx, isValidDate, setValidInput])
+
+  const handleOnFocus = () => {
+    setIsFocus(true)
+    setDisplayHelper(false)
+  }
+  const handleOnBlur = () => {
+    setIsFocus(false)
+    setDisplayHelper(true)
+  }
 
   return (
     <MuiPickersUtilsProvider
@@ -62,15 +77,25 @@ const InputDateAdapter = ({ attrs, setValue, setValidInput, idx }) => {
       <KeyboardDatePicker
         placeholder={'01/01/2022'}
         className={classes.overrides}
+        error={displayHelper && !isValidDate}
+        inputProps={{
+          inputMode: 'numeric'
+        }}
+        helperText={
+          displayHelper &&
+          !isValidDate &&
+          t('InputDateAdapter.invalidDateMessage')
+        }
         value={selectedDate}
         label={inputLabel ? t(inputLabel) : ''}
-        invalidDateMessage={t('InputDateAdapter.invalidDateMessage')}
         onChange={handleDateChange}
+        onFocus={handleOnFocus}
+        onBlur={handleOnBlur}
         inputVariant={'outlined'}
         cancelLabel={t('common.cancel')}
         format={lang === 'fr' ? 'dd/MM/yyyy' : 'MM/dd/yyyy'}
         onError={(err, val) => {
-          setIsError(val === null || !!new Date(val).getTime())
+          setIsValidDate(val === null || !!new Date(val).getTime())
         }}
       />
     </MuiPickersUtilsProvider>

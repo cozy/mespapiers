@@ -55,7 +55,7 @@ const CompositeHeader = ({
         ))}
       {Text &&
         (isValidElement(Text) || isArray(Text) ? (
-          <div className={'u-mt-1'}>{Text}</div>
+          <div className={'u-mv-1'}>{Text}</div>
         ) : (
           <Typography variant="body1" className={'u-mt-1'}>
             {Text}

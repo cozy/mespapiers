@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import './styles.styl'
+import { makeStyles } from '@material-ui/styles'
 
 import {
   useCozyDialog,
@@ -15,8 +15,19 @@ import MUIDialog, {
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
 
+const useStyles = makeStyles(() => ({
+  root: {
+    padding: '0',
+    margin: '0 1rem',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
+  }
+}))
+
 // TODO Test and improve it & PR cozy-ui
 const StepperDialog = props => {
+  const classes = useStyles()
   const { onClose, title, content } = props
 
   // TODO While waiting for the update of useCozyDialog which should destruct "stepper"
@@ -45,9 +56,7 @@ const StepperDialog = props => {
         {stepper && <Typography variant="h6">{stepper}</Typography>}
       </DialogTitle>
       <Divider />
-      <DialogContent classes={{ root: 'actionsInContent' }}>
-        {content}
-      </DialogContent>
+      <DialogContent classes={classes}>{content}</DialogContent>
     </MUIDialog>
   )
 }

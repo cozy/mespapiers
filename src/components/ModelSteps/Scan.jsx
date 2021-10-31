@@ -33,6 +33,7 @@ const Scan = ({ currentStep }) => {
     <>
       <CompositeHeader
         icon={illustration}
+        iconSize={'large'}
         fallbackIcon={IlluGenericNewPage}
         title={t(text)}
       />

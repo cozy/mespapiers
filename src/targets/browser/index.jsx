@@ -2,7 +2,7 @@ import 'cozy-ui/transpiled/react/stylesheet.css'
 import 'cozy-ui/dist/cozy-ui.utils.min.css'
 
 import '../../styles/index.styl'
-import '../../utils/wdyr'
+// import '../../utils/wdyr'
 import React from 'react'
 import { render } from 'react-dom'
 import {

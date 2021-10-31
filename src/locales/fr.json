@@ -80,7 +80,7 @@
     "title": "Ajout : %{name}"
   },
   "InputDateAdapter": {
-    "invalidDateMessage": "Format de la date invalide"
+    "invalidDateMessage": "Date invalide"
   },
   "InputTextAdapter": {
     "invalidTextMessage": "Il manque %{smart_count} chiffre |||| Il manque %{smart_count} chiffres"
