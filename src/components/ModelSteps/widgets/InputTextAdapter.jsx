@@ -13,7 +13,13 @@ const isValidEntry = (inputMaxLength, value) => {
   )
 }
 
-const InputTextAdapter = ({ attrs, setValue, setValidInput, idx }) => {
+const InputTextAdapter = ({
+  attrs,
+  setValue,
+  setValidInput,
+  setIsFocus,
+  idx
+}) => {
   const { name, inputLabel, metadata, type } = attrs
   const { t } = useI18n()
   const [state, setState] = useState(metadata[name] || '')
@@ -62,9 +68,13 @@ const InputTextAdapter = ({ attrs, setValue, setValidInput, idx }) => {
     [inputMaxLength, inputType]
   )
 
-  const handleOnFocus = () => setIsError(false)
+  const handleOnFocus = () => {
+    setIsFocus(true)
+    setIsError(false)
+  }
 
   const handleOnBlur = () => {
+    setIsFocus(false)
     if (state.length > 0) {
       setIsError(inputMaxLength > 0 && state.length < inputMaxLength)
     } else setIsError(false)
@@ -79,7 +89,6 @@ const InputTextAdapter = ({ attrs, setValue, setValidInput, idx }) => {
   return (
     <TextField
       value={state}
-      className={'u-h-2'}
       error={isError}
       onBlur={handleOnBlur}
       onFocus={handleOnFocus}
@@ -91,7 +100,6 @@ const InputTextAdapter = ({ attrs, setValue, setValidInput, idx }) => {
       variant={'outlined'}
       label={inputLabel ? t(inputLabel) : ''}
       fullWidth
-      autoFocus
     />
   )
 }

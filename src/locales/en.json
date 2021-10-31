@@ -80,7 +80,7 @@
     }
   },
   "InputDateAdapter": {
-    "invalidDateMessage": "Invalid Date Format"
+    "invalidDateMessage": "Invalid Date"
   },
   "InputTextAdapter": {
     "invalidTextMessage": "%{smart_count} number is missing |||| %{smart_count} numbers are missings"

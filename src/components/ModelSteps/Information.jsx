@@ -1,5 +1,7 @@
 import React, { useState, useMemo, useCallback } from 'react'
+import cx from 'classnames'
 
+import { isIOS } from 'cozy-device-helper'
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 import Button from 'cozy-ui/transpiled/react/Button'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
@@ -20,6 +22,7 @@ const Information = ({ currentStep }) => {
   const { nextStep } = useStepperDialog()
   const [value, setValue] = useState({})
   const [validInput, setValidInput] = useState({})
+  const [isFocus, setIsFocus] = useState(false)
 
   const submit = () => {
     if (value) {
@@ -46,6 +49,7 @@ const Information = ({ currentStep }) => {
                       attrs={{ metadata: formData.metadata, name, inputLabel }}
                       setValue={setValue}
                       setValidInput={setValidInput}
+                      setIsFocus={setIsFocus}
                       {...props}
                     />
                   )
@@ -62,6 +66,7 @@ const Information = ({ currentStep }) => {
                       }}
                       setValue={setValue}
                       setValidInput={setValidInput}
+                      setIsFocus={setIsFocus}
                       {...props}
                     />
                   )
@@ -87,22 +92,23 @@ const Information = ({ currentStep }) => {
 
   return (
     <>
-      <div className={'u-h-100'}>
-        <CompositeHeader
-          icon={illustration}
-          fallbackIcon={fallbackIcon}
-          iconSize={'medium'}
-          title={t(text)}
-          text={inputs.map((Input, idx) => (
-            <div
-              key={idx}
-              className={hasMarginBottom(idx) ? 'u-mb-3 u-pb-1' : ''}
-            >
-              <Input idx={idx} />
-            </div>
-          ))}
-        />
-      </div>
+      <CompositeHeader
+        icon={illustration}
+        iconSize={isFocus && isIOS() ? 'normal' : 'large'}
+        className={isFocus && isIOS() ? 'is-focused' : ''}
+        fallbackIcon={fallbackIcon}
+        title={t(text)}
+        text={inputs.map((Input, idx) => (
+          <div
+            key={idx}
+            className={cx('u-mh-1', {
+              ['u-h-3 u-pb-2']: hasMarginBottom(idx)
+            })}
+          >
+            <Input idx={idx} />
+          </div>
+        ))}
+      />
       <DialogActions disableSpacing className={'columnLayout u-mh-0'}>
         <Button
           className="u-db"
