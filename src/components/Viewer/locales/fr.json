@@ -19,6 +19,7 @@
         "identity": "Identité",
         "date": {
           "title": {
+            "addedOn": "Ajouté le",
             "BObtentionDate": "Délivré le",
             "carObtentionDate": "Délivré le",
             "issueDate": "Délivré le",
