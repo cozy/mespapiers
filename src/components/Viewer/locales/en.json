@@ -19,6 +19,7 @@
         "identity": "Identity",
         "date": {
           "title": {
+            "addedOn": "Added on",
             "obtentionDate": "Delivered on",
             "carObtentionDate": "Delivered on",
             "motoObtentionDate": "Delivered on",

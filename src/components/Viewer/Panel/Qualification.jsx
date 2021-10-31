@@ -20,7 +20,7 @@ const Qualification = ({ file = {}, t, f, lang }) => {
   const client = useClient()
   const [currentUser, setCurrentUser] = useState(null)
 
-  const { name: filename, metadata = {} } = file
+  const { name: filename, metadata = {}, created_at } = file
   const { qualification = {} } = metadata
   const { label, page: pageLabel, featureDate } = qualification
 
@@ -49,12 +49,21 @@ const Qualification = ({ file = {}, t, f, lang }) => {
             disableTypography
             primary={
               <Typography variant={'caption'}>
-                {t(`viewer.panel.qualification.date.title.${featureDate}`)}
+                {t(
+                  `viewer.panel.qualification.date.title.${
+                    qualification[featureDate] ? featureDate : 'addedOn'
+                  }`
+                )}
               </Typography>
             }
             secondary={
               <Typography variant={'body1'}>
-                {f(qualification[featureDate], 'DD/MM/YYYY')}
+                {f(
+                  qualification[featureDate]
+                    ? qualification[featureDate]
+                    : created_at,
+                  'DD/MM/YYYY'
+                )}
               </Typography>
             }
           />
