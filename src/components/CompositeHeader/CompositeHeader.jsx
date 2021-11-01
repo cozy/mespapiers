@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import isArray from 'lodash/isArray'
 
+import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import Icon, { iconPropType } from 'cozy-ui/transpiled/react/Icon'
 
@@ -19,6 +20,7 @@ const CompositeHeader = ({
   ...restProps
 }) => {
   const [imgScr, setImgSrc] = useState(null)
+  const { isMobile } = useBreakpoints()
 
   useEffect(() => {
     let isMounted = true
@@ -55,7 +57,14 @@ const CompositeHeader = ({
         ))}
       {Text &&
         (isValidElement(Text) || isArray(Text) ? (
-          <div className={'u-mv-1'}>{Text}</div>
+          <div
+            className={cx({
+              ['u-mv-1']: !isMobile,
+              ['u-mt-1 u-mah-5 u-pv-1 u-ov-scroll']: isMobile
+            })}
+          >
+            {Text}
+          </div>
         ) : (
           <Typography variant="body1" className={'u-mt-1'}>
             {Text}

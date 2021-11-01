@@ -102,7 +102,7 @@ const Information = ({ currentStep }) => {
           <div
             key={idx}
             className={cx('u-mh-1', {
-              ['u-h-3 u-pb-2']: hasMarginBottom(idx)
+              ['u-h-3 u-pb-1-half']: hasMarginBottom(idx)
             })}
           >
             <Input idx={idx} />
