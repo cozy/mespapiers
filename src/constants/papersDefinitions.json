@@ -44,19 +44,11 @@
         {
           "stepIndex": 1,
           "model": "scan",
-          "page": "back",
           "illustration": "IlluGenericNewPage.svg",
-          "text": "PaperJSON.generic.content.text"
+          "text": "PaperJSON.generic.singlePages.text"
         },
         {
           "stepIndex": 2,
-          "model": "scan",
-          "page": "front",
-          "illustration": "IlluGenericNewPage.svg",
-          "text": "PaperJSON.generic.cover.text"
-        },
-        {
-          "stepIndex": 3,
           "model": "owner",
           "text": "PaperJSON.generic.owner.text"
         }
@@ -556,7 +548,7 @@
       "acquisitionSteps": []
     },
     {
-      "label": "vehicule_registration",
+      "label": "vehicle_registration",
       "icon": "car",
       "maxDisplay": 5,
       "acquisitionSteps": [
