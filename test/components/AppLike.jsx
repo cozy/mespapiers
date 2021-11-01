@@ -7,6 +7,7 @@ import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoin
 
 import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
 import { ModalProvider } from 'src/components/Contexts/ModalProvider'
+import { PlaceholderModalProvider } from 'src/components/Contexts/PlaceholderModalProvider'
 import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider'
 import enLocale from 'src/locales/en.json'
 
@@ -24,7 +25,9 @@ const AppLike = ({ children, client }) => (
         <BreakpointsProvider>
           <StepperDialogProvider>
             <ModalProvider>
-              <HashRouter>{children}</HashRouter>
+              <PlaceholderModalProvider>
+                <HashRouter>{children}</HashRouter>
+              </PlaceholderModalProvider>
             </ModalProvider>
           </StepperDialogProvider>
         </BreakpointsProvider>

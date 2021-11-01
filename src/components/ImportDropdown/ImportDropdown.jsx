@@ -15,6 +15,7 @@ import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { usePlaceholderModal } from 'src/components/Hooks/usePlaceholderModal'
 import Konnector from 'src/assets/icons/Konnectors.svg'
 
 const ImportDropdown = ({ label, icon, hasSteps }) => {
@@ -23,6 +24,7 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
   const scannerT = useScannerI18n()
   const [showModal, setShowModal] = useState(false)
 
+  const { setShowPlaceholderThemesList } = usePlaceholderModal()
   const { currentDefinition, setIsStepperDialogOpen } = useStepperDialog()
   const konnectorCategory = currentDefinition?.connectorCriteria?.category
 
@@ -43,7 +45,10 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
   // The "onClose" callback of "ActionMenu" in the "Placeholder" is unmounted during the process and causes a memory leak.
   useEffect(() => {
     return () => {
-      if (showModal) setIsStepperDialogOpen(true)
+      if (showModal) {
+        setShowPlaceholderThemesList(false)
+        setIsStepperDialogOpen(true)
+      }
     }
   })
 
