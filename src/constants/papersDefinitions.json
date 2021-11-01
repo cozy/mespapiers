@@ -124,7 +124,7 @@
     {
       "label": "energy_invoice",
       "icon": "bill",
-      "featureDate": "issueDate",
+      "featureDate": "referencedDate",
       "maxDisplay": 4,
       "acquisitionSteps": [
         {
@@ -136,6 +136,19 @@
         },
         {
           "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.referencedDate.text",
+          "attributes": [
+            {
+              "name": "referencedDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
           "model": "owner",
           "text": "PaperJSON.generic.owner.text"
         }
@@ -199,7 +212,7 @@
             {
               "name": "shootingDate",
               "type": "date",
-              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
+              "inputLabel": "PaperJSON.generic.shootingDate.inputLabel"
             }
           ]
         },
@@ -214,7 +227,7 @@
       "label": "isp_invoice",
       "placeholderIndex": 5,
       "icon": "bill",
-      "featureDate": "issueDate",
+      "featureDate": "referencedDate",
       "maxDisplay": 6,
       "acquisitionSteps": [
         {
@@ -226,6 +239,19 @@
         },
         {
           "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.referencedDate.text",
+          "attributes": [
+            {
+              "name": "referencedDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
           "model": "owner",
           "text": "PaperJSON.generic.owner.text"
         }

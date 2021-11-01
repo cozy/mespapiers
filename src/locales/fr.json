@@ -118,7 +118,7 @@
       },
       "shootingDate": {
         "inputLabel": "Date de prise de vue",
-        "text": "Quand cette photo a-t-elle été prise ? (optionelle)"
+        "text": "Quand cette photo a-t-elle été prise ? (optionnelle)"
       },
       "referencedDate": {
         "inputLabel": "Date de référence",
