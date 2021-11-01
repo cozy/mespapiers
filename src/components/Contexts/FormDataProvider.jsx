@@ -19,12 +19,12 @@ const {
 
 const FormDataContext = createContext()
 
-const fileToBase64 = async audioFile => {
+const fileToBase64 = async file => {
   return new Promise((resolve, reject) => {
     let reader = new FileReader()
     reader.onerror = reject
     reader.onload = e => resolve(e.target.result)
-    reader.readAsDataURL(audioFile)
+    reader.readAsDataURL(file)
   })
 }
 
