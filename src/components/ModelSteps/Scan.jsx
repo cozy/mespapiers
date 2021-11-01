@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 import { ButtonLink } from 'cozy-ui/transpiled/react/Button'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import FileInput from 'cozy-ui/transpiled/react/FileInput'
-import { usePlaceholderModal } from 'src/components/Hooks/usePlaceholderModal'
 
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import AcquisitionResult from 'src/components/ModelSteps/AcquisitionResult'
@@ -17,11 +16,6 @@ const Scan = ({ currentStep }) => {
   const [file, setFile] = useState(null)
 
   const onFileChange = file => file && setFile(file)
-  const { setShowPlaceholderThemesList } = usePlaceholderModal()
-
-  useEffect(() => {
-    setShowPlaceholderThemesList(false)
-  }, [setShowPlaceholderThemesList])
 
   return file ? (
     <AcquisitionResult

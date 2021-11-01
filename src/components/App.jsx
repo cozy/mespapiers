@@ -1,5 +1,5 @@
 /* global cozy */
-import React, { useMemo } from 'react'
+import React from 'react'
 import { hot } from 'react-hot-loader'
 import { Route, Switch, Redirect, HashRouter } from 'react-router-dom'
 
@@ -21,6 +21,11 @@ import FileViewerWithQuery from 'src/components/Viewer/FileViewerWithQuery'
 import { ModalStack } from 'src/components/Contexts/ModalProvider'
 import PlaceholderThemesList from 'src/components/Placeholders/PlaceholderThemesList'
 import { usePlaceholderModal } from 'src/components/Hooks/usePlaceholderModal'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import StepperDialogWrapper from 'src/components/StepperDialogWrapper/StepperDialogWrapper'
+import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
+
+const styleFab = { position: 'fixed', zIndex: 10 }
 
 export const App = () => {
   const client = useClient()
@@ -32,7 +37,7 @@ export const App = () => {
     setShowPlaceholderThemesList
   } = usePlaceholderModal()
 
-  const styleFab = useMemo(() => ({ position: 'fixed', zIndex: 10 }), [])
+  const { isStepperDialogOpen } = useStepperDialog()
 
   return (
     <HashRouter>
@@ -48,32 +53,43 @@ export const App = () => {
         )}
         <Main>
           <Content className="app-content">
-            <Switch>
-              <Route exact path="/" component={HomeWrapper} />
-              <Route exact path="/files/:fileCategory" component={PapersList} />
-              <Route
-                exact
-                path="/file/:fileId"
-                component={FileViewerWithQuery}
-              />
-              <Redirect from="*" to="/" />
-            </Switch>
+            <>
+              <Switch>
+                <Route exact path="/" component={HomeWrapper} />
+                <Route
+                  exact
+                  path="/files/:fileCategory"
+                  component={PapersList}
+                />
+                <Route
+                  exact
+                  path="/file/:fileId"
+                  component={FileViewerWithQuery}
+                />
+                <Redirect from="*" to="/" />
+              </Switch>
 
-            <Fab
-              color="primary"
-              aria-label={t('Home.Fab.ariaLabel')}
-              style={styleFab}
-              className="u-bottom-m u-right-m"
-              onClick={() => setShowPlaceholderThemesList(true)}
-            >
-              <Icon icon={PlusIcon} />
-            </Fab>
-            {showPlaceholderThemesList && (
-              <PlaceholderThemesList
-                title={t('PlaceholdersList.title', { name: '' })}
-                onClose={() => setShowPlaceholderThemesList(false)}
-              />
-            )}
+              <Fab
+                color="primary"
+                aria-label={t('Home.Fab.ariaLabel')}
+                style={styleFab}
+                className="u-bottom-m u-right-m"
+                onClick={() => setShowPlaceholderThemesList(true)}
+              >
+                <Icon icon={PlusIcon} />
+              </Fab>
+              {showPlaceholderThemesList && (
+                <PlaceholderThemesList
+                  title={t('PlaceholdersList.title', { name: '' })}
+                  onClose={() => setShowPlaceholderThemesList(false)}
+                />
+              )}
+              {isStepperDialogOpen && (
+                <FormDataProvider>
+                  <StepperDialogWrapper />
+                </FormDataProvider>
+              )}
+            </>
           </Content>
           <RealTimeQueries doctype="io.cozy.files" />
           <Alerter t={t} />
