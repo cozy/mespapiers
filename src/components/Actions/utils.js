@@ -32,8 +32,8 @@ export const forwardFile = async (client, file, t) => {
   try {
     const url = await getSharingLink(client, file, true)
     const shareData = {
-      title: t('viewer.shareData.title', { name: file.name }),
-      text: t('viewer.shareData.text', { name: file.name }),
+      title: t('viewer.shareData.title', { name: file[0].name }),
+      text: t('viewer.shareData.text', { name: file[0].name }),
       url
     }
     navigator.share(shareData)
