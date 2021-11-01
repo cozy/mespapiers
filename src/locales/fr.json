@@ -184,5 +184,12 @@
   "Scan": {
     "takePic": "Prendre en photo",
     "useExistingPic": "J'ai déjà une photo"
+  },
+  "viewer": {
+    "shareData": {
+      "title": "Lien vers mon document %{name}",
+      "text": "Voici un lien vers mon document %{name} : ",
+      "error": "Problème avec la récupération du lien : %{error}"
+    }
   }
 }

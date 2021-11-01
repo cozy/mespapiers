@@ -178,5 +178,12 @@
   "Scan": {
     "useExistingPic": "I already have a picture",
     "takePic": "Take a picture"
+  },
+  "viewer": {
+    "shareData": {
+      "title": "Link to my document %{name}",
+      "text": "Link to my document %{name}: ",
+      "error": "Problem with link recovery: %{error}"
+    }
   }
 }
