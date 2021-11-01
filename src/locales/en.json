@@ -4,7 +4,7 @@
     "retry": "Take over",
     "success": "Acquisition success"
   },
-  "actions": {
+  "action": {
     "download": "Download",
     "moveTo": "Move to…",
     "forward": "Forward",
