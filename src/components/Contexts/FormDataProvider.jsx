@@ -37,9 +37,9 @@ const loadPdfFromFile = async file => {
   })
 }
 
-const getImageScaleRatio = ({ pdfImg }) => {
+const getImageScaleRatio = ({ img }) => {
   const maxSizeInPixel = 900
-  const longerSideSizeInPixel = Math.max(pdfImg.height, pdfImg.width)
+  const longerSideSizeInPixel = Math.max(img.height, img.width)
 
   let scaleRatio = 1
 
@@ -50,20 +50,46 @@ const getImageScaleRatio = ({ pdfImg }) => {
   return scaleRatio
 }
 
+const resizeImage = async ({ img, type }) => {
+  return new Promise((resolve, reject) => {
+    var image = new Image()
+
+    image.onerror = reject
+    image.onload = () => {
+      const canvas = document.createElement('canvas')
+
+      const scaleRatio = getImageScaleRatio({ img: image })
+
+      const scaledWidth = scaleRatio * image.width
+      const scaledHeight = scaleRatio * image.height
+
+      canvas.width = scaledWidth
+      canvas.height = scaledHeight
+      canvas.getContext('2d').drawImage(image, 0, 0, scaledWidth, scaledHeight)
+
+      canvas.toBlob(blob => {
+        const buffer = fileToBase64(blob)
+        resolve(buffer)
+      }, type)
+    }
+
+    image.src = img
+  })
+}
+
 const addImageToPdf = async ({ pdf, fileToAdd }) => {
   const fileB64 = await fileToBase64(fileToAdd)
+  const resizedImage = await resizeImage({ img: fileB64, type: fileToAdd.type })
   let img
-  if (fileToAdd.type === 'image/png') img = await pdf.embedPng(fileB64)
-  if (fileToAdd.type === 'image/jpeg') img = await pdf.embedJpg(fileB64)
-  const scaleRatio = getImageScaleRatio({ pdfImg: img })
-  const imgScaled = img.scale(scaleRatio)
-  const page = pdf.addPage([imgScaled.width, imgScaled.height])
+  if (fileToAdd.type === 'image/png') img = await pdf.embedPng(resizedImage)
+  if (fileToAdd.type === 'image/jpeg') img = await pdf.embedJpg(resizedImage)
+  const page = pdf.addPage([img.width, img.height])
   const { width: pageWidth, height: pageHeight } = page.getSize()
   page.drawImage(img, {
-    x: pageWidth / 2 - imgScaled.width / 2,
-    y: pageHeight / 2 - imgScaled.height / 2,
-    width: imgScaled.width,
-    height: imgScaled.height
+    x: pageWidth / 2 - img.width / 2,
+    y: pageHeight / 2 - img.height / 2,
+    width: img.width,
+    height: img.height
   })
 }
 
