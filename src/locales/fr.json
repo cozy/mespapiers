@@ -135,10 +135,10 @@
     },
     "driverLicense": {
       "BObtentionDate": {
-        "inputLabel": "Categ. B (Voiture) depuis le"
+        "inputLabel": "Voiture (B)"
       },
       "AObtentionDate": {
-        "inputLabel": "Categ. A (Moto) depuis le"
+        "inputLabel": "Moto (A)"
       },
       "number": {
         "inputLabel": "Numéro de votre permis",
@@ -147,11 +147,11 @@
       "obtentionDate": {
         "text": "Renseignez les dates d'obtention des catégories valables."
       },
-      "CobtentionDate": {
-        "text": "Categ. C (Camion) depuis le"
+      "CObtentionDate": {
+        "inputLabel": "Camion (C)"
       },
-      "DobtentionDate": {
-        "text": "Categ. D (Bus) depuis le"
+      "DObtentionDate": {
+        "inputLabel": "Bus (D)"
       }
     },
     "card": {

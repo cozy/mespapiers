@@ -129,10 +129,10 @@
     },
     "driverLicence": {
       "BObtentionDate": {
-        "inputLabel": "Car - since the"
+        "inputLabel": "Car"
       },
       "AObtentionDate": {
-        "inputLabel": "Moto - since the"
+        "inputLabel": "Moto"
       },
       "number": {
         "inputLabel": "Your license number",
@@ -141,11 +141,11 @@
       "obtentionDate": {
         "text": "Fill in the date of each category obtained"
       },
-      "CobtentionDate": {
-        "text": "Truck - depuis le"
+      "CObtentionDate": {
+        "inputLabel": "Truck"
       },
-      "DobtentionDate": {
-        "text": "Bus - depuis le"
+      "DObtentionDate": {
+        "inputLabel": "Bus"
       }
     },
     "IDCard": {

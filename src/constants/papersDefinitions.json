@@ -103,14 +103,24 @@
           "text": "PaperJSON.driverLicense.obtentionDate.text",
           "attributes": [
             {
+              "name": "AObtentionDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.driverLicense.AObtentionDate.inputLabel"
+            },
+            {
               "name": "BObtentionDate",
               "type": "date",
               "inputLabel": "PaperJSON.driverLicense.BObtentionDate.inputLabel"
             },
             {
-              "name": "AObtentionDate",
+              "name": "CObtentionDate",
               "type": "date",
-              "inputLabel": "PaperJSON.driverLicense.AObtentionDate.inputLabel"
+              "inputLabel": "PaperJSON.driverLicense.CObtentionDate.inputLabel"
+            },
+            {
+              "name": "DObtentionDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.driverLicense.DObtentionDate.inputLabel"
             }
           ]
         },
