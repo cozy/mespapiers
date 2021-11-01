@@ -37,13 +37,27 @@ const loadPdfFromFile = async file => {
   })
 }
 
+const getImageScaleRatio = ({ pdfImg }) => {
+  const maxSizeInPixel = 900
+  const longerSideSizeInPixel = Math.max(pdfImg.height, pdfImg.width)
+
+  let scaleRatio = 1
+
+  if (maxSizeInPixel < longerSideSizeInPixel) {
+    scaleRatio = maxSizeInPixel / longerSideSizeInPixel
+  }
+
+  return scaleRatio
+}
+
 const addImageToPdf = async ({ pdf, fileToAdd }) => {
   const fileB64 = await fileToBase64(fileToAdd)
   let img
   if (fileToAdd.type === 'image/png') img = await pdf.embedPng(fileB64)
   if (fileToAdd.type === 'image/jpeg') img = await pdf.embedJpg(fileB64)
-  const imgScaled = img.scale(0.5)
-  const page = pdf.addPage()
+  const scaleRatio = getImageScaleRatio({ pdfImg: img })
+  const imgScaled = img.scale(scaleRatio)
+  const page = pdf.addPage([imgScaled.width, imgScaled.height])
   const { width: pageWidth, height: pageHeight } = page.getSize()
   page.drawImage(img, {
     x: pageWidth / 2 - imgScaled.width / 2,
