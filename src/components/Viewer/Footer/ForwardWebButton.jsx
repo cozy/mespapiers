@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { useClient, generateWebLink, useCapabilities } from 'cozy-client'
+import { useClient, useCapabilities } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Button from 'cozy-ui/transpiled/react/Button'
 import ReplyIcon from 'cozy-ui/transpiled/react/Icons/Reply'
@@ -11,27 +11,9 @@ import withLocales from 'cozy-ui/transpiled/react/I18n/withLocales'
 import fr from '../locales/fr.json'
 import en from '../locales/fr.json'
 
+import { getSharingLink } from 'src/utils/getSharingLink'
+
 const locales = { fr, en }
-
-export const getSharingLink = async (client, file, isFlatDomain) => {
-  const PERMS = {
-    _type: 'io.cozy.permissions',
-    permissions: {
-      files: { type: 'io.cozy.files', values: [file.id], verbs: ['GET'] }
-    }
-  }
-  const { data: sharedLink } = await client.save(PERMS)
-
-  const webLink = generateWebLink({
-    cozyUrl: client.getStackClient().uri,
-    searchParams: [['sharecode', sharedLink?.attributes?.shortcodes?.code]],
-    pathname: '/public',
-    slug: 'drive',
-    subDomainType: isFlatDomain ? 'flat' : 'nested'
-  })
-
-  return webLink
-}
 
 const ForwardWebButton = ({ file }) => {
   const { t } = useI18n()
