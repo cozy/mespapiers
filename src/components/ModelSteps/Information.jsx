@@ -24,8 +24,9 @@ const Information = ({ currentStep }) => {
   const [validInput, setValidInput] = useState({})
   const [isFocus, setIsFocus] = useState(false)
 
-  const submit = () => {
-    if (value) {
+  const submit = evt => {
+    evt.preventDefault()
+    if (value && allInputsValid) {
       setFormData(prev => ({
         ...prev,
         metadata: {
@@ -115,6 +116,7 @@ const Information = ({ currentStep }) => {
           extension="full"
           label={t('common.next')}
           onClick={submit}
+          onTouchEnd={submit}
           disabled={!allInputsValid}
         />
       </DialogActions>
