@@ -187,7 +187,6 @@
     },
     {
       "label": "health_insurance_card",
-      "placeholderIndex": 4,
       "icon": "heart",
       "featureDate": "expirationDate",
       "maxDisplay": 2,
@@ -297,7 +296,6 @@
     },
     {
       "label": "national_health_insurance_card",
-      "placeholderIndex": 3,
       "icon": "heart",
       "featureDate": "carObtentionDate",
       "maxDisplay": 2,

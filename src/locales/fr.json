@@ -2,7 +2,7 @@
   "Acquisition": {
     "repeat": "Scanner une page supplémentaire",
     "retry": "Reprendre la photo",
-    "success": "Acquisition réussie"
+    "success": "Photo reçue"
   },
   "action": {
     "download": "Télécharger",
@@ -32,7 +32,7 @@
     },
     "trashFile": {
       "error": "Une erreur s'est produite, veuillez réessayer dans un moment.",
-      "success": "Le document a été déplacée vers la corbeille."
+      "success": "Le document a été déplacé vers la corbeille."
     },
     "removeQualification": {
       "error": "Une erreur s'est produite, veuillez réessayer dans un moment.",
