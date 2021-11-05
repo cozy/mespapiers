@@ -23,17 +23,18 @@ const downloadFileError = error => {
 
 /**
  * forwardFile - Triggers the download of one or multiple files by the browser
- *
  * @param {CozyClient} client
  * @param {array} files One or more files to download
  * @param {func} t i18n function
  */
-export const forwardFile = async (client, file, t) => {
+export const forwardFile = async (client, files, t) => {
   try {
+    // We currently support only one file at a time
+    const file = files[0]
     const url = await getSharingLink(client, file, true)
     const shareData = {
-      title: t('viewer.shareData.title', { name: file[0].name }),
-      text: t('viewer.shareData.text', { name: file[0].name }),
+      title: t('viewer.shareData.title', { name: file.name }),
+      text: t('viewer.shareData.text', { name: file.name }),
       url
     }
     navigator.share(shareData)
