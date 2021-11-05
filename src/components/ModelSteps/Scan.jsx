@@ -31,7 +31,10 @@ const Scan = ({ currentStep }) => {
         fallbackIcon={IlluGenericNewPage}
         title={t(text)}
       />
-      <DialogActions disableSpacing className={'columnLayout u-mh-0 u-mb-1'}>
+      <DialogActions
+        disableSpacing
+        className={'columnLayout u-mh-0 u-mb-1 cozyDialogActions'}
+      >
         <FileInput
           onChange={onFileChange}
           className={'u-w-100 u-ta-center'}
