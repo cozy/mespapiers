@@ -109,7 +109,7 @@ const Information = ({ currentStep }) => {
           </div>
         ))}
       />
-      <DialogActions disableSpacing className={'columnLayout u-mh-0'}>
+      <DialogActions disableSpacing className={'columnLayout u-mh-0 u-mb-1'}>
         <Button
           className="u-db"
           extension="full"
