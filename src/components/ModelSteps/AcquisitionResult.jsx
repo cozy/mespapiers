@@ -91,7 +91,10 @@ const AcquisitionResult = ({ file, setFile, currentStep }) => {
           </Card>
         </div>
       </div>
-      <DialogActions disableSpacing className={'columnLayout u-mh-0 u-mb-1'}>
+      <DialogActions
+        disableSpacing
+        className={'columnLayout u-mh-0 u-mb-1 cozyDialogActions'}
+      >
         <Button
           className="u-db"
           extension="full"
