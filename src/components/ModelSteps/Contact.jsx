@@ -110,7 +110,7 @@ const ContactWrapper = ({ currentStep }) => {
         title={t(text)}
         text={<Contact />}
       />
-      <DialogActions className={'u-w-100 u-mh-0'}>
+      <DialogActions className={'u-w-100 u-mh-0 u-mb-1'}>
         <Button
           className="u-db"
           extension="full"
