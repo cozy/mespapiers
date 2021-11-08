@@ -14,7 +14,6 @@ export const getAllQualificationLabel = {
           $in: papersLabel
         }
       })
-      .select(['metadata.qualification.label'])
       .partialIndex({
         type: 'file',
         trashed: false
