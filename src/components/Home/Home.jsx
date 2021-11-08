@@ -5,6 +5,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Empty from 'cozy-ui/transpiled/react/Empty'
 
 import PaperGroup from 'src/components/Papers/PaperGroup'
+import { PapersFab } from 'src/components/PapersFab/PapersFab'
 import FeaturedPlaceholdersList from 'src/components/Placeholders/FeaturedPlaceholdersList'
 import HomeCloud from 'src/assets/icons/HomeCloud.svg'
 
@@ -26,6 +27,7 @@ const Home = ({ hasPapers }) => {
         <PaperGroup />
       )}
       <FeaturedPlaceholdersList />
+      <PapersFab />
     </>
   )
 }

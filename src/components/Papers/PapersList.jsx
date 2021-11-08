@@ -16,6 +16,7 @@ import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import { getPapersByLabel } from 'src/helpers/queries'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import PaperLine from 'src/components/Papers/PaperLine'
+import { PapersFab } from 'src/components/PapersFab/PapersFab'
 import makeActions from 'src/components/Actions/makeActions'
 import { useModal } from 'src/components/Hooks/useModal'
 import {
@@ -117,6 +118,7 @@ const PapersList = ({ history, match }) => {
           ))}
         </div>
       </List>
+      <PapersFab />
     </>
   )
 }
