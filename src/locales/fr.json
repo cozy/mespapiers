@@ -2,7 +2,7 @@
   "Acquisition": {
     "repeat": "Scanner une page supplémentaire",
     "retry": "Reprendre la photo",
-    "success": "Photo reçue"
+    "success": "La photo a bien été prise."
   },
   "action": {
     "download": "Télécharger",
