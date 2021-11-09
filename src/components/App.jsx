@@ -1,7 +1,7 @@
 /* global cozy */
 import React from 'react'
 import { hot } from 'react-hot-loader'
-import { Route, Switch, Redirect, HashRouter } from 'react-router-dom'
+import { Switch, Redirect, HashRouter } from 'react-router-dom'
 
 import {
   isQueryLoading,
@@ -26,34 +26,12 @@ import { ModalStack } from 'src/components/Contexts/ModalProvider'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import StepperDialogWrapper from 'src/components/StepperDialogWrapper/StepperDialogWrapper'
 import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
+import {
+  OnboardedGuardedRoute,
+  OnboardingGuardedRoute
+} from 'src/components/Router'
 
 import { getOnboardingStatus } from 'src/helpers/queries'
-
-const OnboardedGuardedRoute = ({
-  component: Component,
-  reverseGuard = false,
-  settingsData,
-  ...rest
-}) => {
-  const onboarded = settingsData?.[0]?.onboarded
-  return (
-    <Route
-      {...rest}
-      render={props => {
-        if (reverseGuard === true && onboarded === true) {
-          return <Redirect to="/" />
-        } else if (reverseGuard !== true && onboarded !== true) {
-          return <Redirect to="/onboarding" />
-        } else {
-          return <Component {...props} />
-        }
-      }}
-    />
-  )
-}
-
-const OnboardingGuardedRoute = props =>
-  OnboardedGuardedRoute({ reverseGuard: true, ...props })
 
 export const App = () => {
   const client = useClient()

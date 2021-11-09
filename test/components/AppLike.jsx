@@ -1,5 +1,6 @@
 import React from 'react'
 import { HashRouter } from 'react-router-dom'
+import { createHashHistory } from 'history'
 
 import { CozyProvider, createMockClient } from 'cozy-client'
 import I18n from 'cozy-ui/transpiled/react/I18n'
@@ -18,22 +19,25 @@ jest.mock('cozy-scanner/dist/DocumentTypeData', () => ({
   themes: [{}]
 }))
 
-const AppLike = ({ children, client }) => (
-  <CozyProvider client={client || createMockClient({})}>
-    <I18n dictRequire={() => enLocale} lang={'en'}>
-      <ScannerI18nProvider lang={'en'}>
-        <BreakpointsProvider>
-          <StepperDialogProvider>
-            <ModalProvider>
-              <PlaceholderModalProvider>
-                <HashRouter>{children}</HashRouter>
-              </PlaceholderModalProvider>
-            </ModalProvider>
-          </StepperDialogProvider>
-        </BreakpointsProvider>
-      </ScannerI18nProvider>
-    </I18n>
-  </CozyProvider>
-)
+const AppLike = ({ children, client, history }) => {
+  const hashHistory = history || createHashHistory()
+  return (
+    <CozyProvider client={client || createMockClient({})}>
+      <I18n dictRequire={() => enLocale} lang={'en'}>
+        <ScannerI18nProvider lang={'en'}>
+          <BreakpointsProvider>
+            <StepperDialogProvider>
+              <ModalProvider>
+                <PlaceholderModalProvider>
+                  <HashRouter history={hashHistory}>{children}</HashRouter>
+                </PlaceholderModalProvider>
+              </ModalProvider>
+            </StepperDialogProvider>
+          </BreakpointsProvider>
+        </ScannerI18nProvider>
+      </I18n>
+    </CozyProvider>
+  )
+}
 
 export default AppLike
