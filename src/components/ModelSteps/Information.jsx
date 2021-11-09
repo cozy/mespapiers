@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react'
 import cx from 'classnames'
+import throttle from 'lodash/throttle'
 
 import { isIOS } from 'cozy-device-helper'
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
@@ -24,8 +25,7 @@ const Information = ({ currentStep }) => {
   const [validInput, setValidInput] = useState({})
   const [isFocus, setIsFocus] = useState(false)
 
-  const submit = evt => {
-    evt.preventDefault()
+  const submit = throttle(() => {
     if (value && allInputsValid) {
       setFormData(prev => ({
         ...prev,
@@ -36,7 +36,7 @@ const Information = ({ currentStep }) => {
       }))
       nextStep()
     }
-  }
+  }, 100)
 
   const inputs = useMemo(
     () =>
@@ -119,7 +119,10 @@ const Information = ({ currentStep }) => {
           extension="full"
           label={t('common.next')}
           onClick={submit}
-          onTouchEnd={submit}
+          onTouchEnd={evt => {
+            evt.preventDefault()
+            submit()
+          }}
           disabled={!allInputsValid}
         />
       </DialogActions>
