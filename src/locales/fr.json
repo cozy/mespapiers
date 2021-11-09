@@ -88,6 +88,9 @@
   "items": {
     "other": "Autres…"
   },
+  "Onboarding": {
+    "cta": "C'est parti !"
+  },
   "PaperJSON": {
     "generic": {
       "back": {
