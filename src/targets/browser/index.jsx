@@ -21,6 +21,7 @@ import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProv
 import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider'
 import { ModalProvider } from 'src/components/Contexts/ModalProvider'
 import { PlaceholderModalProvider } from 'src/components/Contexts/PlaceholderModalProvider'
+import { register as registerServiceWorker } from 'src/targets/browser/serviceWorkerRegistration'
 
 /*
 With MUI V4, it is possible to generate deterministic class names.
@@ -58,6 +59,8 @@ const init = () => {
     root
   )
 }
+
+registerServiceWorker()
 
 document.addEventListener('DOMContentLoaded', () => {
   init()
