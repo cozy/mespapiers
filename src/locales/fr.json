@@ -54,7 +54,7 @@
   },
   "DeleteConfirm": {
     "cancel": "Annuler",
-    "choice": "Ne pas le supprimer de mes fichiers dans Drive.",
+    "choice": "Ne pas supprimer l'image.",
     "delete": "Supprimer",
     "title": "Supprimer cet élément ?",
     "text": "L’élément est associé au fichier <strong>\"%{name}\"</strong> dans votre drive."
