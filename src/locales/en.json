@@ -88,6 +88,9 @@
   "items": {
     "other": "Others…"
   },
+  "Onboarding": {
+    "cta": "Let's go!"
+  },
   "PaperJSON": {
     "generic": {
       "front": {

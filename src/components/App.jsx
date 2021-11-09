@@ -15,6 +15,7 @@ import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import HomeWrapper from 'src/components/HomeWrapper/HomeWrapper'
 import PapersList from 'src/components/Papers/PapersList'
 import FileViewerWithQuery from 'src/components/Viewer/FileViewerWithQuery'
+import Onboarding from 'src/components/Onboarding/Onboarding'
 import { ModalStack } from 'src/components/Contexts/ModalProvider'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import StepperDialogWrapper from 'src/components/StepperDialogWrapper/StepperDialogWrapper'
@@ -55,6 +56,7 @@ export const App = () => {
                   path="/file/:fileId"
                   component={FileViewerWithQuery}
                 />
+                <Route exact path="/onboarding" component={Onboarding} />
                 <Redirect from="*" to="/" />
               </Switch>
 
