@@ -54,7 +54,7 @@
   },
   "DeleteConfirm": {
     "cancel": "Cancel",
-    "choice": "Do not delete it from my files in Drive.",
+    "choice": "Do not delete the picture.",
     "delete": "Remove",
     "title": "Delete this file?",
     "text": "The item is associated with the file \"%{name}\" in your drive."
