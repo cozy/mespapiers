@@ -75,7 +75,7 @@
     },
     "importPicture": {
       "text": "Import a document from my mobile device",
-      "title": "Choose an existing picture"
+      "title": "Use an existing picture"
     },
     "scanPicture": {
       "title": "Scan with my camera",
@@ -189,8 +189,9 @@
     "title": "New paper%{name}"
   },
   "Scan": {
-    "useExistingPic": "I already have a picture",
-    "takePic": "Use an existing picture"
+    "selectPic": "Select an existing picture",
+    "takePic": "Take a picture",
+    "useExistingPic": "I already have a picture"
   },
   "viewer": {
     "shareData": {

@@ -87,7 +87,7 @@ const Scan = ({ currentStep }) => {
             >
               <ButtonLink
                 className={'u-w-100 u-m-0'}
-                label={t('Scan.useExistingPic')}
+                label={t('Scan.selectPic')}
               />
             </FileInput>
           </>
