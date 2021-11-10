@@ -75,7 +75,7 @@
     },
     "importPicture": {
       "text": "Importer un document depuis mon téléphone",
-      "title": "Choisir une photo existante"
+      "title": "Utiliser une photo existante"
     },
     "scanPicture": {
       "text": "Scanner un document avec votre téléphone",
@@ -190,7 +190,8 @@
   },
   "Scan": {
     "takePic": "Prendre en photo",
-    "useExistingPic": "Utiliser une photo existante"
+    "useExistingPic": "Utiliser une photo existante",
+    "selectPic": "Sélectionner une photo existante"
   },
   "viewer": {
     "shareData": {
