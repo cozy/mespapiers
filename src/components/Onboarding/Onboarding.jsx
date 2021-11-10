@@ -1,5 +1,6 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+
+import { Q, useClient } from 'cozy-client'
 
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
@@ -7,14 +8,16 @@ import Button from 'cozy-ui/transpiled/react/Button'
 import Empty from 'cozy-ui/transpiled/react/Empty'
 import HomeCloud from 'src/assets/icons/HomeCloud.svg'
 
-const Onboarding = () => {
-  const history = useHistory()
-  const { t } = useI18n()
+import { SETTINGS_DOCTYPE } from 'src/doctypes'
 
-  const onClick = () => {
-    history.push({
-      pathname: `/`
-    })
+const Onboarding = () => {
+  const { t } = useI18n()
+  const client = useClient()
+
+  const onClick = async () => {
+    const { data } = await client.query(Q(SETTINGS_DOCTYPE))
+    const settings = data?.[0] || {}
+    await client.save({ ...settings, onboarded: true, _type: SETTINGS_DOCTYPE })
   }
 
   return (
