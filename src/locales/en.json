@@ -70,12 +70,16 @@
   },
   "ImportDropdown": {
     "importAuto": {
-      "title": "Auto import",
-      "text": "Connect your energy or telecom services to your Cozy to get your bills. Your supporting documents will be updated automatically"
+      "text": "Connect your energy or telecom services to your Cozy to get your bills. Your supporting documents will be updated automatically",
+      "title": "Auto import"
     },
     "importPicture": {
+      "text": "Import a document from my mobile device",
+      "title": "Choose an existing picture"
+    },
+    "scanPicture": {
       "title": "Scan with my camera",
-      "text": "Use your camera or an existing document"
+      "text": "Scan a document with your mobile device"
     },
     "title": "Add: %{name}"
   },
@@ -186,7 +190,7 @@
   },
   "Scan": {
     "useExistingPic": "I already have a picture",
-    "takePic": "Take a picture"
+    "takePic": "Use an existing picture"
   },
   "viewer": {
     "shareData": {

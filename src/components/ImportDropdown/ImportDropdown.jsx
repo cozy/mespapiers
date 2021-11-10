@@ -17,15 +17,20 @@ import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { usePlaceholderModal } from 'src/components/Hooks/usePlaceholderModal'
 import Konnector from 'src/assets/icons/Konnectors.svg'
+import PhoneUpload from 'src/assets/icons/PhoneUpload.svg'
 
 const ImportDropdown = ({ label, icon, hasSteps }) => {
   const { t } = useI18n()
   const client = useClient()
   const scannerT = useScannerI18n()
-  const [showModal, setShowModal] = useState(false)
+  const [modal, setModal] = useState({ open: false, alreadyScan: true })
 
   const { setShowPlaceholderThemesList } = usePlaceholderModal()
-  const { currentDefinition, setIsStepperDialogOpen } = useStepperDialog()
+  const {
+    currentDefinition,
+    setIsStepperDialogOpen,
+    setAlreadyScan
+  } = useStepperDialog()
   const konnectorCategory = currentDefinition?.connectorCriteria?.category
 
   const goToStore = () => {
@@ -45,9 +50,10 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
   // The "onClose" callback of "ActionMenu" in the "Placeholder" is unmounted during the process and causes a memory leak.
   useEffect(() => {
     return () => {
-      if (showModal) {
+      if (modal.open) {
         setShowPlaceholderThemesList(false)
         setIsStepperDialogOpen(true)
+        setAlreadyScan(modal.alreadyScan)
       }
     }
   })
@@ -77,11 +83,28 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
       </List>
       <List className={'u-mv-half'}>
         <ListItem
-          onClick={() => hasSteps && setShowModal(true)}
+          onClick={() =>
+            hasSteps && setModal({ open: true, alreadyScan: false })
+          }
           disabled={!hasSteps}
         >
           <ListItemIcon>
             <Icon icon={Camera} size={16} />
+          </ListItemIcon>
+          <ListItemText
+            primary={t('ImportDropdown.scanPicture.title')}
+            secondary={t('ImportDropdown.scanPicture.text')}
+            ellipsis={false}
+          />
+        </ListItem>
+        <ListItem
+          onClick={() =>
+            hasSteps && setModal({ open: true, alreadyScan: true })
+          }
+          disabled={!hasSteps}
+        >
+          <ListItemIcon>
+            <Icon icon={PhoneUpload} size={16} />
           </ListItemIcon>
           <ListItemText
             primary={t('ImportDropdown.importPicture.title')}

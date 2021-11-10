@@ -74,7 +74,11 @@
       "title": "Importer automatiquement"
     },
     "importPicture": {
-      "text": "Utiliser votre téléphone ou un document existant",
+      "text": "Importer un document depuis mon téléphone",
+      "title": "Choisir une photo existante"
+    },
+    "scanPicture": {
+      "text": "Scanner un document avec votre téléphone",
       "title": "Scanner avec mon appareil photo"
     },
     "title": "Ajout : %{name}"
@@ -186,7 +190,7 @@
   },
   "Scan": {
     "takePic": "Prendre en photo",
-    "useExistingPic": "J'ai déjà une photo"
+    "useExistingPic": "Utiliser une photo existante"
   },
   "viewer": {
     "shareData": {

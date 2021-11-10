@@ -6,6 +6,7 @@ import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import FileInput from 'cozy-ui/transpiled/react/FileInput'
 
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import AcquisitionResult from 'src/components/ModelSteps/AcquisitionResult'
 import IlluGenericNewPage from 'src/assets/icons/IlluGenericNewPage.svg'
@@ -14,6 +15,7 @@ const Scan = ({ currentStep }) => {
   const { t } = useI18n()
   const { illustration, text } = currentStep
   const [file, setFile] = useState(null)
+  const { alreadyScan } = useStepperDialog()
 
   const onFileChange = file => file && setFile(file)
 
@@ -35,31 +37,61 @@ const Scan = ({ currentStep }) => {
         disableSpacing
         className={'columnLayout u-mh-0 u-mb-1 cozyDialogActions'}
       >
-        <FileInput
-          onChange={onFileChange}
-          className={'u-w-100 u-ta-center'}
-          accept={'image/*,.pdf'}
-        >
-          <ButtonLink
-            subtle
-            className={'u-w-100'}
-            label={t('Scan.useExistingPic')}
-          />
-        </FileInput>
-
-        <FileInput
-          onChange={onFileChange}
-          className={'u-w-100 u-ta-center u-mb-half u-ml-0'}
-          onClick={e => e.stopPropagation()}
-          capture={'environment'}
-          accept={'image/*'}
-        >
-          <ButtonLink
-            icon={Camera}
-            className={'u-w-100 u-m-0'}
-            label={t('Scan.takePic')}
-          />
-        </FileInput>
+        {!alreadyScan ? (
+          <>
+            <FileInput
+              onChange={onFileChange}
+              className={'u-w-100 u-ta-center'}
+              accept={'image/*,.pdf'}
+            >
+              <ButtonLink
+                subtle
+                className={'u-w-100'}
+                label={t('Scan.useExistingPic')}
+              />
+            </FileInput>
+            <FileInput
+              onChange={onFileChange}
+              className={'u-w-100 u-ta-center u-mb-half u-ml-0'}
+              onClick={e => e.stopPropagation()}
+              capture={'environment'}
+              accept={'image/*'}
+            >
+              <ButtonLink
+                icon={Camera}
+                className={'u-w-100 u-m-0'}
+                label={t('Scan.takePic')}
+              />
+            </FileInput>
+          </>
+        ) : (
+          <>
+            <FileInput
+              onChange={onFileChange}
+              className={'u-w-100 u-ta-center'}
+              onClick={e => e.stopPropagation()}
+              capture={'environment'}
+              accept={'image/*'}
+            >
+              <ButtonLink
+                subtle
+                icon={Camera}
+                className={'u-w-100'}
+                label={t('Scan.takePic')}
+              />
+            </FileInput>
+            <FileInput
+              onChange={onFileChange}
+              className={'u-w-100 u-ta-center u-mb-half u-ml-0'}
+              accept={'image/*,.pdf'}
+            >
+              <ButtonLink
+                className={'u-w-100 u-m-0'}
+                label={t('Scan.useExistingPic')}
+              />
+            </FileInput>
+          </>
+        )}
       </DialogActions>
     </>
   )
