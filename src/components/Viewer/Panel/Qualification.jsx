@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
 
-import { getBoundT } from 'cozy-scanner/dist/locales'
+import { models } from 'cozy-client'
 import { useClient } from 'cozy-client'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import withLocales from 'cozy-ui/transpiled/react/I18n/withLocales'
+const {
+  locales: { getBoundT }
+} = models.document
 
 import fr from '../locales/fr.json'
 import en from '../locales/fr.json'

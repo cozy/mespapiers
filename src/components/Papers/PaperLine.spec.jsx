@@ -3,7 +3,10 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import AppLike from 'test/components/AppLike'
-import { getBoundT } from 'cozy-scanner/dist/locales'
+import { models } from 'cozy-client'
+const {
+  locales: { getBoundT }
+} = models.document
 
 import PaperLine from 'src/components/Papers/PaperLine'
 
@@ -11,6 +14,10 @@ const mockPapers = [
   { id: '00', name: 'ID card' },
   { id: '01', name: 'Passport' }
 ]
+
+jest.mock('cozy-client/dist/models/document/locales', () => ({
+  getBoundT: jest.fn(() => jest.fn())
+}))
 
 const setup = (paper = mockPapers[0]) => {
   return render(
