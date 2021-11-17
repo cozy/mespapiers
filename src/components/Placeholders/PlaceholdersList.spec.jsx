@@ -2,8 +2,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import { getBoundT } from 'cozy-scanner/dist/locales'
-
 import AppLike from 'test/components/AppLike'
 import PlaceholdersList from 'src/components/Placeholders/PlaceholdersList'
 
@@ -13,18 +11,14 @@ const fakeQualificationItems = [
   }
 ]
 
-jest.mock('cozy-scanner/dist/locales', () => ({
-  getBoundT: jest.fn(() => jest.fn())
+jest.mock('cozy-client/dist/models/document/locales', () => ({
+  getBoundT: jest.fn().mockReturnValue(() => 'New paper - Passeport')
 }))
 
 const setup = () => {
   return render(
     <AppLike>
-      <PlaceholdersList
-        title="passport"
-        currentQualifItems={fakeQualificationItems}
-        onBack={jest.fn()}
-      />
+      <PlaceholdersList currentQualifItems={fakeQualificationItems} />
     </AppLike>
   )
 }
@@ -36,8 +30,7 @@ describe('PlaceholdersList components:', () => {
     expect(container).toBeDefined()
   })
 
-  xit('should display header title with theme', () => {
-    getBoundT.mockReturnValueOnce(() => 'Passeport')
+  it('should display header title with theme', () => {
     const { getByText } = setup()
 
     expect(getByText('New paper - Passeport'))

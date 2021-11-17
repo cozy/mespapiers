@@ -12,10 +12,7 @@ import { PlaceholderModalProvider } from 'src/components/Contexts/PlaceholderMod
 import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider'
 import enLocale from 'src/locales/en.json'
 
-jest.mock('cozy-scanner/dist/locales', () => ({
-  getBoundT: jest.fn(() => jest.fn())
-}))
-jest.mock('cozy-scanner/dist/DocumentTypeData', () => ({
+jest.mock('cozy-client/dist/models/document/documentTypeData', () => ({
   themes: [{}]
 }))
 

@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useMemo } from 'react'
 import PropTypes from 'prop-types'
 
-import { themes } from 'cozy-scanner/dist/DocumentTypeData'
+import { models } from 'cozy-client'
 import { FixedDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -15,6 +15,9 @@ import ListItemIcon, {
 } from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import RightIcon from 'cozy-ui/transpiled/react/Icons/Right'
+const {
+  themes: { themesList }
+} = models.document
 
 import PlaceholdersList from 'src/components/Placeholders/PlaceholdersList'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
@@ -52,7 +55,7 @@ const PlaceholderThemesList = ({ title, onClose }) => {
       open={true}
       content={
         <List>
-          {themes.map((theme, idx) => {
+          {themesList.map((theme, idx) => {
             return (
               <ListItem
                 button

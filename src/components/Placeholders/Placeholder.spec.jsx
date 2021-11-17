@@ -3,11 +3,18 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import AppLike from 'test/components/AppLike'
-import { getBoundT } from 'cozy-scanner/dist/locales'
+import { models } from 'cozy-client'
+const {
+  locales: { getBoundT }
+} = models.document
 
 import Placeholder from 'src/components/Placeholders/Placeholder'
 import paperJSON from 'src/constants/papersDefinitions.json'
 const papersList = paperJSON.papersDefinitions
+
+jest.mock('cozy-client/dist/models/document/locales', () => ({
+  getBoundT: jest.fn(() => jest.fn())
+}))
 
 const setup = (placeholder = papersList[0]) => {
   return render(

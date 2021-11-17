@@ -3,8 +3,10 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import AppLike from 'test/components/AppLike'
-import { useQuery } from 'cozy-client'
-import { getBoundT } from 'cozy-scanner/dist/locales'
+import { useQuery, models } from 'cozy-client'
+const {
+  locales: { getBoundT }
+} = models.document
 
 import FeaturedPlaceholdersList from 'src/components/Placeholders/FeaturedPlaceholdersList'
 
@@ -26,6 +28,9 @@ const fakePapers = [
 ]
 
 jest.mock('cozy-client/dist/hooks/useQuery', () => jest.fn())
+jest.mock('cozy-client/dist/models/document/locales', () => ({
+  getBoundT: jest.fn(() => jest.fn())
+}))
 
 const setup = () => {
   return render(

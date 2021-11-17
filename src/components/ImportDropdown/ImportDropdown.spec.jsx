@@ -2,11 +2,19 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
+import { models } from 'cozy-client'
+const {
+  locales: { getBoundT }
+} = models.document
+
 import AppLike from 'test/components/AppLike'
 import People from 'cozy-ui/transpiled/react/Icons/People'
-import { getBoundT } from 'cozy-scanner/dist/locales'
 
 import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
+
+jest.mock('cozy-client/dist/models/document/locales', () => ({
+  getBoundT: jest.fn(() => jest.fn())
+}))
 
 const setup = (label = 'national_id_card') => {
   return render(
