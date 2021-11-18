@@ -17,9 +17,9 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
-import { PaperDefinitionsPropTypes } from 'src/constants/PaperDefinitionsPropTypes'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
-import papersJSON from 'src/constants/papersDefinitions.json'
+import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import { PaperDefinitionsPropTypes } from 'src/constants/PaperDefinitionsPropTypes'
 import { hasNextvalue } from 'src/utils/hasNextvalue'
 
 const useStyles = makeStyles({
@@ -33,15 +33,15 @@ const AllPlaceholdersChoices = ({
 }) => {
   const classes = useStyles()
   const scannerT = useScannerI18n()
-  const hasDivider = useCallback(
-    idx => hasNextvalue(idx, papersJSON.papersDefinitions),
-    []
-  )
+  const { papersDefinitions } = usePapersDefinitions()
+  const hasDivider = useCallback(idx => hasNextvalue(idx, papersDefinitions), [
+    papersDefinitions
+  ])
 
   return (
     <ActionMenu onClose={hideAllPapersChoices}>
       <List>
-        {papersJSON.papersDefinitions.map((placeholder, idx) => (
+        {papersDefinitions.map((placeholder, idx) => (
           <Fragment key={`${placeholder.label}${idx}`}>
             {!isOtherPaper(placeholder.label) && (
               <>
@@ -94,16 +94,17 @@ const Placeholder = ({ placeholder, divider }) => {
   const classes = useStyles()
   const { t } = useI18n()
   const scannerT = useScannerI18n()
+  const { papersDefinitions } = usePapersDefinitions()
   const [isImportDropdownDisplayed, setIsImportDropdownDisplayed] = useState(
     false
   )
   const [isPapersLabelsList, setIsPapersLabelsList] = useState(false)
   const { setCurrentDefinition } = useStepperDialog()
   const formModel = useMemo(() => {
-    return papersJSON.papersDefinitions.find(
+    return papersDefinitions.find(
       paper => paper.label && paper.label === placeholder.label
     )
-  }, [placeholder.label])
+  }, [papersDefinitions, placeholder.label])
   const isOtherPaper = useCallback(label => label === 'other', [])
 
   const hideImportDropdown = useCallback(

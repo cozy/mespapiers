@@ -22,6 +22,7 @@ import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider
 import { ModalProvider } from 'src/components/Contexts/ModalProvider'
 import { PlaceholderModalProvider } from 'src/components/Contexts/PlaceholderModalProvider'
 import { register as registerServiceWorker } from 'src/targets/browser/serviceWorkerRegistration'
+import { PapersDefinitionsProvider } from 'src/components/Contexts/PapersDefinitionsProvider'
 
 /*
 With MUI V4, it is possible to generate deterministic class names.
@@ -43,13 +44,15 @@ const init = () => {
           <ScannerI18nProvider lang={lang}>
             <MuiCozyTheme>
               <BreakpointsProvider>
-                <StepperDialogProvider>
-                  <PlaceholderModalProvider>
-                    <ModalProvider>
-                      <App />
-                    </ModalProvider>
-                  </PlaceholderModalProvider>
-                </StepperDialogProvider>
+                <PapersDefinitionsProvider>
+                  <StepperDialogProvider>
+                    <PlaceholderModalProvider>
+                      <ModalProvider>
+                        <App />
+                      </ModalProvider>
+                    </PlaceholderModalProvider>
+                  </StepperDialogProvider>
+                </PapersDefinitionsProvider>
               </BreakpointsProvider>
             </MuiCozyTheme>
           </ScannerI18nProvider>

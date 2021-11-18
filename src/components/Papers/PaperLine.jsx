@@ -20,7 +20,7 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import DotsIcon from 'cozy-ui/transpiled/react/Icons/Dots'
 import IconPdf from 'cozy-ui/transpiled/react/Icons/FileTypePdf'
 
-import papersJSON from 'src/constants/papersDefinitions.json'
+import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 import { ActionsItems } from 'src/components/Actions/ActionsItems'
 
 const validPageName = page => page === 'front' || page === 'back'
@@ -30,14 +30,15 @@ const PaperLine = ({ paper, divider, actions }) => {
   const { f, t } = useI18n()
   const { isMobile } = useBreakpoints()
   const actionBtnRef = useRef()
+  const { papersDefinitions } = usePapersDefinitions()
 
   const [optionFile, setOptionFile] = useState(false)
   const paperDefinition = useMemo(
     () =>
-      papersJSON.papersDefinitions.find(
+      papersDefinitions.find(
         p => p.label === paper?.metadata?.qualification?.label
       ),
-    [paper]
+    [paper, papersDefinitions]
   )
   const papersFeatureDate = useMemo(
     () =>
