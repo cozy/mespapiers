@@ -10,6 +10,7 @@ import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProv
 import { ModalProvider } from 'src/components/Contexts/ModalProvider'
 import { PlaceholderModalProvider } from 'src/components/Contexts/PlaceholderModalProvider'
 import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider'
+import { PapersDefinitionsProvider } from 'src/components/Contexts/PapersDefinitionsProvider'
 import enLocale from 'src/locales/en.json'
 
 jest.mock('cozy-client/dist/models/document/documentTypeData', () => ({
@@ -23,13 +24,15 @@ const AppLike = ({ children, client, history }) => {
       <I18n dictRequire={() => enLocale} lang={'en'}>
         <ScannerI18nProvider lang={'en'}>
           <BreakpointsProvider>
-            <StepperDialogProvider>
-              <ModalProvider>
-                <PlaceholderModalProvider>
-                  <HashRouter history={hashHistory}>{children}</HashRouter>
-                </PlaceholderModalProvider>
-              </ModalProvider>
-            </StepperDialogProvider>
+            <PapersDefinitionsProvider>
+              <StepperDialogProvider>
+                <ModalProvider>
+                  <PlaceholderModalProvider>
+                    <HashRouter history={hashHistory}>{children}</HashRouter>
+                  </PlaceholderModalProvider>
+                </ModalProvider>
+              </StepperDialogProvider>
+            </PapersDefinitionsProvider>
           </BreakpointsProvider>
         </ScannerI18nProvider>
       </I18n>
