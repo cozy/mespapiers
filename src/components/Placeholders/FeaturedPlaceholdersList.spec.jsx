@@ -42,7 +42,7 @@ const setup = () => {
 
 describe('FeaturedPlaceholdersList components:', () => {
   it('should be rendered correctly', () => {
-    useQuery.mockReturnValueOnce({
+    useQuery.mockReturnValue({
       data: []
     })
     const { container } = setup()
@@ -51,7 +51,7 @@ describe('FeaturedPlaceholdersList components:', () => {
   })
 
   it('should not display Suggestions header', () => {
-    useQuery.mockReturnValueOnce({
+    useQuery.mockReturnValue({
       data: []
     })
     const { queryByText } = setup()
@@ -61,7 +61,7 @@ describe('FeaturedPlaceholdersList components:', () => {
 
   it('should display Suggestions', () => {
     getBoundT.mockReturnValueOnce(() => 'Others...')
-    useQuery.mockReturnValueOnce({
+    useQuery.mockReturnValue({
       data: fakePapers
     })
     const { getByText } = setup()
@@ -71,7 +71,7 @@ describe('FeaturedPlaceholdersList components:', () => {
 
   it('should display Suggestions & list of placeholder filtered', () => {
     getBoundT.mockReturnValueOnce(() => 'ID card')
-    useQuery.mockReturnValueOnce({
+    useQuery.mockReturnValue({
       data: [fakePapers[1]]
     })
     const { getByText, getAllByText } = setup()

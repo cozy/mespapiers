@@ -1,7 +1,5 @@
 import get from 'lodash/get'
 
-import papersJSON from 'src/constants/papersDefinitions.json'
-
 /**
  * @typedef {Object} StepAttributes
  * @property {string} name - Name of the attribute.
@@ -32,8 +30,8 @@ import papersJSON from 'src/constants/papersDefinitions.json'
  * which does not already exist in DB and
  * which sorted with the prop "placeholderIndex"
  */
-export const getFeaturedPlaceholders = (papers = []) => {
-  return papersJSON.papersDefinitions
+export const getFeaturedPlaceholders = (papersDefinitions, papers = []) => {
+  return papersDefinitions
     .filter(
       paperDefinition =>
         !papers.some(
@@ -48,8 +46,11 @@ export const getFeaturedPlaceholders = (papers = []) => {
  * Find placeholders by Qualification
  * @param {Array<object>} qualificationItems
  */
-export const findPlaceholdersByQualification = (qualificationItems = []) => {
-  return papersJSON.papersDefinitions
+export const findPlaceholdersByQualification = (
+  papersDefinitions,
+  qualificationItems = []
+) => {
+  return papersDefinitions
     .filter(paperDefinition =>
       qualificationItems.some(item => item.label === paperDefinition.label)
     )

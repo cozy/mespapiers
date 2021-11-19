@@ -2,6 +2,8 @@ import {
   getFeaturedPlaceholders,
   findPlaceholdersByQualification
 } from 'src/helpers/findPlaceholders'
+import * as PaperJSON from 'src/constants/papersDefinitions.json'
+const { papersDefinitions } = PaperJSON
 
 const fakePapers = [
   {
@@ -21,13 +23,16 @@ const fakeQualificationItems = [
 describe('getPlaceholders', () => {
   describe('getFeaturedPlaceholders', () => {
     it('should return list of placeholders whitout param', () => {
-      const featuredPlaceholders = getFeaturedPlaceholders()
+      const featuredPlaceholders = getFeaturedPlaceholders(papersDefinitions)
 
       expect(featuredPlaceholders.length).toBeGreaterThan(0)
     })
 
     it('should return correct list of placeholders with param', () => {
-      const featuredPlaceholders = getFeaturedPlaceholders(fakePapers)
+      const featuredPlaceholders = getFeaturedPlaceholders(
+        papersDefinitions,
+        fakePapers
+      )
 
       expect(featuredPlaceholders).toEqual(
         expect.arrayContaining([
@@ -48,13 +53,14 @@ describe('getPlaceholders', () => {
 
   describe('findPlaceholdersByQualification', () => {
     it('should return an empty list', () => {
-      const placeholders = findPlaceholdersByQualification()
+      const placeholders = findPlaceholdersByQualification(papersDefinitions)
 
       expect(placeholders).toHaveLength(0)
     })
 
     it('should return correct list of placeholders with param', () => {
       const placeholders = findPlaceholdersByQualification(
+        papersDefinitions,
         fakeQualificationItems
       )
 
