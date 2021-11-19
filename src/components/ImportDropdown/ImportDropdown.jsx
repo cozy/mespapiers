@@ -32,14 +32,18 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
     setAlreadyScan
   } = useStepperDialog()
   const konnectorCategory = currentDefinition?.connectorCriteria?.category
+  const konnectorName = currentDefinition?.connectorCriteria?.name
 
   const goToStore = () => {
+    let hash
+    if (konnectorName) hash = `discover/${konnectorName}`
+    else hash = `discover?type=konnector&category=${konnectorCategory}`
     const webLink = generateWebLink({
       slug: 'store',
       cozyUrl: client.getStackClient().uri,
       subDomainType: client.getInstanceOptions().subdomain,
       pathname: '/',
-      hash: `discover?type=konnector&category=${konnectorCategory}`
+      hash
     })
     // TODO Do not use window.open for redirect, prefer use a link (href)
     window.open(webLink, '_blank')
@@ -113,8 +117,8 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
           />
         </ListItem>
         <ListItem
-          onClick={konnectorCategory ? goToStore : null}
-          disabled={konnectorCategory ? false : true}
+          onClick={konnectorCategory || konnectorName ? goToStore : null}
+          disabled={konnectorCategory || konnectorName ? false : true}
         >
           <ListItemIcon>
             <Icon icon={Konnector} size={24} />
