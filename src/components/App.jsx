@@ -3,6 +3,8 @@ import React from 'react'
 import { hot } from 'react-hot-loader'
 import { Switch, Redirect, HashRouter } from 'react-router-dom'
 
+import flag from 'cozy-flags'
+import FlagSwitcher from 'cozy-flags/dist/FlagSwitcher'
 import {
   isQueryLoading,
   useClient,
@@ -32,6 +34,7 @@ import {
 } from 'src/components/Router'
 
 import { getOnboardingStatus } from 'src/helpers/queries'
+import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 
 export const App = () => {
   const client = useClient()
@@ -40,6 +43,7 @@ export const App = () => {
   const { BarCenter } = cozy.bar
 
   const { isStepperDialogOpen } = useStepperDialog()
+  const { papersDefinitions } = usePapersDefinitions()
 
   const { data: settingsData, ...settingsQuery } = useQuery(
     getOnboardingStatus.definition,
@@ -49,6 +53,7 @@ export const App = () => {
   return (
     <HashRouter>
       <Layout monoColumn>
+        {flag('switcher') && <FlagSwitcher />}
         {isMobile && (
           <>
             <BarCenter>
@@ -60,7 +65,7 @@ export const App = () => {
         )}
         <Main>
           <Content className="app-content">
-            {isQueryLoading(settingsQuery) ? (
+            {isQueryLoading(settingsQuery) || papersDefinitions.length === 0 ? (
               <Spinner
                 size="xxlarge"
                 className="u-flex u-flex-justify-center u-mt-2 u-h-5"
@@ -95,7 +100,6 @@ export const App = () => {
 
                   <Redirect from="*" to="/" />
                 </Switch>
-
                 {isStepperDialogOpen && (
                   <FormDataProvider>
                     <StepperDialogWrapper />

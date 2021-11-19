@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback } from 'react'
+import React, { Fragment, useCallback, useMemo } from 'react'
 import get from 'lodash/get'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
@@ -18,6 +18,7 @@ import Right from 'cozy-ui/transpiled/react/Icons/Right'
 
 import { getAllQualificationLabel } from 'src/helpers/queries'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 
 const useStyles = makeStyles({
   root: { textIndent: '1rem' }
@@ -29,9 +30,15 @@ const PaperGroup = () => {
   const history = useHistory()
   const { t } = useI18n()
   const scannerT = useScannerI18n()
+  const { papersDefinitions } = usePapersDefinitions()
+
+  const allQualificationLabel = useMemo(
+    () => getAllQualificationLabel(papersDefinitions),
+    [papersDefinitions]
+  )
   const { data: allPapers } = useQuery(
-    getAllQualificationLabel.definition,
-    getAllQualificationLabel.options
+    allQualificationLabel.definition,
+    allQualificationLabel.options
   )
 
   const categories = allPapers

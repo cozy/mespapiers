@@ -1,28 +1,29 @@
 import { Q, fetchPolicies } from 'cozy-client'
 
 import { FILES_DOCTYPE, CONTACTS_DOCTYPE, SETTINGS_DOCTYPE } from 'src/doctypes'
-import papersJSON from 'src/constants/papersDefinitions.json'
 
 const defaultFetchPolicy = fetchPolicies.olderThan(30 * 1000)
-const papersLabel = papersJSON.papersDefinitions.map(paper => paper.label)
 
-export const getAllQualificationLabel = {
-  definition: () =>
-    Q(FILES_DOCTYPE)
-      .where({
-        'metadata.qualification.label': {
-          $in: papersLabel
-        }
-      })
-      .partialIndex({
-        type: 'file',
-        trashed: false
-      })
-      .indexFields(['metadata.qualification.label'])
-      .sortBy([{ 'metadata.qualification.label': 'desc' }]),
-  options: {
-    as: `getAllQualificationLabel`,
-    fetchPolicy: defaultFetchPolicy
+export const getAllQualificationLabel = papersDefinitions => {
+  const papersLabel = papersDefinitions.map(paper => paper.label)
+  return {
+    definition: () =>
+      Q(FILES_DOCTYPE)
+        .where({
+          'metadata.qualification.label': {
+            $in: papersLabel
+          }
+        })
+        .partialIndex({
+          type: 'file',
+          trashed: false
+        })
+        .indexFields(['metadata.qualification.label'])
+        .sortBy([{ 'metadata.qualification.label': 'desc' }]),
+    options: {
+      as: `getAllQualificationLabel`,
+      fetchPolicy: defaultFetchPolicy
+    }
   }
 }
 

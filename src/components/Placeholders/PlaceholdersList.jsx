@@ -18,17 +18,20 @@ import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { findPlaceholdersByQualification } from 'src/helpers/findPlaceholders'
+import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 
 const PlaceholdersList = ({ currentQualifItems }) => {
   const [isImportDropdownDisplayed, setIsImportDropdownDisplayed] = useState(
     false
   )
   const [placeholderSelected, setPlaceholderSelected] = useState(null)
+  const { papersDefinitions } = usePapersDefinitions()
 
   const scannerT = useScannerI18n()
   const allPlaceholders = useMemo(
-    () => findPlaceholdersByQualification(currentQualifItems),
-    [currentQualifItems]
+    () =>
+      findPlaceholdersByQualification(papersDefinitions, currentQualifItems),
+    [currentQualifItems, papersDefinitions]
   )
   const { setCurrentDefinition } = useStepperDialog()
   const hideImportDropdown = useCallback(() => {
