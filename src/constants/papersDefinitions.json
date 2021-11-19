@@ -513,7 +513,10 @@
       "icon": "bank",
       "featureDate": "referencedDate",
       "maxDisplay": 3,
-      "acquisitionSteps": []
+      "acquisitionSteps": [],
+      "connectorCriteria": {
+        "name": "impots"
+      }
     },
     {
       "label": "tax_return",
