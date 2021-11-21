@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
@@ -21,7 +21,6 @@ import DotsIcon from 'cozy-ui/transpiled/react/Icons/Dots'
 import IconPdf from 'cozy-ui/transpiled/react/Icons/FileTypePdf'
 import CardMedia from 'cozy-ui/transpiled/react/CardMedia'
 
-import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 import { ActionsItems } from 'src/components/Actions/ActionsItems'
 import { getThumbnailLink } from 'src/utils/getThumbnailLink'
 
@@ -33,26 +32,13 @@ const PaperLine = ({ paper, divider, actions }) => {
   const { f, t } = useI18n()
   const { isMobile } = useBreakpoints()
   const actionBtnRef = useRef()
-  const { papersDefinitions } = usePapersDefinitions()
   const client = useClient()
   const [imgOnError, setImgOnError] = useState(false)
 
   const [optionFile, setOptionFile] = useState(false)
-  const paperDefinition = useMemo(
-    () =>
-      papersDefinitions.find(
-        p => p.label === paper?.metadata?.qualification?.label
-      ),
-    [paper, papersDefinitions]
-  )
-  const papersFeatureDate = useMemo(
-    () =>
-      paperDefinition?.featureDate &&
-      paper?.metadata?.qualification?.[paperDefinition.featureDate],
-    [paper, paperDefinition]
-  )
+
   const paperLabel = paper?.metadata?.qualification?.page
-  const paperDate = f(papersFeatureDate || paper.created_at, 'DD/MM/YYYY')
+  const paperDate = f(paper?.metadata?.datetime, 'DD/MM/YYYY')
 
   const hideActionsMenu = () => setOptionFile(false)
   const toggleActionsMenu = () => setOptionFile(prev => !prev)
