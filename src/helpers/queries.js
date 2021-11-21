@@ -39,8 +39,8 @@ export const getPapersByLabel = label => ({
         type: 'file',
         trashed: false
       })
-      .indexFields(['created_at', 'metadata.qualification'])
-      .sortBy([{ created_at: 'desc' }]),
+      .indexFields(['name', 'metadata.qualification'])
+      .sortBy([{ name: 'asc' }]),
   options: {
     as: `getPapersByLabel:${label}`,
     fetchPolicy: defaultFetchPolicy
