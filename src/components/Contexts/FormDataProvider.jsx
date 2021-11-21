@@ -133,11 +133,14 @@ const savePdfToCozy = async ({
 
   const newMetadata = {
     qualification: {
-      ...qualification,
-      ...pdfMetadata,
-      ...formMetadata,
-      featureDate
-    }
+      ...qualification
+    },
+    ...pdfMetadata,
+    ...formMetadata,
+    datetime: formMetadata[featureDate]
+      ? formMetadata[featureDate]
+      : pdf.getCreationDate(),
+    datetimeLabel: formMetadata[featureDate] ? featureDate : 'datetime'
   }
 
   const date =

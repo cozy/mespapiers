@@ -23,9 +23,14 @@ const Qualification = ({ file = {}, t, f, lang }) => {
   const client = useClient()
   const [currentUser, setCurrentUser] = useState(null)
 
-  const { name: filename, metadata = {}, created_at } = file
-  const { qualification = {} } = metadata
-  const { label, page: pageLabel, featureDate } = qualification
+  const { name: filename, metadata = {} } = file
+  const {
+    qualification = {},
+    page: pageLabel,
+    datetime,
+    datetimeLabel
+  } = metadata
+  const { label } = qualification
 
   // TODO Improve it when other contact choices are needed
   useEffect(() => {
@@ -46,32 +51,25 @@ const Qualification = ({ file = {}, t, f, lang }) => {
       <ListItem>
         <Typography variant={'h6'}>{t('viewer.panel.title')}</Typography>
       </ListItem>
-      {featureDate && (
-        <ListItem>
-          <ListItemText
-            disableTypography
-            primary={
-              <Typography variant={'caption'}>
-                {t(
-                  `viewer.panel.qualification.date.title.${
-                    qualification[featureDate] ? featureDate : 'addedOn'
-                  }`
-                )}
-              </Typography>
-            }
-            secondary={
-              <Typography variant={'body1'}>
-                {f(
-                  qualification[featureDate]
-                    ? qualification[featureDate]
-                    : created_at,
-                  'DD/MM/YYYY'
-                )}
-              </Typography>
-            }
-          />
-        </ListItem>
-      )}
+      <ListItem>
+        <ListItemText
+          disableTypography
+          primary={
+            <Typography variant={'caption'}>
+              {t(
+                `viewer.panel.qualification.date.title.${
+                  datetimeLabel === 'datetime' ? 'addedOn' : datetimeLabel
+                }`
+              )}
+            </Typography>
+          }
+          secondary={
+            <Typography variant={'body1'}>
+              {f(datetime, 'DD/MM/YYYY')}
+            </Typography>
+          }
+        />
+      </ListItem>
       <ListItem>
         <ListItemText
           disableTypography
