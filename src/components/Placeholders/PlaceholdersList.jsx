@@ -66,7 +66,9 @@ const PlaceholdersList = ({ currentQualifItems }) => {
     <>
       <List>
         {allPlaceholders.map((placeholder, idx) => {
-          const stepsExists = placeholder.acquisitionSteps.length > 0
+          const stepsExists =
+            placeholder.acquisitionSteps.length > 0 ||
+            placeholder.connectorCriteria
 
           return (
             <ListItem

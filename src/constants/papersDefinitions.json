@@ -549,14 +549,20 @@
           "model": "owner",
           "text": "PaperJSON.generic.owner.text"
         }
-      ]
+      ],
+      "connectorCriteria": {
+        "name": "impots"
+      }
     },
     {
       "label": "tax_timetable",
       "icon": "bank",
       "featureDate": "referencedDate",
       "maxDisplay": 3,
-      "acquisitionSteps": []
+      "acquisitionSteps": [],
+      "connectorCriteria": {
+        "name": "impots"
+      }
     },
     {
       "label": "vehicle_registration",
