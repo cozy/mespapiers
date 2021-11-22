@@ -48,6 +48,8 @@ const PaperLine = ({ paper, divider, actions }) => {
     type: 'file'
   })
 
+  const thumbnailLink = getThumbnailLink(client, paper)
+
   return (
     <>
       <ListItem
@@ -60,7 +62,7 @@ const PaperLine = ({ paper, divider, actions }) => {
         }
       >
         <ListItemIcon>
-          {imgOnError ? (
+          {imgOnError || !thumbnailLink ? (
             // TODO implement https://github.com/cozy/cozy-drive/blob/master/src/drive/web/modules/filelist/FileIconMime.jsx
             <Icon icon={IconPdf} size={32} />
           ) : (
@@ -68,7 +70,7 @@ const PaperLine = ({ paper, divider, actions }) => {
               component={'img'}
               width={32}
               height={32}
-              image={getThumbnailLink(client, paper)}
+              image={thumbnailLink}
               onError={() => setImgOnError(true)}
             />
           )}
