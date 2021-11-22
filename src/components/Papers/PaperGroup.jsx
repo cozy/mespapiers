@@ -49,7 +49,9 @@ const PaperGroup = () => {
             return label
           })
         )
-      ]
+      ].sort(
+        (a, b) => (scannerT(`items.${a}`) > scannerT(`items.${b}`) && 1) || -1
+      )
     : []
 
   const goPapersList = useCallback(
