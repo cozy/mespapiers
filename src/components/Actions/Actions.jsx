@@ -11,7 +11,7 @@ import TrashIcon from 'cozy-ui/transpiled/react/Icons/Trash'
 import ReplyIcon from 'cozy-ui/transpiled/react/Icons/Reply'
 import Folder from 'cozy-ui/transpiled/react/Icons/Folder'
 
-import { isReferencedBy } from 'src/utils/isReferencedBy'
+import { isReferencedBy } from 'src/utils/referencedBy'
 import { CONTACTS_DOCTYPE } from 'src/doctypes'
 import DeleteConfirm from 'src/components/Actions/DeleteConfirm'
 import MakeAvailableOfflineMenuItem from 'src/components/Actions/MakeAvailableOfflineMenuItem'

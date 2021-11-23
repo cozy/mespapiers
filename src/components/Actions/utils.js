@@ -2,7 +2,7 @@
 
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
 
-import { isReferencedBy } from 'src/utils/isReferencedBy'
+import { isReferencedBy } from 'src/utils/referencedBy'
 import { FILES_DOCTYPE } from 'src/doctypes'
 import { getSharingLink } from 'src/utils/getSharingLink'
 
