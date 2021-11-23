@@ -1,6 +1,6 @@
 import { Q, fetchPolicies } from 'cozy-client'
 
-import { FILES_DOCTYPE, CONTACTS_DOCTYPE, SETTINGS_DOCTYPE } from 'src/doctypes'
+import { FILES_DOCTYPE, SETTINGS_DOCTYPE } from 'src/doctypes'
 
 const defaultFetchPolicy = fetchPolicies.olderThan(30 * 1000)
 
@@ -42,19 +42,6 @@ export const getPapersByLabel = label => ({
       .sortBy([{ created_at: 'desc' }]),
   options: {
     as: `getPapersByLabel:${label}`,
-    fetchPolicy: defaultFetchPolicy
-  }
-})
-
-export const getContactById = id => ({
-  definition: () =>
-    Q(CONTACTS_DOCTYPE)
-      .where({
-        _id: id
-      })
-      .indexFields(['_id']),
-  options: {
-    as: `getContactById`,
     fetchPolicy: defaultFetchPolicy
   }
 })
