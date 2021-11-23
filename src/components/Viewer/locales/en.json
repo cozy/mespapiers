@@ -23,7 +23,8 @@
             "obtentionDate": "Delivered on",
             "carObtentionDate": "Delivered on",
             "motoObtentionDate": "Delivered on",
-            "expirationDate": "Expiration date"
+            "expirationDate": "Expiration date",
+            "shootingDate": "Shooting date"
           }
         }
       }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
-import { useClient } from 'cozy-client'
+import { useClient, models } from 'cozy-client'
 import Paper from 'cozy-ui/transpiled/react/Paper'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
@@ -20,6 +20,13 @@ import ContactsListModal from 'cozy-ui/transpiled/react/ContactsListModal'
 import { useFormData } from 'src/components/Hooks/useFormData'
 import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
+
+const { getFullname } = models.contact
+
+const styleAvatar = {
+  color: 'var(--primaryColor)',
+  backgroundColor: 'var(--primaryColorLightest)'
+}
 
 const Contact = () => {
   const client = useClient()
@@ -77,16 +84,10 @@ const Contact = () => {
                 onClick={() => setContactIdSelected(contact._id)}
               >
                 <ListItemIcon>
-                  <Avatar
-                    size={'small'}
-                    style={{
-                      color: 'var(--primaryColor)',
-                      backgroundColor: 'var(--primaryColorLightest)'
-                    }}
-                  />
+                  <Avatar size={'small'} style={styleAvatar} />
                 </ListItemIcon>
                 <ListItemText
-                  primary={`${contact.fullname} ${
+                  primary={`${getFullname(contact)} ${
                     contact.me ? `(${t('ContactStep.me')})` : ''
                   }`}
                 />
@@ -106,13 +107,7 @@ const Contact = () => {
 
           <ListItem onClick={() => setContactModalOpened(true)}>
             <ListItemIcon>
-              <Avatar
-                size={'small'}
-                style={{
-                  color: 'var(--primaryColor)',
-                  backgroundColor: 'var(--primaryColorLightest)'
-                }}
-              />
+              <Avatar size={'small'} style={styleAvatar} />
             </ListItemIcon>
             <ListItemText primary={t('ContactStep.other')} />
             <Icon icon={Right} size={16} color={'var(--secondaryTextColor)'} />

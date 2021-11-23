@@ -1,27 +1,38 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-import { models } from 'cozy-client'
-import { useClient } from 'cozy-client'
+import { models, useQuery } from 'cozy-client'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import withLocales from 'cozy-ui/transpiled/react/I18n/withLocales'
-const {
-  locales: { getBoundT }
-} = models.document
 
 import fr from '../locales/fr.json'
 import en from '../locales/fr.json'
+import { getContactByIds } from '../queries'
+
+const {
+  contact: { getFullname },
+  document: {
+    locales: { getBoundT }
+  }
+} = models
 
 const locales = { fr, en }
 
 const validPageLabel = page => page === 'front' || page === 'back'
 
+// TODO Use getReferencedBy from cozy-client
+const getReferencedBy = (file, referencedBy) => {
+  if (file?.relationships?.referenced_by?.data?.length > 0) {
+    const references = file.relationships.referenced_by.data
+    return references.filter(reference => reference.type === referencedBy)
+  }
+  return []
+}
+
 const Qualification = ({ file = {}, t, f, lang }) => {
   const scannerT = getBoundT(lang)
-  const client = useClient()
-  const [currentUser, setCurrentUser] = useState(null)
 
   const { name: filename, metadata = {} } = file
   const {
@@ -32,19 +43,17 @@ const Qualification = ({ file = {}, t, f, lang }) => {
   } = metadata
   const { label } = qualification
 
-  // TODO Improve it when other contact choices are needed
-  useEffect(() => {
-    let isMounted = true
-    ;(async () => {
-      const contactCollection = client.collection('io.cozy.contacts')
-      const { data: currentUser } = await contactCollection.findMyself()
-      isMounted && setCurrentUser(currentUser[0])
-    })()
+  const contactIds = getReferencedBy(file, 'io.cozy.contacts').map(
+    contact => contact.id
+  )
+  const contactByIdsQuery = getContactByIds(contactIds)
+  const { data: contactList } = useQuery(
+    contactByIdsQuery.definition,
+    contactByIdsQuery.options
+  )
 
-    return () => {
-      isMounted = false
-    }
-  }, [client])
+  const contactsDisplayed =
+    contactList?.map(contact => `${getFullname(contact)}`).join(', ') || ''
 
   return (
     <List className={'u-pv-half'}>
@@ -58,7 +67,9 @@ const Qualification = ({ file = {}, t, f, lang }) => {
             <Typography variant={'caption'}>
               {t(
                 `viewer.panel.qualification.date.title.${
-                  datetimeLabel === 'datetime' ? 'addedOn' : datetimeLabel
+                  datetimeLabel === 'datetime' || datetimeLabel === undefined
+                    ? 'addedOn'
+                    : datetimeLabel
                 }`
               )}
             </Typography>
@@ -70,19 +81,21 @@ const Qualification = ({ file = {}, t, f, lang }) => {
           }
         />
       </ListItem>
-      <ListItem>
-        <ListItemText
-          disableTypography
-          primary={
-            <Typography variant={'caption'}>
-              {t('viewer.panel.qualification.identity')}
-            </Typography>
-          }
-          secondary={
-            <Typography variant={'body1'}>{currentUser?.fullname}</Typography>
-          }
-        />
-      </ListItem>
+      {contactsDisplayed.length > 0 && (
+        <ListItem>
+          <ListItemText
+            disableTypography
+            primary={
+              <Typography variant={'caption'}>
+                {t('viewer.panel.qualification.identity')}
+              </Typography>
+            }
+            secondary={
+              <Typography variant={'body1'}>{contactsDisplayed}</Typography>
+            }
+          />
+        </ListItem>
+      )}
       <ListItem>
         <ListItemText
           disableTypography

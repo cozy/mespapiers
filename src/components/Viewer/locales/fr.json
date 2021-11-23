@@ -25,7 +25,8 @@
             "issueDate": "Délivré le",
             "AObtentionDate": "Délivré le",
             "expirationDate": "Expire le",
-            "referencedDate": "Date de référence"
+            "referencedDate": "Date de référence",
+            "shootingDate": "Date de prise de vue"
           }
         }
       }
