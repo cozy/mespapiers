@@ -11,9 +11,11 @@ import ListItemSecondaryAction from 'cozy-ui/transpiled/react/MuiCozyTheme/ListI
 import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
 import Button from 'cozy-ui/transpiled/react/Button'
 import Avatar from 'cozy-ui/transpiled/react/Avatar'
-import RightIcon from 'cozy-ui/transpiled/react/Icons/Right'
+import Icon from 'cozy-ui/transpiled/react/Icon'
+import Right from 'cozy-ui/transpiled/react/Icons/Right'
 import Radio from 'cozy-ui/transpiled/react/Radio'
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
+import ContactsListModal from 'cozy-ui/transpiled/react/ContactsListModal'
 
 import { useFormData } from 'src/components/Hooks/useFormData'
 import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
@@ -22,13 +24,19 @@ import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 const Contact = () => {
   const client = useClient()
   const { t } = useI18n()
-  const [currentUser, setCurrentUser] = useState(null)
+  const { setFormData } = useFormData()
+  const [contactModalOpened, setContactModalOpened] = useState(false)
+  const [contactsList, setContactsList] = useState([])
+  const [contactIdSelected, setContactIdSelected] = useState(null)
 
   useEffect(() => {
     let isMounted = true
     ;(async () => {
-      const user = await fetchCurrentUser(client)
-      isMounted && setCurrentUser(user)
+      const myself = await fetchCurrentUser(client)
+      if (isMounted) {
+        setContactsList([myself])
+        setContactIdSelected(myself._id)
+      }
     })()
 
     return () => {
@@ -36,58 +44,91 @@ const Contact = () => {
     }
   }, [client])
 
+  useEffect(() => {
+    if (contactIdSelected) {
+      setFormData(prev => ({
+        ...prev,
+        contacts: contactsList.filter(
+          contact => contact._id === contactIdSelected
+        )
+      }))
+    }
+  }, [contactIdSelected, contactsList, setFormData])
+
+  const onChangeRadio = evt => setContactIdSelected(evt.target.value)
+
+  const onClickContactsListModal = contact => {
+    const contactAlreadyListed = contactsList.some(cl => cl._id === contact._id)
+    if (!contactAlreadyListed) {
+      setContactsList(prev => [...prev, contact])
+    }
+    setContactIdSelected(contact._id)
+    setContactModalOpened(false)
+  }
+
   return (
-    <Paper elevation={2} className={'u-mt-1'}>
-      <List>
-        <ListItem>
-          <ListItemIcon>
-            <Avatar
-              size={'small'}
-              style={{
-                color: 'var(--primaryColor)',
-                backgroundColor: 'var(--primaryColorLightest)'
-              }}
-            />
-          </ListItemIcon>
-          <ListItemText
-            primary={`${t('ContactStep.me')} ${
-              currentUser?.fullname ? `(${currentUser.fullname})` : ''
-            }`}
-          />
-          <ListItemSecondaryAction className={'u-mr-half'}>
-            <Radio defaultChecked />
-          </ListItemSecondaryAction>
-        </ListItem>
+    <>
+      <Paper elevation={2} className={'u-mt-1'}>
+        <List>
+          <div className={'u-mah-5 u-ov-scroll'}>
+            {contactsList.map(contact => (
+              <ListItem
+                key={contact._id}
+                onClick={() => setContactIdSelected(contact._id)}
+              >
+                <ListItemIcon>
+                  <Avatar
+                    size={'small'}
+                    style={{
+                      color: 'var(--primaryColor)',
+                      backgroundColor: 'var(--primaryColorLightest)'
+                    }}
+                  />
+                </ListItemIcon>
+                <ListItemText
+                  primary={`${contact.fullname} ${
+                    contact.me ? `(${t('ContactStep.me')})` : ''
+                  }`}
+                />
+                <ListItemSecondaryAction className={'u-mr-half'}>
+                  <Radio
+                    checked={contactIdSelected === contact._id}
+                    onChange={onChangeRadio}
+                    value={contact._id}
+                    name="radio-contactsList"
+                  />
+                </ListItemSecondaryAction>
+              </ListItem>
+            ))}
+          </div>
 
-        <Divider variant="inset" component="li" />
+          <Divider variant="inset" component="li" />
 
-        <ListItem disabled>
-          <ListItemIcon>
-            <Avatar
-              size={'small'}
-              style={{
-                color: 'var(--primaryColor)',
-                backgroundColor: 'var(--primaryColorLightest)'
-              }}
-            />
-          </ListItemIcon>
-          <ListItemText primary={t('ContactStep.other')} />
-          <ListItemSecondaryAction>
-            <Button
-              label={t('ContactStep.other')}
-              theme="text"
-              icon={RightIcon}
-              extension="narrow"
-              iconOnly
-              style={{
-                color: 'var(--secondaryTextColor)'
-              }}
-              className="u-m-0"
-            />
-          </ListItemSecondaryAction>
-        </ListItem>
-      </List>
-    </Paper>
+          <ListItem onClick={() => setContactModalOpened(true)}>
+            <ListItemIcon>
+              <Avatar
+                size={'small'}
+                style={{
+                  color: 'var(--primaryColor)',
+                  backgroundColor: 'var(--primaryColorLightest)'
+                }}
+              />
+            </ListItemIcon>
+            <ListItemText primary={t('ContactStep.other')} />
+            <Icon icon={Right} size={16} color={'var(--secondaryTextColor)'} />
+          </ListItem>
+        </List>
+      </Paper>
+      {contactModalOpened && (
+        <ContactsListModal
+          placeholder={t('ContactStep.contactModal.placeholder')}
+          dismissAction={() => setContactModalOpened(false)}
+          onItemClick={contact => onClickContactsListModal(contact)}
+          addContactLabel={t('ContactStep.contactModal.addContactLabel')}
+          emptyMessage={t('ContactStep.contactModal.emptyContact')}
+        />
+      )}
+    </>
   )
 }
 
