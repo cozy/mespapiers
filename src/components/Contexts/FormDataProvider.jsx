@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react'
 import { PDFDocument } from 'pdf-lib'
 
+import log from 'cozy-logger'
 import { models, useClient } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
@@ -9,7 +10,6 @@ import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { formatFilename } from 'src/helpers/formatFilename'
-import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import { CONTACTS_DOCTYPE, FILES_DOCTYPE } from 'src/doctypes'
 
 const {
@@ -116,7 +116,7 @@ const savePdfToCozy = async ({
   formMetadata,
   currentDefinition,
   qualification,
-  user,
+  contacts,
   fileCollection,
   f,
   t,
@@ -125,11 +125,6 @@ const savePdfToCozy = async ({
   client
 }) => {
   const { featureDate, label } = currentDefinition || {}
-
-  const reference = {
-    _id: user._id,
-    _type: CONTACTS_DOCTYPE
-  }
 
   const newMetadata = {
     qualification: {
@@ -143,8 +138,7 @@ const savePdfToCozy = async ({
     datetimeLabel: formMetadata[featureDate] ? featureDate : 'datetime'
   }
 
-  const date =
-    formMetadata[featureDate] && f(formMetadata[featureDate], 'YYYY.MM.DD')
+  const date = f(newMetadata.datetime, 'YYYY.MM.DD')
 
   const fileRenamed = formatFilename({
     name: 'NOT_USED_NAME.pdf',
@@ -152,7 +146,7 @@ const savePdfToCozy = async ({
     pageName: pdfMetadata.page
       ? t(`PapersList.label.${pdfMetadata.page}`)
       : null,
-    username: user?.fullname,
+    username: contacts[0]?.fullname,
     date
   })
 
@@ -170,8 +164,13 @@ const savePdfToCozy = async ({
     }
   )
 
+  const references = contacts.map(contact => ({
+    _id: contact._id,
+    _type: CONTACTS_DOCTYPE
+  }))
+
   // The user is referenced as a contact on the new papers
-  await fileCollection.addReferencedBy(fileCreated, [reference])
+  await fileCollection.addReferencedBy(fileCreated, references)
 }
 
 const FormDataProvider = ({ children }) => {
@@ -185,7 +184,8 @@ const FormDataProvider = ({ children }) => {
   } = useStepperDialog()
   const [formData, setFormData] = useState({
     metadata: {},
-    data: []
+    data: [],
+    contacts: []
   })
 
   const formSubmit = () => {
@@ -193,8 +193,7 @@ const FormDataProvider = ({ children }) => {
     const { metadata } = formData
     ;(async () => {
       try {
-        // (1/2) For the moment, the current user is the only possible choice
-        const user = await fetchCurrentUser(client)
+        const contacts = formData.contacts
         const { _id: appFolderID } = await getOrCreateAppFolderWithReference(
           client,
           t
@@ -219,7 +218,7 @@ const FormDataProvider = ({ children }) => {
               formMetadata: metadata,
               currentDefinition,
               qualification,
-              user,
+              contacts,
               fileCollection,
               appFolderID,
               f,
@@ -239,7 +238,7 @@ const FormDataProvider = ({ children }) => {
             formMetadata: metadata,
             currentDefinition,
             qualification,
-            user,
+            contacts,
             fileCollection,
             appFolderID,
             f,
@@ -251,7 +250,7 @@ const FormDataProvider = ({ children }) => {
 
         Alerter.success('common.saveFile.success')
       } catch (error) {
-        console.error(error)
+        log('error', error)
         Alerter.error('common.saveFile.error')
       }
       setIsStepperDialogOpen(false)

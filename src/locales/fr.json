@@ -50,7 +50,12 @@
     "me": "Moi",
     "onLoad": "Génération du document",
     "other": "Une autre personne",
-    "save": "Sauvegarder"
+    "save": "Sauvegarder",
+    "contactModal": {
+      "placeholder": "Rechercher un contact",
+      "addContactLabel": "Ajouter un contact",
+      "emptyContact": "Aucun contact"
+    }
   },
   "DeleteConfirm": {
     "cancel": "Annuler",
