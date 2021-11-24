@@ -18,6 +18,7 @@ import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 import ContactsListModal from 'cozy-ui/transpiled/react/ContactsListModal'
 
 import { useFormData } from 'src/components/Hooks/useFormData'
+import { useSessionstorage } from 'src/components/Hooks/useSessionstorage'
 import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 
@@ -35,21 +36,25 @@ const Contact = () => {
   const [contactModalOpened, setContactModalOpened] = useState(false)
   const [contactsList, setContactsList] = useState([])
   const [contactIdSelected, setContactIdSelected] = useState(null)
+  const [contactsLocalSession, setContactLocalSession] = useSessionstorage(
+    'contactList',
+    []
+  )
 
   useEffect(() => {
     let isMounted = true
     ;(async () => {
       const myself = await fetchCurrentUser(client)
       if (isMounted) {
-        setContactsList([myself])
-        setContactIdSelected(myself._id)
+        setContactsList([myself, ...contactsLocalSession])
+        !contactIdSelected && setContactIdSelected(myself._id)
       }
     })()
 
     return () => {
       isMounted = false
     }
-  }, [client])
+  }, [client, contactIdSelected, contactsLocalSession])
 
   useEffect(() => {
     if (contactIdSelected) {
@@ -68,6 +73,7 @@ const Contact = () => {
     const contactAlreadyListed = contactsList.some(cl => cl._id === contact._id)
     if (!contactAlreadyListed) {
       setContactsList(prev => [...prev, contact])
+      setContactLocalSession(prev => [...prev, contact])
     }
     setContactIdSelected(contact._id)
     setContactModalOpened(false)
