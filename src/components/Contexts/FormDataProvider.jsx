@@ -1,5 +1,4 @@
 import React, { createContext, useState } from 'react'
-import { PDFDocument } from 'pdf-lib'
 
 import log from 'cozy-logger'
 import { models, useClient } from 'cozy-client'
@@ -9,169 +8,13 @@ import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
-import { formatFilename } from 'src/helpers/formatFilename'
-import { CONTACTS_DOCTYPE, FILES_DOCTYPE } from 'src/doctypes'
+import { createPdfAndSave } from 'src/helpers/createPdfAndSave'
 
 const {
-  document: { Qualification },
-  file: { uploadFileWithConflictStrategy }
+  document: { Qualification }
 } = models
 
 const FormDataContext = createContext()
-
-const fileToBase64 = async file => {
-  return new Promise((resolve, reject) => {
-    let reader = new FileReader()
-    reader.onerror = reject
-    reader.onload = e => resolve(e.target.result)
-    reader.readAsDataURL(file)
-  })
-}
-
-const loadPdfFromFile = async file => {
-  return new Promise((resolve, reject) => {
-    let reader = new FileReader()
-    reader.onerror = reject
-    reader.onload = e => resolve(new Uint8Array(e.target.result))
-    reader.readAsArrayBuffer(file)
-  })
-}
-
-const getImageScaleRatio = ({ img }) => {
-  const maxSizeInPixel = 900
-  const longerSideSizeInPixel = Math.max(img.height, img.width)
-
-  let scaleRatio = 1
-
-  if (maxSizeInPixel < longerSideSizeInPixel) {
-    scaleRatio = maxSizeInPixel / longerSideSizeInPixel
-  }
-
-  return scaleRatio
-}
-
-const resizeImage = async ({ img, type }) => {
-  return new Promise((resolve, reject) => {
-    var image = new Image()
-
-    image.onerror = reject
-    image.onload = () => {
-      const canvas = document.createElement('canvas')
-
-      const scaleRatio = getImageScaleRatio({ img: image })
-
-      const scaledWidth = scaleRatio * image.width
-      const scaledHeight = scaleRatio * image.height
-
-      canvas.width = scaledWidth
-      canvas.height = scaledHeight
-      canvas.getContext('2d').drawImage(image, 0, 0, scaledWidth, scaledHeight)
-
-      canvas.toBlob(blob => {
-        const buffer = fileToBase64(blob)
-        resolve(buffer)
-      }, type)
-    }
-
-    image.src = img
-  })
-}
-
-const addImageToPdf = async ({ pdf, fileToAdd }) => {
-  const fileB64 = await fileToBase64(fileToAdd)
-  const resizedImage = await resizeImage({ img: fileB64, type: fileToAdd.type })
-  let img
-  if (fileToAdd.type === 'image/png') img = await pdf.embedPng(resizedImage)
-  if (fileToAdd.type === 'image/jpeg') img = await pdf.embedJpg(resizedImage)
-  const page = pdf.addPage([img.width, img.height])
-  const { width: pageWidth, height: pageHeight } = page.getSize()
-  page.drawImage(img, {
-    x: pageWidth / 2 - img.width / 2,
-    y: pageHeight / 2 - img.height / 2,
-    width: img.width,
-    height: img.height
-  })
-}
-
-const addPdfToPdf = async ({ pdf, fileToAdd }) => {
-  const pdfToAdd = await loadPdfFromFile(fileToAdd)
-
-  const document = await PDFDocument.load(pdfToAdd)
-
-  const copiedPages = await pdf.copyPages(document, document.getPageIndices())
-  copiedPages.forEach(page => pdf.addPage(page))
-}
-
-const addFileToPdf = async ({ pdf, fileToAdd }) => {
-  if (fileToAdd.type === 'application/pdf') {
-    await addPdfToPdf({ pdf, fileToAdd })
-  } else {
-    await addImageToPdf({ pdf, fileToAdd })
-  }
-}
-
-const savePdfToCozy = async ({
-  pdf,
-  pdfMetadata,
-  formMetadata,
-  currentDefinition,
-  qualification,
-  contacts,
-  fileCollection,
-  f,
-  t,
-  scannerT,
-  appFolderID,
-  client
-}) => {
-  const { featureDate, label } = currentDefinition || {}
-
-  const newMetadata = {
-    qualification: {
-      ...qualification
-    },
-    ...pdfMetadata,
-    ...formMetadata,
-    datetime: formMetadata[featureDate]
-      ? formMetadata[featureDate]
-      : pdf.getCreationDate(),
-    datetimeLabel: formMetadata[featureDate] ? featureDate : 'datetime'
-  }
-
-  const date = f(newMetadata.datetime, 'YYYY.MM.DD')
-
-  const fileRenamed = formatFilename({
-    name: 'NOT_USED_NAME.pdf',
-    qualificationName: scannerT(`items.${label}`),
-    pageName: pdfMetadata.page
-      ? t(`PapersList.label.${pdfMetadata.page}`)
-      : null,
-    username: contacts[0]?.fullname,
-    date
-  })
-
-  const pdfBytes = await pdf.save()
-
-  const { data: fileCreated } = await uploadFileWithConflictStrategy(
-    client,
-    pdfBytes,
-    {
-      name: fileRenamed,
-      contentType: 'application/pdf',
-      metadata: newMetadata,
-      dirId: appFolderID,
-      conflictStrategy: 'rename'
-    }
-  )
-
-  const references = contacts.map(contact => ({
-    _id: contact._id,
-    _type: CONTACTS_DOCTYPE
-  }))
-
-  // The user is referenced as a contact on the new papers
-  await fileCollection.addReferencedBy(fileCreated, references)
-}
 
 const FormDataProvider = ({ children }) => {
   const client = useClient()
@@ -189,64 +32,22 @@ const FormDataProvider = ({ children }) => {
   })
 
   const formSubmit = () => {
-    const qualification = Qualification.getByLabel(stepperDialogTitle)
-    const { metadata } = formData
     ;(async () => {
       try {
-        const contacts = formData.contacts
+        const qualification = Qualification.getByLabel(stepperDialogTitle)
         const { _id: appFolderID } = await getOrCreateAppFolderWithReference(
           client,
           t
         )
-        const fileCollection = client.collection(FILES_DOCTYPE)
 
-        let pdfDoc = await PDFDocument.create()
-        const isMultiPage = formData.data.some(
-          ({ fileMetadata }) => fileMetadata.multipage
-        )
-
-        for (const { file, fileMetadata } of formData.data) {
-          await addFileToPdf({
-            pdf: pdfDoc,
-            fileToAdd: file
-          })
-
-          if (!isMultiPage) {
-            await savePdfToCozy({
-              pdf: pdfDoc,
-              pdfMetadata: fileMetadata,
-              formMetadata: metadata,
-              currentDefinition,
-              qualification,
-              contacts,
-              fileCollection,
-              appFolderID,
-              f,
-              t,
-              scannerT,
-              client
-            })
-
-            pdfDoc = await PDFDocument.create()
-          }
-        }
-
-        if (isMultiPage) {
-          await savePdfToCozy({
-            pdf: pdfDoc,
-            pdfMetadata: {},
-            formMetadata: metadata,
-            currentDefinition,
-            qualification,
-            contacts,
-            fileCollection,
-            appFolderID,
-            f,
-            t,
-            scannerT,
-            client
-          })
-        }
+        await createPdfAndSave({
+          formData,
+          qualification,
+          currentDefinition,
+          appFolderID,
+          client,
+          i18n: { t, f, scannerT }
+        })
 
         Alerter.success('common.saveFile.success')
       } catch (error) {
