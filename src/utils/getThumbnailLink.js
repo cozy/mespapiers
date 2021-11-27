@@ -4,7 +4,7 @@
  * @returns {Promise<String>} - URL of file thumbnail
  */
 export const getThumbnailLink = (client, file) => {
-  const { uri } = client.getClient()
+  const { uri } = client.getStackClient()
   let url = null
 
   // Check if file has links attribute (If the file comes from real time, it is missing)
