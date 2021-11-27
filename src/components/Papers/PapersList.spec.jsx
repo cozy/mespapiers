@@ -7,12 +7,27 @@ import { useQuery } from 'cozy-client'
 import AppLike from 'test/components/AppLike'
 import PapersList from 'src/components/Papers/PapersList'
 
-const fakeData = {
-  data: [{ id: '00', name: 'ID card' }, { id: '01', name: 'Passport' }]
+const mockFiles = {
+  data: [
+    {
+      _id: 'file00',
+      name: 'ID card',
+      relationships: {
+        referenced_by: { data: [{ id: '001', type: 'io.cozy.contacts' }] }
+      }
+    },
+    {
+      _id: 'file01',
+      name: 'passport',
+      relationships: {
+        referenced_by: { data: [{ id: '002', type: 'io.cozy.contacts' }] }
+      }
+    }
+  ]
 }
 
 jest.mock('cozy-client/dist/hooks/useQuery', () =>
-  jest.fn(() => ({ data: [] }))
+  jest.fn().mockResolvedValue([])
 )
 
 const setup = () => {
@@ -32,13 +47,27 @@ describe('PapersList components:', () => {
     })
   })
 
-  it('should display "ID card" & "Passport"', async () => {
-    useQuery.mockReturnValueOnce(fakeData)
+  it('should display "Bob" & "ID card"', async () => {
+    useQuery.mockReturnValueOnce(mockFiles).mockReturnValueOnce({
+      data: [{ _id: '001', fullname: 'Bob' }]
+    })
     const { getByText } = setup()
 
     await waitFor(() => {
+      expect(getByText('Bob'))
       expect(getByText('ID card'))
-      expect(getByText('Passport'))
+    })
+  })
+
+  it('should display "Alice" & "passport"', async () => {
+    useQuery.mockReturnValueOnce(mockFiles).mockReturnValueOnce({
+      data: [{ _id: '002', fullname: 'Alice' }]
+    })
+    const { getByText } = setup()
+
+    await waitFor(() => {
+      expect(getByText('Alice'))
+      expect(getByText('passport'))
     })
   })
 })

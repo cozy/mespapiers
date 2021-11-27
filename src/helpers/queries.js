@@ -1,6 +1,6 @@
 import { Q, fetchPolicies } from 'cozy-client'
 
-import { FILES_DOCTYPE, SETTINGS_DOCTYPE } from 'src/doctypes'
+import { CONTACTS_DOCTYPE, FILES_DOCTYPE, SETTINGS_DOCTYPE } from 'src/doctypes'
 
 const defaultFetchPolicy = fetchPolicies.olderThan(30 * 1000)
 
@@ -53,3 +53,11 @@ export const getOnboardingStatus = {
     fetchPolicy: fetchPolicies.noFetch()
   }
 }
+
+export const getContactByIds = (ids = []) => ({
+  definition: () => Q(CONTACTS_DOCTYPE).getByIds(ids),
+  options: {
+    as: `getContactByIds/${ids.join('')}`,
+    fetchPolicy: defaultFetchPolicy
+  }
+})

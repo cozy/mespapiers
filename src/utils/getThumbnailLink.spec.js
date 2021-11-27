@@ -1,6 +1,8 @@
 import { getThumbnailLink } from 'src/utils/getThumbnailLink'
 
-const mockClient = { getClient: jest.fn().mockReturnValue({ uri: 'abcd/' }) }
+const mockClient = {
+  getStackClient: jest.fn().mockReturnValue({ uri: 'abcd/' })
+}
 const mockPDFFile = {
   _id: '123',
   class: 'pdf',

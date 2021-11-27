@@ -1,5 +1,5 @@
 /* global cozy */
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useMemo, Fragment } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
 import { useClient, useQuery } from 'cozy-client'
@@ -12,8 +12,7 @@ import UIBarTitle from 'cozy-ui/transpiled/react/BarTitle'
 import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
 import Previous from 'cozy-ui/transpiled/react/Icons/Previous'
 
-import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
-import { getPapersByLabel } from 'src/helpers/queries'
+import { getContactByIds, getPapersByLabel } from 'src/helpers/queries'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import PaperLine from 'src/components/Papers/PaperLine'
 import { PapersFab } from 'src/components/PapersFab/PapersFab'
@@ -27,6 +26,9 @@ import {
   offline,
   viewInDrive
 } from 'src/components/Actions/Actions'
+import { getReferencedBy } from 'src/utils/referencedBy'
+import { CONTACTS_DOCTYPE } from 'src/doctypes'
+import { buildPaperslistByContact } from 'src/helpers/buildPaperslistByContact'
 
 const useStyles = makeStyles({
   root: { textIndent: '1rem' }
@@ -38,38 +40,36 @@ const PapersList = ({ history, match }) => {
   const { isMobile } = useBreakpoints()
   const scannerT = useScannerI18n()
   const { pushModal, popModal } = useModal()
-  const [subheaderLabel, setSubheaderLabel] = useState(null)
   const { BarLeft, BarCenter } = cozy.bar
   const currentFileCategory = useMemo(
     () => match?.params?.fileCategory || null,
     [match]
   )
   const categoryLabel = scannerT(`items.${currentFileCategory}`)
+  const buildPapersByLabel = getPapersByLabel(currentFileCategory)
 
-  const buildPapersByLabel = useMemo(
-    () => getPapersByLabel(currentFileCategory),
-    [currentFileCategory]
-  )
   const { data: allPapers } = useQuery(
     buildPapersByLabel.definition,
     buildPapersByLabel.options
   )
 
-  useEffect(() => {
-    let isMounted = true
-    ;(async () => {
-      try {
-        const user = await fetchCurrentUser(client)
-        isMounted && setSubheaderLabel(user ? user.fullname : categoryLabel)
-      } catch (err) {
-        setSubheaderLabel(categoryLabel)
-      }
-    })()
+  const contactsIds = Array.isArray(allPapers)
+    ? allPapers.flatMap(paper =>
+        getReferencedBy(paper, CONTACTS_DOCTYPE).map(
+          contactRef => contactRef.id
+        )
+      )
+    : []
+  const contactsByIdsQuery = getContactByIds(contactsIds)
+  const { data: contactList } = useQuery(
+    contactsByIdsQuery.definition,
+    contactsByIdsQuery.options
+  )
 
-    return () => {
-      isMounted = false
-    }
-  }, [client, categoryLabel])
+  const paperslistByContact = useMemo(
+    () => buildPaperslistByContact(allPapers, contactList),
+    [allPapers, contactList]
+  )
 
   const actionsOptions = useMemo(
     () => ({
@@ -104,19 +104,23 @@ const PapersList = ({ history, match }) => {
       </BarCenter>
 
       <List>
-        <ListSubheader classes={isMobile && classes}>
-          {subheaderLabel}
-        </ListSubheader>
-        <div className={'u-pv-half'}>
-          {allPapers?.map((paper, idx) => (
-            <PaperLine
-              key={idx}
-              paper={paper}
-              divider={idx !== allPapers.length - 1}
-              actions={actions}
-            />
-          ))}
-        </div>
+        {paperslistByContact?.map((paperByContact, idx) => (
+          <Fragment key={idx}>
+            <ListSubheader classes={isMobile && classes}>
+              {paperByContact.contact}
+            </ListSubheader>
+            <div className={'u-pv-half'}>
+              {paperByContact.papers.map((paper, idx) => (
+                <PaperLine
+                  key={idx}
+                  paper={paper}
+                  divider={idx !== paperByContact.papers.length - 1}
+                  actions={actions}
+                />
+              ))}
+            </div>
+          </Fragment>
+        ))}
       </List>
       <PapersFab />
     </>
