@@ -38,7 +38,7 @@ const FeaturedPlaceholdersList = () => {
 
   return (
     <List>
-      {allPapers.length > 0 && (
+      {allPapers?.length > 0 && featuredPlaceholders.length > 0 && (
         <ListSubheader classes={isMobile && classes}>
           {t('FeaturedPlaceholdersList.subheader')}
         </ListSubheader>
