@@ -81,9 +81,9 @@ const Contact = () => {
 
   return (
     <>
-      <Paper elevation={2} className={'u-mt-1'}>
+      <Paper elevation={2} className={'u-mt-1 u-mh-half'}>
         <List>
-          <div className={'u-mah-5 u-ov-scroll'}>
+          <div className={'u-mah-5 u-ov-auto'}>
             {contactsList.map(contact => (
               <ListItem
                 key={contact._id}
