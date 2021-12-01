@@ -1,7 +1,6 @@
 import { models } from 'cozy-client'
-import { isReferencedBy } from 'src/utils/referencedBy'
+import { isReferencedById } from 'cozy-client/dist/associations'
 import { CONTACTS_DOCTYPE } from 'src/doctypes'
-
 const { getFullname } = models.contact
 
 /**
@@ -16,7 +15,7 @@ export const buildPaperslistByContact = (papersList, contactsList) => {
           {
             contact: getFullname(contact),
             papers: papersList.filter(paper =>
-              isReferencedBy(paper, CONTACTS_DOCTYPE, contact._id)
+              isReferencedById(paper, CONTACTS_DOCTYPE, contact._id)
             )
           }
         ])
