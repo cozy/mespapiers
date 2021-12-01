@@ -26,7 +26,7 @@ import {
   offline,
   viewInDrive
 } from 'src/components/Actions/Actions'
-import { getReferencedBy } from 'src/utils/referencedBy'
+import { getReferencedBy } from 'cozy-client'
 import { CONTACTS_DOCTYPE } from 'src/doctypes'
 import { buildPaperslistByContact } from 'src/helpers/buildPaperslistByContact'
 
