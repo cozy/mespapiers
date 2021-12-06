@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useMemo, memo } from 'react'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
@@ -20,9 +20,9 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import DotsIcon from 'cozy-ui/transpiled/react/Icons/Dots'
 import IconPdf from 'cozy-ui/transpiled/react/Icons/FileTypePdf'
 import CardMedia from 'cozy-ui/transpiled/react/CardMedia'
+import FileImageLoader from 'cozy-ui/transpiled/react/FileImageLoader'
 
 import { ActionsItems } from 'src/components/Actions/ActionsItems'
-import { getThumbnailLink } from 'src/utils/getThumbnailLink'
 
 const validPageName = page => page === 'front' || page === 'back'
 const { splitFilename } = models.file
@@ -33,7 +33,6 @@ const PaperLine = ({ paper, divider, actions }) => {
   const { isMobile } = useBreakpoints()
   const actionBtnRef = useRef()
   const client = useClient()
-  const [imgOnError, setImgOnError] = useState(false)
 
   const [optionFile, setOptionFile] = useState(false)
 
@@ -48,7 +47,11 @@ const PaperLine = ({ paper, divider, actions }) => {
     type: 'file'
   })
 
-  const thumbnailLink = getThumbnailLink(client, paper)
+  const linkType = useMemo(() => {
+    const isImage = paper.class === 'image'
+    const isPdf = paper.class === 'pdf'
+    return isImage ? 'small' : isPdf ? 'icon' : undefined
+  }, [paper.class])
 
   return (
     <>
@@ -62,18 +65,22 @@ const PaperLine = ({ paper, divider, actions }) => {
         }
       >
         <ListItemIcon>
-          {imgOnError || !thumbnailLink ? (
-            // TODO implement https://github.com/cozy/cozy-drive/blob/master/src/drive/web/modules/filelist/FileIconMime.jsx
-            <Icon icon={IconPdf} size={32} />
-          ) : (
-            <CardMedia
-              component={'img'}
-              width={32}
-              height={32}
-              image={thumbnailLink}
-              onError={() => setImgOnError(true)}
-            />
-          )}
+          <FileImageLoader
+            client={client}
+            file={paper}
+            linkType={linkType}
+            render={src => {
+              return (
+                <CardMedia
+                  component={'img'}
+                  width={32}
+                  height={32}
+                  image={src}
+                />
+              )
+            }}
+            renderFallback={() => <Icon icon={IconPdf} size={32} />}
+          />
         </ListItemIcon>
         <ListItemText
           primary={
@@ -123,4 +130,4 @@ PaperLine.propTypes = {
   divider: PropTypes.bool
 }
 
-export default React.memo(PaperLine)
+export default memo(PaperLine)
