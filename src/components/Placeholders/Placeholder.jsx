@@ -1,6 +1,5 @@
 import React, { useCallback, useState, Fragment, useMemo } from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/core/styles'
 
 import ActionMenu from 'cozy-ui/transpiled/react/ActionMenu'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
@@ -22,16 +21,11 @@ import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 import { PaperDefinitionsPropTypes } from 'src/constants/PaperDefinitionsPropTypes'
 import { hasNextvalue } from 'src/utils/hasNextvalue'
 
-const useStyles = makeStyles({
-  qualifier: { top: '70%' }
-})
-
 const AllPlaceholdersChoices = ({
   onClick,
   isOtherPaper,
   hideAllPapersChoices
 }) => {
-  const classes = useStyles()
   const scannerT = useScannerI18n()
   const { papersDefinitions } = usePapersDefinitions()
   const hasDivider = useCallback(idx => hasNextvalue(idx, papersDefinitions), [
@@ -48,7 +42,6 @@ const AllPlaceholdersChoices = ({
                 <ListItem onClick={onClick}>
                   <ListItemIcon>
                     <InfosBadge
-                      classes={{ qualifier: classes.qualifier }}
                       badgeContent={
                         <Icon
                           icon={Plus}
@@ -91,7 +84,6 @@ const AllPlaceholdersChoices = ({
 }
 
 const Placeholder = ({ placeholder, divider }) => {
-  const classes = useStyles()
   const { t } = useI18n()
   const scannerT = useScannerI18n()
   const { papersDefinitions } = usePapersDefinitions()
@@ -153,7 +145,6 @@ const Placeholder = ({ placeholder, divider }) => {
       <ListItem onClick={handleOnClick}>
         <ListItemIcon>
           <InfosBadge
-            classes={{ qualifier: classes.qualifier }}
             badgeContent={
               <Icon icon={Plus} size={10} color="var(--primaryTextColor)" />
             }

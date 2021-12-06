@@ -13,7 +13,7 @@ import {
 } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import { Layout, Main, Content } from 'cozy-ui/transpiled/react/Layout'
-import { Sprite as IconSprite } from 'cozy-ui/transpiled/react/Icon'
+import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
 import Typography from 'cozy-ui/transpiled/react/Typography'

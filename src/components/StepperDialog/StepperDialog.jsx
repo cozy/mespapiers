@@ -46,7 +46,7 @@ const StepperDialog = props => {
         {...dialogTitleProps}
         className={cx('u-ellipsis', {
           dialogTitleFull: !onClose,
-          ['u-flex u-flex-justify-between u-flex-items-center']: stepper
+          ['u-flex u-flex-justify-between u-flex-items-center u-pl-3']: stepper
         })}
       >
         <div className={'u-flex'}>
