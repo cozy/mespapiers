@@ -17,10 +17,16 @@ jest.mock('cozy-client/dist/models/document/documentTypeData', () => ({
   themes: [{}]
 }))
 
+const mockClient = createMockClient({})
+mockClient.plugins.realtime = {
+  subscribe: jest.fn(),
+  unsubscribe: jest.fn()
+}
+
 const AppLike = ({ children, client, history }) => {
   const hashHistory = history || createHashHistory()
   return (
-    <CozyProvider client={client || createMockClient({})}>
+    <CozyProvider client={client || mockClient}>
       <I18n dictRequire={() => enLocale} lang={'en'}>
         <ScannerI18nProvider lang={'en'}>
           <BreakpointsProvider>
