@@ -2,35 +2,21 @@
 import React from 'react'
 import { waitFor, render } from '@testing-library/react'
 
-import { useQuery } from 'cozy-client'
+import { useQuery, isQueryLoading } from 'cozy-client'
 
 import AppLike from 'test/components/AppLike'
 import PapersList from 'src/components/Papers/PapersList'
 
-const mockFiles = {
-  data: [
-    {
-      _id: 'file00',
-      name: 'ID card',
-      relationships: {
-        referenced_by: { data: [{ id: '001', type: 'io.cozy.contacts' }] }
-      }
-    },
-    {
-      _id: 'file01',
-      name: 'passport',
-      relationships: {
-        referenced_by: { data: [{ id: '002', type: 'io.cozy.contacts' }] }
-      }
-    }
-  ]
-}
-
 jest.mock('cozy-client/dist/hooks/useQuery', () =>
   jest.fn().mockResolvedValue([])
 )
+jest.mock('cozy-client/dist/utils', () => ({
+  ...jest.requireActual('cozy-client/dist/utils'),
+  isQueryLoading: jest.fn()
+}))
 
 const setup = () => {
+  isQueryLoading.mockReturnValue(false)
   return render(
     <AppLike>
       <PapersList />
@@ -48,8 +34,20 @@ describe('PapersList components:', () => {
   })
 
   it('should display "Bob" & "ID card"', async () => {
-    useQuery.mockReturnValueOnce(mockFiles).mockReturnValueOnce({
-      data: [{ _id: '001', fullname: 'Bob' }]
+    useQuery.mockReturnValue({
+      data: [
+        {
+          _id: 'file01',
+          name: 'ID card',
+          relationships: {
+            referenced_by: { data: [{ id: '001', type: 'io.cozy.contacts' }] }
+          }
+        },
+        { _id: '001', displayName: 'Bob' }
+      ],
+      lastUpdate: true,
+      fetchMore: jest.fn(),
+      hasMore: false
     })
     const { getByText } = setup()
 
@@ -60,8 +58,20 @@ describe('PapersList components:', () => {
   })
 
   it('should display "Alice" & "passport"', async () => {
-    useQuery.mockReturnValueOnce(mockFiles).mockReturnValueOnce({
-      data: [{ _id: '002', fullname: 'Alice' }]
+    useQuery.mockReturnValue({
+      data: [
+        {
+          _id: 'file02',
+          name: 'passport',
+          relationships: {
+            referenced_by: { data: [{ id: '002', type: 'io.cozy.contacts' }] }
+          }
+        },
+        { _id: '002', displayName: 'Alice' }
+      ],
+      lastUpdate: true,
+      fetchMore: jest.fn(),
+      hasMore: false
     })
     const { getByText } = setup()
 
