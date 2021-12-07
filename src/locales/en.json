@@ -188,7 +188,10 @@
       "back": "Back side",
       "front": "Front side"
     },
-    "subheader": "Existing"
+    "subheader": "Existing",
+    "PapersListByContact": {
+      "seeMore": "See more (%{number})"
+    }
   },
   "PlaceholdersList": {
     "title": "New paper%{name}"
