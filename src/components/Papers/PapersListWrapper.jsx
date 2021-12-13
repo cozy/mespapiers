@@ -8,6 +8,7 @@ import {
   isQueryLoading,
   hasQueryBeenLoaded
 } from 'cozy-client'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import IconButton from 'cozy-ui/transpiled/react/IconButton'
 import UIBarTitle from 'cozy-ui/transpiled/react/BarTitle'
@@ -25,6 +26,7 @@ import PapersListByContact from 'src/components/Papers/PapersListByContact'
 
 const PapersListWrapper = ({ history, match }) => {
   const scannerT = useScannerI18n()
+  const { t } = useI18n()
   const { papersDefinitions } = usePapersDefinitions()
   const { BarLeft, BarCenter } = cozy.bar
   const backButtonAction = useCallback(() => history.push('/'), [history])
@@ -71,6 +73,7 @@ const PapersListWrapper = ({ history, match }) => {
       return buildPaperslistByContact({
         papersList,
         contactsList,
+        defaultName: t('PapersList.defaultName'),
         papersDefinitions,
         currentFileCategory
       })
@@ -82,6 +85,7 @@ const PapersListWrapper = ({ history, match }) => {
     hasMorePapers,
     papersList,
     contactsList,
+    t,
     papersDefinitions,
     currentFileCategory
   ])
