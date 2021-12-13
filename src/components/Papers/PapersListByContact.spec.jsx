@@ -7,6 +7,7 @@ import PapersListByContact from 'src/components/Papers/PapersListByContact'
 
 const mockPaperslistByContact = [
   {
+    withHeader: true,
     contact: 'Bob',
     papers: {
       maxDisplay: 2,
@@ -19,6 +20,7 @@ const mockPaperslistByContact = [
     }
   },
   {
+    withHeader: true,
     contact: 'Alice',
     papers: {
       maxDisplay: 3,

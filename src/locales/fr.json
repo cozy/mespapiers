@@ -184,6 +184,7 @@
     }
   },
   "PapersList": {
+    "defaultName": "Contact non spécifié",
     "label": {
       "back": "Face arrière",
       "front": "Face avant"

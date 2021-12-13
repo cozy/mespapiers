@@ -37,7 +37,9 @@ const PaperLine = ({ paper, divider, actions }) => {
   const [optionFile, setOptionFile] = useState(false)
 
   const paperLabel = paper?.metadata?.qualification?.page
-  const paperDate = f(paper?.metadata?.datetime, 'DD/MM/YYYY')
+  const paperDate = paper?.metadata?.datetime
+    ? f(paper?.metadata?.datetime, 'DD/MM/YYYY')
+    : null
 
   const hideActionsMenu = () => setOptionFile(false)
   const toggleActionsMenu = () => setOptionFile(prev => !prev)

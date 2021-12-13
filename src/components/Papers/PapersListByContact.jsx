@@ -18,9 +18,13 @@ const PapersListByContact = ({ paperslistByContact }) => {
 
   return (
     <List>
-      {paperslistByContact.map(({ contact, papers }, idx) => (
+      {paperslistByContact.map(({ withHeader, contact, papers }, idx) => (
         <Fragment key={idx}>
-          <ListSubheader classes={isMobile && classes}>{contact}</ListSubheader>
+          {withHeader && (
+            <ListSubheader classes={isMobile && classes}>
+              {contact}
+            </ListSubheader>
+          )}
           <PapersList papers={papers} />
         </Fragment>
       ))}

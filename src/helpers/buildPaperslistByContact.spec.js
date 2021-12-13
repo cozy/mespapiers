@@ -33,6 +33,7 @@ describe('buildPaperslistByContact', () => {
   it('should return object with all papers filtered by contacts', () => {
     const expected = [
       {
+        withHeader: true,
         contact: 'Alice',
         papers: {
           maxDisplay: 2,
@@ -50,6 +51,7 @@ describe('buildPaperslistByContact', () => {
         }
       },
       {
+        withHeader: true,
         contact: 'Bob',
         papers: {
           maxDisplay: 2,
