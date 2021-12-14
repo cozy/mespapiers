@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 import { generateWebLink } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
@@ -10,11 +11,11 @@ import DownloadIcon from 'cozy-ui/transpiled/react/Icons/Download'
 import TrashIcon from 'cozy-ui/transpiled/react/Icons/Trash'
 import ReplyIcon from 'cozy-ui/transpiled/react/Icons/Reply'
 import Folder from 'cozy-ui/transpiled/react/Icons/Folder'
+import OpenWith from 'cozy-ui/transpiled/react/Icons/Openwith'
 
 import { isReferencedBy } from 'cozy-client'
 import { CONTACTS_DOCTYPE } from 'src/doctypes'
 import DeleteConfirm from 'src/components/Actions/DeleteConfirm'
-import MakeAvailableOfflineMenuItem from 'src/components/Actions/MakeAvailableOfflineMenuItem'
 import { downloadFiles, forwardFile } from 'src/components/Actions/utils'
 
 export const hr = () => {
@@ -23,6 +24,29 @@ export const hr = () => {
     displayInSelectionBar: false,
     Component: function hr() {
       return <hr />
+    }
+  }
+}
+
+export const open = () => {
+  return {
+    icon: 'open',
+    Component: function Open({ className, files }) {
+      const { t } = useI18n()
+      const history = useHistory()
+      return (
+        <ActionMenuItem
+          onClick={() =>
+            history.push({
+              pathname: `/file/${files[0]._id}`
+            })
+          }
+          className={className}
+          left={<Icon icon={OpenWith} />}
+        >
+          {t('action.open')}
+        </ActionMenuItem>
+      )
     }
   }
 }
@@ -61,28 +85,6 @@ export const download = ({ client }) => {
           {t('action.download')}
         </ActionMenuItem>
       )
-    }
-  }
-}
-
-// TODO
-export const moreInfo = () => {
-  return {
-    icon: 'phone-download',
-    isEnabled: false,
-    Component: function MakeAvailableOfflineMenuItemInMenu({ files, ...rest }) {
-      return <MakeAvailableOfflineMenuItem file={files[0]} {...rest} />
-    }
-  }
-}
-
-// TODO
-export const offline = () => {
-  return {
-    icon: 'phone-download',
-    isEnabled: false,
-    Component: function MakeAvailableOfflineMenuItemInMenu({ files, ...rest }) {
-      return <MakeAvailableOfflineMenuItem file={files[0]} {...rest} />
     }
   }
 }

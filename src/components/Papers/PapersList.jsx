@@ -12,7 +12,7 @@ import {
   forward,
   hr,
   trash,
-  offline,
+  open,
   viewInDrive
 } from 'src/components/Actions/Actions'
 
@@ -25,7 +25,7 @@ const PapersList = ({ papers }) => {
   const actionVariant = navigator.share ? forward : download
   const actions = useMemo(
     () =>
-      makeActions([actionVariant, viewInDrive, offline, hr, trash], {
+      makeActions([actionVariant, viewInDrive, open, hr, trash], {
         client,
         pushModal,
         popModal
