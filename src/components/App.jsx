@@ -21,7 +21,7 @@ import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 import HomeWrapper from 'src/components/HomeWrapper/HomeWrapper'
-import PapersList from 'src/components/Papers/PapersList'
+import PapersListWrapper from 'src/components/Papers/PapersListWrapper'
 import FileViewerWithQuery from 'src/components/Viewer/FileViewerWithQuery'
 import Onboarding from 'src/components/Onboarding/Onboarding'
 import { ModalStack } from 'src/components/Contexts/ModalProvider'
@@ -82,7 +82,7 @@ export const App = () => {
                   <OnboardedGuardedRoute
                     exact
                     path="/files/:fileCategory"
-                    component={PapersList}
+                    component={PapersListWrapper}
                     settingsData={settingsData}
                   />
                   <OnboardedGuardedRoute
