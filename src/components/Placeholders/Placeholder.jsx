@@ -1,4 +1,4 @@
-import React, { useCallback, useState, Fragment, useMemo } from 'react'
+import React, { useCallback, useState, Fragment, useMemo, useRef } from 'react'
 import PropTypes from 'prop-types'
 
 import ActionMenu from 'cozy-ui/transpiled/react/ActionMenu'
@@ -86,6 +86,7 @@ const AllPlaceholdersChoices = ({
 const Placeholder = ({ placeholder, divider }) => {
   const { t } = useI18n()
   const scannerT = useScannerI18n()
+  const actionBtnRef = useRef()
   const { papersDefinitions } = usePapersDefinitions()
   const [isImportDropdownDisplayed, setIsImportDropdownDisplayed] = useState(
     false
@@ -142,7 +143,7 @@ const Placeholder = ({ placeholder, divider }) => {
 
   return (
     <>
-      <ListItem onClick={handleOnClick}>
+      <ListItem button onClick={handleOnClick} ref={actionBtnRef}>
         <ListItemIcon>
           <InfosBadge
             badgeContent={
@@ -175,7 +176,7 @@ const Placeholder = ({ placeholder, divider }) => {
       {divider && <Divider variant="inset" component="li" />}
 
       {isImportDropdownDisplayed && (
-        <ActionMenu onClose={hideImportDropdown}>
+        <ActionMenu onClose={hideImportDropdown} anchorElRef={actionBtnRef}>
           <ImportDropdown
             label={placeholder.label}
             icon={placeholder.icon}
