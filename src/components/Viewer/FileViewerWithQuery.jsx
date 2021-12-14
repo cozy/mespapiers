@@ -10,7 +10,6 @@ import FilesViewer from './FilesViewer'
 
 import 'cozy-sharing/dist/stylesheet.css'
 
-// TODO improve it & PR cozy-ui
 const FilesViewerWithQuery = props => {
   const { history, match } = props
   const client = useClient()

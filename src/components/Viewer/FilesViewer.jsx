@@ -5,10 +5,7 @@ import { isIOSApp } from 'cozy-device-helper'
 import Overlay from 'cozy-ui/transpiled/react/Overlay'
 import Viewer from 'cozy-ui/transpiled/react/Viewer'
 
-import { showPanel } from './helpers'
 import FileViewerLoading from './FileViewerLoading'
-import PanelContent from './Panel/PanelContent'
-import FooterContent from './Footer/FooterContent'
 
 const styleStatusBar = switcher => {
   if (window.StatusBar && isIOSApp()) {
@@ -139,14 +136,8 @@ const FilesViewer = ({ filesQuery, files, fileId, onClose, onChange }) => {
         files={viewerFiles}
         currentIndex={viewerIndex}
         onChangeRequest={handleOnChange}
+        disableSharing={true}
         onCloseRequest={handleOnClose}
-        panelInfoProps={{
-          showPanel,
-          PanelContent
-        }}
-        footerProps={{
-          FooterContent
-        }}
       />
     </Overlay>
   )
