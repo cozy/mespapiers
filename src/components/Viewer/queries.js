@@ -9,11 +9,3 @@ export const buildViewerFileQuery = fileId => ({
     fetchPolicy: defaultFetchPolicy
   }
 })
-
-export const getContactByIds = ids => ({
-  definition: () => Q('io.cozy.contacts').getByIds(ids),
-  options: {
-    as: `getContactByIds/${ids.join('')}`,
-    fetchPolicy: defaultFetchPolicy
-  }
-})
