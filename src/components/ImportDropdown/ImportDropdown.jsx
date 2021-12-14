@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 
 import { useClient, generateWebLink } from 'cozy-client'
@@ -12,6 +12,8 @@ import Icon, { iconPropType } from 'cozy-ui/transpiled/react/Icon'
 import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
+import { ActionMenuHeader } from 'cozy-ui/transpiled/react/ActionMenu'
+import { Media, Img, Bd } from 'cozy-ui/transpiled/react/Media'
 
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
@@ -23,7 +25,6 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
   const { t } = useI18n()
   const client = useClient()
   const scannerT = useScannerI18n()
-  const [modal, setModal] = useState({ open: false, alreadyScan: true })
 
   const { setShowPlaceholderThemesList } = usePlaceholderModal()
   const {
@@ -49,47 +50,52 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
     window.open(webLink, '_blank')
   }
 
-  // Avoid a potential memory leak.
-  // When calling "setIsStepperDialogOpen" to "true", "Home" is unmounted to be replaced by the "Stepper".
-  // The "onClose" callback of "ActionMenu" in the "Placeholder" is unmounted during the process and causes a memory leak.
-  useEffect(() => {
-    return () => {
-      if (modal.open) {
+  const handleClick = useCallback(
+    ({ alreadyScan }) => {
+      if (hasSteps) {
         setShowPlaceholderThemesList(false)
         setIsStepperDialogOpen(true)
-        setAlreadyScan(modal.alreadyScan)
+        setAlreadyScan(alreadyScan)
       }
-    }
-  })
+    },
+    [
+      hasSteps,
+      setAlreadyScan,
+      setIsStepperDialogOpen,
+      setShowPlaceholderThemesList
+    ]
+  )
 
   return (
     <>
-      <List>
-        <ListItem divider={true}>
-          <IconStack
-            backgroundIcon={
-              <Icon
-                icon={FileDuotoneIcon}
-                color="var(--primaryColor)"
-                size={32}
-              />
-            }
-            foregroundIcon={
-              <Icon icon={icon} color="var(--primaryColor)" size={16} />
-            }
-          />
-          <Typography variant="h6" className="u-mh-1">
-            {t('ImportDropdown.title', {
-              name: scannerT(`items.${label}`)
-            })}
-          </Typography>
-        </ListItem>
-      </List>
+      <ActionMenuHeader>
+        <Media>
+          <Img>
+            <IconStack
+              backgroundIcon={
+                <Icon
+                  icon={FileDuotoneIcon}
+                  color="var(--primaryColor)"
+                  size={32}
+                />
+              }
+              foregroundIcon={
+                <Icon icon={icon} color="var(--primaryColor)" size={16} />
+              }
+            />
+          </Img>
+          <Bd className="u-ml-1">
+            <Typography variant="h6">
+              {t('ImportDropdown.title', {
+                name: scannerT(`items.${label}`)
+              })}
+            </Typography>
+          </Bd>
+        </Media>
+      </ActionMenuHeader>
       <List className={'u-mv-half'}>
         <ListItem
-          onClick={() =>
-            hasSteps && setModal({ open: true, alreadyScan: false })
-          }
+          onClick={() => handleClick({ alreadyScan: false })}
           disabled={!hasSteps}
         >
           <ListItemIcon>
@@ -102,9 +108,7 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
           />
         </ListItem>
         <ListItem
-          onClick={() =>
-            hasSteps && setModal({ open: true, alreadyScan: true })
-          }
+          onClick={() => handleClick({ alreadyScan: true })}
           disabled={!hasSteps}
         >
           <ListItemIcon>
