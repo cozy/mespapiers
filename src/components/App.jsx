@@ -43,7 +43,7 @@ export const App = () => {
   const { BarCenter } = cozy.bar
 
   const { isStepperDialogOpen } = useStepperDialog()
-  const { papersDefinitions } = usePapersDefinitions()
+  const { papersDefinitions, customPapersDefinitions } = usePapersDefinitions()
 
   const { data: settingsData, ...settingsQuery } = useQuery(
     getOnboardingStatus.definition,
@@ -63,8 +63,19 @@ export const App = () => {
             </BarCenter>
           </>
         )}
+
         <Main>
           <Content className="app-content">
+            {customPapersDefinitions.isLoaded && (
+              <Typography variant="subtitle2" align="center" color="secondary">
+                {t(
+                  `PapersDefinitionsProvider.customPapersDefinitions.warning`,
+                  {
+                    name: customPapersDefinitions.name
+                  }
+                )}
+              </Typography>
+            )}
             {isQueryLoading(settingsQuery) || papersDefinitions.length === 0 ? (
               <Spinner
                 size="xxlarge"

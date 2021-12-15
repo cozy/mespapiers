@@ -101,6 +101,12 @@
   "Onboarding": {
     "cta": "C'est parti !"
   },
+  "PapersDefinitionsProvider": {
+    "customPapersDefinitions": {
+      "error": "%{name} introuvable dans %{path}",
+      "warning": "Fichier \"%{name}\" chargé depuis votre Drive"
+    }
+  },
   "PaperJSON": {
     "generic": {
       "back": {
