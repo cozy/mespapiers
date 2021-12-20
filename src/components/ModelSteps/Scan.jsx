@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
-import { ButtonLink } from 'cozy-ui/transpiled/react/Button'
+import Button, { ButtonLink } from 'cozy-ui/transpiled/react/Button'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import FileInput from 'cozy-ui/transpiled/react/FileInput'
 
+import FilePicker from 'src/components/FilePicker/FilePicker'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import AcquisitionResult from 'src/components/ModelSteps/AcquisitionResult'
@@ -16,8 +17,16 @@ const Scan = ({ currentStep }) => {
   const { illustration, text } = currentStep
   const [file, setFile] = useState(null)
   const { alreadyScan } = useStepperDialog()
+  const [showFilePicker, setShowFilePicker] = useState(false)
+  const toggleFilePicker = () => setShowFilePicker(prev => !prev)
 
-  const onFileChange = file => file && setFile(file)
+  const onCloseFilePicker = useCallback(() => {
+    setShowFilePicker(false)
+  }, [])
+
+  const onFileChange = file => {
+    file && setFile(file)
+  }
 
   return file ? (
     <AcquisitionResult
@@ -91,6 +100,16 @@ const Scan = ({ currentStep }) => {
               />
             </FileInput>
           </>
+        )}
+
+        <Button label={'Open FilePicker'} onClick={toggleFilePicker} />
+        {showFilePicker && (
+          <FilePicker
+            onClose={onCloseFilePicker}
+            // TODO Manage error
+            // onError={err => console.log('ERROR : ', err)}
+            selectedFiles={onFileChange}
+          />
         )}
       </DialogActions>
     </>
