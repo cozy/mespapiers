@@ -107,7 +107,10 @@ const PapersListWrapper = ({ history, match }) => {
       {paperslistByContact.length > 0 ? (
         <PapersListByContact paperslistByContact={paperslistByContact} />
       ) : (
-        <Spinner size="xxlarge" className="u-flex u-flex-justify-center" />
+        <Spinner
+          size="xxlarge"
+          className="u-flex u-flex-justify-center u-mt-2 u-h-5"
+        />
       )}
       <PapersFab />
     </>
