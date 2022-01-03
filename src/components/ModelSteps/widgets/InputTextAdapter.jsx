@@ -4,12 +4,15 @@ import PropTypes from 'prop-types'
 import TextField from 'cozy-ui/transpiled/react/MuiCozyTheme/TextField'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-import { makeInputTypeAndLength } from 'src/utils/makeInputTypeAndLength'
+import {
+  checkConstraintsOfIinput,
+  makeInputTypeAndLength
+} from 'src/utils/input'
 
-const isValidEntry = (inputMaxLength, value) => {
+const isValidEntry = (expectedLength, value) => {
   return (
-    (inputMaxLength > 0 && value.length <= inputMaxLength) ||
-    inputMaxLength === 0
+    (expectedLength > 0 && value.length <= expectedLength) ||
+    expectedLength === 0
   )
 }
 
@@ -22,24 +25,28 @@ const InputTextAdapter = ({
 }) => {
   const { name, inputLabel, metadata, type } = attrs
   const { t } = useI18n()
-  const [state, setState] = useState(metadata[name] || '')
+  const [currentValue, setCurrentValue] = useState(metadata[name] || '')
   const [isError, setIsError] = useState(false)
 
+  const { inputType, expectedLength, isRequired } = useMemo(
+    () => makeInputTypeAndLength(type),
+    [type]
+  )
+
   useEffect(() => {
-    setValue(prev => ({ ...prev, [name]: state }))
-  }, [name, setValue, state])
+    setValue(prev => ({ ...prev, [name]: currentValue }))
+  }, [name, setValue, currentValue])
 
   useEffect(() => {
     setValidInput(prev => ({
       ...prev,
-      [idx]: state.length === 0 || state.length === inputMaxLength
+      [idx]: checkConstraintsOfIinput(
+        currentValue.length,
+        isRequired,
+        expectedLength
+      )
     }))
-  }, [idx, inputMaxLength, setValidInput, state.length])
-
-  const { inputType, inputMaxLength } = useMemo(
-    () => makeInputTypeAndLength(type),
-    [type]
-  )
+  }, [idx, expectedLength, isRequired, setValidInput, currentValue.length])
 
   /*
   Fix to force Safari to accept only numbers in a field normally of type number
@@ -50,22 +57,22 @@ const InputTextAdapter = ({
   */
   const handleOnChange = useCallback(
     evt => {
-      const { value } = evt.target
+      const { value: targetValue } = evt.target
 
       if (inputType === 'number') {
-        const parseIntValue = parseInt(value, 10)
+        const parseIntValue = parseInt(targetValue, 10)
         if (/^[0-9]*$/.test(parseIntValue)) {
-          if (isValidEntry(inputMaxLength, value)) {
-            setState(parseIntValue.toString())
+          if (isValidEntry(expectedLength, targetValue)) {
+            setCurrentValue(parseIntValue.toString())
           }
-        } else if (value === '') setState(value)
+        } else if (targetValue === '') setCurrentValue(targetValue)
       } else {
-        if (isValidEntry(inputMaxLength, value)) {
-          setState(value)
+        if (isValidEntry(expectedLength, targetValue)) {
+          setCurrentValue(targetValue)
         }
       }
     },
-    [inputMaxLength, inputType]
+    [expectedLength, inputType]
   )
 
   const handleOnFocus = () => {
@@ -75,20 +82,20 @@ const InputTextAdapter = ({
 
   const handleOnBlur = () => {
     setIsFocus(false)
-    if (state.length > 0) {
-      setIsError(inputMaxLength > 0 && state.length < inputMaxLength)
+    if (currentValue.length > 0) {
+      setIsError(expectedLength > 0 && currentValue.length !== expectedLength)
     } else setIsError(false)
   }
 
   const helperText = isError
     ? t('InputTextAdapter.invalidTextMessage', {
-        smart_count: inputMaxLength - state.length
+        smart_count: expectedLength - currentValue.length
       })
     : ''
 
   return (
     <TextField
-      value={state}
+      value={currentValue}
       error={isError}
       onBlur={handleOnBlur}
       onFocus={handleOnFocus}
@@ -100,6 +107,7 @@ const InputTextAdapter = ({
       variant={'outlined'}
       label={inputLabel ? t(inputLabel) : ''}
       fullWidth
+      required={isRequired}
     />
   )
 }
