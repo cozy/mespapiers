@@ -144,6 +144,10 @@
         "inputLabel": "Date de référence",
         "text": "Date de début de la période couverte par ce document ?"
       },
+      "renameFile": {
+        "inputLabel": "Nom du document",
+        "text": "Quel est le nom de votre document ?"
+      },
       "shootingDate": {
         "inputLabel": "Date de prise de vue",
         "text": "Quand cette photo a-t-elle été prise ? (optionnelle)"

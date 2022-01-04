@@ -1,8 +1,10 @@
 /**
  * @typedef {object} BuildPaperNameParam
  * @property {string} qualificationName - Name of the paper qualification
+ * @property {Array<string>} [filenameModel] - Array of key for build filename
+ * @property {object} [metadata] - Object with data of Information input
  * @property {string} [pageName] - Name of page (eg Front)
- * @property {string} [fullname] - Fullname of contact
+ * @property {string} [contactName] - Fullname of contact
  * @property {string} [formatedDate] - Date already formated
  */
 
@@ -11,7 +13,7 @@
  * @param {BuildPaperNameParam} opts
  * @returns {string} Paper name with PDF extension
  */
-export const buildFilename = opts => {
+export const buildFilename = ({ metadata, filenameModel, ...opts }) => {
   /*
     Calling the stack's file creation method would trigger a `status: "422", title: "Invalid Parameter"` error if filename contains`/`.
     So we need to remove any occurrence of this character from the filename.
@@ -19,8 +21,22 @@ export const buildFilename = opts => {
   const safeFileName = opts.qualificationName.replaceAll('/', '_')
 
   const pageName = opts.pageName ? ` - ${opts.pageName}` : ''
-  const fullname = opts.fullname ? ` - ${opts.fullname}` : ''
+  const contactName = opts.contactName ? ` - ${opts.contactName}` : ''
   const formatedDate = opts.formatedDate ? ` - ${opts.formatedDate}` : ''
 
-  return `${safeFileName}${pageName}${fullname}${formatedDate}.pdf`
+  if (filenameModel?.length > 0) {
+    const result = filenameModel
+      .map(el => {
+        if (el === 'contactName') return opts.contactName || ''
+        if (el === 'date') return opts.formatedDate || ''
+        return metadata?.[el] ? metadata[el] : null
+      })
+      .filter(Boolean)
+
+    if (result.length > 0) {
+      return `${result.join(' - ')}.pdf`
+    }
+  }
+
+  return `${safeFileName}${pageName}${contactName}${formatedDate}.pdf`
 }

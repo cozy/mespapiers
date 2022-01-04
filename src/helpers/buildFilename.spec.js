@@ -10,19 +10,74 @@ describe('buildFilename', () => {
   })
 
   it.each`
-    opts                                                                                                 | result
-    ${{ qualificationName: 'passport' }}                                                                 | ${'passport.pdf'}
-    ${{ qualificationName: 'passport', pageName: 'front' }}                                              | ${'passport - front.pdf'}
-    ${{ qualificationName: 'passport', fullname: 'Bob' }}                                                | ${'passport - Bob.pdf'}
-    ${{ qualificationName: 'passport', formatedDate: '2022.01.01' }}                                     | ${'passport - 2022.01.01.pdf'}
-    ${{ qualificationName: 'passport', pageName: 'front', fullname: 'Bob' }}                             | ${'passport - front - Bob.pdf'}
-    ${{ qualificationName: 'passport', pageName: 'front', formatedDate: '2022.01.01' }}                  | ${'passport - front - 2022.01.01.pdf'}
-    ${{ qualificationName: 'passport', fullname: 'Bob', formatedDate: '2022.01.01' }}                    | ${'passport - Bob - 2022.01.01.pdf'}
-    ${{ qualificationName: 'passport', pageName: 'front', fullname: 'Bob', formatedDate: '2022.01.01' }} | ${'passport - front - Bob - 2022.01.01.pdf'}
-  `(
-    `should return correct Paper name when passed arguments are: $opts`,
-    ({ opts, result }) => {
-      expect(buildFilename(opts)).toEqual(result)
-    }
-  )
+    opts | result
+    ${{
+  qualificationName: 'passport',
+  formatedDate: '2022.01.01',
+  contactName: 'Bob',
+  filenameModel: ['labelGivenByUser', 'contactName', 'date'],
+  metadata: { labelGivenByUser: 'Mon fichier' }
+}} | ${'Mon fichier - Bob - 2022.01.01.pdf'}
+    ${{
+  qualificationName: 'passport',
+  formatedDate: '2022.01.01',
+  filenameModel: ['labelGivenByUser', 'date'],
+  metadata: { labelGivenByUser: 'Mon fichier' }
+}} | ${'Mon fichier - 2022.01.01.pdf'}
+    ${{
+  qualificationName: 'passport',
+  formatedDate: '2022.01.01',
+  filenameModel: ['labelGivenByUser', 'date'],
+  metadata: { labelGivenByUser: '' }
+}} | ${'2022.01.01.pdf'}
+    ${{
+  qualificationName: 'passport',
+  formatedDate: '2022.01.01',
+  filenameModel: ['labelGivenByUser', 'date']
+}} | ${'2022.01.01.pdf'}
+    ${{
+  qualificationName: 'passport',
+  formatedDate: '2022.01.01',
+  filenameModel: ['labelGivenByUser', 'date'],
+  metadata: {}
+}} | ${'2022.01.01.pdf'}
+    ${{
+  qualificationName: 'passport'
+}} | ${'passport.pdf'}
+    ${{
+  qualificationName: 'passport',
+  pageName: 'front'
+}} | ${'passport - front.pdf'}
+    ${{
+  qualificationName: 'passport',
+  contactName: 'Bob'
+}} | ${'passport - Bob.pdf'}
+    ${{
+  qualificationName: 'passport',
+  formatedDate: '2022.01.01'
+}} | ${'passport - 2022.01.01.pdf'}
+    ${{
+  qualificationName: 'passport',
+  pageName: 'front',
+  contactName: 'Bob'
+}} | ${'passport - front - Bob.pdf'}
+    ${{
+  qualificationName: 'passport',
+  pageName: 'front',
+  formatedDate: '2022.01.01'
+}} | ${'passport - front - 2022.01.01.pdf'}
+    ${{
+  qualificationName: 'passport',
+  contactName: 'Bob',
+  formatedDate: '2022.01.01'
+}} | ${'passport - Bob - 2022.01.01.pdf'}
+    ${{
+  qualificationName: 'passport',
+  pageName: 'front',
+  contactName: 'Bob',
+  formatedDate: '2022.01.01'
+}} | ${'passport - front - Bob - 2022.01.01.pdf'}
+  `(`should TEST`, ({ opts, result }) => {
+    expect(buildFilename(opts)).toEqual(result)
+  })
 })

@@ -74,7 +74,7 @@ export const createPdfAndSave = async ({
   const { t, f, scannerT } = i18n
   const { data, metadata, contacts } = { ...formData }
   const fileCollection = client.collection(FILES_DOCTYPE)
-  const { featureDate, label } = currentDefinition
+  const { featureDate, label, filenameModel } = currentDefinition
   const date = metadata[featureDate] && f(metadata[featureDate], 'YYYY.MM.DD')
 
   // If all files are to be considered as one.
@@ -89,11 +89,13 @@ export const createPdfAndSave = async ({
     const pdfBytes = await addFileToPdf(pdfDoc, file)
 
     const paperName = buildFilename({
+      filenameModel,
+      metadata,
       qualificationName: scannerT(`items.${label}`),
       pageName: fileMetadata.page
         ? t(`PapersList.label.${fileMetadata.page}`)
         : null,
-      fullname: getFullname(contacts[0]),
+      contactName: getFullname(contacts[0]),
       formatedDate: date
     })
 
