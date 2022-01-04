@@ -230,6 +230,7 @@
       "icon": "bill",
       "featureDate": "referencedDate",
       "maxDisplay": 6,
+      "filenameModel": ["labelGivenByUser", "contactName", "date"],
       "acquisitionSteps": [
         {
           "stepIndex": 1,
@@ -253,6 +254,19 @@
         },
         {
           "stepIndex": 3,
+          "model": "information",
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.renameFile.text",
+          "attributes": [
+            {
+              "name": "labelGivenByUser",
+              "type": "*Text",
+              "inputLabel": "PaperJSON.generic.renameFile.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 4,
           "model": "owner",
           "text": "PaperJSON.generic.owner.text"
         }
