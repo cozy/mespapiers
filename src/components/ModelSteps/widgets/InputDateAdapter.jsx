@@ -33,7 +33,7 @@ const InputDateAdapter = ({
   const classes = useStyles()
   const [locales, setLocales] = useState('')
   const [isValidDate, setIsValidDate] = useState(true)
-  const [selectedDate, handleDateChange] = useState(metadata[name] || null)
+  const [selectedDate, setSelectedDate] = useState(metadata[name] || null)
   const [displayHelper, setDisplayHelper] = useState(false)
 
   useEffect(() => {
@@ -48,8 +48,17 @@ const InputDateAdapter = ({
     }
   }, [lang])
 
+  const handleDateChange = value => {
+    if (value?.toString() !== 'Invalid Date') {
+      setSelectedDate(value)
+      setIsValidDate(true)
+    } else setIsValidDate(false)
+
+    if (value === '') setSelectedDate(null)
+  }
+
   useEffect(() => {
-    selectedDate && setValue(prev => ({ ...prev, [name]: selectedDate }))
+    setValue(prev => ({ ...prev, [name]: selectedDate }))
   }, [name, selectedDate, setValue])
 
   useEffect(() => {
@@ -94,9 +103,6 @@ const InputDateAdapter = ({
         inputVariant={'outlined'}
         cancelLabel={t('common.cancel')}
         format={lang === 'fr' ? 'dd/MM/yyyy' : 'MM/dd/yyyy'}
-        onError={(err, val) => {
-          setIsValidDate(val === null || !!new Date(val).getTime())
-        }}
       />
     </MuiPickersUtilsProvider>
   )
