@@ -9,19 +9,29 @@ jest.mock('cozy-client/dist/models/document/locales', () => ({
   getBoundT: jest.fn(() => jest.fn())
 }))
 
-const mockAttrs = (type = '', value = 'fakeValue') => ({
+const mockAttrs = ({
+  type = '',
+  maxLength = 0,
+  minLength = 0,
+  required = false,
+  defaultValue = 'fakeValue'
+}) => ({
   name: 'name01',
   inputLabel: 'PaperJSON.IDCard.number.inputLabel',
-  metadata: { name01: value },
+  defaultValue,
+  required,
+  minLength,
+  maxLength,
   type
 })
 
-const setup = (attrs = mockAttrs()) => {
-  const value = attrs.metadata.name01
+const setup = (attrs = mockAttrs({})) => {
+  const value = attrs.defaultValue
   const container = render(
     <AppLike>
       <InputTextAdapter
         attrs={attrs}
+        defaultValue={value}
         setValue={jest.fn()}
         setValidInput={jest.fn()}
       />
@@ -43,14 +53,14 @@ describe('InputTextAdapter components:', () => {
   })
 
   it('should have a value of 5 letters', () => {
-    const { input } = setup(mockAttrs(':5'))
+    const { input } = setup(mockAttrs({ maxLength: 5 }))
     fireEvent.change(input, { target: { value: 'abcde' } })
 
     expect(input.value).toBe('abcde')
   })
 
-  it('should have a value of "fakeValue"', () => {
-    const { input } = setup(mockAttrs(':5'))
+  it('should have a maximum of 5 characters', () => {
+    const { input } = setup(mockAttrs({ maxLength: 5 }))
     fireEvent.change(input, { target: { value: 'abcdefgh' } })
     expect(input.value).toBe('fakeValue')
 
@@ -59,9 +69,9 @@ describe('InputTextAdapter components:', () => {
   })
 
   it('should have a value of 5 digits', () => {
-    const { input } = setup(mockAttrs('Number:5', '789'))
+    const { input } = setup(mockAttrs({ type: 'number', maxLength: 5 }))
     fireEvent.change(input, { target: { value: '12345' } })
 
-    expect(input.value).toBe('12345')
+    expect(parseInt(input.value, 10)).toBe(12345)
   })
 })

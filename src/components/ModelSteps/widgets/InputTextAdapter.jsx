@@ -6,31 +6,36 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import {
   checkConstraintsOfIinput,
-  makeInputTypeAndLength
+  makeConstraintsOfInput
 } from 'src/utils/input'
 
-const isValidEntry = (expectedLength, value) => {
-  return (
-    (expectedLength > 0 && value.length <= expectedLength) ||
-    expectedLength === 0
-  )
+const acceptEntry = (value, expectedLength) => {
+  return expectedLength.max >= expectedLength.min && expectedLength.max > 0
+    ? value.length <= expectedLength.max
+    : true
 }
 
 const InputTextAdapter = ({
   attrs,
+  defaultValue,
   setValue,
   setValidInput,
   setIsFocus,
   idx
 }) => {
-  const { name, inputLabel, metadata, type } = attrs
+  const { name, inputLabel, ...otherInputProps } = attrs
   const { t } = useI18n()
-  const [currentValue, setCurrentValue] = useState(metadata[name] || '')
+  const [currentValue, setCurrentValue] = useState(defaultValue || '')
   const [isError, setIsError] = useState(false)
 
   const { inputType, expectedLength, isRequired } = useMemo(
-    () => makeInputTypeAndLength(type),
-    [type]
+    () => makeConstraintsOfInput(otherInputProps),
+    [otherInputProps]
+  )
+  const isValidInputValue = useMemo(
+    () =>
+      checkConstraintsOfIinput(currentValue.length, expectedLength, isRequired),
+    [currentValue.length, expectedLength, isRequired]
   )
 
   useEffect(() => {
@@ -40,13 +45,9 @@ const InputTextAdapter = ({
   useEffect(() => {
     setValidInput(prev => ({
       ...prev,
-      [idx]: checkConstraintsOfIinput(
-        currentValue.length,
-        isRequired,
-        expectedLength
-      )
+      [idx]: isValidInputValue
     }))
-  }, [idx, expectedLength, isRequired, setValidInput, currentValue.length])
+  }, [idx, isValidInputValue, setValidInput])
 
   /*
   Fix to force Safari to accept only numbers in a field normally of type number
@@ -62,12 +63,12 @@ const InputTextAdapter = ({
       if (inputType === 'number') {
         const parseIntValue = parseInt(targetValue, 10)
         if (/^[0-9]*$/.test(parseIntValue)) {
-          if (isValidEntry(expectedLength, targetValue)) {
+          if (acceptEntry(targetValue, expectedLength)) {
             setCurrentValue(parseIntValue.toString())
           }
         } else if (targetValue === '') setCurrentValue(targetValue)
       } else {
-        if (isValidEntry(expectedLength, targetValue)) {
+        if (acceptEntry(targetValue, expectedLength)) {
           setCurrentValue(targetValue)
         }
       }
@@ -115,14 +116,18 @@ const InputTextAdapter = ({
 const attrsProptypes = PropTypes.shape({
   name: PropTypes.string,
   inputLabel: PropTypes.string,
-  metadata: PropTypes.shape({ ['attrsProptypes.name']: PropTypes.string }),
-  type: PropTypes.string
+  type: PropTypes.string,
+  required: PropTypes.bool,
+  minLength: PropTypes.number,
+  maxLength: PropTypes.number
 })
 
 InputTextAdapter.propTypes = {
   attrs: attrsProptypes.isRequired,
+  defaultValue: PropTypes.string,
   setValue: PropTypes.func.isRequired,
   setValidInput: PropTypes.func.isRequired,
+  setIsFocus: PropTypes.func.isRequired,
   idx: PropTypes.number
 }
 

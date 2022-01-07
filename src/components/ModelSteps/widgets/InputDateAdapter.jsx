@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import DateFnsUtils from '@date-io/date-fns'
+import PropTypes from 'prop-types'
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker
@@ -23,17 +24,18 @@ const useStyles = makeStyles(() => ({
 
 const InputDateAdapter = ({
   attrs,
+  defaultValue,
   setValue,
   setValidInput,
   setIsFocus,
   idx
 }) => {
-  const { name, inputLabel, metadata } = attrs
+  const { name, inputLabel } = attrs
   const { t, lang } = useI18n()
   const classes = useStyles()
   const [locales, setLocales] = useState('')
   const [isValidDate, setIsValidDate] = useState(true)
-  const [selectedDate, setSelectedDate] = useState(metadata[name] || null)
+  const [selectedDate, setSelectedDate] = useState(defaultValue || null)
   const [displayHelper, setDisplayHelper] = useState(false)
 
   useEffect(() => {
@@ -106,6 +108,24 @@ const InputDateAdapter = ({
       />
     </MuiPickersUtilsProvider>
   )
+}
+
+const attrsProptypes = PropTypes.shape({
+  name: PropTypes.string,
+  inputLabel: PropTypes.string,
+  type: PropTypes.string,
+  required: PropTypes.bool,
+  minLength: PropTypes.number,
+  maxLength: PropTypes.number
+})
+
+InputDateAdapter.propTypes = {
+  attrs: attrsProptypes.isRequired,
+  defaultValue: PropTypes.string,
+  setValue: PropTypes.func.isRequired,
+  setValidInput: PropTypes.func.isRequired,
+  setIsFocus: PropTypes.func.isRequired,
+  idx: PropTypes.number
 }
 
 export default InputDateAdapter

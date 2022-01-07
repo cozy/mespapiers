@@ -260,7 +260,10 @@
           "attributes": [
             {
               "name": "labelGivenByUser",
-              "type": "*Text",
+              "type": "text",
+              "required": true,
+              "minLength": 3,
+              "maxLength": 15,
               "inputLabel": "PaperJSON.generic.renameFile.inputLabel"
             }
           ]

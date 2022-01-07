@@ -1,51 +1,56 @@
 import {
   checkConstraintsOfIinput,
-  makeInputTypeAndLength
+  makeConstraintsOfInput
 } from 'src/utils/input'
 
 describe('Input Utils', () => {
   describe('makeInputTypeAndLength', () => {
     it.each`
-      opts            | result
-      ${'Number'}     | ${{ inputType: 'number', expectedLength: 0, isRequired: false }}
-      ${'Number:'}    | ${{ inputType: 'number', expectedLength: 0, isRequired: false }}
-      ${'Number:0'}   | ${{ inputType: 'number', expectedLength: 0, isRequired: false }}
-      ${'Number:10'}  | ${{ inputType: 'number', expectedLength: 10, isRequired: false }}
-      ${''}           | ${{ inputType: 'text', expectedLength: 0, isRequired: false }}
-      ${'Other:'}     | ${{ inputType: 'text', expectedLength: 0, isRequired: false }}
-      ${'Text'}       | ${{ inputType: 'text', expectedLength: 0, isRequired: false }}
-      ${'Text:10'}    | ${{ inputType: 'text', expectedLength: 10, isRequired: false }}
-      ${'String:10'}  | ${{ inputType: 'text', expectedLength: 10, isRequired: false }}
-      ${':10'}        | ${{ inputType: 'text', expectedLength: 10, isRequired: false }}
-      ${'*'}          | ${{ inputType: 'text', expectedLength: 0, isRequired: true }}
-      ${'*:10'}       | ${{ inputType: 'text', expectedLength: 10, isRequired: true }}
-      ${'*Text:10'}   | ${{ inputType: 'text', expectedLength: 10, isRequired: true }}
-      ${'*Number'}    | ${{ inputType: 'number', expectedLength: 0, isRequired: true }}
-      ${'*Number:10'} | ${{ inputType: 'number', expectedLength: 10, isRequired: true }}
+      attrs                                                                | result
+      ${{ type: 'number' }}                                                | ${{ inputType: 'number', expectedLength: { min: 0, max: 0 }, isRequired: false }}
+      ${{ type: 'number', required: false, minLength: 0, maxLength: 0 }}   | ${{ inputType: 'number', expectedLength: { min: 0, max: 0 }, isRequired: false }}
+      ${{ type: 'number', required: false, minLength: 10, maxLength: 0 }}  | ${{ inputType: 'number', expectedLength: { min: 10, max: 0 }, isRequired: false }}
+      ${{ type: 'number', required: false, minLength: 0, maxLength: 10 }}  | ${{ inputType: 'number', expectedLength: { min: 0, max: 10 }, isRequired: false }}
+      ${{ type: 'number', required: false, minLength: 5, maxLength: 10 }}  | ${{ inputType: 'number', expectedLength: { min: 5, max: 10 }, isRequired: false }}
+      ${{ type: 'number', required: false, minLength: 10, maxLength: 10 }} | ${{ inputType: 'number', expectedLength: { min: 10, max: 10 }, isRequired: false }}
+      ${{ type: 'number', required: true, minLength: 0, maxLength: 0 }}    | ${{ inputType: 'number', expectedLength: { min: 0, max: 0 }, isRequired: true }}
+      ${{ type: 'number', required: true, minLength: 20, maxLength: 10 }}  | ${{ inputType: 'number', expectedLength: { min: 10, max: 20 }, isRequired: true }}
+      ${undefined}                                                         | ${{ inputType: 'text', expectedLength: { min: 0, max: 0 }, isRequired: false }}
+      ${{ type: 'text' }}                                                  | ${{ inputType: 'text', expectedLength: { min: 0, max: 0 }, isRequired: false }}
+      ${{ type: 'text', required: false, minLength: 0, maxLength: 0 }}     | ${{ inputType: 'text', expectedLength: { min: 0, max: 0 }, isRequired: false }}
+      ${{ type: 'text', required: false, minLength: 10, maxLength: 0 }}    | ${{ inputType: 'text', expectedLength: { min: 10, max: 0 }, isRequired: false }}
+      ${{ type: 'text', required: false, minLength: 0, maxLength: 10 }}    | ${{ inputType: 'text', expectedLength: { min: 0, max: 10 }, isRequired: false }}
+      ${{ type: 'text', required: false, minLength: 5, maxLength: 10 }}    | ${{ inputType: 'text', expectedLength: { min: 5, max: 10 }, isRequired: false }}
+      ${{ type: 'text', required: false, minLength: 10, maxLength: 10 }}   | ${{ inputType: 'text', expectedLength: { min: 10, max: 10 }, isRequired: false }}
+      ${{ type: 'text', required: true, minLength: 0, maxLength: 0 }}      | ${{ inputType: 'text', expectedLength: { min: 0, max: 0 }, isRequired: true }}
+      ${{ type: 'text', required: true, minLength: 20, maxLength: 10 }}    | ${{ inputType: 'text', expectedLength: { min: 10, max: 20 }, isRequired: true }}
     `(
-      `should return $result when passed argument: $opts`,
-      ({ opts, result }) => {
-        expect(makeInputTypeAndLength(opts)).toEqual(result)
+      `should return $result when passed argument: $attrs`,
+      ({ attrs, result }) => {
+        expect(makeConstraintsOfInput(attrs)).toEqual(result)
       }
     )
   })
 
   describe('checkInputConstraints', () => {
     it.each`
-      valueLength | isRequired | expectedLength | result
-      ${0}        | ${false}   | ${0}           | ${true}
-      ${10}       | ${false}   | ${0}           | ${true}
-      ${0}        | ${true}    | ${0}           | ${false}
-      ${10}       | ${true}    | ${0}           | ${true}
-      ${0}        | ${false}   | ${10}          | ${true}
-      ${5}        | ${false}   | ${10}          | ${false}
-      ${10}       | ${true}    | ${10}          | ${true}
-      ${5}        | ${true}    | ${10}          | ${false}
+      valueLength | expectedLength          | isRequired | result
+      ${0}        | ${{ min: 0, max: 0 }}   | ${false}   | ${true}
+      ${0}        | ${{ min: 0, max: 20 }}  | ${false}   | ${true}
+      ${0}        | ${{ min: 10, max: 0 }}  | ${true}    | ${false}
+      ${0}        | ${{ min: 10, max: 20 }} | ${true}    | ${false}
+      ${10}       | ${{ min: 0, max: 0 }}   | ${false}   | ${true}
+      ${10}       | ${{ min: 0, max: 20 }}  | ${false}   | ${true}
+      ${21}       | ${{ min: 0, max: 20 }}  | ${false}   | ${false}
+      ${0}        | ${{ min: 10, max: 0 }}  | ${true}    | ${false}
+      ${10}       | ${{ min: 10, max: 0 }}  | ${true}    | ${true}
+      ${0}        | ${{ min: 10, max: 20 }} | ${true}    | ${false}
+      ${15}       | ${{ min: 10, max: 20 }} | ${true}    | ${true}
     `(
-      `should return $result when passed argument: ($valueLength, $isRequired, $expectedLength)`,
-      ({ valueLength, isRequired, expectedLength, result }) => {
+      `should return $result when passed argument: ($valueLength, $expectedLength, $isRequired)`,
+      ({ valueLength, expectedLength, isRequired, result }) => {
         expect(
-          checkConstraintsOfIinput(valueLength, isRequired, expectedLength)
+          checkConstraintsOfIinput(valueLength, expectedLength, isRequired)
         ).toEqual(result)
       }
     )

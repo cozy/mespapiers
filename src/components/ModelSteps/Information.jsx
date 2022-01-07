@@ -41,13 +41,14 @@ const Information = ({ currentStep }) => {
   const inputs = useMemo(
     () =>
       attributes
-        ? attributes.map(({ name, type, inputLabel }) => {
-            switch (type) {
+        ? attributes.map(attrs => {
+            switch (attrs.type) {
               case 'date':
                 return function InputDate(props) {
                   return (
                     <InputDateAdapter
-                      attrs={{ metadata: formData.metadata, name, inputLabel }}
+                      attrs={attrs}
+                      defaultValue={formData.metadata[attrs.name]}
                       setValue={setValue}
                       setValidInput={setValidInput}
                       setIsFocus={setIsFocus}
@@ -59,12 +60,8 @@ const Information = ({ currentStep }) => {
                 return function InputText(props) {
                   return (
                     <InputTextAdapter
-                      attrs={{
-                        metadata: formData.metadata,
-                        name,
-                        inputLabel,
-                        type
-                      }}
+                      attrs={attrs}
+                      defaultValue={formData.metadata[attrs.name]}
                       setValue={setValue}
                       setValidInput={setValidInput}
                       setIsFocus={setIsFocus}
