@@ -27,8 +27,9 @@ export const buildFilename = ({ metadata, filenameModel, ...opts }) => {
   if (filenameModel?.length > 0) {
     const result = filenameModel
       .map(el => {
+        if (el === 'label') return safeFileName
         if (el === 'contactName') return opts.contactName || ''
-        if (el === 'date') return opts.formatedDate || ''
+        if (el === 'featureDate') return opts.formatedDate || ''
         return metadata?.[el] ? metadata[el] : null
       })
       .filter(Boolean)

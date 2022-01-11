@@ -9,12 +9,15 @@ import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import papersJSON from 'src/constants/papersDefinitions.json'
 import { fetchCustomPaperDefinitions } from 'src/utils/fetchCustomPaperDefinitions'
 import { fetchContentFileToJson } from 'src/utils/fetchContentFileToJson'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { buildPapersDefinitions } from 'src/helpers/buildPapersDefinitions'
 
 const PapersDefinitionsContext = createContext()
 
 const PapersDefinitionsProvider = ({ children }) => {
   const client = useClient()
   const { t } = useI18n()
+  const scannerT = useScannerI18n()
   const [customPapersDefinitions, setCustomPapersDefinitions] = useState({
     isLoaded: false,
     name: '',
@@ -40,7 +43,9 @@ const PapersDefinitionsProvider = ({ children }) => {
             name: paperConfigFilenameCustom,
             path: appFolderPath
           })
-          setPapersDefinitions(data.papersDefinitions)
+          setPapersDefinitions(
+            buildPapersDefinitions(data.papersDefinitions, scannerT)
+          )
           log('info', 'Custom PapersDefinitions loaded')
         } else {
           // If custom papersDefinitions.json not found, fallback on local file
@@ -55,7 +60,9 @@ const PapersDefinitionsProvider = ({ children }) => {
               duration: 20000
             }
           )
-          setPapersDefinitions(papersJSON.papersDefinitions)
+          setPapersDefinitions(
+            buildPapersDefinitions(papersJSON.papersDefinitions, scannerT)
+          )
           log('info', 'PapersDefinitions of the app loaded')
         }
       } else {
@@ -65,17 +72,18 @@ const PapersDefinitionsProvider = ({ children }) => {
           name: '',
           path: ''
         })
-        setPapersDefinitions(papersJSON.papersDefinitions)
+        setPapersDefinitions(
+          buildPapersDefinitions(papersJSON.papersDefinitions, scannerT)
+        )
         log('info', 'PapersDefinitions of the app loaded')
       }
     })()
-  }, [client, customPapersDefinitionsFlag, t])
+  }, [client, customPapersDefinitionsFlag, scannerT, t])
 
   return (
     <PapersDefinitionsContext.Provider
       value={{
         papersDefinitions,
-        setPapersDefinitions,
         customPapersDefinitions
       }}
     >

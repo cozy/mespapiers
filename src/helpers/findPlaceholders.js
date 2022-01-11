@@ -50,9 +50,7 @@ export const findPlaceholdersByQualification = (
   papersDefinitions,
   qualificationItems = []
 ) => {
-  return papersDefinitions
-    .filter(paperDefinition =>
-      qualificationItems.some(item => item.label === paperDefinition.label)
-    )
-    .sort((a, b) => b.acquisitionSteps.length - a.acquisitionSteps.length)
+  return papersDefinitions.filter(paperDefinition =>
+    qualificationItems.some(item => item.label === paperDefinition.label)
+  )
 }
