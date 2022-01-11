@@ -1,6 +1,39 @@
 {
   "papersDefinitions": [
     {
+      "label": "accommodation_proof",
+      "icon": "home",
+      "featureDate": "issueDate",
+      "maxDisplay": 1,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluInvoice.svg",
+          "text": "PaperJSON.generic.issueDate.text",
+          "attributes": [
+            {
+              "name": "issueDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
       "label": "birth_certificate",
       "icon": "people",
       "maxDisplay": 2,
@@ -9,7 +42,7 @@
           "stepIndex": 1,
           "model": "scan",
           "illustration": "IlluGenericNewPage.svg",
-          "text": "PaperJSON.generic.singlePages.text"
+          "text": "PaperJSON.generic.singlePage.text"
         },
         {
           "stepIndex": 2,
@@ -27,7 +60,7 @@
           "stepIndex": 1,
           "model": "scan",
           "illustration": "IlluIBAN.svg",
-          "text": "PaperJSON.generic.singlePages.text"
+          "text": "PaperJSON.generic.singlePage.text"
         },
         {
           "stepIndex": 2,
@@ -35,6 +68,75 @@
           "text": "PaperJSON.generic.owner.text"
         }
       ]
+    },
+    {
+      "label": "bank_statement",
+      "icon": "bank",
+      "featureDate": "referencedDate",
+      "maxDisplay": 3,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.referencedDate.text",
+          "attributes": [
+            {
+              "name": "referencedDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
+      "label": "caf",
+      "icon": "collect",
+      "featureDate": "issueDate",
+      "maxDisplay": 3,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.issueDate.text",
+          "attributes": [
+            {
+              "name": "issueDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ],
+      "connectorCriteria": {
+          "name": "caf"
+      }
     },
     {
       "label": "car_insurance",
@@ -45,7 +147,7 @@
           "stepIndex": 1,
           "model": "scan",
           "illustration": "IlluGenericNewPage.svg",
-          "text": "PaperJSON.generic.singlePages.text"
+          "text": "PaperJSON.generic.singlePage.text"
         },
         {
           "stepIndex": 2,
@@ -161,7 +263,7 @@
     },
     {
       "label": "family_record_book",
-      "icon": "people",
+      "icon": "team",
       "maxDisplay": 3,
       "acquisitionSteps": [
         {
@@ -202,7 +304,7 @@
           "stepIndex": 1,
           "model": "scan",
           "illustration": "IlluGenericNewPage.svg",
-          "text": "PaperJSON.generic.singlePages.text"
+          "text": "PaperJSON.generic.singlePage.text"
         },
         {
           "stepIndex": 2,
@@ -225,12 +327,59 @@
       ]
     },
     {
+      "label": "house_insurance",
+      "icon": "contract",
+      "featureDate": "referencedDate",
+      "filenameModel": ["label", "labelGivenByUser", "featureDate"],
+      "maxDisplay": 1,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.referencedDate.text",
+          "attributes": [
+            {
+              "name": "referencedDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "information",
+          "text": "PaperJSON.generic.addressLabel.text",
+          "attributes": [
+            {
+              "name": "labelGivenByUser",
+              "type": "text",
+              "required": true,
+              "maxLength": 10,
+              "inputLabel": "PaperJSON.generic.addressLabel.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
       "label": "isp_invoice",
       "placeholderIndex": 5,
       "icon": "bill",
       "featureDate": "referencedDate",
       "maxDisplay": 6,
-      "filenameModel": ["labelGivenByUser", "contactName", "date"],
       "acquisitionSteps": [
         {
           "stepIndex": 1,
@@ -254,22 +403,6 @@
         },
         {
           "stepIndex": 3,
-          "model": "information",
-          "illustration": "IlluGenericNewPage.svg",
-          "text": "PaperJSON.generic.renameFile.text",
-          "attributes": [
-            {
-              "name": "labelGivenByUser",
-              "type": "text",
-              "required": true,
-              "minLength": 3,
-              "maxLength": 15,
-              "inputLabel": "PaperJSON.generic.renameFile.inputLabel"
-            }
-          ]
-        },
-        {
-          "stepIndex": 4,
           "model": "owner",
           "text": "PaperJSON.generic.owner.text"
         }
@@ -280,7 +413,7 @@
     },
     {
       "label": "loan_agreement",
-      "icon": "bank",
+      "icon": "contract",
       "featureDate": "issueDate",
       "maxDisplay": 3,
       "acquisitionSteps": [
@@ -373,8 +506,425 @@
       ]
     },
     {
-      "label": "pay_sheet",
+      "label": "other_activity_document",
+      "icon": "compass",
+      "filenameModel": ["labelGivenByUser"],
+      "featureDate": "date",
+      "maxDisplay": 10,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "text": "PaperJSON.generic.fileLabel.text",
+          "attributes": [
+            {
+              "name": "labelGivenByUser",
+              "type": "text",
+              "required": true,
+              "maxLength": 40,
+              "inputLabel": "PaperJSON.generic.fileLabel.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.date.text",
+          "attributes": [
+            {
+              "name": "date",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.date.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 4,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
+      "label": "other_bank_document",
       "icon": "bank",
+      "filenameModel": ["labelGivenByUser"],
+      "featureDate": "date",
+      "maxDisplay": 10,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "text": "PaperJSON.generic.fileLabel.text",
+          "attributes": [
+            {
+              "name": "labelGivenByUser",
+              "type": "text",
+              "required": true,
+              "maxLength": 40,
+              "inputLabel": "PaperJSON.generic.fileLabel.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.date.text",
+          "attributes": [
+            {
+              "name": "date",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.date.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 4,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
+      "label": "other_family_document",
+      "icon": "team",
+      "filenameModel": ["labelGivenByUser"],
+      "featureDate": "date",
+      "maxDisplay": 10,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "text": "PaperJSON.generic.fileLabel.text",
+          "attributes": [
+            {
+              "name": "labelGivenByUser",
+              "type": "text",
+              "required": true,
+              "maxLength": 40,
+              "inputLabel": "PaperJSON.generic.fileLabel.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.date.text",
+          "attributes": [
+            {
+              "name": "date",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.date.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 4,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
+      "label": "other_health_document",
+      "icon": "heart",
+      "filenameModel": ["labelGivenByUser"],
+      "featureDate": "date",
+      "maxDisplay": 10,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "text": "PaperJSON.generic.fileLabel.text",
+          "attributes": [
+            {
+              "name": "labelGivenByUser",
+              "type": "text",
+              "required": true,
+              "maxLength": 40,
+              "inputLabel": "PaperJSON.generic.fileLabel.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.date.text",
+          "attributes": [
+            {
+              "name": "date",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.date.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 4,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
+      "label": "other_house_document",
+      "icon": "home",
+      "filenameModel": ["labelGivenByUser"],
+      "featureDate": "date",
+      "maxDisplay": 10,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "text": "PaperJSON.generic.fileLabel.text",
+          "attributes": [
+            {
+              "name": "labelGivenByUser",
+              "type": "text",
+              "required": true,
+              "maxLength": 40,
+              "inputLabel": "PaperJSON.generic.fileLabel.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.date.text",
+          "attributes": [
+            {
+              "name": "date",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.date.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 4,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
+      "label": "other_identity_document",
+      "icon": "personal-data",
+      "filenameModel": ["labelGivenByUser"],
+      "featureDate": "date",
+      "maxDisplay": 10,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "text": "PaperJSON.generic.fileLabel.text",
+          "attributes": [
+            {
+              "name": "labelGivenByUser",
+              "type": "text",
+              "required": true,
+              "maxLength": 40,
+              "inputLabel": "PaperJSON.generic.fileLabel.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.date.text",
+          "attributes": [
+            {
+              "name": "date",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.date.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 4,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
+      "label": "other_transport_document",
+      "icon": "car",
+      "filenameModel": ["labelGivenByUser"],
+      "featureDate": "date",
+      "maxDisplay": 10,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "text": "PaperJSON.generic.fileLabel.text",
+          "attributes": [
+            {
+              "name": "labelGivenByUser",
+              "type": "text",
+              "required": true,
+              "maxLength": 40,
+              "inputLabel": "PaperJSON.generic.fileLabel.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.date.text",
+          "attributes": [
+            {
+              "name": "date",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.date.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 4,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
+      "label": "other_work_document",
+      "icon": "company",
+      "filenameModel": ["labelGivenByUser"],
+      "featureDate": "date",
+      "maxDisplay": 10,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "text": "PaperJSON.generic.fileLabel.text",
+          "attributes": [
+            {
+              "name": "labelGivenByUser",
+              "type": "text",
+              "required": true,
+              "maxLength": 40,
+              "inputLabel": "PaperJSON.generic.fileLabel.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.date.text",
+          "attributes": [
+            {
+              "name": "date",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.date.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 4,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
+      "label": "other_revenue",
+      "icon": "bank",
+      "featureDate": "referencedDate",
+      "maxDisplay": 3,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.referencedDate.text",
+          "attributes": [
+            {
+              "name": "referencedDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
+      "label": "pay_sheet",
+      "icon": "bill",
       "featureDate": "referencedDate",
       "maxDisplay": 3,
       "acquisitionSteps": [
@@ -406,8 +956,113 @@
       ]
     },
     {
+      "label": "payment_proof_family_allowance",
+      "icon": "bill",
+      "featureDate": "issueDate",
+      "maxDisplay": 3,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.issueDate.text",
+          "attributes": [
+            {
+              "name": "issueDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ],
+      "connectorCriteria": {
+        "name": "caf"
+      }
+    },
+    {
+      "label": "phone_invoice",
+      "icon": "bill",
+      "featureDate": "referencedDate",
+      "maxDisplay": 4,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluInvoice.svg",
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.referencedDate.text",
+          "attributes": [
+            {
+              "name": "referencedDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ],
+      "connectorCriteria": {
+        "category": "isp"
+      }
+    },
+    {
+      "label": "pregnancy_medical_certificate",
+      "icon": "heart",
+      "featureDate": "issueDate",
+      "maxDisplay": 3,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.issueDate.text",
+          "attributes": [
+            {
+              "name": "issueDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
       "label": "rent_receipt",
-      "icon": "bank",
+      "icon": "bill",
       "featureDate": "referencedDate",
       "maxDisplay": 3,
       "acquisitionSteps": [
@@ -425,7 +1080,7 @@
           "text": "PaperJSON.generic.referencedDate.text",
           "attributes": [
             {
-              "name": "issueDate",
+              "name": "referencedDate",
               "type": "date",
               "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
             }
@@ -492,6 +1147,39 @@
       ]
     },
     {
+      "label": "school_attendance_certificate",
+      "icon": "contract",
+      "featureDate": "referencedDate",
+      "maxDisplay": 1,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.referencedDate.text",
+          "attributes": [
+            {
+              "name": "referencedDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
       "label": "student_card",
       "icon": "people",
       "featureDate": "referencedDate",
@@ -502,7 +1190,7 @@
           "model": "scan",
           "multipage": true,
           "illustration": "IlluGenericNewPage.svg",
-          "text": "PaperJSON.generic.singlePages.text"
+          "text": "PaperJSON.generic.singlePage.text"
         },
         {
           "stepIndex": 2,
@@ -566,20 +1254,98 @@
           "model": "owner",
           "text": "PaperJSON.generic.owner.text"
         }
-      ],
-      "connectorCriteria": {
-        "name": "impots"
-      }
+      ]
     },
     {
       "label": "tax_timetable",
       "icon": "bank",
       "featureDate": "referencedDate",
       "maxDisplay": 3,
-      "acquisitionSteps": [],
+      "acquisitionSteps": []
+    },
+    {
+      "label": "unemployment_benefit",
+      "icon": "collect",
+      "featureDate": "referencedDate",
+      "maxDisplay": 3,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.referencedDate.text",
+          "attributes": [
+            {
+              "name": "referencedDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ],
       "connectorCriteria": {
-        "name": "impots"
+          "name": "poleemploi"
       }
+    },
+    {
+      "label": "unfit_for_habitation_declaration",
+      "icon": "home",
+      "filenameModel": ["label", "labelGivenByUser"],
+      "featureDate": "issueDate",
+      "maxDisplay": 1,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.issueDate.text",
+          "attributes": [
+            {
+              "name": "issueDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "information",
+          "text": "PaperJSON.generic.addressLabel.text",
+          "attributes": [
+            {
+              "name": "labelGivenByUser",
+              "type": "text",
+              "required": true,
+              "maxLength": 10,
+              "inputLabel": "PaperJSON.generic.addressLabel.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 4,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
     },
     {
       "label": "vehicle_registration",
@@ -594,6 +1360,75 @@
         },
         {
           "stepIndex": 2,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
+      "label": "water_invoice",
+      "icon": "bill",
+      "featureDate": "referencedDate",
+      "maxDisplay": 4,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluInvoice.svg",
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.referencedDate.text",
+          "attributes": [
+            {
+              "name": "referencedDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ],
+      "connectorCriteria": {
+        "qualification_labels": "water_invoice"
+      }
+    },
+    {
+      "label": "work_disability_recognition",
+      "icon": "carbonCopy",
+      "featureDate": "issueDate",
+      "maxDisplay": 3,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.multiPages.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.issueDate.text",
+          "attributes": [
+            {
+              "name": "issueDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
           "model": "owner",
           "text": "PaperJSON.generic.owner.text"
         }

@@ -15,30 +15,30 @@ describe('buildFilename', () => {
   qualificationName: 'passport',
   formatedDate: '2022.01.01',
   contactName: 'Bob',
-  filenameModel: ['labelGivenByUser', 'contactName', 'date'],
+  filenameModel: ['labelGivenByUser', 'contactName', 'featureDate'],
   metadata: { labelGivenByUser: 'Mon fichier' }
 }} | ${'Mon fichier - Bob - 2022.01.01.pdf'}
     ${{
   qualificationName: 'passport',
   formatedDate: '2022.01.01',
-  filenameModel: ['labelGivenByUser', 'date'],
+  filenameModel: ['labelGivenByUser', 'featureDate'],
   metadata: { labelGivenByUser: 'Mon fichier' }
 }} | ${'Mon fichier - 2022.01.01.pdf'}
     ${{
   qualificationName: 'passport',
   formatedDate: '2022.01.01',
-  filenameModel: ['labelGivenByUser', 'date'],
+  filenameModel: ['labelGivenByUser', 'featureDate'],
   metadata: { labelGivenByUser: '' }
 }} | ${'2022.01.01.pdf'}
     ${{
   qualificationName: 'passport',
   formatedDate: '2022.01.01',
-  filenameModel: ['labelGivenByUser', 'date']
+  filenameModel: ['labelGivenByUser', 'featureDate']
 }} | ${'2022.01.01.pdf'}
     ${{
   qualificationName: 'passport',
   formatedDate: '2022.01.01',
-  filenameModel: ['labelGivenByUser', 'date'],
+  filenameModel: ['labelGivenByUser', 'featureDate'],
   metadata: {}
 }} | ${'2022.01.01.pdf'}
     ${{
@@ -77,7 +77,7 @@ describe('buildFilename', () => {
   contactName: 'Bob',
   formatedDate: '2022.01.01'
 }} | ${'passport - front - Bob - 2022.01.01.pdf'}
-  `(`should TEST`, ({ opts, result }) => {
+  `(`should return $result with "$opts" parameters`, ({ opts, result }) => {
     expect(buildFilename(opts)).toEqual(result)
   })
 })

@@ -152,8 +152,16 @@
         "inputLabel": "Date de prise de vue",
         "text": "Quand cette photo a-t-elle été prise ? (optionnelle)"
       },
-      "singlePages": {
+      "singlePage": {
         "text": "Ajouter l'image du document"
+      },
+      "addressLabel": {
+        "text": "Choisissez un libelé court pour ce logement",
+        "inputLabel": "Libellé du logement (10 caractères max.)"
+      },
+      "fileLabel": {
+        "text": "Choisissez un nom pour ce document",
+        "inputLabel": "Nom du document (40 caractères max.)"
       }
     },
     "driverLicense": {
