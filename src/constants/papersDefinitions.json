@@ -135,7 +135,7 @@
         }
       ],
       "connectorCriteria": {
-          "name": "caf"
+        "name": "caf"
       }
     },
     {
@@ -500,6 +500,39 @@
         },
         {
           "stepIndex": 5,
+          "model": "owner",
+          "text": "PaperJSON.generic.owner.text"
+        }
+      ]
+    },
+    {
+      "label": "personal_sporting_licence",
+      "icon": "compass",
+      "featureDate": "referencedDate",
+      "maxDisplay": 1,
+      "acquisitionSteps": [
+        {
+          "stepIndex": 1,
+          "model": "scan",
+          "multipage": true,
+          "illustration": "IlluGenericNewPage.svg",
+          "text": "PaperJSON.generic.singlePage.text"
+        },
+        {
+          "stepIndex": 2,
+          "model": "information",
+          "illustration": "IlluGenericDate.svg",
+          "text": "PaperJSON.generic.referencedDate.text",
+          "attributes": [
+            {
+              "name": "referencedDate",
+              "type": "date",
+              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
           "model": "owner",
           "text": "PaperJSON.generic.owner.text"
         }
@@ -1296,7 +1329,7 @@
         }
       ],
       "connectorCriteria": {
-          "name": "poleemploi"
+        "name": "poleemploi"
       }
     },
     {
