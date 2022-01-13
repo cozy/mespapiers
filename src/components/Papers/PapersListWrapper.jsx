@@ -1,5 +1,6 @@
 /* global cozy */
 import React, { useMemo, useCallback } from 'react'
+import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import {
@@ -89,6 +90,14 @@ const PapersListWrapper = ({ history, match }) => {
     papersDefinitions,
     currentFileCategory
   ])
+
+  if (
+    papersList?.length === 0 &&
+    !isQueryLoading(restPapers) &&
+    hasQueryBeenLoaded(restPapers)
+  ) {
+    return <Redirect to={'/'} />
+  }
 
   return (
     <>
