@@ -20,7 +20,7 @@ import Typography from 'cozy-ui/transpiled/react/Typography'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
-import HomeWrapper from 'src/components/HomeWrapper/HomeWrapper'
+import Home from 'src/components/Home/Home'
 import PapersListWrapper from 'src/components/Papers/PapersListWrapper'
 import FileViewerWithQuery from 'src/components/Viewer/FileViewerWithQuery'
 import Onboarding from 'src/components/Onboarding/Onboarding'
@@ -87,7 +87,7 @@ export const App = () => {
                   <OnboardedGuardedRoute
                     exact
                     path="/"
-                    component={HomeWrapper}
+                    component={Home}
                     settingsData={settingsData}
                   />
                   <OnboardedGuardedRoute

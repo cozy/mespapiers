@@ -32,49 +32,49 @@ jest.mock('cozy-client/dist/models/document/locales', () => ({
   getBoundT: jest.fn(() => jest.fn())
 }))
 
-const setup = () => {
+const setup = ({ data = [], hasFeaturedPlaceholders = true } = {}) => {
+  useQuery.mockReturnValue({ data })
+
   return render(
     <AppLike>
-      <FeaturedPlaceholdersList />
+      <FeaturedPlaceholdersList
+        featuredPlaceholders={
+          hasFeaturedPlaceholders
+            ? [{ label: 'Label', icon: 'icon', acquisitionSteps: [] }]
+            : []
+        }
+      />
     </AppLike>
   )
 }
 
 describe('FeaturedPlaceholdersList components:', () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
   it('should be rendered correctly', () => {
-    useQuery.mockReturnValue({
-      data: []
-    })
     const { container } = setup()
 
     expect(container).toBeDefined()
   })
 
   it('should not display Suggestions header', () => {
-    useQuery.mockReturnValue({
-      data: []
-    })
-    const { queryByText } = setup()
+    const { queryByText } = setup({ hasFeaturedPlaceholders: false })
 
     expect(queryByText('Suggestions')).toBeNull()
   })
 
   it('should display Suggestions', () => {
     getBoundT.mockReturnValueOnce(() => 'Others...')
-    useQuery.mockReturnValue({
-      data: fakePapers
-    })
-    const { getByText } = setup()
+    const { getByText } = setup({ data: fakePapers })
 
     expect(getByText('Suggestions'))
   })
 
   it('should display Suggestions & list of placeholder filtered', () => {
     getBoundT.mockReturnValueOnce(() => 'ID card')
-    useQuery.mockReturnValue({
-      data: [fakePapers[1]]
-    })
-    const { getByText, getAllByText } = setup()
+    const { getByText, getAllByText } = setup({ data: fakePapers[1] })
 
     expect(getByText('Suggestions'))
     expect(getAllByText('ID card'))
