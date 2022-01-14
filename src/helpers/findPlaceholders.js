@@ -14,7 +14,7 @@ import get from 'lodash/get'
  * @property {StepAttributes[]} attributes - Array of the attributes.
  */
 /**
- * @typedef {Object} Paper
+ * @typedef {Object} PaperDefinition
  * @property {string} label - Label of Paper.
  * @property {string} icon - Icon of Paper.
  * @property {number} placeholderIndex - Position on the Placeholder list.
@@ -25,8 +25,9 @@ import get from 'lodash/get'
 
 /**
  * Filters and sorts the list of featured PlaceHolders
- * @param {Paper[]} papers Array of Papers
- * @returns an array of Papers filtered with the prop "placeholderIndex",
+ * @param {PaperDefinition[]} papersDefinitions Array of PapersDefinition
+ * @param {IOCozyFile[]} papers Array of IOCozyFile
+ * @returns {PaperDefinition[]} Array of PapersDefinition filtered with the prop "placeholderIndex",
  * which does not already exist in DB and
  * which sorted with the prop "placeholderIndex"
  */
@@ -44,7 +45,8 @@ export const getFeaturedPlaceholders = (papersDefinitions, papers = []) => {
 
 /**
  * Find placeholders by Qualification
- * @param {Array<object>} qualificationItems
+ * @param {Object[]} qualificationItems - Object of qualification
+ * @returns {PaperDefinition[]} - Array of PapersDefinition
  */
 export const findPlaceholdersByQualification = (
   papersDefinitions,

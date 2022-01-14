@@ -1,10 +1,10 @@
-import React, { Fragment, useCallback, useMemo } from 'react'
+import React, { Fragment, useCallback } from 'react'
+import PropTypes from 'prop-types'
 import get from 'lodash/get'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
-import uniqBy from 'lodash/uniqBy'
 
-import { useQuery, useClient } from 'cozy-client'
+import { useClient } from 'cozy-client'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
 import ListSubheader from 'cozy-ui/transpiled/react/MuiCozyTheme/ListSubheader'
@@ -19,35 +19,19 @@ import Right from 'cozy-ui/transpiled/react/Icons/Right'
 import MuiCardMedia from 'cozy-ui/transpiled/react/CardMedia'
 import { FileImageLoader } from 'cozy-ui/transpiled/react/FileImageLoader'
 
-import { getAllQualificationLabel } from 'src/helpers/queries'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
-import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 
 const useStyles = makeStyles({
   root: { textIndent: '1rem' }
 })
 
-const PaperGroup = () => {
+const PaperGroup = ({ allPapersByCategories }) => {
   const classes = useStyles()
   const client = useClient()
   const { isMobile } = useBreakpoints()
   const history = useHistory()
   const { t } = useI18n()
   const scannerT = useScannerI18n()
-  const { papersDefinitions } = usePapersDefinitions()
-
-  const allQualificationLabel = useMemo(
-    () => getAllQualificationLabel(papersDefinitions),
-    [papersDefinitions]
-  )
-  const { data: allPapers } = useQuery(
-    allQualificationLabel.definition,
-    allQualificationLabel.options
-  )
-
-  const allPapersByCategories = allPapers
-    ? uniqBy(allPapers, 'metadata.qualification.label')
-    : []
 
   const goPapersList = useCallback(
     category => {
@@ -110,6 +94,10 @@ const PaperGroup = () => {
       </div>
     </List>
   )
+}
+
+PaperGroup.propTypes = {
+  allPapersByCategories: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default PaperGroup

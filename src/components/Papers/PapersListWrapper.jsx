@@ -91,15 +91,14 @@ const PapersListWrapper = ({ history, match }) => {
     currentFileCategory
   ])
 
-  if (
+  const hasNoPapers =
     papersList?.length === 0 &&
     !isQueryLoading(restPapers) &&
     hasQueryBeenLoaded(restPapers)
-  ) {
-    return <Redirect to={'/'} />
-  }
 
-  return (
+  return hasNoPapers ? (
+    <Redirect to={'/'} />
+  ) : (
     <>
       <BarLeft>
         <IconButton className={'u-mr-half'} onClick={backButtonAction}>

@@ -1,39 +1,76 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useMemo } from 'react'
+import uniqBy from 'lodash/uniqBy'
 
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { hasQueryBeenLoaded, isQueryLoading, useQuery } from 'cozy-client'
 import Empty from 'cozy-ui/transpiled/react/Empty'
+import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import PaperGroup from 'src/components/Papers/PaperGroup'
 import { PapersFab } from 'src/components/PapersFab/PapersFab'
 import FeaturedPlaceholdersList from 'src/components/Placeholders/FeaturedPlaceholdersList'
+import { getAllQualificationLabel } from 'src/helpers/queries'
+import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import { getFeaturedPlaceholders } from 'src/helpers/findPlaceholders'
 import HomeCloud from 'src/assets/icons/HomeCloud.svg'
 
-const Home = ({ hasPapers }) => {
+const Home = () => {
   const { t } = useI18n()
+  const { papersDefinitions } = usePapersDefinitions()
+  const allQualificationLabel = useMemo(
+    () => getAllQualificationLabel(papersDefinitions),
+    [papersDefinitions]
+  )
+  const { data: allPapers, hasMore: hasMorePapers, ...restPapers } = useQuery(
+    allQualificationLabel.definition,
+    allQualificationLabel.options
+  )
+  const isQueryOver = useMemo(
+    () =>
+      !isQueryLoading(restPapers) &&
+      hasQueryBeenLoaded(restPapers) &&
+      !hasMorePapers,
+    [hasMorePapers, restPapers]
+  )
 
-  return (
+  const featuredPlaceholders = useMemo(
+    () =>
+      Array.isArray(allPapers) && isQueryOver
+        ? getFeaturedPlaceholders(papersDefinitions, allPapers)
+        : [],
+    [allPapers, isQueryOver, papersDefinitions]
+  )
+
+  const allPapersByCategories = useMemo(
+    () =>
+      allPapers?.length > 0 && isQueryOver
+        ? uniqBy(allPapers, 'metadata.qualification.label')
+        : [],
+    [allPapers, isQueryOver]
+  )
+
+  return isQueryOver ? (
     <>
-      {!hasPapers ? (
+      {allPapersByCategories.length === 0 ? (
         <Empty
           icon={HomeCloud}
           iconSize={'large'}
           title={t('Home.Empty.title')}
           text={t('Home.Empty.text')}
-          layout={false}
           className={'u-ph-1'}
         />
       ) : (
-        <PaperGroup />
+        <PaperGroup allPapersByCategories={allPapersByCategories} />
       )}
-      <FeaturedPlaceholdersList />
+      <FeaturedPlaceholdersList featuredPlaceholders={featuredPlaceholders} />
       <PapersFab />
     </>
+  ) : (
+    <Spinner
+      size="xxlarge"
+      className="u-flex u-flex-justify-center u-mt-2 u-h-5"
+    />
   )
 }
 
-Home.propTypes = {
-  hasPapers: PropTypes.bool.isRequired
-}
-
-export default React.memo(Home)
+export default Home
