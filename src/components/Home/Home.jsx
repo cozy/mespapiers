@@ -21,10 +21,13 @@ const Home = () => {
     () => getAllQualificationLabel(papersDefinitions),
     [papersDefinitions]
   )
-  const { data: allPapers, hasMore: hasMorePapers, ...restPapers } = useQuery(
-    allQualificationLabel.definition,
-    allQualificationLabel.options
-  )
+  const {
+    data: allPapers,
+    hasMore: hasMorePapers,
+    fetchMore: fetchMorePapers,
+    ...restPapers
+  } = useQuery(allQualificationLabel.definition, allQualificationLabel.options)
+
   const isQueryOver = useMemo(
     () =>
       !isQueryLoading(restPapers) &&
@@ -32,6 +35,8 @@ const Home = () => {
       !hasMorePapers,
     [hasMorePapers, restPapers]
   )
+
+  if (hasMorePapers) fetchMorePapers()
 
   const featuredPlaceholders = useMemo(
     () =>
