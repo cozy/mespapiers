@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core/styles'
 
 import { CozyProvider } from 'cozy-client'
+import { WebviewIntentProvider } from 'cozy-intent'
 import { I18n } from 'cozy-ui/transpiled/react/I18n'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
@@ -44,15 +45,17 @@ const init = () => {
           <ScannerI18nProvider lang={lang}>
             <MuiCozyTheme>
               <BreakpointsProvider>
-                <PapersDefinitionsProvider>
-                  <StepperDialogProvider>
-                    <PlaceholderModalProvider>
-                      <ModalProvider>
-                        <App />
-                      </ModalProvider>
-                    </PlaceholderModalProvider>
-                  </StepperDialogProvider>
-                </PapersDefinitionsProvider>
+                <WebviewIntentProvider>
+                  <PapersDefinitionsProvider>
+                    <StepperDialogProvider>
+                      <PlaceholderModalProvider>
+                        <ModalProvider>
+                          <App />
+                        </ModalProvider>
+                      </PlaceholderModalProvider>
+                    </StepperDialogProvider>
+                  </PapersDefinitionsProvider>
+                </WebviewIntentProvider>
               </BreakpointsProvider>
             </MuiCozyTheme>
           </ScannerI18nProvider>
