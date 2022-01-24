@@ -52,7 +52,7 @@
     "@date-io/date-fns": "1",
     "@material-ui/core": "4",
     "@material-ui/pickers": "3.3.10",
-    "cozy-client": "^27.11.0",
+    "cozy-client": "^27.13.0",
     "cozy-doctypes": "1.82.2",
     "cozy-harvest-lib": "6.4.0",
     "cozy-intent": "^1.1.2",
