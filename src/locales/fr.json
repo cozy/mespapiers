@@ -217,6 +217,11 @@
     "title": "Nouveau papier%{name}"
   },
   "Scan": {
+    "modal": {
+      "cozySelect": "Sélectionner dans mon Cozy",
+      "deviceSelect": "Importer depuis mon téléphone",
+      "validFileType": "Format acceptés : image ou pdf"
+    },
     "takePic": "Prendre en photo",
     "useExistingPic": "Utiliser une photo existante",
     "selectPic": "Sélectionner une photo existante"
