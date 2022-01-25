@@ -12,6 +12,7 @@ import Icon, { iconPropType } from 'cozy-ui/transpiled/react/Icon'
 import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
+import PhoneUpload from 'cozy-ui/transpiled/react/Icons/PhoneUpload'
 import { ActionMenuHeader } from 'cozy-ui/transpiled/react/ActionMenu'
 import { Media, Img, Bd } from 'cozy-ui/transpiled/react/Media'
 
@@ -19,7 +20,6 @@ import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { usePlaceholderModal } from 'src/components/Hooks/usePlaceholderModal'
 import Konnector from 'src/assets/icons/Konnectors.svg'
-import PhoneUpload from 'src/assets/icons/PhoneUpload.svg'
 
 const ImportDropdown = ({ label, icon, hasSteps }) => {
   const { t } = useI18n()
