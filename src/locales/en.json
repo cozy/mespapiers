@@ -217,6 +217,11 @@
     "title": "New paper%{name}"
   },
   "Scan": {
+    "modal": {
+      "cozySelect": "Select from my cozy",
+      "deviceSelect": "Import from my device",
+      "validFileType": "Accepted formats: image or pdf"
+    },
     "selectPic": "Select an existing picture",
     "takePic": "Take a picture",
     "useExistingPic": "I already have a picture"
