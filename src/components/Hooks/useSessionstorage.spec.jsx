@@ -18,7 +18,7 @@ describe('useSessionstorage basic', () => {
   let App
   beforeEach(() => {
     // eslint-disable-next-line react/display-name
-    App = function() {
+    App = function () {
       const [value, set] = useSessionstorage('test-key', 'test value')
 
       return (

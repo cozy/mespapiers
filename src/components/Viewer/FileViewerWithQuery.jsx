@@ -14,12 +14,14 @@ const FilesViewerWithQuery = props => {
   const { history, match } = props
   const client = useClient()
 
-  const currentFileId = useMemo(() => get(match, 'params.fileId', null), [
-    match
-  ])
-  const buildedFilesQuery = useMemo(() => buildViewerFileQuery(currentFileId), [
-    currentFileId
-  ])
+  const currentFileId = useMemo(
+    () => get(match, 'params.fileId', null),
+    [match]
+  )
+  const buildedFilesQuery = useMemo(
+    () => buildViewerFileQuery(currentFileId),
+    [currentFileId]
+  )
   const filesQuery = useQuery(
     buildedFilesQuery.definition,
     buildedFilesQuery.options

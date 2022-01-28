@@ -20,11 +20,8 @@ const FormDataProvider = ({ children }) => {
   const client = useClient()
   const { f, t } = useI18n()
   const scannerT = useScannerI18n()
-  const {
-    currentDefinition,
-    stepperDialogTitle,
-    setIsStepperDialogOpen
-  } = useStepperDialog()
+  const { currentDefinition, stepperDialogTitle, setIsStepperDialogOpen } =
+    useStepperDialog()
   const [formData, setFormData] = useState({
     metadata: {},
     data: [],

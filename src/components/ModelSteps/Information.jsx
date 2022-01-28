@@ -75,9 +75,10 @@ const Information = ({ currentStep }) => {
     [attributes, formData.metadata]
   )
 
-  const hasMarginBottom = useCallback(idx => hasNextvalue(idx, inputs), [
-    inputs
-  ])
+  const hasMarginBottom = useCallback(
+    idx => hasNextvalue(idx, inputs),
+    [inputs]
+  )
 
   const allInputsValid = useMemo(
     () => Object.keys(validInput).every(val => validInput[val]),

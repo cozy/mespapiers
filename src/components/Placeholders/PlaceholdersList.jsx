@@ -21,9 +21,8 @@ import { findPlaceholdersByQualification } from 'src/helpers/findPlaceholders'
 import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 
 const PlaceholdersList = ({ currentQualifItems }) => {
-  const [isImportDropdownDisplayed, setIsImportDropdownDisplayed] = useState(
-    false
-  )
+  const [isImportDropdownDisplayed, setIsImportDropdownDisplayed] =
+    useState(false)
   const [placeholderSelected, setPlaceholderSelected] = useState(null)
   const { papersDefinitions } = usePapersDefinitions()
 

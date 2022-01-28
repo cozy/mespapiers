@@ -3,9 +3,8 @@ import React, { createContext, useState } from 'react'
 const PlaceholderModalContext = createContext()
 
 const PlaceholderModalProvider = ({ children }) => {
-  const [showPlaceholderThemesList, setShowPlaceholderThemesList] = useState(
-    false
-  )
+  const [showPlaceholderThemesList, setShowPlaceholderThemesList] =
+    useState(false)
 
   return (
     <PlaceholderModalContext.Provider

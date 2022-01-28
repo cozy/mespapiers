@@ -24,10 +24,8 @@ export const PapersFab = () => {
   const { isDesktop } = useBreakpoints()
   const classes = useStyles(isDesktop)
 
-  const {
-    showPlaceholderThemesList,
-    setShowPlaceholderThemesList
-  } = usePlaceholderModal()
+  const { showPlaceholderThemesList, setShowPlaceholderThemesList } =
+    usePlaceholderModal()
 
   return (
     <>

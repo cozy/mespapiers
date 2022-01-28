@@ -11,9 +11,10 @@ const prefix = `Scan`
 const ScannerI18nProvider = ({ lang, children }) => {
   const scannerI18n = getBoundT(lang)
 
-  const scannerT = React.useCallback(key => scannerI18n(`${prefix}.${key}`), [
-    scannerI18n
-  ])
+  const scannerT = React.useCallback(
+    key => scannerI18n(`${prefix}.${key}`),
+    [scannerI18n]
+  )
 
   return (
     <ScannerI18nContext.Provider value={scannerT}>

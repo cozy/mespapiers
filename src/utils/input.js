@@ -22,8 +22,12 @@ import log from 'cozy-logger'
  * @returns {{ inputType: string, expectedLength: { min: number, max: number }, isRequired: boolean }}
  */
 export const makeConstraintsOfInput = attrs => {
-  const { type = '', required = false, minLength = 0, maxLength = 0 } =
-    attrs || {}
+  const {
+    type = '',
+    required = false,
+    minLength = 0,
+    maxLength = 0
+  } = attrs || {}
 
   const acceptedTypes = ['number', 'text']
 
@@ -39,9 +43,7 @@ export const makeConstraintsOfInput = attrs => {
   if (!acceptedTypes.includes(type.toLowerCase())) {
     log(
       'warn',
-      `'type' in 'attributes' property is not defined or unexpected, 'type' set to ${
-        acceptedTypes[1]
-      } by default'`
+      `'type' in 'attributes' property is not defined or unexpected, 'type' set to ${acceptedTypes[1]} by default'`
     )
     result.inputType = acceptedTypes[1]
   } else result.inputType = type
