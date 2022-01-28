@@ -55,7 +55,7 @@
     "cozy-device-helper": "^1.16.0",
     "cozy-doctypes": "^1.83.3",
     "cozy-harvest-lib": "^7.1.1",
-    "cozy-intent": "^1.1.2",
+    "cozy-intent": "^1.5.0",
     "cozy-realtime": "^4.0.2",
     "cozy-scripts": "^6.1.1",
     "cozy-sharing": "^4.0.2",
