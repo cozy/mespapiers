@@ -57,7 +57,7 @@
     "cozy-doctypes": "^1.83.3",
     "cozy-harvest-lib": "^7.1.1",
     "cozy-intent": "^1.1.2",
-    "cozy-realtime": "3.13.1",
+    "cozy-realtime": "^4.0.2",
     "cozy-scripts": "5.10.0",
     "cozy-sharing": "3.5.0",
     "cozy-ui": "^60.9.1",
