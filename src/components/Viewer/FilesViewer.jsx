@@ -38,22 +38,21 @@ const FilesViewer = ({ filesQuery, files, fileId, onClose, onChange }) => {
     [onChange]
   )
 
-  const currentIndex = useMemo(() => files.findIndex(f => f.id === fileId), [
-    files,
-    fileId
-  ])
+  const currentIndex = useMemo(
+    () => files.findIndex(f => f.id === fileId),
+    [files, fileId]
+  )
   const hasCurrentIndex = useMemo(() => currentIndex != -1, [currentIndex])
 
-  const viewerFiles = useMemo(() => (hasCurrentIndex ? files : [currentFile]), [
-    hasCurrentIndex,
-    files,
-    currentFile
-  ])
+  const viewerFiles = useMemo(
+    () => (hasCurrentIndex ? files : [currentFile]),
+    [hasCurrentIndex, files, currentFile]
+  )
 
-  const viewerIndex = useMemo(() => (hasCurrentIndex ? currentIndex : 0), [
-    hasCurrentIndex,
-    currentIndex
-  ])
+  const viewerIndex = useMemo(
+    () => (hasCurrentIndex ? currentIndex : 0),
+    [hasCurrentIndex, currentIndex]
+  )
 
   useEffect(() => {
     styleStatusBar(true)

@@ -17,23 +17,20 @@ export const buildPapersDefinitions = (papersDefList, scannerT) => {
       : 0
   )
 
-  const [
-    papersUsedList,
-    papersUnUsedList,
-    otherPaperList
-  ] = papersDefListSorted.reduce(
-    ([used, unUsed, other], currentPaperDef) => {
-      if (/other_/i.test(currentPaperDef.label)) {
-        return [used, unUsed, [...other, currentPaperDef]]
-      }
+  const [papersUsedList, papersUnUsedList, otherPaperList] =
+    papersDefListSorted.reduce(
+      ([used, unUsed, other], currentPaperDef) => {
+        if (/other_/i.test(currentPaperDef.label)) {
+          return [used, unUsed, [...other, currentPaperDef]]
+        }
 
-      return currentPaperDef.acquisitionSteps.length > 0 ||
-        currentPaperDef.connectorCriteria
-        ? [[...used, currentPaperDef], unUsed, other]
-        : [used, [...unUsed, currentPaperDef], other]
-    },
-    [[], [], []]
-  )
+        return currentPaperDef.acquisitionSteps.length > 0 ||
+          currentPaperDef.connectorCriteria
+          ? [[...used, currentPaperDef], unUsed, other]
+          : [used, [...unUsed, currentPaperDef], other]
+      },
+      [[], [], []]
+    )
 
   return [...papersUsedList, ...otherPaperList, ...papersUnUsedList]
 }

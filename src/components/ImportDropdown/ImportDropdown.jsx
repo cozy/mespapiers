@@ -27,11 +27,8 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
   const scannerT = useScannerI18n()
 
   const { setShowPlaceholderThemesList } = usePlaceholderModal()
-  const {
-    currentDefinition,
-    setIsStepperDialogOpen,
-    setAlreadyScan
-  } = useStepperDialog()
+  const { currentDefinition, setIsStepperDialogOpen, setAlreadyScan } =
+    useStepperDialog()
   const konnectorCategory = currentDefinition?.connectorCriteria?.category
   const konnectorName = currentDefinition?.connectorCriteria?.name
 

@@ -30,11 +30,8 @@ const PapersDefinitionsProvider = ({ children }) => {
   useEffect(() => {
     ;(async () => {
       if (customPapersDefinitionsFlag) {
-        const {
-          paperConfigFilenameCustom,
-          appFolderPath,
-          file
-        } = await fetchCustomPaperDefinitions(client, t)
+        const { paperConfigFilenameCustom, appFolderPath, file } =
+          await fetchCustomPaperDefinitions(client, t)
         const data = await fetchContentFileToJson(client, file)
 
         if (data) {

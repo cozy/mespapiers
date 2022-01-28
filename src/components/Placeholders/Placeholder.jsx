@@ -28,9 +28,10 @@ const AllPlaceholdersChoices = ({
 }) => {
   const scannerT = useScannerI18n()
   const { papersDefinitions } = usePapersDefinitions()
-  const hasDivider = useCallback(idx => hasNextvalue(idx, papersDefinitions), [
-    papersDefinitions
-  ])
+  const hasDivider = useCallback(
+    idx => hasNextvalue(idx, papersDefinitions),
+    [papersDefinitions]
+  )
 
   return (
     <ActionMenu onClose={hideAllPapersChoices}>
@@ -88,9 +89,8 @@ const Placeholder = ({ placeholder, divider }) => {
   const scannerT = useScannerI18n()
   const actionBtnRef = useRef()
   const { papersDefinitions } = usePapersDefinitions()
-  const [isImportDropdownDisplayed, setIsImportDropdownDisplayed] = useState(
-    false
-  )
+  const [isImportDropdownDisplayed, setIsImportDropdownDisplayed] =
+    useState(false)
   const [isPapersLabelsList, setIsPapersLabelsList] = useState(false)
   const { setCurrentDefinition } = useStepperDialog()
   const formModel = useMemo(() => {
@@ -137,9 +137,10 @@ const Placeholder = ({ placeholder, divider }) => {
     return scannerT(`items.${placeholder.label}`)
   }, [isOtherPaper, placeholder.label, scannerT, t])
 
-  const hasSteps = useMemo(() => placeholder?.acquisitionSteps.length > 0, [
-    placeholder.acquisitionSteps.length
-  ])
+  const hasSteps = useMemo(
+    () => placeholder?.acquisitionSteps.length > 0,
+    [placeholder.acquisitionSteps.length]
+  )
 
   return (
     <>

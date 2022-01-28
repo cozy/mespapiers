@@ -25,9 +25,8 @@ const StepperDialogProvider = ({ children }) => {
       setStepperDialogTitle(currentDefinition.label)
       const allCurrentStepsDefinitions = currentDefinition.acquisitionSteps
       if (allCurrentStepsDefinitions.length > 0) {
-        const allCurrentStepsDefinitionsSorted = allCurrentStepsDefinitions.sort(
-          (a, b) => a.stepIndex - b.stepIndex
-        )
+        const allCurrentStepsDefinitionsSorted =
+          allCurrentStepsDefinitions.sort((a, b) => a.stepIndex - b.stepIndex)
 
         // TODO START - Just needed for Beta.4
         const clearTempOwner = allCurrentStepsDefinitionsSorted.filter(
