@@ -54,7 +54,7 @@
     "@material-ui/pickers": "3.3.10",
     "cozy-client": "^27.14.2",
     "cozy-device-helper": "^1.16.0",
-    "cozy-doctypes": "1.82.2",
+    "cozy-doctypes": "^1.83.3",
     "cozy-harvest-lib": "6.4.0",
     "cozy-intent": "^1.1.2",
     "cozy-realtime": "3.13.1",
