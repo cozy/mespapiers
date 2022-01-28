@@ -55,7 +55,7 @@
     "cozy-client": "^27.14.2",
     "cozy-device-helper": "^1.16.0",
     "cozy-doctypes": "^1.83.3",
-    "cozy-harvest-lib": "6.4.0",
+    "cozy-harvest-lib": "^7.1.1",
     "cozy-intent": "^1.1.2",
     "cozy-realtime": "3.13.1",
     "cozy-scripts": "5.10.0",
