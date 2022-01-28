@@ -4710,13 +4710,6 @@ cozy-client@^27.14.2:
     sift "^6.0.0"
     url-search-params-polyfill "^8.0.0"
 
-cozy-device-helper@1.16.0, cozy-device-helper@^1.16.0:
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/cozy-device-helper/-/cozy-device-helper-1.16.0.tgz#76f124724b340cac222d33789787e3c841f4b123"
-  integrity sha512-VcHkceUaYT79wu0wiYR8BrcTloVqY+GrLMGgJAFPdH1d8r3Vzcs3v/juor77TTOPcYEWuG702U93kx1u5rXpCg==
-  dependencies:
-    lodash "^4.17.19"
-
 cozy-device-helper@1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/cozy-device-helper/-/cozy-device-helper-1.8.0.tgz#17b41d0ea28a504b906669a43449952e72615abb"
@@ -4728,6 +4721,13 @@ cozy-device-helper@^1.12.0, cozy-device-helper@^1.7.3:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/cozy-device-helper/-/cozy-device-helper-1.12.0.tgz#619a24b0d3caf2d3f616a1524daef7c7b71eab7a"
   integrity sha512-7pFbltgkD8rSO0PEf8pd6aBB37RUnNYH7fb3pkbcvo5rk4quCfSLREV94gZwXxowzP4vjZcAumTM09DfI42mJA==
+  dependencies:
+    lodash "^4.17.19"
+
+cozy-device-helper@^1.16.0:
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/cozy-device-helper/-/cozy-device-helper-1.16.0.tgz#76f124724b340cac222d33789787e3c841f4b123"
+  integrity sha512-VcHkceUaYT79wu0wiYR8BrcTloVqY+GrLMGgJAFPdH1d8r3Vzcs3v/juor77TTOPcYEWuG702U93kx1u5rXpCg==
   dependencies:
     lodash "^4.17.19"
 
@@ -4775,12 +4775,12 @@ cozy-harvest-lib@^7.1.1:
     react-markdown "^4.2.2"
     uuid "^3.3.2"
 
-cozy-intent@^1.1.2:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-1.3.1.tgz#ac5b72f55e570ec49827aa76438d41c7fba26247"
-  integrity sha512-jvmbuiiC8cMNpQ421997JqpibLo5qGW5Y9bXtQDs6cr8HYC0ElJG3ZUCpNECwfNjR7BawnzRLJag9w4laz7kWQ==
+cozy-intent@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-1.5.0.tgz#c4423fa81946484cb2d32da4523c5e052a174b28"
+  integrity sha512-yvQ8TwwmDUuwT63T7/DcmLbXdrnMvDKJorY1js8eboR9oG9vQsFHvXs0lndXIqu26WOtAB6DCC+2prwYh8M7NQ==
   dependencies:
-    cozy-device-helper "1.16.0"
+    cozy-device-helper "^1.16.1"
     post-me "0.4.5"
 
 cozy-interapp@0.4.9:
