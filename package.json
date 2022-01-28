@@ -59,7 +59,7 @@
     "cozy-intent": "^1.1.2",
     "cozy-realtime": "^4.0.2",
     "cozy-scripts": "^6.1.1",
-    "cozy-sharing": "3.5.0",
+    "cozy-sharing": "^4.0.2",
     "cozy-ui": "^60.9.1",
     "date-fns": "2.23.0",
     "mui-bottom-sheet": "https://github.com/cozy/mui-bottom-sheet.git#v1.0.6",
