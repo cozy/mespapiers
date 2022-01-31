@@ -47,6 +47,12 @@
     "administrative": "Administrative",
     "papers": "My papers"
   },
+  "ConfirmReplaceFile": {
+    "content": "Would you like to move the file from your Cozy that was used to build this paper to the trash? |||| Would you like to move the files from your Cozy that was used to build this paper to the trash?",
+    "no": "No",
+    "title": "Replace file? |||| Replace files?",
+    "yes": "Yes"
+  },
   "ContactStep": {
     "me": "Me",
     "onLoad": "Document generation",

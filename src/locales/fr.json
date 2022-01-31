@@ -47,6 +47,12 @@
     "administrative": "Administratif",
     "papers": "Mes papiers"
   },
+  "ConfirmReplaceFile": {
+    "content": "Souhaitez-vous déplacer dans la corbeille le fichier de votre Cozy ayant servi à construire ce papier ? |||| Souhaitez-vous déplacer dans la corbeille les fichiers de votre Cozy ayant servi à construire ce papier ?",
+    "no": "Non",
+    "title": "Remplacer le fichier ? |||| Remplacer les fichiers ?",
+    "yes": "Oui"
+  },
   "ContactStep": {
     "me": "Moi",
     "onLoad": "Génération du document",
