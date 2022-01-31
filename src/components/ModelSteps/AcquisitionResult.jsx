@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, memo } from 'react'
 import PropTypes from 'prop-types'
 
 import Card from 'cozy-ui/transpiled/react/Card'
@@ -122,4 +122,4 @@ AcquisitionResult.propTypes = {
   currentStep: PaperDefinitionsStepPropTypes
 }
 
-export default AcquisitionResult
+export default memo(AcquisitionResult)

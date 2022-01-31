@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, memo } from 'react'
 
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import { useClient, models } from 'cozy-client'
@@ -21,6 +21,8 @@ import { useFormData } from 'src/components/Hooks/useFormData'
 import { useSessionstorage } from 'src/components/Hooks/useSessionstorage'
 import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
+import ConfirmReplaceFile from './widgets/ConfirmReplaceFile'
+import { FILES_DOCTYPE } from 'src/doctypes'
 
 const { getFullname } = models.contact
 
@@ -135,14 +137,35 @@ const Contact = () => {
 
 const ContactWrapper = ({ currentStep }) => {
   const { t } = useI18n()
+  const client = useClient()
   const { illustration, text } = currentStep
-  const { formSubmit } = useFormData()
+  const { formSubmit, formData } = useFormData()
   const [onLoad, setOnLoad] = useState(false)
+  const [confirmReplaceFileModal, setConfirmReplaceFileModal] = useState(false)
 
-  const submit = () => {
+  const cozyFiles = formData.data.filter(d => d.file.constructor === Blob)
+
+  const closeConfirmReplaceFileModal = () => setConfirmReplaceFileModal(false)
+  const openConfirmReplaceFileModal = () => setConfirmReplaceFileModal(true)
+
+  const submit = useCallback(() => {
     setOnLoad(true)
     formSubmit()
-  }
+  }, [formSubmit])
+
+  const onClickReplace = useCallback(
+    isFileReplaced => {
+      ;(async () => {
+        if (isFileReplaced) {
+          for (const { file } of cozyFiles) {
+            await client.destroy({ _id: file.id, _type: FILES_DOCTYPE })
+          }
+        }
+        submit()
+      })()
+    },
+    [client, cozyFiles, submit]
+  )
 
   return (
     <>
@@ -157,13 +180,21 @@ const ContactWrapper = ({ currentStep }) => {
           className="u-db"
           extension="full"
           label={t(!onLoad ? 'ContactStep.save' : 'ContactStep.onLoad')}
-          onClick={submit}
+          onClick={cozyFiles.length > 0 ? openConfirmReplaceFileModal : submit}
           disabled={onLoad}
           busy={onLoad}
         />
       </DialogActions>
+
+      {confirmReplaceFileModal && (
+        <ConfirmReplaceFile
+          onClose={closeConfirmReplaceFileModal}
+          onReplace={onClickReplace}
+          cozyFilesCount={cozyFiles.length}
+        />
+      )}
     </>
   )
 }
 
-export default ContactWrapper
+export default memo(ContactWrapper)

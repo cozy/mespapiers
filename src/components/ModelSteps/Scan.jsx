@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, memo, useCallback } from 'react'
 
 import { useClient, models } from 'cozy-client'
 import ActionMenu from 'cozy-ui/transpiled/react/ActionMenu'
@@ -21,6 +21,7 @@ import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import AcquisitionResult from 'src/components/ModelSteps/AcquisitionResult'
 import IlluGenericNewPage from 'src/assets/icons/IlluGenericNewPage.svg'
+import { makeBlobWithCustomAttrs } from 'src/helpers/makeBlobWithCustomAttrs'
 
 const { fetchBlobFileById } = models.file
 
@@ -40,21 +41,22 @@ const Scan = ({ currentStep }) => {
   const { alreadyScan } = useStepperDialog()
 
   const [isFilePickerModalOpen, setIsFilePickerModalOpen] = useState(false)
-  const [fileId, setFileId] = useState('')
-  const [isImportFileModalOpen, setIsImportFileModalOpen] = useState(false)
+  const [cozyFileId, setCozyFileId] = useState('')
+  const [isImportChoiceMethodOpen, setIsImportChoiceMethodOpen] =
+    useState(false)
 
-  const closeImportFileModal = () => setIsImportFileModalOpen(false)
+  const closeImportFileModal = () => setIsImportChoiceMethodOpen(false)
 
   const onClickExistingFileBtn = () => {
-    setIsImportFileModalOpen(true)
+    setIsImportChoiceMethodOpen(true)
   }
 
-  const onFileChange = file => {
+  const onChangeFile = useCallback(file => {
     if (file) {
       setFile(file)
-      setIsImportFileModalOpen(false)
+      setIsImportChoiceMethodOpen(false)
     }
-  }
+  }, [])
 
   const openFilePickerModal = () => {
     setIsFilePickerModalOpen(true)
@@ -62,15 +64,18 @@ const Scan = ({ currentStep }) => {
   const closeFilePickerModal = () => setIsFilePickerModalOpen(false)
 
   const onChangeFilePicker = fileId => {
-    setFileId(fileId)
+    setCozyFileId(fileId)
   }
 
   useEffect(() => {
     ;(async () => {
-      if (fileId) {
-        const blobFile = await fetchBlobFileById(client, fileId)
+      if (cozyFileId) {
+        const blobFile = await fetchBlobFileById(client, cozyFileId)
         if (validFileType(blobFile)) {
-          setFile(blobFile)
+          const blobFileCustom = makeBlobWithCustomAttrs(blobFile, {
+            id: cozyFileId
+          })
+          onChangeFile(blobFileCustom)
         } else {
           Alerter.error('Scan.modal.validFileType', {
             duration: 3000
@@ -78,7 +83,7 @@ const Scan = ({ currentStep }) => {
         }
       }
     })()
-  }, [client, fileId])
+  }, [client, cozyFileId, onChangeFile])
 
   return file ? (
     <AcquisitionResult
@@ -107,7 +112,7 @@ const Scan = ({ currentStep }) => {
               label={t('Scan.useExistingPic')}
             />
             <FileInput
-              onChange={onFileChange}
+              onChange={onChangeFile}
               className={'u-w-100 u-ta-center u-mb-half u-ml-0'}
               onClick={e => e.stopPropagation()}
               capture={'environment'}
@@ -123,7 +128,7 @@ const Scan = ({ currentStep }) => {
         ) : (
           <>
             <FileInput
-              onChange={onFileChange}
+              onChange={onChangeFile}
               className={'u-w-100 u-ta-center'}
               onClick={e => e.stopPropagation()}
               capture={'environment'}
@@ -145,7 +150,7 @@ const Scan = ({ currentStep }) => {
         )}
       </DialogActions>
 
-      {isImportFileModalOpen && (
+      {isImportChoiceMethodOpen && (
         <ActionMenu onClose={closeImportFileModal} anchorElRef={actionBtnRef}>
           <List>
             <ListItem onClick={openFilePickerModal}>
@@ -161,7 +166,7 @@ const Scan = ({ currentStep }) => {
                 <Icon icon={PhoneUpload} size={16} />
               </ListItemIcon>
               <FileInput
-                onChange={onFileChange}
+                onChange={onChangeFile}
                 className={'u-w-100 u-mb-half u-ml-0'}
                 onClick={e => e.stopPropagation()}
                 accept={'image/*,.pdf'}
@@ -189,4 +194,4 @@ const Scan = ({ currentStep }) => {
   )
 }
 
-export default Scan
+export default memo(Scan)
