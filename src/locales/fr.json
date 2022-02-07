@@ -48,10 +48,11 @@
     "papers": "Mes papiers"
   },
   "ConfirmReplaceFile": {
-    "content": "Souhaitez-vous déplacer dans la corbeille le fichier de votre Cozy ayant servi à construire ce papier ? |||| Souhaitez-vous déplacer dans la corbeille les fichiers de votre Cozy ayant servi à construire ce papier ?",
-    "no": "Non",
-    "title": "Remplacer le fichier ? |||| Remplacer les fichiers ?",
-    "yes": "Oui"
+    "content": "Votre nouveau document sera rangé dans le dossier <b>Drive/Administratif/Mes Papiers</b>.",
+    "question": "Souhaitez-vous conserver le fichier original de votre drive ayant servi à générer le document ? |||| Souhaitez-vous conserver les fichiers originaux de votre drive ayant servi à générer le document ?",
+    "keep": "Conserver",
+    "title": "Conserver le fichier original ? |||| Conserver les fichiers originaux ?",
+    "replace": "Non, merci"
   },
   "ContactStep": {
     "me": "Moi",

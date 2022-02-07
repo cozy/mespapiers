@@ -48,10 +48,11 @@
     "papers": "My papers"
   },
   "ConfirmReplaceFile": {
-    "content": "Would you like to move the file from your Cozy that was used to build this paper to the trash? |||| Would you like to move the files from your Cozy that was used to build this paper to the trash?",
-    "no": "No",
-    "title": "Replace file? |||| Replace files?",
-    "yes": "Yes"
+    "content": "Your new document will be stored in the <b>Drive/Administratif/My Papers</b> folder.",
+    "question": "Do you want to keep the original file from your drive that were used to generate the document? |||| Do you want to keep the original files from your drive that were used to generate the document?",
+    "keep": "Keep",
+    "title": "Keep the original file? |||| Keep the original files?",
+    "replace": "No, thanks"
   },
   "ContactStep": {
     "me": "Me",

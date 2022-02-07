@@ -25,23 +25,31 @@ const ConfirmReplaceFile = ({ onReplace, onClose, cozyFilesCount }) => {
         smart_count: cozyFilesCount
       })}
       content={
-        <Typography variant={'body1'}>
-          {t('ConfirmReplaceFile.content', {
-            smart_count: cozyFilesCount
-          })}
-        </Typography>
+        <>
+          <Typography
+            variant={'body1'}
+            dangerouslySetInnerHTML={{
+              __html: t('ConfirmReplaceFile.content')
+            }}
+          />
+          <Typography variant={'body1'}>
+            {t('ConfirmReplaceFile.question', {
+              smart_count: cozyFilesCount
+            })}
+          </Typography>
+        </>
       }
       actions={
         <>
           <Button
             theme="secondary"
             onClick={onClickReplace(false)}
-            label={t('ConfirmReplaceFile.no')}
+            label={t('ConfirmReplaceFile.keep')}
           />
           <Button
-            theme="danger"
+            theme="primary"
             onClick={onClickReplace(true)}
-            label={t('ConfirmReplaceFile.yes')}
+            label={t('ConfirmReplaceFile.replace')}
           />
         </>
       }
