@@ -48,8 +48,8 @@
     "papers": "My papers"
   },
   "ConfirmReplaceFile": {
-    "content": "Your new document will be stored in the <b>Drive/Administratif/My Papers</b> folder.",
-    "question": "Do you want to keep the original file from your drive that were used to generate the document? |||| Do you want to keep the original files from your drive that were used to generate the document?",
+    "content": "Your new document will be stored in the <b>Drive/Administrative/My Papers</b> folder.",
+    "question": "Do you want to keep the original file from your drive that was used to generate the document? |||| Do you want to keep the original files from your drive that were used to generate the document?",
     "keep": "Keep",
     "title": "Keep the original file? |||| Keep the original files?",
     "replace": "No, thanks"
@@ -83,16 +83,12 @@
   },
   "ImportDropdown": {
     "importAuto": {
-      "text": "Connect your energy or telecom services to your Cozy to get your bills. Your supporting documents will be updated automatically",
+      "text": "Retrieve this document from its website, your paper will then be kept updated automatically",
       "title": "Auto import"
     },
-    "importPicture": {
-      "text": "Import a document from my mobile device",
-      "title": "Use an existing picture"
-    },
     "scanPicture": {
-      "title": "Scan with my camera",
-      "text": "Scan a document with your mobile device"
+      "text": "Use your camera or an existing document",
+      "title": "Take or select pictures"
     },
     "title": "Add: %{name}"
   },
@@ -224,14 +220,13 @@
     "title": "New paper%{name}"
   },
   "Scan": {
+    "divider": "or",
+    "importPic": "Import from my phone",
     "modal": {
-      "cozySelect": "Select from my cozy",
-      "deviceSelect": "Import from my device",
       "validFileType": "Accepted formats: image or pdf"
     },
-    "selectPic": "Select an existing picture",
-    "takePic": "Take a picture",
-    "useExistingPic": "I already have a picture"
+    "selectPicFromCozy": "Select from my Cozy",
+    "takePic": "Take a picture"
   },
   "viewer": {
     "shareData": {

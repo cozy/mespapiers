@@ -37,7 +37,6 @@ describe('ImportDropdown components:', () => {
 
     expect(getByText('Add: ID card'))
     expect(getByText('Auto import'))
-    expect(getByText('Scan with my camera'))
   })
 
   it('should display correct menu for Passeport', () => {
@@ -46,6 +45,5 @@ describe('ImportDropdown components:', () => {
 
     expect(getByText('Add: Passport'))
     expect(getByText('Auto import'))
-    expect(getByText('Scan with my camera'))
   })
 })

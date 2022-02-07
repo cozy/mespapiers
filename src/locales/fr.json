@@ -83,16 +83,12 @@
   },
   "ImportDropdown": {
     "importAuto": {
-      "text": "Connectez vos services d’énergie ou de telecom à votre Cozy pour récupérer vos factures. Vos justificatifs seront mis à jour automatiquement",
+      "text": "Récupérer ce document grâce à son site internet, votre papier sera ensuite maintenu à jour automatiquement",
       "title": "Importer automatiquement"
     },
-    "importPicture": {
-      "text": "Importer un document depuis mon téléphone",
-      "title": "Utiliser une photo existante"
-    },
     "scanPicture": {
-      "text": "Scanner un document avec votre téléphone",
-      "title": "Scanner avec mon appareil photo"
+      "text": "Utiliser votre appareil photo ou un document existant",
+      "title": "Prendre ou sélectionner des photos"
     },
     "title": "Ajout : %{name}"
   },
@@ -224,14 +220,13 @@
     "title": "Nouveau papier%{name}"
   },
   "Scan": {
+    "divider": "ou",
+    "importPic": "Importer depuis mon téléphone",
     "modal": {
-      "cozySelect": "Sélectionner dans mon Cozy",
-      "deviceSelect": "Importer depuis mon téléphone",
       "validFileType": "Format acceptés : image ou pdf"
     },
-    "takePic": "Prendre en photo",
-    "useExistingPic": "Utiliser une photo existante",
-    "selectPic": "Sélectionner une photo existante"
+    "selectPicFromCozy": "Sélectionner dans mon Cozy",
+    "takePic": "Prendre en photo"
   },
   "viewer": {
     "shareData": {

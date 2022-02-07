@@ -5,7 +5,6 @@ const StepperDialogContext = createContext()
 const StepperDialogProvider = ({ children }) => {
   const [isStepperDialogOpen, setIsStepperDialogOpen] = useState(undefined)
   const [stepperDialogTitle, setStepperDialogTitle] = useState('')
-  const [alreadyScan, setAlreadyScan] = useState(true)
 
   const [allCurrentSteps, setAllCurrentSteps] = useState([])
   const [currentStepIndex, setCurrentStepIndex] = useState(1)
@@ -69,14 +68,12 @@ const StepperDialogProvider = ({ children }) => {
       currentStepIndex,
       stepperDialogTitle,
       currentDefinition,
-      alreadyScan,
       setIsStepperDialogOpen,
       setCurrentStepIndex,
       setCurrentDefinition,
       setStepperDialogTitle,
       previousStep,
-      nextStep,
-      setAlreadyScan
+      nextStep
     }),
     [
       isStepperDialogOpen,
@@ -84,7 +81,6 @@ const StepperDialogProvider = ({ children }) => {
       currentStepIndex,
       stepperDialogTitle,
       currentDefinition,
-      alreadyScan,
       previousStep,
       nextStep
     ]
