@@ -12,7 +12,6 @@ import Icon, { iconPropType } from 'cozy-ui/transpiled/react/Icon'
 import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
-import PhoneUpload from 'cozy-ui/transpiled/react/Icons/PhoneUpload'
 import { ActionMenuHeader } from 'cozy-ui/transpiled/react/ActionMenu'
 import { Media, Img, Bd } from 'cozy-ui/transpiled/react/Media'
 
@@ -27,8 +26,7 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
   const scannerT = useScannerI18n()
 
   const { setShowPlaceholderThemesList } = usePlaceholderModal()
-  const { currentDefinition, setIsStepperDialogOpen, setAlreadyScan } =
-    useStepperDialog()
+  const { currentDefinition, setIsStepperDialogOpen } = useStepperDialog()
   const konnectorCategory = currentDefinition?.connectorCriteria?.category
   const konnectorName = currentDefinition?.connectorCriteria?.name
 
@@ -47,21 +45,12 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
     window.open(webLink, '_blank')
   }
 
-  const handleClick = useCallback(
-    ({ alreadyScan }) => {
-      if (hasSteps) {
-        setShowPlaceholderThemesList(false)
-        setIsStepperDialogOpen(true)
-        setAlreadyScan(alreadyScan)
-      }
-    },
-    [
-      hasSteps,
-      setAlreadyScan,
-      setIsStepperDialogOpen,
-      setShowPlaceholderThemesList
-    ]
-  )
+  const handleClick = useCallback(() => {
+    if (hasSteps) {
+      setShowPlaceholderThemesList(false)
+      setIsStepperDialogOpen(true)
+    }
+  }, [hasSteps, setIsStepperDialogOpen, setShowPlaceholderThemesList])
 
   return (
     <>
@@ -91,29 +80,13 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
         </Media>
       </ActionMenuHeader>
       <List className={'u-mv-half'}>
-        <ListItem
-          onClick={() => handleClick({ alreadyScan: false })}
-          disabled={!hasSteps}
-        >
+        <ListItem onClick={handleClick} disabled={!hasSteps}>
           <ListItemIcon>
             <Icon icon={Camera} size={16} />
           </ListItemIcon>
           <ListItemText
             primary={t('ImportDropdown.scanPicture.title')}
             secondary={t('ImportDropdown.scanPicture.text')}
-            ellipsis={false}
-          />
-        </ListItem>
-        <ListItem
-          onClick={() => handleClick({ alreadyScan: true })}
-          disabled={!hasSteps}
-        >
-          <ListItemIcon>
-            <Icon icon={PhoneUpload} size={16} />
-          </ListItemIcon>
-          <ListItemText
-            primary={t('ImportDropdown.importPicture.title')}
-            secondary={t('ImportDropdown.importPicture.text')}
             ellipsis={false}
           />
         </ListItem>
