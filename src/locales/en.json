@@ -221,7 +221,7 @@
   },
   "Scan": {
     "divider": "or",
-    "importPic": "Import from my phone",
+    "importPic": "Select from my phone",
     "modal": {
       "validFileType": "Accepted formats: image or pdf"
     },
