@@ -5,7 +5,7 @@ import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 import { AppLayout } from 'src/components/AppLayout'
 import { AppRouter } from 'src/components/AppRouter'
-import StepperDialogWrapper from 'src/components/StepperDialogWrapper/StepperDialogWrapper'
+import StepperDialogWrapper from 'src/components/StepperDialog/StepperDialogWrapper'
 import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
