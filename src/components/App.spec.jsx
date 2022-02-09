@@ -11,10 +11,9 @@ jest.mock('src/components/Contexts/FormDataProvider', () => ({
     <div data-testid="FormDataProvider">{children}</div>
   )
 }))
-jest.mock(
-  'src/components/StepperDialogWrapper/StepperDialogWrapper',
-  () => () => <div data-testid="StepperDialogWrapper" />
-)
+jest.mock('src/components/StepperDialog/StepperDialogWrapper', () => () => (
+  <div data-testid="StepperDialogWrapper" />
+))
 jest.mock('src/components/AppLayout', () => ({
   AppLayout: ({ children }) => <div data-testid="AppLayout">{children}</div>
 }))
