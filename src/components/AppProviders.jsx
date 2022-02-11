@@ -43,18 +43,18 @@ const LocalProviders = ({ lang, children }) => {
 
 export const AppProviders = ({ client, lang, polyglot, children }) => {
   return (
-    <StylesProvider generateClassName={generateClassName}>
-      <CozyProvider client={client}>
-        <I18n lang={lang} polyglot={polyglot}>
-          <MuiCozyTheme>
-            <BreakpointsProvider>
-              <WebviewIntentProvider>
+    <WebviewIntentProvider>
+      <StylesProvider generateClassName={generateClassName}>
+        <CozyProvider client={client}>
+          <I18n lang={lang} polyglot={polyglot}>
+            <MuiCozyTheme>
+              <BreakpointsProvider>
                 <LocalProviders lang={lang}>{children}</LocalProviders>
-              </WebviewIntentProvider>
-            </BreakpointsProvider>
-          </MuiCozyTheme>
-        </I18n>
-      </CozyProvider>
-    </StylesProvider>
+              </BreakpointsProvider>
+            </MuiCozyTheme>
+          </I18n>
+        </CozyProvider>
+      </StylesProvider>
+    </WebviewIntentProvider>
   )
 }

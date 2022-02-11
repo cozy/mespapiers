@@ -25,13 +25,8 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-// TODO Test and improve it & PR cozy-ui
-const StepperDialog = props => {
+const StepperDialog = ({ onClose, title, content, stepper, ...rest }) => {
   const classes = useStyles()
-  const { onClose, title, content } = props
-
-  // TODO While waiting for the update of useCozyDialog which should destruct "stepper"
-  const { stepper, ...rest } = props
   const { dialogProps, dialogTitleProps, fullScreen, id } = useCozyDialog(rest)
 
   return (
@@ -63,9 +58,9 @@ const StepperDialog = props => {
 
 StepperDialog.propTypes = {
   open: PropTypes.bool.isRequired,
-  onClose: PropTypes.func,
-  title: PropTypes.node,
-  content: PropTypes.node,
+  onClose: PropTypes.func.isRequired,
+  title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  content: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   size: PropTypes.oneOf(['small', 'medium', 'large'])
 }
 
