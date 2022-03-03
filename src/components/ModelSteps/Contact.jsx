@@ -88,6 +88,7 @@ const Contact = () => {
           <div className={'u-mah-5 u-ov-auto'}>
             {contactsList.map(contact => (
               <ListItem
+                button
                 key={contact._id}
                 onClick={() => setContactIdSelected(contact._id)}
               >
@@ -113,7 +114,7 @@ const Contact = () => {
 
           <Divider variant="inset" component="li" />
 
-          <ListItem onClick={() => setContactModalOpened(true)}>
+          <ListItem button onClick={() => setContactModalOpened(true)}>
             <ListItemIcon>
               <Avatar size={'small'} style={styleAvatar} />
             </ListItemIcon>
