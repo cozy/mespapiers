@@ -14,6 +14,7 @@ import MUIDialog, {
 } from 'cozy-ui/transpiled/react/Dialog'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
+import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -22,36 +23,57 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center'
+  },
+  typography: {
+    marginTop: isMobile => (!isMobile ? '2px' : '')
   }
 }))
 
-const StepperDialog = ({ onClose, title, content, stepper, ...rest }) => {
-  const classes = useStyles()
-  const { dialogProps, dialogTitleProps, fullScreen, id } = useCozyDialog(rest)
+const StepperDialog = ({
+  onClose,
+  onBack,
+  title,
+  content,
+  stepper,
+  ...rest
+}) => {
+  const { isMobile } = useBreakpoints()
+  const classes = useStyles(isMobile)
+  const { dialogProps, dialogTitleProps, fullScreen } = useCozyDialog(rest)
 
   return (
     <MUIDialog {...dialogProps}>
-      {!fullScreen && onClose && (
-        <DialogCloseButton
-          onClick={onClose}
-          data-test-id={`modal-close-button-${id}`}
-        />
-      )}
+      {!fullScreen && onClose && <DialogCloseButton onClick={onClose} />}
+      {onBack && <DialogBackButton onClick={onBack} />}
       <DialogTitle
         {...dialogTitleProps}
-        className={cx('u-ellipsis', {
-          dialogTitleFull: !onClose,
-          ['u-flex u-flex-justify-between u-flex-items-center u-pl-3']: stepper
+        className={cx('u-ellipsis u-pl-3', {
+          ['u-flex u-flex-justify-between u-flex-items-center']: stepper
         })}
       >
-        <div className={'u-flex'}>
-          {fullScreen && onClose && <DialogBackButton onClick={onClose} />}
-          <Typography variant="h4">{title}</Typography>
-        </div>
-        {stepper && <Typography variant="h6">{stepper}</Typography>}
+        <Typography
+          variant="h4"
+          classes={{ h4: classes.typography }}
+          className={cx({
+            'u-ml-1': !isMobile
+          })}
+        >
+          {title}
+        </Typography>
+        {stepper && (
+          <Typography
+            variant="h6"
+            classes={{ h6: classes.typography }}
+            className={cx({
+              'u-mr-2': !isMobile
+            })}
+          >
+            {stepper}
+          </Typography>
+        )}
       </DialogTitle>
       <Divider />
-      <DialogContent classes={classes}>{content}</DialogContent>
+      <DialogContent classes={{ root: classes.root }}>{content}</DialogContent>
     </MUIDialog>
   )
 }
@@ -59,6 +81,7 @@ const StepperDialog = ({ onClose, title, content, stepper, ...rest }) => {
 StepperDialog.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  onBack: PropTypes.func.isRequired,
   title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   content: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   size: PropTypes.oneOf(['small', 'medium', 'large'])

@@ -11,13 +11,15 @@ const StepperDialogWrapper = () => {
     allCurrentSteps,
     currentStepIndex,
     previousStep,
-    stepperDialogTitle
+    stepperDialogTitle,
+    setIsStepperDialogOpen
   } = useStepperDialog()
 
   return (
     <StepperDialog
       open
-      onClose={previousStep}
+      onClose={() => setIsStepperDialogOpen(false)}
+      onBack={previousStep}
       title={scannerT(`items.${stepperDialogTitle}`)}
       content={<StepperDialogContent />}
       stepper={`${currentStepIndex}/${allCurrentSteps.length}`}
