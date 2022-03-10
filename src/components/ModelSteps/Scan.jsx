@@ -2,18 +2,15 @@ import React, { useState, useEffect, memo, useCallback } from 'react'
 
 import { useClient, models } from 'cozy-client'
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
-import { Button, ButtonLink } from 'cozy-ui/transpiled/react/Button'
-import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
-import FileInput from 'cozy-ui/transpiled/react/FileInput'
-import FolderMoveto from 'cozy-ui/transpiled/react/Icons/FolderMoveto'
-import PhoneUpload from 'cozy-ui/transpiled/react/Icons/PhoneUpload'
 import FilePicker from 'cozy-ui/transpiled/react/FilePicker'
 import Alerter from 'cozy-ui/transpiled/react/Alerter'
-import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
+import { isMobile } from 'cozy-device-helper'
 
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import AcquisitionResult from 'src/components/ModelSteps/AcquisitionResult'
+import ScanMobileActions from 'src/components/ModelSteps/ScanMobileActions'
+import ScanDesktopActions from 'src/components/ModelSteps/ScanDesktopActions'
 import IlluGenericNewPage from 'src/assets/icons/IlluGenericNewPage.svg'
 import { makeBlobWithCustomAttrs } from 'src/helpers/makeBlobWithCustomAttrs'
 
@@ -25,8 +22,6 @@ const validFileType = file => {
   const regexValidation = /(image\/*)|(application\/pdf)/
   return regexValidation.test(file.type)
 }
-
-const styleBtn = { color: 'var(--primaryTextColor)' }
 
 const Scan = ({ currentStep }) => {
   const { t } = useI18n()
@@ -43,14 +38,10 @@ const Scan = ({ currentStep }) => {
     }
   }, [])
 
-  const openFilePickerModal = () => {
-    setIsFilePickerModalOpen(true)
-  }
+  const openFilePickerModal = () => setIsFilePickerModalOpen(true)
   const closeFilePickerModal = () => setIsFilePickerModalOpen(false)
 
-  const onChangeFilePicker = fileId => {
-    setCozyFileId(fileId)
-  }
+  const onChangeFilePicker = fileId => setCozyFileId(fileId)
 
   useEffect(() => {
     ;(async () => {
@@ -88,46 +79,17 @@ const Scan = ({ currentStep }) => {
         disableSpacing
         className={'columnLayout u-mh-0 u-mb-1 cozyDialogActions'}
       >
-        <div>
-          <Divider textAlign="center" className={'u-mv-1'}>
-            {t('Scan.divider')}
-          </Divider>
-          <Button
-            theme="secondary"
-            style={styleBtn}
-            onClick={openFilePickerModal}
-            icon={FolderMoveto}
-            className={'u-w-100'}
-            label={t('Scan.selectPicFromCozy')}
+        {isMobile() ? (
+          <ScanMobileActions
+            onChangeFile={onChangeFile}
+            openFilePickerModal={openFilePickerModal}
           />
-          <FileInput
-            onChange={onChangeFile}
-            className={'u-w-100 u-ml-0'}
-            onClick={e => e.stopPropagation()}
-            accept={'image/*,.pdf'}
-          >
-            <ButtonLink
-              theme={'secondary'}
-              style={styleBtn}
-              icon={PhoneUpload}
-              className={'u-w-100 u-m-0'}
-              label={t('Scan.importPic')}
-            />
-          </FileInput>
-        </div>
-        <FileInput
-          onChange={onChangeFile}
-          className={'u-w-100 u-ta-center u-ml-0'}
-          onClick={e => e.stopPropagation()}
-          capture={'environment'}
-          accept={'image/*'}
-        >
-          <ButtonLink
-            icon={Camera}
-            className={'u-w-100 u-m-0'}
-            label={t('Scan.takePic')}
+        ) : (
+          <ScanDesktopActions
+            onChangeFile={onChangeFile}
+            openFilePickerModal={openFilePickerModal}
           />
-        </FileInput>
+        )}
       </DialogActions>
 
       {isFilePickerModalOpen && (
