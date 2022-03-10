@@ -6,6 +6,7 @@ import { isIOS } from 'cozy-device-helper'
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 import Button from 'cozy-ui/transpiled/react/Button'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import useEventListener from 'cozy-ui/transpiled/react/hooks/useEventListener'
 
 import { useFormData } from 'src/components/Hooks/useFormData'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
@@ -37,6 +38,15 @@ const Information = ({ currentStep }) => {
       nextStep()
     }
   }, 100)
+
+  const handleKeyDown = useCallback(
+    evt => {
+      if (evt.key === 'Enter') submit()
+    },
+    [submit]
+  )
+
+  useEventListener(window, 'keydown', handleKeyDown)
 
   const inputs = useMemo(
     () =>

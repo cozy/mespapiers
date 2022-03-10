@@ -16,6 +16,7 @@ import Right from 'cozy-ui/transpiled/react/Icons/Right'
 import Radio from 'cozy-ui/transpiled/react/Radio'
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 import ContactsListModal from 'cozy-ui/transpiled/react/ContactsListModal'
+import useEventListener from 'cozy-ui/transpiled/react/hooks/useEventListener'
 
 import { useFormData } from 'src/components/Hooks/useFormData'
 import { useSessionstorage } from 'src/components/Hooks/useSessionstorage'
@@ -168,6 +169,24 @@ const ContactWrapper = ({ currentStep }) => {
     [client, cozyFiles, submit]
   )
 
+  const handleClick = useCallback(() => {
+    if (cozyFiles.length > 0) {
+      if (!confirmReplaceFileModal) openConfirmReplaceFileModal()
+      else onClickReplace(true)
+    } else {
+      submit()
+    }
+  }, [cozyFiles.length, confirmReplaceFileModal, onClickReplace, submit])
+
+  const handleKeyDown = useCallback(
+    ({ key }) => {
+      if (key === 'Enter') handleClick()
+    },
+    [handleClick]
+  )
+
+  useEventListener(window, 'keydown', handleKeyDown)
+
   return (
     <>
       <CompositeHeader
@@ -181,7 +200,7 @@ const ContactWrapper = ({ currentStep }) => {
           className="u-db"
           extension="full"
           label={t(!onLoad ? 'ContactStep.save' : 'ContactStep.onLoad')}
-          onClick={cozyFiles.length > 0 ? openConfirmReplaceFileModal : submit}
+          onClick={handleClick}
           disabled={onLoad}
           busy={onLoad}
         />
