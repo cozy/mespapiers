@@ -109,7 +109,7 @@ const PlaceholderThemesList = ({ title, onClose }) => {
 }
 
 PlaceholderThemesList.propTypes = {
-  title: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired
 }
 
