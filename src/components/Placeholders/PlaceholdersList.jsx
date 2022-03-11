@@ -128,9 +128,15 @@ const ActionMenuImportDropdown = ({
 }
 
 PlaceholdersList.propTypes = {
-  title: PropTypes.bool.isRequired,
-  onBack: PropTypes.func.isRequired,
-  currentQualifItems: PropTypes.array.isRequired
+  currentQualifItems: PropTypes.arrayOf(
+    PropTypes.exact({
+      label: PropTypes.string,
+      subjects: PropTypes.arrayOf(PropTypes.string),
+      purpose: PropTypes.string,
+      sourceCategory: PropTypes.string,
+      sourceSubCategory: PropTypes.string
+    })
+  ).isRequired
 }
 
 export default PlaceholdersList
