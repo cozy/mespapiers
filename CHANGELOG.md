@@ -1,3 +1,129 @@
+# 0.2.0
+
+## ✨ Features
+
+## 🐛 Bug Fixes
+
+* Fixed the display of the Stepper on the header of the paper creation modal (Desktop version)
+* The Enter key correctly passes the Informations and Contact steps (Desktop version)
+
+## 🔧 Tech
+
+
+# 0.1.0-beta.9
+
+## ✨ Features
+
+* Added the FilePicker component
+* Added several Papers available for creation & "Activities" theme
+* Redirection to Home after deleting the last Paper of a category
+
+## 🐛 Bug Fixes
+
+## 🔧 Tech
+
+* Improved Paper name generation
+* Improved text field constraint
+* Multiple fixes and optimizations
+
+
+# 0.1.0-beta.8
+
+## ✨ Features
+
+* Added the possibility to choose a contact other than yourself as the owner of the file.
+Today limited to a single choice, but thought for a future need.
+* Removed suggestion header if empty
+* Displayed thumbnail on Paper category list
+* Papers list display all papers filtered by contacts
+* Added a `See more` button on Paper list
+* Added the `open` action in the paper menu
+* Added multiple papers available for creation
+
+## 🐛 Bug Fixes
+
+* Displayed the contact list on Safari
+* A created document displays well its thumbnail
+* Fix process of Paper creation on Desktop view
+* Position of Spinner on Paper list
+* Incorrect date value (If a date is selected or entered manually and then deleted)
+
+## 🔧 Tech
+
+* Added filenameModel & labelGivenByUser attributes for manage paper name when created
+* Added possibility to add required constraint on Inputs
+* Various optimizations
+
+
+# 0.1.0-beta.7
+
+## ✨ Features
+
+* Added thumbnail
+* Added konnector link on all tax choices
+* Categories list sorted by name
+
+## 🐛 Bug Fixes
+
+## 🔧 Tech
+
+* Added cozy-flags for manage configuration
+* Refactor metadata (The attributes that are not qualification attributes should be removed
+from the `qualification:` object, but remain in the `metadata`)
+* Added PapersDefinitionsProvider
+* Using cozy-client instead cozy-scanner
+* Remove cozy-scanner
+
+
+# 0.1.0-beta.6
+
+## ✨ Features
+
+* Update ID card illustration
+* Added onboarding page @Ldoppea
+* Added option in the menu dropdown
+
+## 🐛 Bug Fixes
+
+* Fixed sharing link generated when using the transfer button
+* Fixed filename displayed in papers list
+
+## 🔧 Tech
+
+* Added SW for manage PWA updates
+
+
+# 0.1.0-beta.5
+
+## ✨ Features
+
+* Remove Cozy sharing button in Viewer
+* Sorted papers by creation date, from most recent to oldest
+* Deactivation of the send button if the input constraints are not valid
+* Added some illustrations
+* Added redirection to Store for Energy & ISP category
+* Added news papersDefinitions
+* Added "View in Drive" & "Forward" in action menu
+* Convert images to PDF before upload and merge files into a single PDF file on multi-page scenario by @Ldoppea
+* Display `New Paper` dialog using `List` instead of `Grid` by @Ldoppea
+* Added input date to invoice
+* Added 2 inputs for permit paper
+
+## 🐛 Bug Fixes
+
+* On the list of papers, clicking on the right icon has the same effect as clicking on the line
+* The Fab menu appears on the file list
+* Fixed a limitation issue in the number of fetched files by @Crash--
+* Constraints on number type fields
+* ...
+
+## 🔧 Tech
+
+* Added missing permissions
+* Action menu refactored
+* Changed load Css order @Crash--
+
+
 # 0.1.0-beta.4
 
 ## ✨ Features
@@ -6,11 +132,8 @@
 
 ## 🐛 Bug Fixes
 
-*
-
 ## 🔧 Tech
 
-*
 
 # 0.1.0-beta.3
 
@@ -32,7 +155,6 @@
 
 ## 🔧 Tech
 
-*
 
 # 0.1.0-beta.1
 
