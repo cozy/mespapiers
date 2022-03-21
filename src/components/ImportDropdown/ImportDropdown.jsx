@@ -3,16 +3,16 @@ import PropTypes from 'prop-types'
 
 import { useClient, generateWebLink } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
-import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
-import ListItem from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItem'
-import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
-import ListItemIcon from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItemIcon'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import Icon, { iconPropType } from 'cozy-ui/transpiled/react/Icon'
 import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Camera from 'cozy-ui/transpiled/react/Icons/Camera'
-import { ActionMenuHeader } from 'cozy-ui/transpiled/react/ActionMenu'
+import Close from 'cozy-ui/transpiled/react/Icons/CrossMedium'
+import {
+  ActionMenuHeader,
+  ActionMenuItem
+} from 'cozy-ui/transpiled/react/ActionMenu'
 import { Media, Img, Bd } from 'cozy-ui/transpiled/react/Media'
 
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
@@ -20,7 +20,7 @@ import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { usePlaceholderModal } from 'src/components/Hooks/usePlaceholderModal'
 import Konnector from 'src/assets/icons/Konnectors.svg'
 
-const ImportDropdown = ({ label, icon, hasSteps }) => {
+const ImportDropdown = ({ label, icon, hasSteps, hideImportDropdown }) => {
   const { t } = useI18n()
   const client = useClient()
   const scannerT = useScannerI18n()
@@ -70,40 +70,50 @@ const ImportDropdown = ({ label, icon, hasSteps }) => {
               }
             />
           </Img>
-          <Bd className="u-ml-1">
+          <Bd className="u-ml-1 u-flex u-flex-items-center u-flex-justify-between">
             <Typography variant="h6">
               {t('ImportDropdown.title', {
                 name: scannerT(`items.${label}`)
               })}
             </Typography>
+            {hideImportDropdown && (
+              <div className="u-flex">
+                <Icon
+                  icon={Close}
+                  className={'u-c-pointer u-pl-half'}
+                  onClick={hideImportDropdown}
+                />
+              </div>
+            )}
           </Bd>
         </Media>
       </ActionMenuHeader>
-      <List className={'u-mv-half'}>
-        <ListItem onClick={handleClick} disabled={!hasSteps}>
-          <ListItemIcon>
-            <Icon icon={Camera} size={16} />
-          </ListItemIcon>
-          <ListItemText
-            primary={t('ImportDropdown.scanPicture.title')}
-            secondary={t('ImportDropdown.scanPicture.text')}
-            ellipsis={false}
-          />
-        </ListItem>
-        <ListItem
-          onClick={konnectorCategory || konnectorName ? goToStore : null}
-          disabled={konnectorCategory || konnectorName ? false : true}
-        >
-          <ListItemIcon>
-            <Icon icon={Konnector} size={24} />
-          </ListItemIcon>
-          <ListItemText
-            primary={t('ImportDropdown.importAuto.title')}
-            secondary={t('ImportDropdown.importAuto.text')}
-            ellipsis={false}
-          />
-        </ListItem>
-      </List>
+      <ActionMenuItem
+        className="u-flex-items-center"
+        onClick={handleClick}
+        left={<Icon icon={Camera} size={16} />}
+        disabled={!hasSteps}
+      >
+        <Typography variant="body1" gutterBottom>
+          {t('ImportDropdown.scanPicture.title')}
+        </Typography>
+        <Typography variant="caption" color="textSecondary">
+          {t('ImportDropdown.scanPicture.text')}
+        </Typography>
+      </ActionMenuItem>
+      <ActionMenuItem
+        className="u-flex-items-center"
+        left={<Icon icon={Konnector} size={24} />}
+        onClick={konnectorCategory || konnectorName ? goToStore : null}
+        disabled={konnectorCategory || konnectorName ? false : true}
+      >
+        <Typography variant="body1" gutterBottom>
+          {t('ImportDropdown.importAuto.title')}
+        </Typography>
+        <Typography variant="caption" color="textSecondary">
+          {t('ImportDropdown.importAuto.text')}
+        </Typography>
+      </ActionMenuItem>
     </>
   )
 }
