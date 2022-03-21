@@ -8,8 +8,8 @@
   "editor": "Cozy",
   "source": "https://github.com/cozy/mespapiers.git@build",
   "developer": {
-    "name": "cozy",
-    "url": ""
+    "name": "Cozy Cloud",
+    "url": "https://cozy.io"
   },
   "routes": {
     "/": {
