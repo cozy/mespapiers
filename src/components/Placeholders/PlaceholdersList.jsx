@@ -2,6 +2,8 @@ import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
+import './PlaceholdersList.styl'
+
 import ActionMenu from 'cozy-ui/transpiled/react/ActionMenu'
 import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -63,7 +65,7 @@ const PlaceholdersList = ({ currentQualifItems }) => {
 
   return (
     <>
-      <List>
+      <List className="placeholder-list">
         {allPlaceholders.map((placeholder, idx) => {
           const stepsExists =
             placeholder.acquisitionSteps.length > 0 ||
@@ -117,11 +119,12 @@ const ActionMenuImportDropdown = ({
   hideImportDropdown
 }) => {
   return isOpened ? (
-    <ActionMenu onClose={hideImportDropdown}>
+    <ActionMenu onClose={hideImportDropdown} className={'action-menu'}>
       <ImportDropdown
         label={placeholderSelected.label}
         icon={placeholderSelected.icon}
         hasSteps={placeholderSelected?.acquisitionSteps.length > 0}
+        hideImportDropdown={hideImportDropdown}
       />
     </ActionMenu>
   ) : null
