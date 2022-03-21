@@ -20,7 +20,7 @@ import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { usePlaceholderModal } from 'src/components/Hooks/usePlaceholderModal'
 import Konnector from 'src/assets/icons/Konnectors.svg'
 
-const ImportDropdown = ({ label, icon, hasSteps, hideImportDropdown }) => {
+const ImportDropdown = ({ label, icon, hasSteps, onClose }) => {
   const { t } = useI18n()
   const client = useClient()
   const scannerT = useScannerI18n()
@@ -76,12 +76,12 @@ const ImportDropdown = ({ label, icon, hasSteps, hideImportDropdown }) => {
                 name: scannerT(`items.${label}`)
               })}
             </Typography>
-            {hideImportDropdown && (
+            {onClose && (
               <div className="u-flex">
                 <Icon
                   icon={Close}
-                  className={'u-c-pointer u-pl-half'}
-                  onClick={hideImportDropdown}
+                  className="u-c-pointer u-pl-half"
+                  onClick={onClose}
                 />
               </div>
             )}
@@ -121,7 +121,8 @@ const ImportDropdown = ({ label, icon, hasSteps, hideImportDropdown }) => {
 ImportDropdown.propTypes = {
   label: PropTypes.string.isRequired,
   icon: iconPropType.isRequired,
-  hasSteps: PropTypes.bool
+  hasSteps: PropTypes.bool,
+  onClose: PropTypes.func
 }
 
 export default React.memo(ImportDropdown)
