@@ -95,7 +95,8 @@ const PlaceholderThemesList = ({ title, onClose }) => {
     />
   ) : (
     <FixedDialog
-      onClose={resetCurrentQualif}
+      onClose={onClose}
+      onBack={resetCurrentQualif}
       transitionDuration={0}
       title={t('PlaceholdersList.title', {
         name: ` - ${scannerT(`themes.${state.qualificationLabel}`)}`

@@ -124,7 +124,7 @@ const ActionMenuImportDropdown = ({
         label={placeholderSelected.label}
         icon={placeholderSelected.icon}
         hasSteps={placeholderSelected?.acquisitionSteps.length > 0}
-        hideImportDropdown={hideImportDropdown}
+        onClose={hideImportDropdown}
       />
     </ActionMenu>
   ) : null
