@@ -9,6 +9,20 @@ import Icon, { iconPropType } from 'cozy-ui/transpiled/react/Icon'
 
 import './styles.styl'
 
+const CompositeHeaderImage = ({ isBitmap, src, iconSize }) => {
+  return isBitmap ? (
+    <img src={src} alt="illustration" />
+  ) : (
+    <div
+      className={cx('u-pb-1', {
+        [`composite-header-img--${iconSize}`]: iconSize
+      })}
+    >
+      <Icon icon={src} size={'100%'} />
+    </div>
+  )
+}
+
 // TODO Test and improve it & PR cozy-ui
 const CompositeHeader = ({
   icon,
@@ -21,11 +35,13 @@ const CompositeHeader = ({
 }) => {
   const [imgScr, setImgSrc] = useState(null)
   const { isMobile } = useBreakpoints()
+  const isPNG = icon && icon.endsWith('.png')
+  const subFolder = isPNG ? 'images' : 'icons'
 
   useEffect(() => {
     let isMounted = true
     ;(async () => {
-      let src = await import(`src/assets/icons/${icon}`).catch(() => ({
+      let src = await import(`src/assets/${subFolder}/${icon}`).catch(() => ({
         default: fallbackIcon
       }))
       isMounted && setImgSrc(src.default)
@@ -34,17 +50,15 @@ const CompositeHeader = ({
     return () => {
       isMounted = false
     }
-  }, [icon, fallbackIcon])
+  }, [icon, fallbackIcon, subFolder])
 
   return (
     <div className={cx('composite-header-container', className)} {...restProps}>
       {imgScr && (
-        <Icon
-          className={cx('composite-header-img', {
-            [`composite-header-img--${iconSize}`]: iconSize !== 'normal'
-          })}
-          icon={imgScr}
-          size={'100%'}
+        <CompositeHeaderImage
+          isBitmap={isPNG}
+          src={imgScr}
+          iconSize={iconSize}
         />
       )}
       {Title &&
@@ -78,7 +92,7 @@ const CompositeHeader = ({
 CompositeHeader.propTypes = {
   icon: iconPropType,
   fallbackIcon: iconPropType,
-  iconSize: PropTypes.oneOf(['small', 'normal', 'medium', 'large']),
+  iconSize: PropTypes.oneOf(['small', 'medium', 'large']),
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   text: PropTypes.oneOfType([
     PropTypes.string,
@@ -88,7 +102,7 @@ CompositeHeader.propTypes = {
   className: PropTypes.string
 }
 CompositeHeader.defaultProps = {
-  iconSize: 'normal'
+  iconSize: 'large'
 }
 
 export default CompositeHeader
