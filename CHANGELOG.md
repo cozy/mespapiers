@@ -9,6 +9,7 @@
 
 ## 🔧 Tech
 
+* Add bunldemon (used with `yarn build && yarn bundlemon`)
 
 # 0.1.0-beta.9
 

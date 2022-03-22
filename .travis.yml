@@ -19,30 +19,41 @@ cache:
   yarn: true
   directories:
     - node_modules
-script:
-  - yarn lint
-  - yarn test
-  - yarn build
-before_install:
-  - 'if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then openssl aes-256-cbc -K $encrypted_fdd8b84f377d_key -iv $encrypted_fdd8b84f377d_iv -in id_rsa_downcloud_mespapiers.enc -out id_rsa_downcloud_mespapiers -d; fi'
-  - 'if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then eval "$(ssh-agent -s)"; fi'
-  - 'if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then chmod 600 id_rsa_downcloud_mespapiers; fi'
-  - 'if [ "$TRAVIS_SECURE_ENV_VARS" != "false" ]; then ssh-add id_rsa_downcloud_mespapiers; fi'
-before_deploy:
-  - yarn add cozy-app-publish
-
-deploy:
-  - provider: script
-    repo: cozy/mespapiers
-    skip-cleanup: true
-    # deploy the build on a build branch and publish to the Cozy registry
-    script: DEPLOY_BRANCH=build && yarn deploy && yarn cozyPublish
-    on:
-      branch: master
-  - provider: script
-    repo: cozy/mespapiers
-    skip-cleanup: true
-    # publish stable or beta versions using Github Releases (git tag)
-    script: DEPLOY_BRANCH=build && yarn cozyPublish
-    on:
-      tags: true
+stages:
+  - prebuild
+  - build
+jobs:
+  include:
+    - name: 'Lint'
+      stage: 'prebuild'
+      script: yarn lint
+    - name: 'Tests'
+      stage: 'prebuild'
+      script: yarn test
+    - name: 'Build app'
+      stage: 'build'
+      script:
+        - yarn build
+        - yarn bundlemon
+      before_install:
+        - '[ "$TRAVIS_SECURE_ENV_VARS" != "false" ] && openssl aes-256-cbc -K $encrypted_fdd8b84f377d_key -iv $encrypted_fdd8b84f377d_iv -in id_rsa_downcloud_mespapiers.enc -out id_rsa_downcloud_mespapiers -d'
+        - '[ "$TRAVIS_SECURE_ENV_VARS" != "false" ] && eval "$(ssh-agent -s)"'
+        - '[ "$TRAVIS_SECURE_ENV_VARS" != "false" ] && chmod 600 id_rsa_downcloud_mespapiers'
+        - '[ "$TRAVIS_SECURE_ENV_VARS" != "false" ] && ssh-add id_rsa_downcloud_mespapiers'
+      before_deploy:
+        - yarn add cozy-app-publish # to be sure to have the last version before deploy
+      deploy:
+        - provider: script
+          repo: cozy/mespapiers
+          skip-cleanup: true
+          # deploy the build on a build branch and publish to the Cozy registry
+          script: yarn cozyPublish
+          on:
+            branch: master
+        - provider: script
+          repo: cozy/mespapiers
+          skip-cleanup: true
+          # publish stable or beta versions using Github Releases (git tag)
+          script: yarn cozyPublish
+          on:
+            tags: true
