@@ -4,7 +4,7 @@ import throttle from 'lodash/throttle'
 
 import { isIOS } from 'cozy-device-helper'
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
-import Button from 'cozy-ui/transpiled/react/Button'
+import Button from 'cozy-ui/transpiled/react/Buttons'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import useEventListener from 'cozy-ui/transpiled/react/hooks/useEventListener'
 
@@ -103,7 +103,7 @@ const Information = ({ currentStep }) => {
     <>
       <CompositeHeader
         icon={illustration}
-        iconSize={isFocus && isIOS() ? 'normal' : 'large'}
+        iconSize={'medium'}
         className={isFocus && isIOS() ? 'is-focused' : ''}
         fallbackIcon={fallbackIcon}
         title={t(text)}
@@ -118,15 +118,11 @@ const Information = ({ currentStep }) => {
           </div>
         ))}
       />
-      <DialogActions
-        disableSpacing
-        className={'columnLayout u-mh-0 u-mb-1 cozyDialogActions'}
-      >
+      <DialogActions disableSpacing className={'u-mh-0 u-mb-1'}>
         <Button
-          className="u-db"
-          extension="full"
           label={t('common.next')}
           onClick={submit}
+          fullWidth
           onTouchEnd={evt => {
             evt.preventDefault()
             submit()
