@@ -2,79 +2,28 @@
     "baseDir": "./build",
     "files": [
         {
-            "path": "1/mespapiers.<hash>.js"
+            "path": "**/mespapiers.<hash>.js",
+            "maxPercentIncrease": 1
         },
         {
-            "path": "2/mespapiers.<hash>.js"
+            "path": "app-mespapiers.<hash>.min.css",
+            "maxPercentIncrease": 1
         },
         {
-            "path": "3/mespapiers.<hash>.js"
+            "path": "vendors/mespapiers.<hash>.js",
+            "maxPercentIncrease": 1
         },
         {
-            "path": "4/mespapiers.<hash>.js"
+            "path": "vendors-mespapiers.<hash>.<hash>.min.css",
+            "maxPercentIncrease": 1
         },
         {
-            "path": "5/mespapiers.<hash>.js"
+            "path": "img/icon.<hash>.svg",
+            "maxPercentIncrease": 1
         },
         {
-            "path": "6/mespapiers.<hash>.js"
-        },
-        {
-            "path": "7/mespapiers.<hash>.js"
-        },
-        {
-            "path": "8/mespapiers.<hash>.js"
-        },
-        {
-            "path": "9/mespapiers.<hash>.js"
-        },
-        {
-            "path": "10/mespapiers.<hash>.js"
-        },
-        {
-            "path": "11/mespapiers.<hash>.js"
-        },
-        {
-            "path": "12/mespapiers.<hash>.js"
-        },
-        {
-            "path": "13/mespapiers.<hash>.js"
-        },
-        {
-            "path": "14/mespapiers.<hash>.js"
-        },
-        {
-            "path": "15/mespapiers.<hash>.js"
-        },
-        {
-            "path": "16/mespapiers.<hash>.js"
-        },
-        {
-            "path": "17/mespapiers.<hash>.js"
-        },
-        {
-            "path": "18/mespapiers.<hash>.js"
-        },
-        {
-            "path": "19/mespapiers.<hash>.js"
-        },
-        {
-            "path": "app/mespapiers.<hash>.js"
-        },
-        {
-            "path": "app-mespapiers.<hash>.min.css"
-        },
-        {
-            "path": "vendors/mespapiers.<hash>.js"
-        },
-        {
-            "path": "vendors-mespapiers.<hash>.<hash>.min.css"
-        },
-        {
-            "path": "img/icon.<hash>.svg"
-        },
-        {
-          "path": "img/*.<hash>.png"
+            "path": "img/*.<hash>.png",
+            "maxPercentIncrease": 1
         }
     ],
     "reportOutput": ["github"]
