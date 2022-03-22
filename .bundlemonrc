@@ -72,6 +72,9 @@
         },
         {
             "path": "img/icon.<hash>.svg"
+        },
+        {
+          "path": "img/*.<hash>.png"
         }
     ],
     "reportOutput": ["github"]
