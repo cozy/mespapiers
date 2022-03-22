@@ -16,7 +16,7 @@
         {
           "stepIndex": 2,
           "model": "information",
-          "illustration": "IlluInvoice.svg",
+          "illustration": "IlluGenericDate.png",
           "text": "PaperJSON.generic.issueDate.text",
           "attributes": [
             {
@@ -59,7 +59,7 @@
         {
           "stepIndex": 1,
           "model": "scan",
-          "illustration": "IlluIBAN.svg",
+          "illustration": "IlluIBAN.png",
           "text": "PaperJSON.generic.singlePage.text"
         },
         {
@@ -167,20 +167,20 @@
           "stepIndex": 1,
           "model": "scan",
           "page": "front",
-          "illustration": "IlluDriverLicenseFront.svg",
+          "illustration": "IlluDriverLicenseFront.png",
           "text": "PaperJSON.generic.front.text"
         },
         {
           "stepIndex": 2,
           "model": "scan",
           "page": "back",
-          "illustration": "IlluDriverLicenseBack.svg",
+          "illustration": "IlluDriverLicenseBack.png",
           "text": "PaperJSON.generic.back.text"
         },
         {
           "stepIndex": 3,
           "model": "information",
-          "illustration": "IlluDriverLicenseNumberHelp.svg",
+          "illustration": "IlluDriverLicenseNumberHelp.png",
           "text": "PaperJSON.driverLicense.number.text",
           "attributes": [
             {
@@ -193,7 +193,7 @@
         {
           "stepIndex": 4,
           "model": "information",
-          "illustration": "IlluDriverLicenseObtentionDateHelp.svg",
+          "illustration": "IlluDriverLicenseObtentionDateHelp.png",
           "text": "PaperJSON.driverLicense.obtentionDate.text",
           "attributes": [
             {
@@ -235,7 +235,7 @@
           "stepIndex": 1,
           "model": "scan",
           "multipage": true,
-          "illustration": "IlluInvoice.svg",
+          "illustration": "IlluInvoice.png",
           "text": "PaperJSON.generic.multiPages.text"
         },
         {
@@ -385,7 +385,7 @@
           "stepIndex": 1,
           "model": "scan",
           "multipage": true,
-          "illustration": "IlluInvoice.svg",
+          "illustration": "IlluInvoice.png",
           "text": "PaperJSON.generic.multiPages.text"
         },
         {
@@ -462,20 +462,20 @@
           "stepIndex": 1,
           "model": "scan",
           "page": "front",
-          "illustration": "IlluIdCardFront.svg",
+          "illustration": "IlluIdCardFront.png",
           "text": "PaperJSON.card.front.text"
         },
         {
           "stepIndex": 2,
           "model": "scan",
           "page": "back",
-          "illustration": "IlluIdCardBack.svg",
+          "illustration": "IlluIdCardBack.png",
           "text": "PaperJSON.card.back.text"
         },
         {
           "stepIndex": 3,
           "model": "information",
-          "illustration": "IlluIdCardNumberHelp.svg",
+          "illustration": "IlluIdCardNumberHelp.png",
           "text": "PaperJSON.card.number.text",
           "attributes": [
             {
@@ -488,7 +488,7 @@
         {
           "stepIndex": 4,
           "model": "information",
-          "illustration": "IlluIdCardExpirationDateHelp.svg",
+          "illustration": "IlluIdCardExpirationDateHelp.png",
           "text": "PaperJSON.card.expirationDate.text",
           "attributes": [
             {
@@ -1034,7 +1034,7 @@
           "stepIndex": 1,
           "model": "scan",
           "multipage": true,
-          "illustration": "IlluInvoice.svg",
+          "illustration": "IlluInvoice.png",
           "text": "PaperJSON.generic.multiPages.text"
         },
         {
@@ -1136,20 +1136,20 @@
           "stepIndex": 1,
           "model": "scan",
           "page": "front",
-          "illustration": "IlluResidencePermitFront.svg",
+          "illustration": "IlluResidencePermitFront.png",
           "text": "PaperJSON.card.front.text"
         },
         {
           "stepIndex": 2,
           "model": "scan",
           "page": "back",
-          "illustration": "IlluResidencePermitBack.svg",
+          "illustration": "IlluResidencePermitBack.png",
           "text": "PaperJSON.card.back.text"
         },
         {
           "stepIndex": 3,
           "model": "information",
-          "illustration": "IlluResidencePermitNumberHelp.svg",
+          "illustration": "IlluResidencePermitNumberHelp.png",
           "text": "PaperJSON.card.number.text",
           "attributes": [
             {
@@ -1162,7 +1162,7 @@
         {
           "stepIndex": 4,
           "model": "information",
-          "illustration": "IlluIdResidencePermitExpirationDateHelp.svg",
+          "illustration": "IlluResidencePermitExpirationDateHelp.png",
           "text": "PaperJSON.card.expirationDate.text",
           "attributes": [
             {
@@ -1388,7 +1388,7 @@
         {
           "stepIndex": 1,
           "model": "scan",
-          "illustration": "IlluVehiculeRegistrationContent.svg",
+          "illustration": "IlluVehiculeRegistrationContent.png",
           "text": "PaperJSON.generic.content.text"
         },
         {
@@ -1408,7 +1408,7 @@
           "stepIndex": 1,
           "model": "scan",
           "multipage": true,
-          "illustration": "IlluInvoice.svg",
+          "illustration": "IlluInvoice.png",
           "text": "PaperJSON.generic.multiPages.text"
         },
         {
