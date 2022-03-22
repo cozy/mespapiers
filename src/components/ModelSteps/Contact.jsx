@@ -9,7 +9,7 @@ import ListItemIcon from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import ListItemSecondaryAction from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItemSecondaryAction'
 import Divider from 'cozy-ui/transpiled/react/MuiCozyTheme/Divider'
-import Button from 'cozy-ui/transpiled/react/Button'
+import Button from 'cozy-ui/transpiled/react/Buttons'
 import Avatar from 'cozy-ui/transpiled/react/Avatar'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import Right from 'cozy-ui/transpiled/react/Icons/Right'
@@ -197,8 +197,7 @@ const ContactWrapper = ({ currentStep }) => {
       />
       <DialogActions className={'u-w-100 u-mh-0 u-mb-1 cozyDialogActions'}>
         <Button
-          className="u-db"
-          extension="full"
+          fullWidth
           label={t(!onLoad ? 'ContactStep.save' : 'ContactStep.onLoad')}
           onClick={handleClick}
           disabled={onLoad}
