@@ -105,26 +105,33 @@ const PlaceholdersList = ({ currentQualifItems }) => {
         })}
       </List>
       <ActionMenuImportDropdown
+        className={'action-menu'}
         isOpened={shouldDisplayImportDropdown()}
-        placeholderSelected={placeholderSelected}
-        hideImportDropdown={hideImportDropdown}
+        placeholder={placeholderSelected}
+        onClose={hideImportDropdown}
       />
     </>
   )
 }
 
-const ActionMenuImportDropdown = ({
+export const ActionMenuImportDropdown = ({
+  className,
   isOpened,
-  placeholderSelected,
-  hideImportDropdown
+  placeholder,
+  onClose,
+  anchorElRef
 }) => {
   return isOpened ? (
-    <ActionMenu onClose={hideImportDropdown} className={'action-menu'}>
+    <ActionMenu
+      className={className}
+      anchorElRef={anchorElRef}
+      onClose={onClose}
+    >
       <ImportDropdown
-        label={placeholderSelected.label}
-        icon={placeholderSelected.icon}
-        hasSteps={placeholderSelected?.acquisitionSteps.length > 0}
-        onClose={hideImportDropdown}
+        label={placeholder.label}
+        icon={placeholder.icon}
+        hasSteps={placeholder?.acquisitionSteps.length > 0}
+        onClose={onClose}
       />
     </ActionMenu>
   ) : null
