@@ -14,12 +14,12 @@ import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Plus from 'cozy-ui/transpiled/react/Icons/Plus'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-import { ActionMenuImportDropdown } from 'src/components/Placeholders/PlaceholdersList'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 import { PaperDefinitionsPropTypes } from 'src/constants/PaperDefinitionsPropTypes'
 import { hasNextvalue } from 'src/utils/hasNextvalue'
+import ActionMenuImportDropdown from 'src/components/Placeholders/ActionMenuImportDropdown'
 
 const AllPlaceholdersChoices = ({
   onClick,
