@@ -1,6 +1,7 @@
 import React, { createContext } from 'react'
 
 import { models } from 'cozy-client'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 const {
   locales: { getBoundT }
 } = models.document
@@ -8,7 +9,8 @@ const {
 const ScannerI18nContext = createContext()
 
 const prefix = `Scan`
-const ScannerI18nProvider = ({ lang, children }) => {
+const ScannerI18nProvider = ({ children }) => {
+  const { lang } = useI18n()
   const scannerI18n = getBoundT(lang)
 
   const scannerT = React.useCallback(
