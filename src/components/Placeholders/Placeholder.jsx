@@ -14,7 +14,7 @@ import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
 import Plus from 'cozy-ui/transpiled/react/Icons/Plus'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
-import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
+import { ActionMenuImportDropdown } from 'src/components/Placeholders/PlaceholdersList'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
@@ -137,11 +137,6 @@ const Placeholder = ({ placeholder, divider }) => {
     return scannerT(`items.${placeholder.label}`)
   }, [isOtherPaper, placeholder.label, scannerT, t])
 
-  const hasSteps = useMemo(
-    () => placeholder?.acquisitionSteps.length > 0,
-    [placeholder.acquisitionSteps.length]
-  )
-
   return (
     <>
       <ListItem button onClick={handleOnClick} ref={actionBtnRef}>
@@ -176,15 +171,12 @@ const Placeholder = ({ placeholder, divider }) => {
       </ListItem>
       {divider && <Divider variant="inset" component="li" />}
 
-      {isImportDropdownDisplayed && (
-        <ActionMenu onClose={hideImportDropdown} anchorElRef={actionBtnRef}>
-          <ImportDropdown
-            label={placeholder.label}
-            icon={placeholder.icon}
-            hasSteps={hasSteps}
-          />
-        </ActionMenu>
-      )}
+      <ActionMenuImportDropdown
+        isOpened={isImportDropdownDisplayed}
+        placeholder={placeholder}
+        onClose={hideImportDropdown}
+        anchorElRef={actionBtnRef}
+      />
       {isPapersLabelsList && (
         <AllPlaceholdersChoices
           onClick={showImportDropdown}
