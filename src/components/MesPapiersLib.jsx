@@ -61,11 +61,8 @@ const App = () => {
 }
 
 const MesPapiersLib = () => {
-  // TODO: A mettre dans ScannerI18nProvider
-  const { lang } = useI18n()
-
   return (
-    <ScannerI18nProvider lang={lang}>
+    <ScannerI18nProvider>
       <PapersDefinitionsProvider>
         <StepperDialogProvider>
           <PlaceholderModalProvider>
