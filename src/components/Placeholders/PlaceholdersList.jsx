@@ -2,9 +2,6 @@ import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import './PlaceholdersList.styl'
-
-import ActionMenu from 'cozy-ui/transpiled/react/ActionMenu'
 import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import FileDuotoneIcon from 'cozy-ui/transpiled/react/Icons/FileDuotone'
@@ -16,11 +13,13 @@ import ListItemIcon, {
 } from 'cozy-ui/transpiled/react/MuiCozyTheme/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 
-import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { findPlaceholdersByQualification } from 'src/helpers/findPlaceholders'
 import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import ActionMenuImportDropdown from 'src/components/Placeholders/ActionMenuImportDropdown'
+
+import './PlaceholdersList.styl'
 
 const PlaceholdersList = ({ currentQualifItems }) => {
   const [isImportDropdownDisplayed, setIsImportDropdownDisplayed] =
@@ -112,29 +111,6 @@ const PlaceholdersList = ({ currentQualifItems }) => {
       />
     </>
   )
-}
-
-export const ActionMenuImportDropdown = ({
-  className,
-  isOpened,
-  placeholder,
-  onClose,
-  anchorElRef
-}) => {
-  return isOpened ? (
-    <ActionMenu
-      className={className}
-      anchorElRef={anchorElRef}
-      onClose={onClose}
-    >
-      <ImportDropdown
-        label={placeholder.label}
-        icon={placeholder.icon}
-        hasSteps={placeholder?.acquisitionSteps.length > 0}
-        onClose={onClose}
-      />
-    </ActionMenu>
-  ) : null
 }
 
 PlaceholdersList.propTypes = {
