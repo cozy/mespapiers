@@ -14,7 +14,6 @@ import {
   ModalProvider,
   ModalStack
 } from 'src/components/Contexts/ModalProvider'
-import { PlaceholderModalProvider } from 'src/components/Contexts/PlaceholderModalProvider'
 import { PapersDefinitionsProvider } from 'src/components/Contexts/PapersDefinitionsProvider'
 import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 import { AppRouter } from 'src/components/AppRouter'
@@ -55,11 +54,9 @@ const MesPapiersLib = () => {
     <ScannerI18nProvider>
       <PapersDefinitionsProvider>
         <StepperDialogProvider>
-          <PlaceholderModalProvider>
-            <ModalProvider>
-              <App />
-            </ModalProvider>
-          </PlaceholderModalProvider>
+          <ModalProvider>
+            <App />
+          </ModalProvider>
         </StepperDialogProvider>
       </PapersDefinitionsProvider>
     </ScannerI18nProvider>

@@ -9,7 +9,6 @@ import { WebviewIntentProvider } from 'cozy-intent'
 
 import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
 import { ModalProvider } from 'src/components/Contexts/ModalProvider'
-import { PlaceholderModalProvider } from 'src/components/Contexts/PlaceholderModalProvider'
 import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider'
 import { PapersDefinitionsProvider } from 'src/components/Contexts/PapersDefinitionsProvider'
 import enLocale from 'src/locales/en.json'
@@ -35,9 +34,7 @@ const AppLike = ({ children, client, history }) => {
               <PapersDefinitionsProvider>
                 <StepperDialogProvider>
                   <ModalProvider>
-                    <PlaceholderModalProvider>
-                      <HashRouter history={hashHistory}>{children}</HashRouter>
-                    </PlaceholderModalProvider>
+                    <HashRouter history={hashHistory}>{children}</HashRouter>
                   </ModalProvider>
                 </StepperDialogProvider>
               </PapersDefinitionsProvider>
