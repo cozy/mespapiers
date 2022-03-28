@@ -1388,7 +1388,7 @@
         {
           "stepIndex": 1,
           "model": "scan",
-          "illustration": "IlluVehiculeRegistrationContent.png",
+          "illustration": "IlluVehicleRegistrationContent.png",
           "text": "PaperJSON.generic.content.text"
         },
         {
