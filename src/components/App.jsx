@@ -1,35 +1,38 @@
+/* global cozy */
+
 import React from 'react'
 import { hot } from 'react-hot-loader'
 
-import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import { useClient } from 'cozy-client'
+import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
+import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import Typography from 'cozy-ui/transpiled/react/Typography'
+import { Layout, Main, Content } from 'cozy-ui/transpiled/react/Layout'
+import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
 
-import { AppLayout } from 'src/components/AppLayout'
-import { AppRouter } from 'src/components/AppRouter'
-import StepperDialogWrapper from 'src/components/StepperDialog/StepperDialogWrapper'
-import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
-import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import MesPapiersLib from 'src/indexLib'
 
 export const App = () => {
-  const { isStepperDialogOpen } = useStepperDialog()
-  const { papersDefinitions } = usePapersDefinitions()
+  const { BarCenter } = cozy.bar
+  const { isMobile } = useBreakpoints()
+  const client = useClient()
 
   return (
-    <AppLayout>
-      {papersDefinitions.length === 0 ? (
-        <Spinner
-          size="xxlarge"
-          className="u-flex u-flex-justify-center u-mt-2 u-h-5"
-        />
-      ) : (
-        <AppRouter />
-      )}
-      {isStepperDialogOpen && (
-        <FormDataProvider>
-          <StepperDialogWrapper />
-        </FormDataProvider>
-      )}
-    </AppLayout>
+    <Layout monoColumn>
+      <Main>
+        <Content className="app-content">
+          {isMobile && (
+            <BarCenter>
+              <MuiCozyTheme>
+                <Typography variant="h5">{client.appMetadata.slug}</Typography>
+              </MuiCozyTheme>
+            </BarCenter>
+          )}
+          <MesPapiersLib />
+        </Content>
+      </Main>
+      <IconSprite />
+    </Layout>
   )
 }
 

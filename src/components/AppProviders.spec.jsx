@@ -31,32 +31,6 @@ jest.mock('cozy-intent', () => ({
     <div data-testid="WebviewIntentProvider">{children}</div>
   )
 }))
-
-jest.mock('src/components/Contexts/ScannerI18nProvider', () => ({
-  ScannerI18nProvider: ({ children }) => (
-    <div data-testid="ScannerI18nProvider">{children}</div>
-  )
-}))
-jest.mock('src/components/Contexts/PapersDefinitionsProvider', () => ({
-  PapersDefinitionsProvider: ({ children }) => (
-    <div data-testid="PapersDefinitionsProvider">{children}</div>
-  )
-}))
-jest.mock('src/components/Contexts/StepperDialogProvider', () => ({
-  StepperDialogProvider: ({ children }) => (
-    <div data-testid="StepperDialogProvider">{children}</div>
-  )
-}))
-jest.mock('src/components/Contexts/PlaceholderModalProvider', () => ({
-  PlaceholderModalProvider: ({ children }) => (
-    <div data-testid="PlaceholderModalProvider">{children}</div>
-  )
-}))
-jest.mock('src/components/Contexts/ModalProvider', () => ({
-  ModalProvider: ({ children }) => (
-    <div data-testid="ModalProvider">{children}</div>
-  )
-}))
 /* eslint-enable react/display-name */
 
 describe('AppProviders', () => {
@@ -69,11 +43,5 @@ describe('AppProviders', () => {
     expect(queryByTestId('MuiCozyTheme')).toBeTruthy()
     expect(queryByTestId('BreakpointsProvider')).toBeTruthy()
     expect(queryByTestId('WebviewIntentProvider')).toBeTruthy()
-
-    expect(queryByTestId('ScannerI18nProvider')).toBeTruthy()
-    expect(queryByTestId('PapersDefinitionsProvider')).toBeTruthy()
-    expect(queryByTestId('StepperDialogProvider')).toBeTruthy()
-    expect(queryByTestId('PlaceholderModalProvider')).toBeTruthy()
-    expect(queryByTestId('ModalProvider')).toBeTruthy()
   })
 })
