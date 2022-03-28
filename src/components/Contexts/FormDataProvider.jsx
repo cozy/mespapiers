@@ -20,39 +20,35 @@ const FormDataProvider = ({ children }) => {
   const client = useClient()
   const { f, t } = useI18n()
   const scannerT = useScannerI18n()
-  const { currentDefinition, stepperDialogTitle, setIsStepperDialogOpen } =
-    useStepperDialog()
+  const { currentDefinition, stepperDialogTitle } = useStepperDialog()
   const [formData, setFormData] = useState({
     metadata: {},
     data: [],
     contacts: []
   })
 
-  const formSubmit = () => {
-    ;(async () => {
-      try {
-        const qualification = Qualification.getByLabel(stepperDialogTitle)
-        const { _id: appFolderID } = await getOrCreateAppFolderWithReference(
-          client,
-          t
-        )
+  const formSubmit = async () => {
+    try {
+      const qualification = Qualification.getByLabel(stepperDialogTitle)
+      const { _id: appFolderID } = await getOrCreateAppFolderWithReference(
+        client,
+        t
+      )
 
-        await createPdfAndSave({
-          formData,
-          qualification,
-          currentDefinition,
-          appFolderID,
-          client,
-          i18n: { t, f, scannerT }
-        })
+      await createPdfAndSave({
+        formData,
+        qualification,
+        currentDefinition,
+        appFolderID,
+        client,
+        i18n: { t, f, scannerT }
+      })
 
-        Alerter.success('common.saveFile.success')
-      } catch (error) {
-        log('error', error)
-        Alerter.error('common.saveFile.error')
-      }
-      setIsStepperDialogOpen(false)
-    })()
+      Alerter.success('common.saveFile.success')
+    } catch (error) {
+      log('error', error)
+      Alerter.error('common.saveFile.error')
+    }
   }
 
   return (

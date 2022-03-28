@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useRef } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
+import { useHistory } from 'react-router-dom'
 
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import List from 'cozy-ui/transpiled/react/MuiCozyTheme/List'
@@ -9,8 +10,6 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import Placeholder from 'src/components/Placeholders/Placeholder'
 import ActionMenuImportDropdown from 'src/components/Placeholders/ActionMenuImportDropdown'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
-import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 
 const useStyles = makeStyles({
   root: { textIndent: '1rem' }
@@ -24,26 +23,14 @@ const FeaturedPlaceholdersList = ({ featuredPlaceholders }) => {
   const { t } = useI18n()
   const [isImportDropdownDisplayed, setIsImportDropdownDisplayed] =
     useState(false)
+  const history = useHistory()
   const hideImportDropdown = useCallback(
     () => setIsImportDropdownDisplayed(false),
     []
   )
-  const { setCurrentDefinition } = useStepperDialog()
-
-  const { papersDefinitions } = usePapersDefinitions()
 
   const showImportDropdown = placeholder => {
-    const formModel = papersDefinitions.find(
-      paper => paper.label && paper.label === placeholder.label
-    )
-
-    if (formModel) {
-      // Set Dialog modal
-      setCurrentDefinition(formModel)
-      // Set ActionMenu
-      setIsImportDropdownDisplayed(true)
-    }
-
+    setIsImportDropdownDisplayed(true)
     setPlaceholder(placeholder)
   }
 
@@ -69,6 +56,9 @@ const FeaturedPlaceholdersList = ({ featuredPlaceholders }) => {
           placeholder={placeholder}
           onClose={hideImportDropdown}
           anchorElRef={actionBtnRef}
+          onClick={() =>
+            history.push({ pathname: `/create/${placeholder.label}` })
+          }
         />
       </div>
     </List>

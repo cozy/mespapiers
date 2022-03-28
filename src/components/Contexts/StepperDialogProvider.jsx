@@ -3,21 +3,17 @@ import React, { createContext, useCallback, useEffect, useState } from 'react'
 const StepperDialogContext = createContext()
 
 const StepperDialogProvider = ({ children }) => {
-  const [isStepperDialogOpen, setIsStepperDialogOpen] = useState(undefined)
   const [stepperDialogTitle, setStepperDialogTitle] = useState('')
-
   const [allCurrentSteps, setAllCurrentSteps] = useState([])
   const [currentStepIndex, setCurrentStepIndex] = useState(1)
   const [currentDefinition, setCurrentDefinition] = useState(null)
 
-  useEffect(() => {
-    if (isStepperDialogOpen === false) {
-      setCurrentDefinition(null)
-      setStepperDialogTitle('')
-      setAllCurrentSteps([])
-      setCurrentStepIndex(1)
-    }
-  }, [isStepperDialogOpen])
+  const resetStepperDialog = useCallback(() => {
+    setCurrentDefinition(null)
+    setStepperDialogTitle('')
+    setAllCurrentSteps([])
+    setCurrentStepIndex(1)
+  }, [])
 
   useEffect(() => {
     if (currentDefinition) {
@@ -51,8 +47,6 @@ const StepperDialogProvider = ({ children }) => {
   const previousStep = useCallback(() => {
     if (currentStepIndex > 1) {
       setCurrentStepIndex(prev => prev - 1)
-    } else {
-      setIsStepperDialogOpen(false)
     }
   }, [currentStepIndex])
 
@@ -63,26 +57,23 @@ const StepperDialogProvider = ({ children }) => {
 
   const stepperDialog = React.useMemo(
     () => ({
-      isStepperDialogOpen,
       allCurrentSteps,
       currentStepIndex,
       stepperDialogTitle,
       currentDefinition,
-      setIsStepperDialogOpen,
-      setCurrentStepIndex,
       setCurrentDefinition,
-      setStepperDialogTitle,
       previousStep,
-      nextStep
+      nextStep,
+      resetStepperDialog
     }),
     [
-      isStepperDialogOpen,
       allCurrentSteps,
       currentStepIndex,
       stepperDialogTitle,
       currentDefinition,
       previousStep,
-      nextStep
+      nextStep,
+      resetStepperDialog
     ]
   )
 

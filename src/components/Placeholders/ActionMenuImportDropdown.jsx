@@ -6,10 +6,11 @@ import ImportDropdown from 'src/components/ImportDropdown/ImportDropdown'
 
 const ActionMenuImportDropdown = ({
   className,
+  anchorElRef,
   isOpened,
   placeholder,
   onClose,
-  anchorElRef
+  onClick
 }) => {
   if (!isOpened) {
     return null
@@ -26,6 +27,7 @@ const ActionMenuImportDropdown = ({
         icon={placeholder.icon}
         hasSteps={placeholder?.acquisitionSteps.length > 0}
         onClose={onClose}
+        onClick={onClick}
       />
     </ActionMenu>
   )

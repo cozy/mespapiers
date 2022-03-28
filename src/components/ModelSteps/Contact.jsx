@@ -137,7 +137,7 @@ const Contact = () => {
   )
 }
 
-const ContactWrapper = ({ currentStep }) => {
+const ContactWrapper = ({ currentStep, onClose }) => {
   const { t } = useI18n()
   const client = useClient()
   const { illustration, text } = currentStep
@@ -150,10 +150,11 @@ const ContactWrapper = ({ currentStep }) => {
   const closeConfirmReplaceFileModal = () => setConfirmReplaceFileModal(false)
   const openConfirmReplaceFileModal = () => setConfirmReplaceFileModal(true)
 
-  const submit = useCallback(() => {
+  const submit = useCallback(async () => {
     setOnLoad(true)
-    formSubmit()
-  }, [formSubmit])
+    await formSubmit()
+    onClose()
+  }, [onClose, formSubmit])
 
   const onClickReplace = useCallback(
     isFileReplaced => {

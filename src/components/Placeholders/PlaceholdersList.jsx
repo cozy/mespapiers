@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import { useHistory } from 'react-router-dom'
 
 import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -14,7 +15,6 @@ import ListItemIcon, {
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { findPlaceholdersByQualification } from 'src/helpers/findPlaceholders'
 import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 import ActionMenuImportDropdown from 'src/components/Placeholders/ActionMenuImportDropdown'
@@ -26,6 +26,7 @@ const PlaceholdersList = ({ currentQualifItems }) => {
     useState(false)
   const [placeholderSelected, setPlaceholderSelected] = useState(null)
   const { papersDefinitions } = usePapersDefinitions()
+  const history = useHistory()
 
   const scannerT = useScannerI18n()
   const allPlaceholders = useMemo(
@@ -33,7 +34,6 @@ const PlaceholdersList = ({ currentQualifItems }) => {
       findPlaceholdersByQualification(papersDefinitions, currentQualifItems),
     [currentQualifItems, papersDefinitions]
   )
-  const { setCurrentDefinition } = useStepperDialog()
   const hideImportDropdown = useCallback(() => {
     setIsImportDropdownDisplayed(false)
     setPlaceholderSelected(undefined)
@@ -42,25 +42,14 @@ const PlaceholdersList = ({ currentQualifItems }) => {
   const shouldDisplayImportDropdown = () => {
     return !!isImportDropdownDisplayed && !!placeholderSelected
   }
-  const showImportDropdown = useCallback(() => {
-    const formModel = allPlaceholders.find(
-      paper => paper.label && paper.label === placeholderSelected.label
-    )
-    if (formModel) {
-      // Set Dialog modal
-      setCurrentDefinition(formModel)
-      // Set ActionMenu
-      setIsImportDropdownDisplayed(true)
-    }
-  }, [allPlaceholders, placeholderSelected, setCurrentDefinition])
 
   const selectPlaceholder = useCallback((placeholder, stepsExists) => {
     stepsExists ? setPlaceholderSelected(placeholder) : undefined
   }, [])
 
   useEffect(() => {
-    if (placeholderSelected) showImportDropdown()
-  }, [placeholderSelected, showImportDropdown])
+    if (placeholderSelected) setIsImportDropdownDisplayed(true)
+  }, [placeholderSelected])
 
   return (
     <>
@@ -108,6 +97,12 @@ const PlaceholdersList = ({ currentQualifItems }) => {
         isOpened={shouldDisplayImportDropdown()}
         placeholder={placeholderSelected}
         onClose={hideImportDropdown}
+        onClick={() =>
+          history.push({
+            pathname: `/create/${placeholderSelected.label}`,
+            search: 'deepBack'
+          })
+        }
       />
     </>
   )
