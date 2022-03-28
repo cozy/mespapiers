@@ -98,9 +98,6 @@
   "InputTextAdapter": {
     "invalidTextMessage": "Il manque %{smart_count} chiffre |||| Il manque %{smart_count} chiffres"
   },
-  "items": {
-    "other": "Autres…"
-  },
   "Onboarding": {
     "cta": "C'est parti !"
   },
