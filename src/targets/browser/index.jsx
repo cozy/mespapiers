@@ -7,9 +7,9 @@ import React from 'react'
 import { render } from 'react-dom'
 
 import setupApp from 'src/targets/browser/setupApp'
-import App from 'src/components/App'
 import { register as registerServiceWorker } from 'src/targets/browser/serviceWorkerRegistration'
 import { AppProviders } from 'src/components/AppProviders'
+import App from 'src/components/App'
 
 const init = () => {
   const { root, ...rest } = setupApp()
