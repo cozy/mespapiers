@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@date-io/date-fns": "1",
-    "@material-ui/core": "4",
+    "@material-ui/core": "4.12.3",
     "@material-ui/pickers": "3.3.10",
     "cozy-client": "^27.14.2",
     "cozy-device-helper": "^1.17.0",
@@ -58,7 +58,7 @@
     "cozy-realtime": "^4.0.2",
     "cozy-scripts": "^6.1.1",
     "cozy-sharing": "^4.0.2",
-    "cozy-ui": "^60.9.1",
+    "cozy-ui": "^62.2.0",
     "date-fns": "2.23.0",
     "mui-bottom-sheet": "https://github.com/cozy/mui-bottom-sheet.git#v1.0.6",
     "pdf-lib": "1.17.0",
