@@ -6,7 +6,7 @@ import Spinner from 'cozy-ui/transpiled/react/Spinner'
 
 import { getOnboardingStatus } from 'src/helpers/queries'
 
-const OnboardedGuardedRoute = ({ component: Component, ...rest }) => {
+const OnboardedGuardedRoute = ({ component: Component, render, ...rest }) => {
   const { data: settingsData, ...settingsQuery } = useQuery(
     getOnboardingStatus.definition,
     getOnboardingStatus.options
@@ -28,8 +28,10 @@ const OnboardedGuardedRoute = ({ component: Component, ...rest }) => {
           return <Redirect to="/" />
         } else if (!isOnboardingPage && onboarded !== true) {
           return <Redirect to="/onboarding" />
-        } else {
+        } else if (Component) {
           return <Component {...props} />
+        } else {
+          return render(props)
         }
       }}
     />
