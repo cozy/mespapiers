@@ -80,8 +80,8 @@ const StepperDialog = ({
 
 StepperDialog.propTypes = {
   open: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  onBack: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
+  onBack: PropTypes.func,
   title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   content: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   size: PropTypes.oneOf(['small', 'medium', 'large'])
