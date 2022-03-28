@@ -5,7 +5,7 @@ import Scan from 'src/components/ModelSteps/Scan'
 import Information from 'src/components/ModelSteps/Information'
 import Contact from 'src/components/ModelSteps/Contact'
 
-const StepperDialogContent = () => {
+const StepperDialogContent = ({ onClose }) => {
   const { allCurrentSteps, currentStepIndex } = useStepperDialog()
 
   return allCurrentSteps.map(currentStep => {
@@ -23,7 +23,11 @@ const StepperDialogContent = () => {
           )
         case 'contact':
           return (
-            <Contact key={currentStep.stepIndex} currentStep={currentStep} />
+            <Contact
+              key={currentStep.stepIndex}
+              currentStep={currentStep}
+              onClose={onClose}
+            />
           )
       }
     }

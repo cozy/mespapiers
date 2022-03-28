@@ -18,15 +18,10 @@ import { PlaceholderModalProvider } from 'src/components/Contexts/PlaceholderMod
 import { PapersDefinitionsProvider } from 'src/components/Contexts/PapersDefinitionsProvider'
 import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 import { AppRouter } from 'src/components/AppRouter'
-import StepperDialogWrapper from 'src/components/StepperDialog/StepperDialogWrapper'
-import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 
 const App = () => {
   const { t } = useI18n()
   const { customPapersDefinitions, papersDefinitions } = usePapersDefinitions()
-
-  const { isStepperDialogOpen } = useStepperDialog()
 
   return (
     <>
@@ -46,11 +41,6 @@ const App = () => {
         />
       ) : (
         <AppRouter />
-      )}
-      {isStepperDialogOpen && (
-        <FormDataProvider>
-          <StepperDialogWrapper />
-        </FormDataProvider>
       )}
       <RealTimeQueries doctype="io.cozy.files" />
       <RealTimeQueries doctype="io.cozy.mespapiers.settings" />
