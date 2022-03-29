@@ -3,27 +3,27 @@
     "files": [
         {
             "path": "**/mespapiers.<hash>.js",
-            "maxPercentIncrease": 1
+            "maxPercentIncrease": 10
         },
         {
             "path": "app-mespapiers.<hash>.min.css",
-            "maxPercentIncrease": 1
+            "maxPercentIncrease": 10
         },
         {
             "path": "vendors/mespapiers.<hash>.js",
-            "maxPercentIncrease": 1
+            "maxPercentIncrease": 10
         },
         {
             "path": "vendors-mespapiers.<hash>.<hash>.min.css",
-            "maxPercentIncrease": 1
+            "maxPercentIncrease": 10
         },
         {
             "path": "img/icon.<hash>.svg",
-            "maxPercentIncrease": 1
+            "maxPercentIncrease": 10
         },
         {
             "path": "img/*.<hash>.png",
-            "maxPercentIncrease": 1
+            "maxPercentIncrease": 10
         }
     ],
     "reportOutput": ["github"]
