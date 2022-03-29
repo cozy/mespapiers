@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 
 import IconStack from 'cozy-ui/transpiled/react/IconStack'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -27,6 +27,11 @@ const PlaceholdersList = ({ currentQualifItems }) => {
   const [placeholderSelected, setPlaceholderSelected] = useState(null)
   const { papersDefinitions } = usePapersDefinitions()
   const history = useHistory()
+
+  // Get the backgroundPath to pass it to the next modal
+  // Otherwise the next modal will have the url of this modal in backgroundPath
+  const { search } = useLocation()
+  const backgroundPath = new URLSearchParams(search).get('backgroundPath')
 
   const scannerT = useScannerI18n()
   const allPlaceholders = useMemo(
@@ -100,7 +105,7 @@ const PlaceholdersList = ({ currentQualifItems }) => {
         onClick={() =>
           history.push({
             pathname: `/create/${placeholderSelected.label}`,
-            search: 'deepBack'
+            search: `deepBack&backgroundPath=${backgroundPath}`
           })
         }
       />

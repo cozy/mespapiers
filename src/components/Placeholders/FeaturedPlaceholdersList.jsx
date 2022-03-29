@@ -10,6 +10,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 
 import Placeholder from 'src/components/Placeholders/Placeholder'
 import ActionMenuImportDropdown from 'src/components/Placeholders/ActionMenuImportDropdown'
+import { useLocation } from 'react-router-dom'
 
 const useStyles = makeStyles({
   root: { textIndent: '1rem' }
@@ -19,6 +20,7 @@ const FeaturedPlaceholdersList = ({ featuredPlaceholders }) => {
   const [placeholder, setPlaceholder] = useState(null)
   const actionBtnRef = useRef()
   const classes = useStyles()
+  const location = useLocation()
   const { isMobile } = useBreakpoints()
   const { t } = useI18n()
   const [isImportDropdownDisplayed, setIsImportDropdownDisplayed] =
@@ -57,7 +59,10 @@ const FeaturedPlaceholdersList = ({ featuredPlaceholders }) => {
           onClose={hideImportDropdown}
           anchorElRef={actionBtnRef}
           onClick={() =>
-            history.push({ pathname: `/create/${placeholder.label}` })
+            history.push({
+              pathname: `/create/${placeholder.label}`,
+              search: `backgroundPath=${location.pathname}`
+            })
           }
         />
       </div>
