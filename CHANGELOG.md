@@ -2,6 +2,8 @@
 
 ## ✨ Features
 
+* Add 2 routes with their views for creation of a paper
+
 ## 🐛 Bug Fixes
 
 * Fixed the display of the Stepper on the header of the paper creation modal (Desktop version)
