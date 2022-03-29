@@ -7,6 +7,7 @@ import Fab from 'cozy-ui/transpiled/react/Fab'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import PlusIcon from 'cozy-ui/transpiled/react/Icons/Plus'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import { useLocation } from 'react-router-dom'
 
 const useStyles = makeStyles(() => ({
   fab: {
@@ -22,10 +23,12 @@ export const PapersFab = () => {
   const { isDesktop } = useBreakpoints()
   const classes = useStyles(isDesktop)
   const history = useHistory()
+  const { pathname } = useLocation()
 
   const handleClick = () => {
     history.push({
-      pathname: `/create`
+      pathname: `/create`,
+      search: `backgroundPath=${pathname}`
     })
   }
 
