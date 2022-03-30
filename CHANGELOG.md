@@ -8,6 +8,7 @@
 
 * Fixed the display of the Stepper on the header of the paper creation modal (Desktop version)
 * The Enter key correctly passes the Informations and Contact steps (Desktop version)
+* Rename vehicle registration illustration
 
 ## 🔧 Tech
 
