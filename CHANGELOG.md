@@ -21,6 +21,7 @@
 * Added the FilePicker component
 * Added several Papers available for creation & "Activities" theme
 * Redirection to Home after deleting the last Paper of a category
+* Add Beta icon
 
 ## 🐛 Bug Fixes
 
