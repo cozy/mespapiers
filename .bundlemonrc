@@ -18,8 +18,7 @@
             "maxPercentIncrease": 10
         },
         {
-            "path": "img/icon.<hash>.svg",
-            "maxPercentIncrease": 10
+            "path": "img/icon.<hash>.svg"
         },
         {
             "path": "img/*.<hash>.png",
