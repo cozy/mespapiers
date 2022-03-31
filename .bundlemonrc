@@ -20,5 +20,19 @@
             "path": "img/*.<hash>.png"
         }
     ],
+    "groups": [
+        {
+            "path": "**/*.js",
+            "maxPercentIncrease": 10
+        },
+        {
+            "path": "**/*.css",
+            "maxPercentIncrease": 10
+        },
+        {
+            "path": "img/*.*",
+            "maxPercentIncrease": 10
+        }
+    ],
     "reportOutput": ["github"]
 }

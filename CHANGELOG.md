@@ -6,11 +6,14 @@
 
 ## 🔧 Tech
 
+* Change bundlemon configuration
+
 # 0.2.0
 
 ## ✨ Features
 
 * Add 2 routes with their views for creation of a paper
+* Use cozy-mespapiers-lib 🔥
 
 ## 🐛 Bug Fixes
 
