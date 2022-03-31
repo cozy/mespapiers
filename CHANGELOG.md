@@ -8,6 +8,8 @@
 
 ## 🔧 Tech
 
+* Change bundlemon configuration
+
 # 0.2.0
 
 ## ✨ Features
