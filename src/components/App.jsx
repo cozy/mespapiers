@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { hot } from 'react-hot-loader'
+import { Route, Switch, Redirect, HashRouter } from 'react-router-dom'
 
 import { useClient } from 'cozy-client'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
@@ -9,8 +10,28 @@ import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { Layout, Main, Content } from 'cozy-ui/transpiled/react/Layout'
 import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
+import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import MesPapiers, { PapersFab } from 'cozy-mespapiers-lib'
 
-import MesPapiersLib from 'src/indexLib'
+const PaperView = props => {
+  const { lang } = useI18n()
+
+  return (
+    <>
+      <MesPapiers {...props} lang={lang} />
+      <PapersFab />
+    </>
+  )
+}
+
+const AppRouter = () => {
+  return (
+    <Switch>
+      <Route path="/paper" component={PaperView} />
+      <Redirect from="*" to="/paper" />
+    </Switch>
+  )
+}
 
 export const App = () => {
   const { BarCenter } = cozy.bar
@@ -18,21 +39,25 @@ export const App = () => {
   const client = useClient()
 
   return (
-    <Layout monoColumn>
-      <Main>
-        <Content className="app-content">
-          {isMobile && (
-            <BarCenter>
-              <MuiCozyTheme>
-                <Typography variant="h5">{client.appMetadata.slug}</Typography>
-              </MuiCozyTheme>
-            </BarCenter>
-          )}
-          <MesPapiersLib />
-        </Content>
-      </Main>
-      <IconSprite />
-    </Layout>
+    <HashRouter>
+      <Layout monoColumn>
+        <Main>
+          <Content className="app-content">
+            {isMobile && (
+              <BarCenter>
+                <MuiCozyTheme>
+                  <Typography variant="h5">
+                    {client.appMetadata.slug}
+                  </Typography>
+                </MuiCozyTheme>
+              </BarCenter>
+            )}
+            <AppRouter />
+          </Content>
+        </Main>
+        <IconSprite />
+      </Layout>
+    </HashRouter>
   )
 }
 
