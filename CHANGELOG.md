@@ -11,6 +11,7 @@
 ## ✨ Features
 
 * Add 2 routes with their views for creation of a paper
+* Use cozy-mespapiers-lib 🔥
 
 ## 🐛 Bug Fixes
 
