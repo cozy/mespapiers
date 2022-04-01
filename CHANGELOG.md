@@ -1,3 +1,11 @@
+# 0.3.0
+
+## ✨ Features
+
+## 🐛 Bug Fixes
+
+## 🔧 Tech
+
 # 0.2.0
 
 ## ✨ Features
