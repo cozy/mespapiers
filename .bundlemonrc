@@ -2,27 +2,22 @@
     "baseDir": "./build",
     "files": [
         {
-            "path": "**/mespapiers.<hash>.js",
-            "maxPercentIncrease": 10
+            "path": "**/mespapiers.<hash>.js"
         },
         {
-            "path": "app-mespapiers.<hash>.min.css",
-            "maxPercentIncrease": 10
+            "path": "app-mespapiers.<hash>.min.css"
         },
         {
-            "path": "vendors/mespapiers.<hash>.js",
-            "maxPercentIncrease": 10
+            "path": "vendors/mespapiers.<hash>.js"
         },
         {
-            "path": "vendors-mespapiers.<hash>.<hash>.min.css",
-            "maxPercentIncrease": 10
+            "path": "vendors-mespapiers.<hash>.<hash>.min.css"
         },
         {
             "path": "img/icon.<hash>.svg"
         },
         {
-            "path": "img/*.<hash>.png",
-            "maxPercentIncrease": 10
+            "path": "img/*.<hash>.png"
         }
     ],
     "reportOutput": ["github"]
