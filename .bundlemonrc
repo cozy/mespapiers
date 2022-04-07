@@ -23,15 +23,15 @@
     "groups": [
         {
             "path": "**/*.js",
-            "maxPercentIncrease": 10
+            "maxPercentIncrease": 5
         },
         {
             "path": "**/*.css",
-            "maxPercentIncrease": 10
+            "maxPercentIncrease": 5
         },
         {
             "path": "img/*.*",
-            "maxPercentIncrease": 10
+            "maxPercentIncrease": 5
         }
     ],
     "reportOutput": ["github"]
