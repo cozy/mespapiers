@@ -2,7 +2,7 @@
 
 ## ✨ Features
 
-* Update cozy-mespapiers-lib to 0.5.9
+* Update cozy-mespapiers-lib to 0.5.11
 * Update cozy-ui to 62.10.0
 
 ## 🐛 Bug Fixes
