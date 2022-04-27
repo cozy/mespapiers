@@ -2,8 +2,8 @@
 
 ## ✨ Features
 
-* Update cozy-mespapiers-lib to 0.8.0
-* Update cozy-ui to 64.0.0
+* Update cozy-mespapiers-lib to 0.9.0
+* Update cozy-ui to 65.0.1
 * Update cozy-client to 28.2.1
 * Update cozy-device-helper to 1.18.0
 * Update cozy-harvest-lib to 8.4.2
