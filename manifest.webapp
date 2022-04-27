@@ -27,7 +27,7 @@
     "contacts": {
       "description": "Required to access the contacts",
       "type": "io.cozy.contacts.*",
-      "verbs": ["GET"]
+      "verbs": ["GET", "POST"]
     },
     "files": {
       "description": "Required to access the files",
