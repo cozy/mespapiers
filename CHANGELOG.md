@@ -15,6 +15,7 @@
 ## 🔧 Tech
 
 * Change bundlemon configuration
+* Add permission to create and modify contacts
 
 # 0.2.0
 
