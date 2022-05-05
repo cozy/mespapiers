@@ -6,10 +6,12 @@
 * Filter by theme on Home [0.12.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.12.0)
 * Mask for inputs [0.13.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.13.0)
 * Search input on Home [0.14.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.14.0)
+* Synchronize the versions of cozy packages [0.15.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.15.0)
+* Add a mask for the ID card number field [0.16.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.16.0), [0.16.1](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.16.1)
 
 ## ✨ Features
 
-* Update cozy packages and cozy-mespapiers-lib to 0.15.0
+* Update cozy packages and cozy-mespapiers-lib to 0.16.1
 
 ## 🐛 Bug Fixes
 

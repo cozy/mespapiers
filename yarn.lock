@@ -4861,10 +4861,10 @@ cozy-logger@^1.9.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-0.15.0.tgz#57f4dec42009f12ce5cee09ade13c83d8e5a1c53"
-  integrity sha512-s+adcTyUwMkhByeXg4ruQMnbgnuUC59h0O5BxVaRvgfU6B3ZDGDRHuYWWqxr7OFFNnoCdxpymItgsRaZjYpkSw==
+cozy-mespapiers-lib@^0.16.1:
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-0.16.1.tgz#52879605f0d09a0e1a3d1978ec09f0a8bce70d0b"
+  integrity sha512-cbYCU0+OZyUfiITdTurUz5lmE2YUH6kWd3e0kuFc+1Sm1AWoDdkJRTBdx0K17pHapJO77ZgsHZAb2slRxEG8VQ==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/core" "4.12.3"
@@ -5009,10 +5009,10 @@ cozy-ui@35.22.0:
     react-select "2.2.0"
     react-swipeable-views "0.13.3"
 
-cozy-ui@^66.2.0:
-  version "66.2.0"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-66.2.0.tgz#23d97e5105c8155099967fbf504fb56bbc09f49a"
-  integrity sha512-J6RLHon9WVsr72Ib6fCfAce3dhdJ7QtWnxcV7i0qW1MFPBv5mOevdJL2iRmtworn/EzWQY1v0JDuin4R5OPEMA==
+cozy-ui@^66.2.1:
+  version "66.2.1"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-66.2.1.tgz#7d331037e8b21e922968d38d03f686f0becfd037"
+  integrity sha512-MeqfC5GsQ4zgec8oNhnoLiMGecGlV0SYSQZ+6QbaFR2QeyE3m0QcCtchSB6f8Z2HOpeb1nypPb161jYsGWLHBw==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@popperjs/core" "^2.4.4"
@@ -9821,7 +9821,6 @@ ms@^2.0.0, ms@^2.1.1:
 
 "mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.6":
   version "1.0.6"
-  uid "494c40416ecde95732c864f9b921e7e545075aa5"
   resolved "git+https://github.com/cozy/mui-bottom-sheet.git#494c40416ecde95732c864f9b921e7e545075aa5"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
@@ -9832,6 +9831,7 @@ ms@^2.0.0, ms@^2.1.1:
 
 "mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.6":
   version "1.0.6"
+  uid "494c40416ecde95732c864f9b921e7e545075aa5"
   resolved "https://github.com/cozy/mui-bottom-sheet.git#494c40416ecde95732c864f9b921e7e545075aa5"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
