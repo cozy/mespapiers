@@ -1,10 +1,21 @@
 # 0.4.0
 
+## 📦 Library updates
+
+* Multiple choice to Contact [0.10.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.10.0), [0.11.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.11.0)
+* Filter by theme on Home [0.12.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.12.0)
+* Mask for inputs [0.13.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.13.0)
+* Search input on Home [0.14.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.14.0)
+
 ## ✨ Features
+
+* Update cozy packages and cozy-mespapiers-lib to 0.15.0
 
 ## 🐛 Bug Fixes
 
 ## 🔧 Tech
+
+* Remove packages already in cozy-mespapiers-lib dependencies
 
 # 0.3.0
 
