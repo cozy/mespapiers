@@ -10716,16 +10716,6 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-pdf-lib@1.17.0:
-  version "1.17.0"
-  resolved "https://registry.yarnpkg.com/pdf-lib/-/pdf-lib-1.17.0.tgz#fa0ab9f23102348c1b5c96bf59862d429aafbc4c"
-  integrity sha512-INe7i0CatJR+YwizvldDeJgXF2jlBnhqpUbUeWGLr95SldYTO1j9mLg7IZwKHJ4FHi3E2VmM+jEVL+d2bExO0A==
-  dependencies:
-    "@pdf-lib/standard-fonts" "^1.0.0"
-    "@pdf-lib/upng" "^1.0.1"
-    pako "^1.0.11"
-    tslib "^1.11.1"
-
 pdf-lib@1.17.1:
   version "1.17.1"
   resolved "https://registry.yarnpkg.com/pdf-lib/-/pdf-lib-1.17.1.tgz#9e7dd21261a0c1fb17992580885b39e7d08f451f"
