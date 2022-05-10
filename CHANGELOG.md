@@ -11,11 +11,11 @@
 * Always Display the maskPlaceholder [0.17.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.17.0)
 * Add the documentation for papersDefinitions configuration file [0.18.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.18.0)
 * Align text value in inputMask [0.19.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.19.0)
-* Upgrade cozy-ui to 66.2.4 [0.20.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.20.0)
+* Upgrade cozy-ui to 67.0.0 [0.21.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.21.0)
 
 ## ✨ Features
 
-* Update cozy packages and cozy-mespapiers-lib to 0.20.0
+* Update cozy packages and cozy-mespapiers-lib to 0.21.0
 
 ## 🐛 Bug Fixes
 
