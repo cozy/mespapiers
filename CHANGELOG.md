@@ -8,10 +8,14 @@
 * Search input on Home [0.14.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.14.0)
 * Synchronize the versions of cozy packages [0.15.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.15.0)
 * Add a mask for the ID card number field [0.16.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.16.0), [0.16.1](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.16.1)
+* Always Display the maskPlaceholder [0.17.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.17.0)
+* Add the documentation for papersDefinitions configuration file [0.18.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.18.0)
+* Align text value in inputMask [0.19.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.19.0)
+* Upgrade cozy-ui to 66.2.4 [0.20.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.20.0)
 
 ## ✨ Features
 
-* Update cozy packages and cozy-mespapiers-lib to 0.16.1
+* Update cozy packages and cozy-mespapiers-lib to 0.20.0
 
 ## 🐛 Bug Fixes
 
