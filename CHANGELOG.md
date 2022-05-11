@@ -14,10 +14,13 @@
 * Upgrade cozy-ui to 67.0.0 [0.21.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.21.0)
 * Add information step to bank_details and vehicle_registration papers [0.22.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.22.0)
   * Change character by default for the maskPlaceholder ('ˍ')
+* Create PaperCardItem [0.23.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.23.0)
+* Change mask of IBAN paper [0.24.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.24.0)
+* Remove minimum length rule on national_id_card paper [0.25.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.25.0)
 
 ## ✨ Features
 
-* Update cozy packages and cozy-mespapiers-lib to 0.22.0
+* Update cozy packages and cozy-mespapiers-lib to 0.25.0
 
 ## 🐛 Bug Fixes
 
