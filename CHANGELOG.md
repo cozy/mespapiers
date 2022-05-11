@@ -12,10 +12,12 @@
 * Add the documentation for papersDefinitions configuration file [0.18.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.18.0)
 * Align text value in inputMask [0.19.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib@0.19.0)
 * Upgrade cozy-ui to 67.0.0 [0.21.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.21.0)
+* Add information step to bank_details and vehicle_registration papers [0.22.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.22.0)
+  * Change character by default for the maskPlaceholder ('ˍ')
 
 ## ✨ Features
 
-* Update cozy packages and cozy-mespapiers-lib to 0.21.0
+* Update cozy packages and cozy-mespapiers-lib to 0.22.0
 
 ## 🐛 Bug Fixes
 
