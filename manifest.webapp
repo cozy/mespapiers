@@ -68,6 +68,13 @@
       "description": "Required to display additional information in the viewer for files automatically retrieved by services",
       "type": "io.cozy.triggers",
       "verbs": ["GET"]
+    },
+    "create-a-zip-archive": {
+      "description": "Required to create a zip archive inside the cozy",
+      "type": "io.cozy.jobs",
+      "verbs": ["POST"],
+      "selector": "worker",
+      "values": ["zip"]
     }
   }
 }
