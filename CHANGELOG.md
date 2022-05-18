@@ -1,6 +1,13 @@
 # 0.5.0
 
+## 📦 Library updates
+* Add the select option in the options of each line of paper & cozy bar [0.27.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.27.0)
+* [BC] Add multi-select feature, download or forward multiple papers [0.29.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.29.0), [0.29.1](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.29.1)
+* Update Viewer with new implementation & add SelectFileButton to be used in the mobile viewer actions [0.30.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.30.0)
+
 ## ✨ Features
+
+* Update cozy-ui to [68.0.1](https://github.com/cozy/cozy-ui/releases/tag/v68.0.1) and cozy-mespapiers-lib to 0.30.0
 
 ## 🐛 Bug Fixes
 
