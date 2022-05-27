@@ -12,12 +12,12 @@ import { AppProviders } from 'src/components/AppProviders'
 import App from 'src/components/App'
 
 const init = () => {
-  const { root, ...rest } = setupApp()
+  const { container, ...rest } = setupApp()
   render(
     <AppProviders {...rest}>
       <App />
     </AppProviders>,
-    root
+    container
   )
 }
 
