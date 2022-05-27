@@ -4,7 +4,7 @@ import 'cozy-ui/dist/cozy-ui.utils.min.css'
 import '../../styles/index.styl'
 // import '../../utils/wdyr'
 import React from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 
 import setupApp from 'src/targets/browser/setupApp'
 import { register as registerServiceWorker } from 'src/targets/browser/serviceWorkerRegistration'
@@ -13,11 +13,11 @@ import App from 'src/components/App'
 
 const init = () => {
   const { container, ...rest } = setupApp()
-  render(
+  const root = createRoot(container)
+  root.render(
     <AppProviders {...rest}>
       <App />
-    </AppProviders>,
-    container
+    </AppProviders>
   )
 }
 
