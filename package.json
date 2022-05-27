@@ -59,8 +59,8 @@
     "cozy-scripts": "^6.3.7",
     "cozy-sharing": "4.3.1",
     "cozy-ui": "70.5.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
     "react-router-dom": "5.2.0"
   }
 }
