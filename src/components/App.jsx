@@ -16,6 +16,7 @@ import MesPapiers from 'cozy-mespapiers-lib'
 const PaperView = props => {
   const { lang } = useI18n()
 
+  // FIX The "multiSelectionFiles" in "MultiSelectionProvider" state is reset when you return to the selection screen (see cozy-mespapiers-lib)
   return <MesPapiers {...props} lang={lang} />
 }
 
