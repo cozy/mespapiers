@@ -6,10 +6,11 @@
 * Update Viewer with new implementation & add SelectFileButton to be used in the mobile viewer actions [0.30.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.30.0)
 * Update `cozy-ui` package to `68.1.1` [0.31.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.31.0)
 * Add ForwardModal component [0.32.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.32.0), [0.32.10](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.32.10)
+* Change color of file icon to pink [0.33.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.33.0), [0.33.6](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.33.5)
 
 ## ✨ Features
 
-* Update cozy-ui to [68.1.1](https://github.com/cozy/cozy-ui/releases/tag/v68.1.1) and cozy-mespapiers-lib to 0.32.10
+* Update cozy-ui to [68.1.1](https://github.com/cozy/cozy-ui/releases/tag/v68.1.1) and cozy-mespapiers-lib to 0.33.6
 
 ## 🐛 Bug Fixes
 
