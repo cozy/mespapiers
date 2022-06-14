@@ -10,7 +10,8 @@
 
 ## ✨ Features
 
-* Update cozy-ui to [68.1.1](https://github.com/cozy/cozy-ui/releases/tag/v68.1.1) and cozy-mespapiers-lib to 0.33.6
+* Update cozy-mespapiers-lib to [0.33.6](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.33.5)
+* Update cozy-ui to [68.5.0](https://github.com/cozy/cozy-ui/releases/tag/v68.5.0)
 
 ## 🐛 Bug Fixes
 
