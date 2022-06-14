@@ -17,6 +17,7 @@
 * Update cozy-scripts to [6.3.3](https://github.com/cozy/create-cozy-app/blob/master/packages/cozy-scripts/CHANGELOG.md)
 * Update cozy-realtime to [4.2.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-realtime%404.2.0)
 * Update cozy-harvest-lib to [9.10.1](https://github.com/cozy/cozy-libs/releases/tag/cozy-harvest-lib%409.10.1)
+* Update cozy-flags to [2.9.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-flags%402.9.0)
 
 ## 🐛 Bug Fixes
 
