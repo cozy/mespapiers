@@ -19,6 +19,7 @@
 * Update cozy-harvest-lib to [9.10.1](https://github.com/cozy/cozy-libs/releases/tag/cozy-harvest-lib%409.10.1)
 * Update cozy-flags to [2.9.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-flags%402.9.0)
 * Update cozy-doctypes to [1.83.8](https://github.com/cozy/cozy-libs/releases/tag/cozy-doctypes%401.83.8)
+* Update cozy-device-helper to [2.2.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-device-helper%402.2.0)
 
 ## 🐛 Bug Fixes
 
