@@ -26,8 +26,7 @@
             "maxPercentIncrease": 5
         },
         {
-            "path": "**/*.css",
-            "maxPercentIncrease": 5
+            "path": "**/*.css"
         },
         {
             "path": "img/*.*",
