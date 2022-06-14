@@ -15,6 +15,7 @@
 * Update cozy-sharing to [4.3.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-sharing%404.3.0)
 * Update cozy-sharing to [4.3.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-sharing%404.3.0)
 * Update cozy-scripts to [6.3.3](https://github.com/cozy/create-cozy-app/blob/master/packages/cozy-scripts/CHANGELOG.md)
+* Update cozy-realtime to [4.2.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-realtime%404.2.0)
 
 ## 🐛 Bug Fixes
 

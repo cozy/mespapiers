@@ -4915,13 +4915,13 @@ cozy-realtime@3.2.1:
   dependencies:
     minilog "3.1.0"
 
-cozy-realtime@^4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-4.0.8.tgz#a37a5bdbc6345b3d7b8f2fc9fdae8e7feab8cf66"
-  integrity sha512-dREi5vCtFZaHwiaO3P2FSKaNLuT7lGIzOJh/qBnUJkSFJiQHyw0R6wscTCpbpkJ7IUWn1fp7HnZ9YpfmoMyeSw==
+cozy-realtime@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-4.2.0.tgz#8cb61b064a09b6fffeeac653d3baf5ec57f5d964"
+  integrity sha512-bArv6o23A7aFCtDVwCXPbuD9lDwHphNnk0yJ59fpElXMTb28/jgZL570ZygCqvZGP2cVFTe0S74jmNIKrMNFIw==
   dependencies:
     "@cozy/minilog" "^1.0.0"
-    cozy-device-helper "^2.0.0"
+    cozy-device-helper "^2.2.0"
 
 cozy-release@1.10.0:
   version "1.10.0"
