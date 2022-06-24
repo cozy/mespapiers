@@ -53,7 +53,7 @@
     "cozy-doctypes": "^1.83.8",
     "cozy-flags": "^2.9.0",
     "cozy-harvest-lib": "^9.10.1",
-    "cozy-intent": "^1.17.1",
+    "cozy-intent": "1.17.3",
     "cozy-mespapiers-lib": "0.34.14",
     "cozy-realtime": "^4.2.0",
     "cozy-scripts": "^6.3.3",
