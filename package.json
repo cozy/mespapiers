@@ -57,7 +57,7 @@
     "cozy-mespapiers-lib": "0.34.16",
     "cozy-realtime": "4.2.1",
     "cozy-scripts": "^6.3.3",
-    "cozy-sharing": "^4.3.0",
+    "cozy-sharing": "4.3.1",
     "cozy-ui": "^68.5.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
