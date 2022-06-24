@@ -1,5 +1,33 @@
 {
   "extends": [
-    "cozy"
-  ]
+    "config:base",
+    ":semanticCommitTypeAll(fix)"
+  ],
+  "rangeStrategy": "pin",
+  "packageRules": [
+    {
+      "excludePackagePrefixes": [
+        "cozy-"
+      ],
+      "extends": [
+        "schedule:monthly"
+      ],
+      "prHourlyLimit": 1
+    },
+    {
+      "matchPackagePrefixes": [
+        "cozy-"
+      ],
+      "extends": [
+        ":disableDependencyDashboard"
+      ],
+      "schedule": "at any time",
+      "prHourlyLimit": 0
+    }
+  ],
+  "timezone": "Europe/Paris",
+  "addLabels": [
+    "dependencies"
+  ],
+  "updateNotScheduled": false
 }
