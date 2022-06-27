@@ -4870,13 +4870,6 @@ cozy-device-helper@^1.7.3:
   dependencies:
     lodash "^4.17.19"
 
-cozy-device-helper@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/cozy-device-helper/-/cozy-device-helper-2.2.0.tgz#2794157bcd23948e68ef373ab9a67e1a6c17d995"
-  integrity sha512-j6HbiS6zh7/WPxajbbPIRpK/kaxZG8UTH2zlO6FU7pD7PGpisyl3Wl+O9P8WhOYtaKFxAwu1VFXm32FULV+MHw==
-  dependencies:
-    lodash "^4.17.19"
-
 cozy-doctypes@^1.83.8:
   version "1.83.8"
   resolved "https://registry.yarnpkg.com/cozy-doctypes/-/cozy-doctypes-1.83.8.tgz#99ec864059034bd032f6f01e322b57fea130a5d3"
@@ -5093,10 +5086,10 @@ cozy-ui@35.22.0:
     react-select "2.2.0"
     react-swipeable-views "0.13.3"
 
-cozy-ui@^68.5.0:
-  version "68.5.0"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-68.5.0.tgz#f71ea35a39691e10977034a4dc795f12559700f3"
-  integrity sha512-wDGUpNJZiwf6r+h72I+IBsijD29DUlLIzGu16PserTX2hGoOruG3EsmsSiHIqGbTAK1VoPNdg1/gCEVWDEFRQg==
+cozy-ui@68.7.0:
+  version "68.7.0"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-68.7.0.tgz#083612d8b312f6843f5b102bba6cc6003bd558b3"
+  integrity sha512-C4OnCYTd8ndlULPEQA9qDS7da2B2W42/BfxMwFvSARYQo+YQFwoV8nC73Mnc/yhbbD8OYpfnw2fGB1fARl/HZA==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@popperjs/core" "^2.4.4"
@@ -5109,7 +5102,7 @@ cozy-ui@^68.5.0:
     hammerjs "^2.0.8"
     intersection-observer "0.11.0"
     mime-types "2.1.35"
-    mui-bottom-sheet "https://github.com/cozy/mui-bottom-sheet.git#v1.0.6"
+    mui-bottom-sheet "git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.6"
     node-polyglot "^2.2.2"
     normalize.css "^8.0.0"
     piwik-react-router "0.12.1"
@@ -9905,9 +9898,10 @@ ms@^2.0.0, ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.6":
+"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.6":
   version "1.0.6"
-  resolved "https://github.com/cozy/mui-bottom-sheet.git#494c40416ecde95732c864f9b921e7e545075aa5"
+  uid "494c40416ecde95732c864f9b921e7e545075aa5"
+  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#494c40416ecde95732c864f9b921e7e545075aa5"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
