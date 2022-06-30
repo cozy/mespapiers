@@ -11,8 +11,8 @@
 
 ## ✨ Features
 
-* Update cozy-mespapiers-lib to [0.34.1](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.34.1)
-* Update cozy-ui to [68.5.0](https://github.com/cozy/cozy-ui/releases/tag/v68.5.0)
+* Update cozy-mespapiers-lib to [0.35.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.35.0)
+* Update cozy-ui to [68.9.0](https://github.com/cozy/cozy-ui/releases/tag/v68.9.0)
 * Update cozy-sharing to [4.3.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-sharing%404.3.0)
 * Update cozy-sharing to [4.3.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-sharing%404.3.0)
 * Update cozy-scripts to [6.3.3](https://github.com/cozy/create-cozy-app/blob/master/packages/cozy-scripts/CHANGELOG.md)
