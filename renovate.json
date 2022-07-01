@@ -23,7 +23,11 @@
       ],
       "rangeStrategy": "bump",
       "schedule": "at any time",
-      "prHourlyLimit": 0
+      "prHourlyLimit": 0,
+      "separateMinorPatch": true,
+      "patch": {
+        "automerge": true
+      }
     }
   ],
   "timezone": "Europe/Paris",
