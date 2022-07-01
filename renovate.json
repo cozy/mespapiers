@@ -3,7 +3,6 @@
     "config:base",
     ":semanticCommitTypeAll(feat)"
   ],
-  "rangeStrategy": "pin",
   "packageRules": [
     {
       "excludePackagePrefixes": [
@@ -12,6 +11,7 @@
       "extends": [
         "schedule:monthly"
       ],
+      "rangeStrategy": "pin",
       "prHourlyLimit": 1
     },
     {
@@ -21,6 +21,7 @@
       "extends": [
         ":disableDependencyDashboard"
       ],
+      "rangeStrategy": "bump",
       "schedule": "at any time",
       "prHourlyLimit": 0
     }
