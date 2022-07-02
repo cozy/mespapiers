@@ -1,0 +1,1 @@
+html{--zIndex-below:-1;--zIndex-app:0;--zIndex-low:1;--zIndex-alertMobile:10;--zIndex-nav:20;--zIndex-bar:21;--zIndex-selection:30;--zIndex-popover:40;--zIndex-overlay:50;--zIndex-fileActionMenu:60;--zIndex-drawer:60;--zIndex-modal:70;--zindex-alert:80}@media(max-width:48rem){[role=banner] .coz-bar-wrapper .coz-bar-container{align-items:center;padding:0}}
