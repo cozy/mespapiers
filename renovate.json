@@ -26,7 +26,8 @@
       "prHourlyLimit": 0,
       "separateMinorPatch": true,
       "patch": {
-        "automerge": true
+        "automerge": true,
+        "automergeType": "pr"
       }
     }
   ],
