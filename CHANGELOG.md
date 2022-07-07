@@ -7,10 +7,11 @@
 * Update `cozy-ui` package to `68.1.1` [0.31.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.31.0)
 * Add ForwardModal component [0.32.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.32.0), [0.32.10](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.32.10)
 * Change color of file icon to pink [0.33.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.33.0), [0.33.6](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.33.5)
+* The search results are directly the files found and not the qualification group to which they belong [0.38.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.38.0)
 
 ## ✨ Features
 
-* Update cozy-mespapiers-lib to [0.37.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.37.0)
+* Update cozy-mespapiers-lib to [0.38.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.38.0)
 * Update cozy-client to [32.2.1](https://github.com/cozy/cozy-client/releases/tag/v32.2.1)
 * Update cozy-ui to [68.9.0](https://github.com/cozy/cozy-ui/releases/tag/v68.9.0)
 * Update cozy-sharing to [4.3.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-sharing%404.3.0)
