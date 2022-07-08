@@ -1,0 +1,115 @@
+{
+  "name": "Mes papiers",
+  "slug": "mespapiers",
+  "icon": "icon.svg",
+  "categories": [],
+  "version": "0.5.0",
+  "licence": "AGPL-3.0",
+  "editor": "Cozy",
+  "source": "https://github.com/cozy/mespapiers.git@build",
+  "developer": {
+    "name": "Cozy Cloud",
+    "url": "https://cozy.io"
+  },
+  "routes": {
+    "/": {
+      "folder": "/",
+      "index": "index.html",
+      "public": false
+    }
+  },
+  "permissions": {
+    "apps": {
+      "description": "Required by the cozy-bar to display the icons of the apps",
+      "type": "io.cozy.apps",
+      "verbs": [
+        "GET"
+      ]
+    },
+    "contacts": {
+      "description": "Required to access the contacts",
+      "type": "io.cozy.contacts.*",
+      "verbs": [
+        "GET",
+        "POST"
+      ]
+    },
+    "files": {
+      "description": "Required to access the files",
+      "type": "io.cozy.files",
+      "verbs": [
+        "ALL"
+      ]
+    },
+    "sharings": {
+      "description": "Required to have access to the sharings in realtime",
+      "type": "io.cozy.sharings",
+      "verbs": [
+        "ALL"
+      ]
+    },
+    "settings": {
+      "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+      "type": "io.cozy.settings",
+      "verbs": [
+        "GET"
+      ]
+    },
+    "mespapiers.settings": {
+      "description": "Used to manage your papers settings",
+      "type": "io.cozy.mespapiers.settings",
+      "verbs": [
+        "GET",
+        "POST",
+        "PUT"
+      ]
+    },
+    "permissions": {
+      "description": "Required to run the konnectors",
+      "type": "io.cozy.permissions",
+      "verbs": [
+        "ALL"
+      ]
+    },
+    "konnectors": {
+      "description": "Required to display additional information in the viewer for files automatically retrieved by services",
+      "type": "io.cozy.konnectors",
+      "verbs": [
+        "GET"
+      ]
+    },
+    "accounts": {
+      "description": "Required to display additional information in the viewer for files automatically retrieved by services",
+      "type": "io.cozy.accounts",
+      "verbs": [
+        "GET"
+      ]
+    },
+    "triggers": {
+      "description": "Required to display additional information in the viewer for files automatically retrieved by services",
+      "type": "io.cozy.triggers",
+      "verbs": [
+        "GET"
+      ]
+    },
+    "create-a-zip-archive": {
+      "description": "Required to create a zip archive inside the cozy",
+      "type": "io.cozy.jobs",
+      "verbs": [
+        "POST"
+      ],
+      "selector": "worker",
+      "values": [
+        "zip"
+      ]
+    }
+  },
+  "locales": {
+    "en": {},
+    "fr": {}
+  },
+  "langs": [
+    "en",
+    "fr"
+  ]
+}
