@@ -54,7 +54,7 @@
     "cozy-flags": "^2.9.0",
     "cozy-harvest-lib": "^9.10.1",
     "cozy-intent": "^1.17.3",
-    "cozy-mespapiers-lib": "0.42.2",
+    "cozy-mespapiers-lib": "0.42.3",
     "cozy-realtime": "4.2.1",
     "cozy-scripts": "^6.3.5",
     "cozy-sharing": "4.3.1",
