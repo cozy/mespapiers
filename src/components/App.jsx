@@ -11,17 +11,12 @@ import Typography from 'cozy-ui/transpiled/react/Typography'
 import { Layout, Main, Content } from 'cozy-ui/transpiled/react/Layout'
 import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
-import MesPapiers, { PapersFab } from 'cozy-mespapiers-lib'
+import MesPapiers from 'cozy-mespapiers-lib'
 
 const PaperView = props => {
   const { lang } = useI18n()
 
-  return (
-    <>
-      <MesPapiers {...props} lang={lang} />
-      <PapersFab />
-    </>
-  )
+  return <MesPapiers {...props} lang={lang} />
 }
 
 const AppRouter = () => {
