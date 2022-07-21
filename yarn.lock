@@ -4967,10 +4967,10 @@ cozy-realtime@3.2.1:
   dependencies:
     minilog "3.1.0"
 
-cozy-realtime@4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-4.2.1.tgz#b42fe82057bd1aae4f227d7987f207eacb169984"
-  integrity sha512-YuyT8DfzInyzt5dW4Acb+nxU0lIMQ4aGveZyx2pTjpYVpRf8xYDz0zPkcxVugfEgSstZBfFtcXKS1+9i4QcjMw==
+cozy-realtime@4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/cozy-realtime/-/cozy-realtime-4.2.2.tgz#4284d82cb57b4e758eb3b146d484627b733b6058"
+  integrity sha512-GVdfthFG0uQs2MBTfBRSKrnA6WQfB1Sk76tgU5+2rwwIFpY3BUOUkBFj9FG9r29NCVPi7NzW7cyjhXeD3PBFPg==
   dependencies:
     "@cozy/minilog" "^1.0.0"
     cozy-device-helper "^2.2.1"
