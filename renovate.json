@@ -1,39 +1,5 @@
 {
   "extends": [
-    "config:base",
-    ":semanticCommitTypeAll(feat)"
-  ],
-  "packageRules": [
-    {
-      "excludePackagePrefixes": [
-        "cozy-"
-      ],
-      "extends": [
-        "schedule:monthly"
-      ],
-      "rangeStrategy": "pin",
-      "prHourlyLimit": 1
-    },
-    {
-      "matchPackagePrefixes": [
-        "cozy-"
-      ],
-      "extends": [
-        ":disableDependencyDashboard"
-      ],
-      "rangeStrategy": "bump",
-      "schedule": "at any time",
-      "prHourlyLimit": 0,
-      "separateMinorPatch": true,
-      "patch": {
-        "automerge": true,
-        "automergeType": "pr"
-      }
-    }
-  ],
-  "timezone": "Europe/Paris",
-  "addLabels": [
-    "dependencies"
-  ],
-  "updateNotScheduled": false
+    "cozy"
+  ]
 }
