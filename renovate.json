@@ -1,5 +1,6 @@
 {
   "extends": [
-    "cozy"
+    "cozy",
+    ":semanticCommitTypeAll(feat)"
   ]
 }
