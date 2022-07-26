@@ -4888,6 +4888,17 @@ cozy-doctypes@^1.83.8:
     lodash "^4.17.19"
     prop-types "^15.7.2"
 
+cozy-doctypes@^1.85.0:
+  version "1.85.0"
+  resolved "https://registry.yarnpkg.com/cozy-doctypes/-/cozy-doctypes-1.85.0.tgz#f777a74befc059d40ddbbd2fc523c9537f801d4d"
+  integrity sha512-+T9Y6ELMFiOM3uIQ79WDB0C1KvQzwCoUS9G9ss7OMWkmjrxRJvXaeVpr0WThh8q26zEjuSixKo8qYUfrNjnajQ==
+  dependencies:
+    cozy-logger "^1.9.0"
+    date-fns "^1.30.1"
+    es6-promise-pool "^2.5.0"
+    lodash "^4.17.19"
+    prop-types "^15.7.2"
+
 cozy-flags@^2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/cozy-flags/-/cozy-flags-2.9.0.tgz#9f458c0eb71f549a2ae12198d55de89434bff96b"
