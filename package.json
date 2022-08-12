@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/cozy/mespapiers#readme",
   "devDependencies": {
-    "@testing-library/react": "11.2.7",
+    "@testing-library/react": "13.3.0",
     "@welldone-software/why-did-you-render": "^6.2.1",
     "babel-preset-cozy-app": "2.0.2",
     "bundlemon": "1.4.0",
@@ -43,7 +43,7 @@
     "eslint-config-cozy-app": "^4.0.0",
     "git-directory-deploy": "1.5.1",
     "react-hot-loader": "4.13.0",
-    "react-test-renderer": "16.14.0",
+    "react-test-renderer": "18.2.0",
     "redux-mock-store": "1.5.4",
     "stylint": "2.0.0"
   },
@@ -59,8 +59,8 @@
     "cozy-scripts": "^6.3.7",
     "cozy-sharing": "4.3.1",
     "cozy-ui": "70.5.1",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-router-dom": "5.2.0"
   }
 }
