@@ -1,3 +1,7 @@
+# 1.2.0
+
+* Synchronize Apps versions
+
 # 0.6.0
 
 ## ✨ Features
