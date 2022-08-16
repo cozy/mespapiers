@@ -4967,10 +4967,10 @@ cozy-logger@^1.9.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-1.5.2.tgz#d9e9bab964c6bbd5b4c9694d37271a7e20b5e350"
-  integrity sha512-/CGkvWkkJz3OGgKAPB/ZzpHAAoBHqAlGnN/U06zS5IbeaHoVHYVjkwonx1ub0cZxp2DknVM2PB7Zl6vqitvQRQ==
+cozy-mespapiers-lib@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-1.6.0.tgz#5d3945abe695b38daea20eb5235a3c603fa97ec7"
+  integrity sha512-peED/OQ8+LkbAPAOHMWftB9seHXDl4+Vni79WcxNkkYjX/ub+VlPoNCnZplaiU0A1aNwsJciy97vmcOYfYHgSA==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/core" "4.12.3"
