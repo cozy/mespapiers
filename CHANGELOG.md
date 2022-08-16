@@ -2,7 +2,7 @@
 
 ## ✨ Features
 
-* Update cozy-mespapiers-lib from [0.42.1](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.42.1) to [1.5.2](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%401.5.2)
+* Update cozy-mespapiers-lib from [0.42.1](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%400.42.1) to [1.6.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%401.6.0)
 
 # 0.5.0
 
