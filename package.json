@@ -42,7 +42,6 @@
     "enzyme-adapter-react-16": "1.15.6",
     "eslint-config-cozy-app": "^4.0.0",
     "git-directory-deploy": "1.5.1",
-    "react-hot-loader": "4.13.0",
     "react-test-renderer": "16.14.0",
     "redux-mock-store": "1.5.4",
     "stylint": "2.0.0"
