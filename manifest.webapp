@@ -11,6 +11,24 @@
     "name": "Cozy Cloud",
     "url": "https://cozy.io"
   },
+  "locales": {
+    "en": {
+      "screenshots": [
+        "screenshots/en/screenshot01.png",
+        "screenshots/en/screenshot02.png",
+        "screenshots/en/screenshot03.png",
+        "screenshots/en/screenshot04.png"
+      ]
+    },
+    "fr": {
+      "screenshots": [
+        "screenshots/fr/screenshot01.png",
+        "screenshots/fr/screenshot02.png",
+        "screenshots/fr/screenshot03.png",
+        "screenshots/fr/screenshot04.png"
+      ]
+    }
+  },
   "routes": {
     "/": {
       "folder": "/",

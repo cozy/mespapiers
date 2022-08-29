@@ -6,6 +6,7 @@
 
 ## 🔧 Tech
 * Update `cozy-scripts` package from 6.3.7 to 6.3.10
+* Add descriptions and screenshots for cozy-store
 
 # 1.2.0
 
