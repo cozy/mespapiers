@@ -6,6 +6,7 @@
 
 ## 🔧 Tech
 * Revert `cozy-scripts` to 6.3.0 for prevent duplicate css.
+* Add descriptions and screenshots for cozy-store.
 
 # 1.2.0
 
