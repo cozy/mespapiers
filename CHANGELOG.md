@@ -4,6 +4,9 @@
 * Add a context menu to rename a paper [1.7.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%401.7.0)
 * Allow to search papers by owner [1.8.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%401.8.0)
 
+## 🔧 Tech
+* Update `cozy-scripts` package from 6.3.7 to 6.3.10
+
 # 1.2.0
 
 * Synchronize Apps versions
