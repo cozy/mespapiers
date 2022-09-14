@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { hot } from 'react-hot-loader'
-import { Route, Switch, Redirect, HashRouter } from 'react-router-dom'
+import { Route, Routes, Navigate, HashRouter } from 'react-router-dom'
 
 import { useClient } from 'cozy-client'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
@@ -21,10 +21,10 @@ const PaperView = props => {
 
 const AppRouter = () => {
   return (
-    <Switch>
-      <Route path="/paper" component={PaperView} />
-      <Redirect from="*" to="/paper" />
-    </Switch>
+    <Routes>
+      <Route path="/paper/*" element={<PaperView />} />
+      <Route path="*" element={<Navigate to="/paper" replace />} />
+    </Routes>
   )
 }
 
