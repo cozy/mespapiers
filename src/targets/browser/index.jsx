@@ -1,10 +1,11 @@
-import 'cozy-ui/transpiled/react/stylesheet.css'
-import 'cozy-ui/dist/cozy-ui.utils.min.css'
-
-import '../../styles/index.styl'
-// import '../../utils/wdyr'
 import React from 'react'
 import { render } from 'react-dom'
+
+import 'cozy-ui/transpiled/react/stylesheet.css'
+import 'cozy-ui/dist/cozy-ui.utils.min.css'
+import 'cozy-mespapiers-lib/dist/stylesheet.css'
+import '../../styles/index.styl'
+// import '../../utils/wdyr'
 
 import setupApp from 'src/targets/browser/setupApp'
 import { register as registerServiceWorker } from 'src/targets/browser/serviceWorkerRegistration'
