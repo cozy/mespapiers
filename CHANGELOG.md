@@ -1,3 +1,9 @@
+# 1.2.1
+
+## ✨ Features
+
+* Add description for the Cozy Store
+
 # 1.2.0
 
 * Synchronize Apps versions
