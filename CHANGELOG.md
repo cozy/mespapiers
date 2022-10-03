@@ -1,4 +1,4 @@
-# 2.0.0
+# 2.0.1
 
 * Add minLength constraint to InputMask [1.7.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%401.7.0)
 * Add a context menu to rename a paper [1.7.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%401.7.0)
@@ -7,6 +7,12 @@
 ## 🔧 Tech
 * Revert `cozy-scripts` to 6.3.0 for prevent duplicate css.
 * Add descriptions and screenshots for cozy-store.
+
+# 1.2.1
+
+## ✨ Features
+
+* Add description for the Cozy Store
 
 # 1.2.0
 
