@@ -22,7 +22,8 @@
     "stack:docker:dev": "cs stackDocker",
     "stack:docker:prod": "cs stackDocker --prod",
     "service": "node build/services/expiration/mespapiers.js",
-    "triggers:launch": "node build/services/launchTriggers/mespapiers.js"
+    "triggers:launch": "node build/services/launchTriggers/mespapiers.js",
+    "update:libs": "node ./scripts/update_libs.js"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     "@welldone-software/why-did-you-render": "^6.2.1",
     "babel-preset-cozy-app": "2.0.2",
     "bundlemon": "1.4.0",
+    "compare-versions": "^5.0.1",
     "cozy-bar": "7.16.0",
     "enzyme-adapter-react-16": "1.15.6",
     "eslint-config-cozy-app": "^4.0.0",
