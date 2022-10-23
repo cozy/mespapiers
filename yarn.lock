@@ -4952,10 +4952,10 @@ cozy-harvest-lib@^9.26.6:
     react-markdown "^4.2.2"
     uuid "^3.3.2"
 
-cozy-intent@^1.17.3:
-  version "1.17.3"
-  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-1.17.3.tgz#dcf8085a9c561ce56ab0c7afc69474243e4f9e9c"
-  integrity sha512-Qko/tUJlXWh5wYLfw+CknbIm+KeAW4F3lAk/n1CA+uKwcseua+LCoNIypC/04ttm9g6ntbEogb/u4h6d5+H6lg==
+cozy-intent@^2.2.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-2.6.0.tgz#390bb287c3f74b019ec332427137a63f3e757401"
+  integrity sha512-zGDmMOO8NApzwxw+5DiOCsoyHmcLrqVEcOnMZw4tQd7HqtIYzJrCE6V5F1mXeuEHa7xeWAY6x3840xf769ii6A==
   dependencies:
     post-me "0.4.5"
 
@@ -4993,10 +4993,10 @@ cozy-logger@^1.9.1:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^8.0.5:
-  version "8.0.5"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-8.0.5.tgz#c90c3ba5ea48082a11f02b057de9cc43b8f0f058"
-  integrity sha512-JN6XcNlaz8uhUQeUJUS7+OKMh/5QY3u1hWvM/4Tenf1cQj6CyoJgoWIcoQouEZlbuIsVsEQk8u+Ds7IV4sOgCA==
+cozy-mespapiers-lib@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-9.0.1.tgz#c1ede9f22d3ccbc9859139b063a962d07e63c656"
+  integrity sha512-9gmQFXgu68io3IxpV2zeHjcV1Q7zEyEtsSuWVJNKdFLke0PYS5IiH5mlKdbCuDjhiyQ/z7/rtsF+yXlidm2kQw==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/core" "4.12.3"
