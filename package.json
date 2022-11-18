@@ -20,7 +20,9 @@
     "test": "cs test --verbose --coverage",
     "cozyPublish": "cozy-app-publish --token $REGISTRY_TOKEN --prepublish downcloud --postpublish mattermost --space mespapiers",
     "stack:docker:dev": "cs stackDocker",
-    "stack:docker:prod": "cs stackDocker --prod"
+    "stack:docker:prod": "cs stackDocker --prod",
+    "service": "node build/services/expiration/mespapiers.js",
+    "triggers:launch": "node build/services/launchTriggers/mespapiers.js"
   },
   "repository": {
     "type": "git",
