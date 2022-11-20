@@ -22,8 +22,7 @@
     ],
     "groups": [
         {
-            "path": "**/*.js",
-            "maxPercentIncrease": 5
+            "path": "**/*.js"
         },
         {
             "path": "**/*.css"
