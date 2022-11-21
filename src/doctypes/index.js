@@ -1,8 +1,4 @@
-export const APPS_DOCTYPE = 'io.cozy.apps'
-export const CONTACTS_DOCTYPE = 'io.cozy.contacts'
-export const FILES_DOCTYPE = 'io.cozy.files'
-export const PERMISSIONS_DOCTYPE = 'io.cozy.permissions'
-export const SETTINGS_DOCTYPE = 'io.cozy.mespapiers.settings'
+import { CONTACTS_DOCTYPE, FILES_DOCTYPE } from 'src/constants'
 
 // the documents schema, necessary for CozyClient
 export default {
