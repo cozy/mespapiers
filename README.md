@@ -42,10 +42,10 @@ $ yarn start
 ```
 
 ```sh
-# in an other terminal, run the docker image 
+# in an other terminal, run the docker image
 $ cd mespapiers
 $ yarn stack:docker:dev
-``` 
+```
 
 After the build and the docker image launched, your app is now available at http://mespapiers.cozy.tools:8080.
 
@@ -83,8 +83,34 @@ $ yarn test
 
 :pushpin: Don't forget to update / create new tests when you contribute to code to keep the app the consistent.
 
+___
+# Services
 
-## Models
+## expiration:
+  This service consists in checking every day between 1pm & 3pm if qualified documents are about to expire <br/>(_expiry date_ - _offset of document type_)
+
+## Developing
+In prod env, triggers are created during the installation of the app. In local env, triggers must be created & launched manually:
+
+To execute the trigger in local development, follow this steps:
+- You will need to define 2 environment variables:
+  ```
+  $ export COZY_URL='http://cozy.localhost:8080'
+  $ export COZY_CREDENTIALS=$(cozy-stack instances token-app cozy.localhost:8080 mespapiers)
+  ```
+
+- Launch once the trigger manually (create upstream if needed)
+  ```
+  yarn triggers:launch
+  ```
+
+- Launch the service manually as much as necessary
+  ```
+  yarn service
+  ```
+
+___
+# Models
 
 The Cozy datastore stores documents, which can be seen as JSON objects. A `doctype` is simply a declaration of the fields in a given JSON object, to store similar objects in an homogeneous fashion.
 
