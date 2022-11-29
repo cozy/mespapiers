@@ -1,17 +1,8 @@
-import sub from 'date-fns/sub'
-import add from 'date-fns/add'
-
 import log from 'cozy-logger'
-import papersDefinitions from 'cozy-mespapiers-lib/dist/constants/papersDefinitions.json'
 
 import { models } from 'cozy-client'
 
-import {
-  APP_SLUG,
-  DEFAULT_NOTICE_PERIOD_DAYS,
-  PERSONAL_SPORTING_LICENCE_NOTICE_PERIOD_DAYS,
-  TRIGGERS_DOCTYPE
-} from 'src/constants'
+import { APP_SLUG, TRIGGERS_DOCTYPE } from 'src/constants'
 import {
   buildAllFilesToNotifyQuery,
   buildTriggerByIdQuery,
@@ -65,77 +56,6 @@ export const fetchOrCreateTriggerByName = async (client, serviceName) => {
 
   const triggerByIdQuery = buildTriggerByIdQuery(triggers[0].id)
   return client.query(triggerByIdQuery.definition)
-}
-
-/**
- * @param {IOCozyFile} file - An CozyFile
- * @param {string} dateLabel - Label of date
- * @returns {string} Normalize expiration date (ISO)
- */
-export const computeNormalizeExpirationDate = (file, dateLabel) => {
-  if (file.metadata[dateLabel]) {
-    if (dateLabel === 'referencedDate') {
-      return add(new Date(file.metadata[dateLabel] ?? file.created_at), {
-        days: 365
-      }).toISOString()
-    }
-    return new Date(file.metadata[dateLabel]).toISOString()
-  }
-
-  return null
-}
-
-/**
- * @param {IOCozyFile} file - An CozyFile
- * @param {string} dateLabel - Label of date
- * @returns {string} Notice date (ISO)
- */
-export const computeNoticeDate = (file, dateLabel) => {
-  let noticeDays
-  if (file.metadata[dateLabel]) {
-    if (dateLabel === 'referencedDate') {
-      noticeDays = PERSONAL_SPORTING_LICENCE_NOTICE_PERIOD_DAYS
-    }
-    if (dateLabel === 'expirationDate') {
-      noticeDays =
-        parseInt(file.metadata.noticePeriod, 10) || DEFAULT_NOTICE_PERIOD_DAYS
-    }
-  }
-  if (!noticeDays) {
-    return null
-  }
-
-  const normalizeExpirationDate = computeNormalizeExpirationDate(
-    file,
-    dateLabel
-  )
-
-  return normalizeExpirationDate
-    ? sub(new Date(normalizeExpirationDate), {
-        days: noticeDays
-      }).toISOString()
-    : null
-}
-
-/**
- * @param {IOCozyFile} file - An CozyFile
- * @returns {{ label: string, country?: string, expirationDateAttribute: string }[]} papersToNotify - Rule in the paperDefinitions file
- */
-const getPaperToNotify = file => {
-  const { papersToNotify } = papersDefinitions.notifications
-
-  return papersToNotify.find(({ label, expirationDateAttribute, country }) => {
-    let validCountry = true
-    if (country && country !== 'fr') {
-      validCountry = file.metadata.country === country
-    }
-
-    return (
-      validCountry &&
-      label === file.metadata.qualification.label &&
-      file.metadata[expirationDateAttribute]
-    )
-  })
 }
 
 /**
