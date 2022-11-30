@@ -4993,10 +4993,10 @@ cozy-logger@^1.9.1:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^9.2.0:
-  version "9.2.0"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-9.2.0.tgz#9c4f951cf3a9a92a5eed55410ef421a1d00905f9"
-  integrity sha512-sxfUiKB7Jry+SENbqiK+GO2RuiLNM3Kt2t3rz/wxrjptxvCnNSYUlW/B3Ws0r3q2Y8vD7QdOwUmF9VaYtXeBPg==
+cozy-mespapiers-lib@^9.5.1:
+  version "9.5.1"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-9.5.1.tgz#8dc6bdda2094fa2df04f7e42d5f474b5ba97c431"
+  integrity sha512-8zXmQIDhj60k6CYAQedMYRNIvMTVyqmo8ygNcWXWkgpusz/At4ZJ9YhP+tWXx+6DrS1WegXifQd7d8CO/nCfZg==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/core" "4.12.3"
@@ -5139,10 +5139,10 @@ cozy-ui@35.22.0:
     react-select "2.2.0"
     react-swipeable-views "0.13.3"
 
-cozy-ui@^77.2.0:
-  version "77.2.0"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-77.2.0.tgz#d69b43d260fc2d123954e92e4d95f71974d36960"
-  integrity sha512-3oitU8UGGvLrqotsznjpHr3UeG3XOT/Ly+Gz4n5VXQUKThoV+KA8TVnMuYJpq45hHUpLGGOOYCQ13RDD7PfJxg==
+cozy-ui@^77.8.0:
+  version "77.9.2"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-77.9.2.tgz#1785aa2734580fe4aac78ce3e1c83388dc12e76d"
+  integrity sha512-oZD45M9WCEzmb5lG7CySMpUtP+Fdk9anjtbH2YQ7p3KaLfZdtMgLSRuE4MX1e2QOV7jCTZlSX3SpkL4nsP6Gpg==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@material-ui/core" "4.12.3"
@@ -9946,9 +9946,9 @@ ms@^2.0.0, ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
