@@ -1,0 +1,58 @@
+{{#extend "cozy-layout"}}
+
+  {{#content "emailSubtitle"}}
+    {{ date }}
+  {{/content}}
+
+  {{#content "content"}}
+    <mj-section padding-top="0" padding-bottom="10px">
+      <mj-column>
+        <mj-text>
+            {{ t 'notifications.expiration.email.content.hello' }}
+            <br><br>
+            {{ t 'notifications.expiration.email.content.info' }}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    {{#each filesInfo as |fileInfo| }}
+      <mj-section padding-top="0" padding-bottom="0">
+        <mj-column>
+          <mj-text>
+            - <a href="{{ paperLink }}" target="_blank">{{ fileInfo.name }}</a>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    {{/each}}
+
+    <mj-section padding-top="10px" padding-bottom="10px">
+      <mj-column>
+        <mj-text>
+          {{ t 'notifications.expiration.email.content.seeyou' }}
+          <br><br>
+          {{ t 'notifications.expiration.email.content.signature' }}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  {{/content}}
+  {{#content "logoUrl"}}https://files.cozycloud.cc/mespapiers/email-assets/mes-papiers.png{{/content}}
+
+  {{#content "appName"}}
+    {{ t 'notifications.expiration.email.appName' }}
+  {{/content}}
+
+  {{#content "topLogo"}}<mj-image width="100px" src="https://files.cozycloud.cc/mespapiers/email-assets/logo-cozy.png" />{{/content}}
+
+  {{#content "appURL"}}{{ mesPapiersUrl }}{{/content}}
+
+{{#content "footer"}}
+{{/content}}
+  {{#content "footerHelp"}}
+    <a css-class="footer__help" href="{{ settingsUrl }}">
+      {{tGlobal 'settings'}}
+    </a>
+    <a css-class="footer__help" href="https://support.cozy.io/">
+     {{tGlobal 'support'}}
+    </a>
+  {{/content}}
+{{/extend}}
