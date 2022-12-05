@@ -66,16 +66,16 @@ export const fetchOrCreateTriggerByName = async (client, serviceName) => {
 /**
  * @param {IOCozyFile} file - An CozyFile
  * @param {string} dateLabel - Label of date
- * @returns {Date} Normalize expiration date
+ * @returns {string} Normalize expiration date (ISO)
  */
 export const computeNormalizeExpirationDate = (file, dateLabel) => {
   if (file.metadata[dateLabel]) {
     if (dateLabel === 'referencedDate') {
       return add(new Date(file.metadata[dateLabel] ?? file.created_at), {
         days: 365
-      })
+      }).toISOString()
     }
-    return new Date(file.metadata[dateLabel])
+    return new Date(file.metadata[dateLabel]).toISOString()
   }
 
   return null
@@ -84,7 +84,7 @@ export const computeNormalizeExpirationDate = (file, dateLabel) => {
 /**
  * @param {IOCozyFile} file - An CozyFile
  * @param {string} dateLabel - Label of date
- * @returns {Date} Notice date
+ * @returns {string} Notice date (ISO)
  */
 export const computeNoticeDate = (file, dateLabel) => {
   let noticeDays
@@ -105,10 +105,11 @@ export const computeNoticeDate = (file, dateLabel) => {
     file,
     dateLabel
   )
+
   return normalizeExpirationDate
-    ? sub(normalizeExpirationDate, {
+    ? sub(new Date(normalizeExpirationDate), {
         days: noticeDays
-      })
+      }).toISOString()
     : null
 }
 
@@ -135,22 +136,38 @@ const getPaperToNotify = file => {
 
 /**
  * @param {IOCozyFile[]} files - List of CozyFile
- * @returns {IOCozyFile[]} List of CozyFile that must be notified
+ * @returns {{ file: IOCozyFile, noticeDate: string, expirationDate: string }[]} List of CozyFile that must be notified with their noticeDate & expirationDate
  */
 export const getfilesNeedNotified = files => {
-  return files.filter(file => {
-    const paperToNotify = getPaperToNotify(file)
+  return files
+    .map(file => {
+      const paperToNotify = getPaperToNotify(file)
 
-    if (paperToNotify) {
-      const noticeDate = computeNoticeDate(
-        file,
-        paperToNotify.expirationDateAttribute
-      )
-      return noticeDate ? new Date() >= noticeDate : false
-    }
+      if (paperToNotify) {
+        const noticeDate = computeNoticeDate(
+          file,
+          paperToNotify.expirationDateAttribute
+        )
 
-    return false
-  })
+        if (!noticeDate) {
+          return null
+        }
+
+        return new Date() >= new Date(noticeDate)
+          ? {
+              file,
+              noticeDate,
+              expirationDate: computeNormalizeExpirationDate(
+                file,
+                paperToNotify.expirationDateAttribute
+              )
+            }
+          : null
+      }
+
+      return null
+    })
+    .filter(Boolean)
 }
 
 /**
