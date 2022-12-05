@@ -35,6 +35,9 @@
     "url": "https://github.com/cozy/mespapiers/issues"
   },
   "homepage": "https://github.com/cozy/mespapiers#readme",
+  "resolutions": {
+    "uglify-js": "npm:terser"
+  },
   "devDependencies": {
     "@testing-library/react": "11.2.7",
     "@welldone-software/why-did-you-render": "^6.2.1",
@@ -45,6 +48,7 @@
     "eslint-config-cozy-app": "^4.0.0",
     "git-directory-deploy": "1.5.1",
     "mockdate": "3.0.5",
+    "raw-loader": "3.1.0",
     "react-test-renderer": "16.14.0",
     "redux-mock-store": "1.5.4",
     "stylint": "2.0.0"
@@ -57,6 +61,7 @@
     "cozy-harvest-lib": "^9.26.6",
     "cozy-intent": "^1.17.3",
     "cozy-mespapiers-lib": "^10.0.4",
+    "cozy-notifications": "^0.13.2",
     "cozy-realtime": "4.2.2",
     "cozy-scripts": "6.3.0",
     "cozy-sharing": "4.3.1",
