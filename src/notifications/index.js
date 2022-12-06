@@ -1,9 +1,14 @@
 import format from 'date-fns/format'
 
-import { generateWebLink } from 'cozy-client'
+import { generateWebLink, models } from 'cozy-client'
 import { NotificationView } from 'cozy-notifications'
 
 import template from 'raw-loader!./template.hbs'
+import { APP_SLUG } from 'src/constants'
+
+const {
+  file: { splitFilename }
+} = models
 
 /**
  * @typedef {object} FilesInfo
@@ -65,8 +70,9 @@ class ExpirationNotification extends NotificationView {
       date: format(new Date(), 'dd/MM/yyyy'),
       filesInfo: this.filesInfo.map(fileInfo => {
         const { file, expirationDate } = fileInfo
+        const { filename } = splitFilename(file)
         const paperLink = generateWebLink({
-          slug: 'mespapiers',
+          slug: APP_SLUG,
           cozyUrl: this.client.getStackClient().uri,
           subDomainType: 'nested',
           pathname: '/',
@@ -74,14 +80,14 @@ class ExpirationNotification extends NotificationView {
         })
 
         return {
-          name: file.name,
+          name: filename,
           paperLink,
           expirationDate
         }
       }),
       homeUrl: this.client.getStackClient().uri,
       mespapiersUrl: generateWebLink({
-        slug: 'mespapiers',
+        slug: APP_SLUG,
         cozyUrl: this.client.getStackClient().uri,
         subDomainType: 'nested',
         pathname: '/',
