@@ -4,6 +4,8 @@ import add from 'date-fns/add'
 import log from 'cozy-logger'
 import papersDefinitions from 'cozy-mespapiers-lib/dist/constants/papersDefinitions.json'
 
+import { models } from 'cozy-client'
+
 import {
   APP_SLUG,
   DEFAULT_NOTICE_PERIOD_DAYS,
@@ -15,6 +17,8 @@ import {
   buildTriggerByIdQuery,
   buildTriggerByServiceNameQuery
 } from 'src/helpers/queries'
+
+const { computeExpirationDate, isExpired, isExpiringSoon } = models.paper
 
 /**
  * @param {CozyClient} client - Instance of CozyClient
@@ -136,38 +140,20 @@ const getPaperToNotify = file => {
 
 /**
  * @param {IOCozyFile[]} files - List of CozyFile
- * @returns {{ file: IOCozyFile, noticeDate: string, expirationDate: string }[]} List of CozyFile that must be notified with their noticeDate & expirationDate
+ * @returns {{ file: IOCozyFile, expirationDate: string }[]} List of CozyFile that must be notified with their noticeDate & expirationDate
  */
 export const getfilesNeedNotified = files => {
   return files
-    .map(file => {
-      const paperToNotify = getPaperToNotify(file)
-
-      if (paperToNotify) {
-        const noticeDate = computeNoticeDate(
-          file,
-          paperToNotify.expirationDateAttribute
-        )
-
-        if (!noticeDate) {
-          return null
-        }
-
-        return new Date() >= new Date(noticeDate)
-          ? {
-              file,
-              noticeDate,
-              expirationDate: computeNormalizeExpirationDate(
-                file,
-                paperToNotify.expirationDateAttribute
-              )
-            }
-          : null
-      }
-
-      return null
+    .filter(file => {
+      return isExpired(file) || isExpiringSoon(file)
     })
-    .filter(Boolean)
+    .map(file => {
+      const expirationDate = computeExpirationDate(file).toISOString()
+      return {
+        file,
+        expirationDate
+      }
+    })
 }
 
 /**
