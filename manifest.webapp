@@ -33,6 +33,23 @@
       "public": false
     }
   },
+  "services": {
+    "expiration": {
+      "type": "node",
+      "file": "services/expiration/mespapiers.js",
+      "trigger": "@daily between 1pm and 3pm"
+    }
+  },
+  "notifications": {
+    "expiration": {
+      "description": "Notifies the user when a document is about to expire",
+      "collapsible": false,
+      "stateful": false,
+      "multiple": false,
+      "default_priority": "normal",
+      "templates": {}
+    }
+  },
   "permissions": {
     "apps": {
       "description": "Required by the cozy-bar to display the icons of the apps",
@@ -80,9 +97,8 @@
       "verbs": ["GET"]
     },
     "triggers": {
-      "description": "Required to display additional information in the viewer for files automatically retrieved by services",
-      "type": "io.cozy.triggers",
-      "verbs": ["GET"]
+      "description": "Required to display additional information in the viewer and for the notification service",
+      "type": "io.cozy.triggers"
     },
     "create-a-zip-archive": {
       "description": "Required to create a zip archive inside the cozy",
