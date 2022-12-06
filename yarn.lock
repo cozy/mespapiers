@@ -4972,16 +4972,17 @@ cozy-client@13.8.3:
     sift "^6.0.0"
     url-search-params-polyfill "^7.0.0"
 
-cozy-client@^34.2.0:
-  version "34.2.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-34.2.0.tgz#d5af57b638b46dc640653e4bc603534353239632"
-  integrity sha512-t4YYXuGlrStQPEmReJm6nrrVWeKh4Jxrwuh4XSEuHCApH775wPGZZfDs1RdtYx/wCFPfI5PVM0BmvCosGju/bw==
+cozy-client@^34.4.0:
+  version "34.4.0"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-34.4.0.tgz#7d72aa3a38c08de4f3597c5fc68998553dd29f2f"
+  integrity sha512-Vh50SGKVHaxT1pDlmXn5AtEd8W2dzPFczXLOm4A9HuBttNUzS8cT2/MXfo9Xs7YV7nU/PhPlKtyvdrZqo9RxXQ==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
     "@types/lodash" "^4.14.170"
     btoa "^1.2.1"
     cozy-stack-client "^34.1.5"
+    date-fns "2.29.3"
     json-stable-stringify "^1.0.1"
     lodash "^4.17.13"
     microee "^0.0.6"
