@@ -74,7 +74,7 @@ class ExpirationNotification extends NotificationView {
         const paperLink = generateWebLink({
           slug: APP_SLUG,
           cozyUrl: this.client.getStackClient().uri,
-          subDomainType: 'nested',
+          subDomainType: this.client.getInstanceOptions().subdomain,
           pathname: '/',
           hash: `paper/file/${file.metadata.qualification.label}/${file._id}`
         })
@@ -89,14 +89,14 @@ class ExpirationNotification extends NotificationView {
       mespapiersUrl: generateWebLink({
         slug: APP_SLUG,
         cozyUrl: this.client.getStackClient().uri,
-        subDomainType: 'nested',
+        subDomainType: this.client.getInstanceOptions().subdomain,
         pathname: '/',
         hash: 'paper'
       }),
       settingsUrl: generateWebLink({
         slug: 'settings',
         cozyUrl: this.client.getStackClient().uri,
-        subDomainType: 'nested',
+        subDomainType: this.client.getInstanceOptions().subdomain,
         pathname: '/'
       })
     }
