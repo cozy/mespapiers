@@ -1,5 +1,8 @@
 const merge = require('webpack-merge')
-const config = [require('cozy-scripts/config/webpack.bundle.default.js')]
+const config = [
+  require('cozy-scripts/config/webpack.bundle.default.js'),
+  require('./app.services')
+]
 
 const extraConfig = {
   resolve: {
