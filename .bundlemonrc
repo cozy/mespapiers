@@ -8,6 +8,9 @@
             "path": "app-mespapiers.<hash>.min.css"
         },
         {
+            "path": "services/**/*.js"
+        },
+        {
             "path": "vendors/mespapiers.<hash>.js"
         },
         {
