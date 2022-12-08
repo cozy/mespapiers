@@ -6,7 +6,8 @@
         "button": "See",
         "content": {
           "hello": "Hello 👋,",
-          "info": "I would like to inform you that the document(s) in the following list are expiring. To view your document and be redirected to the Cozy Cloud My Papers application, simply click on the document name.",
+          "info": "I would like to inform you that the document(s) in the following list are expiring.",
+          "view": "To view your document and be redirected to the Cozy Cloud My Papers application, simply click on the document name.",
           "seeyou": "See you soon!",
           "signature": "Your Cozy!"
         }
