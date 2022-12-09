@@ -60,7 +60,7 @@
     "cozy-flags": "^2.9.0",
     "cozy-harvest-lib": "^9.26.6",
     "cozy-intent": "^1.17.3",
-    "cozy-mespapiers-lib": "^11.0.0",
+    "cozy-mespapiers-lib": "^11.0.4",
     "cozy-notifications": "^0.13.2",
     "cozy-realtime": "4.2.2",
     "cozy-scripts": "6.3.0",
