@@ -1,7 +1,14 @@
 /* global cozy */
 
 import React from 'react'
-import { Route, Routes, Navigate, HashRouter } from 'react-router-dom'
+import {
+  Route,
+  Navigate,
+  RouterProvider,
+  createHashRouter,
+  createRoutesFromElements,
+  Outlet
+} from 'react-router-dom'
 
 import { useClient } from 'cozy-client'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
@@ -19,40 +26,38 @@ const PaperView = props => {
 }
 
 const AppRouter = () => {
-  return (
-    <Routes>
+  const routes = (
+    <Route path="/" element={<AppLayout />}>
       <Route path="/paper/*" element={<PaperView />} />
       <Route path="*" element={<Navigate to="/paper" replace />} />
-    </Routes>
+    </Route>
   )
+  const router = createHashRouter(createRoutesFromElements(routes))
+  return <RouterProvider router={router} />
 }
 
-export const App = () => {
+export const AppLayout = () => {
   const { BarCenter } = cozy.bar
   const { isMobile } = useBreakpoints()
   const client = useClient()
 
   return (
-    <HashRouter>
-      <Layout monoColumn>
-        <Main>
-          <Content className="app-content">
-            {isMobile && (
-              <BarCenter>
-                <MuiCozyTheme>
-                  <Typography variant="h5">
-                    {client.appMetadata.slug}
-                  </Typography>
-                </MuiCozyTheme>
-              </BarCenter>
-            )}
-            <AppRouter />
-          </Content>
-        </Main>
-        <IconSprite />
-      </Layout>
-    </HashRouter>
+    <Layout monoColumn>
+      <Main>
+        <Content className="app-content">
+          {isMobile && (
+            <BarCenter>
+              <MuiCozyTheme>
+                <Typography variant="h5">{client.appMetadata.slug}</Typography>
+              </MuiCozyTheme>
+            </BarCenter>
+          )}
+          <Outlet />
+        </Content>
+      </Main>
+      <IconSprite />
+    </Layout>
   )
 }
 
-export default App
+export default AppRouter
