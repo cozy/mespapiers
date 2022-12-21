@@ -91,13 +91,10 @@
       "type": "io.cozy.konnectors",
       "verbs": ["GET"]
     },
-    "jobs": {
-      "description": "Used in services to start other services",
-      "type": "io.cozy.jobs"
-    },
     "accounts": {
       "description": "Required to display additional information in the viewer for files automatically retrieved by services",
-      "type": "io.cozy.accounts"
+      "type": "io.cozy.accounts",
+      "verbs": ["GET"]
     },
     "triggers": {
       "description": "Required to display additional information in the viewer and for the notification service",
