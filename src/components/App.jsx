@@ -27,7 +27,7 @@ const PaperView = props => {
 
 const AppRouter = () => {
   const routes = (
-    <Route path="/" element={<AppLayout />}>
+    <Route element={<AppLayout />}>
       <Route path="/paper/*" element={<PaperView />} />
       <Route path="*" element={<Navigate to="/paper" replace />} />
     </Route>
