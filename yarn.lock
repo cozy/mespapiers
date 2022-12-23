@@ -5049,10 +5049,10 @@ cozy-client@13.8.3:
     sift "^6.0.0"
     url-search-params-polyfill "^7.0.0"
 
-cozy-client@^34.5.0:
-  version "34.5.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-34.5.0.tgz#862e62d3cb545fa34a66fdc0457521bc2959cb3b"
-  integrity sha512-oqrJZTg1UtqtsPBMuk4alJP/D3A2JLh0ofzAmikmnxS/wYlsP0Dn6T4Rl6FUWU4udg7wZ+3AU9PkusIWpe4zrg==
+cozy-client@^34.6.0:
+  version "34.6.0"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-34.6.0.tgz#ca320e72c84a7f423685a315fd526be5861eacee"
+  integrity sha512-TKuyRHN7xu8pXqC+cSX1WtC6MLwTbL3KtgbHKEsDh4XBkV3GLtgwtyZvUx6jA6uouAEhRr/Qkb6zG5UsB9XF/A==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
@@ -5213,10 +5213,10 @@ cozy-logger@^1.9.1:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-13.0.0.tgz#d6c88b5b3a1d0355565fcc588b32ab13a418652e"
-  integrity sha512-MVYNdTguGtxH1F0O+OFatINEXsqt+PDH6B+kmA9kFMubhKhxrqX6sxpNGhJne4xpTqQKwX2tjbpdEBua/zVpPA==
+cozy-mespapiers-lib@^13.1.0:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-13.1.0.tgz#4330d31df2d8bc7eacea36df20a85a5018585596"
+  integrity sha512-J94tOEUZNs2RNAvYzGHiu1JfOz5W2TMMStUAYRfnEEtpsKXjSnW/AWjmylreAU3hOEPD7ld+QxYUwNSiJZ3Otg==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/core" "4.12.4"
@@ -5370,10 +5370,10 @@ cozy-ui@35.22.0:
     react-select "2.2.0"
     react-swipeable-views "0.13.3"
 
-cozy-ui@^79.1.0:
-  version "79.1.0"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-79.1.0.tgz#3a9d8fedcaa44abba32beaafdbe27e3c5b49674b"
-  integrity sha512-0UicUBRwirTNc0yqL7UsorHitCShROqvn0KCO1g+fLViIo2N+Hdkb7Wm2AFz5MOLypm5hic/2K6N+SHgFF7keQ==
+cozy-ui@^79.2.2:
+  version "79.2.2"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-79.2.2.tgz#e06e92f3505de0ec3aa5c263983179bf44c53a86"
+  integrity sha512-tCplhMb4RVgg+ahfMB/PjagaEb7ufGICTQRsXNsyUToA9H2eLHi6VKmHVSM+aWBEHt+b3dGEwakngE/62QymPA==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@material-ui/core" "4.12.3"
