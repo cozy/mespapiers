@@ -2,6 +2,7 @@
   "notifications": {
     "expiration": {
       "email": {
+        "title": "Your document is about to expire",
         "appName": "Mes papiers",
         "button": "See",
         "content": {
