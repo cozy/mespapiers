@@ -53,12 +53,11 @@ class ExpirationNotification extends NotificationView {
     return ' '
   }
   /**
-   * Required by cozy-notifications
-   * The current version of cozy-notifications does not allow to omit these methods
+   * Subject of mail
    * @returns {string}
    */
   getTitle() {
-    return ' '
+    return this.t('notifications.expiration.email.title')
   }
 
   /**
