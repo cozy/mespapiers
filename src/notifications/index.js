@@ -75,7 +75,7 @@ class ExpirationNotification extends NotificationView {
           cozyUrl: this.client.getStackClient().uri,
           subDomainType: this.client.getInstanceOptions().subdomain,
           pathname: '/',
-          hash: `paper/file/${file.metadata.qualification.label}/${file._id}`
+          hash: `paper/files/${file.metadata.qualification.label}/${file._id}`
         })
 
         return {
