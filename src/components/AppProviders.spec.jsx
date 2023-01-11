@@ -4,8 +4,8 @@ import { render } from '@testing-library/react'
 import { AppProviders } from 'src/components/AppProviders'
 
 /* eslint-disable react/display-name */
-jest.mock('@material-ui/core/styles', () => ({
-  ...jest.requireActual('@material-ui/core/styles'),
+jest.mock('cozy-ui/transpiled/react/styles', () => ({
+  ...jest.requireActual('cozy-ui/transpiled/react/styles'),
   StylesProvider: ({ children }) => (
     <div data-testid="StylesProvider">{children}</div>
   )
