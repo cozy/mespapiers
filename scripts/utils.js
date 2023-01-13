@@ -140,9 +140,7 @@ const getPackagesToUpdate = ({ libPeerDeps, libName, libVersion, appDeps }) => {
  */
 const updatePackages = async packagesToUpdate => {
   const updatePackagesCommand = makeUpdatePackagesCommand(packagesToUpdate)
-  const exec = execPromise(updatePackagesCommand)
-  console.info(`Upgrade packages successful`)
-  return exec
+  return execPromise(updatePackagesCommand)
 }
 
 /**

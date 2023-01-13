@@ -24,6 +24,7 @@ const run = async libName => {
       appDeps
     })
     await updatePackages(packagesToUpdate)
+    console.info(`Upgrade packages successful`)
     await createPRDescription(packagesToUpdate)
 
     return Promise.resolve(packagesToUpdate)
