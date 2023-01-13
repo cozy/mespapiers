@@ -43,6 +43,21 @@ const isCozyPackage = packageName => {
 }
 
 /**
+ * @param {string} depName - Name of the dependency
+ * @param {string} depVersion - Version of the dependency
+ * @returns {string} - Normalized dependency
+ */
+const makeNormalizedDep = (depName, depVersion) => {
+  const depVersionWithoutSymbolRegex = /[\^|>|<|=]/g
+  const depVersionWithoutSymbol = depVersion?.replace(
+    depVersionWithoutSymbolRegex,
+    ''
+  )
+  if (isCozyPackage(depName)) return `^${depVersionWithoutSymbol}`
+  return depVersionWithoutSymbol
+}
+
+/**
  * @param {PackageToUpdate[]} packagesToUpdate - Packages to update
  * @returns {string} - Command to update packages
  */
@@ -50,9 +65,7 @@ const makeUpdatePackagesCommand = packagesToUpdate => {
   const packageWithVersion = packagesToUpdate.map(pck => {
     const { name, requiredDepVersion } = pck
     const requiredDepVersionNormalized = getNormalizedDep(requiredDepVersion)
-    return `${name}@${
-      isCozyPackage(name) ? '^' : ''
-    }${requiredDepVersionNormalized}`
+    return `${name}@${makeNormalizedDep(name, requiredDepVersionNormalized)}`
   })
   console.info(`Upgrade packages ${packageWithVersion.join(', ')}.`)
 
@@ -102,9 +115,10 @@ const getPackagesToUpdate = ({ libPeerDeps, libName, libVersion, appDeps }) => {
 
       if (needUpdate) {
         console.info(
-          `Package "${requiredDepName}" need to be updated (old: ${getNormalizedDep(
-            appDepVersion
-          )}, new: ${getNormalizedDep(requiredDepVersion)})`
+          `Package "${requiredDepName}" need to be updated (old: ${appDepVersion}, new: ${makeNormalizedDep(
+            requiredDepName,
+            requiredDepVersion
+          )})`
         )
         return {
           name: requiredDepName,
@@ -143,9 +157,9 @@ const describeUpdatedPackages = ({
   appDepVersion,
   requiredDepVersion
 }) => {
-  return `* Update ${name} from ${getNormalizedDep(appDepVersion)} to ${
-    isCozyPackage(name) ? '^' : ''
-  }${getNormalizedDep(requiredDepVersion)}\n`
+  return `* Update ${name} from ${getNormalizedDep(
+    appDepVersion
+  )} to ${makeNormalizedDep(name, requiredDepVersion)}\n`
 }
 
 /**
