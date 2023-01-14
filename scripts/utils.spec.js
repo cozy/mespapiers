@@ -2,7 +2,8 @@ const {
   getNormalizedDep,
   isCozyPackage,
   getPackagesToUpdate,
-  makeUpdatePackagesCommand
+  makeUpdatePackagesCommand,
+  cleanPackagesToUpdate
 } = require('./utils')
 
 jest.mock('fs', () => ({
@@ -36,6 +37,32 @@ const mockAppPackage = {
   pck04: '2.0.0',
   pck06: '2.0.0'
 }
+const mockPackageToUpdate = [
+  {
+    name: 'cozy-device-helper',
+    appDepVersion: '2.2.1',
+    requiredDepVersion: '>=2.6.0',
+    needUpdate: true
+  },
+  {
+    name: 'cozy-intent',
+    appDepVersion: '^1.17.3',
+    requiredDepVersion: '>=2.2.0',
+    needUpdate: true
+  },
+  {
+    name: 'cozy-device-helper',
+    appDepVersion: '2.2.1',
+    requiredDepVersion: '>=3.0.0',
+    needUpdate: true
+  },
+  {
+    name: 'react-router',
+    appDepVersion: undefined,
+    requiredDepVersion: '3.2.6',
+    needUpdate: true
+  }
+]
 
 describe('utils', () => {
   describe('getNormalizedDep', () => {
@@ -139,6 +166,31 @@ describe('utils', () => {
       const res = makeUpdatePackagesCommand(mockPackageToUpdate)
 
       expect(res).toBe('yarn upgrade cozy-pck01@^2.1.3 pck01@2.1.3')
+    })
+  })
+  describe('cleanPackagesToUpdate', () => {
+    it('should keep only the highest version of duplicate packages', () => {
+      const res = cleanPackagesToUpdate(mockPackageToUpdate)
+      expect(res).toStrictEqual([
+        {
+          name: 'cozy-device-helper',
+          appDepVersion: '2.2.1',
+          requiredDepVersion: '>=3.0.0',
+          needUpdate: true
+        },
+        {
+          name: 'cozy-intent',
+          appDepVersion: '^1.17.3',
+          requiredDepVersion: '>=2.2.0',
+          needUpdate: true
+        },
+        {
+          name: 'react-router',
+          appDepVersion: undefined,
+          requiredDepVersion: '3.2.6',
+          needUpdate: true
+        }
+      ])
     })
   })
 })

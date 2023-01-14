@@ -27,6 +27,7 @@ const getFileContent = path => {
 }
 
 /**
+ * Get dependency without "^"|">"|"<"|"=" symbols
  * @param {string} dependency - Name of the dependency
  * @returns {string} - Normalized dependency
  */
@@ -145,9 +146,9 @@ const updatePackages = async packagesToUpdate => {
 
 /**
  * @param {object} options
- * @param {object} options.name - name of the package
- * @param {object} options.appDepVersion - version of the package in the app
- * @param {object} options.requiredDepVersion - version of the package required by the lib
+ * @param {string} options.name - name of the package
+ * @param {string} options.appDepVersion - version of the package in the app
+ * @param {string} options.requiredDepVersion - version of the package required by the lib
  * @returns {string} description of the package to update
  */
 const describeUpdatedPackages = ({
@@ -181,6 +182,29 @@ const createPRDescription = packagesToUpdate => {
   return writeFile(resolve(__dirname, '..', prBodyFilename), PRDescription)
 }
 
+/**
+ * @param {PackageToUpdate[]} packages - Packages to update
+ * @returns {PackageToUpdate[]} - Packages to update without duplicates
+ * (If a package is required by the lib with different versions, we keep the highest one)
+ */
+const cleanPackagesToUpdate = packages => {
+  return Object.values(
+    packages.reduce((acc, dep) => {
+      if (acc[dep.name]) {
+        if (
+          getNormalizedDep(acc[dep.name].requiredDepVersion) <
+          getNormalizedDep(dep.requiredDepVersion)
+        ) {
+          acc[dep.name] = dep
+        }
+      } else {
+        acc[dep.name] = dep
+      }
+      return acc
+    }, {})
+  )
+}
+
 module.exports = {
   isCozyPackage,
   getNormalizedDep,
@@ -190,5 +214,6 @@ module.exports = {
   getAppDependencies,
   getPackagesToUpdate,
   updatePackages,
-  createPRDescription
+  createPRDescription,
+  cleanPackagesToUpdate
 }
