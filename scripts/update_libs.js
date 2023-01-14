@@ -4,7 +4,8 @@ const {
   getPackagesToUpdate,
   updatePackages,
   getLibPackageJSON,
-  createPRDescription
+  createPRDescription,
+  cleanPackagesToUpdate
 } = require('./utils')
 
 /**
@@ -23,9 +24,6 @@ const run = async libName => {
       libVersion,
       appDeps
     })
-    await updatePackages(packagesToUpdate)
-    console.info(`Upgrade packages successful`)
-    await createPRDescription(packagesToUpdate)
 
     return Promise.resolve(packagesToUpdate)
   } catch (error) {
@@ -39,10 +37,17 @@ const run = async libName => {
 const main = async opts => {
   try {
     const { libs } = opts
+    const packagesToUpdate = []
 
     for (const libName of libs) {
-      await run(libName)
+      packagesToUpdate.push(...(await run(libName)))
     }
+    const packagesToUpdateFiltered = cleanPackagesToUpdate(packagesToUpdate)
+
+    await updatePackages(packagesToUpdateFiltered)
+    console.info(`Upgrade packages successful`)
+
+    await createPRDescription(packagesToUpdateFiltered)
   } catch (error) {
     console.error(error.message)
   }
