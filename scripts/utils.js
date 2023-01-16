@@ -31,7 +31,7 @@ const getFileContent = path => {
  * @param {string} dependency - Name of the dependency
  * @returns {string} - Normalized dependency
  */
-const getNormalizedDep = dependency => {
+const normalizeVersion = dependency => {
   return dependency?.replace(/[\^|>|<|=]/g, '')
 }
 
@@ -48,12 +48,8 @@ const isCozyPackage = packageName => {
  * @param {string} depVersion - Version of the dependency
  * @returns {string} - Normalized dependency
  */
-const makeNormalizedDep = (depName, depVersion) => {
-  const depVersionWithoutSymbolRegex = /[\^|>|<|=]/g
-  const depVersionWithoutSymbol = depVersion?.replace(
-    depVersionWithoutSymbolRegex,
-    ''
-  )
+const normalizeDepVersionForApp = (depName, depVersion) => {
+  const depVersionWithoutSymbol = normalizeVersion(depVersion)
   if (isCozyPackage(depName)) return `^${depVersionWithoutSymbol}`
   return depVersionWithoutSymbol
 }
@@ -65,8 +61,11 @@ const makeNormalizedDep = (depName, depVersion) => {
 const makeUpdatePackagesCommand = packagesToUpdate => {
   const packageWithVersion = packagesToUpdate.map(pck => {
     const { name, requiredDepVersion } = pck
-    const requiredDepVersionNormalized = getNormalizedDep(requiredDepVersion)
-    return `${name}@${makeNormalizedDep(name, requiredDepVersionNormalized)}`
+    const requiredDepVersionNormalized = normalizeVersion(requiredDepVersion)
+    return `${name}@${normalizeDepVersionForApp(
+      name,
+      requiredDepVersionNormalized
+    )}`
   })
   console.info(`Upgrade packages ${packageWithVersion.join(', ')}.`)
 
@@ -116,7 +115,7 @@ const getPackagesToUpdate = ({ libPeerDeps, libName, libVersion, appDeps }) => {
 
       if (needUpdate) {
         console.info(
-          `Package "${requiredDepName}" need to be updated (old: ${appDepVersion}, new: ${makeNormalizedDep(
+          `Package "${requiredDepName}" need to be updated (old: ${appDepVersion}, new: ${normalizeDepVersionForApp(
             requiredDepName,
             requiredDepVersion
           )})`
@@ -156,9 +155,9 @@ const describeUpdatedPackages = ({
   appDepVersion,
   requiredDepVersion
 }) => {
-  return `* Update ${name} from ${getNormalizedDep(
+  return `* Update ${name} from ${normalizeVersion(
     appDepVersion
-  )} to ${makeNormalizedDep(name, requiredDepVersion)}\n`
+  )} to ${normalizeDepVersionForApp(name, requiredDepVersion)}\n`
 }
 
 /**
@@ -192,8 +191,8 @@ const cleanPackagesToUpdate = packages => {
     packages.reduce((acc, dep) => {
       if (acc[dep.name]) {
         if (
-          getNormalizedDep(acc[dep.name].requiredDepVersion) <
-          getNormalizedDep(dep.requiredDepVersion)
+          normalizeVersion(acc[dep.name].requiredDepVersion) <
+          normalizeVersion(dep.requiredDepVersion)
         ) {
           acc[dep.name] = dep
         }
@@ -207,7 +206,8 @@ const cleanPackagesToUpdate = packages => {
 
 module.exports = {
   isCozyPackage,
-  getNormalizedDep,
+  normalizeVersion,
+  normalizeDepVersionForApp,
   makeUpdatePackagesCommand,
 
   getLibPackageJSON,

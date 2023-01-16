@@ -1,5 +1,6 @@
 const {
-  getNormalizedDep,
+  normalizeVersion,
+  normalizeDepVersionForApp,
   isCozyPackage,
   getPackagesToUpdate,
   makeUpdatePackagesCommand,
@@ -65,13 +66,29 @@ const mockPackageToUpdate = [
 ]
 
 describe('utils', () => {
-  describe('getNormalizedDep', () => {
+  describe('normalizeVersion', () => {
     it('should return string without specific characters (^|<|>|=)', () => {
-      expect(getNormalizedDep('^1.0.0')).toBe('1.0.0')
-      expect(getNormalizedDep('>1.0.0')).toBe('1.0.0')
-      expect(getNormalizedDep('<1.0.0')).toBe('1.0.0')
-      expect(getNormalizedDep('>=1.0.0')).toBe('1.0.0')
-      expect(getNormalizedDep('<=1.0.0')).toBe('1.0.0')
+      expect(normalizeVersion('^1.0.0')).toBe('1.0.0')
+      expect(normalizeVersion('>1.0.0')).toBe('1.0.0')
+      expect(normalizeVersion('<1.0.0')).toBe('1.0.0')
+      expect(normalizeVersion('>=1.0.0')).toBe('1.0.0')
+      expect(normalizeVersion('<=1.0.0')).toBe('1.0.0')
+    })
+  })
+  describe('normalizeDepVersionForApp', () => {
+    it('should return the version prefixed with a `^`, if it is a Cozy package', () => {
+      expect(normalizeDepVersionForApp('cozy-ui', '1.0.0')).toBe('^1.0.0')
+      expect(normalizeDepVersionForApp('cozy-ui', '>1.0.0')).toBe('^1.0.0')
+      expect(normalizeDepVersionForApp('cozy-ui', '<1.0.0')).toBe('^1.0.0')
+      expect(normalizeDepVersionForApp('cozy-ui', '>=1.0.0')).toBe('^1.0.0')
+      expect(normalizeDepVersionForApp('cozy-ui', '<=1.0.0')).toBe('^1.0.0')
+    })
+    it('should return version without specific characters (^|<|>|=), if not a Cozy package', () => {
+      expect(normalizeDepVersionForApp('react-router', '1.0.0')).toBe('1.0.0')
+      expect(normalizeDepVersionForApp('react-router', '>1.0.0')).toBe('1.0.0')
+      expect(normalizeDepVersionForApp('react-router', '<1.0.0')).toBe('1.0.0')
+      expect(normalizeDepVersionForApp('react-router', '>=1.0.0')).toBe('1.0.0')
+      expect(normalizeDepVersionForApp('react-router', '<=1.0.0')).toBe('1.0.0')
     })
   })
   describe('isCozyPackage', () => {
