@@ -5086,10 +5086,10 @@ cozy-flags@^2.9.0:
   dependencies:
     microee "^0.0.6"
 
-cozy-harvest-lib@^12.2.0:
-  version "12.2.0"
-  resolved "https://registry.yarnpkg.com/cozy-harvest-lib/-/cozy-harvest-lib-12.2.0.tgz#b03f5c9d718cd0f23ea3e5c4ccbd1d7c48053f54"
-  integrity sha512-pxucHwWQwDOZZGj+N4/SdpRVoOW6WqGS/kWSKQSwIo0sgeaHnWZD7F1ue/qchHMW/bO28e6rcQ7A2dWaduAeIw==
+cozy-harvest-lib@^12.4.0:
+  version "12.4.0"
+  resolved "https://registry.yarnpkg.com/cozy-harvest-lib/-/cozy-harvest-lib-12.4.0.tgz#14424e03e06d350d3056fb1dfc8e53a93226c7b8"
+  integrity sha512-j9uWrikx7nS/J7jch8vBC78aZEfJ/quQTpI/tEfaVtnLulATMzAzAIuj5zpNyyq5OgzUErJx+1o9vz7mQAT9xQ==
   dependencies:
     "@cozy/minilog" "^1.0.0"
     "@sentry/browser" "^6.0.1"
@@ -5168,10 +5168,10 @@ cozy-logger@^1.9.1:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^15.2.0:
-  version "15.2.0"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-15.2.0.tgz#688bc8de397f9ac2a302fd3b530e27004a191f52"
-  integrity sha512-wrYTINUoKD4pjIf+OSUn0ynUOP6E2j0EaTm79OvdIkRcvPrdzTFrFgan62d7bO4ppqhrPMp29blnXRLlzYz71Q==
+cozy-mespapiers-lib@^16.1.0:
+  version "16.1.0"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-16.1.0.tgz#720298f57f7528adf0a5de885a0cbaa1013a2186"
+  integrity sha512-8PkM8/JM0sNxOh0HOdLny3xU2KgQSCdgRTVagdHaXiGdzoF2eTZ3A42hya8EhBJTIzFga0XQYUQoNMpKn2fSHQ==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/pickers" "3.3.10"
