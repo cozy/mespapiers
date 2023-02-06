@@ -1,6 +1,52 @@
+# 2.0.4
+
 # 2.0.3
 
+## ✨ Features
+
+* Update cozy-mespapiers-lib from 15.2.0 to 20.0.2
+* Update react-router-dom to 6.4.5
+* Upgrade cozy-harvest 12.2.0 to 13.1.0
+* Update cozy-ui from 79.2.2 to 80.2.1
+* Update cozy-client from 34.6.0 to 34.10.1
+* Update cozy-device-helper from 2.2.1 to 2.6.0
+* Update cozy-intent from 1.17.3 to 2.2.0
+* Add the subject of the expiration notification email
+* Remove calls to mui/core and use cozy-ui ones instead
+
+## 🐛 Bug Fixes
+
+* The layout route doesn't have a path attribute
+* Link to redirect the papers contained in the email
+
+## 🔧 Tech
+
+* Add GH actions to compare the peerDeps of the chosen libs with the deps of the app, to update them if necessary and finally create the PR.
+
 # 2.0.2
+
+## ✨ Features
+
+* Update `cozy-mespapiers-lib` from [8.0.5](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%408.0.5) to [15.2.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-mespapiers-lib%4015.2.0)
+* Upgrade `cozy-harvest` from [9.26.6](https://github.com/cozy/cozy-libs/releases/tag/cozy-harvest-lib%409.26.6) to [12.2.0](https://github.com/cozy/cozy-libs/releases/tag/cozy-harvest-lib%4012.2.0)
+* Use `cozy-ui/transpiled/react/styles` import instead `@material-ui/core/styles`
+* Update `cozy-ui` from [75.6.1](https://github.com/cozy/cozy-ui/releases/tag/v75.6.1) to [79.2.2](https://github.com/cozy/cozy-ui/releases/tag/v79.2.2)
+* Update `cozy-client` from [33.1.0](https://github.com/cozy/cozy-client/releases/tag/v33.1.0) to [34.6.0](https://github.com/cozy/cozy-client/releases/tag/v34.6.0)
+* Update `react-router-dom` to `6.4.5`
+* Refactor router setup
+* Add email notification for a document about to expire
+
+## 🐛 Bug Fixes
+
+* Display filename without extension in the notification email
+* Get the subDomain from the client instance
+
+## 🔧 Tech
+
+* Add expiration service
+* Add configuration for email notifications
+* Add `cozy-keys-lib` 4.3.0 (harvest dependency)
+* Add `leaflet` 1.7.1 (harvest dependency)
 
 # 2.0.1
 
