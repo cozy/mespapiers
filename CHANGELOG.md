@@ -1,5 +1,29 @@
 # 2.0.3
 
+### ✨ Features
+
+* Update cozy-mespapiers-lib from 15.2.0 to 20.0.2
+* Update react-router-dom to 6.4.5
+* Upgrade cozy-harvest 12.2.0 to 13.1.0
+* Update cozy-ui from 79.2.2 to 80.2.1
+* Update cozy-client from 34.6.0 to 34.10.1
+* Update cozy-device-helper from 2.2.1 to 2.6.0
+* Update cozy-intent from 1.17.3 to 2.2.0
+* Refactor router setup
+* Add the subject of the expiration notification email
+* Remove calls to mui/core and use cozy-ui ones instead
+
+### 🐛 Bug Fixes
+
+* The layout route doesn't have a path attribute
+* Link to redirect the papers contained in the email
+
+### 🔧 Tech
+
+* Add cozy-keys-lib 4.3.0 (harvest dependency)
+* Add leaflet 1.7.1 (harvest dependency)
+* Add GH actions to compare the peerDeps of the chosen libs with the deps of the app, to update them if necessary and finally create the PR.
+
 # 2.0.2
 
 # 2.0.1
