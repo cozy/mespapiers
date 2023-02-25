@@ -5113,10 +5113,10 @@ cozy-harvest-lib@^13.4.0:
     use-deep-compare-effect "^1.8.1"
     uuid "^3.3.2"
 
-cozy-intent@^2.2.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-2.7.0.tgz#7a9c4defead521eef2edd7078c04245e00b68bd2"
-  integrity sha512-gkHH8FjD0bG1jJaTONGSlPIf0ODSo4+w3dFJFJ4PE3YikGeO8z9ur1NISLA8BRX9sO4rlXABrNk1WWr4LcDmmQ==
+cozy-intent@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-2.9.0.tgz#6651aac5cf8ac8bdc6faf4e34f22ab89534650ae"
+  integrity sha512-GrV/0hAQ2atbKrbmRTYUBFmq5ak2ZL1zEty7yQCi7S/OuTjkDIE4vVa42q3dFVtIiNGPMkyhsSuaB6mqTomYxQ==
   dependencies:
     post-me "0.4.5"
 
@@ -10859,9 +10859,10 @@ msgpack5@^4.0.2:
     readable-stream "^2.3.6"
     safe-buffer "^5.1.2"
 
-"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  uid "3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
