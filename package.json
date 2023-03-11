@@ -63,7 +63,7 @@
     "cozy-harvest-lib": "^13.5.0",
     "cozy-intent": "^2.9.0",
     "cozy-keys-lib": "^4.3.0",
-    "cozy-mespapiers-lib": "^23.0.0",
+    "cozy-mespapiers-lib": "^23.1.1",
     "cozy-notifications": "^0.13.2",
     "cozy-realtime": "^4.3.0",
     "cozy-scripts": "6.3.0",
