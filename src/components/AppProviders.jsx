@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { CozyProvider } from 'cozy-client'
 import { WebviewIntentProvider } from 'cozy-intent'
@@ -9,6 +9,8 @@ import {
   StylesProvider,
   createGenerateClassName
 } from 'cozy-ui/transpiled/react/styles'
+
+import { launchMetadataMigrationJob } from 'src/helpers/migration/metadata'
 
 /*
 With MUI V4, it is possible to generate deterministic class names.
@@ -22,6 +24,13 @@ const generateClassName = createGenerateClassName({
 })
 
 export const AppProviders = ({ client, lang, polyglot, children }) => {
+  useEffect(() => {
+    const launch = async () => {
+      launchMetadataMigrationJob(client)
+    }
+    launch()
+  }, [client])
+
   return (
     <WebviewIntentProvider>
       <StylesProvider generateClassName={generateClassName}>
