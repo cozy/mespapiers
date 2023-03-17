@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const {
   target,
   eslintFix,
-  getFilename
+  makeFilename
 } = require('cozy-scripts/config/webpack.vars')
 const pathCS = require('cozy-scripts/utils/paths')
 
@@ -37,7 +37,7 @@ const config = {
   entry: servicesEntries,
   output: {
     path: pathCS.appServicesBuild(),
-    filename: `${getFilename(false)}.js`
+    filename: `${makeFilename(false)}.js`
   },
   target: 'node',
   optimization: {
