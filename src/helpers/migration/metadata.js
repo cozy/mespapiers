@@ -1,6 +1,12 @@
+import isSameDay from 'date-fns/isSameDay'
+
 import log from 'cozy-logger'
 
-import { APP_SETTINGS_DOCTYPE, FILES_DOCTYPE } from 'src/constants'
+import {
+  APP_SETTINGS_DOCTYPE,
+  FILES_DOCTYPE,
+  JOBS_DOCTYPE
+} from 'src/constants'
 import {
   buildAppSettingQuery,
   buildFilesFromDateQuery
@@ -162,4 +168,45 @@ export const extractFilesToMigrate = files => {
 
     return true
   })
+}
+
+/**
+ * Launch metadataMigration job
+ *
+ * @param {CozyClient} client
+ */
+export const launchMetadataMigrationJob = async client => {
+  try {
+    log('info', 'Start launchMetadataMigrationJob')
+    const { data } = await fetchAppSetting(client)
+    const settings = data?.[0] || {}
+
+    if (
+      settings?.lastRunningMigrateMetadataService &&
+      isSameDay(
+        new Date(settings.lastRunningMigrateMetadataService),
+        new Date()
+      )
+    ) {
+      log(
+        'info',
+        'Stop launchMetadataMigrationJob because is already launched today'
+      )
+      return
+    }
+
+    log(
+      'info',
+      `Create job service with slug: 'mespapiers' & name: 'metadataMigration'`
+    )
+    const jobColl = client.collection(JOBS_DOCTYPE)
+    await jobColl.create(
+      'service',
+      { slug: 'mespapiers', name: 'metadataMigration' },
+      {},
+      true
+    )
+  } catch (error) {
+    log('error', `launchMetadataMigrationJob error: ${error}`)
+  }
 }
