@@ -10,6 +10,7 @@ import {
   fetchFilesFromDateWithMetadata,
   getMostRecentUpdatedDate,
   migrateFileMetadata,
+  specificMigration,
   updateAppSettings
 } from 'src/helpers/migration/metadata'
 
@@ -75,6 +76,9 @@ export const migrateMetadata = async () => {
   lastProcessedFileDate =
     filesByDateWithMetadata[filesByDateWithMetadata.length - 1].cozyMetadata
       .updatedAt
+
+  // TODO To refactored later to make migrateMetadata more dynamic, if necessary to add new migrations
+  await specificMigration(client, filesByDateWithMetadata)
 
   const filesToMigrate = extractFilesToMigrate(filesByDateWithMetadata)
   log('info', `Found ${filesToMigrate.length} files to migrate`)
