@@ -69,7 +69,7 @@
     "cozy-mespapiers-lib": "^23.0.0",
     "cozy-notifications": "^0.13.2",
     "cozy-realtime": "^4.3.0",
-    "cozy-sharing": "^6.0.4",
+    "cozy-sharing": "^6.0.6",
     "cozy-ui": "^81.2.0",
     "date-fns": "2.29.3",
     "leaflet": "^1.7.1",
