@@ -172,6 +172,35 @@ export const extractFilesToMigrate = files => {
 }
 
 /**
+ * Migrate 'RFR' metadata to 'refTaxIncome'
+ *
+ * @param {Array} files - The IOCozyFiles array
+ */
+export const specificMigration = async (client, files) => {
+  const filesWithMetadataMigrated = []
+
+  for (const file of files) {
+    const { metadata } = file
+    const metadataKeys = Object.keys(metadata)
+
+    if (metadataKeys.includes('RFR')) {
+      metadata.refTaxIncome = metadata.RFR
+      delete metadata.RFR
+
+      const fileCollection = client.collection(FILES_DOCTYPE)
+      const { data: fileUpdated } =
+        await fileCollection.updateMetadataAttribute(file._id, metadata)
+
+      filesWithMetadataMigrated.push(fileUpdated)
+    } else {
+      filesWithMetadataMigrated.push(file)
+    }
+  }
+
+  return filesWithMetadataMigrated
+}
+
+/**
  * Launch metadataMigration job
  * When flag "mespapiers.migrated.metadata" is enabled
  *
