@@ -5162,10 +5162,10 @@ cozy-mespapiers-lib@^23.0.0:
     pdf-lib "1.17.1"
     react-input-mask "3.0.0-alpha.2"
 
-cozy-notifications@^0.13.2:
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/cozy-notifications/-/cozy-notifications-0.13.2.tgz#31bcf3300dcd43fb12589e305432f99b35beab45"
-  integrity sha512-Xa/ZNmWKNDBLsiF3JmzKZVmlccdgmpPXl3VZK2hw9QS2uGJAdH++hSJ27muYa/NtuPc2vc9c/JuOTBYH3nu6uA==
+cozy-notifications@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/cozy-notifications/-/cozy-notifications-0.14.0.tgz#964243b7f601978ebd2d5009048fa09ab9066daa"
+  integrity sha512-xkMGTx0tH3JPDrbRVw9JFgv8pS3N3wO4CrRlXcLR64wvZWX5WV+d8bFs9dtjsHRsMPRw4DCjmX1l7MCTncbQpw==
   dependencies:
     handlebars "^4.1.2"
     handlebars-layouts "^3.1.4"
