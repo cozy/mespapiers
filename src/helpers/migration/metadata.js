@@ -1,6 +1,7 @@
 import isSameDay from 'date-fns/isSameDay'
 
 import log from 'cozy-logger'
+import flag from 'cozy-flags'
 
 import {
   APP_SETTINGS_DOCTYPE,
@@ -172,11 +173,17 @@ export const extractFilesToMigrate = files => {
 
 /**
  * Launch metadataMigration job
+ * When flag "mespapiers.migrated.metadata" is enabled
  *
  * @param {CozyClient} client
  */
 export const launchMetadataMigrationJob = async client => {
   try {
+    if (!flag('mespapiers.migrated.metadata')) {
+      log('info', 'Flag "mespapiers.migrated.metadata" disabled')
+      return
+    }
+
     log('info', 'Start launchMetadataMigrationJob')
     const { data } = await fetchAppSetting(client)
     const settings = data?.[0] || {}
