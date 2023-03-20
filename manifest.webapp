@@ -38,6 +38,10 @@
       "type": "node",
       "file": "services/expiration/mespapiers.js",
       "trigger": "@daily between 1pm and 3pm"
+    },
+    "metadataMigration": {
+      "type": "node",
+      "file": "services/metadataMigration/mespapiers.js"
     }
   },
   "notifications": {
