@@ -25,7 +25,7 @@ const NEW_METADATA_ATTRIBUTE = 'number'
 /**
  * Fetch the io.cozy.mespapiers.settings document
  *
- * @param {object} client - The CozyClient instance
+ * @param {import('cozy-client/types/CozyClient').default} client - The CozyClient instance
  */
 export const fetchAppSetting = async client => {
   log('info', 'Start fetchAppSetting')
@@ -38,9 +38,10 @@ export const fetchAppSetting = async client => {
  * Fetch the files indexed on their updatedAt date and
  * the existence of the "metadata" property
  *
- * @param {object} client - The CozyClient instance
- * @param {string} date - The starting date to query
- * @param {number} limit - The maximum number of files by request
+ * @param {object} param
+ * @param {import('cozy-client/types/CozyClient').default} param.client - The CozyClient instance
+ * @param {string} param.date - The starting date to query
+ * @param {number} param.limit - The maximum number of files by request
  */
 export const fetchFilesFromDateWithMetadata = async ({
   client,
@@ -55,10 +56,10 @@ export const fetchFilesFromDateWithMetadata = async ({
 
 /**
  * Update IOCozyMespapiersSettings with the last process date
- *
- * @param {object} client - The CozyClient instance
- * @param {object} appSettings - The io.cozy.mespapiers.settings document
- * @param {string} lastProcessedFileDate - The last processed file date
+ * @param {object} param
+ * @param {import('cozy-client/types/CozyClient').default} param.client
+ * @param {import('cozy-client/types/types').CozyClientDocument & { lastProcessedFileDate: string, lastRunningMigrateMetadataService: string }} param.appSettings - The io.cozy.mespapiers.settings document
+ * @param {string} param.lastProcessedFileDate
  */
 export const updateAppSettings = async ({
   client,
@@ -81,7 +82,7 @@ export const updateAppSettings = async ({
 /**
  * From a list of files, find the most recent updatedAt value
  *
- * @param {Array} files - The IOCozyFiles array
+ * @param {import('cozy-client/types/types').IOCozyFile[]} files
  */
 export const getMostRecentUpdatedDate = files => {
   const sortedFiles = files.sort(
@@ -98,7 +99,7 @@ export const getMostRecentUpdatedDate = files => {
 /**
  * Make new metadata with tne new property
  *
- * @param {object} oldMetadata - The metadata of IOCozyFile
+ * @param {import('cozy-client/types/types').FileMetadata} oldMetadata
  */
 export const makeNewMetadata = oldMetadata => {
   const newMetadata = {}
@@ -126,9 +127,9 @@ export const makeNewMetadata = oldMetadata => {
 /**
  * Migrate files by replace old metadata by new metadata if it doesn't already exist
  *
- * @param {object} client - The CozyClient instance
- * @param {Array} files - The files to migrate
- * @returns {Promise<Array>} The saved files
+ * @param {import('cozy-client/types/CozyClient').default} client
+ * @param {import('cozy-client/types/types').IOCozyFile[]} files
+ * @returns {Promise<import('cozy-client/types/types').IOCozyFile[]>} The saved files
  */
 export const migrateFileMetadata = async (client, files) => {
   const filesWithMetadataMigrated = []
@@ -155,7 +156,8 @@ export const migrateFileMetadata = async (client, files) => {
 /**
  * Keep only the files with old metadata
  *
- * @param {Array} files - The IOCozyFiles array
+ * @param {import('cozy-client/types/types').IOCozyFile[]} files
+ * @returns {import('cozy-client/types/types').IOCozyFile[]}
  */
 export const extractFilesToMigrate = files => {
   log('info', 'Start extractFilesToMigrate')
@@ -174,7 +176,9 @@ export const extractFilesToMigrate = files => {
 /**
  * Migrate 'RFR' metadata to 'refTaxIncome'
  *
- * @param {Array} files - The IOCozyFiles array
+ * @param {import('cozy-client/types/CozyClient').default} client
+ * @param {import('cozy-client/types/types').IOCozyFile[]} files
+ * @returns {Promise<import('cozy-client/types/types').IOCozyFile[]>}
  */
 export const specificMigration = async (client, files) => {
   const filesWithMetadataMigrated = []
@@ -204,7 +208,7 @@ export const specificMigration = async (client, files) => {
  * Launch metadataMigration job
  * When flag "mespapiers.migrated.metadata" is enabled
  *
- * @param {CozyClient} client
+ * @param {import('cozy-client/types/CozyClient').default} client
  */
 export const launchMetadataMigrationJob = async client => {
   try {
