@@ -11,7 +11,8 @@ import {
   getMostRecentUpdatedDate,
   migrateFileMetadata,
   specificMigration,
-  updateAppSettings
+  updateAppSettings,
+  getFilesWithMetadata
 } from 'src/helpers/migration/metadata'
 
 global.fetch = fetch
@@ -58,7 +59,10 @@ export const migrateMetadata = async () => {
     limit: BATCH_FILES_LIMIT
   })
 
-  if (filesByDateWithMetadata.length === 0) {
+  // TODO https://github.com/cozy/mespapiers/issues/395,
+  const filesWithMetadata = getFilesWithMetadata(filesByDateWithMetadata)
+
+  if (filesWithMetadata.length === 0) {
     log('warn', 'No new file to process')
     log(
       'info',
@@ -71,16 +75,15 @@ export const migrateMetadata = async () => {
     })
     return
   }
-  log('info', `Found ${filesByDateWithMetadata.length} files to process`)
+  log('info', `Found ${filesWithMetadata.length} files to process`)
 
   lastProcessedFileDate =
-    filesByDateWithMetadata[filesByDateWithMetadata.length - 1].cozyMetadata
-      .updatedAt
+    filesWithMetadata[filesWithMetadata.length - 1].cozyMetadata.updatedAt
 
   // TODO To refactored later to make migrateMetadata more dynamic, if necessary to add new migrations
-  await specificMigration(client, filesByDateWithMetadata)
+  await specificMigration(client, filesWithMetadata)
 
-  const filesToMigrate = extractFilesToMigrate(filesByDateWithMetadata)
+  const filesToMigrate = extractFilesToMigrate(filesWithMetadata)
   log('info', `Found ${filesToMigrate.length} files to migrate`)
 
   if (filesToMigrate.length === 0) {
