@@ -205,6 +205,15 @@ export const specificMigration = async (client, files) => {
 }
 
 /**
+ *
+ * @param {import('cozy-client/types/types').IOCozyFile[]} files
+ * @returns {import('cozy-client/types/types').IOCozyFile[]}
+ */
+export const getFilesWithMetadata = files => {
+  return files.filter(file => file.metadata)
+}
+
+/**
  * Launch metadataMigration job
  * When flag "mespapiers.migrated.metadata" is enabled
  *

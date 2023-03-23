@@ -1,5 +1,6 @@
 import {
   extractFilesToMigrate,
+  getFilesWithMetadata,
   getMostRecentUpdatedDate,
   makeNewMetadata,
   migrateFileMetadata
@@ -145,6 +146,47 @@ describe('migration metadata', () => {
         }
       ]
       const res = extractFilesToMigrate(files)
+
+      expect(res).toEqual(expected)
+    })
+  })
+  describe('getFilesWithMetadata', () => {
+    it('should keep only files with "metadata" attribute', () => {
+      const files = [
+        {
+          _id: '00',
+          name: 'file00',
+          metadata: {
+            number: 'cafFileNumberValue',
+            qualification: { label: 'caf' }
+          }
+        },
+        {
+          _id: '01',
+          name: 'file01',
+          metadata: {}
+        },
+        {
+          _id: '02',
+          name: 'file02'
+        }
+      ]
+      const expected = [
+        {
+          _id: '00',
+          name: 'file00',
+          metadata: {
+            number: 'cafFileNumberValue',
+            qualification: { label: 'caf' }
+          }
+        },
+        {
+          _id: '01',
+          name: 'file01',
+          metadata: {}
+        }
+      ]
+      const res = getFilesWithMetadata(files)
 
       expect(res).toEqual(expected)
     })
