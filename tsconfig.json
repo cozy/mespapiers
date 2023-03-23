@@ -1,4 +1,10 @@
 {
   "extends": "cozy-tsconfig",
+  "compilerOptions": {
+    "paths": {
+      "src/*": ["./src/*"],
+      "test/*": ["./test/*"]
+    }
+  },
   "include": ["./src/**/*", "./scripts/**/*"],
 }
