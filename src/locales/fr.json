@@ -7,10 +7,9 @@
         "button": "Voir",
         "content": {
           "hello": "Bonjour 👋,",
-          "info": "Je vous informe que le/les documents dans la liste suivante arrivent à expiration.",
-          "view": "Pour consulter votre document et être redirigé vers l'application Mes Papiers de Cozy Cloud il vous suffit de cliquer sur le nom du document.",
-          "seeyou": "À très bientôt !",
-          "signature": "Votre Cozy !"
+          "info": "Des documents enregistrés dans votre application Mes Papiers vont bientôt arriver à expiration :",
+          "view": "Cliquez sur le nom du document pour le consulter dans votre application Mes Papiers.",
+          "seeyou": "À très bientôt !"
         }
       }
     }
