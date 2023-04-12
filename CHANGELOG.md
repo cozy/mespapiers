@@ -1,4 +1,27 @@
+# 2.1.0
+
 # 2.0.4
+
+### ✨ Features
+
+* Update cozy-mespapiers-lib from 20.0.2 to 36.0.1
+* Update cozy-harvest-lib from 13.1.0 to 13.8.0
+* Update cozy-bar from 7.16.0 to 7.25.0
+* Update cozy-scripts from 6.3.0 to 8.0.3
+* Update cozy-client from 34.10.1 to 36.1.0
+* Update cozy-device-helper from 2.6.0 to 2.7.0
+* Update cozy-doctypes from 1.83.8 to 1.88.1
+* Update cozy-flags from 2.9.0 to 2.11.0
+* Update cozy-intent from 2.2.0 to 2.9.0
+* Update cozy-notifications from 0.13.2 to 0.14.0
+* Update cozy-realtime from 4.2.2 to 4.4.0
+* Update cozy-sharing from 4.3.1 to 7.0.1
+* Update cozy-ui from 80.2.1 to 82.12.0
+* Add cozy-tsconfig 1.2.0
+
+### 🔧 Tech
+
+* Add metadata migration service
 
 # 2.0.3
 
