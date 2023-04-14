@@ -155,9 +155,10 @@ const describeUpdatedPackages = ({
   appDepVersion,
   requiredDepVersion
 }) => {
-  return `* Update ${name} from ${normalizeVersion(
-    appDepVersion
-  )} to ${normalizeDepVersionForApp(name, requiredDepVersion)}\n`
+  return `* Update ${name} from ${appDepVersion} to ${normalizeDepVersionForApp(
+    name,
+    requiredDepVersion
+  )}\n`
 }
 
 /**
