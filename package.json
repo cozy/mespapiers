@@ -46,7 +46,7 @@
     "babel-preset-cozy-app": "2.0.2",
     "bundlemon": "1.4.0",
     "compare-versions": "^5.0.1",
-    "cozy-bar": "7.25.0",
+    "cozy-bar": "7.25.1",
     "cozy-scripts": "^8.0.3",
     "cozy-tsconfig": "1.2.0",
     "enzyme-adapter-react-16": "1.15.6",
