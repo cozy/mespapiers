@@ -61,7 +61,7 @@
   "dependencies": {
     "cozy-client": "^38.0.0",
     "cozy-device-helper": "^2.7.0",
-    "cozy-doctypes": "^1.88.1",
+    "cozy-doctypes": "^1.88.6",
     "cozy-flags": "^2.11.0",
     "cozy-harvest-lib": "^13.8.0",
     "cozy-intent": "^2.9.0",
