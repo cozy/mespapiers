@@ -5094,10 +5094,10 @@ cozy-harvest-lib@^13.8.0:
     use-deep-compare-effect "^1.8.1"
     uuid "^3.3.2"
 
-cozy-intent@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-2.9.0.tgz#6651aac5cf8ac8bdc6faf4e34f22ab89534650ae"
-  integrity sha512-GrV/0hAQ2atbKrbmRTYUBFmq5ak2ZL1zEty7yQCi7S/OuTjkDIE4vVa42q3dFVtIiNGPMkyhsSuaB6mqTomYxQ==
+cozy-intent@^2.11.1:
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-2.11.1.tgz#2cdba997ef4890a14b88584004daa609f44aeef1"
+  integrity sha512-UoiEwho9d13Vj/FnwFHDtNV8BHQEwtVDrJoTJ8yUQV2u5BCY8Pb/GDJuC9nuTtFY89WJauZ8GPDYOAYfTY3ncQ==
   dependencies:
     post-me "0.4.5"
 
