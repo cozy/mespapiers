@@ -10,6 +10,7 @@ import {
   Outlet
 } from 'react-router-dom'
 
+import flag from 'cozy-flags'
 import { useClient } from 'cozy-client'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
@@ -36,6 +37,12 @@ const AppRouter = () => {
   return <RouterProvider router={router} />
 }
 
+const mainStyle = {
+  margin: '0 auto',
+  maxWidth: '75rem',
+  position: 'relative'
+}
+
 export const AppLayout = () => {
   const { BarCenter } = cozy.bar
   const { isMobile } = useBreakpoints()
@@ -43,7 +50,7 @@ export const AppLayout = () => {
 
   return (
     <Layout monoColumn>
-      <Main>
+      <Main {...(flag('mespapiers.v2-1-0.enabled') && { style: mainStyle })}>
         <Content className="app-content">
           {isMobile && (
             <BarCenter>
