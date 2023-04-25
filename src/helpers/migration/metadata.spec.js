@@ -3,7 +3,8 @@ import {
   getFilesWithMetadata,
   getMostRecentUpdatedDate,
   makeNewMetadata,
-  migrateFileMetadata
+  migrateFileMetadata,
+  updateAppSettings
 } from 'src/helpers/migration/metadata'
 
 describe('migration metadata', () => {
@@ -189,6 +190,76 @@ describe('migration metadata', () => {
       const res = getFilesWithMetadata(files)
 
       expect(res).toEqual(expected)
+    })
+  })
+  describe('updateAppSettings', () => {
+    const setup = ({
+      mockClientSave = jest.fn(),
+      appSettings,
+      lastProcessedFileDate,
+      lastRunningMigrateMetadataService
+    } = {}) => {
+      const client = {
+        save: mockClientSave
+      }
+
+      return {
+        client,
+        appSettings,
+        lastProcessedFileDate,
+        lastRunningMigrateMetadataService
+      }
+    }
+
+    it('should call client.save with "_type" property if appSettings is undefined', () => {
+      const mockClientSave = jest.fn()
+      const opts = setup({ mockClientSave })
+      updateAppSettings(opts)
+
+      expect(mockClientSave).toBeCalledTimes(1)
+      expect(mockClientSave).toHaveBeenCalledWith({
+        _type: 'io.cozy.mespapiers.settings',
+        lastProcessedFileDate: undefined,
+        lastRunningMigrateMetadataService: undefined
+      })
+    })
+    it('should call client.save with "lastProcessedFileDate" property', () => {
+      const mockClientSave = jest.fn()
+      const appSettings = {
+        lastProcessedFileDate: '2022-01-01T00:00:00.00000+02:00'
+      }
+      const lastProcessedFileDateUpdate = '2023-01-01T00:00:00.00000+02:00'
+      const opts = setup({
+        mockClientSave,
+        appSettings,
+        lastProcessedFileDate: lastProcessedFileDateUpdate
+      })
+      updateAppSettings(opts)
+
+      expect(mockClientSave).toBeCalledTimes(1)
+      expect(mockClientSave).toHaveBeenCalledWith({
+        lastProcessedFileDate: '2023-01-01T00:00:00.00000+02:00'
+      })
+    })
+    it('should call client.save with "lastRunningMigrateMetadataService" property', () => {
+      const mockClientSave = jest.fn()
+      const appSettings = {
+        lastRunningMigrateMetadataService: '2022-01-01T00:00:00.00000+02:00'
+      }
+      const lastRunningMigrateMetadataServiceUpdate =
+        '2023-01-01T00:00:00.00000+02:00'
+      const opts = setup({
+        mockClientSave,
+        appSettings,
+        lastRunningMigrateMetadataService:
+          lastRunningMigrateMetadataServiceUpdate
+      })
+      updateAppSettings(opts)
+
+      expect(mockClientSave).toBeCalledTimes(1)
+      expect(mockClientSave).toHaveBeenCalledWith({
+        lastRunningMigrateMetadataService: '2023-01-01T00:00:00.00000+02:00'
+      })
     })
   })
 })
