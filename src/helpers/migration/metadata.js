@@ -70,10 +70,10 @@ export const updateAppSettings = async ({
   const attrs = {
     ...(appSettings ? { ...appSettings } : { _type: APP_SETTINGS_DOCTYPE }),
     lastProcessedFileDate:
-      lastProcessedFileDate || appSettings.lastProcessedFileDate,
+      lastProcessedFileDate || appSettings?.lastProcessedFileDate,
     lastRunningMigrateMetadataService:
       lastRunningMigrateMetadataService ||
-      appSettings.lastRunningMigrateMetadataService
+      appSettings?.lastRunningMigrateMetadataService
   }
 
   return client.save(attrs)
