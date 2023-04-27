@@ -5158,10 +5158,10 @@ cozy-logger@^1.3.0, cozy-logger@^1.6.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^38.0.0:
-  version "38.0.0"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-38.0.0.tgz#918716f1b252f8260a60dfd1e6ce560ab8f59d4e"
-  integrity sha512-fb7zxXb/1NSY53RQ2vUVEgMUndZyhf52TGWpyLSTq9IqpfbFmrKbJEWq4dd27D7yjHZucK2QWLFE38lDOQjWCw==
+cozy-mespapiers-lib@^39.0.0:
+  version "39.0.0"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-39.0.0.tgz#bbc8b65a06e101d4199eb89b86a3cdd756d49e92"
+  integrity sha512-SRAe/99D/8ocfGkLdZ+1AFXpyoyYoVFV6nGWsC4/JvOpGz38+pc2cvO87uEH0muBSL6ss+o9zYBtIMh5c1I1yw==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/pickers" "3.3.10"
@@ -5314,10 +5314,10 @@ cozy-ui@22.3.1:
     react-pdf "^4.0.5"
     react-select "2.2.0"
 
-cozy-ui@^84.1.1:
-  version "84.1.1"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-84.1.1.tgz#6971c46df193d9b7a2dad050e4bfa1db8803361c"
-  integrity sha512-hkWSGEAgI9O69dEKIpqA3rWvxPRruv/5I+PlwQQb7+uVEYqZTyuJDO5zZ/jCnmAtFww9Dg5qqOt9HZuIAX+/BA==
+cozy-ui@^84.1.3:
+  version "84.1.3"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-84.1.3.tgz#d711bac43fc47114b2a1596ab7b119abff079077"
+  integrity sha512-GDmRVcrw023qTZl6bnvpGJczpzQWUi2F6/CoqKF7ro7iexz6wbYDatoVdyYtuc3JgBxvRRu4Csgd0ezeC6wWSg==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@material-ui/core" "4.12.3"
