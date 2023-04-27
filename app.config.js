@@ -7,7 +7,8 @@ const config = [
 const extraConfig = {
   resolve: {
     alias: {
-      handlebars: 'handlebars/dist/handlebars.min.js'
+      handlebars: 'handlebars/dist/handlebars.min.js',
+      'react-pdf$': 'react-pdf/dist/esm/entry.webpack'
     }
   },
   module: {
