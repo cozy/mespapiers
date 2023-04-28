@@ -3,7 +3,7 @@
   "slug": "mespapiers",
   "icon": "icon.svg",
   "categories": [],
-  "version": "2.1.0",
+  "version": "2.2.0",
   "licence": "AGPL-3.0",
   "editor": "Cozy",
   "source": "https://github.com/cozy/mespapiers.git@build",
