@@ -1,4 +1,39 @@
+# 2.2.0
+
 # 2.1.0
+
+### ✨ Features
+
+* Update cozy-mespapiers-lib from 36.1.6 to 39.0.1:
+  * Pluralize qualification labels on homepage ([91cac28](https://github.com/cozy/cozy-libs/commit/91cac28724825c9e8488e69ad950d4d4d3b960d3))
+  * Pluralize qualification labels on PaperListToolbar ([84e3453](https://github.com/cozy/cozy-libs/commit/84e3453b91fccecf4b5877fcc739e6f9553957b6))
+  * Limit the display to a maximum of 3 files by default ([e2caa10](https://github.com/cozy/cozy-libs/commit/e2caa107e1bfc9de96202435d7871690986de3d6))
+  * Remove "Existing" subheaders ([d68e527](https://github.com/cozy/cozy-libs/commit/d68e527bfeebcd2c0ce44b57088c40e1cc5478d7))
+  * Sort category of papers ([1d7c981](https://github.com/cozy/cozy-libs/commit/1d7c981f3e57dadcca6d225c96c5d8ae98dd4398))
+  * Change behavior of SearchHeader components ([08e904d](https://github.com/cozy/cozy-libs/commit/08e904df91f1949bdea5273319ebc39e5efe13b1))
+  * Update style to FabWrapper ([040aafb](https://github.com/cozy/cozy-libs/commit/040aafb70f223f18751502f1bfe35aed22a50e52))
+  * Add accessibility attributes to FilterButton ([8f02a23](https://github.com/cozy/cozy-libs/commit/8f02a23897acc2093080ef363b044d93b4ccece6))
+  * Add StackedThumbnail component ([d7f0906](https://github.com/cozy/cozy-libs/commit/d7f09066fa30ccdd229a982a7094cf4d5c0c9d15))
+  * Remove choice to keep deleted file on Drive ([fe68e69](https://github.com/cozy/cozy-libs/commit/fe68e69d7aad81fe0bab6265828072019d41bfc5))
+  * Update wording of DeleteConfirm modal ([cb52ac7](https://github.com/cozy/cozy-libs/commit/cb52ac707fa11fdf0a62091dcabe2997d2f03f89))
+  * Add importAuto and scanPicture actions ([2517080](https://github.com/cozy/cozy-libs/commit/2517080f98f2f0ab6640f6d502be806b423c3e78))
+  * Modify createPaper and createPaperByTheme actions ([defa4fc](https://github.com/cozy/cozy-libs/commit/defa4fc65c42d52982128b1cc089fc768ad27428))
+  * Remove useless MoreOptions component ([8564dfd](https://github.com/cozy/cozy-libs/commit/8564dfdc3d2f6b27801d6fb6fb8f40da3389af4a))
+  * Use new actions approach for PaperFab menu ([e316f9e](https://github.com/cozy/cozy-libs/commit/e316f9eb5aa7c1a7d97f96f18a765720c6c5ec9e))
+
+* Update packages:
+  * cozy-client from 36.1.0 to 38.1.0 ([release](https://github.com/cozy/cozy-client/releases/tag/v38.1.0))
+  * cozy-ui from 82.12.0 to 84.1.3 ([release](https://github.com/cozy/cozy-ui/releases/tag/v84.1.3))
+  * cozy-bar from 7.25.0 to 7.26.0 ([release](https://github.com/cozy/cozy-bar/releases/tag/v7.26.0))
+
+### 🐛 Bug Fixes
+
+* Remove the last Divider on the homepage ([2af2e70](https://github.com/cozy/cozy-libs/commit/2af2e70ea7ab68c82357a5bfd450b647384b47ed))
+
+### 🔧 Tech
+
+* Add missing packages to devDeps ([50f6bfb](https://github.com/cozy/cozy-libs/commit/50f6bfb04a135ddd402f521c6bc3a24f9943fbf7))
+* Create app settings if it doesn't exist ([28e0ada](https://github.com/cozy/mespapiers/pull/421/commits/28e0adafdc86884297a4cc06e5424487da739331))
 
 # 2.0.4
 
