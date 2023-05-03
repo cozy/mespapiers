@@ -63,7 +63,7 @@ export const migrateMetadata = async () => {
   const filesWithMetadata = getFilesWithMetadata(filesByDateWithMetadata)
 
   if (filesWithMetadata.length === 0) {
-    log('warn', 'No new file to process')
+    log('info', 'No new file with metadata found')
     log(
       'info',
       `Save last running service date: ${lastRunningMigrateMetadataService}`
