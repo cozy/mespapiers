@@ -18,6 +18,9 @@ import { Layout, Main, Content } from 'cozy-ui/transpiled/react/Layout'
 import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import MesPapiers from 'cozy-mespapiers-lib'
+import flag from 'cozy-flags'
+
+import Help from './Help'
 
 const PaperView = props => {
   const { lang } = useI18n()
@@ -45,6 +48,7 @@ export const AppLayout = () => {
     <Layout monoColumn>
       <Main>
         <Content className="app-content">
+          {flag('mespapiers.show-help.enabled') && <Help />}
           {isMobile && (
             <BarCenter>
               <MuiCozyTheme>
