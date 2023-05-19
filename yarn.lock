@@ -5076,10 +5076,10 @@ cozy-flags@^3.0.1:
   dependencies:
     microee "^0.0.6"
 
-cozy-harvest-lib@^13.17.2:
-  version "13.17.2"
-  resolved "https://registry.yarnpkg.com/cozy-harvest-lib/-/cozy-harvest-lib-13.17.2.tgz#079f50c01e2725c58d0451f7799adb94a6cbec10"
-  integrity sha512-lpB9FF0fAx4HNwezWXmYF+5ojr6cGPyLYKa0tOkUP0+YAEoLESsBrQTfBa6jAje/lpAmh3XE3xiy7gqO8XTrIA==
+cozy-harvest-lib@^13.17.11:
+  version "13.17.11"
+  resolved "https://registry.yarnpkg.com/cozy-harvest-lib/-/cozy-harvest-lib-13.17.11.tgz#8d239436ea3c364384f8c730b999f8b5d82095bd"
+  integrity sha512-z+qts71gcJgx8NJfAML9zs+ESfiw6TjE6BbX8cqVWEVpvz/jDM+p8nzO8fmr7v7gRp0ePuNAs5e2OCSgsVzgrA==
   dependencies:
     "@cozy/minilog" "^1.0.0"
     "@sentry/browser" "^6.0.1"
@@ -5097,10 +5097,10 @@ cozy-harvest-lib@^13.17.2:
     use-deep-compare-effect "^1.8.1"
     uuid "^3.3.2"
 
-cozy-intent@^2.11.1:
-  version "2.11.1"
-  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-2.11.1.tgz#2cdba997ef4890a14b88584004daa609f44aeef1"
-  integrity sha512-UoiEwho9d13Vj/FnwFHDtNV8BHQEwtVDrJoTJ8yUQV2u5BCY8Pb/GDJuC9nuTtFY89WJauZ8GPDYOAYfTY3ncQ==
+cozy-intent@^2.13.0:
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-2.13.0.tgz#662fd3b5155bed0ca8494b5773fe3c4ea55ef077"
+  integrity sha512-AW+62w4oGxiOGYNK8OEZ22c4/hNK88fBoIS2187qFvsnirsFhPEbbamoS0SJOjqiBdQQqoDfKgOFbXxWwrSNhg==
   dependencies:
     post-me "0.4.5"
 
@@ -5151,10 +5151,10 @@ cozy-logger@^1.3.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^42.3.0:
-  version "42.3.0"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-42.3.0.tgz#368658cbd0639be1c63140f64fa5ac0f0998edd4"
-  integrity sha512-rFUc4CgyAwdeUzXNt1RY4Z4I6bPiocmKsrksadfnDpAGzqtNcVxweLa/kwG2TtPpQ147i/iZudvh/0byONQA7w==
+cozy-mespapiers-lib@^42.4.0:
+  version "42.4.0"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-42.4.0.tgz#8ab9e078dbfca95909ee7e972996a86827f6e242"
+  integrity sha512-MLLmHkhfGddTi7Jh+7XwNo3TspC2XkM4Dp/n5cbLdXFWfceQ48uP48oCi5A9ItpMn2z9EQyAm41pMRIJ3J1yJw==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/pickers" "3.3.10"
@@ -10833,9 +10833,9 @@ msgpack5@^4.0.2:
     readable-stream "^2.3.6"
     safe-buffer "^5.1.2"
 
-"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
