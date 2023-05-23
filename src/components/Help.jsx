@@ -2,26 +2,43 @@
 import React, { useState } from 'react'
 
 import Button from 'cozy-ui/transpiled/react/Buttons'
+import Box from 'cozy-ui/transpiled/react/Box'
 import { ConfirmDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import IconButton from 'cozy-ui/transpiled/react/IconButton'
 import Typography from 'cozy-ui/transpiled/react/Typography'
+import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
 const url = 'https://support.grandlyon.com/mes-papiers/'
+
+const BarFixed = props => {
+  return (
+    <Box
+      position="fixed"
+      top={0}
+      right={177}
+      zIndex="var(--zIndex-bar)"
+      {...props}
+    />
+  )
+}
 
 const Help = () => {
   const [showDialog, setShowDialog] = useState(false)
   const { t } = useI18n()
   const { BarRight } = cozy.bar
+  const { isDesktop } = useBreakpoints()
+
+  const Wrapper = !isDesktop ? BarRight : BarFixed
 
   return (
     <>
-      <BarRight>
+      <Wrapper>
         <IconButton onClick={() => setShowDialog(true)}>
           <Icon icon="help" />
         </IconButton>
-      </BarRight>
+      </Wrapper>
       {showDialog && (
         <ConfirmDialog
           open
