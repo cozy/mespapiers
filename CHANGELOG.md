@@ -1,4 +1,46 @@
+# 3.0.1
+
 # 2.2.0
+
+### ✨ Features
+
+* Remove `mespapiers.v2-1-0.enabled` flag
+* Add help button behind flag
+* Update cozy-mespapiers-lib from 39.0.1 to ^44.0.0:
+  * Updated the following packages:
+    * `cozy-client >= 38.2.1`
+    * `cozy-doctypes >= 1.88.6`
+    * `cozy-harvest-lib >= 13.17.1`
+    * `cozy-intent >= 2.11.1`
+    * `cozy-logger >= 1.10.1`
+    * `cozy-sharing >= 7.1.3`
+  * Removed the following flags:
+    * `mespapiers.flexsearch.enabled`
+    * `mespapiers.fabExtended.enabled`
+    * `mespapiers.v2-1-0.enabled`
+  * ✨ Add more permissive encoder for flexsearch
+  * ✨ Add translate caf file number in search indexes
+  * 🐛 Harvest banner wasn't shown for disconnected account
+  * Replace ellipsis by midellipsis for document name
+  * Remove ellipsis on text when no file from konnector
+  * Add expiration date on driver license
+  * The snackbar after adding a paper is now shown for 4sec
+  * Add `other_administrative_document` paper
+  * Redirect to home for paperList and health theme
+  * Remove "others" suggestion
+  * Remove health documents from paperDef by flag
+  * Remove health filter by flag
+* Update cozy-flags from `2.11.0` to `3.0.1`
+* Update cozy-bar from `7.26.0` to `7.27.0`
+* Update cozy-intent from ^2.11.1 to ^2.13.0
+* Update cozy-harvest-lib from ^13.17.2 to ^13.18.1
+* Update cozy-ui from ^84.1.3 to ^85.3.1
+* Upgrade cozy-client from 38.2.1 to 38.4.0
+
+### 🐛 Bug Fixes
+
+* Change log `warn` to `info` if no file with metadata found
+
 
 # 2.1.0
 
