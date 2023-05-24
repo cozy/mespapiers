@@ -5076,7 +5076,7 @@ cozy-flags@^3.0.1:
   dependencies:
     microee "^0.0.6"
 
-cozy-harvest-lib@^13.18.0:
+cozy-harvest-lib@^13.18.1:
   version "13.18.1"
   resolved "https://registry.yarnpkg.com/cozy-harvest-lib/-/cozy-harvest-lib-13.18.1.tgz#98b766c52cf73ce4c6465fb44c2ffeff93cd3945"
   integrity sha512-6IB5yrnBwp8/Uq1bYHLNTg6bGSZWcZhIs3gzNObA3e+tZSj81ghlrvClsMnSN9SOAcXaeJ4tbuKCG3UA/SC/NQ==
@@ -5151,10 +5151,10 @@ cozy-logger@^1.3.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^43.0.1:
-  version "43.0.1"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-43.0.1.tgz#5aa32b56a30561bea2f2096223f6c1cd7829653a"
-  integrity sha512-eMuFPFvzOea0aW+M+p8O3fY9ZCOXIecahe5L1qsNRgWwGJSuxN+q7qdRrKIrEKPfQk52eqjwzEQ9co67b9tIhQ==
+cozy-mespapiers-lib@^44.0.0:
+  version "44.0.0"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-44.0.0.tgz#1dbd5a67f39ccc2f8d74445134e0533fa607928b"
+  integrity sha512-Rqq+kCZmUK5UrAYbjGezE+dgecy15SyjerVTlehn8UgWjesxsnF6Wk6nuR7YdxtGGqts5/Hthoa4dulxkOs1jw==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/pickers" "3.3.10"
@@ -5305,10 +5305,10 @@ cozy-ui@22.3.1:
     react-pdf "^4.0.5"
     react-select "2.2.0"
 
-cozy-ui@^85.3.0:
-  version "85.3.0"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-85.3.0.tgz#4177eeb84cda7e4f6fade4ec98adb76d3f70689b"
-  integrity sha512-N1oHEUaKFn+aR2bMvrT1IHa503W4RxOXunBiopCTugSXWk88kZj2/FyLOWKSjGUzz7mC5KqIBOpfkkhMOI2S1Q==
+cozy-ui@^85.3.1:
+  version "85.3.1"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-85.3.1.tgz#70f74672415e32e47fc58c191e54b858c7eb0287"
+  integrity sha512-LaH6keIP1Zl7wRcrXxdbtPwJYHl3ZYbIzcZBdzpy1YADv2F8Y4Yz1Q5nJSC2ABQi13m0fRcgNhX+N/uJ2ktiEw==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@material-ui/core" "4.12.3"
@@ -10833,9 +10833,9 @@ msgpack5@^4.0.2:
     readable-stream "^2.3.6"
     safe-buffer "^5.1.2"
 
-"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
