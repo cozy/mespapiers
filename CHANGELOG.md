@@ -1,4 +1,36 @@
+# 3.0.2
+
 # 3.0.1
+
+### ✨ Features
+
+* Update cozy-mespapiers-lib from 44.0.0 to 45.0.0:
+  * Improved `CompositeHeaderImage` component ([5c2f7d2](https://github.com/cozy/cozy-libs/commit/5c2f7d2518b74241d4f515c4a2825c967168ee8d))
+  * Improve UX on `ScanResult` ([75ded76](https://github.com/cozy/cozy-libs/commit/75ded765f2170116809376600a40cadaacef394e))
+  * Add `useRotateImage` hook ([7199108](https://github.com/cozy/cozy-libs/commit/7199108dbf94688f02bebbd999c95d2d9f036fe9))
+  * Add `ScanResultInfo` component ([392e02b](https://github.com/cozy/cozy-libs/commit/392e02b1a99c64c8da10f7de3b8a62a033688614))
+  * Add `RotateImage` component ([4d8994c](https://github.com/cozy/cozy-libs/commit/4d8994c0b29d4098cafe35c3bdae6dc30003da31))
+  * Add `makeRotatedImage` helper ([93afdea](https://github.com/cozy/cozy-libs/commit/93afdeaf13c8ce2cce80af8835ca673be24c73d4))
+  * Add `ScanResultTitle` component ([50b9ed4](https://github.com/cozy/cozy-libs/commit/50b9ed4dc7800f1639b84b215906f0a640dac260))
+  * Add `InstallAppModal` component ([9c3bff3](https://github.com/cozy/cozy-libs/commit/9c3bff3894a5fce53f79386b5613c1576a619b3b))
+  * Add `ScanDesktopActionsAlert` component ([bda780c](https://github.com/cozy/cozy-libs/commit/bda780cd1a7f830d36240f60232fab2ea8fbb7c1))
+  * QRCode accessibility ([67e3383](https://github.com/cozy/cozy-libs/commit/67e3383fe93c9f5c1c7ff0013e056c092b3777ca))
+  * Replace SearchInput by SearchBar from cozy-ui ([f03271e](https://github.com/cozy/cozy-libs/commit/f03271ec21c1f5a91fae90064bb167d6018f0c7e))
+
+* Update packages:
+  * cozy-ui from 85.3.1 to 85.5.0 ([f008689](https://github.com/cozy/cozy-libs/commit/f008689c266f156d81482ee0bc531a8b1d096ad7))
+
+### 🐛 Bug Fixes
+
+* Flashing of the title when arriving on the list of a type of paper ([62de99c](https://github.com/cozy/cozy-libs/commit/62de99cbd7e6fb0ca89fde637f13da693c67e53f))
+* The back button hover area is oval instead of round ([35d6f4d](https://github.com/cozy/cozy-libs/commit/35d6f4d096bcc75ddf60168b29ae537df98a631b))
+* Create paper modal scroll from body on Desktop ([bcb75c7](https://github.com/cozy/cozy-libs/commit/bcb75c7403220a9ef7e21de2bce34c1a131a225c))
+* Search result wasn't using correct datas ([6258887](https://github.com/cozy/cozy-libs/commit/625888732f008dcc3f7fdeb6305efad120f4c554))
+
+### 🔧 Tech
+
+* Normalize File usage instead Blob ([ec24675](https://github.com/cozy/cozy-libs/commit/ec246755ae41f0aaab0f1edeac82230343b4913b))
+* Added `replace` option to `onChangeFile` ([6a5da83](https://github.com/cozy/cozy-libs/commit/6a5da83f8e5389f8e33dc3cad864e5b41a7ae4b1))
 
 # 2.2.0
 
