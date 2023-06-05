@@ -1,3 +1,9 @@
+# 2.2.1
+
+### ✨ Features
+
+* Change help modal wording
+
 # 2.2.0
 
 # 2.1.0
