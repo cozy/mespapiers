@@ -68,7 +68,7 @@
     "cozy-intent": "^2.13.0",
     "cozy-keys-lib": "^4.3.0",
     "cozy-logger": "^1.10.1",
-    "cozy-mespapiers-lib": "^46.2.0",
+    "cozy-mespapiers-lib": "^46.3.0",
     "cozy-notifications": "^0.14.0",
     "cozy-realtime": "^4.4.0",
     "cozy-sharing": "^7.1.3",
