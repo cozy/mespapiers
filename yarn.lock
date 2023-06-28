@@ -5215,10 +5215,10 @@ cozy-logger@^1.3.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^50.0.0:
-  version "50.0.0"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-50.0.0.tgz#baa2da0b2cd6c5938353c643be9a8acfecd188ca"
-  integrity sha512-EVVALA07Ljm6nnpotkO1jqbGwXga/wdY3YTn3KIQts3cCzuDR01haQ5jDuR2RAQh0qjGYTaToAv0JNUalszTXw==
+cozy-mespapiers-lib@^50.0.1:
+  version "50.0.1"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-50.0.1.tgz#a22f74872b4fb7ab078d1ae37e278e4357d8b94a"
+  integrity sha512-HILvQEDrFbNox6i1regoNk2cO3/yiqy8tgKt0U9+GSlzJvzBkFlxY2pcEDljiLt8bu+z+Q03DN+NDg9yPgM5lA==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/pickers" "3.3.10"
@@ -10906,9 +10906,9 @@ msgpack5@^4.0.2:
     readable-stream "^2.3.6"
     safe-buffer "^5.1.2"
 
-"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
