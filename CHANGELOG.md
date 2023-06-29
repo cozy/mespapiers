@@ -1,10 +1,28 @@
-# 3.0.2
+# 3.0.2O
 
 # 3.0.1
 
 ### ✨ Features
 
-* Update cozy-mespapiers-lib from 44.0.0 to 45.0.0:
+* replace appname Mes papiers by Mes Papiers
+* Update `cozy-ui` from `85.3.1` to `86.3.0`
+* Update `cozy-client` from `38.4.0` to `38.7.0`
+* Update cozy-mespapiers-lib from `46.3.0` to `50.0.2`
+  * Add tooltip property to scan step
+  * Update ScanDesktopActionsAlert wording
+  * Add some health papers definitions ([b449f6f](https://github.com/cozy/cozy-libs/commit/b449f6f0b3cee6ebdd0f62a59f0988e72286be7f))
+  * Remove mespapiers.migrated.metadata flag ([c815522](https://github.com/cozy/cozy-libs/commit/c815522f6a7b7c2c5c66ef718b5c68c56ed0a320))
+  * Use a11y menu on home actions ([16052a7](https://github.com/cozy/cozy-libs/commit/16052a7a984fefd94adc8acea26df92ea7710179))
+  * Use a11y menu on PaperLine ([243cd93](https://github.com/cozy/cozy-libs/commit/243cd934773e38194406d4f5d8d062c1b302f4c5))
+  * Add other option to contract types ([fca1343](https://github.com/cozy/cozy-libs/commit/fca1343c20349874e89fff49f49815e9b77eeefb))
+  * Radio step is not mandatory ([ae348df](https://github.com/cozy/cozy-libs/commit/ae348df8efe25bf8a79d2864fd13f06f78eacd64))
+  * Add mespapiers.aa-suggestion.disabled flag ([e1342c9](https://github.com/cozy/cozy-libs/commit/e1342c9ce27d86304d312b1ab306b0133a269074))
+  * Add PapersPaywall ([4b6fe3a](https://github.com/cozy/cozy-libs/commit/4b6fe3a597fbce6be7f357ce4c3dd359f9bd6a35))
+  * Add tooltip property to scan step
+  * Update ScanDesktopActionsAlert wording
+  * Add expiration date and delay on stranger driver license.
+  * Refactor of Steppers Dialog to use Cozy Dialog instead.
+  * Change Passport & driver license illustrations
   * Improved `CompositeHeaderImage` component ([5c2f7d2](https://github.com/cozy/cozy-libs/commit/5c2f7d2518b74241d4f515c4a2825c967168ee8d))
   * Improve UX on `ScanResult` ([75ded76](https://github.com/cozy/cozy-libs/commit/75ded765f2170116809376600a40cadaacef394e))
   * Add `useRotateImage` hook ([7199108](https://github.com/cozy/cozy-libs/commit/7199108dbf94688f02bebbd999c95d2d9f036fe9))
@@ -17,20 +35,26 @@
   * QRCode accessibility ([67e3383](https://github.com/cozy/cozy-libs/commit/67e3383fe93c9f5c1c7ff0013e056c092b3777ca))
   * Replace SearchInput by SearchBar from cozy-ui ([f03271e](https://github.com/cozy/cozy-libs/commit/f03271ec21c1f5a91fae90064bb167d6018f0c7e))
 
-* Update packages:
-  * cozy-ui from 85.3.1 to 85.5.0 ([f008689](https://github.com/cozy/cozy-libs/commit/f008689c266f156d81482ee0bc531a8b1d096ad7))
-
 ### 🐛 Bug Fixes
 
-* Flashing of the title when arriving on the list of a type of paper ([62de99c](https://github.com/cozy/cozy-libs/commit/62de99cbd7e6fb0ca89fde637f13da693c67e53f))
-* The back button hover area is oval instead of round ([35d6f4d](https://github.com/cozy/cozy-libs/commit/35d6f4d096bcc75ddf60168b29ae537df98a631b))
-* Create paper modal scroll from body on Desktop ([bcb75c7](https://github.com/cozy/cozy-libs/commit/bcb75c7403220a9ef7e21de2bce34c1a131a225c))
-* Search result wasn't using correct datas ([6258887](https://github.com/cozy/cozy-libs/commit/625888732f008dcc3f7fdeb6305efad120f4c554))
+* cozy-mespapiers-lib:
+  * Flattened image on some browsers ([76eb3d4](https://github.com/cozy/cozy-libs/commit/76eb3d419ff248e0e9e405f00b01151c0c1c5c56))
+  * Wording of EmptyWithHeader ([4bc8845](https://github.com/cozy/cozy-libs/commit/4bc88455306931c1f233e573fed3d063bd9c40d2))
+  * The cozyMetadata property does not always exist ([43141dc](https://github.com/cozy/cozy-libs/commit/43141dc171e3397c2e9fe548a5ef89c63233b65a))
+  * Display a fileless account with other files ([8ca8e12](https://github.com/cozy/cozy-libs/commit/8ca8e1206e846644340461efd52fc92d583557d7))
+  * Clicking on listItem should check the radio button ([900afb4](https://github.com/cozy/cozy-libs/commit/900afb4aa94f99da5974c184b21917d799b70ec1))
+  * CreatePaper and createPaperByTheme wasn't spreading ref ([19e0148](https://github.com/cozy/cozy-libs/commit/19e01489f453b34bbe835d3cc535bc53ad894a86))
+  * Illustration of national health insurance card ([e9ac821](https://github.com/cozy/cozy-libs/commit/e9ac8218c417edad6f6e757728366bf528b45401))
+  * Step modal with Radio buttons ([8614483](https://github.com/cozy/cozy-libs/commit/86144834118c6f4f2400d4d0a6efe9c566bec644))
+  * Flashing of the title when arriving on the list of a type of paper ([62de99c](https://github.com/cozy/cozy-libs/commit/62de99cbd7e6fb0ca89fde637f13da693c67e53f))
+  * The back button hover area is oval instead of round ([35d6f4d](https://github.com/cozy/cozy-libs/commit/35d6f4d096bcc75ddf60168b29ae537df98a631b))
+  * Create paper modal scroll from body on Desktop ([bcb75c7](https://github.com/cozy/cozy-libs/commit/bcb75c7403220a9ef7e21de2bce34c1a131a225c))
+  * Search result wasn't using correct datas ([6258887](https://github.com/cozy/cozy-libs/commit/625888732f008dcc3f7fdeb6305efad120f4c554))
 
 ### 🔧 Tech
 
-* Normalize File usage instead Blob ([ec24675](https://github.com/cozy/cozy-libs/commit/ec246755ae41f0aaab0f1edeac82230343b4913b))
-* Added `replace` option to `onChangeFile` ([6a5da83](https://github.com/cozy/cozy-libs/commit/6a5da83f8e5389f8e33dc3cad864e5b41a7ae4b1))
+* cozy-mespapiers-lib:
+  * Normalize File usage instead Blob ([ec24675](https://github.com/cozy/cozy-libs/commit/ec246755ae41f0aaab0f1edeac82230343b4913b))
 
 # 2.2.0
 
