@@ -1,4 +1,6 @@
 import CozyClient from 'cozy-client'
+import { Intents } from 'cozy-interapp'
+
 import manifest from '../../manifest.webapp'
 import schema from 'src/doctypes'
 
@@ -12,7 +14,7 @@ export const getClient = () => {
   const protocol = window.location.protocol
   const cozyUrl = `${protocol}//${data.domain}`
 
-  return new CozyClient({
+  const client = new CozyClient({
     uri: cozyUrl,
     token: data.token,
     appMetadata: {
@@ -22,4 +24,9 @@ export const getClient = () => {
     schema,
     store: false
   })
+
+  const intents = new Intents({ client })
+  client.intents = intents
+
+  return client
 }
