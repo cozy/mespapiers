@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "@sentry/react": "7.54.0",
-    "cozy-client": "^38.11.1",
+    "cozy-client": "^40.0.1",
     "cozy-device-helper": "^2.7.0",
     "cozy-doctypes": "^1.88.6",
     "cozy-flags": "^3.0.1",
