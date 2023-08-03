@@ -1,4 +1,55 @@
-# 3.0.2O
+# 3.1.0
+
+# 3.0.20
+
+### ✨ Features
+
+* Update cozy-mespapiers-lib from 45.0.0 to 56.0.0
+  * ✨ Replace Thumbnail by cozy-ui one ([dd25050](https://github.com/cozy/cozy-libs/commit/dd25050a29f9b7600051227a4d8653a189a727bd))
+  * ✨ Upgrade cozy-ui from 85.5.0 to 85.6.0 ([c9b017d](https://github.com/cozy/cozy-libs/commit/c9b017d036e015d85dec6d5f4eb7409da4980843))
+  * Add expiration date and delay on stranger driver license.
+  * Refactor of Steppers Dialog to use Cozy Dialog instead.
+  * Change Passport & driver license illustrations
+  * Add some health papers definitions ([b449f6f](https://github.com/cozy/cozy-libs/commit/b449f6f0b3cee6ebdd0f62a59f0988e72286be7f))
+  * Remove mespapiers.migrated.metadata flag ([c815522](https://github.com/cozy/cozy-libs/commit/c815522f6a7b7c2c5c66ef718b5c68c56ed0a320))
+  * Use a11y menu on home actions ([16052a7](https://github.com/cozy/cozy-libs/commit/16052a7a984fefd94adc8acea26df92ea7710179))
+  * Use a11y menu on PaperLine ([243cd93](https://github.com/cozy/cozy-libs/commit/243cd934773e38194406d4f5d8d062c1b302f4c5))
+  * Add other option to contract types ([fca1343](https://github.com/cozy/cozy-libs/commit/fca1343c20349874e89fff49f49815e9b77eeefb))
+  * Radio step is not mandatory ([ae348df](https://github.com/cozy/cozy-libs/commit/ae348df8efe25bf8a79d2864fd13f06f78eacd64))
+  * Add mespapiers.aa-suggestion.disabled flag ([e1342c9](https://github.com/cozy/cozy-libs/commit/e1342c9ce27d86304d312b1ab306b0133a269074))
+  * Add PapersPaywall ([4b6fe3a](https://github.com/cozy/cozy-libs/commit/4b6fe3a597fbce6be7f357ce4c3dd359f9bd6a35))
+  * Add `InstallAppFromIntent` component ([2384e35](https://github.com/cozy/cozy-libs/commit/2384e3512bd5e3c934139eaba2098efe28dfb4a3))
+  * Add `isInstalledApp` helper ([7db71f4](https://github.com/cozy/cozy-libs/commit/7db71f48aedda51bb27a18223ca655d5a0c81fd7))
+  * Update `redirectPaperCreation` ([8f2fc34](https://github.com/cozy/cozy-libs/commit/8f2fc34208e6b11fc2ecd9468cd3520da5180dcc))
+* Change help modal wording
+* Add sentry
+* replace appname Mes papiers by Mes Papiers
+* Add intents compliancy and cozy-interapp 0.8.0
+* Update cozy-harvest-lib from `13.18.1` to `15.0.0`
+* Update cozy-keys-lib from `4.3.0` to `5.0.0`
+* Replace app icon (remove `beta`)
+* Update cozy-scripts from 8.0.3 to 8.1.1
+* Update cozy-interapp from 0.8.0 to 0.8.1
+* Update cozy-client from 38.4.0 to 40.2.0
+* Update cozy-ui from 85.5.0 to 90.3.0
+
+### 🐛 Bug Fixes
+
+* Wording of EmptyWithHeader ([4bc8845](https://github.com/cozy/cozy-libs/commit/4bc88455306931c1f233e573fed3d063bd9c40d2))
+* by updating cozy-mespapiers-lib:
+  * On InstallApp modal, redirect to the correct store (cozy/cozy-libs@8500ed9)
+  * The cozyMetadata property does not always exist ([43141dc](https://github.com/cozy/cozy-libs/commit/43141dc171e3397c2e9fe548a5ef89c63233b65a))
+  * Display a fileless account with other files ([8ca8e12](https://github.com/cozy/cozy-libs/commit/8ca8e1206e846644340461efd52fc92d583557d7))
+  * Clicking on listItem should check the radio button ([900afb4](https://github.com/cozy/cozy-libs/commit/900afb4aa94f99da5974c184b21917d799b70ec1))
+  * CreatePaper and createPaperByTheme wasn't spreading ref ([19e0148](https://github.com/cozy/cozy-libs/commit/19e01489f453b34bbe835d3cc535bc53ad894a86))
+  * Illustration of national health insurance card ([e9ac821](https://github.com/cozy/cozy-libs/commit/e9ac8218c417edad6f6e757728366bf528b45401))
+  * Step modal with Radio buttons ([8614483](https://github.com/cozy/cozy-libs/commit/86144834118c6f4f2400d4d0a6efe9c566bec644))
+  * Flattened image on some browsers ([76eb3d4](https://github.com/cozy/cozy-libs/commit/76eb3d419ff248e0e9e405f00b01151c0c1c5c56))
+  * Remove duplicate paperDefinition ([293c419](https://github.com/cozy/cozy-libs/commit/293c4194ab84e688da18b89365746e184fdd2ec9))
+
+### 🔧 Tech
+
+* Add terser-webpack-plugin `1.4.5` (see cozy/cozy-home@b0c5915)
 
 # 3.0.1
 
