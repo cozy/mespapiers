@@ -1,4 +1,53 @@
+# 3.2.0
+
 # 3.1.0
+
+### ✨ Features
+
+* Update cozy-mespapiers-lib from 57.1.2 to 60.0.4
+  * Restrict mime type images for paper creation ([225f75c](https://github.com/cozy/cozy-libs/commit/225f75c18523a641d694c2da131e1d2b0fa28f2e))
+  * Add onSubmit on stepper and redirect to paper list ([dbd0529](https://github.com/cozy/cozy-libs/commit/dbd0529f30095ab492f243f1c48798fe95124a3f))
+  * Add possibility to skip onboarding with query param ([9dfb772](https://github.com/cozy/cozy-libs/commit/9dfb772e7faa80f267ac88ff320c5544ba3e8ba5))
+  * Handle back behavior in stepper for returnUrl querypar ([8997b97](https://github.com/cozy/cozy-libs/commit/8997b97fb7dd0dd0ff03cc1aea7e8337f3c15446))
+  * Handle back in paper create process with returnUrl ([d18eeec](https://github.com/cozy/cozy-libs/commit/d18eeec2058a885420beb59b6c7cd99f41a5a572))
+  * Set onboarded true if skipOnboarding query param ([2438da5](https://github.com/cozy/cozy-libs/commit/2438da5b24a1f54309e753173a67f85aa9691bfd))
+  * Skip scan step for returnUrl query param ([49f8103](https://github.com/cozy/cozy-libs/commit/49f8103cf52e3ca7da0b802dc1a8b88bd70d0675))
+  * Spread setCurrentStepIndex in StepperDialogProvider ([c60a162](https://github.com/cozy/cozy-libs/commit/c60a1626168753f89e566639e0e9c53eced6838e))
+  * Add ErrorBoundary component ([a36294e](https://github.com/cozy/cozy-libs/commit/a36294e1d58b26946cce5841cd8b0748b1d359a7))
+  * Add ErrorBoundary component in Router app ([6378f39](https://github.com/cozy/cozy-libs/commit/6378f39e37d4af9c1c1a34cfd23c311b61aec074))
+  * Add ErrorProvider ([69e9db1](https://github.com/cozy/cozy-libs/commit/69e9db13c642aa409289a8f9d04b5985d408b014))
+  * Wrap all Providers by ErrorProvider ([d0f8e4c](https://github.com/cozy/cozy-libs/commit/d0f8e4cbd2f7f389ee4a12880d564dde76deca3c))
+  * Remove the stepIndex property from the config file ([4e38d06](https://github.com/cozy/cozy-libs/commit/4e38d060a19c9a517887d26f75053da607efab3b))
+  * Add option to useKonnectorActions ([ad8bf05](https://github.com/cozy/cozy-libs/commit/ad8bf0596644e9f82b458ae955295d1b35d128e4))
+  * Install konnector from intent ([2e8fd9e](https://github.com/cozy/cozy-libs/commit/2e8fd9ed6b5afd56852fd9cb14f5f5e23a0e7d37))
+  * Remove all harvest.inappconnectors.enabled occurence ([1dde315](https://github.com/cozy/cozy-libs/commit/1dde315435a5f0b5674f09978fa0388ce9e86f85))
+  * Update importAuto action ([5e997bf](https://github.com/cozy/cozy-libs/commit/5e997bf3c9ba93cedc6c1f8865abc16718b8839e))
+* Update cozy-client from `40.2.0` to `40.3.0`
+* Update cozy-device-helper from `2.7.0` to `3.0.0`
+* Update cozy-harvest-lib from `15.0.0` to `17.2.1`
+* Update cozy-intent from `2.13.0` to `2.15.0`
+* Update cozy-realtime from `4.4.0` to `5.0.0`
+* Update cozy-sharing from `7.1.3` to `9.0.0`
+* Update cozy-ui from `90.7.0` to `91.2.0`
+
+### 🐛 Bug Fixes
+
+* by updating cozy-mespapiers-lib:
+  * Now set default value when editing information ([d8b0098](https://github.com/cozy/cozy-libs/commit/d8b00989d6b511d6a1fa25e2fadcb785f84a8ae6))
+  * The text field must not be hidden by the keyboard ([6e93b24](https://github.com/cozy/cozy-libs/commit/6e93b24045c7320d03cd426fdf1c242f5e858ebf))
+
+# 3.0.21
+
+### ✨ Features
+
+* Update cozy-mespapiers-lib from 56.0.0 to 57.1.2
+  * Redirect on the install path by Intent when click on a note ([fb2bb30](https://github.com/cozy/cozy-libs/commit/fb2bb30081bc87163014153597e827340be568a2))
+  * Use Filename with midellipsis in PaperItem name ([fdd5270](https://github.com/cozy/cozy-libs/commit/fdd5270debc987d1b833edfbf324801b20dbe4d0))
+
+### 🐛 Bug Fixes
+
+* by updating cozy-mespapiers-lib:
+  * Make sure the doc must be a file before using isNote ([2686603](https://github.com/cozy/cozy-libs/commit/2686603def1cd2d051e1dde065a9177879db5d59))
 
 # 3.0.20
 
