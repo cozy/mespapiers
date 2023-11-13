@@ -1,7 +1,7 @@
 import memoize from 'lodash/memoize'
 import * as Sentry from '@sentry/react'
 
-import { initTranslation } from 'cozy-ui/transpiled/react/I18n'
+import { initTranslation } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import { getClient } from 'src/helpers/client'
 import { getValues, initBar } from 'src/helpers/bar'

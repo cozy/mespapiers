@@ -3,8 +3,8 @@ import { HashRouter } from 'react-router-dom'
 import { createHashHistory } from 'history'
 
 import { CozyProvider, createMockClient } from 'cozy-client'
-import I18n from 'cozy-ui/transpiled/react/I18n'
-import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import I18n from 'cozy-ui/transpiled/react/providers/I18n'
+import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { WebviewIntentProvider } from 'cozy-intent'
 
 import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
