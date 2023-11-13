@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 
 import { CozyProvider } from 'cozy-client'
 import { WebviewIntentProvider } from 'cozy-intent'
-import { I18n } from 'cozy-ui/transpiled/react/I18n'
+import { I18n } from 'cozy-ui/transpiled/react/providers/I18n'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
-import { BreakpointsProvider } from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import {
   StylesProvider,
   createGenerateClassName

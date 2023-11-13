@@ -1,4 +1,4 @@
-import { initTranslation } from 'cozy-ui/transpiled/react/I18n/translation'
+import { initTranslation } from 'cozy-ui/transpiled/react/providers/I18n/translation'
 import log from 'cozy-logger'
 
 import { dictRequire, lang } from 'src/constants'

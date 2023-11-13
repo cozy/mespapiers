@@ -15,13 +15,13 @@ jest.mock('cozy-client', () => ({
     <div data-testid="CozyProvider">{children}</div>
   )
 }))
-jest.mock('cozy-ui/transpiled/react/I18n', () => ({
+jest.mock('cozy-ui/transpiled/react/providers/I18n', () => ({
   I18n: ({ children }) => <div data-testid="I18n">{children}</div>
 }))
 jest.mock('cozy-ui/transpiled/react/MuiCozyTheme', () => ({ children }) => (
   <div data-testid="MuiCozyTheme">{children}</div>
 ))
-jest.mock('cozy-ui/transpiled/react/hooks/useBreakpoints', () => ({
+jest.mock('cozy-ui/transpiled/react/providers/Breakpoints', () => ({
   BreakpointsProvider: ({ children }) => (
     <div data-testid="BreakpointsProvider">{children}</div>
   )

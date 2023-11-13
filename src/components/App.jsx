@@ -12,11 +12,11 @@ import {
 
 import { useClient } from 'cozy-client'
 import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
-import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
+import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { Layout, Main, Content } from 'cozy-ui/transpiled/react/Layout'
 import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
-import { useI18n } from 'cozy-ui/transpiled/react/I18n'
+import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 import MesPapiers from 'cozy-mespapiers-lib'
 import flag from 'cozy-flags'
 
