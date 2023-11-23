@@ -1,4 +1,49 @@
+# 3.3.0
+
 # 3.2.0
+
+### ✨ Features
+
+* Update cozy-mespapiers-lib from 60.0.4 to 66.0.1
+  * Add BIC number to bank_details ([6a2f3ff](https://github.com/cozy/cozy-libs/commit/6a2f3fffb18878b147976e4a74b71be3a32982a1))
+  * Add nationality to residence_permit ([94db363](https://github.com/cozy/cozy-libs/commit/94db363f5f6dd77b69854421179411909b3917f2))
+  * Add ocr result page ([67fd4fd](https://github.com/cozy/cozy-libs/commit/67fd4fdadf6a33c1343c348bec5a37d07e4b97bf))
+  * Add ocr step to paper thats compatible ([4b9808f](https://github.com/cozy/cozy-libs/commit/4b9808f835b94541983516720ce9b7f454473c17))
+  * Create a new contact input for information step ([0f15467](https://github.com/cozy/cozy-libs/commit/0f154670ad8ac33daf1969619bbc085192909a80))
+  * Improve design of OCR result page ([f9b5d12](https://github.com/cozy/cozy-libs/commit/f9b5d122ac1b0c00baa578694086b89ef781220c))
+  * Submit formData in any step ([c2287f6](https://github.com/cozy/cozy-libs/commit/c2287f6828e089165dda31012d6359ef6a662383))
+  * Adapt paper maxLength ([9fe9e39](https://github.com/cozy/cozy-libs/commit/9fe9e393ae7e826141653da9c0c5e53357b1300c))
+  * Add mask to BIC number ([c1837c8](https://github.com/cozy/cozy-libs/commit/c1837c82827930de54afcc2104d45a61369e7fa9))
+  * Ignore onboarding from flagshipUpload ([b26c3e3](https://github.com/cozy/cozy-libs/commit/b26c3e30d48d020a5f9db5925302b82bf4a537d2))
+  * Add diploma and CV papers with 255 characters max ([2953e86](https://github.com/cozy/cozy-libs/commit/2953e8663533f9e16a3bffb5a3ce2eed179e8e31))
+  * Add expense claim paper ([6bba739](https://github.com/cozy/cozy-libs/commit/6bba739f7c77c31b690f55658371229c21915801))
+  * Add isAvailable flagship method to isOCRActivated helper ([c7ca01a](https://github.com/cozy/cozy-libs/commit/c7ca01a7eca4d4a8dd579c4db9d7d6d22fa98c13))
+  * Add helper for make a compliant object with formMetadata ([77f687b](https://github.com/cozy/cozy-libs/commit/77f687b928d7f3a11b534b569b8425b2b5c16854))
+  * Add helper for transform File to Base64 ([bb3b22c](https://github.com/cozy/cozy-libs/commit/bb3b22c770365ffa26e057dd6095c96aa0af5d42))
+  * Add helper to get attributes from OCR ([450b1ae](https://github.com/cozy/cozy-libs/commit/450b1ae4d0c62d1e1d53d48ebdd1543ea7449046))
+  * Add new animated svg for ocr processing ([c988299](https://github.com/cozy/cozy-libs/commit/c9882991e8eb3d9ff554a1a4b9a2aa84ad4ffeca))
+  * Add OCR informations to papersDefinitions file ([ecd4adb](https://github.com/cozy/cozy-libs/commit/ecd4adbd9c59a3644683328fab0d84c9eafaa3ab))
+  * Add some functions to process OCR result ([58d1de9](https://github.com/cozy/cozy-libs/commit/58d1de9ba52a747c615cf04c9365b5fa33eeed29))
+  * Added Dialog for OCR processing ([86660c8](https://github.com/cozy/cozy-libs/commit/86660c85215ec6b251e75aa3f0fe259e6fe0fd84))
+  * Integration of the OCR functionality in ScanResultDialog  ([19d6f96](https://github.com/cozy/cozy-libs/commit/19d6f96b2e818d76d7b3f20618b5c72b55f2c123))
+  * Helper update to know if we are at the last step ([287f004](https://github.com/cozy/cozy-libs/commit/287f004435858e47c19b3059a25aeaacf8bf1257))
+  * Update ocr informations translations ([9b0a915](https://github.com/cozy/cozy-libs/commit/9b0a9152c0dbce8f53ed52b91f1ad9edb9650217))
+  * The rotateImage function does not need to be executed ([dc958eb](https://github.com/cozy/cozy-libs/commit/dc958eb41f052f783f9fc96ad8e5377332e86d9e))
+  * Add label given by user to paper other_invoice.json ([63af19e](https://github.com/cozy/cozy-libs/commit/63af19e726c0860bc06f6382f6acc9b2c6f35464))
+  * The label of the information step fields adapts automatically ([7edad6a](https://github.com/cozy/cozy-libs/commit/7edad6aa15209e62362cafc7d1b51aea605a3357))
+* Update cozy-client from `40.3.0` to `43.2.0`
+* Update cozy-harvest-lib from `17.2.1` to `20.2.1`
+* Update cozy-intent from `2.15.0` to `2.18.0`
+* Update cozy-sharing from `9.0.0` to `10.0.0`
+* Update cozy-ui from `91.2.0` to `95.11.1`
+
+### 🐛 Bug Fixes
+
+* by updating cozy-mespapiers-lib:
+  * Add text for information edit ([67faf3d](https://github.com/cozy/cozy-libs/commit/67faf3d9d17a53ec75b571b1fbe7c89535eb5505))
+  * Style for pdf icon in step view when importing a pdf ([6a38676](https://github.com/cozy/cozy-libs/commit/6a38676f3418ddb80b197ce5a1c5289aa8c8f121))
+  * IBAN number must be valid with 25 characters ([d94c59d](https://github.com/cozy/cozy-libs/commit/d94c59d32f91dce44777d1b37ed286384ca1b1fe))
+  * Use the "mask" attribute rather than "maxLength" ([8014b3d](https://github.com/cozy/cozy-libs/commit/8014b3dbe078385276b750093976f02a50553707))
 
 # 3.1.0
 
