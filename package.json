@@ -47,7 +47,7 @@
     "bundlemon": "1.4.0",
     "compare-versions": "^5.0.1",
     "cozy-bar": "7.27.0",
-    "cozy-scripts": "^8.1.1",
+    "cozy-scripts": "^8.2.0",
     "cozy-tsconfig": "1.2.0",
     "enzyme-adapter-react-16": "1.15.6",
     "eslint-config-cozy-app": "^4.0.0",
