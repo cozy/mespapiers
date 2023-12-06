@@ -2,7 +2,7 @@
   "name": "mespapiers",
   "version": "3.3.0",
   "engines": {
-    "node": "~16"
+    "node": "~16 || ~20"
   },
   "scripts": {
     "build": "yarn build:browser",
