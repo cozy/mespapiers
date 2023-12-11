@@ -1,9 +1,9 @@
 {
-  "name": "Mes papiers",
+  "name": "Mes Papiers",
   "slug": "mespapiers",
   "icon": "icon.svg",
   "categories": [],
-  "version": "2.0.4",
+  "version": "3.3.0",
   "licence": "AGPL-3.0",
   "editor": "Cozy",
   "source": "https://github.com/cozy/mespapiers.git@build",
@@ -137,5 +137,16 @@
         "zip"
       ]
     }
+  },
+  "accept_from_flagship": true,
+  "accept_documents_from_flagship": {
+    "accepted_mime_types": [
+      "application/pdf",
+      "image/jpeg",
+      "image/png"
+    ],
+    "max_number_of_files": 1,
+    "max_size_per_file_in_MB": 10,
+    "route_to_upload": "/#/paper/create?fromFlagshipUpload=true"
   }
 }

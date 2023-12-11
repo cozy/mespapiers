@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1518);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1520);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -99,26 +99,13 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
+module.exports = __webpack_require__(376);
 
-module.exports = _classCallCheck;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(375);
-
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
@@ -158,6 +145,19 @@ function _asyncToGenerator(fn) {
 }
 
 module.exports = _asyncToGenerator;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+module.exports = _classCallCheck;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
@@ -207,6 +207,21 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports) {
+
+function _getPrototypeOf(o) {
+  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  module.exports["default"] = module.exports, module.exports.__esModule = true;
+  return _getPrototypeOf(o);
+}
+
+module.exports = _getPrototypeOf;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -226,25 +241,10 @@ function toInteger(dirtyNumber) {
 }
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-function _getPrototypeOf(o) {
-  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  module.exports["default"] = module.exports, module.exports.__esModule = true;
-  return _getPrototypeOf(o);
-}
-
-module.exports = _getPrototypeOf;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var setPrototypeOf = __webpack_require__(157);
+var setPrototypeOf = __webpack_require__(156);
 
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
@@ -268,9 +268,9 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _typeof = __webpack_require__(240)["default"];
+var _typeof = __webpack_require__(241)["default"];
 
-var assertThisInitialized = __webpack_require__(95);
+var assertThisInitialized = __webpack_require__(93);
 
 function _possibleConstructorReturn(self, call) {
   if (call && (_typeof(call) === "object" || typeof call === "function")) {
@@ -331,521 +331,7 @@ module.exports = isArray;
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _dsl = __webpack_require__(14);
-
-/**
- * @typedef {import("./models/document/qualification").Qualification} Qualification
- */
-
-/**
- * @typedef {"io.cozy.notes"} NotesDoctype
- * @typedef {"io.cozy.apps"} AppsDoctype
- * @typedef {"io.cozy.settings"} SettingsDoctype
- * @typedef {"io.cozy-oauth.clients"} OAuthClientsDoctype
- * @typedef {"io.cozy.files"} FilesDoctype
- * @typedef {"io.cozy.account"} AccountsDoctype
- * @typedef {"io.cozy.konnectors"} KonnectorsDoctype
- * @typedef {"io.cozy.triggers"} TriggersDoctype
- * @typedef {AccountsDoctype|TriggersDoctype|KonnectorsDoctype|NotesDoctype|AppsDoctype|SettingsDoctype|OAuthClientsDoctype|FilesDoctype} KnownDoctype
- * @typedef {KnownDoctype|string} Doctype
- */
-
-/**
- * @typedef {object} AccountsDocument
- * @property {String} [_id] - document identifier
- * @property {String} account_type - slug of the associated konnector
- * @property {object} auth - user credentials
- * @property {String} [identifier] - Name of the attribute in the auth object that can be used to name the account.
- * @property {Array} [mutedErrors] - list of ignored errors
- * @property {String} [state] - used by harvest and the konnectors to communicate
- * @typedef {CozyClientDocument & AccountsDocument} IOCozyAccount - An io.cozy.accounts document
- */
-
-/**
- * @typedef {object} KonnectorsDocument
- * @property {String} slug - slug of konnector
- * @property {ManifestFields} fields - konnector fields
- * @property {Boolean} clientSide - whether the konnector runs on client or not
- * @typedef {CozyClientDocument & KonnectorsDocument} IOCozyKonnector - An io.cozy.konnectors document
- */
-
-/**
- * @typedef {object} TriggersDocument
- * @property {String} [_id] - document identifier
- * @property {String} type - type of the trigger. Can be "at", "cron", "event", "every", "in", "webhook", "client"
- * @property {String} worker - type of worker. Can be "konnector" or "sendmail"
- * @property {object} message - Parameters to pass to the the worker. For example, when the worker is set to konnector, message contains the related konnector and the related account.
- * @property {TriggerState} [current_state] - state of the last executed jobs related to this trigger
- * @property {String} [arguments] - Arguments related to the type attribute. For example it's a cron configuration when the type is set to @cron.
- * @typedef {CozyClientDocument & TriggersDocument} IOCozyTrigger - An io.cozy.konnectors document
- */
-
-/**
- * @typedef {object} TriggerState
- * @property {'queued'|'running'|'done'|'errored'} status - Global status of the trigger
- * @property {String} last_success - Date  of the last job in success
- * @property {String} last_successful_job_id - ID of the last job in success
- * @property {String} last_execution - Date of the last executed job
- * @property {String} last_executed_job_id - ID of the last executed job
- * @property {String} last_failure - Date of the last job in failure
- * @property {String} last_failed_job_id - ID of the last job in failure
- * @property {String} last_manual_execution - Date of the last job manually executed
- * @property {String} last_manual_job_id - ID of the last job manually executed
- * @property {String} last_error - Content of the last error
- */
-
-/**
- * @typedef {object} Link
- * @typedef {object} Mutation
- * @typedef {object} DocumentCollection
- * @typedef {object} QueryResult
- * @typedef {object} HydratedDocument
- * @typedef {object} ReduxStore
- * @typedef {object} Token
- * @typedef {object} ClientResponse
- * @typedef {object} Manifest
- * @typedef {object} SanitizedManifest
- */
-
-/**
- * @typedef {Object} ManifestField
- * @property {String} [type] - field type : can be "text" or "hidden" or "date" or "dropdown" or "password"
- * @property {String} [role] - field role : with "identifier" value
- * @property {Boolean} [required] - is the field required or not
- * @property {Boolean} [isRequired] - is the field required or not (legacy)
- * @property {Boolean} [encrypted] - encrypted value of the field (legacy)
- */
-
-/**
- * @typedef {{
- *   [key: string]: ManifestField;
- * }} ManifestFields
- */
-
-/**
- * @typedef {object} OldCozyClient
- */
-
-/**
- * @typedef {object} NodeEnvironment
- */
-
-/**
- * @typedef {"loading"|"loaded"|"pending"|"failed"} QueryFetchStatus
- */
-
-/**
- * @typedef {Record<Doctype, QueryState>} QueriesStateSlice
- */
-
-/**
- * @typedef {Record<string, CozyClientDocument>} IndexedDocuments
- */
-
-/**
- * @typedef {Record<Doctype, IndexedDocuments>} DocumentsStateSlice
- */
-
-/**
- * @typedef {object} QueryState
- * @property {string} id
- * @property {QueryDefinition} definition
- * @property {QueryFetchStatus} fetchStatus
- * @property {boolean} isFetching
- * @property {number} lastFetch
- * @property {number} lastUpdate
- * @property {number} lastErrorUpdate
- * @property {Error} lastError
- * @property {boolean} hasMore
- * @property {number} count
- * @property {number} fetchedPagesCount
- * @property {object|Array} data
- * @property {string} bookmark
- * @property {object} [execution_stats]
- * @property {QueryOptions} [options]
- */
-
-/**
- * @typedef {object} AutoUpdateOptions
- * @param {boolean} update - Should documents be updated in the query (default: true)
- * @param {boolean} add - Should documents be added to the query (default: true)
- * @param {boolean} remove - Should documents be removed from the query (default: true)
- */
-
-/**
- * @typedef {object} QueryOptions
- * @property {string} [as] - Name of the query
- * @property {Function} [fetchPolicy] - Fetch policy to bypass fetching based on what's already inside the state. See "Fetch policies"
- * @property {AutoUpdateOptions} [autoUpdate] - Options for the query auto update
- * @property {string} [update] - Does not seem to be used
- * @property {Function} [onError] - Callback when the query is errored
- * @property {boolean} [enabled=true] - If set to false, the query won't be executed
- * @property {boolean} [backgroundFetching] - If set to true, when the fetchStatus has already been loaded, it won't be updated during future fetches. Instead, a `isFetching` attribute will be used to indicate when background fetching is started.
- * @property {boolean} [hydrated=true] - Whether documents should be returned already hydrated
- * @property {boolean} [singleDocData] - If true, the "data" returned will be
- * a single doc instead of an array for single doc queries. Defaults to false for backward
- * compatibility but will be set to true in the future.
- */
-
-/**
- * @typedef {object} FetchMoreAble
- * @property {Function} fetchMore
- */
-
-/**
- * @typedef {object} FetchAble
- * @property {Function} fetch
- */
-
-/**
- * @typedef {QueryState & FetchMoreAble & FetchAble} UseQueryReturnValue
- */
-
-/**
- * A reference to a document
- *
- * @typedef {object} ReferencedByRelationship
- * @property {RelationshipParent} [parent]
- * @property {ReferencedBy} [referenced_by]
- */
-
-/**
- * @typedef {object} RelationshipParent
- * @property {{related: string}} links
- * @property {Reference} [data]
- */
-
-/**
- * @typedef {object} ReferencedBy
- * @property {{self: string}} links
- * @property {Reference[]|null} data
- */
-
-/**
- * A reference to a document
- * https://docs.cozy.io/en/cozy-doctypes/docs/io.cozy.files/#references
- *
- * @typedef {object} Reference
- * @property {string} id - id of the document
- * @property {string} type - doctype of the document
- */
-
-/**
- * @typedef {Object.<string, Array<Reference>>} ReferenceMap
- */
-
-/**
- * @typedef {object} MutationOptions
- * @property {string} [as]
- * @property {Function} [update]
- * @property {Function} [updateQueries]
- */
-
-/**
- * @typedef {object} CozyClientDocument - A document
- * @property {string} [_id] - Id of the document
- * @property {string} [id] - Id of the document
- * @property {string} [_type] - Type of the document
- * @property {string} [_rev] - Current revision of the document
- * @property {boolean} [_deleted] - When the document has been deleted
- * @property {ReferencedByRelationship} [relationships] - Relationships of the document
- * @property {Reference[]} [referenced_by] - referenced by of another document
- * @property {object} [cozyMetadata] - Cozy Metadata
- */
-
-/**
- * Metadata on io.cozy.files documents
- *
- * This is a first step, to continue
- *
- * Filled according to:
- * https://docs.cozy.io/en/cozy-doctypes/docs/io.cozy.files_metadata/
- * https://docs.cozy.io/en/cozy-doctypes/docs/io.cozy.notes/
- *
- * @typedef {object} FileMetadata - A io.cozy.files document's metadata
- * @property {object} [content] - The Note's content. See https://prosemirror.net/docs/ref/#model for more informations
- * @property {object} [schema] - the schema used by prosemirror (with notes and marks serialized as arrays to preserve the order).
- * @property {string} [title] - the initial title of the note (that will also be used for the file name)
- * @property {number} [version] - Number of a note
- * @property {Qualification} [qualification] - Qualification of the file
- * @property {string} [country] - Country of the paper
- * @property {string} [expirationDate] - Expiration date of the paper
- * @property {string} [referencedDate] - Reference date of the paper
- * @property {string} [noticePeriod] - Notice period of the paper, in days
- * @property {string} [datetime] - Image EXIF date, if relevant
- */
-
-/**
- * @typedef {object} FileDocument - An io.cozy.files document
- * @property {string} _id - Id of the file
- * @property {FilesDoctype} _type - Doctype of the file
- * @property {string} name - Name of the file
- * @property {FileMetadata} metadata - Metadata of the file
- * @property {string} type - Type of the file
- * @property {string} class - Class of the file
- * @property {string} mime - Mime of the file
- * @property {boolean} executable - Whether or not the file is executable
- * @property {boolean} encrypted - Whether or not the file is client-side encrypted
- * @property {string} created_at - Creation date of the file
- * @typedef {CozyClientDocument & FileDocument} IOCozyFile - An io.cozy.files document
- */
-
-/**
- * @typedef {object} FolderDocument - An io.cozy.files document
- * @property {string} _id - Id of the folder
- * @property {FilesDoctype} _type - Doctype of the folder
- * @property {string} name - Name of the folder
- * @property {object} metadata - Metadata of the folder
- * @property {object} type - Type of the folder
- * @typedef {CozyClientDocument & FolderDocument} IOCozyFolder - An io.cozy.files document
- */
-
-/**
- * @typedef {object} OAuthClientDocument - An io.cozy.oauth.clients document
- * @property {string} _id - Id of the client
- * @property {OAuthClientsDoctype} _type - Doctype of the client
- * @property {string} software_id
- * @property {string} software_version
- * @property {string} client_id
- * @property {string} client_name
- * @property {string} client_kind
- * @property {string} client_uri
- * @property {string} logo_uri
- * @property {string} policy_uri
- * @property {string} notification_platform
- * @property {string} notification_device_token
- * @property {Array<String>} redirect_uris
- * @typedef {CozyClientDocument & OAuthClientDocument} IOCozyOAuthClient - An io.cozy.oauth.clients document
- */
-
-/**
- * @typedef {object} ClientError
- * @property {string} [status]
- */
-
-/**
- * @typedef FilePlugin
- * @property {object} [externalDataDirectory]
- * @property {object} [cacheDirectory]
- * @property {object} [externalCacheDirectory]
- * @property {object} [dataDirectory]
- */
-
-/**
- * @typedef InAppBrowser
- * @property {Function} open
- */
-
-/**
- * @typedef {object} AppMetadata
- */
-
-/**
- * @typedef {object} ClientCapabilities
- * @property {boolean} [can_auth_with_oidc] - Whether OIDC login is possible with this Cozy
- * @property {boolean} [can_auth_with_password] - Whether  password login is possible with this Cozy
- * @property {boolean} [file_versioning] - Whether file versioning is active on this Cozy
- * @property {boolean} [flat_subdomains] - Whether the stack has been configured to use flat subdomains
- * @description Read more about client capabilities here https://docs.cozy.io/en/cozy-stack/settings/#get-settingscapabilities.
- */
-
-/**
- * @typedef Cordova
- * @property {FilePlugin} file
- * @property {InAppBrowser} InAppBrowser
- * @property {object} plugins
- */
-
-/**
- * @typedef  CordovaWindow
- * @property {Cordova} cordova
- * @property {object} SafariViewController
- * @property {Function} resolveLocalFileSystemURL
- * @property {Function} handleOpenURL
- */
-
-/**
- * @typedef {object} CouchDBDocument - A document
- * @property {string} _id - Id of the document
- * @property {string} _rev - Current revision of the document
- * @property {boolean} [_deleted] - When the document has been deleted
- * @property {object} [relationships] - Relationships of the document
- */
-
-/**
- * @typedef {object} CouchDBBulkResult - An item of the CouchDB bulk docs response
- * @property {boolean} ok
- * @property {string} id
- * @property {string} rev
- * @property {string?} error?
- * @property {string?} reason?
- */
-
-/**
- * @typedef {Array<string>|string} ViewKey
- * @typedef {string} DocId
- * @typedef {[ViewKey, DocId]} CouchDBViewCursor
- */
-
-/**
- * @typedef {object} Theme
- * @property {string} id
- * @property {string} label
- * @property {string} icon
- * @property {Array<QualificationAttributes>} items
- * @property {Array<string>} [defaultItems]
- *
- * @typedef {Array<Theme>} ThemesList
- *
- * @typedef {'identity'|'family'|'work_study'|'health'|'home'|'transport'|'finance'|'invoice'} ThemesLabels
- */
-
-/**
- * @typedef {object} QualificationAttributes
- * @property {string} label
- * @property {string} [purpose]
- * @property {string} [sourceCategory]
- * @property {string} [sourceSubCategory]
- * @property {Array<string>} [subjects]
- */
-
-/**
- * @typedef {'identity_photo'|'national_id_card'|'passport'|'residence_permit'|'family_record_book'|'birth_certificate'|'driver_license'|'other_identity_document'|'citizen_registration_certificate'|'personal_sporting_licence'|'electoral_card'} IdentityLabel
- *
- * @typedef {'family_record_book'|'birth_certificate'|'wedding'|'pacs'|'divorce'|'large_family_card'|'caf'|'other_family_document'|'payment_proof_family_allowance'|'single_parent_benefit'} FamilyLabel
- *
- * @typedef {'diploma'|'work_contract'|'pay_sheet'|'unemployment_benefit'|'pension'|'gradebook'|'student_card'|'resume'|'motivation_letter'|'other_work_document'|'work_disability_recognition'|'school_attendance_certificate'|'employment_center_certificate'|'school_insurance_certificate'} WorkStudyLabels
- *
- * @typedef {'health_certificate'|'health_book'|'national_health_insurance_card'|'health_insurance_card'|'prescription'|'health_invoice'|'national_health_insurance_right_certificate'|'work_disability_recognition'|'pregnancy_medical_certificate'|'other_health_document'} HealthLabels
- *
- * @typedef {'phone_invoice'|'isp_invoice'|'telecom_invoice'|'energy_invoice'|'water_invoice'|'other_invoice'|'house_sale_agreeement'|'building_permit'|'technical_diagnostic_record'|'lease'|'rent_receipt'|'house_insurance'|'work_quote'|'work_invoice'|'other_house_document'|'unfit_for_habitation_declaration'|'accommodation_proof'} HomeLabels
- *
- * @typedef {'driver_license'|'vehicle_registration'|'car_insurance'|'mechanic_invoice'|'transport_invoice'|'other_transport_document'|'transport_card'} TransportLabels
- *
- * @typedef {'tax_return'|'tax_notice'|'tax_timetable'|'pay_sheet'|'receipt'|'other_tax_document'|'bank_details'|'bank_statement'|'loan_agreement'|'other_bank_document'|'payment_proof_family_allowance'|'other_revenue'|'single_parent_benefit'|'real_estate_tax'} FinanceLabels
- *
- * @typedef {'phone_invoice'|'isp_invoice'|'telecom_invoice'|'energy_invoice'|'water_invoice'|'appliance_invoice'|'web_service_invoice'|'restaurant_invoice'|'work_invoice'|'transport_invoice'|'health_invoice'|'other_invoice'} InvoiceLabels
- *
- * @typedef {'personal_sporting_licence'|'other_activity_document'|'fidelity_card'|'library_card'} ActivityLabels
- *
- * @typedef {IdentityLabel|FamilyLabel|WorkStudyLabels|HealthLabels|HomeLabels|TransportLabels|FinanceLabels|InvoiceLabels|ActivityLabels} ItemsLabels
- */
-
-/**
- * @typedef {object} DACCMeasure
- * See https://github.com/cozy/DACC
- *
- * @property {string} measureName - It must match an existing measure name on the DACC server
- * @property {string} startDate - Start of the aggregation period. Should be in YYYY-MM-DD format
- * @property {number} value - The measured value on the aggregation period
- * @property {string} createdBy - The slug of the app creating the measure
- * @property {object} group1 - Should be a {key: value} where the key is set in the measure definition.
- * @property {object} group2 - Should be a {key: value} where the key is set in the measure definition.
- * @property {object} group3 - Should be a {key: value} where the key is set in the measure definition.
- */
-
-/**
- * @typedef {object} DACCAggregatesParams
- * See https://github.com/cozy/DACC
- *
- * @property {string} measureName - It must match an existing measure name on the DACC server
- * @property {string} startDate - Start of the aggregation period. Should be in YYYY-MM-DD format
- * @property {string} endDate - End of the aggregation period. Should be in YYYY-MM-DD format
- */
-
-/**
- * @typedef {Array<DACCAggregate>} DACCAggregatesResponse
- * See https://github.com/cozy/DACC
- */
-
-/**
- * @typedef {object} DACCAggregate
- * See https://github.com/cozy/DACC
- *
- * @property {string} measureName - The name of the measures aggregate
- * @property {string} startDate - The aggregation start date
- * @property {number} sum - The aggregate sum
- * @property {number} count - The aggregate count
- * @property {number} countNotZero - The aggregate count of values different from zero
- * @property {number} avg - The aggregate average
- * @property {number} min - The aggregate min
- * @property {number} max - The aggregate max
- * @property {number} std - The aggregate standard deviation
- *
- */
-
-/**
- * Receives the URL to present to the user as a parameter, and should return a promise that resolves with the URL the user was redirected to after accepting the permissions.
- *
- * @callback OpenURLCallback
- * @param {string} url - URL to present to the user
- */
-
-/**
- * A session code generated by the cozy-stack that can be used to create a session
- *
- * More information: https://docs.cozy.io/en/cozy-stack/auth/#post-authsession_code
- *
- * @typedef {string} SessionCode
- */
-
-/**
- * An object containing a code verifier and a code challenge that can be used in a
- * PKCE verification process
- *
- * More information: https://docs.cozy.io/en/cozy-stack/auth/#pkce-extension
- *
- * @typedef {object} PKCECodes
- * @property {string} [codeVerifier]
- * @property {string} [codeChallenge]
- */
-
-/**
- * Subdomain type for a Cozy. Can be flat or nested subdomains
- *
- * Example of 'flat' domain: https://claude-notes.somedomain.fr
- * Example of 'nested' domain: https://notes.claude.somedomain.fr
- *
- * @typedef {'flat'|'nested'} SubdomainType
- */
-
-/**
- * Represents the different parts of a deconstructed Cozy link
- *
- * @typedef {object} CozyLinkData
- * @property {string} cozyBaseDomain - The Cozy's domain (i.e. 'mycozy.cloud')
- * @property {string} cozyName - The Cozy's name (i.e. 'claude')
- * @property {string} [hash] - The link's path (i.e. '#/folder/SOME_FOLDER_ID')
- * @property {string} [pathname] - The link's path (i.e. '/public/')
- * @property {string} protocol - The link's protocol (i.e. 'https')
- * @property {string} [searchParams] - The link's searchParams (i.e. 'id=SOME_FOLDER_ID&sharecode=SOME_SHARECODE')
- * @property {string} slug - The link's slug (i.e. 'drive' or 'notes)
- */
-
-/**
- * Represents the different parts of a deconstructed redirect link
- *
- * @typedef {object} RedirectLinkData
- * @property {string} slug - The redirect link's slug (i.e. 'drive')
- * @property {string} pathname - The redirect link's path (i.e. 'public')
- * @property {string} hash - The redirect link's path (i.e. '/folder/SOME_FOLDER_ID')
- */
-var _default = {};
-exports.default = _default;
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var _typeof = __webpack_require__(240)["default"];
+var _typeof = __webpack_require__(241)["default"];
 
 function _getRequireWildcardCache(nodeInterop) {
   if (typeof WeakMap !== "function") return null;
@@ -901,7 +387,7 @@ module.exports = _interopRequireWildcard;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -916,15 +402,11 @@ exports.QueryDefinition = exports.MutationTypes = exports.Mutations = exports.ge
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _isArray = _interopRequireDefault(__webpack_require__(11));
-
-var _findKey = _interopRequireDefault(__webpack_require__(250));
-
-var _types = __webpack_require__(12);
+var _findKey = _interopRequireDefault(__webpack_require__(251));
 
 var _logger = _interopRequireDefault(__webpack_require__(20));
 
@@ -961,9 +443,9 @@ var QueryDefinition = /*#__PURE__*/function () {
    * @class
    *
    * @param {object} options Initial options for the query definition
-   * @param {Doctype} [options.doctype] - The doctype of the doc.
-   * @param {DocId|null} [options.id] - The id of the doc.
-   * @param {Array<DocId>} [options.ids] - The ids of the docs.
+   * @param  {import('../types').Doctype} [options.doctype] - The doctype of the doc.
+   * @param {import('../types').DocId|null} [options.id] - The id of the doc.
+   * @param {Array<import('../types').DocId>} [options.ids] - The ids of the docs.
    * @param {MangoSelector} [options.selector] - The selector to query the docs.
    * @param {Array<string>} [options.fields] - The fields to return.
    * @param {Array<string>} [options.indexedFields] - The fields to index.
@@ -973,7 +455,7 @@ var QueryDefinition = /*#__PURE__*/function () {
    * @param {string|null} [options.referenced] - The referenced document.
    * @param {number|null} [options.limit] - The document's limit to return.
    * @param {number|null} [options.skip] - The number of docs to skip.
-   * @param {CouchDBViewCursor} [options.cursor] - The cursor to paginate views.
+   * @param {import('../types').CouchDBViewCursor} [options.cursor] - The cursor to paginate views.
    * @param {string} [options.bookmark] - The bookmark to paginate mango queries.
    */
   function QueryDefinition() {
@@ -1222,7 +704,7 @@ var QueryDefinition = /*#__PURE__*/function () {
   }, {
     key: "sortBy",
     value: function sortBy(sort) {
-      if (!(0, _isArray.default)(sort)) {
+      if (!Array.isArray(sort)) {
         throw new Error("Invalid sort, should be an array ([{ label: \"desc\"}, { name: \"asc\"}]), you passed ".concat(JSON.stringify(sort), "."));
       }
 
@@ -1300,7 +782,7 @@ var QueryDefinition = /*#__PURE__*/function () {
      * the starting document of the query, e.g. "file-id".
      * Use the last docid of each query as startkey_docid to paginate or leave blank for the first query.
      *
-     * @param {CouchDBViewCursor} cursor The cursor for pagination.
+     * @param {import('../types').CouchDBViewCursor} cursor The cursor for pagination.
      * @returns {QueryDefinition}  The QueryDefinition object.
      */
 
@@ -1373,7 +855,7 @@ var QueryDefinition = /*#__PURE__*/function () {
  * Helper to create a QueryDefinition. Recommended way to create
  * query definitions.
  *
- * @param {Doctype} doctype - Doctype of the query definition
+ * @param {import('../types').Doctype} doctype - Doctype of the query definition
  *
  * @example
  * ```
@@ -1568,10 +1050,10 @@ var MutationTypes = {
 exports.MutationTypes = MutationTypes;
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGet = __webpack_require__(85);
+var baseGet = __webpack_require__(84);
 
 /**
  * Gets the value at `path` of `object`. If the resolved value is
@@ -1607,11 +1089,11 @@ module.exports = get;
 
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
+const Secret = __webpack_require__(193)
 const { filterLevel, filterSecrets } = __webpack_require__(364)
-const Secret = __webpack_require__(192)
 const { LOG_LEVEL } = process.env
 let level = LOG_LEVEL || 'debug'
 const format = __webpack_require__(365)
@@ -1692,7 +1174,7 @@ log.namespace = function (namespace) {
 
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1740,7 +1222,7 @@ var ThrowTypeError = $gOPD
 	}())
 	: throwTypeError;
 
-var hasSymbols = __webpack_require__(235)();
+var hasSymbols = __webpack_require__(236)();
 
 var getProto = Object.getPrototypeOf || function (x) { return x.__proto__; }; // eslint-disable-line no-proto
 
@@ -1894,8 +1376,8 @@ var LEGACY_ALIASES = {
 	'%WeakSetPrototype%': ['WeakSet', 'prototype']
 };
 
-var bind = __webpack_require__(154);
-var hasOwn = __webpack_require__(188);
+var bind = __webpack_require__(153);
+var hasOwn = __webpack_require__(189);
 var $concat = bind.call(Function.call, Array.prototype.concat);
 var $spliceApply = bind.call(Function.apply, Array.prototype.splice);
 var $replace = bind.call(Function.call, String.prototype.replace);
@@ -2029,7 +1511,7 @@ module.exports = function GetIntrinsic(name, allowMissing) {
 
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2037,7 +1519,7 @@ module.exports = function GetIntrinsic(name, allowMissing) {
 
 
 
-var buffer = __webpack_require__(173)
+var buffer = __webpack_require__(174)
 var Buffer = buffer.Buffer
 
 var safer = {}
@@ -2113,7 +1595,7 @@ module.exports = safer
 
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2134,39 +1616,16 @@ const JOBS_DOCTYPE = 'io.cozy.jobs';
 const APP_SLUG = 'mespapiers';
 const EXPIRATION_SERVICE_NAME = 'expiration';
 const lang = process.env.COZY_LOCALE || 'fr';
-const dictRequire = lang => __webpack_require__(478)(`./${lang}`);
+const dictRequire = lang => __webpack_require__(479)(`./${lang}`);
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(0);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _minilog = _interopRequireDefault(__webpack_require__(251));
-
-var logger = (0, _minilog.default)('cozy-client');
-
-_minilog.default.suggest.deny('cozy-client', 'info');
-
-var _default = logger;
-exports.default = _default;
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -2176,47 +1635,47 @@ Object.defineProperty(exports, "__esModule", {
 exports.normalizeDoc = normalizeDoc;
 exports.normalizeDoctype = exports.default = void 0;
 
-var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(42));
+var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(43));
 
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(38));
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(43));
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(39));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _cozyFlags = _interopRequireDefault(__webpack_require__(123));
+var _cozyFlags = _interopRequireDefault(__webpack_require__(113));
 
-var _utils = __webpack_require__(44);
+var _utils = __webpack_require__(40);
 
-var _uniq = _interopRequireDefault(__webpack_require__(115));
+var _uniq = _interopRequireDefault(__webpack_require__(114));
 
-var _omit = _interopRequireDefault(__webpack_require__(98));
+var _omit = _interopRequireDefault(__webpack_require__(96));
 
-var _head = _interopRequireDefault(__webpack_require__(254));
+var _head = _interopRequireDefault(__webpack_require__(255));
 
-var _merge = _interopRequireDefault(__webpack_require__(75));
+var _merge = _interopRequireDefault(__webpack_require__(74));
 
-var _startsWith = _interopRequireDefault(__webpack_require__(510));
+var _startsWith = _interopRequireDefault(__webpack_require__(511));
 
-var _qs = _interopRequireDefault(__webpack_require__(512));
+var _qs = _interopRequireDefault(__webpack_require__(513));
 
-var _mangoIndex = __webpack_require__(258);
+var _mangoIndex = __webpack_require__(259);
 
-var _Collection = _interopRequireWildcard(__webpack_require__(73));
+var _Collection = _interopRequireWildcard(__webpack_require__(72));
 
-var querystring = _interopRequireWildcard(__webpack_require__(160));
+var querystring = _interopRequireWildcard(__webpack_require__(159));
 
-var _errors = __webpack_require__(56);
+var _errors = __webpack_require__(48);
 
-var _logger = _interopRequireDefault(__webpack_require__(57));
+var _logger = _interopRequireDefault(__webpack_require__(44));
 
 function _templateObject10() {
   var data = (0, _taggedTemplateLiteral2.default)(["/data/", "/_design/", "/copy?rev=", ""]);
@@ -3719,14 +3178,10 @@ var DocumentCollection = /*#__PURE__*/function () {
                 });
                 existingIndex = indexes.find(function (index) {
                   return (0, _mangoIndex.isMatchingIndex)(index, fieldsToIndex, partialFilter);
-                }); // Since we have fetched all the existing indexes
-                // let's clean them up.
-                // This is a safeguard for potential inconsistent indexes
-
-                this.removeInconsistentIndex(indexes);
+                });
                 return _context20.abrupt("return", existingIndex);
 
-              case 11:
+              case 10:
               case "end":
                 return _context20.stop();
             }
@@ -3739,88 +3194,6 @@ var DocumentCollection = /*#__PURE__*/function () {
       }
 
       return findExistingIndex;
-    }()
-    /**
-     *
-     * @param {DesignDoc[]} indexes Index to remove
-     */
-
-  }, {
-    key: "removeInconsistentIndex",
-    value: function () {
-      var _removeInconsistentIndex = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee21(indexes) {
-        var _iterator2, _step2, index;
-
-        return _regenerator.default.wrap(function _callee21$(_context21) {
-          while (1) {
-            switch (_context21.prev = _context21.next) {
-              case 0:
-                _iterator2 = _createForOfIteratorHelper(indexes);
-                _context21.prev = 1;
-
-                _iterator2.s();
-
-              case 3:
-                if ((_step2 = _iterator2.n()).done) {
-                  _context21.next = 16;
-                  break;
-                }
-
-                index = _step2.value;
-
-                if (!(0, _mangoIndex.isInconsistentIndex)(index)) {
-                  _context21.next = 14;
-                  break;
-                }
-
-                _context21.prev = 6;
-                _context21.next = 9;
-                return this.destroyIndex(index);
-
-              case 9:
-                _context21.next = 14;
-                break;
-
-              case 11:
-                _context21.prev = 11;
-                _context21.t0 = _context21["catch"](6);
-
-                _logger.default.warn("Destroy index has errored for ".concat(index, " with the following error: ").concat(_context21.t0 === null || _context21.t0 === void 0 ? void 0 : _context21.t0.toString()));
-
-              case 14:
-                _context21.next = 3;
-                break;
-
-              case 16:
-                _context21.next = 21;
-                break;
-
-              case 18:
-                _context21.prev = 18;
-                _context21.t1 = _context21["catch"](1);
-
-                _iterator2.e(_context21.t1);
-
-              case 21:
-                _context21.prev = 21;
-
-                _iterator2.f();
-
-                return _context21.finish(21);
-
-              case 24:
-              case "end":
-                return _context21.stop();
-            }
-          }
-        }, _callee21, this, [[1, 18, 21, 24], [6, 11]]);
-      }));
-
-      function removeInconsistentIndex(_x27) {
-        return _removeInconsistentIndex.apply(this, arguments);
-      }
-
-      return removeInconsistentIndex;
     }()
     /**
      * Calls _changes route from CouchDB
@@ -3837,11 +3210,11 @@ var DocumentCollection = /*#__PURE__*/function () {
   }, {
     key: "fetchChangesRaw",
     value: function () {
-      var _fetchChangesRaw = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee22(couchOptions) {
+      var _fetchChangesRaw = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee21(couchOptions) {
         var hasDocIds, urlParams, method, endpoint, params, result;
-        return _regenerator.default.wrap(function _callee22$(_context22) {
+        return _regenerator.default.wrap(function _callee21$(_context21) {
           while (1) {
-            switch (_context22.prev = _context22.next) {
+            switch (_context21.prev = _context21.next) {
               case 0:
                 hasDocIds = couchOptions.doc_ids && couchOptions.doc_ids.length > 0;
                 urlParams = "?".concat([_qs.default.stringify(_objectSpread(_objectSpread({}, (0, _omit.default)(couchOptions, ['doc_ids', 'includeDocs'])), {}, {
@@ -3852,22 +3225,22 @@ var DocumentCollection = /*#__PURE__*/function () {
                 params = hasDocIds ? {
                   doc_ids: couchOptions.doc_ids
                 } : undefined;
-                _context22.next = 7;
+                _context21.next = 7;
                 return this.stackClient.fetchJSON(method, endpoint, params);
 
               case 7:
-                result = _context22.sent;
-                return _context22.abrupt("return", result);
+                result = _context21.sent;
+                return _context21.abrupt("return", result);
 
               case 9:
               case "end":
-                return _context22.stop();
+                return _context21.stop();
             }
           }
-        }, _callee22, this);
+        }, _callee21, this);
       }));
 
-      function fetchChangesRaw(_x28) {
+      function fetchChangesRaw(_x27) {
         return _fetchChangesRaw.apply(this, arguments);
       }
 
@@ -3897,7 +3270,7 @@ var DocumentCollection = /*#__PURE__*/function () {
   }, {
     key: "fetchChanges",
     value: function () {
-      var _fetchChanges = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee23() {
+      var _fetchChanges = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee22() {
         var _this4 = this;
 
         var couchOptions,
@@ -3906,13 +3279,13 @@ var DocumentCollection = /*#__PURE__*/function () {
             result,
             newLastSeq,
             docs,
-            _args23 = arguments;
-        return _regenerator.default.wrap(function _callee23$(_context23) {
+            _args22 = arguments;
+        return _regenerator.default.wrap(function _callee22$(_context22) {
           while (1) {
-            switch (_context23.prev = _context23.next) {
+            switch (_context22.prev = _context22.next) {
               case 0:
-                couchOptions = _args23.length > 0 && _args23[0] !== undefined ? _args23[0] : {};
-                options = _args23.length > 1 && _args23[1] !== undefined ? _args23[1] : {};
+                couchOptions = _args22.length > 0 && _args22[0] !== undefined ? _args22[0] : {};
+                options = _args22.length > 1 && _args22[1] !== undefined ? _args22[1] : {};
                 opts = {
                   // Necessary since we deal with deleted and design docs later
                   includeDocs: true
@@ -3926,11 +3299,11 @@ var DocumentCollection = /*#__PURE__*/function () {
                   Object.assign(opts, couchOptions);
                 }
 
-                _context23.next = 6;
+                _context22.next = 6;
                 return this.fetchChangesRaw(opts);
 
               case 6:
-                result = _context23.sent;
+                result = _context22.sent;
                 newLastSeq = result.last_seq;
                 docs = result.results.map(function (x) {
                   return x.doc;
@@ -3948,7 +3321,7 @@ var DocumentCollection = /*#__PURE__*/function () {
                   });
                 }
 
-                return _context23.abrupt("return", {
+                return _context22.abrupt("return", {
                   newLastSeq: newLastSeq,
                   documents: docs.map(function (doc) {
                     return normalizeDoc(doc, _this4.doctype);
@@ -3957,10 +3330,10 @@ var DocumentCollection = /*#__PURE__*/function () {
 
               case 12:
               case "end":
-                return _context23.stop();
+                return _context22.stop();
             }
           }
-        }, _callee23, this);
+        }, _callee22, this);
       }));
 
       function fetchChanges() {
@@ -4018,10 +3391,33 @@ var normalizeDoctype = DocumentCollection.normalizeDoctype;
 exports.normalizeDoctype = normalizeDoctype;
 
 /***/ }),
-/* 22 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var microee = __webpack_require__(114);
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _minilog = _interopRequireDefault(__webpack_require__(252));
+
+var logger = (0, _minilog.default)('cozy-client');
+
+_minilog.default.suggest.deny('cozy-client', 'info');
+
+var _default = logger;
+exports.default = _default;
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var microee = __webpack_require__(112);
 
 // Implements a subset of Node's stream.Transform - in a cross-platform manner.
 function Transform() {}
@@ -4096,13 +3492,13 @@ module.exports = Transform;
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports) {
 
 module.exports = require("util");
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4164,10 +3560,29 @@ function toDate(argument) {
 }
 
 /***/ }),
+/* 24 */,
 /* 25 */,
 /* 26 */,
 /* 27 */,
-/* 28 */,
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayWithHoles = __webpack_require__(195);
+
+var iterableToArrayLimit = __webpack_require__(377);
+
+var unsupportedIterableToArray = __webpack_require__(130);
+
+var nonIterableRest = __webpack_require__(197);
+
+function _slicedToArray(arr, i) {
+  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
+}
+
+module.exports = _slicedToArray;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
 /* 29 */
 /***/ (function(module, exports) {
 
@@ -4271,7 +3686,7 @@ module.exports = arrayMap;
 /* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var freeGlobal = __webpack_require__(197);
+var freeGlobal = __webpack_require__(198);
 
 /** Detect free variable `self`. */
 var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -4283,34 +3698,15 @@ module.exports = root;
 
 
 /***/ }),
-/* 34 */
+/* 34 */,
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayWithHoles = __webpack_require__(194);
-
-var iterableToArrayLimit = __webpack_require__(376);
-
-var unsupportedIterableToArray = __webpack_require__(131);
-
-var nonIterableRest = __webpack_require__(196);
-
-function _slicedToArray(arr, i) {
-  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
-}
-
-module.exports = _slicedToArray;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-/* 35 */,
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseMatches = __webpack_require__(377),
-    baseMatchesProperty = __webpack_require__(420),
-    identity = __webpack_require__(78),
+var baseMatches = __webpack_require__(378),
+    baseMatchesProperty = __webpack_require__(421),
+    identity = __webpack_require__(77),
     isArray = __webpack_require__(11),
-    property = __webpack_require__(423);
+    property = __webpack_require__(424);
 
 /**
  * The base implementation of `_.iteratee`.
@@ -4340,62 +3736,14 @@ module.exports = baseIteratee;
 
 
 /***/ }),
-/* 37 */,
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayWithoutHoles = __webpack_require__(479);
-
-var iterableToArray = __webpack_require__(242);
-
-var unsupportedIterableToArray = __webpack_require__(131);
-
-var nonIterableSpread = __webpack_require__(480);
-
-function _toConsumableArray(arr) {
-  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
-}
-
-module.exports = _toConsumableArray;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports) {
-
-module.exports = function(module) {
-	if (!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if (!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
-
-/***/ }),
-/* 40 */,
-/* 41 */
+/* 36 */,
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -4404,81 +3752,79 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _toArray2 = _interopRequireDefault(__webpack_require__(241));
+var _toArray2 = _interopRequireDefault(__webpack_require__(242));
 
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(34));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(28));
 
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(38));
 
-var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(42));
+var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(43));
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _mapValues = _interopRequireDefault(__webpack_require__(86));
+var _mapValues = _interopRequireDefault(__webpack_require__(85));
 
-var _fromPairs = _interopRequireDefault(__webpack_require__(308));
+var _fromPairs = _interopRequireDefault(__webpack_require__(309));
 
-var _flatten = _interopRequireDefault(__webpack_require__(143));
+var _flatten = _interopRequireDefault(__webpack_require__(142));
 
-var _uniqBy = _interopRequireDefault(__webpack_require__(482));
+var _uniqBy = _interopRequireDefault(__webpack_require__(483));
 
-var _zip = _interopRequireDefault(__webpack_require__(484));
+var _zip = _interopRequireDefault(__webpack_require__(485));
 
-var _forEach = _interopRequireDefault(__webpack_require__(228));
+var _forEach = _interopRequireDefault(__webpack_require__(229));
 
-var _get = _interopRequireDefault(__webpack_require__(15));
+var _get = _interopRequireDefault(__webpack_require__(14));
 
-var _microee = _interopRequireDefault(__webpack_require__(114));
+var _microee = _interopRequireDefault(__webpack_require__(112));
 
-var _cozyStackClient = _interopRequireWildcard(__webpack_require__(244));
+var _cozyStackClient = _interopRequireWildcard(__webpack_require__(245));
 
-var _const = __webpack_require__(48);
+var _const = __webpack_require__(49);
 
-var _StackLink = _interopRequireDefault(__webpack_require__(268));
+var _StackLink = _interopRequireDefault(__webpack_require__(269));
 
 var _associations = __webpack_require__(116);
 
-var _helpers = __webpack_require__(284);
+var _helpers = __webpack_require__(165);
 
 var _helpers2 = __webpack_require__(117);
 
-var _dsl = __webpack_require__(14);
+var _dsl = __webpack_require__(13);
 
-var _mobile = __webpack_require__(553);
+var _mobile = __webpack_require__(556);
 
-var _optimize = _interopRequireDefault(__webpack_require__(565));
+var _optimize = _interopRequireDefault(__webpack_require__(567));
 
-var _store = _interopRequireWildcard(__webpack_require__(76));
+var _store = _interopRequireWildcard(__webpack_require__(75));
 
-var _policies = _interopRequireDefault(__webpack_require__(287));
+var _policies = _interopRequireDefault(__webpack_require__(288));
 
-var _Schema = _interopRequireDefault(__webpack_require__(567));
+var _Schema = _interopRequireDefault(__webpack_require__(569));
 
-var _CozyLink = __webpack_require__(163);
+var _CozyLink = __webpack_require__(162);
 
-var _ObservableQuery = _interopRequireDefault(__webpack_require__(573));
+var _ObservableQuery = _interopRequireDefault(__webpack_require__(575));
 
-var _snapshots = __webpack_require__(574);
+var _snapshots = __webpack_require__(576);
 
 var _logger = _interopRequireDefault(__webpack_require__(20));
 
-var _types = __webpack_require__(12);
+var _queries = __webpack_require__(163);
 
-var _queries = __webpack_require__(164);
+var _jsonStableStringify = _interopRequireDefault(__webpack_require__(577));
 
-var _jsonStableStringify = _interopRequireDefault(__webpack_require__(575));
+var _promiseCache = _interopRequireDefault(__webpack_require__(581));
 
-var _promiseCache = _interopRequireDefault(__webpack_require__(579));
-
-var _flagshipCertification = __webpack_require__(580);
+var _flagshipCertification = __webpack_require__(582);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -4512,13 +3858,21 @@ var referencesUnsupportedError = function referencesUnsupportedError(relationshi
   return new Error("The \"".concat(relationshipClassName, "\" relationship does not support references. If you need to add references to a document, its relationship class must have the methods {add,remove}References"));
 };
 
+var removeTrailingSlash = function removeTrailingSlash(str) {
+  if (str.endsWith('/')) {
+    return str.slice(0, -1);
+  }
+
+  return str;
+};
+
 var securiseUri = function securiseUri(uri) {
   var _window$cozy;
 
   if (uri && typeof window !== 'undefined' && (_window$cozy = window['cozy']) !== null && _window$cozy !== void 0 && _window$cozy.isSecureProtocol) {
     var secureUrl = new URL(uri);
     secureUrl.protocol = 'https:';
-    return secureUrl.toString();
+    return removeTrailingSlash(secureUrl.toString());
   }
 
   return uri;
@@ -4531,7 +3885,7 @@ var DOC_UPDATE = 'update';
  * @property {object} [client]
  * @property {object} [link]
  * @property {object} [links]
- * @property {Token} [token]
+ * @property {import("./types").Token} [token]
  * @property {string} [uri]
  * @property {object} [stackClient]
  * @property {boolean} [warningForCustomHandlers]
@@ -4540,11 +3894,11 @@ var DOC_UPDATE = 'update';
  * @property {object} [oauth]
  * @property {Function} [onTokenRefresh]
  * @property {Function} [onError] - Default callback if a query is errored
- * @property  {Link}         [link]   - Backward compatibility
- * @property  {Array<Link>}  [links]  - List of links
+ * @property  {import("./types").Link}         [link]   - Backward compatibility
+ * @property  {Array<import("./types").Link>}  [links]  - List of links
  * @property  {object}       [schema] - Schema description for each doctypes
- * @property  {AppMetadata}  [appMetadata] - Metadata about the application that will be used in ensureCozyMetadata
- * @property  {ClientCapabilities} [capabilities] - Capabilities sent by the stack
+ * @property  {import("./types").AppMetadata}  [appMetadata] - Metadata about the application that will be used in ensureCozyMetadata
+ * @property  {import("./types").ClientCapabilities} [capabilities] - Capabilities sent by the stack
  * @property  {boolean} [store] - If set to false, the client will not instantiate a Redux store automatically. Use this if you want to merge cozy-client's store with your own redux store. See [here](https://docs.cozy.io/en/cozy-client/react-integration/#1b-use-your-own-redux-store) for more information.
  */
 
@@ -4655,7 +4009,7 @@ var CozyClient = /*#__PURE__*/function () {
     this.chain = (0, _CozyLink.chain)(this.links);
     this.schema = new _Schema.default(schema, stackClient);
     /**
-     * @type {ClientCapabilities}
+     * @type {import("./types").ClientCapabilities}
      */
 
     this.capabilities = capabilities || null; // Instances of plugins registered with registerPlugin
@@ -4777,7 +4131,7 @@ var CozyClient = /*#__PURE__*/function () {
      * To help with the transition from cozy-client-js to cozy-client, it is possible to instantiate
      * a client with a cookie-based instance of cozy-client-js.
      *
-     * @param {OldCozyClient} oldClient - An instance of the deprecated cozy-client
+     * @param {import("./types").OldCozyClient} oldClient - An instance of the deprecated cozy-client
      * @param {object} options - CozyStackClient options
      * @returns {CozyClient}
      */
@@ -5096,7 +4450,7 @@ var CozyClient = /*#__PURE__*/function () {
      * a [DocumentCollection]{@link https://docs.cozy.io/en/cozy-client/api/cozy-stack-client/#DocumentCollection} instance.
      *
      * @param  {string} doctype The collection doctype.
-     * @returns {DocumentCollection} Collection corresponding to the doctype
+     * @returns {import("./types").DocumentCollection} Collection corresponding to the doctype
      */
 
   }, {
@@ -5144,7 +4498,7 @@ var CozyClient = /*#__PURE__*/function () {
      *
      * @param  {string} type - Doctype of the document
      * @param  {object} doc - Document to save
-     * @param  {ReferenceMap} [references] - References are a special kind of relationship
+     * @param  {import("./types").ReferenceMap} [references] - References are a special kind of relationship
      * that is not stored inside the referencer document, they are used for example between a photo
      * and its album. You should not need to use it normally.
      * @param  {object} options - Mutation options
@@ -5291,7 +4645,7 @@ var CozyClient = /*#__PURE__*/function () {
      * - Can only be called with documents from the same doctype
      * - Does not support automatic creation of references
      *
-     * @param  {CozyClientDocument[]} docs - Documents from the same doctype
+     * @param  {import("./types").CozyClientDocument[]} docs - Documents from the same doctype
      * @param  {Object} mutationOptions - Mutation Options
      * @param  {string}    [mutationOptions.as] - Mutation id
      * @param  {Function}    [mutationOptions.update] - Function to update the document
@@ -5371,10 +4725,10 @@ var CozyClient = /*#__PURE__*/function () {
       return saveAll;
     }()
     /**
-     * @param  {CozyClientDocument} document - Document that will be saved
+     * @param  {import("./types").CozyClientDocument} document - Document that will be saved
      * @param {object} [options={event: DOC_CREATION}] - Event
      * @param {string} [options.event] - Mutation type
-     * @returns {CozyClientDocument}
+     * @returns {import("./types").CozyClientDocument}
      */
 
   }, {
@@ -5434,8 +4788,8 @@ var CozyClient = /*#__PURE__*/function () {
     /**
      * Dehydrates and adds metadata before saving a document
      *
-     * @param  {CozyClientDocument} doc - Document that will be saved
-     * @returns {CozyClientDocument}
+     * @param  {import("./types").CozyClientDocument} doc - Document that will be saved
+     * @returns {import("./types").CozyClientDocument}
      */
 
   }, {
@@ -5461,12 +4815,12 @@ var CozyClient = /*#__PURE__*/function () {
      * ```
      *
      *
-     * @param  {CozyClientDocument} document - Document to create
-     * @param  {ReferenceMap} [referencesByName] - References to the created document. The
+     * @param  {import("./types").CozyClientDocument} document - Document to create
+     * @param  {import("./types").ReferenceMap} [referencesByName] - References to the created document. The
      * relationship class associated to each reference list should support references, otherwise this
      * method will throw.
      *
-     * @returns {Mutation[]|Mutation}  One or more mutation to execute
+     * @returns {import("./types").Mutation[]|import("./types").Mutation}  One or more mutation to execute
      */
 
   }, {
@@ -5556,8 +4910,8 @@ var CozyClient = /*#__PURE__*/function () {
     /**
      * Destroys a document. {before,after}:destroy hooks will be fired.
      *
-     * @param  {CozyClientDocument} document - Document to be deleted
-     * @returns {Promise<CozyClientDocument>} The document that has been deleted
+     * @param  {import("./types").CozyClientDocument} document - Document to be deleted
+     * @returns {Promise<import("./types").CozyClientDocument>} The document that has been deleted
      */
 
   }, {
@@ -5612,7 +4966,7 @@ var CozyClient = /*#__PURE__*/function () {
      *
      * @param  {string} queryId - Id of the query
      * @param  {QueryDefinition} queryDefinition - Definition of the query
-     * @param  {QueryOptions} [options] - Additional options
+     * @param  {import("./types").QueryOptions} [options] - Additional options
      */
 
   }, {
@@ -5633,8 +4987,8 @@ var CozyClient = /*#__PURE__*/function () {
      * executes its query when mounted if no fetch policy has been indicated.
      *
      * @param  {QueryDefinition} queryDefinition - Definition that will be executed
-     * @param  {QueryOptions} [options] - Options
-     * @returns {Promise<QueryResult>}
+     * @param  {import("./types").QueryOptions} [options] - Options
+     * @returns {Promise<import("./types").QueryResult>}
      */
 
   }, {
@@ -5783,8 +5137,8 @@ var CozyClient = /*#__PURE__*/function () {
      * result in a lot of network requests.
      *
      * @param  {QueryDefinition} queryDefinition - Definition to be executed
-     * @param {QueryOptions} [options] - Options
-     * @returns {Promise<QueryResult>} All documents matching the query
+     * @param {import("./types").QueryOptions} [options] - Options
+     * @returns {Promise<import("./types").QueryResult>} All documents matching the query
      */
 
   }, {
@@ -5957,7 +5311,7 @@ var CozyClient = /*#__PURE__*/function () {
      *
      * @private
      * @param  {QueryDefinition} definition QueryDefinition to be executed
-     * @returns {Promise<ClientResponse>}
+     * @returns {Promise<import("./types").ClientResponse>}
      */
 
   }, {
@@ -6187,8 +5541,8 @@ var CozyClient = /*#__PURE__*/function () {
      * Instead, the relationships will have null documents.
      *
      * @param  {string} doctype - Doctype of the documents being hydrated
-     * @param  {Array<CozyClientDocument>} documents - Documents to be hydrated
-     * @returns {Array<HydratedDocument>}
+     * @param  {Array<import("./types").CozyClientDocument>} documents - Documents to be hydrated
+     * @returns {Array<import("./types").HydratedDocument>}
      */
 
   }, {
@@ -6217,9 +5571,9 @@ var CozyClient = /*#__PURE__*/function () {
      * The original document is kept in the target attribute of
      * the relationship
      *
-     * @param  {CozyClientDocument} document - for which relationships must be resolved
+     * @param  {import("./types").CozyClientDocument} document - for which relationships must be resolved
      * @param  {Schema} [schemaArg] - Optional
-     * @returns {HydratedDocument}
+     * @returns {import("./types").HydratedDocument}
      */
 
   }, {
@@ -6305,7 +5659,7 @@ var CozyClient = /*#__PURE__*/function () {
      *
      * @param {string} type - Doctype of the collection
      *
-     * @returns {CozyClientDocument[]} Array of documents or null if the collection does not exist.
+     * @returns {import("./types").CozyClientDocument[]} Array of documents or null if the collection does not exist.
      */
 
   }, {
@@ -6325,7 +5679,7 @@ var CozyClient = /*#__PURE__*/function () {
      * @param {string} type - Doctype of the document
      * @param {string} id   - Id of the document
      *
-     * @returns {CozyClientDocument} Document or null if the object does not exist.
+     * @returns {import("./types").CozyClientDocument} Document or null if the object does not exist.
      */
 
   }, {
@@ -6349,7 +5703,7 @@ var CozyClient = /*#__PURE__*/function () {
      * a single doc instead of an array for single doc queries. Defaults to false for backward
      * compatibility but will be set to true in the future.
      *
-     * @returns {QueryState} - Query state or null if it does not exist.
+     * @returns {import("./types").QueryState} - Query state or null if it does not exist.
      */
 
   }, {
@@ -6387,8 +5741,8 @@ var CozyClient = /*#__PURE__*/function () {
      *
      * @param {object} query - Query with definition and options
      * @param {QueryDefinition} query.definition - Query Definition
-     * @param {QueryOptions} query.options - Query Options
-     * @returns {Promise<QueryState>} Query state
+     * @param {import("./types").QueryOptions} query.options - Query Options
+     * @returns {Promise<import("./types").QueryState>} Query state
      */
 
   }, {
@@ -6415,7 +5769,7 @@ var CozyClient = /*#__PURE__*/function () {
     /**
      * Performs a complete OAuth flow, including updating the internal token at the end.
      *
-     * @param   {OpenURLCallback} openURLCallback Receives the URL to present to the user as a parameter, and should return a promise that resolves with the URL the user was redirected to after accepting the permissions.
+     * @param   {import("./types").OpenURLCallback} openURLCallback Receives the URL to present to the user as a parameter, and should return a promise that resolves with the URL the user was redirected to after accepting the permissions.
      * @returns {Promise<object>} Contains the fetched token and the client information. These should be stored and used to restore the client.
      */
 
@@ -6500,9 +5854,9 @@ var CozyClient = /*#__PURE__*/function () {
      * It is possible to skip the session creation process (when using an in-app browser) by passing a sessionCode (see https://docs.cozy.io/en/cozy-stack/auth/#post-authsession_code)
      *
      * @param {object} [options] - Authorization options
-     * @param {OpenURLCallback} [options.openURLCallback] - Receives the URL to present to the user as a parameter, and should return a promise that resolves with the URL the user was redirected to after accepting the permissions.
-     * @param {SessionCode} [options.sessionCode] - session code than can be added to the authorization URL to automatically create the session.
-     * @param {PKCECodes} [options.pkceCodes] - code verifier and a code challenge that should be used in the PKCE verification process.
+     * @param {import("./types").OpenURLCallback} [options.openURLCallback] - Receives the URL to present to the user as a parameter, and should return a promise that resolves with the URL the user was redirected to after accepting the permissions.
+     * @param {import("./types").SessionCode} [options.sessionCode] - session code than can be added to the authorization URL to automatically create the session.
+     * @param {import("./types").PKCECodes} [options.pkceCodes] - code verifier and a code challenge that should be used in the PKCE verification process.
      * @returns {Promise<object>} Contains the fetched token and the client information. These should be stored and used to restore the client.
      */
 
@@ -6621,7 +5975,7 @@ var CozyClient = /*#__PURE__*/function () {
      * client.setStore(store)
      * ```
      *
-     * @param {ReduxStore} store - A redux store
+     * @param {import("./types").ReduxStore} store - A redux store
      * @param {object} [options] - Options
      * @param {boolean} [options.force] - Will deactivate throwing when client's store already exists
      */
@@ -6660,9 +6014,17 @@ var CozyClient = /*#__PURE__*/function () {
           while (1) {
             switch (_context17.prev = _context17.next) {
               case 0:
+                if (!(this.stackClient instanceof _cozyStackClient.OAuthClient)) {
+                  _context17.next = 4;
+                  break;
+                }
+
                 return _context17.abrupt("return", this.stackClient.checkForRevocation());
 
-              case 1:
+              case 4:
+                throw 'checkForRevocation is only implemented for OAutClient';
+
+              case 5:
               case "end":
                 return _context17.stop();
             }
@@ -6815,7 +6177,7 @@ var CozyClient = /*#__PURE__*/function () {
     /**
      * loadInstanceOptionsFromStack - Loads the instance options from cozy-stack and exposes it through getInstanceOptions
      *
-     * For now only retrieving capabilities is supported
+     * This method is not iso with loadInstanceOptionsFromDOM for now.
      *
      * @returns {Promise<void>}
      */
@@ -6824,24 +6186,34 @@ var CozyClient = /*#__PURE__*/function () {
     key: "loadInstanceOptionsFromStack",
     value: function () {
       var _loadInstanceOptionsFromStack = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee18() {
-        var _yield$this$query, data;
+        var _instanceData$attribu, _instanceData$attribu2;
+
+        var _yield$this$query, data, _yield$this$query2, instanceData;
 
         return _regenerator.default.wrap(function _callee18$(_context18) {
           while (1) {
             switch (_context18.prev = _context18.next) {
               case 0:
                 _context18.next = 2;
-                return this.query((0, _dsl.Q)('io.cozy.settings').getById('capabilities'));
+                return this.query((0, _dsl.Q)('io.cozy.settings').getById('io.cozy.settings.capabilities'));
 
               case 2:
                 _yield$this$query = _context18.sent;
                 data = _yield$this$query.data;
+                _context18.next = 6;
+                return this.query((0, _dsl.Q)('io.cozy.settings').getById('io.cozy.settings.instance'));
+
+              case 6:
+                _yield$this$query2 = _context18.sent;
+                instanceData = _yield$this$query2.data;
                 this.instanceOptions = {
-                  capabilities: data.attributes
+                  capabilities: data.attributes,
+                  locale: (_instanceData$attribu = instanceData.attributes) === null || _instanceData$attribu === void 0 ? void 0 : _instanceData$attribu.locale,
+                  tracking: (_instanceData$attribu2 = instanceData.attributes) === null || _instanceData$attribu2 === void 0 ? void 0 : _instanceData$attribu2.tracking
                 };
                 this.capabilities = this.instanceOptions.capabilities || null;
 
-              case 6:
+              case 10:
               case "end":
                 return _context18.stop();
             }
@@ -6902,6 +6274,16 @@ var CozyClient = /*#__PURE__*/function () {
         uri: this.options.uri
       });
     }
+    /**
+     *
+     * @param {import("./types").AppMetadata} newAppMetadata AppMetadata to update
+     */
+
+  }, {
+    key: "setAppMetadata",
+    value: function setAppMetadata(newAppMetadata) {
+      this.appMetadata = _objectSpread(_objectSpread({}, this.appMetadata), newAppMetadata);
+    }
   }], [{
     key: "fromOldClient",
     value: function fromOldClient(oldClient, options) {
@@ -6916,7 +6298,7 @@ var CozyClient = /*#__PURE__*/function () {
      *
      * Warning: unlike other instantiators, this one needs to be awaited.
      *
-     * @param {OldCozyClient} oldClient - An OAuth instance of the deprecated cozy-client
+     * @param {import("./types").OldCozyClient} oldClient - An OAuth instance of the deprecated cozy-client
      * @param {object} options - CozyStackClient options
      * @returns {Promise<CozyClient>} An instance of a client, configured from the old client
      */
@@ -6981,7 +6363,7 @@ var CozyClient = /*#__PURE__*/function () {
      * In konnector/service context, CozyClient can be instantiated from
      * environment variables
      *
-     * @param  {NodeEnvironment} [envArg]  - The environment
+     * @param  {import("./types").NodeEnvironment} [envArg]  - The environment
      * @param  {object} options - Options
      * @returns {CozyClient}
      */
@@ -7064,7 +6446,7 @@ var CozyClient = /*#__PURE__*/function () {
 CozyClient.hooks = CozyClient.hooks || {};
 CozyClient.fetchPolicies = _policies.default; //COZY_CLIENT_VERSION_PACKAGE in replaced by babel. See babel config
 
-CozyClient.version = "36.1.0";
+CozyClient.version = "45.0.1";
 
 _microee.default.mixin(CozyClient);
 
@@ -7072,35 +6454,26 @@ var _default = CozyClient;
 exports.default = _default;
 
 /***/ }),
-/* 42 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var objectWithoutPropertiesLoose = __webpack_require__(481);
+var arrayWithoutHoles = __webpack_require__(480);
 
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
-  var target = objectWithoutPropertiesLoose(source, excluded);
-  var key, i;
+var iterableToArray = __webpack_require__(243);
 
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+var unsupportedIterableToArray = __webpack_require__(130);
 
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
-    }
-  }
+var nonIterableSpread = __webpack_require__(481);
 
-  return target;
+function _toConsumableArray(arr) {
+  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
 }
 
-module.exports = _objectWithoutProperties;
+module.exports = _toConsumableArray;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 43 */
+/* 39 */
 /***/ (function(module, exports) {
 
 function _taggedTemplateLiteral(strings, raw) {
@@ -7119,7 +6492,7 @@ module.exports = _taggedTemplateLiteral;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 44 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7221,11 +6594,91 @@ var formatBytes = function formatBytes(bytes) {
 exports.formatBytes = formatBytes;
 
 /***/ }),
+/* 41 */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if (!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if (!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+/* 42 */,
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var objectWithoutPropertiesLoose = __webpack_require__(482);
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+  var target = objectWithoutPropertiesLoose(source, excluded);
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+module.exports = _objectWithoutProperties;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _minilog = _interopRequireDefault(__webpack_require__(252));
+
+var logger = (0, _minilog.default)('cozy-stack-client');
+
+_minilog.default.suggest.deny('cozy-stack-client', 'info');
+
+var _default = logger;
+exports.default = _default;
+
+/***/ }),
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isFunction = __webpack_require__(124),
-    isLength = __webpack_require__(138);
+var isFunction = __webpack_require__(123),
+    isLength = __webpack_require__(137);
 
 /**
  * Checks if `value` is array-like. A value is considered array-like if it's
@@ -7266,7 +6719,7 @@ module.exports = isArrayLike;
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -7288,6 +6741,7 @@ var _exportNames = {
   HasOneInPlace: true,
   HasManyInPlace: true,
   HasManyTriggers: true,
+  getReferencedBy: true,
   deconstructCozyWebLinkWithSlug: true,
   deconstructRedirectLink: true,
   dehydrate: true,
@@ -7296,6 +6750,7 @@ var _exportNames = {
   rootCozyUrl: true,
   InvalidCozyUrlError: true,
   InvalidProtocolError: true,
+  BlockedCozyError: true,
   cancelable: true,
   getQueryFromState: true,
   Registry: true,
@@ -7394,52 +6849,64 @@ Object.defineProperty(exports, "HasManyTriggers", {
     return _associations.HasManyTriggers;
   }
 });
+Object.defineProperty(exports, "getReferencedBy", {
+  enumerable: true,
+  get: function get() {
+    return _helpers.getReferencedBy;
+  }
+});
 Object.defineProperty(exports, "deconstructCozyWebLinkWithSlug", {
   enumerable: true,
   get: function get() {
-    return _helpers.deconstructCozyWebLinkWithSlug;
+    return _helpers2.deconstructCozyWebLinkWithSlug;
   }
 });
 Object.defineProperty(exports, "deconstructRedirectLink", {
   enumerable: true,
   get: function get() {
-    return _helpers.deconstructRedirectLink;
+    return _helpers2.deconstructRedirectLink;
   }
 });
 Object.defineProperty(exports, "dehydrate", {
   enumerable: true,
   get: function get() {
-    return _helpers.dehydrate;
+    return _helpers2.dehydrate;
   }
 });
 Object.defineProperty(exports, "generateWebLink", {
   enumerable: true,
   get: function get() {
-    return _helpers.generateWebLink;
+    return _helpers2.generateWebLink;
   }
 });
 Object.defineProperty(exports, "ensureFirstSlash", {
   enumerable: true,
   get: function get() {
-    return _helpers.ensureFirstSlash;
+    return _helpers2.ensureFirstSlash;
   }
 });
 Object.defineProperty(exports, "rootCozyUrl", {
   enumerable: true,
   get: function get() {
-    return _helpers.rootCozyUrl;
+    return _helpers2.rootCozyUrl;
   }
 });
 Object.defineProperty(exports, "InvalidCozyUrlError", {
   enumerable: true,
   get: function get() {
-    return _helpers.InvalidCozyUrlError;
+    return _helpers2.InvalidCozyUrlError;
   }
 });
 Object.defineProperty(exports, "InvalidProtocolError", {
   enumerable: true,
   get: function get() {
-    return _helpers.InvalidProtocolError;
+    return _helpers2.InvalidProtocolError;
+  }
+});
+Object.defineProperty(exports, "BlockedCozyError", {
+  enumerable: true,
+  get: function get() {
+    return _helpers2.BlockedCozyError;
   }
 });
 Object.defineProperty(exports, "cancelable", {
@@ -7474,31 +6941,33 @@ Object.defineProperty(exports, "fetchPolicies", {
 });
 exports.models = exports.manifest = void 0;
 
-var _CozyClient = _interopRequireDefault(__webpack_require__(41));
+var _CozyClient = _interopRequireDefault(__webpack_require__(37));
 
-var _CozyLink = _interopRequireDefault(__webpack_require__(163));
+var _CozyLink = _interopRequireDefault(__webpack_require__(162));
 
-var _StackLink = _interopRequireDefault(__webpack_require__(268));
+var _StackLink = _interopRequireDefault(__webpack_require__(269));
 
-var _flow = _interopRequireDefault(__webpack_require__(184));
+var _flow = _interopRequireDefault(__webpack_require__(185));
 
-var _dsl = __webpack_require__(14);
+var _dsl = __webpack_require__(13);
 
 var _associations = __webpack_require__(116);
 
-var _helpers = __webpack_require__(117);
+var _helpers = __webpack_require__(165);
 
-var _utils = __webpack_require__(582);
+var _helpers2 = __webpack_require__(117);
 
-var _store = __webpack_require__(76);
+var _utils = __webpack_require__(584);
 
-var _registry = _interopRequireDefault(__webpack_require__(248));
+var _store = __webpack_require__(75);
+
+var _registry = _interopRequireDefault(__webpack_require__(249));
 
 var manifest = _interopRequireWildcard(__webpack_require__(289));
 
 exports.manifest = manifest;
 
-var _mock = __webpack_require__(583);
+var _mock = __webpack_require__(585);
 
 Object.keys(_mock).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -7512,9 +6981,9 @@ Object.keys(_mock).forEach(function (key) {
   });
 });
 
-var _errors = __webpack_require__(270);
+var _errors = __webpack_require__(271);
 
-var _cli = __webpack_require__(584);
+var _cli = __webpack_require__(586);
 
 Object.keys(_cli).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -7528,11 +6997,11 @@ Object.keys(_cli).forEach(function (key) {
   });
 });
 
-var models = _interopRequireWildcard(__webpack_require__(590));
+var models = _interopRequireWildcard(__webpack_require__(592));
 
 exports.models = models;
 
-var _policies = _interopRequireDefault(__webpack_require__(287));
+var _policies = _interopRequireDefault(__webpack_require__(288));
 
 /***/ }),
 /* 47 */
@@ -7542,6 +7011,104 @@ module.exports = require("fs");
 
 /***/ }),
 /* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.FetchError = exports.default = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
+
+var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(93));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(8));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
+
+var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(89));
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+var EXPIRED_TOKEN = /Expired token/;
+var CLIENT_NOT_FOUND = /Client not found/;
+var INVALID_TOKEN = /Invalid JWT token/;
+var INVALID_TOKEN_ALT = /Invalid token/;
+var UNREGISTERED_CLIENT = /the client must be registered/;
+var _default = {
+  EXPIRED_TOKEN: EXPIRED_TOKEN,
+  CLIENT_NOT_FOUND: CLIENT_NOT_FOUND,
+  INVALID_TOKEN: INVALID_TOKEN,
+  INVALID_TOKEN_ALT: INVALID_TOKEN_ALT,
+  UNREGISTERED_CLIENT: UNREGISTERED_CLIENT
+};
+exports.default = _default;
+var invalidTokenRegex = /invalid_token/;
+var expiredTokenRegex = /access_token_expired/;
+
+var getWwwAuthenticateErrorMessage = function getWwwAuthenticateErrorMessage(response) {
+  var _response$headers;
+
+  var wwwAuthenticateHeader = (_response$headers = response.headers) === null || _response$headers === void 0 ? void 0 : _response$headers.get('www-authenticate');
+  if (!wwwAuthenticateHeader) return undefined;
+  if (expiredTokenRegex.test(wwwAuthenticateHeader)) return 'Expired token';
+  if (invalidTokenRegex.test(wwwAuthenticateHeader)) return 'Invalid token';
+};
+
+var getReasonMessage = function getReasonMessage(reason, wwwAuthenticateErrorMessage) {
+  // As for now we only want to use `reason.error` over `reason.message` if it's an unregistered client error
+  // For other scenarios, we want to still use `reason.message` over `JSON.stringify(reason)` for better backward compatibility
+  var isUnregisteredError = typeof reason.error === 'string' && UNREGISTERED_CLIENT.test(reason.error) ? reason.error : undefined;
+  return isUnregisteredError || reason.message || wwwAuthenticateErrorMessage || (typeof reason === 'string' ? reason : JSON.stringify(reason));
+};
+
+var FetchError = /*#__PURE__*/function (_Error) {
+  (0, _inherits2.default)(FetchError, _Error);
+
+  var _super = _createSuper(FetchError);
+
+  function FetchError(response, reason) {
+    var _Error$captureStackTr;
+
+    var _this;
+
+    (0, _classCallCheck2.default)(this, FetchError);
+    _this = _super.call(this);
+    (_Error$captureStackTr = Error.captureStackTrace) === null || _Error$captureStackTr === void 0 ? void 0 : _Error$captureStackTr.call(Error, (0, _assertThisInitialized2.default)(_this), _this.constructor); // WARN We have to hardcode this because babel doesn't play nice when extending Error
+
+    _this.name = 'FetchError';
+    _this.response = response;
+    _this.url = response.url;
+    _this.status = response.status;
+    _this.reason = reason;
+
+    if (reason === null) {
+      throw new Error("FetchError received a ".concat(response.status, " error without a Response Body when calling ").concat(response.url));
+    }
+
+    var wwwAuthenticateErrorMessage = getWwwAuthenticateErrorMessage(response);
+    Object.defineProperty((0, _assertThisInitialized2.default)(_this), 'message', {
+      value: getReasonMessage(reason, wwwAuthenticateErrorMessage)
+    });
+    return _this;
+  }
+
+  return FetchError;
+}( /*#__PURE__*/(0, _wrapNativeSuper2.default)(Error));
+
+exports.FetchError = FetchError;
+
+/***/ }),
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7559,12 +7126,12 @@ var DOCTYPE_PERMISSIONS = 'io.cozy.permissions';
 exports.DOCTYPE_PERMISSIONS = DOCTYPE_PERMISSIONS;
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(68),
-    getRawTag = __webpack_require__(390),
-    objectToString = __webpack_require__(391);
+var Symbol = __webpack_require__(67),
+    getRawTag = __webpack_require__(391),
+    objectToString = __webpack_require__(392);
 
 /** `Object#toString` result references. */
 var nullTag = '[object Null]',
@@ -7593,12 +7160,12 @@ module.exports = baseGetTag;
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var identity = __webpack_require__(78),
-    overRest = __webpack_require__(214),
-    setToString = __webpack_require__(180);
+var identity = __webpack_require__(77),
+    overRest = __webpack_require__(215),
+    setToString = __webpack_require__(181);
 
 /**
  * The base implementation of `_.rest` which doesn't validate or coerce arguments.
@@ -7616,23 +7183,23 @@ module.exports = baseRest;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports) {
 
 module.exports = require("path");
 
 /***/ }),
-/* 52 */,
 /* 53 */,
-/* 54 */
+/* 54 */,
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
-var callBind = __webpack_require__(81);
+var callBind = __webpack_require__(80);
 
 var $indexOf = callBind(GetIntrinsic('String.prototype.indexOf'));
 
@@ -7646,11 +7213,11 @@ module.exports = function callBoundIntrinsic(name, allowMissing) {
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsNative = __webpack_require__(389),
-    getValue = __webpack_require__(394);
+var baseIsNative = __webpack_require__(390),
+    getValue = __webpack_require__(395);
 
 /**
  * Gets the native function at `key` of `object`.
@@ -7669,99 +7236,6 @@ module.exports = getNative;
 
 
 /***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(0);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.FetchError = exports.default = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
-
-var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(95));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(8));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
-
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
-
-var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(90));
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-var EXPIRED_TOKEN = /Expired token/;
-var CLIENT_NOT_FOUND = /Client not found/;
-var INVALID_TOKEN = /Invalid JWT token/;
-var _default = {
-  EXPIRED_TOKEN: EXPIRED_TOKEN,
-  CLIENT_NOT_FOUND: CLIENT_NOT_FOUND,
-  INVALID_TOKEN: INVALID_TOKEN
-};
-exports.default = _default;
-
-var getWwwAuthenticateErrorMessage = function getWwwAuthenticateErrorMessage(response) {
-  var invalidTokenRegex = /invalid_token/;
-  var expiredTokenRegex = /access token expired/;
-  var wwwAuthenticateHeader = response.headers && response.headers.get('www-authenticate');
-
-  if (!wwwAuthenticateHeader) {
-    return undefined;
-  }
-
-  if (expiredTokenRegex.test(wwwAuthenticateHeader)) {
-    return 'Expired token';
-  }
-
-  if (invalidTokenRegex.test(wwwAuthenticateHeader)) {
-    return 'Invalid token';
-  }
-
-  return undefined;
-};
-
-var FetchError = /*#__PURE__*/function (_Error) {
-  (0, _inherits2.default)(FetchError, _Error);
-
-  var _super = _createSuper(FetchError);
-
-  function FetchError(response, reason) {
-    var _this;
-
-    (0, _classCallCheck2.default)(this, FetchError);
-    _this = _super.call(this);
-
-    if (Error.captureStackTrace) {
-      Error.captureStackTrace((0, _assertThisInitialized2.default)(_this), _this.constructor);
-    } // WARN We have to hardcode this because babel doesn't play nice when extending Error
-
-
-    _this.name = 'FetchError';
-    _this.response = response;
-    _this.url = response.url;
-    _this.status = response.status;
-    _this.reason = reason;
-    var wwwAuthenticateErrorMessage = getWwwAuthenticateErrorMessage(response);
-    Object.defineProperty((0, _assertThisInitialized2.default)(_this), 'message', {
-      value: reason.message || wwwAuthenticateErrorMessage || (typeof reason === 'string' ? reason : JSON.stringify(reason))
-    });
-    return _this;
-  }
-
-  return FetchError;
-}( /*#__PURE__*/(0, _wrapNativeSuper2.default)(Error));
-
-exports.FetchError = FetchError;
-
-/***/ }),
 /* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7775,36 +7249,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _minilog = _interopRequireDefault(__webpack_require__(251));
-
-var logger = (0, _minilog.default)('cozy-stack-client');
-
-_minilog.default.suggest.deny('cozy-stack-client', 'info');
-
-var _default = logger;
-exports.default = _default;
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(0);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _types = __webpack_require__(12);
-
-var _dsl = __webpack_require__(14);
+var _dsl = __webpack_require__(13);
 
 /**
  * Associations are used by components to access related store documents that are
@@ -8040,11 +7489,11 @@ var Association = /*#__PURE__*/function () {
     /**
      * Derived `Association`s need to implement this method.
      *
-     * @param {CozyClientDocument} document - Document to query
+     * @param {import("../types").CozyClientDocument} document - Document to query
      * @param {object} client - The CozyClient instance
      * @param {Association} assoc - Association containing info on how to build the query to fetch related documents
      *
-     * @returns {CozyClientDocument | QueryDefinition }
+     * @returns {import("../types").CozyClientDocument | QueryDefinition }
      */
 
   }], [{
@@ -8060,16 +7509,16 @@ var _default = Association;
 exports.default = _default;
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports) {
 
 module.exports = require("url");
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseToString = __webpack_require__(141);
+var baseToString = __webpack_require__(140);
 
 /**
  * Converts `value` to a string. An empty string is returned for `null`
@@ -8100,13 +7549,13 @@ module.exports = toString;
 
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var keys = __webpack_require__(476);
+var keys = __webpack_require__(477);
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol('foo') === 'symbol';
 
 var toStr = Object.prototype.toString;
@@ -8165,17 +7614,17 @@ module.exports = defineProperties;
 
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports) {
 
 module.exports = require("stream");
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayLikeKeys = __webpack_require__(204),
-    baseKeys = __webpack_require__(125),
+var arrayLikeKeys = __webpack_require__(205),
+    baseKeys = __webpack_require__(124),
     isArrayLike = __webpack_require__(45);
 
 /**
@@ -8214,7 +7663,7 @@ module.exports = keys;
 
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports) {
 
 /**
@@ -8234,16 +7683,16 @@ module.exports = baseUnary;
 
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var DataView = __webpack_require__(417),
-    Map = __webpack_require__(133),
-    Promise = __webpack_require__(418),
-    Set = __webpack_require__(207),
-    WeakMap = __webpack_require__(208),
-    baseGetTag = __webpack_require__(49),
-    toSource = __webpack_require__(198);
+var DataView = __webpack_require__(418),
+    Map = __webpack_require__(132),
+    Promise = __webpack_require__(419),
+    Set = __webpack_require__(208),
+    WeakMap = __webpack_require__(209),
+    baseGetTag = __webpack_require__(50),
+    toSource = __webpack_require__(199);
 
 /** `Object#toString` result references. */
 var mapTag = '[object Map]',
@@ -8298,10 +7747,10 @@ module.exports = getTag;
 
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSymbol = __webpack_require__(77);
+var isSymbol = __webpack_require__(76);
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0;
@@ -8325,7 +7774,7 @@ module.exports = toKey;
 
 
 /***/ }),
-/* 67 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -25530,10 +24979,10 @@ module.exports = toKey;
   else {}
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(39)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(41)(module)))
 
 /***/ }),
-/* 68 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var root = __webpack_require__(33);
@@ -25545,13 +24994,13 @@ module.exports = Symbol;
 
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isArray = __webpack_require__(11),
-    isKey = __webpack_require__(140),
+    isKey = __webpack_require__(139),
     stringToPath = __webpack_require__(319),
-    toString = __webpack_require__(60);
+    toString = __webpack_require__(59);
 
 /**
  * Casts `value` to a path array if it's not one.
@@ -25572,10 +25021,10 @@ module.exports = castPath;
 
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var defineProperty = __webpack_require__(215);
+var defineProperty = __webpack_require__(216);
 
 /**
  * The base implementation of `assignValue` and `assignMergeValue` without
@@ -25603,11 +25052,11 @@ module.exports = baseAssignValue;
 
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assignValue = __webpack_require__(149),
-    baseAssignValue = __webpack_require__(70);
+var assignValue = __webpack_require__(148),
+    baseAssignValue = __webpack_require__(69);
 
 /**
  * Copies properties of `source` to `object`.
@@ -25649,8 +25098,8 @@ module.exports = copyObject;
 
 
 /***/ }),
-/* 72 */,
-/* 73 */
+/* 71 */,
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25663,15 +25112,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.Collection = exports.isDocumentUpdateConflict = exports.isNoUsableIndexError = exports.isIndexNotUsedWarning = exports.isIndexConflictError = exports.isIndexNotFoundError = exports.dontThrowNotFoundError = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _types = __webpack_require__(249);
+var _types = __webpack_require__(250);
 
 /**
  * Handler for error response which return a empty value for "not found" error
@@ -25844,7 +25293,7 @@ var _default = Collection;
 exports.default = _default;
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports) {
 
 var styles = {
@@ -25874,11 +25323,11 @@ exports.style = function(str, style) {
 
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseMerge = __webpack_require__(506),
-    createAssigner = __webpack_require__(509);
+var baseMerge = __webpack_require__(507),
+    createAssigner = __webpack_require__(510);
 
 /**
  * This method is like `_.assign` except that it recursively merges own and
@@ -25919,13 +25368,13 @@ module.exports = merge;
 
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -25978,21 +25427,21 @@ exports.resetState = exports.getRawQueryFromState = exports.getQueryFromState = 
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _cozyFlags = _interopRequireDefault(__webpack_require__(123));
+var _cozyFlags = _interopRequireDefault(__webpack_require__(113));
 
-var _redux = __webpack_require__(663);
+var _redux = __webpack_require__(662);
 
-var _reduxThunk = _interopRequireDefault(__webpack_require__(539));
+var _reduxThunk = _interopRequireDefault(__webpack_require__(542));
 
-var _documents = _interopRequireWildcard(__webpack_require__(272));
+var _documents = _interopRequireWildcard(__webpack_require__(273));
 
-var _queries = _interopRequireWildcard(__webpack_require__(164));
+var _queries = _interopRequireWildcard(__webpack_require__(163));
 
-var _mutations = __webpack_require__(165);
+var _mutations = __webpack_require__(164);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -26130,10 +25579,10 @@ var getRawQueryFromState = function getRawQueryFromState(state, queryId) {
 exports.getRawQueryFromState = getRawQueryFromState;
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(49),
+var baseGetTag = __webpack_require__(50),
     isObjectLike = __webpack_require__(30);
 
 /** `Object#toString` result references. */
@@ -26165,7 +25614,7 @@ module.exports = isSymbol;
 
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports) {
 
 /**
@@ -26192,16 +25641,16 @@ module.exports = identity;
 
 
 /***/ }),
+/* 78 */,
 /* 79 */,
-/* 80 */,
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var bind = __webpack_require__(154);
-var GetIntrinsic = __webpack_require__(17);
+var bind = __webpack_require__(153);
+var GetIntrinsic = __webpack_require__(16);
 
 var $apply = GetIntrinsic('%Function.prototype.apply%');
 var $call = GetIntrinsic('%Function.prototype.call%');
@@ -26248,7 +25697,7 @@ if ($defineProperty) {
 
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports) {
 
 /**
@@ -26291,10 +25740,10 @@ module.exports = eq;
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsArguments = __webpack_require__(413),
+var baseIsArguments = __webpack_require__(414),
     isObjectLike = __webpack_require__(30);
 
 /** Used for built-in method references. */
@@ -26333,11 +25782,11 @@ module.exports = isArguments;
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(33),
-    stubFalse = __webpack_require__(414);
+    stubFalse = __webpack_require__(415);
 
 /** Detect free variable `exports`. */
 var freeExports =  true && exports && !exports.nodeType && exports;
@@ -26375,14 +25824,14 @@ var isBuffer = nativeIsBuffer || stubFalse;
 
 module.exports = isBuffer;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(39)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(41)(module)))
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var castPath = __webpack_require__(69),
-    toKey = __webpack_require__(66);
+var castPath = __webpack_require__(68),
+    toKey = __webpack_require__(65);
 
 /**
  * The base implementation of `_.get` without support for default values.
@@ -26408,12 +25857,12 @@ module.exports = baseGet;
 
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseAssignValue = __webpack_require__(70),
-    baseForOwn = __webpack_require__(144),
-    baseIteratee = __webpack_require__(36);
+var baseAssignValue = __webpack_require__(69),
+    baseForOwn = __webpack_require__(143),
+    baseIteratee = __webpack_require__(35);
 
 /**
  * Creates an object with the same keys as `object` and values generated
@@ -26457,12 +25906,12 @@ module.exports = mapValues;
 
 
 /***/ }),
-/* 87 */,
-/* 88 */
+/* 86 */,
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayLikeKeys = __webpack_require__(204),
-    baseKeysIn = __webpack_require__(442),
+var arrayLikeKeys = __webpack_require__(205),
+    baseKeysIn = __webpack_require__(443),
     isArrayLike = __webpack_require__(45);
 
 /**
@@ -26496,17 +25945,17 @@ module.exports = keysIn;
 
 
 /***/ }),
-/* 89 */,
-/* 90 */
+/* 88 */,
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getPrototypeOf = __webpack_require__(7);
+var getPrototypeOf = __webpack_require__(6);
 
-var setPrototypeOf = __webpack_require__(157);
+var setPrototypeOf = __webpack_require__(156);
 
-var isNativeFunction = __webpack_require__(515);
+var isNativeFunction = __webpack_require__(516);
 
-var construct = __webpack_require__(516);
+var construct = __webpack_require__(517);
 
 function _wrapNativeSuper(Class) {
   var _cache = typeof Map === "function" ? new Map() : undefined;
@@ -26547,39 +25996,7 @@ module.exports = _wrapNativeSuper;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 91 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var superPropBase = __webpack_require__(525);
-
-function _get(target, property, receiver) {
-  if (typeof Reflect !== "undefined" && Reflect.get) {
-    module.exports = _get = Reflect.get;
-    module.exports["default"] = module.exports, module.exports.__esModule = true;
-  } else {
-    module.exports = _get = function _get(target, property, receiver) {
-      var base = superPropBase(target, property);
-      if (!base) return;
-      var desc = Object.getOwnPropertyDescriptor(base, property);
-
-      if (desc.get) {
-        return desc.get.call(receiver);
-      }
-
-      return desc.value;
-    };
-
-    module.exports["default"] = module.exports, module.exports.__esModule = true;
-  }
-
-  return _get(target, property, receiver || target);
-}
-
-module.exports = _get;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
-/***/ }),
-/* 92 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26592,33 +26009,31 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.updateRelationship = exports.updateHasManyItem = exports.removeHasManyItem = exports.setHasManyItem = exports.getHasManyItems = exports.getHasManyItem = void 0;
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(95));
+var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(93));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(38));
 
-var _get = _interopRequireDefault(__webpack_require__(15));
+var _get = _interopRequireDefault(__webpack_require__(14));
 
-var _merge = _interopRequireDefault(__webpack_require__(75));
+var _merge = _interopRequireDefault(__webpack_require__(74));
 
-var _dsl = __webpack_require__(14);
+var _dsl = __webpack_require__(13);
 
-var _store = __webpack_require__(76);
+var _store = __webpack_require__(75);
 
-var _types = __webpack_require__(12);
-
-var _Association2 = _interopRequireDefault(__webpack_require__(58));
+var _Association2 = _interopRequireDefault(__webpack_require__(57));
 
 var _logger = _interopRequireDefault(__webpack_require__(20));
 
@@ -26749,8 +26164,8 @@ var HasMany = /*#__PURE__*/function (_Association) {
     /**
      * Add the relationships to the target document
      *
-     * @param {CozyClientDocument[]} docsArg - Documents to add as relationships
-     * @returns {CozyClientDocument} The saved target document
+     * @param {import("../types").CozyClientDocument[]} docsArg - Documents to add as relationships
+     * @returns {import("../types").CozyClientDocument} The saved target document
      */
 
   }, {
@@ -26765,8 +26180,8 @@ var HasMany = /*#__PURE__*/function (_Association) {
     /**
      * Remove the relationships from the target document
      *
-     * @param {CozyClientDocument[]} docsArg - Documents to remove as relationships
-     * @returns {CozyClientDocument} The saved target document
+     * @param {import("../types").CozyClientDocument[]} docsArg - Documents to remove as relationships
+     * @returns {import("../types").CozyClientDocument} The saved target document
      */
 
   }, {
@@ -26898,11 +26313,11 @@ var HasMany = /*#__PURE__*/function (_Association) {
       });
     }
     /**
-     * @param {CozyClientDocument} document - Document to query
+     * @param {import("../types").CozyClientDocument} document - Document to query
      * @param {object} client - The CozyClient instance
      * @param {Association} assoc - The query params
      *
-     * @returns {CozyClientDocument | QueryDefinition}
+     * @returns {import("../types").CozyClientDocument | QueryDefinition}
      */
 
   }, {
@@ -27062,7 +26477,7 @@ var _default = HasMany;
 exports.default = _default;
 
 /***/ }),
-/* 93 */
+/* 91 */
 /***/ (function(module, exports) {
 
 /**
@@ -27088,8 +26503,8 @@ module.exports = copyArray;
 
 
 /***/ }),
-/* 94 */,
-/* 95 */
+/* 92 */,
+/* 93 */
 /***/ (function(module, exports) {
 
 function _assertThisInitialized(self) {
@@ -27104,7 +26519,7 @@ module.exports = _assertThisInitialized;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 96 */
+/* 94 */
 /***/ (function(module, exports) {
 
 /** Used as references for various `Number` constants. */
@@ -27135,18 +26550,18 @@ module.exports = isIndex;
 
 
 /***/ }),
-/* 97 */,
-/* 98 */
+/* 95 */,
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayMap = __webpack_require__(32),
-    baseClone = __webpack_require__(177),
-    baseUnset = __webpack_require__(472),
-    castPath = __webpack_require__(69),
-    copyObject = __webpack_require__(71),
-    customOmitClone = __webpack_require__(474),
+    baseClone = __webpack_require__(178),
+    baseUnset = __webpack_require__(473),
+    castPath = __webpack_require__(68),
+    copyObject = __webpack_require__(70),
+    customOmitClone = __webpack_require__(475),
     flatRest = __webpack_require__(121),
-    getAllKeysIn = __webpack_require__(151);
+    getAllKeysIn = __webpack_require__(150);
 
 /** Used to compose bitmasks for cloning. */
 var CLONE_DEEP_FLAG = 1,
@@ -27199,22 +26614,22 @@ module.exports = omit;
 
 
 /***/ }),
-/* 99 */,
-/* 100 */
+/* 97 */,
+/* 98 */
 /***/ (function(module, exports) {
 
 module.exports = require("http");
 
 /***/ }),
-/* 101 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ListCache = __webpack_require__(102),
-    stackClear = __webpack_require__(384),
-    stackDelete = __webpack_require__(385),
-    stackGet = __webpack_require__(386),
-    stackHas = __webpack_require__(387),
-    stackSet = __webpack_require__(388);
+var ListCache = __webpack_require__(100),
+    stackClear = __webpack_require__(385),
+    stackDelete = __webpack_require__(386),
+    stackGet = __webpack_require__(387),
+    stackHas = __webpack_require__(388),
+    stackSet = __webpack_require__(389);
 
 /**
  * Creates a stack cache object to store key-value pairs.
@@ -27239,14 +26654,14 @@ module.exports = Stack;
 
 
 /***/ }),
-/* 102 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var listCacheClear = __webpack_require__(379),
-    listCacheDelete = __webpack_require__(380),
-    listCacheGet = __webpack_require__(381),
-    listCacheHas = __webpack_require__(382),
-    listCacheSet = __webpack_require__(383);
+var listCacheClear = __webpack_require__(380),
+    listCacheDelete = __webpack_require__(381),
+    listCacheGet = __webpack_require__(382),
+    listCacheHas = __webpack_require__(383),
+    listCacheSet = __webpack_require__(384);
 
 /**
  * Creates an list cache object.
@@ -27277,10 +26692,10 @@ module.exports = ListCache;
 
 
 /***/ }),
-/* 103 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var eq = __webpack_require__(82);
+var eq = __webpack_require__(81);
 
 /**
  * Gets the index at which the `key` is found in `array` of key-value pairs.
@@ -27304,10 +26719,10 @@ module.exports = assocIndexOf;
 
 
 /***/ }),
-/* 104 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(55);
+var getNative = __webpack_require__(56);
 
 /* Built-in method references that are verified to be native. */
 var nativeCreate = getNative(Object, 'create');
@@ -27316,10 +26731,10 @@ module.exports = nativeCreate;
 
 
 /***/ }),
-/* 105 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isKeyable = __webpack_require__(403);
+var isKeyable = __webpack_require__(404);
 
 /**
  * Gets the data for `map`.
@@ -27340,12 +26755,12 @@ module.exports = getMapData;
 
 
 /***/ }),
-/* 106 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var MapCache = __webpack_require__(134),
-    setCacheAdd = __webpack_require__(408),
-    setCacheHas = __webpack_require__(409);
+var MapCache = __webpack_require__(133),
+    setCacheAdd = __webpack_require__(409),
+    setCacheHas = __webpack_require__(410);
 
 /**
  *
@@ -27373,7 +26788,7 @@ module.exports = SetCache;
 
 
 /***/ }),
-/* 107 */
+/* 105 */
 /***/ (function(module, exports) {
 
 /**
@@ -27392,7 +26807,7 @@ module.exports = cacheHas;
 
 
 /***/ }),
-/* 108 */
+/* 106 */
 /***/ (function(module, exports) {
 
 /**
@@ -27418,12 +26833,12 @@ module.exports = arrayPush;
 
 
 /***/ }),
-/* 109 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsTypedArray = __webpack_require__(415),
-    baseUnary = __webpack_require__(64),
-    nodeUtil = __webpack_require__(139);
+var baseIsTypedArray = __webpack_require__(416),
+    baseUnary = __webpack_require__(63),
+    nodeUtil = __webpack_require__(138);
 
 /* Node.js helper references. */
 var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
@@ -27451,7 +26866,7 @@ module.exports = isTypedArray;
 
 
 /***/ }),
-/* 110 */
+/* 108 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -27475,11 +26890,11 @@ module.exports = isPrototype;
 
 
 /***/ }),
-/* 111 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayPush = __webpack_require__(108),
-    isFlattenable = __webpack_require__(427);
+var arrayPush = __webpack_require__(106),
+    isFlattenable = __webpack_require__(428);
 
 /**
  * The base implementation of `_.flatten` with support for restricting flattening.
@@ -27519,11 +26934,11 @@ module.exports = baseFlatten;
 
 
 /***/ }),
-/* 112 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseForOwn = __webpack_require__(144),
-    createBaseEach = __webpack_require__(455);
+var baseForOwn = __webpack_require__(143),
+    createBaseEach = __webpack_require__(456);
 
 /**
  * The base implementation of `_.forEach` without support for iteratee shorthands.
@@ -27539,7 +26954,7 @@ module.exports = baseEach;
 
 
 /***/ }),
-/* 113 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isArrayLike = __webpack_require__(45),
@@ -27578,7 +26993,7 @@ module.exports = isArrayLikeObject;
 
 
 /***/ }),
-/* 114 */
+/* 112 */
 /***/ (function(module, exports) {
 
 function M() { this._events = {}; }
@@ -27634,10 +27049,34 @@ module.exports = M;
 
 
 /***/ }),
-/* 115 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseUniq = __webpack_require__(155);
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _flag = _interopRequireDefault(__webpack_require__(489));
+
+/* global __ENABLED_FLAGS__ */
+if (typeof __ENABLED_FLAGS__ !== 'undefined') {
+  _flag.default.enable(__ENABLED_FLAGS__);
+}
+
+var _default = _flag.default;
+exports.default = _default;
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseUniq = __webpack_require__(154);
 
 /**
  * Creates a duplicate-free version of an array, using
@@ -27663,6 +27102,38 @@ function uniq(array) {
 
 module.exports = uniq;
 
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var superPropBase = __webpack_require__(526);
+
+function _get(target, property, receiver) {
+  if (typeof Reflect !== "undefined" && Reflect.get) {
+    module.exports = _get = Reflect.get;
+    module.exports["default"] = module.exports, module.exports.__esModule = true;
+  } else {
+    module.exports = _get = function _get(target, property, receiver) {
+      var base = superPropBase(target, property);
+      if (!base) return;
+      var desc = Object.getOwnPropertyDescriptor(base, property);
+
+      if (desc.get) {
+        return desc.get.call(receiver);
+      }
+
+      return desc.value;
+    };
+
+    module.exports["default"] = module.exports, module.exports.__esModule = true;
+  }
+
+  return _get(target, property, receiver || target);
+}
+
+module.exports = _get;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 /* 116 */
@@ -27755,21 +27226,21 @@ Object.defineProperty(exports, "getReferencedById", {
   }
 });
 
-var _HasManyFiles = _interopRequireDefault(__webpack_require__(271));
+var _HasManyFiles = _interopRequireDefault(__webpack_require__(272));
 
-var _HasMany = _interopRequireDefault(__webpack_require__(92));
+var _HasMany = _interopRequireDefault(__webpack_require__(90));
 
-var _HasOne = _interopRequireDefault(__webpack_require__(281));
+var _HasOne = _interopRequireDefault(__webpack_require__(282));
 
-var _HasOneInPlace = _interopRequireDefault(__webpack_require__(282));
+var _HasOneInPlace = _interopRequireDefault(__webpack_require__(283));
 
-var _HasManyInPlace = _interopRequireDefault(__webpack_require__(283));
+var _HasManyInPlace = _interopRequireDefault(__webpack_require__(284));
 
-var _HasManyTriggers = _interopRequireDefault(__webpack_require__(550));
+var _HasManyTriggers = _interopRequireDefault(__webpack_require__(553));
 
-var _Association = _interopRequireDefault(__webpack_require__(58));
+var _Association = _interopRequireDefault(__webpack_require__(57));
 
-var _helpers = __webpack_require__(284);
+var _helpers = __webpack_require__(165);
 
 /***/ }),
 /* 117 */
@@ -27829,6 +27300,12 @@ Object.defineProperty(exports, "InvalidProtocolError", {
     return _urlHelper.InvalidProtocolError;
   }
 });
+Object.defineProperty(exports, "BlockedCozyError", {
+  enumerable: true,
+  get: function get() {
+    return _urlHelper.BlockedCozyError;
+  }
+});
 Object.defineProperty(exports, "dehydrate", {
   enumerable: true,
   get: function get() {
@@ -27836,9 +27313,9 @@ Object.defineProperty(exports, "dehydrate", {
   }
 });
 
-var _urlHelper = __webpack_require__(551);
+var _urlHelper = __webpack_require__(554);
 
-var _dehydrateHelper = __webpack_require__(552);
+var _dehydrateHelper = __webpack_require__(555);
 
 /***/ }),
 /* 118 */
@@ -27865,8 +27342,8 @@ exports.isCordova = isCordova;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addMonths; });
-/* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
-/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
+/* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
+/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(23);
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
 
 
@@ -27940,8 +27417,8 @@ function addMonths(dirtyDate, dirtyAmount) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addDays; });
-/* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
-/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
+/* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
+/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(23);
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
 
 
@@ -27987,9 +27464,9 @@ function addDays(dirtyDate, dirtyAmount) {
 /* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var flatten = __webpack_require__(143),
-    overRest = __webpack_require__(214),
-    setToString = __webpack_require__(180);
+var flatten = __webpack_require__(142),
+    overRest = __webpack_require__(215),
+    setToString = __webpack_require__(181);
 
 /**
  * A specialized version of `baseRest` which flattens the rest array.
@@ -28010,31 +27487,7 @@ module.exports = flatRest;
 /* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(0);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _flag = _interopRequireDefault(__webpack_require__(488));
-
-/* global __ENABLED_FLAGS__ */
-if (typeof __ENABLED_FLAGS__ !== 'undefined') {
-  _flag.default.enable(__ENABLED_FLAGS__);
-}
-
-var _default = _flag.default;
-exports.default = _default;
-
-/***/ }),
-/* 124 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseGetTag = __webpack_require__(49),
+var baseGetTag = __webpack_require__(50),
     isObject = __webpack_require__(29);
 
 /** `Object#toString` result references. */
@@ -28074,11 +27527,11 @@ module.exports = isFunction;
 
 
 /***/ }),
-/* 125 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isPrototype = __webpack_require__(110),
-    nativeKeys = __webpack_require__(416);
+var isPrototype = __webpack_require__(108),
+    nativeKeys = __webpack_require__(417);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -28110,7 +27563,7 @@ module.exports = baseKeys;
 
 
 /***/ }),
-/* 126 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(29);
@@ -28146,10 +27599,10 @@ module.exports = baseCreate;
 
 
 /***/ }),
-/* 127 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIndexOf = __webpack_require__(183);
+var baseIndexOf = __webpack_require__(184);
 
 /**
  * A specialized version of `_.includes` for arrays without support for
@@ -28169,11 +27622,11 @@ module.exports = arrayIncludes;
 
 
 /***/ }),
-/* 128 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(49),
-    getPrototype = __webpack_require__(150),
+var baseGetTag = __webpack_require__(50),
+    getPrototype = __webpack_require__(149),
     isObjectLike = __webpack_require__(30);
 
 /** `Object#toString` result references. */
@@ -28237,10 +27690,10 @@ module.exports = isPlainObject;
 
 
 /***/ }),
-/* 129 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(49),
+var baseGetTag = __webpack_require__(50),
     isArray = __webpack_require__(11),
     isObjectLike = __webpack_require__(30);
 
@@ -28273,16 +27726,16 @@ module.exports = isString;
 
 
 /***/ }),
-/* 130 */
+/* 129 */
 /***/ (function(module) {
 
 module.exports = JSON.parse("[[\"0\",\"\\u0000\",127,\"€\"],[\"8140\",\"丂丄丅丆丏丒丗丟丠両丣並丩丮丯丱丳丵丷丼乀乁乂乄乆乊乑乕乗乚乛乢乣乤乥乧乨乪\",5,\"乲乴\",9,\"乿\",6,\"亇亊\"],[\"8180\",\"亐亖亗亙亜亝亞亣亪亯亰亱亴亶亷亸亹亼亽亾仈仌仏仐仒仚仛仜仠仢仦仧仩仭仮仯仱仴仸仹仺仼仾伀伂\",6,\"伋伌伒\",4,\"伜伝伡伣伨伩伬伭伮伱伳伵伷伹伻伾\",4,\"佄佅佇\",5,\"佒佔佖佡佢佦佨佪佫佭佮佱佲併佷佸佹佺佽侀侁侂侅來侇侊侌侎侐侒侓侕侖侘侙侚侜侞侟価侢\"],[\"8240\",\"侤侫侭侰\",4,\"侶\",8,\"俀俁係俆俇俈俉俋俌俍俒\",4,\"俙俛俠俢俤俥俧俫俬俰俲俴俵俶俷俹俻俼俽俿\",11],[\"8280\",\"個倎倐們倓倕倖倗倛倝倞倠倢倣値倧倫倯\",10,\"倻倽倿偀偁偂偄偅偆偉偊偋偍偐\",4,\"偖偗偘偙偛偝\",7,\"偦\",5,\"偭\",8,\"偸偹偺偼偽傁傂傃傄傆傇傉傊傋傌傎\",20,\"傤傦傪傫傭\",4,\"傳\",6,\"傼\"],[\"8340\",\"傽\",17,\"僐\",5,\"僗僘僙僛\",10,\"僨僩僪僫僯僰僱僲僴僶\",4,\"僼\",9,\"儈\"],[\"8380\",\"儉儊儌\",5,\"儓\",13,\"儢\",28,\"兂兇兊兌兎兏児兒兓兗兘兙兛兝\",4,\"兣兤兦內兩兪兯兲兺兾兿冃冄円冇冊冋冎冏冐冑冓冔冘冚冝冞冟冡冣冦\",4,\"冭冮冴冸冹冺冾冿凁凂凃凅凈凊凍凎凐凒\",5],[\"8440\",\"凘凙凚凜凞凟凢凣凥\",5,\"凬凮凱凲凴凷凾刄刅刉刋刌刏刐刓刔刕刜刞刟刡刢刣別刦刧刪刬刯刱刲刴刵刼刾剄\",5,\"剋剎剏剒剓剕剗剘\"],[\"8480\",\"剙剚剛剝剟剠剢剣剤剦剨剫剬剭剮剰剱剳\",9,\"剾劀劃\",4,\"劉\",6,\"劑劒劔\",6,\"劜劤劥劦劧劮劯劰労\",9,\"勀勁勂勄勅勆勈勊勌勍勎勏勑勓勔動勗務\",5,\"勠勡勢勣勥\",10,\"勱\",7,\"勻勼勽匁匂匃匄匇匉匊匋匌匎\"],[\"8540\",\"匑匒匓匔匘匛匜匞匟匢匤匥匧匨匩匫匬匭匯\",9,\"匼匽區卂卄卆卋卌卍卐協単卙卛卝卥卨卪卬卭卲卶卹卻卼卽卾厀厁厃厇厈厊厎厏\"],[\"8580\",\"厐\",4,\"厖厗厙厛厜厞厠厡厤厧厪厫厬厭厯\",6,\"厷厸厹厺厼厽厾叀參\",4,\"収叏叐叒叓叕叚叜叝叞叡叢叧叴叺叾叿吀吂吅吇吋吔吘吙吚吜吢吤吥吪吰吳吶吷吺吽吿呁呂呄呅呇呉呌呍呎呏呑呚呝\",4,\"呣呥呧呩\",7,\"呴呹呺呾呿咁咃咅咇咈咉咊咍咑咓咗咘咜咞咟咠咡\"],[\"8640\",\"咢咥咮咰咲咵咶咷咹咺咼咾哃哅哊哋哖哘哛哠\",4,\"哫哬哯哰哱哴\",5,\"哻哾唀唂唃唄唅唈唊\",4,\"唒唓唕\",5,\"唜唝唞唟唡唥唦\"],[\"8680\",\"唨唩唫唭唲唴唵唶唸唹唺唻唽啀啂啅啇啈啋\",4,\"啑啒啓啔啗\",4,\"啝啞啟啠啢啣啨啩啫啯\",5,\"啹啺啽啿喅喆喌喍喎喐喒喓喕喖喗喚喛喞喠\",6,\"喨\",8,\"喲喴営喸喺喼喿\",4,\"嗆嗇嗈嗊嗋嗎嗏嗐嗕嗗\",4,\"嗞嗠嗢嗧嗩嗭嗮嗰嗱嗴嗶嗸\",4,\"嗿嘂嘃嘄嘅\"],[\"8740\",\"嘆嘇嘊嘋嘍嘐\",7,\"嘙嘚嘜嘝嘠嘡嘢嘥嘦嘨嘩嘪嘫嘮嘯嘰嘳嘵嘷嘸嘺嘼嘽嘾噀\",11,\"噏\",4,\"噕噖噚噛噝\",4],[\"8780\",\"噣噥噦噧噭噮噯噰噲噳噴噵噷噸噹噺噽\",7,\"嚇\",6,\"嚐嚑嚒嚔\",14,\"嚤\",10,\"嚰\",6,\"嚸嚹嚺嚻嚽\",12,\"囋\",8,\"囕囖囘囙囜団囥\",5,\"囬囮囯囲図囶囷囸囻囼圀圁圂圅圇國\",6],[\"8840\",\"園\",9,\"圝圞圠圡圢圤圥圦圧圫圱圲圴\",4,\"圼圽圿坁坃坄坅坆坈坉坋坒\",4,\"坘坙坢坣坥坧坬坮坰坱坲坴坵坸坹坺坽坾坿垀\"],[\"8880\",\"垁垇垈垉垊垍\",4,\"垔\",6,\"垜垝垞垟垥垨垪垬垯垰垱垳垵垶垷垹\",8,\"埄\",6,\"埌埍埐埑埓埖埗埛埜埞埡埢埣埥\",7,\"埮埰埱埲埳埵埶執埻埼埾埿堁堃堄堅堈堉堊堌堎堏堐堒堓堔堖堗堘堚堛堜堝堟堢堣堥\",4,\"堫\",4,\"報堲堳場堶\",7],[\"8940\",\"堾\",5,\"塅\",6,\"塎塏塐塒塓塕塖塗塙\",4,\"塟\",5,\"塦\",4,\"塭\",16,\"塿墂墄墆墇墈墊墋墌\"],[\"8980\",\"墍\",4,\"墔\",4,\"墛墜墝墠\",7,\"墪\",17,\"墽墾墿壀壂壃壄壆\",10,\"壒壓壔壖\",13,\"壥\",5,\"壭壯壱売壴壵壷壸壺\",7,\"夃夅夆夈\",4,\"夎夐夑夒夓夗夘夛夝夞夠夡夢夣夦夨夬夰夲夳夵夶夻\"],[\"8a40\",\"夽夾夿奀奃奅奆奊奌奍奐奒奓奙奛\",4,\"奡奣奤奦\",12,\"奵奷奺奻奼奾奿妀妅妉妋妌妎妏妐妑妔妕妘妚妛妜妝妟妠妡妢妦\"],[\"8a80\",\"妧妬妭妰妱妳\",5,\"妺妼妽妿\",6,\"姇姈姉姌姍姎姏姕姖姙姛姞\",4,\"姤姦姧姩姪姫姭\",11,\"姺姼姽姾娀娂娊娋娍娎娏娐娒娔娕娖娗娙娚娛娝娞娡娢娤娦娧娨娪\",6,\"娳娵娷\",4,\"娽娾娿婁\",4,\"婇婈婋\",9,\"婖婗婘婙婛\",5],[\"8b40\",\"婡婣婤婥婦婨婩婫\",8,\"婸婹婻婼婽婾媀\",17,\"媓\",6,\"媜\",13,\"媫媬\"],[\"8b80\",\"媭\",4,\"媴媶媷媹\",4,\"媿嫀嫃\",5,\"嫊嫋嫍\",4,\"嫓嫕嫗嫙嫚嫛嫝嫞嫟嫢嫤嫥嫧嫨嫪嫬\",4,\"嫲\",22,\"嬊\",11,\"嬘\",25,\"嬳嬵嬶嬸\",7,\"孁\",6],[\"8c40\",\"孈\",7,\"孒孖孞孠孡孧孨孫孭孮孯孲孴孶孷學孹孻孼孾孿宂宆宊宍宎宐宑宒宔宖実宧宨宩宬宭宮宯宱宲宷宺宻宼寀寁寃寈寉寊寋寍寎寏\"],[\"8c80\",\"寑寔\",8,\"寠寢寣實寧審\",4,\"寯寱\",6,\"寽対尀専尃尅將專尋尌對導尐尒尓尗尙尛尞尟尠尡尣尦尨尩尪尫尭尮尯尰尲尳尵尶尷屃屄屆屇屌屍屒屓屔屖屗屘屚屛屜屝屟屢層屧\",6,\"屰屲\",6,\"屻屼屽屾岀岃\",4,\"岉岊岋岎岏岒岓岕岝\",4,\"岤\",4],[\"8d40\",\"岪岮岯岰岲岴岶岹岺岻岼岾峀峂峃峅\",5,\"峌\",5,\"峓\",5,\"峚\",6,\"峢峣峧峩峫峬峮峯峱\",9,\"峼\",4],[\"8d80\",\"崁崄崅崈\",5,\"崏\",4,\"崕崗崘崙崚崜崝崟\",4,\"崥崨崪崫崬崯\",4,\"崵\",7,\"崿\",7,\"嵈嵉嵍\",10,\"嵙嵚嵜嵞\",10,\"嵪嵭嵮嵰嵱嵲嵳嵵\",12,\"嶃\",21,\"嶚嶛嶜嶞嶟嶠\"],[\"8e40\",\"嶡\",21,\"嶸\",12,\"巆\",6,\"巎\",12,\"巜巟巠巣巤巪巬巭\"],[\"8e80\",\"巰巵巶巸\",4,\"巿帀帄帇帉帊帋帍帎帒帓帗帞\",7,\"帨\",4,\"帯帰帲\",4,\"帹帺帾帿幀幁幃幆\",5,\"幍\",6,\"幖\",4,\"幜幝幟幠幣\",14,\"幵幷幹幾庁庂広庅庈庉庌庍庎庒庘庛庝庡庢庣庤庨\",4,\"庮\",4,\"庴庺庻庼庽庿\",6],[\"8f40\",\"廆廇廈廋\",5,\"廔廕廗廘廙廚廜\",11,\"廩廫\",8,\"廵廸廹廻廼廽弅弆弇弉弌弍弎弐弒弔弖弙弚弜弝弞弡弢弣弤\"],[\"8f80\",\"弨弫弬弮弰弲\",6,\"弻弽弾弿彁\",14,\"彑彔彙彚彛彜彞彟彠彣彥彧彨彫彮彯彲彴彵彶彸彺彽彾彿徃徆徍徎徏徑従徔徖徚徛徝從徟徠徢\",5,\"復徫徬徯\",5,\"徶徸徹徺徻徾\",4,\"忇忈忊忋忎忓忔忕忚忛応忞忟忢忣忥忦忨忩忬忯忰忲忳忴忶忷忹忺忼怇\"],[\"9040\",\"怈怉怋怌怐怑怓怗怘怚怞怟怢怣怤怬怭怮怰\",4,\"怶\",4,\"怽怾恀恄\",6,\"恌恎恏恑恓恔恖恗恘恛恜恞恟恠恡恥恦恮恱恲恴恵恷恾悀\"],[\"9080\",\"悁悂悅悆悇悈悊悋悎悏悐悑悓悕悗悘悙悜悞悡悢悤悥悧悩悪悮悰悳悵悶悷悹悺悽\",7,\"惇惈惉惌\",4,\"惒惓惔惖惗惙惛惞惡\",4,\"惪惱惲惵惷惸惻\",4,\"愂愃愄愅愇愊愋愌愐\",4,\"愖愗愘愙愛愜愝愞愡愢愥愨愩愪愬\",18,\"慀\",6],[\"9140\",\"慇慉態慍慏慐慒慓慔慖\",6,\"慞慟慠慡慣慤慥慦慩\",6,\"慱慲慳慴慶慸\",18,\"憌憍憏\",4,\"憕\"],[\"9180\",\"憖\",6,\"憞\",8,\"憪憫憭\",9,\"憸\",5,\"憿懀懁懃\",4,\"應懌\",4,\"懓懕\",16,\"懧\",13,\"懶\",8,\"戀\",5,\"戇戉戓戔戙戜戝戞戠戣戦戧戨戩戫戭戯戰戱戲戵戶戸\",4,\"扂扄扅扆扊\"],[\"9240\",\"扏扐払扖扗扙扚扜\",6,\"扤扥扨扱扲扴扵扷扸扺扻扽抁抂抃抅抆抇抈抋\",5,\"抔抙抜抝択抣抦抧抩抪抭抮抯抰抲抳抴抶抷抸抺抾拀拁\"],[\"9280\",\"拃拋拏拑拕拝拞拠拡拤拪拫拰拲拵拸拹拺拻挀挃挄挅挆挊挋挌挍挏挐挒挓挔挕挗挘挙挜挦挧挩挬挭挮挰挱挳\",5,\"挻挼挾挿捀捁捄捇捈捊捑捒捓捔捖\",7,\"捠捤捥捦捨捪捫捬捯捰捲捳捴捵捸捹捼捽捾捿掁掃掄掅掆掋掍掑掓掔掕掗掙\",6,\"採掤掦掫掯掱掲掵掶掹掻掽掿揀\"],[\"9340\",\"揁揂揃揅揇揈揊揋揌揑揓揔揕揗\",6,\"揟揢揤\",4,\"揫揬揮揯揰揱揳揵揷揹揺揻揼揾搃搄搆\",4,\"損搎搑搒搕\",5,\"搝搟搢搣搤\"],[\"9380\",\"搥搧搨搩搫搮\",5,\"搵\",4,\"搻搼搾摀摂摃摉摋\",6,\"摓摕摖摗摙\",4,\"摟\",7,\"摨摪摫摬摮\",9,\"摻\",6,\"撃撆撈\",8,\"撓撔撗撘撚撛撜撝撟\",4,\"撥撦撧撨撪撫撯撱撲撳撴撶撹撻撽撾撿擁擃擄擆\",6,\"擏擑擓擔擕擖擙據\"],[\"9440\",\"擛擜擝擟擠擡擣擥擧\",24,\"攁\",7,\"攊\",7,\"攓\",4,\"攙\",8],[\"9480\",\"攢攣攤攦\",4,\"攬攭攰攱攲攳攷攺攼攽敀\",4,\"敆敇敊敋敍敎敐敒敓敔敗敘敚敜敟敠敡敤敥敧敨敩敪敭敮敯敱敳敵敶數\",14,\"斈斉斊斍斎斏斒斔斕斖斘斚斝斞斠斢斣斦斨斪斬斮斱\",7,\"斺斻斾斿旀旂旇旈旉旊旍旐旑旓旔旕旘\",7,\"旡旣旤旪旫\"],[\"9540\",\"旲旳旴旵旸旹旻\",4,\"昁昄昅昇昈昉昋昍昐昑昒昖昗昘昚昛昜昞昡昢昣昤昦昩昪昫昬昮昰昲昳昷\",4,\"昽昿晀時晄\",6,\"晍晎晐晑晘\"],[\"9580\",\"晙晛晜晝晞晠晢晣晥晧晩\",4,\"晱晲晳晵晸晹晻晼晽晿暀暁暃暅暆暈暉暊暋暍暎暏暐暒暓暔暕暘\",4,\"暞\",8,\"暩\",4,\"暯\",4,\"暵暶暷暸暺暻暼暽暿\",25,\"曚曞\",7,\"曧曨曪\",5,\"曱曵曶書曺曻曽朁朂會\"],[\"9640\",\"朄朅朆朇朌朎朏朑朒朓朖朘朙朚朜朞朠\",5,\"朧朩朮朰朲朳朶朷朸朹朻朼朾朿杁杄杅杇杊杋杍杒杔杕杗\",4,\"杝杢杣杤杦杧杫杬杮東杴杶\"],[\"9680\",\"杸杹杺杻杽枀枂枃枅枆枈枊枌枍枎枏枑枒枓枔枖枙枛枟枠枡枤枦枩枬枮枱枲枴枹\",7,\"柂柅\",9,\"柕柖柗柛柟柡柣柤柦柧柨柪柫柭柮柲柵\",7,\"柾栁栂栃栄栆栍栐栒栔栕栘\",4,\"栞栟栠栢\",6,\"栫\",6,\"栴栵栶栺栻栿桇桋桍桏桒桖\",5],[\"9740\",\"桜桝桞桟桪桬\",7,\"桵桸\",8,\"梂梄梇\",7,\"梐梑梒梔梕梖梘\",9,\"梣梤梥梩梪梫梬梮梱梲梴梶梷梸\"],[\"9780\",\"梹\",6,\"棁棃\",5,\"棊棌棎棏棐棑棓棔棖棗棙棛\",4,\"棡棢棤\",9,\"棯棲棳棴棶棷棸棻棽棾棿椀椂椃椄椆\",4,\"椌椏椑椓\",11,\"椡椢椣椥\",7,\"椮椯椱椲椳椵椶椷椸椺椻椼椾楀楁楃\",16,\"楕楖楘楙楛楜楟\"],[\"9840\",\"楡楢楤楥楧楨楩楪楬業楯楰楲\",4,\"楺楻楽楾楿榁榃榅榊榋榌榎\",5,\"榖榗榙榚榝\",9,\"榩榪榬榮榯榰榲榳榵榶榸榹榺榼榽\"],[\"9880\",\"榾榿槀槂\",7,\"構槍槏槑槒槓槕\",5,\"槜槝槞槡\",11,\"槮槯槰槱槳\",9,\"槾樀\",9,\"樋\",11,\"標\",5,\"樠樢\",5,\"権樫樬樭樮樰樲樳樴樶\",6,\"樿\",4,\"橅橆橈\",7,\"橑\",6,\"橚\"],[\"9940\",\"橜\",4,\"橢橣橤橦\",10,\"橲\",6,\"橺橻橽橾橿檁檂檃檅\",8,\"檏檒\",4,\"檘\",7,\"檡\",5],[\"9980\",\"檧檨檪檭\",114,\"欥欦欨\",6],[\"9a40\",\"欯欰欱欳欴欵欶欸欻欼欽欿歀歁歂歄歅歈歊歋歍\",11,\"歚\",7,\"歨歩歫\",13,\"歺歽歾歿殀殅殈\"],[\"9a80\",\"殌殎殏殐殑殔殕殗殘殙殜\",4,\"殢\",7,\"殫\",7,\"殶殸\",6,\"毀毃毄毆\",4,\"毌毎毐毑毘毚毜\",4,\"毢\",7,\"毬毭毮毰毱毲毴毶毷毸毺毻毼毾\",6,\"氈\",4,\"氎氒気氜氝氞氠氣氥氫氬氭氱氳氶氷氹氺氻氼氾氿汃汄汅汈汋\",4,\"汑汒汓汖汘\"],[\"9b40\",\"汙汚汢汣汥汦汧汫\",4,\"汱汳汵汷汸決汻汼汿沀沄沇沊沋沍沎沑沒沕沖沗沘沚沜沝沞沠沢沨沬沯沰沴沵沶沷沺泀況泂泃泆泇泈泋泍泎泏泑泒泘\"],[\"9b80\",\"泙泚泜泝泟泤泦泧泩泬泭泲泴泹泿洀洂洃洅洆洈洉洊洍洏洐洑洓洔洕洖洘洜洝洟\",5,\"洦洨洩洬洭洯洰洴洶洷洸洺洿浀浂浄浉浌浐浕浖浗浘浛浝浟浡浢浤浥浧浨浫浬浭浰浱浲浳浵浶浹浺浻浽\",4,\"涃涄涆涇涊涋涍涏涐涒涖\",4,\"涜涢涥涬涭涰涱涳涴涶涷涹\",5,\"淁淂淃淈淉淊\"],[\"9c40\",\"淍淎淏淐淒淓淔淕淗淚淛淜淟淢淣淥淧淨淩淪淭淯淰淲淴淵淶淸淺淽\",7,\"渆渇済渉渋渏渒渓渕渘渙減渜渞渟渢渦渧渨渪測渮渰渱渳渵\"],[\"9c80\",\"渶渷渹渻\",7,\"湅\",7,\"湏湐湑湒湕湗湙湚湜湝湞湠\",10,\"湬湭湯\",14,\"満溁溂溄溇溈溊\",4,\"溑\",6,\"溙溚溛溝溞溠溡溣溤溦溨溩溫溬溭溮溰溳溵溸溹溼溾溿滀滃滄滅滆滈滉滊滌滍滎滐滒滖滘滙滛滜滝滣滧滪\",5],[\"9d40\",\"滰滱滲滳滵滶滷滸滺\",7,\"漃漄漅漇漈漊\",4,\"漐漑漒漖\",9,\"漡漢漣漥漦漧漨漬漮漰漲漴漵漷\",6,\"漿潀潁潂\"],[\"9d80\",\"潃潄潅潈潉潊潌潎\",9,\"潙潚潛潝潟潠潡潣潤潥潧\",5,\"潯潰潱潳潵潶潷潹潻潽\",6,\"澅澆澇澊澋澏\",12,\"澝澞澟澠澢\",4,\"澨\",10,\"澴澵澷澸澺\",5,\"濁濃\",5,\"濊\",6,\"濓\",10,\"濟濢濣濤濥\"],[\"9e40\",\"濦\",7,\"濰\",32,\"瀒\",7,\"瀜\",6,\"瀤\",6],[\"9e80\",\"瀫\",9,\"瀶瀷瀸瀺\",17,\"灍灎灐\",13,\"灟\",11,\"灮灱灲灳灴灷灹灺灻災炁炂炃炄炆炇炈炋炌炍炏炐炑炓炗炘炚炛炞\",12,\"炰炲炴炵炶為炾炿烄烅烆烇烉烋\",12,\"烚\"],[\"9f40\",\"烜烝烞烠烡烢烣烥烪烮烰\",6,\"烸烺烻烼烾\",10,\"焋\",4,\"焑焒焔焗焛\",10,\"焧\",7,\"焲焳焴\"],[\"9f80\",\"焵焷\",13,\"煆煇煈煉煋煍煏\",12,\"煝煟\",4,\"煥煩\",4,\"煯煰煱煴煵煶煷煹煻煼煾\",5,\"熅\",4,\"熋熌熍熎熐熑熒熓熕熖熗熚\",4,\"熡\",6,\"熩熪熫熭\",5,\"熴熶熷熸熺\",8,\"燄\",9,\"燏\",4],[\"a040\",\"燖\",9,\"燡燢燣燤燦燨\",5,\"燯\",9,\"燺\",11,\"爇\",19],[\"a080\",\"爛爜爞\",9,\"爩爫爭爮爯爲爳爴爺爼爾牀\",6,\"牉牊牋牎牏牐牑牓牔牕牗牘牚牜牞牠牣牤牥牨牪牫牬牭牰牱牳牴牶牷牸牻牼牽犂犃犅\",4,\"犌犎犐犑犓\",11,\"犠\",11,\"犮犱犲犳犵犺\",6,\"狅狆狇狉狊狋狌狏狑狓狔狕狖狘狚狛\"],[\"a1a1\",\"　、。·ˉˇ¨〃々—～‖…‘’“”〔〕〈\",7,\"〖〗【】±×÷∶∧∨∑∏∪∩∈∷√⊥∥∠⌒⊙∫∮≡≌≈∽∝≠≮≯≤≥∞∵∴♂♀°′″℃＄¤￠￡‰§№☆★○●◎◇◆□■△▲※→←↑↓〓\"],[\"a2a1\",\"ⅰ\",9],[\"a2b1\",\"⒈\",19,\"⑴\",19,\"①\",9],[\"a2e5\",\"㈠\",9],[\"a2f1\",\"Ⅰ\",11],[\"a3a1\",\"！＂＃￥％\",88,\"￣\"],[\"a4a1\",\"ぁ\",82],[\"a5a1\",\"ァ\",85],[\"a6a1\",\"Α\",16,\"Σ\",6],[\"a6c1\",\"α\",16,\"σ\",6],[\"a6e0\",\"︵︶︹︺︿﹀︽︾﹁﹂﹃﹄\"],[\"a6ee\",\"︻︼︷︸︱\"],[\"a6f4\",\"︳︴\"],[\"a7a1\",\"А\",5,\"ЁЖ\",25],[\"a7d1\",\"а\",5,\"ёж\",25],[\"a840\",\"ˊˋ˙–―‥‵℅℉↖↗↘↙∕∟∣≒≦≧⊿═\",35,\"▁\",6],[\"a880\",\"█\",7,\"▓▔▕▼▽◢◣◤◥☉⊕〒〝〞\"],[\"a8a1\",\"āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜüêɑ\"],[\"a8bd\",\"ńň\"],[\"a8c0\",\"ɡ\"],[\"a8c5\",\"ㄅ\",36],[\"a940\",\"〡\",8,\"㊣㎎㎏㎜㎝㎞㎡㏄㏎㏑㏒㏕︰￢￤\"],[\"a959\",\"℡㈱\"],[\"a95c\",\"‐\"],[\"a960\",\"ー゛゜ヽヾ〆ゝゞ﹉\",9,\"﹔﹕﹖﹗﹙\",8],[\"a980\",\"﹢\",4,\"﹨﹩﹪﹫\"],[\"a996\",\"〇\"],[\"a9a4\",\"─\",75],[\"aa40\",\"狜狝狟狢\",5,\"狪狫狵狶狹狽狾狿猀猂猄\",5,\"猋猌猍猏猐猑猒猔猘猙猚猟猠猣猤猦猧猨猭猯猰猲猳猵猶猺猻猼猽獀\",8],[\"aa80\",\"獉獊獋獌獎獏獑獓獔獕獖獘\",7,\"獡\",10,\"獮獰獱\"],[\"ab40\",\"獲\",11,\"獿\",4,\"玅玆玈玊玌玍玏玐玒玓玔玕玗玘玙玚玜玝玞玠玡玣\",5,\"玪玬玭玱玴玵玶玸玹玼玽玾玿珁珃\",4],[\"ab80\",\"珋珌珎珒\",6,\"珚珛珜珝珟珡珢珣珤珦珨珪珫珬珮珯珰珱珳\",4],[\"ac40\",\"珸\",10,\"琄琇琈琋琌琍琎琑\",8,\"琜\",5,\"琣琤琧琩琫琭琯琱琲琷\",4,\"琽琾琿瑀瑂\",11],[\"ac80\",\"瑎\",6,\"瑖瑘瑝瑠\",12,\"瑮瑯瑱\",4,\"瑸瑹瑺\"],[\"ad40\",\"瑻瑼瑽瑿璂璄璅璆璈璉璊璌璍璏璑\",10,\"璝璟\",7,\"璪\",15,\"璻\",12],[\"ad80\",\"瓈\",9,\"瓓\",8,\"瓝瓟瓡瓥瓧\",6,\"瓰瓱瓲\"],[\"ae40\",\"瓳瓵瓸\",6,\"甀甁甂甃甅\",7,\"甎甐甒甔甕甖甗甛甝甞甠\",4,\"甦甧甪甮甴甶甹甼甽甿畁畂畃畄畆畇畉畊畍畐畑畒畓畕畖畗畘\"],[\"ae80\",\"畝\",7,\"畧畨畩畫\",6,\"畳畵當畷畺\",4,\"疀疁疂疄疅疇\"],[\"af40\",\"疈疉疊疌疍疎疐疓疕疘疛疜疞疢疦\",4,\"疭疶疷疺疻疿痀痁痆痋痌痎痏痐痑痓痗痙痚痜痝痟痠痡痥痩痬痭痮痯痲痳痵痶痷痸痺痻痽痾瘂瘄瘆瘇\"],[\"af80\",\"瘈瘉瘋瘍瘎瘏瘑瘒瘓瘔瘖瘚瘜瘝瘞瘡瘣瘧瘨瘬瘮瘯瘱瘲瘶瘷瘹瘺瘻瘽癁療癄\"],[\"b040\",\"癅\",6,\"癎\",5,\"癕癗\",4,\"癝癟癠癡癢癤\",6,\"癬癭癮癰\",7,\"癹発發癿皀皁皃皅皉皊皌皍皏皐皒皔皕皗皘皚皛\"],[\"b080\",\"皜\",7,\"皥\",8,\"皯皰皳皵\",9,\"盀盁盃啊阿埃挨哎唉哀皑癌蔼矮艾碍爱隘鞍氨安俺按暗岸胺案肮昂盎凹敖熬翱袄傲奥懊澳芭捌扒叭吧笆八疤巴拔跋靶把耙坝霸罢爸白柏百摆佰败拜稗斑班搬扳般颁板版扮拌伴瓣半办绊邦帮梆榜膀绑棒磅蚌镑傍谤苞胞包褒剥\"],[\"b140\",\"盄盇盉盋盌盓盕盙盚盜盝盞盠\",4,\"盦\",7,\"盰盳盵盶盷盺盻盽盿眀眂眃眅眆眊県眎\",10,\"眛眜眝眞眡眣眤眥眧眪眫\"],[\"b180\",\"眬眮眰\",4,\"眹眻眽眾眿睂睄睅睆睈\",7,\"睒\",7,\"睜薄雹保堡饱宝抱报暴豹鲍爆杯碑悲卑北辈背贝钡倍狈备惫焙被奔苯本笨崩绷甭泵蹦迸逼鼻比鄙笔彼碧蓖蔽毕毙毖币庇痹闭敝弊必辟壁臂避陛鞭边编贬扁便变卞辨辩辫遍标彪膘表鳖憋别瘪彬斌濒滨宾摈兵冰柄丙秉饼炳\"],[\"b240\",\"睝睞睟睠睤睧睩睪睭\",11,\"睺睻睼瞁瞂瞃瞆\",5,\"瞏瞐瞓\",11,\"瞡瞣瞤瞦瞨瞫瞭瞮瞯瞱瞲瞴瞶\",4],[\"b280\",\"瞼瞾矀\",12,\"矎\",8,\"矘矙矚矝\",4,\"矤病并玻菠播拨钵波博勃搏铂箔伯帛舶脖膊渤泊驳捕卜哺补埠不布步簿部怖擦猜裁材才财睬踩采彩菜蔡餐参蚕残惭惨灿苍舱仓沧藏操糙槽曹草厕策侧册测层蹭插叉茬茶查碴搽察岔差诧拆柴豺搀掺蝉馋谗缠铲产阐颤昌猖\"],[\"b340\",\"矦矨矪矯矰矱矲矴矵矷矹矺矻矼砃\",5,\"砊砋砎砏砐砓砕砙砛砞砠砡砢砤砨砪砫砮砯砱砲砳砵砶砽砿硁硂硃硄硆硈硉硊硋硍硏硑硓硔硘硙硚\"],[\"b380\",\"硛硜硞\",11,\"硯\",7,\"硸硹硺硻硽\",6,\"场尝常长偿肠厂敞畅唱倡超抄钞朝嘲潮巢吵炒车扯撤掣彻澈郴臣辰尘晨忱沉陈趁衬撑称城橙成呈乘程惩澄诚承逞骋秤吃痴持匙池迟弛驰耻齿侈尺赤翅斥炽充冲虫崇宠抽酬畴踌稠愁筹仇绸瞅丑臭初出橱厨躇锄雏滁除楚\"],[\"b440\",\"碄碅碆碈碊碋碏碐碒碔碕碖碙碝碞碠碢碤碦碨\",7,\"碵碶碷碸確碻碼碽碿磀磂磃磄磆磇磈磌磍磎磏磑磒磓磖磗磘磚\",9],[\"b480\",\"磤磥磦磧磩磪磫磭\",4,\"磳磵磶磸磹磻\",5,\"礂礃礄礆\",6,\"础储矗搐触处揣川穿椽传船喘串疮窗幢床闯创吹炊捶锤垂春椿醇唇淳纯蠢戳绰疵茨磁雌辞慈瓷词此刺赐次聪葱囱匆从丛凑粗醋簇促蹿篡窜摧崔催脆瘁粹淬翠村存寸磋撮搓措挫错搭达答瘩打大呆歹傣戴带殆代贷袋待逮\"],[\"b540\",\"礍\",5,\"礔\",9,\"礟\",4,\"礥\",14,\"礵\",4,\"礽礿祂祃祄祅祇祊\",8,\"祔祕祘祙祡祣\"],[\"b580\",\"祤祦祩祪祫祬祮祰\",6,\"祹祻\",4,\"禂禃禆禇禈禉禋禌禍禎禐禑禒怠耽担丹单郸掸胆旦氮但惮淡诞弹蛋当挡党荡档刀捣蹈倒岛祷导到稻悼道盗德得的蹬灯登等瞪凳邓堤低滴迪敌笛狄涤翟嫡抵底地蒂第帝弟递缔颠掂滇碘点典靛垫电佃甸店惦奠淀殿碉叼雕凋刁掉吊钓调跌爹碟蝶迭谍叠\"],[\"b640\",\"禓\",6,\"禛\",11,\"禨\",10,\"禴\",4,\"禼禿秂秄秅秇秈秊秌秎秏秐秓秔秖秗秙\",5,\"秠秡秢秥秨秪\"],[\"b680\",\"秬秮秱\",6,\"秹秺秼秾秿稁稄稅稇稈稉稊稌稏\",4,\"稕稖稘稙稛稜丁盯叮钉顶鼎锭定订丢东冬董懂动栋侗恫冻洞兜抖斗陡豆逗痘都督毒犊独读堵睹赌杜镀肚度渡妒端短锻段断缎堆兑队对墩吨蹲敦顿囤钝盾遁掇哆多夺垛躲朵跺舵剁惰堕蛾峨鹅俄额讹娥恶厄扼遏鄂饿恩而儿耳尔饵洱二\"],[\"b740\",\"稝稟稡稢稤\",14,\"稴稵稶稸稺稾穀\",5,\"穇\",9,\"穒\",4,\"穘\",16],[\"b780\",\"穩\",6,\"穱穲穳穵穻穼穽穾窂窅窇窉窊窋窌窎窏窐窓窔窙窚窛窞窡窢贰发罚筏伐乏阀法珐藩帆番翻樊矾钒繁凡烦反返范贩犯饭泛坊芳方肪房防妨仿访纺放菲非啡飞肥匪诽吠肺废沸费芬酚吩氛分纷坟焚汾粉奋份忿愤粪丰封枫蜂峰锋风疯烽逢冯缝讽奉凤佛否夫敷肤孵扶拂辐幅氟符伏俘服\"],[\"b840\",\"窣窤窧窩窪窫窮\",4,\"窴\",10,\"竀\",10,\"竌\",9,\"竗竘竚竛竜竝竡竢竤竧\",5,\"竮竰竱竲竳\"],[\"b880\",\"竴\",4,\"竻竼竾笀笁笂笅笇笉笌笍笎笐笒笓笖笗笘笚笜笝笟笡笢笣笧笩笭浮涪福袱弗甫抚辅俯釜斧脯腑府腐赴副覆赋复傅付阜父腹负富讣附妇缚咐噶嘎该改概钙盖溉干甘杆柑竿肝赶感秆敢赣冈刚钢缸肛纲岗港杠篙皋高膏羔糕搞镐稿告哥歌搁戈鸽胳疙割革葛格蛤阁隔铬个各给根跟耕更庚羹\"],[\"b940\",\"笯笰笲笴笵笶笷笹笻笽笿\",5,\"筆筈筊筍筎筓筕筗筙筜筞筟筡筣\",10,\"筯筰筳筴筶筸筺筼筽筿箁箂箃箄箆\",6,\"箎箏\"],[\"b980\",\"箑箒箓箖箘箙箚箛箞箟箠箣箤箥箮箯箰箲箳箵箶箷箹\",7,\"篂篃範埂耿梗工攻功恭龚供躬公宫弓巩汞拱贡共钩勾沟苟狗垢构购够辜菇咕箍估沽孤姑鼓古蛊骨谷股故顾固雇刮瓜剐寡挂褂乖拐怪棺关官冠观管馆罐惯灌贯光广逛瑰规圭硅归龟闺轨鬼诡癸桂柜跪贵刽辊滚棍锅郭国果裹过哈\"],[\"ba40\",\"篅篈築篊篋篍篎篏篐篒篔\",4,\"篛篜篞篟篠篢篣篤篧篨篩篫篬篭篯篰篲\",4,\"篸篹篺篻篽篿\",7,\"簈簉簊簍簎簐\",5,\"簗簘簙\"],[\"ba80\",\"簚\",4,\"簠\",5,\"簨簩簫\",12,\"簹\",5,\"籂骸孩海氦亥害骇酣憨邯韩含涵寒函喊罕翰撼捍旱憾悍焊汗汉夯杭航壕嚎豪毫郝好耗号浩呵喝荷菏核禾和何合盒貉阂河涸赫褐鹤贺嘿黑痕很狠恨哼亨横衡恒轰哄烘虹鸿洪宏弘红喉侯猴吼厚候后呼乎忽瑚壶葫胡蝴狐糊湖\"],[\"bb40\",\"籃\",9,\"籎\",36,\"籵\",5,\"籾\",9],[\"bb80\",\"粈粊\",6,\"粓粔粖粙粚粛粠粡粣粦粧粨粩粫粬粭粯粰粴\",4,\"粺粻弧虎唬护互沪户花哗华猾滑画划化话槐徊怀淮坏欢环桓还缓换患唤痪豢焕涣宦幻荒慌黄磺蝗簧皇凰惶煌晃幌恍谎灰挥辉徽恢蛔回毁悔慧卉惠晦贿秽会烩汇讳诲绘荤昏婚魂浑混豁活伙火获或惑霍货祸击圾基机畸稽积箕\"],[\"bc40\",\"粿糀糂糃糄糆糉糋糎\",6,\"糘糚糛糝糞糡\",6,\"糩\",5,\"糰\",7,\"糹糺糼\",13,\"紋\",5],[\"bc80\",\"紑\",14,\"紡紣紤紥紦紨紩紪紬紭紮細\",6,\"肌饥迹激讥鸡姬绩缉吉极棘辑籍集及急疾汲即嫉级挤几脊己蓟技冀季伎祭剂悸济寄寂计记既忌际妓继纪嘉枷夹佳家加荚颊贾甲钾假稼价架驾嫁歼监坚尖笺间煎兼肩艰奸缄茧检柬碱硷拣捡简俭剪减荐槛鉴践贱见键箭件\"],[\"bd40\",\"紷\",54,\"絯\",7],[\"bd80\",\"絸\",32,\"健舰剑饯渐溅涧建僵姜将浆江疆蒋桨奖讲匠酱降蕉椒礁焦胶交郊浇骄娇嚼搅铰矫侥脚狡角饺缴绞剿教酵轿较叫窖揭接皆秸街阶截劫节桔杰捷睫竭洁结解姐戒藉芥界借介疥诫届巾筋斤金今津襟紧锦仅谨进靳晋禁近烬浸\"],[\"be40\",\"継\",12,\"綧\",6,\"綯\",42],[\"be80\",\"線\",32,\"尽劲荆兢茎睛晶鲸京惊精粳经井警景颈静境敬镜径痉靖竟竞净炯窘揪究纠玖韭久灸九酒厩救旧臼舅咎就疚鞠拘狙疽居驹菊局咀矩举沮聚拒据巨具距踞锯俱句惧炬剧捐鹃娟倦眷卷绢撅攫抉掘倔爵觉决诀绝均菌钧军君峻\"],[\"bf40\",\"緻\",62],[\"bf80\",\"縺縼\",4,\"繂\",4,\"繈\",21,\"俊竣浚郡骏喀咖卡咯开揩楷凯慨刊堪勘坎砍看康慷糠扛抗亢炕考拷烤靠坷苛柯棵磕颗科壳咳可渴克刻客课肯啃垦恳坑吭空恐孔控抠口扣寇枯哭窟苦酷库裤夸垮挎跨胯块筷侩快宽款匡筐狂框矿眶旷况亏盔岿窥葵奎魁傀\"],[\"c040\",\"繞\",35,\"纃\",23,\"纜纝纞\"],[\"c080\",\"纮纴纻纼绖绤绬绹缊缐缞缷缹缻\",6,\"罃罆\",9,\"罒罓馈愧溃坤昆捆困括扩廓阔垃拉喇蜡腊辣啦莱来赖蓝婪栏拦篮阑兰澜谰揽览懒缆烂滥琅榔狼廊郎朗浪捞劳牢老佬姥酪烙涝勒乐雷镭蕾磊累儡垒擂肋类泪棱楞冷厘梨犁黎篱狸离漓理李里鲤礼莉荔吏栗丽厉励砾历利傈例俐\"],[\"c140\",\"罖罙罛罜罝罞罠罣\",4,\"罫罬罭罯罰罳罵罶罷罸罺罻罼罽罿羀羂\",7,\"羋羍羏\",4,\"羕\",4,\"羛羜羠羢羣羥羦羨\",6,\"羱\"],[\"c180\",\"羳\",4,\"羺羻羾翀翂翃翄翆翇翈翉翋翍翏\",4,\"翖翗翙\",5,\"翢翣痢立粒沥隶力璃哩俩联莲连镰廉怜涟帘敛脸链恋炼练粮凉梁粱良两辆量晾亮谅撩聊僚疗燎寥辽潦了撂镣廖料列裂烈劣猎琳林磷霖临邻鳞淋凛赁吝拎玲菱零龄铃伶羚凌灵陵岭领另令溜琉榴硫馏留刘瘤流柳六龙聋咙笼窿\"],[\"c240\",\"翤翧翨翪翫翬翭翯翲翴\",6,\"翽翾翿耂耇耈耉耊耎耏耑耓耚耛耝耞耟耡耣耤耫\",5,\"耲耴耹耺耼耾聀聁聄聅聇聈聉聎聏聐聑聓聕聖聗\"],[\"c280\",\"聙聛\",13,\"聫\",5,\"聲\",11,\"隆垄拢陇楼娄搂篓漏陋芦卢颅庐炉掳卤虏鲁麓碌露路赂鹿潞禄录陆戮驴吕铝侣旅履屡缕虑氯律率滤绿峦挛孪滦卵乱掠略抡轮伦仑沦纶论萝螺罗逻锣箩骡裸落洛骆络妈麻玛码蚂马骂嘛吗埋买麦卖迈脉瞒馒蛮满蔓曼慢漫\"],[\"c340\",\"聾肁肂肅肈肊肍\",5,\"肔肕肗肙肞肣肦肧肨肬肰肳肵肶肸肹肻胅胇\",4,\"胏\",6,\"胘胟胠胢胣胦胮胵胷胹胻胾胿脀脁脃脄脅脇脈脋\"],[\"c380\",\"脌脕脗脙脛脜脝脟\",12,\"脭脮脰脳脴脵脷脹\",4,\"脿谩芒茫盲氓忙莽猫茅锚毛矛铆卯茂冒帽貌贸么玫枚梅酶霉煤没眉媒镁每美昧寐妹媚门闷们萌蒙檬盟锰猛梦孟眯醚靡糜迷谜弥米秘觅泌蜜密幂棉眠绵冕免勉娩缅面苗描瞄藐秒渺庙妙蔑灭民抿皿敏悯闽明螟鸣铭名命谬摸\"],[\"c440\",\"腀\",5,\"腇腉腍腎腏腒腖腗腘腛\",4,\"腡腢腣腤腦腨腪腫腬腯腲腳腵腶腷腸膁膃\",4,\"膉膋膌膍膎膐膒\",5,\"膙膚膞\",4,\"膤膥\"],[\"c480\",\"膧膩膫\",7,\"膴\",5,\"膼膽膾膿臄臅臇臈臉臋臍\",6,\"摹蘑模膜磨摩魔抹末莫墨默沫漠寞陌谋牟某拇牡亩姆母墓暮幕募慕木目睦牧穆拿哪呐钠那娜纳氖乃奶耐奈南男难囊挠脑恼闹淖呢馁内嫩能妮霓倪泥尼拟你匿腻逆溺蔫拈年碾撵捻念娘酿鸟尿捏聂孽啮镊镍涅您柠狞凝宁\"],[\"c540\",\"臔\",14,\"臤臥臦臨臩臫臮\",4,\"臵\",5,\"臽臿舃與\",4,\"舎舏舑舓舕\",5,\"舝舠舤舥舦舧舩舮舲舺舼舽舿\"],[\"c580\",\"艀艁艂艃艅艆艈艊艌艍艎艐\",7,\"艙艛艜艝艞艠\",7,\"艩拧泞牛扭钮纽脓浓农弄奴努怒女暖虐疟挪懦糯诺哦欧鸥殴藕呕偶沤啪趴爬帕怕琶拍排牌徘湃派攀潘盘磐盼畔判叛乓庞旁耪胖抛咆刨炮袍跑泡呸胚培裴赔陪配佩沛喷盆砰抨烹澎彭蓬棚硼篷膨朋鹏捧碰坯砒霹批披劈琵毗\"],[\"c640\",\"艪艫艬艭艱艵艶艷艸艻艼芀芁芃芅芆芇芉芌芐芓芔芕芖芚芛芞芠芢芣芧芲芵芶芺芻芼芿苀苂苃苅苆苉苐苖苙苚苝苢苧苨苩苪苬苭苮苰苲苳苵苶苸\"],[\"c680\",\"苺苼\",4,\"茊茋茍茐茒茓茖茘茙茝\",9,\"茩茪茮茰茲茷茻茽啤脾疲皮匹痞僻屁譬篇偏片骗飘漂瓢票撇瞥拼频贫品聘乒坪苹萍平凭瓶评屏坡泼颇婆破魄迫粕剖扑铺仆莆葡菩蒲埔朴圃普浦谱曝瀑期欺栖戚妻七凄漆柒沏其棋奇歧畦崎脐齐旗祈祁骑起岂乞企启契砌器气迄弃汽泣讫掐\"],[\"c740\",\"茾茿荁荂荄荅荈荊\",4,\"荓荕\",4,\"荝荢荰\",6,\"荹荺荾\",6,\"莇莈莊莋莌莍莏莐莑莔莕莖莗莙莚莝莟莡\",6,\"莬莭莮\"],[\"c780\",\"莯莵莻莾莿菂菃菄菆菈菉菋菍菎菐菑菒菓菕菗菙菚菛菞菢菣菤菦菧菨菫菬菭恰洽牵扦钎铅千迁签仟谦乾黔钱钳前潜遣浅谴堑嵌欠歉枪呛腔羌墙蔷强抢橇锹敲悄桥瞧乔侨巧鞘撬翘峭俏窍切茄且怯窃钦侵亲秦琴勤芹擒禽寝沁青轻氢倾卿清擎晴氰情顷请庆琼穷秋丘邱球求囚酋泅趋区蛆曲躯屈驱渠\"],[\"c840\",\"菮華菳\",4,\"菺菻菼菾菿萀萂萅萇萈萉萊萐萒\",5,\"萙萚萛萞\",5,\"萩\",7,\"萲\",5,\"萹萺萻萾\",7,\"葇葈葉\"],[\"c880\",\"葊\",6,\"葒\",4,\"葘葝葞葟葠葢葤\",4,\"葪葮葯葰葲葴葷葹葻葼取娶龋趣去圈颧权醛泉全痊拳犬券劝缺炔瘸却鹊榷确雀裙群然燃冉染瓤壤攘嚷让饶扰绕惹热壬仁人忍韧任认刃妊纫扔仍日戎茸蓉荣融熔溶容绒冗揉柔肉茹蠕儒孺如辱乳汝入褥软阮蕊瑞锐闰润若弱撒洒萨腮鳃塞赛三叁\"],[\"c940\",\"葽\",4,\"蒃蒄蒅蒆蒊蒍蒏\",7,\"蒘蒚蒛蒝蒞蒟蒠蒢\",12,\"蒰蒱蒳蒵蒶蒷蒻蒼蒾蓀蓂蓃蓅蓆蓇蓈蓋蓌蓎蓏蓒蓔蓕蓗\"],[\"c980\",\"蓘\",4,\"蓞蓡蓢蓤蓧\",4,\"蓭蓮蓯蓱\",10,\"蓽蓾蔀蔁蔂伞散桑嗓丧搔骚扫嫂瑟色涩森僧莎砂杀刹沙纱傻啥煞筛晒珊苫杉山删煽衫闪陕擅赡膳善汕扇缮墒伤商赏晌上尚裳梢捎稍烧芍勺韶少哨邵绍奢赊蛇舌舍赦摄射慑涉社设砷申呻伸身深娠绅神沈审婶甚肾慎渗声生甥牲升绳\"],[\"ca40\",\"蔃\",8,\"蔍蔎蔏蔐蔒蔔蔕蔖蔘蔙蔛蔜蔝蔞蔠蔢\",8,\"蔭\",9,\"蔾\",4,\"蕄蕅蕆蕇蕋\",10],[\"ca80\",\"蕗蕘蕚蕛蕜蕝蕟\",4,\"蕥蕦蕧蕩\",8,\"蕳蕵蕶蕷蕸蕼蕽蕿薀薁省盛剩胜圣师失狮施湿诗尸虱十石拾时什食蚀实识史矢使屎驶始式示士世柿事拭誓逝势是嗜噬适仕侍释饰氏市恃室视试收手首守寿授售受瘦兽蔬枢梳殊抒输叔舒淑疏书赎孰熟薯暑曙署蜀黍鼠属术述树束戍竖墅庶数漱\"],[\"cb40\",\"薂薃薆薈\",6,\"薐\",10,\"薝\",6,\"薥薦薧薩薫薬薭薱\",5,\"薸薺\",6,\"藂\",6,\"藊\",4,\"藑藒\"],[\"cb80\",\"藔藖\",5,\"藝\",6,\"藥藦藧藨藪\",14,\"恕刷耍摔衰甩帅栓拴霜双爽谁水睡税吮瞬顺舜说硕朔烁斯撕嘶思私司丝死肆寺嗣四伺似饲巳松耸怂颂送宋讼诵搜艘擞嗽苏酥俗素速粟僳塑溯宿诉肃酸蒜算虽隋随绥髓碎岁穗遂隧祟孙损笋蓑梭唆缩琐索锁所塌他它她塔\"],[\"cc40\",\"藹藺藼藽藾蘀\",4,\"蘆\",10,\"蘒蘓蘔蘕蘗\",15,\"蘨蘪\",13,\"蘹蘺蘻蘽蘾蘿虀\"],[\"cc80\",\"虁\",11,\"虒虓處\",4,\"虛虜虝號虠虡虣\",7,\"獭挞蹋踏胎苔抬台泰酞太态汰坍摊贪瘫滩坛檀痰潭谭谈坦毯袒碳探叹炭汤塘搪堂棠膛唐糖倘躺淌趟烫掏涛滔绦萄桃逃淘陶讨套特藤腾疼誊梯剔踢锑提题蹄啼体替嚏惕涕剃屉天添填田甜恬舔腆挑条迢眺跳贴铁帖厅听烃\"],[\"cd40\",\"虭虯虰虲\",6,\"蚃\",6,\"蚎\",4,\"蚔蚖\",5,\"蚞\",4,\"蚥蚦蚫蚭蚮蚲蚳蚷蚸蚹蚻\",4,\"蛁蛂蛃蛅蛈蛌蛍蛒蛓蛕蛖蛗蛚蛜\"],[\"cd80\",\"蛝蛠蛡蛢蛣蛥蛦蛧蛨蛪蛫蛬蛯蛵蛶蛷蛺蛻蛼蛽蛿蜁蜄蜅蜆蜋蜌蜎蜏蜐蜑蜔蜖汀廷停亭庭挺艇通桐酮瞳同铜彤童桶捅筒统痛偷投头透凸秃突图徒途涂屠土吐兔湍团推颓腿蜕褪退吞屯臀拖托脱鸵陀驮驼椭妥拓唾挖哇蛙洼娃瓦袜歪外豌弯湾玩顽丸烷完碗挽晚皖惋宛婉万腕汪王亡枉网往旺望忘妄威\"],[\"ce40\",\"蜙蜛蜝蜟蜠蜤蜦蜧蜨蜪蜫蜬蜭蜯蜰蜲蜳蜵蜶蜸蜹蜺蜼蜽蝀\",6,\"蝊蝋蝍蝏蝐蝑蝒蝔蝕蝖蝘蝚\",5,\"蝡蝢蝦\",7,\"蝯蝱蝲蝳蝵\"],[\"ce80\",\"蝷蝸蝹蝺蝿螀螁螄螆螇螉螊螌螎\",4,\"螔螕螖螘\",6,\"螠\",4,\"巍微危韦违桅围唯惟为潍维苇萎委伟伪尾纬未蔚味畏胃喂魏位渭谓尉慰卫瘟温蚊文闻纹吻稳紊问嗡翁瓮挝蜗涡窝我斡卧握沃巫呜钨乌污诬屋无芜梧吾吴毋武五捂午舞伍侮坞戊雾晤物勿务悟误昔熙析西硒矽晰嘻吸锡牺\"],[\"cf40\",\"螥螦螧螩螪螮螰螱螲螴螶螷螸螹螻螼螾螿蟁\",4,\"蟇蟈蟉蟌\",4,\"蟔\",6,\"蟜蟝蟞蟟蟡蟢蟣蟤蟦蟧蟨蟩蟫蟬蟭蟯\",9],[\"cf80\",\"蟺蟻蟼蟽蟿蠀蠁蠂蠄\",5,\"蠋\",7,\"蠔蠗蠘蠙蠚蠜\",4,\"蠣稀息希悉膝夕惜熄烯溪汐犀檄袭席习媳喜铣洗系隙戏细瞎虾匣霞辖暇峡侠狭下厦夏吓掀锨先仙鲜纤咸贤衔舷闲涎弦嫌显险现献县腺馅羡宪陷限线相厢镶香箱襄湘乡翔祥详想响享项巷橡像向象萧硝霄削哮嚣销消宵淆晓\"],[\"d040\",\"蠤\",13,\"蠳\",5,\"蠺蠻蠽蠾蠿衁衂衃衆\",5,\"衎\",5,\"衕衖衘衚\",6,\"衦衧衪衭衯衱衳衴衵衶衸衹衺\"],[\"d080\",\"衻衼袀袃袆袇袉袊袌袎袏袐袑袓袔袕袗\",4,\"袝\",4,\"袣袥\",5,\"小孝校肖啸笑效楔些歇蝎鞋协挟携邪斜胁谐写械卸蟹懈泄泻谢屑薪芯锌欣辛新忻心信衅星腥猩惺兴刑型形邢行醒幸杏性姓兄凶胸匈汹雄熊休修羞朽嗅锈秀袖绣墟戌需虚嘘须徐许蓄酗叙旭序畜恤絮婿绪续轩喧宣悬旋玄\"],[\"d140\",\"袬袮袯袰袲\",4,\"袸袹袺袻袽袾袿裀裃裄裇裈裊裋裌裍裏裐裑裓裖裗裚\",4,\"裠裡裦裧裩\",6,\"裲裵裶裷裺裻製裿褀褁褃\",5],[\"d180\",\"褉褋\",4,\"褑褔\",4,\"褜\",4,\"褢褣褤褦褧褨褩褬褭褮褯褱褲褳褵褷选癣眩绚靴薛学穴雪血勋熏循旬询寻驯巡殉汛训讯逊迅压押鸦鸭呀丫芽牙蚜崖衙涯雅哑亚讶焉咽阉烟淹盐严研蜒岩延言颜阎炎沿奄掩眼衍演艳堰燕厌砚雁唁彦焰宴谚验殃央鸯秧杨扬佯疡羊洋阳氧仰痒养样漾邀腰妖瑶\"],[\"d240\",\"褸\",8,\"襂襃襅\",24,\"襠\",5,\"襧\",19,\"襼\"],[\"d280\",\"襽襾覀覂覄覅覇\",26,\"摇尧遥窑谣姚咬舀药要耀椰噎耶爷野冶也页掖业叶曳腋夜液一壹医揖铱依伊衣颐夷遗移仪胰疑沂宜姨彝椅蚁倚已乙矣以艺抑易邑屹亿役臆逸肄疫亦裔意毅忆义益溢诣议谊译异翼翌绎茵荫因殷音阴姻吟银淫寅饮尹引隐\"],[\"d340\",\"覢\",30,\"觃觍觓觔觕觗觘觙觛觝觟觠觡觢觤觧觨觩觪觬觭觮觰觱觲觴\",6],[\"d380\",\"觻\",4,\"訁\",5,\"計\",21,\"印英樱婴鹰应缨莹萤营荧蝇迎赢盈影颖硬映哟拥佣臃痈庸雍踊蛹咏泳涌永恿勇用幽优悠忧尤由邮铀犹油游酉有友右佑釉诱又幼迂淤于盂榆虞愚舆余俞逾鱼愉渝渔隅予娱雨与屿禹宇语羽玉域芋郁吁遇喻峪御愈欲狱育誉\"],[\"d440\",\"訞\",31,\"訿\",8,\"詉\",21],[\"d480\",\"詟\",25,\"詺\",6,\"浴寓裕预豫驭鸳渊冤元垣袁原援辕园员圆猿源缘远苑愿怨院曰约越跃钥岳粤月悦阅耘云郧匀陨允运蕴酝晕韵孕匝砸杂栽哉灾宰载再在咱攒暂赞赃脏葬遭糟凿藻枣早澡蚤躁噪造皂灶燥责择则泽贼怎增憎曾赠扎喳渣札轧\"],[\"d540\",\"誁\",7,\"誋\",7,\"誔\",46],[\"d580\",\"諃\",32,\"铡闸眨栅榨咋乍炸诈摘斋宅窄债寨瞻毡詹粘沾盏斩辗崭展蘸栈占战站湛绽樟章彰漳张掌涨杖丈帐账仗胀瘴障招昭找沼赵照罩兆肇召遮折哲蛰辙者锗蔗这浙珍斟真甄砧臻贞针侦枕疹诊震振镇阵蒸挣睁征狰争怔整拯正政\"],[\"d640\",\"諤\",34,\"謈\",27],[\"d680\",\"謤謥謧\",30,\"帧症郑证芝枝支吱蜘知肢脂汁之织职直植殖执值侄址指止趾只旨纸志挚掷至致置帜峙制智秩稚质炙痔滞治窒中盅忠钟衷终种肿重仲众舟周州洲诌粥轴肘帚咒皱宙昼骤珠株蛛朱猪诸诛逐竹烛煮拄瞩嘱主著柱助蛀贮铸筑\"],[\"d740\",\"譆\",31,\"譧\",4,\"譭\",25],[\"d780\",\"讇\",24,\"讬讱讻诇诐诪谉谞住注祝驻抓爪拽专砖转撰赚篆桩庄装妆撞壮状椎锥追赘坠缀谆准捉拙卓桌琢茁酌啄着灼浊兹咨资姿滋淄孜紫仔籽滓子自渍字鬃棕踪宗综总纵邹走奏揍租足卒族祖诅阻组钻纂嘴醉最罪尊遵昨左佐柞做作坐座\"],[\"d840\",\"谸\",8,\"豂豃豄豅豈豊豋豍\",7,\"豖豗豘豙豛\",5,\"豣\",6,\"豬\",6,\"豴豵豶豷豻\",6,\"貃貄貆貇\"],[\"d880\",\"貈貋貍\",6,\"貕貖貗貙\",20,\"亍丌兀丐廿卅丕亘丞鬲孬噩丨禺丿匕乇夭爻卮氐囟胤馗毓睾鼗丶亟鼐乜乩亓芈孛啬嘏仄厍厝厣厥厮靥赝匚叵匦匮匾赜卦卣刂刈刎刭刳刿剀剌剞剡剜蒯剽劂劁劐劓冂罔亻仃仉仂仨仡仫仞伛仳伢佤仵伥伧伉伫佞佧攸佚佝\"],[\"d940\",\"貮\",62],[\"d980\",\"賭\",32,\"佟佗伲伽佶佴侑侉侃侏佾佻侪佼侬侔俦俨俪俅俚俣俜俑俟俸倩偌俳倬倏倮倭俾倜倌倥倨偾偃偕偈偎偬偻傥傧傩傺僖儆僭僬僦僮儇儋仝氽佘佥俎龠汆籴兮巽黉馘冁夔勹匍訇匐凫夙兕亠兖亳衮袤亵脔裒禀嬴蠃羸冫冱冽冼\"],[\"da40\",\"贎\",14,\"贠赑赒赗赟赥赨赩赪赬赮赯赱赲赸\",8,\"趂趃趆趇趈趉趌\",4,\"趒趓趕\",9,\"趠趡\"],[\"da80\",\"趢趤\",12,\"趲趶趷趹趻趽跀跁跂跅跇跈跉跊跍跐跒跓跔凇冖冢冥讠讦讧讪讴讵讷诂诃诋诏诎诒诓诔诖诘诙诜诟诠诤诨诩诮诰诳诶诹诼诿谀谂谄谇谌谏谑谒谔谕谖谙谛谘谝谟谠谡谥谧谪谫谮谯谲谳谵谶卩卺阝阢阡阱阪阽阼陂陉陔陟陧陬陲陴隈隍隗隰邗邛邝邙邬邡邴邳邶邺\"],[\"db40\",\"跕跘跙跜跠跡跢跥跦跧跩跭跮跰跱跲跴跶跼跾\",6,\"踆踇踈踋踍踎踐踑踒踓踕\",7,\"踠踡踤\",4,\"踫踭踰踲踳踴踶踷踸踻踼踾\"],[\"db80\",\"踿蹃蹅蹆蹌\",4,\"蹓\",5,\"蹚\",11,\"蹧蹨蹪蹫蹮蹱邸邰郏郅邾郐郄郇郓郦郢郜郗郛郫郯郾鄄鄢鄞鄣鄱鄯鄹酃酆刍奂劢劬劭劾哿勐勖勰叟燮矍廴凵凼鬯厶弁畚巯坌垩垡塾墼壅壑圩圬圪圳圹圮圯坜圻坂坩垅坫垆坼坻坨坭坶坳垭垤垌垲埏垧垴垓垠埕埘埚埙埒垸埴埯埸埤埝\"],[\"dc40\",\"蹳蹵蹷\",4,\"蹽蹾躀躂躃躄躆躈\",6,\"躑躒躓躕\",6,\"躝躟\",11,\"躭躮躰躱躳\",6,\"躻\",7],[\"dc80\",\"軃\",10,\"軏\",21,\"堋堍埽埭堀堞堙塄堠塥塬墁墉墚墀馨鼙懿艹艽艿芏芊芨芄芎芑芗芙芫芸芾芰苈苊苣芘芷芮苋苌苁芩芴芡芪芟苄苎芤苡茉苷苤茏茇苜苴苒苘茌苻苓茑茚茆茔茕苠苕茜荑荛荜茈莒茼茴茱莛荞茯荏荇荃荟荀茗荠茭茺茳荦荥\"],[\"dd40\",\"軥\",62],[\"dd80\",\"輤\",32,\"荨茛荩荬荪荭荮莰荸莳莴莠莪莓莜莅荼莶莩荽莸荻莘莞莨莺莼菁萁菥菘堇萘萋菝菽菖萜萸萑萆菔菟萏萃菸菹菪菅菀萦菰菡葜葑葚葙葳蒇蒈葺蒉葸萼葆葩葶蒌蒎萱葭蓁蓍蓐蓦蒽蓓蓊蒿蒺蓠蒡蒹蒴蒗蓥蓣蔌甍蔸蓰蔹蔟蔺\"],[\"de40\",\"轅\",32,\"轪辀辌辒辝辠辡辢辤辥辦辧辪辬辭辮辯農辳辴辵辷辸辺辻込辿迀迃迆\"],[\"de80\",\"迉\",4,\"迏迒迖迗迚迠迡迣迧迬迯迱迲迴迵迶迺迻迼迾迿逇逈逌逎逓逕逘蕖蔻蓿蓼蕙蕈蕨蕤蕞蕺瞢蕃蕲蕻薤薨薇薏蕹薮薜薅薹薷薰藓藁藜藿蘧蘅蘩蘖蘼廾弈夼奁耷奕奚奘匏尢尥尬尴扌扪抟抻拊拚拗拮挢拶挹捋捃掭揶捱捺掎掴捭掬掊捩掮掼揲揸揠揿揄揞揎摒揆掾摅摁搋搛搠搌搦搡摞撄摭撖\"],[\"df40\",\"這逜連逤逥逧\",5,\"逰\",4,\"逷逹逺逽逿遀遃遅遆遈\",4,\"過達違遖遙遚遜\",5,\"遤遦遧適遪遫遬遯\",4,\"遶\",6,\"遾邁\"],[\"df80\",\"還邅邆邇邉邊邌\",4,\"邒邔邖邘邚邜邞邟邠邤邥邧邨邩邫邭邲邷邼邽邿郀摺撷撸撙撺擀擐擗擤擢攉攥攮弋忒甙弑卟叱叽叩叨叻吒吖吆呋呒呓呔呖呃吡呗呙吣吲咂咔呷呱呤咚咛咄呶呦咝哐咭哂咴哒咧咦哓哔呲咣哕咻咿哌哙哚哜咩咪咤哝哏哞唛哧唠哽唔哳唢唣唏唑唧唪啧喏喵啉啭啁啕唿啐唼\"],[\"e040\",\"郂郃郆郈郉郋郌郍郒郔郕郖郘郙郚郞郟郠郣郤郥郩郪郬郮郰郱郲郳郵郶郷郹郺郻郼郿鄀鄁鄃鄅\",19,\"鄚鄛鄜\"],[\"e080\",\"鄝鄟鄠鄡鄤\",10,\"鄰鄲\",6,\"鄺\",8,\"酄唷啖啵啶啷唳唰啜喋嗒喃喱喹喈喁喟啾嗖喑啻嗟喽喾喔喙嗪嗷嗉嘟嗑嗫嗬嗔嗦嗝嗄嗯嗥嗲嗳嗌嗍嗨嗵嗤辔嘞嘈嘌嘁嘤嘣嗾嘀嘧嘭噘嘹噗嘬噍噢噙噜噌噔嚆噤噱噫噻噼嚅嚓嚯囔囗囝囡囵囫囹囿圄圊圉圜帏帙帔帑帱帻帼\"],[\"e140\",\"酅酇酈酑酓酔酕酖酘酙酛酜酟酠酦酧酨酫酭酳酺酻酼醀\",4,\"醆醈醊醎醏醓\",6,\"醜\",5,\"醤\",5,\"醫醬醰醱醲醳醶醷醸醹醻\"],[\"e180\",\"醼\",10,\"釈釋釐釒\",9,\"針\",8,\"帷幄幔幛幞幡岌屺岍岐岖岈岘岙岑岚岜岵岢岽岬岫岱岣峁岷峄峒峤峋峥崂崃崧崦崮崤崞崆崛嵘崾崴崽嵬嵛嵯嵝嵫嵋嵊嵩嵴嶂嶙嶝豳嶷巅彳彷徂徇徉後徕徙徜徨徭徵徼衢彡犭犰犴犷犸狃狁狎狍狒狨狯狩狲狴狷猁狳猃狺\"],[\"e240\",\"釦\",62],[\"e280\",\"鈥\",32,\"狻猗猓猡猊猞猝猕猢猹猥猬猸猱獐獍獗獠獬獯獾舛夥飧夤夂饣饧\",5,\"饴饷饽馀馄馇馊馍馐馑馓馔馕庀庑庋庖庥庠庹庵庾庳赓廒廑廛廨廪膺忄忉忖忏怃忮怄忡忤忾怅怆忪忭忸怙怵怦怛怏怍怩怫怊怿怡恸恹恻恺恂\"],[\"e340\",\"鉆\",45,\"鉵\",16],[\"e380\",\"銆\",7,\"銏\",24,\"恪恽悖悚悭悝悃悒悌悛惬悻悱惝惘惆惚悴愠愦愕愣惴愀愎愫慊慵憬憔憧憷懔懵忝隳闩闫闱闳闵闶闼闾阃阄阆阈阊阋阌阍阏阒阕阖阗阙阚丬爿戕氵汔汜汊沣沅沐沔沌汨汩汴汶沆沩泐泔沭泷泸泱泗沲泠泖泺泫泮沱泓泯泾\"],[\"e440\",\"銨\",5,\"銯\",24,\"鋉\",31],[\"e480\",\"鋩\",32,\"洹洧洌浃浈洇洄洙洎洫浍洮洵洚浏浒浔洳涑浯涞涠浞涓涔浜浠浼浣渚淇淅淞渎涿淠渑淦淝淙渖涫渌涮渫湮湎湫溲湟溆湓湔渲渥湄滟溱溘滠漭滢溥溧溽溻溷滗溴滏溏滂溟潢潆潇漤漕滹漯漶潋潴漪漉漩澉澍澌潸潲潼潺濑\"],[\"e540\",\"錊\",51,\"錿\",10],[\"e580\",\"鍊\",31,\"鍫濉澧澹澶濂濡濮濞濠濯瀚瀣瀛瀹瀵灏灞宀宄宕宓宥宸甯骞搴寤寮褰寰蹇謇辶迓迕迥迮迤迩迦迳迨逅逄逋逦逑逍逖逡逵逶逭逯遄遑遒遐遨遘遢遛暹遴遽邂邈邃邋彐彗彖彘尻咫屐屙孱屣屦羼弪弩弭艴弼鬻屮妁妃妍妩妪妣\"],[\"e640\",\"鍬\",34,\"鎐\",27],[\"e680\",\"鎬\",29,\"鏋鏌鏍妗姊妫妞妤姒妲妯姗妾娅娆姝娈姣姘姹娌娉娲娴娑娣娓婀婧婊婕娼婢婵胬媪媛婷婺媾嫫媲嫒嫔媸嫠嫣嫱嫖嫦嫘嫜嬉嬗嬖嬲嬷孀尕尜孚孥孳孑孓孢驵驷驸驺驿驽骀骁骅骈骊骐骒骓骖骘骛骜骝骟骠骢骣骥骧纟纡纣纥纨纩\"],[\"e740\",\"鏎\",7,\"鏗\",54],[\"e780\",\"鐎\",32,\"纭纰纾绀绁绂绉绋绌绐绔绗绛绠绡绨绫绮绯绱绲缍绶绺绻绾缁缂缃缇缈缋缌缏缑缒缗缙缜缛缟缡\",6,\"缪缫缬缭缯\",4,\"缵幺畿巛甾邕玎玑玮玢玟珏珂珑玷玳珀珉珈珥珙顼琊珩珧珞玺珲琏琪瑛琦琥琨琰琮琬\"],[\"e840\",\"鐯\",14,\"鐿\",43,\"鑬鑭鑮鑯\"],[\"e880\",\"鑰\",20,\"钑钖钘铇铏铓铔铚铦铻锜锠琛琚瑁瑜瑗瑕瑙瑷瑭瑾璜璎璀璁璇璋璞璨璩璐璧瓒璺韪韫韬杌杓杞杈杩枥枇杪杳枘枧杵枨枞枭枋杷杼柰栉柘栊柩枰栌柙枵柚枳柝栀柃枸柢栎柁柽栲栳桠桡桎桢桄桤梃栝桕桦桁桧桀栾桊桉栩梵梏桴桷梓桫棂楮棼椟椠棹\"],[\"e940\",\"锧锳锽镃镈镋镕镚镠镮镴镵長\",7,\"門\",42],[\"e980\",\"閫\",32,\"椤棰椋椁楗棣椐楱椹楠楂楝榄楫榀榘楸椴槌榇榈槎榉楦楣楹榛榧榻榫榭槔榱槁槊槟榕槠榍槿樯槭樗樘橥槲橄樾檠橐橛樵檎橹樽樨橘橼檑檐檩檗檫猷獒殁殂殇殄殒殓殍殚殛殡殪轫轭轱轲轳轵轶轸轷轹轺轼轾辁辂辄辇辋\"],[\"ea40\",\"闌\",27,\"闬闿阇阓阘阛阞阠阣\",6,\"阫阬阭阯阰阷阸阹阺阾陁陃陊陎陏陑陒陓陖陗\"],[\"ea80\",\"陘陙陚陜陝陞陠陣陥陦陫陭\",4,\"陳陸\",12,\"隇隉隊辍辎辏辘辚軎戋戗戛戟戢戡戥戤戬臧瓯瓴瓿甏甑甓攴旮旯旰昊昙杲昃昕昀炅曷昝昴昱昶昵耆晟晔晁晏晖晡晗晷暄暌暧暝暾曛曜曦曩贲贳贶贻贽赀赅赆赈赉赇赍赕赙觇觊觋觌觎觏觐觑牮犟牝牦牯牾牿犄犋犍犏犒挈挲掰\"],[\"eb40\",\"隌階隑隒隓隕隖隚際隝\",9,\"隨\",7,\"隱隲隴隵隷隸隺隻隿雂雃雈雊雋雐雑雓雔雖\",9,\"雡\",6,\"雫\"],[\"eb80\",\"雬雭雮雰雱雲雴雵雸雺電雼雽雿霂霃霅霊霋霌霐霑霒霔霕霗\",4,\"霝霟霠搿擘耄毪毳毽毵毹氅氇氆氍氕氘氙氚氡氩氤氪氲攵敕敫牍牒牖爰虢刖肟肜肓肼朊肽肱肫肭肴肷胧胨胩胪胛胂胄胙胍胗朐胝胫胱胴胭脍脎胲胼朕脒豚脶脞脬脘脲腈腌腓腴腙腚腱腠腩腼腽腭腧塍媵膈膂膑滕膣膪臌朦臊膻\"],[\"ec40\",\"霡\",8,\"霫霬霮霯霱霳\",4,\"霺霻霼霽霿\",18,\"靔靕靗靘靚靜靝靟靣靤靦靧靨靪\",7],[\"ec80\",\"靲靵靷\",4,\"靽\",7,\"鞆\",4,\"鞌鞎鞏鞐鞓鞕鞖鞗鞙\",4,\"臁膦欤欷欹歃歆歙飑飒飓飕飙飚殳彀毂觳斐齑斓於旆旄旃旌旎旒旖炀炜炖炝炻烀炷炫炱烨烊焐焓焖焯焱煳煜煨煅煲煊煸煺熘熳熵熨熠燠燔燧燹爝爨灬焘煦熹戾戽扃扈扉礻祀祆祉祛祜祓祚祢祗祠祯祧祺禅禊禚禧禳忑忐\"],[\"ed40\",\"鞞鞟鞡鞢鞤\",6,\"鞬鞮鞰鞱鞳鞵\",46],[\"ed80\",\"韤韥韨韮\",4,\"韴韷\",23,\"怼恝恚恧恁恙恣悫愆愍慝憩憝懋懑戆肀聿沓泶淼矶矸砀砉砗砘砑斫砭砜砝砹砺砻砟砼砥砬砣砩硎硭硖硗砦硐硇硌硪碛碓碚碇碜碡碣碲碹碥磔磙磉磬磲礅磴礓礤礞礴龛黹黻黼盱眄眍盹眇眈眚眢眙眭眦眵眸睐睑睇睃睚睨\"],[\"ee40\",\"頏\",62],[\"ee80\",\"顎\",32,\"睢睥睿瞍睽瞀瞌瞑瞟瞠瞰瞵瞽町畀畎畋畈畛畲畹疃罘罡罟詈罨罴罱罹羁罾盍盥蠲钅钆钇钋钊钌钍钏钐钔钗钕钚钛钜钣钤钫钪钭钬钯钰钲钴钶\",4,\"钼钽钿铄铈\",6,\"铐铑铒铕铖铗铙铘铛铞铟铠铢铤铥铧铨铪\"],[\"ef40\",\"顯\",5,\"颋颎颒颕颙颣風\",37,\"飏飐飔飖飗飛飜飝飠\",4],[\"ef80\",\"飥飦飩\",30,\"铩铫铮铯铳铴铵铷铹铼铽铿锃锂锆锇锉锊锍锎锏锒\",4,\"锘锛锝锞锟锢锪锫锩锬锱锲锴锶锷锸锼锾锿镂锵镄镅镆镉镌镎镏镒镓镔镖镗镘镙镛镞镟镝镡镢镤\",8,\"镯镱镲镳锺矧矬雉秕秭秣秫稆嵇稃稂稞稔\"],[\"f040\",\"餈\",4,\"餎餏餑\",28,\"餯\",26],[\"f080\",\"饊\",9,\"饖\",12,\"饤饦饳饸饹饻饾馂馃馉稹稷穑黏馥穰皈皎皓皙皤瓞瓠甬鸠鸢鸨\",4,\"鸲鸱鸶鸸鸷鸹鸺鸾鹁鹂鹄鹆鹇鹈鹉鹋鹌鹎鹑鹕鹗鹚鹛鹜鹞鹣鹦\",6,\"鹱鹭鹳疒疔疖疠疝疬疣疳疴疸痄疱疰痃痂痖痍痣痨痦痤痫痧瘃痱痼痿瘐瘀瘅瘌瘗瘊瘥瘘瘕瘙\"],[\"f140\",\"馌馎馚\",10,\"馦馧馩\",47],[\"f180\",\"駙\",32,\"瘛瘼瘢瘠癀瘭瘰瘿瘵癃瘾瘳癍癞癔癜癖癫癯翊竦穸穹窀窆窈窕窦窠窬窨窭窳衤衩衲衽衿袂袢裆袷袼裉裢裎裣裥裱褚裼裨裾裰褡褙褓褛褊褴褫褶襁襦襻疋胥皲皴矜耒耔耖耜耠耢耥耦耧耩耨耱耋耵聃聆聍聒聩聱覃顸颀颃\"],[\"f240\",\"駺\",62],[\"f280\",\"騹\",32,\"颉颌颍颏颔颚颛颞颟颡颢颥颦虍虔虬虮虿虺虼虻蚨蚍蚋蚬蚝蚧蚣蚪蚓蚩蚶蛄蚵蛎蚰蚺蚱蚯蛉蛏蚴蛩蛱蛲蛭蛳蛐蜓蛞蛴蛟蛘蛑蜃蜇蛸蜈蜊蜍蜉蜣蜻蜞蜥蜮蜚蜾蝈蜴蜱蜩蜷蜿螂蜢蝽蝾蝻蝠蝰蝌蝮螋蝓蝣蝼蝤蝙蝥螓螯螨蟒\"],[\"f340\",\"驚\",17,\"驲骃骉骍骎骔骕骙骦骩\",6,\"骲骳骴骵骹骻骽骾骿髃髄髆\",4,\"髍髎髏髐髒體髕髖髗髙髚髛髜\"],[\"f380\",\"髝髞髠髢髣髤髥髧髨髩髪髬髮髰\",8,\"髺髼\",6,\"鬄鬅鬆蟆螈螅螭螗螃螫蟥螬螵螳蟋蟓螽蟑蟀蟊蟛蟪蟠蟮蠖蠓蟾蠊蠛蠡蠹蠼缶罂罄罅舐竺竽笈笃笄笕笊笫笏筇笸笪笙笮笱笠笥笤笳笾笞筘筚筅筵筌筝筠筮筻筢筲筱箐箦箧箸箬箝箨箅箪箜箢箫箴篑篁篌篝篚篥篦篪簌篾篼簏簖簋\"],[\"f440\",\"鬇鬉\",5,\"鬐鬑鬒鬔\",10,\"鬠鬡鬢鬤\",10,\"鬰鬱鬳\",7,\"鬽鬾鬿魀魆魊魋魌魎魐魒魓魕\",5],[\"f480\",\"魛\",32,\"簟簪簦簸籁籀臾舁舂舄臬衄舡舢舣舭舯舨舫舸舻舳舴舾艄艉艋艏艚艟艨衾袅袈裘裟襞羝羟羧羯羰羲籼敉粑粝粜粞粢粲粼粽糁糇糌糍糈糅糗糨艮暨羿翎翕翥翡翦翩翮翳糸絷綦綮繇纛麸麴赳趄趔趑趱赧赭豇豉酊酐酎酏酤\"],[\"f540\",\"魼\",62],[\"f580\",\"鮻\",32,\"酢酡酰酩酯酽酾酲酴酹醌醅醐醍醑醢醣醪醭醮醯醵醴醺豕鹾趸跫踅蹙蹩趵趿趼趺跄跖跗跚跞跎跏跛跆跬跷跸跣跹跻跤踉跽踔踝踟踬踮踣踯踺蹀踹踵踽踱蹉蹁蹂蹑蹒蹊蹰蹶蹼蹯蹴躅躏躔躐躜躞豸貂貊貅貘貔斛觖觞觚觜\"],[\"f640\",\"鯜\",62],[\"f680\",\"鰛\",32,\"觥觫觯訾謦靓雩雳雯霆霁霈霏霎霪霭霰霾龀龃龅\",5,\"龌黾鼋鼍隹隼隽雎雒瞿雠銎銮鋈錾鍪鏊鎏鐾鑫鱿鲂鲅鲆鲇鲈稣鲋鲎鲐鲑鲒鲔鲕鲚鲛鲞\",5,\"鲥\",4,\"鲫鲭鲮鲰\",7,\"鲺鲻鲼鲽鳄鳅鳆鳇鳊鳋\"],[\"f740\",\"鰼\",62],[\"f780\",\"鱻鱽鱾鲀鲃鲄鲉鲊鲌鲏鲓鲖鲗鲘鲙鲝鲪鲬鲯鲹鲾\",4,\"鳈鳉鳑鳒鳚鳛鳠鳡鳌\",4,\"鳓鳔鳕鳗鳘鳙鳜鳝鳟鳢靼鞅鞑鞒鞔鞯鞫鞣鞲鞴骱骰骷鹘骶骺骼髁髀髅髂髋髌髑魅魃魇魉魈魍魑飨餍餮饕饔髟髡髦髯髫髻髭髹鬈鬏鬓鬟鬣麽麾縻麂麇麈麋麒鏖麝麟黛黜黝黠黟黢黩黧黥黪黯鼢鼬鼯鼹鼷鼽鼾齄\"],[\"f840\",\"鳣\",62],[\"f880\",\"鴢\",32],[\"f940\",\"鵃\",62],[\"f980\",\"鶂\",32],[\"fa40\",\"鶣\",62],[\"fa80\",\"鷢\",32],[\"fb40\",\"鸃\",27,\"鸤鸧鸮鸰鸴鸻鸼鹀鹍鹐鹒鹓鹔鹖鹙鹝鹟鹠鹡鹢鹥鹮鹯鹲鹴\",9,\"麀\"],[\"fb80\",\"麁麃麄麅麆麉麊麌\",5,\"麔\",8,\"麞麠\",5,\"麧麨麩麪\"],[\"fc40\",\"麫\",8,\"麵麶麷麹麺麼麿\",4,\"黅黆黇黈黊黋黌黐黒黓黕黖黗黙黚點黡黣黤黦黨黫黬黭黮黰\",8,\"黺黽黿\",6],[\"fc80\",\"鼆\",4,\"鼌鼏鼑鼒鼔鼕鼖鼘鼚\",5,\"鼡鼣\",8,\"鼭鼮鼰鼱\"],[\"fd40\",\"鼲\",4,\"鼸鼺鼼鼿\",4,\"齅\",10,\"齒\",38],[\"fd80\",\"齹\",5,\"龁龂龍\",11,\"龜龝龞龡\",4,\"郎凉秊裏隣\"],[\"fe40\",\"兀嗀﨎﨏﨑﨓﨔礼﨟蘒﨡﨣﨤﨧﨨﨩\"]]");
 
 /***/ }),
-/* 131 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayLikeToArray = __webpack_require__(195);
+var arrayLikeToArray = __webpack_require__(196);
 
 function _unsupportedIterableToArray(o, minLen) {
   if (!o) return;
@@ -28297,7 +27750,7 @@ module.exports = _unsupportedIterableToArray;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 132 */
+/* 131 */
 /***/ (function(module, exports) {
 
 /**
@@ -28324,10 +27777,10 @@ module.exports = apply;
 
 
 /***/ }),
-/* 133 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(55),
+var getNative = __webpack_require__(56),
     root = __webpack_require__(33);
 
 /* Built-in method references that are verified to be native. */
@@ -28337,14 +27790,14 @@ module.exports = Map;
 
 
 /***/ }),
-/* 134 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var mapCacheClear = __webpack_require__(395),
-    mapCacheDelete = __webpack_require__(402),
-    mapCacheGet = __webpack_require__(404),
-    mapCacheHas = __webpack_require__(405),
-    mapCacheSet = __webpack_require__(406);
+var mapCacheClear = __webpack_require__(396),
+    mapCacheDelete = __webpack_require__(403),
+    mapCacheGet = __webpack_require__(405),
+    mapCacheHas = __webpack_require__(406),
+    mapCacheSet = __webpack_require__(407);
 
 /**
  * Creates a map cache object to store key-value pairs.
@@ -28375,10 +27828,10 @@ module.exports = MapCache;
 
 
 /***/ }),
-/* 135 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsEqualDeep = __webpack_require__(407),
+var baseIsEqualDeep = __webpack_require__(408),
     isObjectLike = __webpack_require__(30);
 
 /**
@@ -28409,7 +27862,7 @@ module.exports = baseIsEqual;
 
 
 /***/ }),
-/* 136 */
+/* 135 */
 /***/ (function(module, exports) {
 
 /**
@@ -28433,11 +27886,11 @@ module.exports = setToArray;
 
 
 /***/ }),
-/* 137 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayFilter = __webpack_require__(179),
-    stubArray = __webpack_require__(203);
+var arrayFilter = __webpack_require__(180),
+    stubArray = __webpack_require__(204);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -28469,7 +27922,7 @@ module.exports = getSymbols;
 
 
 /***/ }),
-/* 138 */
+/* 137 */
 /***/ (function(module, exports) {
 
 /** Used as references for various `Number` constants. */
@@ -28510,10 +27963,10 @@ module.exports = isLength;
 
 
 /***/ }),
-/* 139 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(197);
+/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(198);
 
 /** Detect free variable `exports`. */
 var freeExports =  true && exports && !exports.nodeType && exports;
@@ -28544,14 +27997,14 @@ var nodeUtil = (function() {
 
 module.exports = nodeUtil;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(39)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(41)(module)))
 
 /***/ }),
-/* 140 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isArray = __webpack_require__(11),
-    isSymbol = __webpack_require__(77);
+    isSymbol = __webpack_require__(76);
 
 /** Used to match property names within property paths. */
 var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
@@ -28582,13 +28035,13 @@ module.exports = isKey;
 
 
 /***/ }),
-/* 141 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(68),
+var Symbol = __webpack_require__(67),
     arrayMap = __webpack_require__(32),
     isArray = __webpack_require__(11),
-    isSymbol = __webpack_require__(77);
+    isSymbol = __webpack_require__(76);
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0;
@@ -28625,7 +28078,7 @@ module.exports = baseToString;
 
 
 /***/ }),
-/* 142 */
+/* 141 */
 /***/ (function(module, exports) {
 
 /**
@@ -28645,10 +28098,10 @@ module.exports = baseProperty;
 
 
 /***/ }),
-/* 143 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseFlatten = __webpack_require__(111);
+var baseFlatten = __webpack_require__(109);
 
 /**
  * Flattens `array` a single level deep.
@@ -28673,11 +28126,11 @@ module.exports = flatten;
 
 
 /***/ }),
-/* 144 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseFor = __webpack_require__(216),
-    keys = __webpack_require__(63);
+var baseFor = __webpack_require__(217),
+    keys = __webpack_require__(62);
 
 /**
  * The base implementation of `_.forOwn` without support for iteratee shorthands.
@@ -28695,7 +28148,7 @@ module.exports = baseForOwn;
 
 
 /***/ }),
-/* 145 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toFinite = __webpack_require__(331);
@@ -28737,11 +28190,11 @@ module.exports = toInteger;
 
 
 /***/ }),
-/* 146 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseCreate = __webpack_require__(126),
-    baseLodash = __webpack_require__(147);
+var baseCreate = __webpack_require__(125),
+    baseLodash = __webpack_require__(146);
 
 /** Used as references for the maximum length and index of an array. */
 var MAX_ARRAY_LENGTH = 4294967295;
@@ -28771,7 +28224,7 @@ module.exports = LazyWrapper;
 
 
 /***/ }),
-/* 147 */
+/* 146 */
 /***/ (function(module, exports) {
 
 /**
@@ -28787,11 +28240,11 @@ module.exports = baseLodash;
 
 
 /***/ }),
-/* 148 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseCreate = __webpack_require__(126),
-    baseLodash = __webpack_require__(147);
+var baseCreate = __webpack_require__(125),
+    baseLodash = __webpack_require__(146);
 
 /**
  * The base constructor for creating `lodash` wrapper objects.
@@ -28815,11 +28268,11 @@ module.exports = LodashWrapper;
 
 
 /***/ }),
-/* 149 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseAssignValue = __webpack_require__(70),
-    eq = __webpack_require__(82);
+var baseAssignValue = __webpack_require__(69),
+    eq = __webpack_require__(81);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -28849,10 +28302,10 @@ module.exports = assignValue;
 
 
 /***/ }),
-/* 150 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var overArg = __webpack_require__(206);
+var overArg = __webpack_require__(207);
 
 /** Built-in value references. */
 var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -28861,12 +28314,12 @@ module.exports = getPrototype;
 
 
 /***/ }),
-/* 151 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetAllKeys = __webpack_require__(202),
-    getSymbolsIn = __webpack_require__(225),
-    keysIn = __webpack_require__(88);
+var baseGetAllKeys = __webpack_require__(203),
+    getSymbolsIn = __webpack_require__(226),
+    keysIn = __webpack_require__(87);
 
 /**
  * Creates an array of own and inherited enumerable property names and
@@ -28884,10 +28337,10 @@ module.exports = getAllKeysIn;
 
 
 /***/ }),
-/* 152 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Uint8Array = __webpack_require__(200);
+var Uint8Array = __webpack_require__(201);
 
 /**
  * Creates a clone of `arrayBuffer`.
@@ -28906,12 +28359,12 @@ module.exports = cloneArrayBuffer;
 
 
 /***/ }),
-/* 153 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var eq = __webpack_require__(82),
+var eq = __webpack_require__(81),
     isArrayLike = __webpack_require__(45),
-    isIndex = __webpack_require__(96),
+    isIndex = __webpack_require__(94),
     isObject = __webpack_require__(29);
 
 /**
@@ -28942,27 +28395,27 @@ module.exports = isIterateeCall;
 
 
 /***/ }),
-/* 154 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var implementation = __webpack_require__(475);
+var implementation = __webpack_require__(476);
 
 module.exports = Function.prototype.bind || implementation;
 
 
 /***/ }),
-/* 155 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var SetCache = __webpack_require__(106),
-    arrayIncludes = __webpack_require__(127),
-    arrayIncludesWith = __webpack_require__(156),
-    cacheHas = __webpack_require__(107),
-    createSet = __webpack_require__(483),
-    setToArray = __webpack_require__(136);
+var SetCache = __webpack_require__(104),
+    arrayIncludes = __webpack_require__(126),
+    arrayIncludesWith = __webpack_require__(155),
+    cacheHas = __webpack_require__(105),
+    createSet = __webpack_require__(484),
+    setToArray = __webpack_require__(135);
 
 /** Used as the size to enable large array optimizations. */
 var LARGE_ARRAY_SIZE = 200;
@@ -29032,7 +28485,7 @@ module.exports = baseUniq;
 
 
 /***/ }),
-/* 156 */
+/* 155 */
 /***/ (function(module, exports) {
 
 /**
@@ -29060,7 +28513,7 @@ module.exports = arrayIncludesWith;
 
 
 /***/ }),
-/* 157 */
+/* 156 */
 /***/ (function(module, exports) {
 
 function _setPrototypeOf(o, p) {
@@ -29077,7 +28530,7 @@ module.exports = _setPrototypeOf;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 158 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29332,10 +28785,10 @@ module.exports = {
 
 
 /***/ }),
-/* 159 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsEqual = __webpack_require__(135);
+var baseIsEqual = __webpack_require__(134);
 
 /**
  * Performs a deep comparison between two values to determine if they are
@@ -29373,7 +28826,7 @@ module.exports = isEqual;
 
 
 /***/ }),
-/* 160 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29386,9 +28839,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.buildURL = exports.encode = void 0;
 
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(34));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(28));
 
-var _pickBy = _interopRequireDefault(__webpack_require__(259));
+var _pickBy = _interopRequireDefault(__webpack_require__(260));
 
 /**
  * Encode a value of any type into a URI search param compatible string with a specific treatment for arrays which will keep their brackets (they do not with standard `toString()` method).
@@ -29464,13 +28917,13 @@ var buildURL = function buildURL(url, params) {
 exports.buildURL = buildURL;
 
 /***/ }),
-/* 161 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -29479,53 +28932,53 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.isDirectory = exports.isFile = void 0;
 
-var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(42));
+var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(43));
 
-var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(43));
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(39));
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(95));
+var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(93));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _lite = _interopRequireDefault(__webpack_require__(519));
+var _lite = _interopRequireDefault(__webpack_require__(520));
 
-var _has = _interopRequireDefault(__webpack_require__(263));
+var _has = _interopRequireDefault(__webpack_require__(264));
 
-var _get = _interopRequireDefault(__webpack_require__(15));
+var _get = _interopRequireDefault(__webpack_require__(14));
 
-var _omit = _interopRequireDefault(__webpack_require__(98));
+var _omit = _interopRequireDefault(__webpack_require__(96));
 
-var _pick = _interopRequireDefault(__webpack_require__(162));
+var _pick = _interopRequireDefault(__webpack_require__(161));
 
-var _mangoIndex = __webpack_require__(258);
+var _mangoIndex = __webpack_require__(259);
 
-var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(21));
+var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(19));
 
-var _utils = __webpack_require__(44);
+var _utils = __webpack_require__(40);
 
-var _errors = __webpack_require__(56);
+var _errors = __webpack_require__(48);
 
-var _Collection = __webpack_require__(73);
+var _Collection = __webpack_require__(72);
 
-var _getIllegalCharacter = __webpack_require__(264);
+var _getIllegalCharacter = __webpack_require__(265);
 
-var querystring = _interopRequireWildcard(__webpack_require__(160));
+var querystring = _interopRequireWildcard(__webpack_require__(159));
 
-var _logger = _interopRequireDefault(__webpack_require__(57));
+var _logger = _interopRequireDefault(__webpack_require__(44));
 
 function _templateObject24() {
   var data = (0, _taggedTemplateLiteral2.default)(["/files/_changes"]);
@@ -29604,7 +29057,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _templateObject17() {
-  var data = (0, _taggedTemplateLiteral2.default)(["/files/", "?Name=", "&Type=directory"]);
+  var data = (0, _taggedTemplateLiteral2.default)(["/files/", "?Name=", "&Type=directory&MetadataID=", ""]);
 
   _templateObject17 = function _templateObject17() {
     return data;
@@ -29806,6 +29259,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
  * @property {string} dirId - Id of the parent directory.
  * @property {boolean} name - Name of the created directory.
  * @property {boolean} executable - Indicates whether the file will be executable.
+ * @property {object} [metadata] io.cozy.files.metadata to attach to the directory
  */
 
 /**
@@ -31344,6 +30798,9 @@ var FileCollection = /*#__PURE__*/function (_DocumentCollection) {
             name,
             dirId,
             lastModifiedDate,
+            metadata,
+            metadataId,
+            meta,
             safeName,
             lastModified,
             resp,
@@ -31353,23 +30810,38 @@ var FileCollection = /*#__PURE__*/function (_DocumentCollection) {
             switch (_context24.prev = _context24.next) {
               case 0:
                 attributes = _args24.length > 0 && _args24[0] !== undefined ? _args24[0] : {};
-                name = attributes.name, dirId = attributes.dirId, lastModifiedDate = attributes.lastModifiedDate;
+                name = attributes.name, dirId = attributes.dirId, lastModifiedDate = attributes.lastModifiedDate, metadata = attributes.metadata;
+                metadataId = '';
+
+                if (!metadata) {
+                  _context24.next = 8;
+                  break;
+                }
+
+                _context24.next = 6;
+                return this.createFileMetadata(metadata);
+
+              case 6:
+                meta = _context24.sent;
+                metadataId = meta.data.id;
+
+              case 8:
                 safeName = sanitizeAndValidateFileName(name);
                 lastModified = lastModifiedDate && (typeof lastModifiedDate === 'string' ? new Date(lastModifiedDate) : lastModifiedDate);
-                _context24.next = 6;
-                return this.stackClient.fetchJSON('POST', (0, _utils.uri)(_templateObject17(), dirId, safeName), undefined, {
+                _context24.next = 12;
+                return this.stackClient.fetchJSON('POST', (0, _utils.uri)(_templateObject17(), dirId, safeName, metadataId), undefined, {
                   headers: {
                     Date: lastModified ? lastModified.toGMTString() : ''
                   }
                 });
 
-              case 6:
+              case 12:
                 resp = _context24.sent;
                 return _context24.abrupt("return", {
                   data: normalizeFile(resp.data)
                 });
 
-              case 8:
+              case 14:
               case "end":
                 return _context24.stop();
             }
@@ -31421,6 +30893,16 @@ var FileCollection = /*#__PURE__*/function (_DocumentCollection) {
 
       return ensureDirectoryExists;
     }()
+    /**
+     * Get a directory or create it
+     *
+     * @private
+     * @param  {string} name - Name of the directory we want to get or create
+     * @param  {FileDocument} parentDirectory - Parent directory of the directory we want to get or create
+     * @returns {Promise}
+     * @throws {Error} - explaining reason why creation failed
+     */
+
   }, {
     key: "getDirectoryOrCreate",
     value: function () {
@@ -32158,10 +31640,10 @@ var _default = FileCollection;
 exports.default = _default;
 
 /***/ }),
-/* 162 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var basePick = __webpack_require__(523),
+var basePick = __webpack_require__(524),
     flatRest = __webpack_require__(121);
 
 /**
@@ -32189,7 +31671,7 @@ module.exports = pick;
 
 
 /***/ }),
-/* 163 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32204,7 +31686,7 @@ exports.chain = exports.default = void 0;
 
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(38));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -32253,7 +31735,7 @@ var concat = function concat(firstLink, nextLink) {
 };
 
 /***/ }),
-/* 164 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32266,51 +31748,47 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.QueryIDGenerator = exports.getQueryFromSlice = exports.receiveQueryError = exports.receiveQueryResult = exports.loadQuery = exports.initQuery = exports.default = exports.updateData = exports.makeSorterFromDefinition = exports.mergeSelectorAndPartialIndex = exports.convert$gtNullSelectors = exports.sortAndLimitDocsIds = exports.isReceivingData = exports.isQueryAction = void 0;
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(34));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(28));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(38));
 
-var _mapValues = _interopRequireDefault(__webpack_require__(86));
+var _mapValues = _interopRequireDefault(__webpack_require__(85));
 
-var _groupBy = _interopRequireDefault(__webpack_require__(275));
+var _groupBy = _interopRequireDefault(__webpack_require__(276));
 
-var _difference = _interopRequireDefault(__webpack_require__(542));
+var _difference = _interopRequireDefault(__webpack_require__(545));
 
-var _intersection = _interopRequireDefault(__webpack_require__(276));
+var _intersection = _interopRequireDefault(__webpack_require__(277));
 
 var _concat = _interopRequireDefault(__webpack_require__(342));
 
-var _isPlainObject = _interopRequireDefault(__webpack_require__(128));
+var _isPlainObject = _interopRequireDefault(__webpack_require__(127));
 
-var _uniq = _interopRequireDefault(__webpack_require__(115));
+var _uniq = _interopRequireDefault(__webpack_require__(114));
 
-var _orderBy = _interopRequireDefault(__webpack_require__(544));
+var _orderBy = _interopRequireDefault(__webpack_require__(547));
 
-var _isArray = _interopRequireDefault(__webpack_require__(11));
+var _isString = _interopRequireDefault(__webpack_require__(128));
 
-var _isString = _interopRequireDefault(__webpack_require__(129));
+var _get = _interopRequireDefault(__webpack_require__(14));
 
-var _get = _interopRequireDefault(__webpack_require__(15));
+var _sift = _interopRequireDefault(__webpack_require__(551));
 
-var _sift = _interopRequireDefault(__webpack_require__(548));
+var _cozyFlags = _interopRequireDefault(__webpack_require__(113));
 
-var _cozyFlags = _interopRequireDefault(__webpack_require__(123));
+var _documents = __webpack_require__(273);
 
-var _documents = __webpack_require__(272);
+var _mutations = __webpack_require__(164);
 
-var _mutations = __webpack_require__(165);
+var _helpers = __webpack_require__(281);
 
-var _helpers = __webpack_require__(280);
-
-var _dsl = __webpack_require__(14);
-
-var _types = __webpack_require__(12);
+var _dsl = __webpack_require__(13);
 
 var _logger = _interopRequireDefault(__webpack_require__(20));
 
@@ -32337,7 +31815,7 @@ exports.isQueryAction = isQueryAction;
 var isReceivingData = function isReceivingData(action) {
   return action.type === RECEIVE_QUERY_RESULT;
 };
-/** @type {QueryState} */
+/** @type {import("../types").QueryState} */
 
 
 exports.isReceivingData = isReceivingData;
@@ -32359,8 +31837,8 @@ var queryInitialState = {
 /**
  * Return the docs ids accordingly to the given sort and fetched docs
  *
- * @param {QueryState} queryState - Current state
- * @param {DocumentsStateSlice} documents - Reference to the documents slice
+ * @param {import("../types").QueryState} queryState - Current state
+ * @param {import("../types").DocumentsStateSlice} documents - Reference to the documents slice
  * @param {Array<string>} ids - The updated ids after query
  * @param {object} params - The additional params
  * @param {number} params.count - The count of retrieved docs
@@ -32403,9 +31881,9 @@ var sortAndLimitDocsIds = function sortAndLimitDocsIds(queryState, documents, id
 /**
  * Return the query docs ids, taken from the action response and the documents' slice
  *
- * @param {QueryState} queryState - Current state
+ * @param {import("../types").QueryState} queryState - Current state
  * @param {object} response - The action response
- * @param {DocumentsStateSlice} documents - Reference to the documents slice
+ * @param {import("../types").DocumentsStateSlice} documents - Reference to the documents slice
  * @param {object} params - The additional params
  * @param {number} params.count - The count of retrieved docs
  * @param {number} params.fetchedPagesCount - The number of pages already fetched
@@ -32427,10 +31905,10 @@ var updateQueryDataFromResponse = function updateQueryDataFromResponse(queryStat
 /**
  * Reducer for a query slice
  *
- * @param  {QueryState} state - Current state
+ * @param  {import("../types").QueryState} state - Current state
  * @param  {any} action - Redux action
- * @param  {DocumentsStateSlice} documents - Reference to the next documents slice
- * @returns {QueryState} - Next state
+ * @param  {import("../types").DocumentsStateSlice} documents - Reference to the next documents slice
+ * @returns {import("../types").QueryState} - Next state
  */
 
 
@@ -32482,7 +31960,7 @@ var query = function query() {
             lastUpdate: Date.now()
           });
         }
-        /** @type {Partial<QueryState>} */
+        /** @type {Partial<import("../types").QueryState>} */
 
 
         var common = _objectSpread({
@@ -32503,6 +31981,16 @@ var query = function query() {
         }
 
         var count = response.meta && response.meta.count ? response.meta.count : response.data.length;
+
+        if (action.backgroundFetching) {
+          return _objectSpread(_objectSpread(_objectSpread({}, state), common), {}, {
+            bookmark: response.bookmark || null,
+            hasMore: response.next !== undefined ? response.next : state.hasMore,
+            count: count,
+            data: response.data.map(_helpers.properId)
+          });
+        }
+
         var fetchedPagesCount = state.fetchedPagesCount + 1;
         var data = updateQueryDataFromResponse(state, response, documents, {
           count: count,
@@ -32567,7 +32055,7 @@ var mergeSelectorAndPartialIndex = function mergeSelectorAndPartialIndex(queryDe
 };
 /**
  * @param  {QueryDefinition} queryDefinition - A query definition
- * @returns {function(CozyClientDocument): boolean}
+ * @returns {function(import("../types").CozyClientDocument): boolean}
  */
 
 
@@ -32607,8 +32095,8 @@ var getSelectorFilterFn = function getSelectorFilterFn(queryDefinition) {
  * Returns a predicate function that checks if a document should be
  * included in the result of the query.
  *
- * @param  {QueryState} query - Definition of the query
- * @returns {function(CozyClientDocument): boolean} Predicate function
+ * @param  {import("../types").QueryState} query - Definition of the query
+ * @returns {function(import("../types").CozyClientDocument): boolean} Predicate function
  */
 
 
@@ -32637,7 +32125,7 @@ var makeCaseInsensitiveStringSorter = function makeCaseInsensitiveStringSorter(a
  * receiving updates.
  *
  * @param {QueryDefinition} definition - A query definition
- * @returns {function(Array<CozyClientDocument>): Array<CozyClientDocument>}
+ * @returns {function(Array<import("../types").CozyClientDocument>): Array<import("../types").CozyClientDocument>}
  *
  * @private
  */
@@ -32650,7 +32138,7 @@ var makeSorterFromDefinition = function makeSorterFromDefinition(definition) {
     return function (docs) {
       return docs;
     };
-  } else if (!(0, _isArray.default)(definition.sort)) {
+  } else if (!Array.isArray(definition.sort)) {
     _logger.default.warn('Correct update of queries with a sort that is not an array is not supported. Use an array as argument of QueryDefinition::sort');
 
     return function (docs) {
@@ -32674,10 +32162,10 @@ var makeSorterFromDefinition = function makeSorterFromDefinition(definition) {
 /**
  * Updates query state when new data comes in
  *
- * @param  {QueryState} query - Current query state
- * @param  {Array<CozyClientDocument>} newData - New documents (in most case from the server)
- * @param  {DocumentsStateSlice} documents - A reference to the documents slice
- * @returns {QueryState} - Updated query state
+ * @param  {import("../types").QueryState} query - Current query state
+ * @param  {Array<import("../types").CozyClientDocument>} newData - New documents (in most case from the server)
+ * @param  {import("../types").DocumentsStateSlice} documents - A reference to the documents slice
+ * @returns {import("../types").QueryState} - Updated query state
  */
 
 
@@ -32722,8 +32210,8 @@ var updateData = function updateData(query, newData, documents) {
  * from an action
  *
  * @param  {object} action - A redux action
- * @param  {DocumentsStateSlice} documents - Reference to documents slice
- * @returns {function(QueryState): QueryState} - Updater query state
+ * @param  {import("../types").DocumentsStateSlice} documents - Reference to documents slice
+ * @returns {function(import("../types").QueryState): import("../types").QueryState} - Updater query state
  */
 
 
@@ -32754,8 +32242,8 @@ var autoQueryUpdater = function autoQueryUpdater(action, documents) {
  * from an action
  *
  * @param  {object} action - A redux action
- * @param  {DocumentsStateSlice} documents - Reference to documents slice
- * @returns {function(QueryState): QueryState} - Updater query state
+ * @param  {import("../types").DocumentsStateSlice} documents - Reference to documents slice
+ * @returns {function(import("../types").QueryState): import("../types").QueryState} - Updater query state
  */
 
 
@@ -32782,11 +32270,11 @@ var manualQueryUpdater = function manualQueryUpdater(action, documents) {
   };
 };
 /**
- * @param  {QueriesStateSlice}  state - Redux slice containing all the query states indexed by name
+ * @param  {import("../types").QueriesStateSlice}  state - Redux slice containing all the query states indexed by name
  * @param  {object}  action - Income redux action
- * @param  {DocumentsStateSlice}  documents - Reference to documents slice
+ * @param  {import("../types").DocumentsStateSlice}  documents - Reference to documents slice
  * @param  {boolean} haveDocumentsChanged - Has the document slice changed with current action
- * @returns {QueriesStateSlice}
+ * @returns {import("../types").QueriesStateSlice}
  */
 
 
@@ -32835,7 +32323,7 @@ var _default = queries;
  *
  * @param  {string} queryId  Name/id of the query
  * @param  {QueryDefinition} queryDefinition - Definition of the created query
- * @param  {QueryOptions} [options] - Options for the created query
+ * @param  {import("../types").QueryOptions} [options] - Options for the created query
  * @returns {object} Redux action to dispatch
  */
 
@@ -32859,7 +32347,7 @@ var initQuery = function initQuery(queryId, queryDefinition) {
  * Update the fetchStatus when the query is loading
  *
  * @param  {string} queryId - id of the query
- * @param  {QueryOptions} [options] - Options for the created query
+ * @param  {import("../types").QueryOptions} [options] - Options for the created query
  * @returns {object} Redux action to dispatch
  */
 
@@ -32877,7 +32365,7 @@ var loadQuery = function loadQuery(queryId, options) {
  *
  * @param  {string} queryId - id of the query
  * @param {object} response - The action response
- * @param  {QueryOptions} [options] - Options for the created query
+ * @param  {import("../types").QueryOptions} [options] - Options for the created query
  * @returns {object} Redux action to dispatch
  */
 
@@ -32897,7 +32385,7 @@ var receiveQueryResult = function receiveQueryResult(queryId, response) {
  *
  * @param  {string} queryId - id of the query
  * @param {object} error - The action error
- * @param  {QueryOptions} [options] - Options for the created query
+ * @param  {import("../types").QueryOptions} [options] - Options for the created query
  * @returns {object} Redux action to dispatch
  */
 
@@ -32985,7 +32473,7 @@ exports.QueryIDGenerator = QueryIDGenerator;
 QueryIDGenerator.UNNAMED = 'unnamed';
 
 /***/ }),
-/* 165 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33056,6 +32544,218 @@ var receiveMutationError = function receiveMutationError(mutationId, error) {
 };
 
 exports.receiveMutationError = receiveMutationError;
+
+/***/ }),
+/* 165 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getReferencedById = exports.getReferencedBy = exports.isReferencedById = exports.isReferencedBy = exports.create = exports.resolveClass = exports.attachRelationships = exports.responseToRelationship = exports.pickTypeAndId = void 0;
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
+
+var _pick = _interopRequireDefault(__webpack_require__(161));
+
+var _pickBy = _interopRequireDefault(__webpack_require__(260));
+
+var _Association = _interopRequireDefault(__webpack_require__(57));
+
+var _HasOne = _interopRequireDefault(__webpack_require__(282));
+
+var _HasOneInPlace = _interopRequireDefault(__webpack_require__(283));
+
+var _HasMany = _interopRequireDefault(__webpack_require__(90));
+
+var _HasManyInPlace = _interopRequireDefault(__webpack_require__(284));
+
+var _HasManyFiles = _interopRequireDefault(__webpack_require__(272));
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+var pickTypeAndId = function pickTypeAndId(x) {
+  return (0, _pick.default)(x, '_type', '_id');
+};
+
+exports.pickTypeAndId = pickTypeAndId;
+
+var applyHelper = function applyHelper(fn, objOrArr) {
+  return Array.isArray(objOrArr) ? objOrArr.map(fn) : fn(objOrArr);
+};
+
+var responseToRelationship = function responseToRelationship(response) {
+  return (0, _pickBy.default)({
+    data: applyHelper(pickTypeAndId, response.data),
+    meta: response.meta,
+    next: response.next,
+    skip: response.skip,
+    bookmark: response.bookmark
+  });
+};
+
+exports.responseToRelationship = responseToRelationship;
+
+var attachRelationship = function attachRelationship(doc, relationships) {
+  return _objectSpread(_objectSpread({}, doc), {}, {
+    relationships: _objectSpread(_objectSpread({}, doc.relationships), relationships)
+  });
+};
+
+var attachRelationships = function attachRelationships(response, relationshipsByDocId) {
+  if (Array.isArray(response.data)) {
+    return _objectSpread(_objectSpread({}, response), {}, {
+      data: response.data.map(function (doc) {
+        return attachRelationship(doc, relationshipsByDocId[doc._id]);
+      })
+    });
+  } else {
+    var doc = response.data;
+    return _objectSpread(_objectSpread({}, response), {}, {
+      data: attachRelationship(doc, relationshipsByDocId[doc._id])
+    });
+  }
+};
+
+exports.attachRelationships = attachRelationships;
+var aliases = {
+  'io.cozy.files:has-many': _HasManyFiles.default,
+  'has-many': _HasMany.default,
+  'belongs-to-in-place': _HasOneInPlace.default,
+  'has-one': _HasOne.default,
+  'has-one-in-place': _HasOneInPlace.default,
+  'has-many-in-place': _HasManyInPlace.default
+};
+/**
+ * Returns the relationship class for a given doctype/type.
+ *
+ * In the schema definition, some classes have string aliases
+ * so you do not have to import directly the association.
+ *
+ * Some doctypes can have built-in overriden relationships.
+ *
+ * @private
+ */
+
+var resolveClass = function resolveClass(doctype, type) {
+  if (type === undefined) {
+    throw new Error('Undefined type for ' + doctype);
+  }
+
+  if (typeof type !== 'string') {
+    return type;
+  } else {
+    var qualified = "".concat(doctype, ":").concat(type);
+    var cls = aliases[qualified] || aliases[type];
+
+    if (!cls) {
+      throw new Error("Unknown association '".concat(type, "'"));
+    } else {
+      return cls;
+    }
+  }
+};
+
+exports.resolveClass = resolveClass;
+
+var create = function create(target, _ref, accessors) {
+  var name = _ref.name,
+      type = _ref.type,
+      doctype = _ref.doctype;
+
+  if (target[name] instanceof _Association.default) {
+    throw new Error("Association ".concat(name, " already exists"));
+  }
+
+  return new type(target, name, doctype, accessors);
+};
+/**
+ * Checks if the file is referenced by a specific doctype
+ *
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").Doctype} referencedBy - Doctype where document is referenced
+ * @returns {boolean} If a reference is found
+ */
+
+
+exports.create = create;
+
+var isReferencedBy = function isReferencedBy(file, referencedBy) {
+  var _file$relationships, _file$relationships$r;
+
+  var references = (file === null || file === void 0 ? void 0 : (_file$relationships = file.relationships) === null || _file$relationships === void 0 ? void 0 : (_file$relationships$r = _file$relationships.referenced_by) === null || _file$relationships$r === void 0 ? void 0 : _file$relationships$r.data) || (file === null || file === void 0 ? void 0 : file.referenced_by) || [];
+  return references.some(function (reference) {
+    return reference.type === referencedBy;
+  });
+};
+/**
+ * Checks if the file is referenced by a specific doctype and a specific Id of that reference
+ *
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").Doctype} referencedBy - Doctype where document is referenced
+ * @param {string} referencedId - Id of the referenced document
+ * @returns {boolean} If a reference is found
+ */
+
+
+exports.isReferencedBy = isReferencedBy;
+
+var isReferencedById = function isReferencedById(file, referencedBy, referencedId) {
+  var _file$relationships2, _file$relationships2$;
+
+  var references = (file === null || file === void 0 ? void 0 : (_file$relationships2 = file.relationships) === null || _file$relationships2 === void 0 ? void 0 : (_file$relationships2$ = _file$relationships2.referenced_by) === null || _file$relationships2$ === void 0 ? void 0 : _file$relationships2$.data) || (file === null || file === void 0 ? void 0 : file.referenced_by) || [];
+  return references.some(function (reference) {
+    return reference.type === referencedBy && reference.id === referencedId;
+  });
+};
+/**
+ * Get array of reference by an specific doctype
+ *
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").Doctype} referencedBy - Doctype where document is referenced
+ * @returns {import("../types").Reference[]} Array of references found
+ */
+
+
+exports.isReferencedById = isReferencedById;
+
+var getReferencedBy = function getReferencedBy(file, referencedBy) {
+  var _file$relationships3, _file$relationships3$;
+
+  var references = (file === null || file === void 0 ? void 0 : (_file$relationships3 = file.relationships) === null || _file$relationships3 === void 0 ? void 0 : (_file$relationships3$ = _file$relationships3.referenced_by) === null || _file$relationships3$ === void 0 ? void 0 : _file$relationships3$.data) || (file === null || file === void 0 ? void 0 : file.referenced_by) || [];
+  return references.filter(function (reference) {
+    return reference.type === referencedBy;
+  });
+};
+/**
+ * Get array of reference by an specific doctype and a specific Id of that reference
+ *
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").Doctype} referencedBy - Doctype where document is referenced
+ * @param {string} referencedId - Id of the referenced document
+ * @returns {import("../types").Reference[]} Array of the reference found
+ */
+
+
+exports.getReferencedBy = getReferencedBy;
+
+var getReferencedById = function getReferencedById(file, referencedBy, referencedId) {
+  var _file$relationships4, _file$relationships4$;
+
+  var references = (file === null || file === void 0 ? void 0 : (_file$relationships4 = file.relationships) === null || _file$relationships4 === void 0 ? void 0 : (_file$relationships4$ = _file$relationships4.referenced_by) === null || _file$relationships4$ === void 0 ? void 0 : _file$relationships4$.data) || (file === null || file === void 0 ? void 0 : file.referenced_by) || [];
+  return references.filter(function (reference) {
+    return reference.type === referencedBy && reference.id === referencedId;
+  });
+};
+
+exports.getReferencedById = getReferencedById;
 
 /***/ }),
 /* 166 */
@@ -33222,7 +32922,233 @@ exports.hasNetworkInformationPlugin = hasNetworkInformationPlugin;
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isAccountWithTrigger = exports.buildAccount = exports.getAccountName = exports.getAccountLogin = exports.setContractSyncStatusInAccount = exports.getContractSyncStatusFromAccount = exports.muteError = exports.getMutedErrors = void 0;
+
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
+
+var _merge = _interopRequireDefault(__webpack_require__(74));
+
+var _dsl = __webpack_require__(13);
+
+var _HasMany = __webpack_require__(90);
+
+var _manifest = __webpack_require__(289);
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+/**
+ * getMutedErrors - Returns the list of errors that have been muted for the given account
+ *
+ * @param {import('../types').IOCozyAccount} account io.cozy.accounts
+ *
+ * @returns {Array} An array of errors with a `type` and `mutedAt` field
+ */
+var getMutedErrors = function getMutedErrors(account) {
+  return (account === null || account === void 0 ? void 0 : account.mutedErrors) || [];
+};
+/**
+ * muteError - Adds an error to the list of muted errors for the given account
+ *
+ * @param {import('../types').IOCozyAccount} account   io.cozy.accounts
+ * @param {string} errorType The type of the error to mute
+ *
+ * @returns {import('../types').IOCozyAccount} An updated io.cozy.accounts
+ */
+
+
+exports.getMutedErrors = getMutedErrors;
+
+var muteError = function muteError(account, errorType) {
+  var mutedErrors = getMutedErrors(account);
+  mutedErrors.push({
+    type: errorType,
+    mutedAt: new Date().toISOString()
+  });
+  return _objectSpread(_objectSpread({}, account), {}, {
+    mutedErrors: mutedErrors
+  });
+};
+
+exports.muteError = muteError;
+var DEFAULT_CONTRACT_SYNC_STATUS = true;
+/**
+ * Returns whether a contract is synced from account relationship
+ *
+ * @param  {import('../types').IOCozyAccount} account - Cozy account
+ * @param  {String} contractId - contract identifier
+ * @returns  {Boolean} synchronisation status
+ */
+
+var getContractSyncStatusFromAccount = function getContractSyncStatusFromAccount(account, contractId) {
+  var _relItem$metadata$imp, _relItem$metadata;
+
+  var relItem = (0, _HasMany.getHasManyItem)(account, 'contracts', contractId);
+
+  if (!relItem) {
+    throw new Error("Cannot find contrat ".concat(contractId, " in account"));
+  }
+
+  return (_relItem$metadata$imp = relItem === null || relItem === void 0 ? void 0 : (_relItem$metadata = relItem.metadata) === null || _relItem$metadata === void 0 ? void 0 : _relItem$metadata.imported) !== null && _relItem$metadata$imp !== void 0 ? _relItem$metadata$imp : DEFAULT_CONTRACT_SYNC_STATUS;
+};
+/**
+ * Sets contract sync status into account relationship
+ *
+ * @param  {import('../types').IOCozyAccount} account - Cozy account
+ * @param  {String} contractId - contract identifier
+ * @param  {String} syncStatus - synchronisation status
+ * @returns {import('../types').IOCozyAccount}
+ */
+
+
+exports.getContractSyncStatusFromAccount = getContractSyncStatusFromAccount;
+
+var setContractSyncStatusInAccount = function setContractSyncStatusInAccount(account, contractId, syncStatus) {
+  return (0, _HasMany.updateHasManyItem)(account, 'contracts', contractId, function (contractRel) {
+    if (contractRel === undefined) {
+      throw new Error("Cannot find contrat ".concat(contractId, " in account"));
+    }
+
+    return (0, _merge.default)({}, contractRel, {
+      metadata: {
+        imported: syncStatus
+      }
+    });
+  });
+};
+/**
+ * Get the account login field value from a given account
+ *
+ * @param {import('../types').IOCozyAccount} account - the given cozy account
+ * @returns {String|null} - Account login
+ */
+
+
+exports.setContractSyncStatusInAccount = setContractSyncStatusInAccount;
+
+var getAccountLogin = function getAccountLogin(account) {
+  if (account && account.auth) {
+    var _iterator = _createForOfIteratorHelper(_manifest.legacyLoginFields),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var fieldName = _step.value;
+        if (account.auth[fieldName]) return account.auth[fieldName];
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+  }
+
+  return null;
+};
+/**
+ * Get the account name from a given account
+ *
+ * @param {import('../types').IOCozyAccount} account - the given cozy account
+ * @returns {String|null} - Account name
+ */
+
+
+exports.getAccountLogin = getAccountLogin;
+
+var getAccountName = function getAccountName(account) {
+  if (!account) return null;
+
+  if (account.auth) {
+    return account.auth.accountName || getAccountLogin(account) || account._id;
+  } else {
+    return account._id;
+  }
+};
+/**
+ * Transforms account auth data to io.cozy.accounts document
+ *
+ * @param  {import('../types').IOCozyKonnector} konnector Konnector related to account
+ * @param  {object} authData  Authentication data
+ * @returns {import('../types').IOCozyAccount}          io.cozy.accounts attributes
+ */
+
+
+exports.getAccountName = getAccountName;
+
+var buildAccount = function buildAccount(konnector, authData) {
+  return {
+    auth: authData,
+    account_type: konnector.slug,
+    identifier: (0, _manifest.getIdentifier)(konnector.fields),
+    state: null
+  };
+};
+/**
+ * Look if the given account has an associated trigger or not.
+ *
+ * @param {import('../CozyClient').default} client - CozyClient instance
+ * @param {import('../types').IOCozyAccount} account - account document
+ * @returns {Promise<Boolean>}
+ */
+
+
+exports.buildAccount = buildAccount;
+
+var isAccountWithTrigger = /*#__PURE__*/function () {
+  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client, account) {
+    var result;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return client.query((0, _dsl.Q)('io.cozy.triggers').where({
+              'message.account': account._id
+            }).indexFields(['message.account']).limitBy(1));
+
+          case 2:
+            result = _context.sent;
+            return _context.abrupt("return", result.data.length > 0);
+
+          case 4:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function isAccountWithTrigger(_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+exports.isAccountWithTrigger = isAccountWithTrigger;
+
+/***/ }),
+/* 170 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -33233,13 +33159,13 @@ exports.getQualification = exports.setQualification = exports.Qualification = vo
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _lodash = __webpack_require__(67);
+var _lodash = __webpack_require__(66);
 
-var qualificationModel = _interopRequireWildcard(__webpack_require__(596));
+var qualificationModel = _interopRequireWildcard(__webpack_require__(597));
 
 var _logger = _interopRequireDefault(__webpack_require__(20));
 
@@ -33488,13 +33414,13 @@ var getQualification = function getQualification(document) {
 exports.getQualification = getQualification;
 
 /***/ }),
-/* 170 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var ES5Type = __webpack_require__(613);
+var ES5Type = __webpack_require__(607);
 
 // https://262.ecma-international.org/11.0/#sec-ecmascript-data-types-and-values
 
@@ -33510,7 +33436,7 @@ module.exports = function Type(x) {
 
 
 /***/ }),
-/* 171 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33520,11 +33446,11 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var Stream = _interopDefault(__webpack_require__(62));
-var http = _interopDefault(__webpack_require__(100));
-var Url = _interopDefault(__webpack_require__(59));
-var https = _interopDefault(__webpack_require__(172));
-var zlib = _interopDefault(__webpack_require__(314));
+var Stream = _interopDefault(__webpack_require__(61));
+var http = _interopDefault(__webpack_require__(98));
+var Url = _interopDefault(__webpack_require__(58));
+var https = _interopDefault(__webpack_require__(173));
+var zlib = _interopDefault(__webpack_require__(315));
 
 // Based on https://github.com/tmpvar/jsdom/blob/aa85b2abf07766ff7bf5c1f6daafb3726f2f2db5/lib/jsdom/living/blob.js
 
@@ -35166,26 +35092,26 @@ exports.FetchError = FetchError;
 
 
 /***/ }),
-/* 172 */
+/* 173 */
 /***/ (function(module, exports) {
 
 module.exports = require("https");
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports) {
 
 module.exports = require("buffer");
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, exports) {
 
 module.exports = require("os");
 
 /***/ }),
-/* 175 */,
-/* 176 */
+/* 176 */,
+/* 177 */
 /***/ (function(module, exports) {
 
 /**
@@ -35213,31 +35139,31 @@ module.exports = arrayEach;
 
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Stack = __webpack_require__(101),
-    arrayEach = __webpack_require__(176),
-    assignValue = __webpack_require__(149),
+var Stack = __webpack_require__(99),
+    arrayEach = __webpack_require__(177),
+    assignValue = __webpack_require__(148),
     baseAssign = __webpack_require__(334),
-    baseAssignIn = __webpack_require__(441),
-    cloneBuffer = __webpack_require__(224),
-    copyArray = __webpack_require__(93),
-    copySymbols = __webpack_require__(444),
-    copySymbolsIn = __webpack_require__(445),
-    getAllKeys = __webpack_require__(201),
-    getAllKeysIn = __webpack_require__(151),
-    getTag = __webpack_require__(65),
-    initCloneArray = __webpack_require__(446),
-    initCloneByTag = __webpack_require__(447),
-    initCloneObject = __webpack_require__(227),
+    baseAssignIn = __webpack_require__(442),
+    cloneBuffer = __webpack_require__(225),
+    copyArray = __webpack_require__(91),
+    copySymbols = __webpack_require__(445),
+    copySymbolsIn = __webpack_require__(446),
+    getAllKeys = __webpack_require__(202),
+    getAllKeysIn = __webpack_require__(150),
+    getTag = __webpack_require__(64),
+    initCloneArray = __webpack_require__(447),
+    initCloneByTag = __webpack_require__(448),
+    initCloneObject = __webpack_require__(228),
     isArray = __webpack_require__(11),
-    isBuffer = __webpack_require__(84),
-    isMap = __webpack_require__(451),
+    isBuffer = __webpack_require__(83),
+    isMap = __webpack_require__(452),
     isObject = __webpack_require__(29),
-    isSet = __webpack_require__(453),
-    keys = __webpack_require__(63),
-    keysIn = __webpack_require__(88);
+    isSet = __webpack_require__(454),
+    keys = __webpack_require__(62),
+    keysIn = __webpack_require__(87);
 
 /** Used to compose bitmasks for cloning. */
 var CLONE_DEEP_FLAG = 1,
@@ -35385,8 +35311,8 @@ module.exports = baseClone;
 
 
 /***/ }),
-/* 178 */,
-/* 179 */
+/* 179 */,
+/* 180 */
 /***/ (function(module, exports) {
 
 /**
@@ -35417,10 +35343,10 @@ module.exports = arrayFilter;
 
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseSetToString = __webpack_require__(425),
+var baseSetToString = __webpack_require__(426),
     shortOut = __webpack_require__(320);
 
 /**
@@ -35437,12 +35363,12 @@ module.exports = setToString;
 
 
 /***/ }),
-/* 181 */,
-/* 182 */
+/* 182 */,
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var metaMap = __webpack_require__(332),
-    noop = __webpack_require__(222);
+    noop = __webpack_require__(223);
 
 /**
  * Gets metadata for `func`.
@@ -35459,12 +35385,12 @@ module.exports = getData;
 
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseFindIndex = __webpack_require__(311),
-    baseIsNaN = __webpack_require__(439),
-    strictIndexOf = __webpack_require__(440);
+var baseFindIndex = __webpack_require__(312),
+    baseIsNaN = __webpack_require__(440),
+    strictIndexOf = __webpack_require__(441);
 
 /**
  * The base implementation of `_.indexOf` without `fromIndex` bounds checks.
@@ -35485,10 +35411,10 @@ module.exports = baseIndexOf;
 
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var createFlow = __webpack_require__(456);
+var createFlow = __webpack_require__(457);
 
 /**
  * Creates a function that returns the result of invoking the given functions
@@ -35518,9 +35444,9 @@ module.exports = flow;
 
 
 /***/ }),
-/* 185 */,
 /* 186 */,
-/* 187 */
+/* 187 */,
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35601,32 +35527,32 @@ module.exports = reflectApply
 
 
 /***/ }),
-/* 188 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var bind = __webpack_require__(154);
+var bind = __webpack_require__(153);
 
 module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
 
 /***/ }),
-/* 189 */,
-/* 190 */
+/* 190 */,
+/* 191 */
 /***/ (function(module) {
 
 module.exports = JSON.parse("[[\"a140\",\"\",62],[\"a180\",\"\",32],[\"a240\",\"\",62],[\"a280\",\"\",32],[\"a2ab\",\"\",5],[\"a2e3\",\"€\"],[\"a2ef\",\"\"],[\"a2fd\",\"\"],[\"a340\",\"\",62],[\"a380\",\"\",31,\"　\"],[\"a440\",\"\",62],[\"a480\",\"\",32],[\"a4f4\",\"\",10],[\"a540\",\"\",62],[\"a580\",\"\",32],[\"a5f7\",\"\",7],[\"a640\",\"\",62],[\"a680\",\"\",32],[\"a6b9\",\"\",7],[\"a6d9\",\"\",6],[\"a6ec\",\"\"],[\"a6f3\",\"\"],[\"a6f6\",\"\",8],[\"a740\",\"\",62],[\"a780\",\"\",32],[\"a7c2\",\"\",14],[\"a7f2\",\"\",12],[\"a896\",\"\",10],[\"a8bc\",\"ḿ\"],[\"a8bf\",\"ǹ\"],[\"a8c1\",\"\"],[\"a8ea\",\"\",20],[\"a958\",\"\"],[\"a95b\",\"\"],[\"a95d\",\"\"],[\"a989\",\"〾⿰\",11],[\"a997\",\"\",12],[\"a9f0\",\"\",14],[\"aaa1\",\"\",93],[\"aba1\",\"\",93],[\"aca1\",\"\",93],[\"ada1\",\"\",93],[\"aea1\",\"\",93],[\"afa1\",\"\",93],[\"d7fa\",\"\",4],[\"f8a1\",\"\",93],[\"f9a1\",\"\",93],[\"faa1\",\"\",93],[\"fba1\",\"\",93],[\"fca1\",\"\",93],[\"fda1\",\"\",93],[\"fe50\",\"⺁⺄㑳㑇⺈⺋㖞㘚㘎⺌⺗㥮㤘㧏㧟㩳㧐㭎㱮㳠⺧⺪䁖䅟⺮䌷⺳⺶⺷䎱䎬⺻䏝䓖䙡䙌\"],[\"fe80\",\"䜣䜩䝼䞍⻊䥇䥺䥽䦂䦃䦅䦆䦟䦛䦷䦶䲣䲟䲠䲡䱷䲢䴓\",6,\"䶮\",93],[\"8135f437\",\"\"]]");
 
 /***/ }),
-/* 191 */
+/* 192 */
 /***/ (function(module) {
 
 module.exports = JSON.parse("[[\"0\",\"\\u0000\",127],[\"a140\",\"　，、。．‧；：？！︰…‥﹐﹑﹒·﹔﹕﹖﹗｜–︱—︳╴︴﹏（）︵︶｛｝︷︸〔〕︹︺【】︻︼《》︽︾〈〉︿﹀「」﹁﹂『』﹃﹄﹙﹚\"],[\"a1a1\",\"﹛﹜﹝﹞‘’“”〝〞‵′＃＆＊※§〃○●△▲◎☆★◇◆□■▽▼㊣℅¯￣＿ˍ﹉﹊﹍﹎﹋﹌﹟﹠﹡＋－×÷±√＜＞＝≦≧≠∞≒≡﹢\",4,\"～∩∪⊥∠∟⊿㏒㏑∫∮∵∴♀♂⊕⊙↑↓←→↖↗↙↘∥∣／\"],[\"a240\",\"＼∕﹨＄￥〒￠￡％＠℃℉﹩﹪﹫㏕㎜㎝㎞㏎㎡㎎㎏㏄°兙兛兞兝兡兣嗧瓩糎▁\",7,\"▏▎▍▌▋▊▉┼┴┬┤├▔─│▕┌┐└┘╭\"],[\"a2a1\",\"╮╰╯═╞╪╡◢◣◥◤╱╲╳０\",9,\"Ⅰ\",9,\"〡\",8,\"十卄卅Ａ\",25,\"ａ\",21],[\"a340\",\"ｗｘｙｚΑ\",16,\"Σ\",6,\"α\",16,\"σ\",6,\"ㄅ\",10],[\"a3a1\",\"ㄐ\",25,\"˙ˉˊˇˋ\"],[\"a3e1\",\"€\"],[\"a440\",\"一乙丁七乃九了二人儿入八几刀刁力匕十卜又三下丈上丫丸凡久么也乞于亡兀刃勺千叉口土士夕大女子孑孓寸小尢尸山川工己已巳巾干廾弋弓才\"],[\"a4a1\",\"丑丐不中丰丹之尹予云井互五亢仁什仃仆仇仍今介仄元允內六兮公冗凶分切刈勻勾勿化匹午升卅卞厄友及反壬天夫太夭孔少尤尺屯巴幻廿弔引心戈戶手扎支文斗斤方日曰月木欠止歹毋比毛氏水火爪父爻片牙牛犬王丙\"],[\"a540\",\"世丕且丘主乍乏乎以付仔仕他仗代令仙仞充兄冉冊冬凹出凸刊加功包匆北匝仟半卉卡占卯卮去可古右召叮叩叨叼司叵叫另只史叱台句叭叻四囚外\"],[\"a5a1\",\"央失奴奶孕它尼巨巧左市布平幼弁弘弗必戊打扔扒扑斥旦朮本未末札正母民氐永汁汀氾犯玄玉瓜瓦甘生用甩田由甲申疋白皮皿目矛矢石示禾穴立丞丟乒乓乩亙交亦亥仿伉伙伊伕伍伐休伏仲件任仰仳份企伋光兇兆先全\"],[\"a640\",\"共再冰列刑划刎刖劣匈匡匠印危吉吏同吊吐吁吋各向名合吃后吆吒因回囝圳地在圭圬圯圩夙多夷夸妄奸妃好她如妁字存宇守宅安寺尖屹州帆并年\"],[\"a6a1\",\"式弛忙忖戎戌戍成扣扛托收早旨旬旭曲曳有朽朴朱朵次此死氖汝汗汙江池汐汕污汛汍汎灰牟牝百竹米糸缶羊羽老考而耒耳聿肉肋肌臣自至臼舌舛舟艮色艾虫血行衣西阡串亨位住佇佗佞伴佛何估佐佑伽伺伸佃佔似但佣\"],[\"a740\",\"作你伯低伶余佝佈佚兌克免兵冶冷別判利刪刨劫助努劬匣即卵吝吭吞吾否呎吧呆呃吳呈呂君吩告吹吻吸吮吵吶吠吼呀吱含吟听囪困囤囫坊坑址坍\"],[\"a7a1\",\"均坎圾坐坏圻壯夾妝妒妨妞妣妙妖妍妤妓妊妥孝孜孚孛完宋宏尬局屁尿尾岐岑岔岌巫希序庇床廷弄弟彤形彷役忘忌志忍忱快忸忪戒我抄抗抖技扶抉扭把扼找批扳抒扯折扮投抓抑抆改攻攸旱更束李杏材村杜杖杞杉杆杠\"],[\"a840\",\"杓杗步每求汞沙沁沈沉沅沛汪決沐汰沌汨沖沒汽沃汲汾汴沆汶沍沔沘沂灶灼災灸牢牡牠狄狂玖甬甫男甸皂盯矣私秀禿究系罕肖肓肝肘肛肚育良芒\"],[\"a8a1\",\"芋芍見角言谷豆豕貝赤走足身車辛辰迂迆迅迄巡邑邢邪邦那酉釆里防阮阱阪阬並乖乳事些亞享京佯依侍佳使佬供例來侃佰併侈佩佻侖佾侏侑佺兔兒兕兩具其典冽函刻券刷刺到刮制剁劾劻卒協卓卑卦卷卸卹取叔受味呵\"],[\"a940\",\"咖呸咕咀呻呷咄咒咆呼咐呱呶和咚呢周咋命咎固垃坷坪坩坡坦坤坼夜奉奇奈奄奔妾妻委妹妮姑姆姐姍始姓姊妯妳姒姅孟孤季宗定官宜宙宛尚屈居\"],[\"a9a1\",\"屆岷岡岸岩岫岱岳帘帚帖帕帛帑幸庚店府底庖延弦弧弩往征彿彼忝忠忽念忿怏怔怯怵怖怪怕怡性怩怫怛或戕房戾所承拉拌拄抿拂抹拒招披拓拔拋拈抨抽押拐拙拇拍抵拚抱拘拖拗拆抬拎放斧於旺昔易昌昆昂明昀昏昕昊\"],[\"aa40\",\"昇服朋杭枋枕東果杳杷枇枝林杯杰板枉松析杵枚枓杼杪杲欣武歧歿氓氛泣注泳沱泌泥河沽沾沼波沫法泓沸泄油況沮泗泅泱沿治泡泛泊沬泯泜泖泠\"],[\"aaa1\",\"炕炎炒炊炙爬爭爸版牧物狀狎狙狗狐玩玨玟玫玥甽疝疙疚的盂盲直知矽社祀祁秉秈空穹竺糾罔羌羋者肺肥肢肱股肫肩肴肪肯臥臾舍芳芝芙芭芽芟芹花芬芥芯芸芣芰芾芷虎虱初表軋迎返近邵邸邱邶采金長門阜陀阿阻附\"],[\"ab40\",\"陂隹雨青非亟亭亮信侵侯便俠俑俏保促侶俘俟俊俗侮俐俄係俚俎俞侷兗冒冑冠剎剃削前剌剋則勇勉勃勁匍南卻厚叛咬哀咨哎哉咸咦咳哇哂咽咪品\"],[\"aba1\",\"哄哈咯咫咱咻咩咧咿囿垂型垠垣垢城垮垓奕契奏奎奐姜姘姿姣姨娃姥姪姚姦威姻孩宣宦室客宥封屎屏屍屋峙峒巷帝帥帟幽庠度建弈弭彥很待徊律徇後徉怒思怠急怎怨恍恰恨恢恆恃恬恫恪恤扁拜挖按拼拭持拮拽指拱拷\"],[\"ac40\",\"拯括拾拴挑挂政故斫施既春昭映昧是星昨昱昤曷柿染柱柔某柬架枯柵柩柯柄柑枴柚查枸柏柞柳枰柙柢柝柒歪殃殆段毒毗氟泉洋洲洪流津洌洱洞洗\"],[\"aca1\",\"活洽派洶洛泵洹洧洸洩洮洵洎洫炫為炳炬炯炭炸炮炤爰牲牯牴狩狠狡玷珊玻玲珍珀玳甚甭畏界畎畋疫疤疥疢疣癸皆皇皈盈盆盃盅省盹相眉看盾盼眇矜砂研砌砍祆祉祈祇禹禺科秒秋穿突竿竽籽紂紅紀紉紇約紆缸美羿耄\"],[\"ad40\",\"耐耍耑耶胖胥胚胃胄背胡胛胎胞胤胝致舢苧范茅苣苛苦茄若茂茉苒苗英茁苜苔苑苞苓苟苯茆虐虹虻虺衍衫要觔計訂訃貞負赴赳趴軍軌述迦迢迪迥\"],[\"ada1\",\"迭迫迤迨郊郎郁郃酋酊重閂限陋陌降面革韋韭音頁風飛食首香乘亳倌倍倣俯倦倥俸倩倖倆值借倚倒們俺倀倔倨俱倡個候倘俳修倭倪俾倫倉兼冤冥冢凍凌准凋剖剜剔剛剝匪卿原厝叟哨唐唁唷哼哥哲唆哺唔哩哭員唉哮哪\"],[\"ae40\",\"哦唧唇哽唏圃圄埂埔埋埃堉夏套奘奚娑娘娜娟娛娓姬娠娣娩娥娌娉孫屘宰害家宴宮宵容宸射屑展屐峭峽峻峪峨峰島崁峴差席師庫庭座弱徒徑徐恙\"],[\"aea1\",\"恣恥恐恕恭恩息悄悟悚悍悔悌悅悖扇拳挈拿捎挾振捕捂捆捏捉挺捐挽挪挫挨捍捌效敉料旁旅時晉晏晃晒晌晅晁書朔朕朗校核案框桓根桂桔栩梳栗桌桑栽柴桐桀格桃株桅栓栘桁殊殉殷氣氧氨氦氤泰浪涕消涇浦浸海浙涓\"],[\"af40\",\"浬涉浮浚浴浩涌涊浹涅浥涔烊烘烤烙烈烏爹特狼狹狽狸狷玆班琉珮珠珪珞畔畝畜畚留疾病症疲疳疽疼疹痂疸皋皰益盍盎眩真眠眨矩砰砧砸砝破砷\"],[\"afa1\",\"砥砭砠砟砲祕祐祠祟祖神祝祗祚秤秣秧租秦秩秘窄窈站笆笑粉紡紗紋紊素索純紐紕級紜納紙紛缺罟羔翅翁耆耘耕耙耗耽耿胱脂胰脅胭胴脆胸胳脈能脊胼胯臭臬舀舐航舫舨般芻茫荒荔荊茸荐草茵茴荏茲茹茶茗荀茱茨荃\"],[\"b040\",\"虔蚊蚪蚓蚤蚩蚌蚣蚜衰衷袁袂衽衹記訐討訌訕訊託訓訖訏訑豈豺豹財貢起躬軒軔軏辱送逆迷退迺迴逃追逅迸邕郡郝郢酒配酌釘針釗釜釙閃院陣陡\"],[\"b0a1\",\"陛陝除陘陞隻飢馬骨高鬥鬲鬼乾偺偽停假偃偌做偉健偶偎偕偵側偷偏倏偯偭兜冕凰剪副勒務勘動匐匏匙匿區匾參曼商啪啦啄啞啡啃啊唱啖問啕唯啤唸售啜唬啣唳啁啗圈國圉域堅堊堆埠埤基堂堵執培夠奢娶婁婉婦婪婀\"],[\"b140\",\"娼婢婚婆婊孰寇寅寄寂宿密尉專將屠屜屝崇崆崎崛崖崢崑崩崔崙崤崧崗巢常帶帳帷康庸庶庵庾張強彗彬彩彫得徙從徘御徠徜恿患悉悠您惋悴惦悽\"],[\"b1a1\",\"情悻悵惜悼惘惕惆惟悸惚惇戚戛扈掠控捲掖探接捷捧掘措捱掩掉掃掛捫推掄授掙採掬排掏掀捻捩捨捺敝敖救教敗啟敏敘敕敔斜斛斬族旋旌旎晝晚晤晨晦晞曹勗望梁梯梢梓梵桿桶梱梧梗械梃棄梭梆梅梔條梨梟梡梂欲殺\"],[\"b240\",\"毫毬氫涎涼淳淙液淡淌淤添淺清淇淋涯淑涮淞淹涸混淵淅淒渚涵淚淫淘淪深淮淨淆淄涪淬涿淦烹焉焊烽烯爽牽犁猜猛猖猓猙率琅琊球理現琍瓠瓶\"],[\"b2a1\",\"瓷甜產略畦畢異疏痔痕疵痊痍皎盔盒盛眷眾眼眶眸眺硫硃硎祥票祭移窒窕笠笨笛第符笙笞笮粒粗粕絆絃統紮紹紼絀細紳組累終紲紱缽羞羚翌翎習耜聊聆脯脖脣脫脩脰脤舂舵舷舶船莎莞莘荸莢莖莽莫莒莊莓莉莠荷荻荼\"],[\"b340\",\"莆莧處彪蛇蛀蚶蛄蚵蛆蛋蚱蚯蛉術袞袈被袒袖袍袋覓規訪訝訣訥許設訟訛訢豉豚販責貫貨貪貧赧赦趾趺軛軟這逍通逗連速逝逐逕逞造透逢逖逛途\"],[\"b3a1\",\"部郭都酗野釵釦釣釧釭釩閉陪陵陳陸陰陴陶陷陬雀雪雩章竟頂頃魚鳥鹵鹿麥麻傢傍傅備傑傀傖傘傚最凱割剴創剩勞勝勛博厥啻喀喧啼喊喝喘喂喜喪喔喇喋喃喳單喟唾喲喚喻喬喱啾喉喫喙圍堯堪場堤堰報堡堝堠壹壺奠\"],[\"b440\",\"婷媚婿媒媛媧孳孱寒富寓寐尊尋就嵌嵐崴嵇巽幅帽幀幃幾廊廁廂廄弼彭復循徨惑惡悲悶惠愜愣惺愕惰惻惴慨惱愎惶愉愀愒戟扉掣掌描揀揩揉揆揍\"],[\"b4a1\",\"插揣提握揖揭揮捶援揪換摒揚揹敞敦敢散斑斐斯普晰晴晶景暑智晾晷曾替期朝棺棕棠棘棗椅棟棵森棧棹棒棲棣棋棍植椒椎棉棚楮棻款欺欽殘殖殼毯氮氯氬港游湔渡渲湧湊渠渥渣減湛湘渤湖湮渭渦湯渴湍渺測湃渝渾滋\"],[\"b540\",\"溉渙湎湣湄湲湩湟焙焚焦焰無然煮焜牌犄犀猶猥猴猩琺琪琳琢琥琵琶琴琯琛琦琨甥甦畫番痢痛痣痙痘痞痠登發皖皓皴盜睏短硝硬硯稍稈程稅稀窘\"],[\"b5a1\",\"窗窖童竣等策筆筐筒答筍筋筏筑粟粥絞結絨絕紫絮絲絡給絢絰絳善翔翕耋聒肅腕腔腋腑腎脹腆脾腌腓腴舒舜菩萃菸萍菠菅萋菁華菱菴著萊菰萌菌菽菲菊萸萎萄菜萇菔菟虛蛟蛙蛭蛔蛛蛤蛐蛞街裁裂袱覃視註詠評詞証詁\"],[\"b640\",\"詔詛詐詆訴診訶詖象貂貯貼貳貽賁費賀貴買貶貿貸越超趁跎距跋跚跑跌跛跆軻軸軼辜逮逵週逸進逶鄂郵鄉郾酣酥量鈔鈕鈣鈉鈞鈍鈐鈇鈑閔閏開閑\"],[\"b6a1\",\"間閒閎隊階隋陽隅隆隍陲隄雁雅雄集雇雯雲韌項順須飧飪飯飩飲飭馮馭黃黍黑亂傭債傲傳僅傾催傷傻傯僇剿剷剽募勦勤勢勣匯嗟嗨嗓嗦嗎嗜嗇嗑嗣嗤嗯嗚嗡嗅嗆嗥嗉園圓塞塑塘塗塚塔填塌塭塊塢塒塋奧嫁嫉嫌媾媽媼\"],[\"b740\",\"媳嫂媲嵩嵯幌幹廉廈弒彙徬微愚意慈感想愛惹愁愈慎慌慄慍愾愴愧愍愆愷戡戢搓搾搞搪搭搽搬搏搜搔損搶搖搗搆敬斟新暗暉暇暈暖暄暘暍會榔業\"],[\"b7a1\",\"楚楷楠楔極椰概楊楨楫楞楓楹榆楝楣楛歇歲毀殿毓毽溢溯滓溶滂源溝滇滅溥溘溼溺溫滑準溜滄滔溪溧溴煎煙煩煤煉照煜煬煦煌煥煞煆煨煖爺牒猷獅猿猾瑯瑚瑕瑟瑞瑁琿瑙瑛瑜當畸瘀痰瘁痲痱痺痿痴痳盞盟睛睫睦睞督\"],[\"b840\",\"睹睪睬睜睥睨睢矮碎碰碗碘碌碉硼碑碓硿祺祿禁萬禽稜稚稠稔稟稞窟窠筷節筠筮筧粱粳粵經絹綑綁綏絛置罩罪署義羨群聖聘肆肄腱腰腸腥腮腳腫\"],[\"b8a1\",\"腹腺腦舅艇蒂葷落萱葵葦葫葉葬葛萼萵葡董葩葭葆虞虜號蛹蜓蜈蜇蜀蛾蛻蜂蜃蜆蜊衙裟裔裙補裘裝裡裊裕裒覜解詫該詳試詩詰誇詼詣誠話誅詭詢詮詬詹詻訾詨豢貊貉賊資賈賄貲賃賂賅跡跟跨路跳跺跪跤跦躲較載軾輊\"],[\"b940\",\"辟農運遊道遂達逼違遐遇遏過遍遑逾遁鄒鄗酬酪酩釉鈷鉗鈸鈽鉀鈾鉛鉋鉤鉑鈴鉉鉍鉅鈹鈿鉚閘隘隔隕雍雋雉雊雷電雹零靖靴靶預頑頓頊頒頌飼飴\"],[\"b9a1\",\"飽飾馳馱馴髡鳩麂鼎鼓鼠僧僮僥僖僭僚僕像僑僱僎僩兢凳劃劂匱厭嗾嘀嘛嘗嗽嘔嘆嘉嘍嘎嗷嘖嘟嘈嘐嗶團圖塵塾境墓墊塹墅塽壽夥夢夤奪奩嫡嫦嫩嫗嫖嫘嫣孵寞寧寡寥實寨寢寤察對屢嶄嶇幛幣幕幗幔廓廖弊彆彰徹慇\"],[\"ba40\",\"愿態慷慢慣慟慚慘慵截撇摘摔撤摸摟摺摑摧搴摭摻敲斡旗旖暢暨暝榜榨榕槁榮槓構榛榷榻榫榴槐槍榭槌榦槃榣歉歌氳漳演滾漓滴漩漾漠漬漏漂漢\"],[\"baa1\",\"滿滯漆漱漸漲漣漕漫漯澈漪滬漁滲滌滷熔熙煽熊熄熒爾犒犖獄獐瑤瑣瑪瑰瑭甄疑瘧瘍瘋瘉瘓盡監瞄睽睿睡磁碟碧碳碩碣禎福禍種稱窪窩竭端管箕箋筵算箝箔箏箸箇箄粹粽精綻綰綜綽綾綠緊綴網綱綺綢綿綵綸維緒緇綬\"],[\"bb40\",\"罰翠翡翟聞聚肇腐膀膏膈膊腿膂臧臺與舔舞艋蓉蒿蓆蓄蒙蒞蒲蒜蓋蒸蓀蓓蒐蒼蓑蓊蜿蜜蜻蜢蜥蜴蜘蝕蜷蜩裳褂裴裹裸製裨褚裯誦誌語誣認誡誓誤\"],[\"bba1\",\"說誥誨誘誑誚誧豪貍貌賓賑賒赫趙趕跼輔輒輕輓辣遠遘遜遣遙遞遢遝遛鄙鄘鄞酵酸酷酴鉸銀銅銘銖鉻銓銜銨鉼銑閡閨閩閣閥閤隙障際雌雒需靼鞅韶頗領颯颱餃餅餌餉駁骯骰髦魁魂鳴鳶鳳麼鼻齊億儀僻僵價儂儈儉儅凜\"],[\"bc40\",\"劇劈劉劍劊勰厲嘮嘻嘹嘲嘿嘴嘩噓噎噗噴嘶嘯嘰墀墟增墳墜墮墩墦奭嬉嫻嬋嫵嬌嬈寮寬審寫層履嶝嶔幢幟幡廢廚廟廝廣廠彈影德徵慶慧慮慝慕憂\"],[\"bca1\",\"慼慰慫慾憧憐憫憎憬憚憤憔憮戮摩摯摹撞撲撈撐撰撥撓撕撩撒撮播撫撚撬撙撢撳敵敷數暮暫暴暱樣樟槨樁樞標槽模樓樊槳樂樅槭樑歐歎殤毅毆漿潼澄潑潦潔澆潭潛潸潮澎潺潰潤澗潘滕潯潠潟熟熬熱熨牖犛獎獗瑩璋璃\"],[\"bd40\",\"瑾璀畿瘠瘩瘟瘤瘦瘡瘢皚皺盤瞎瞇瞌瞑瞋磋磅確磊碾磕碼磐稿稼穀稽稷稻窯窮箭箱範箴篆篇篁箠篌糊締練緯緻緘緬緝編緣線緞緩綞緙緲緹罵罷羯\"],[\"bda1\",\"翩耦膛膜膝膠膚膘蔗蔽蔚蓮蔬蔭蔓蔑蔣蔡蔔蓬蔥蓿蔆螂蝴蝶蝠蝦蝸蝨蝙蝗蝌蝓衛衝褐複褒褓褕褊誼諒談諄誕請諸課諉諂調誰論諍誶誹諛豌豎豬賠賞賦賤賬賭賢賣賜質賡赭趟趣踫踐踝踢踏踩踟踡踞躺輝輛輟輩輦輪輜輞\"],[\"be40\",\"輥適遮遨遭遷鄰鄭鄧鄱醇醉醋醃鋅銻銷鋪銬鋤鋁銳銼鋒鋇鋰銲閭閱霄霆震霉靠鞍鞋鞏頡頫頜颳養餓餒餘駝駐駟駛駑駕駒駙骷髮髯鬧魅魄魷魯鴆鴉\"],[\"bea1\",\"鴃麩麾黎墨齒儒儘儔儐儕冀冪凝劑劓勳噙噫噹噩噤噸噪器噥噱噯噬噢噶壁墾壇壅奮嬝嬴學寰導彊憲憑憩憊懍憶憾懊懈戰擅擁擋撻撼據擄擇擂操撿擒擔撾整曆曉暹曄曇暸樽樸樺橙橫橘樹橄橢橡橋橇樵機橈歙歷氅濂澱澡\"],[\"bf40\",\"濃澤濁澧澳激澹澶澦澠澴熾燉燐燒燈燕熹燎燙燜燃燄獨璜璣璘璟璞瓢甌甍瘴瘸瘺盧盥瞠瞞瞟瞥磨磚磬磧禦積穎穆穌穋窺篙簑築篤篛篡篩篦糕糖縊\"],[\"bfa1\",\"縑縈縛縣縞縝縉縐罹羲翰翱翮耨膳膩膨臻興艘艙蕊蕙蕈蕨蕩蕃蕉蕭蕪蕞螃螟螞螢融衡褪褲褥褫褡親覦諦諺諫諱謀諜諧諮諾謁謂諷諭諳諶諼豫豭貓賴蹄踱踴蹂踹踵輻輯輸輳辨辦遵遴選遲遼遺鄴醒錠錶鋸錳錯錢鋼錫錄錚\"],[\"c040\",\"錐錦錡錕錮錙閻隧隨險雕霎霑霖霍霓霏靛靜靦鞘頰頸頻頷頭頹頤餐館餞餛餡餚駭駢駱骸骼髻髭鬨鮑鴕鴣鴦鴨鴒鴛默黔龍龜優償儡儲勵嚎嚀嚐嚅嚇\"],[\"c0a1\",\"嚏壕壓壑壎嬰嬪嬤孺尷屨嶼嶺嶽嶸幫彌徽應懂懇懦懋戲戴擎擊擘擠擰擦擬擱擢擭斂斃曙曖檀檔檄檢檜櫛檣橾檗檐檠歜殮毚氈濘濱濟濠濛濤濫濯澀濬濡濩濕濮濰燧營燮燦燥燭燬燴燠爵牆獰獲璩環璦璨癆療癌盪瞳瞪瞰瞬\"],[\"c140\",\"瞧瞭矯磷磺磴磯礁禧禪穗窿簇簍篾篷簌篠糠糜糞糢糟糙糝縮績繆縷縲繃縫總縱繅繁縴縹繈縵縿縯罄翳翼聱聲聰聯聳臆臃膺臂臀膿膽臉膾臨舉艱薪\"],[\"c1a1\",\"薄蕾薜薑薔薯薛薇薨薊虧蟀蟑螳蟒蟆螫螻螺蟈蟋褻褶襄褸褽覬謎謗謙講謊謠謝謄謐豁谿豳賺賽購賸賻趨蹉蹋蹈蹊轄輾轂轅輿避遽還邁邂邀鄹醣醞醜鍍鎂錨鍵鍊鍥鍋錘鍾鍬鍛鍰鍚鍔闊闋闌闈闆隱隸雖霜霞鞠韓顆颶餵騁\"],[\"c240\",\"駿鮮鮫鮪鮭鴻鴿麋黏點黜黝黛鼾齋叢嚕嚮壙壘嬸彝懣戳擴擲擾攆擺擻擷斷曜朦檳檬櫃檻檸櫂檮檯歟歸殯瀉瀋濾瀆濺瀑瀏燻燼燾燸獷獵璧璿甕癖癘\"],[\"c2a1\",\"癒瞽瞿瞻瞼礎禮穡穢穠竄竅簫簧簪簞簣簡糧織繕繞繚繡繒繙罈翹翻職聶臍臏舊藏薩藍藐藉薰薺薹薦蟯蟬蟲蟠覆覲觴謨謹謬謫豐贅蹙蹣蹦蹤蹟蹕軀轉轍邇邃邈醫醬釐鎔鎊鎖鎢鎳鎮鎬鎰鎘鎚鎗闔闖闐闕離雜雙雛雞霤鞣鞦\"],[\"c340\",\"鞭韹額顏題顎顓颺餾餿餽餮馥騎髁鬃鬆魏魎魍鯊鯉鯽鯈鯀鵑鵝鵠黠鼕鼬儳嚥壞壟壢寵龐廬懲懷懶懵攀攏曠曝櫥櫝櫚櫓瀛瀟瀨瀚瀝瀕瀘爆爍牘犢獸\"],[\"c3a1\",\"獺璽瓊瓣疇疆癟癡矇礙禱穫穩簾簿簸簽簷籀繫繭繹繩繪羅繳羶羹羸臘藩藝藪藕藤藥藷蟻蠅蠍蟹蟾襠襟襖襞譁譜識證譚譎譏譆譙贈贊蹼蹲躇蹶蹬蹺蹴轔轎辭邊邋醱醮鏡鏑鏟鏃鏈鏜鏝鏖鏢鏍鏘鏤鏗鏨關隴難霪霧靡韜韻類\"],[\"c440\",\"願顛颼饅饉騖騙鬍鯨鯧鯖鯛鶉鵡鵲鵪鵬麒麗麓麴勸嚨嚷嚶嚴嚼壤孀孃孽寶巉懸懺攘攔攙曦朧櫬瀾瀰瀲爐獻瓏癢癥礦礪礬礫竇競籌籃籍糯糰辮繽繼\"],[\"c4a1\",\"纂罌耀臚艦藻藹蘑藺蘆蘋蘇蘊蠔蠕襤覺觸議譬警譯譟譫贏贍躉躁躅躂醴釋鐘鐃鏽闡霰飄饒饑馨騫騰騷騵鰓鰍鹹麵黨鼯齟齣齡儷儸囁囀囂夔屬巍懼懾攝攜斕曩櫻欄櫺殲灌爛犧瓖瓔癩矓籐纏續羼蘗蘭蘚蠣蠢蠡蠟襪襬覽譴\"],[\"c540\",\"護譽贓躊躍躋轟辯醺鐮鐳鐵鐺鐸鐲鐫闢霸霹露響顧顥饗驅驃驀騾髏魔魑鰭鰥鶯鶴鷂鶸麝黯鼙齜齦齧儼儻囈囊囉孿巔巒彎懿攤權歡灑灘玀瓤疊癮癬\"],[\"c5a1\",\"禳籠籟聾聽臟襲襯觼讀贖贗躑躓轡酈鑄鑑鑒霽霾韃韁顫饕驕驍髒鬚鱉鰱鰾鰻鷓鷗鼴齬齪龔囌巖戀攣攫攪曬欐瓚竊籤籣籥纓纖纔臢蘸蘿蠱變邐邏鑣鑠鑤靨顯饜驚驛驗髓體髑鱔鱗鱖鷥麟黴囑壩攬灞癱癲矗罐羈蠶蠹衢讓讒\"],[\"c640\",\"讖艷贛釀鑪靂靈靄韆顰驟鬢魘鱟鷹鷺鹼鹽鼇齷齲廳欖灣籬籮蠻觀躡釁鑲鑰顱饞髖鬣黌灤矚讚鑷韉驢驥纜讜躪釅鑽鑾鑼鱷鱸黷豔鑿鸚爨驪鬱鸛鸞籲\"],[\"c940\",\"乂乜凵匚厂万丌乇亍囗兀屮彳丏冇与丮亓仂仉仈冘勼卬厹圠夃夬尐巿旡殳毌气爿丱丼仨仜仩仡仝仚刌匜卌圢圣夗夯宁宄尒尻屴屳帄庀庂忉戉扐氕\"],[\"c9a1\",\"氶汃氿氻犮犰玊禸肊阞伎优伬仵伔仱伀价伈伝伂伅伢伓伄仴伒冱刓刉刐劦匢匟卍厊吇囡囟圮圪圴夼妀奼妅奻奾奷奿孖尕尥屼屺屻屾巟幵庄异弚彴忕忔忏扜扞扤扡扦扢扙扠扚扥旯旮朾朹朸朻机朿朼朳氘汆汒汜汏汊汔汋\"],[\"ca40\",\"汌灱牞犴犵玎甪癿穵网艸艼芀艽艿虍襾邙邗邘邛邔阢阤阠阣佖伻佢佉体佤伾佧佒佟佁佘伭伳伿佡冏冹刜刞刡劭劮匉卣卲厎厏吰吷吪呔呅吙吜吥吘\"],[\"caa1\",\"吽呏呁吨吤呇囮囧囥坁坅坌坉坋坒夆奀妦妘妠妗妎妢妐妏妧妡宎宒尨尪岍岏岈岋岉岒岊岆岓岕巠帊帎庋庉庌庈庍弅弝彸彶忒忑忐忭忨忮忳忡忤忣忺忯忷忻怀忴戺抃抌抎抏抔抇扱扻扺扰抁抈扷扽扲扴攷旰旴旳旲旵杅杇\"],[\"cb40\",\"杙杕杌杈杝杍杚杋毐氙氚汸汧汫沄沋沏汱汯汩沚汭沇沕沜汦汳汥汻沎灴灺牣犿犽狃狆狁犺狅玕玗玓玔玒町甹疔疕皁礽耴肕肙肐肒肜芐芏芅芎芑芓\"],[\"cba1\",\"芊芃芄豸迉辿邟邡邥邞邧邠阰阨阯阭丳侘佼侅佽侀侇佶佴侉侄佷佌侗佪侚佹侁佸侐侜侔侞侒侂侕佫佮冞冼冾刵刲刳剆刱劼匊匋匼厒厔咇呿咁咑咂咈呫呺呾呥呬呴呦咍呯呡呠咘呣呧呤囷囹坯坲坭坫坱坰坶垀坵坻坳坴坢\"],[\"cc40\",\"坨坽夌奅妵妺姏姎妲姌姁妶妼姃姖妱妽姀姈妴姇孢孥宓宕屄屇岮岤岠岵岯岨岬岟岣岭岢岪岧岝岥岶岰岦帗帔帙弨弢弣弤彔徂彾彽忞忥怭怦怙怲怋\"],[\"cca1\",\"怴怊怗怳怚怞怬怢怍怐怮怓怑怌怉怜戔戽抭抴拑抾抪抶拊抮抳抯抻抩抰抸攽斨斻昉旼昄昒昈旻昃昋昍昅旽昑昐曶朊枅杬枎枒杶杻枘枆构杴枍枌杺枟枑枙枃杽极杸杹枔欥殀歾毞氝沓泬泫泮泙沶泔沭泧沷泐泂沺泃泆泭泲\"],[\"cd40\",\"泒泝沴沊沝沀泞泀洰泍泇沰泹泏泩泑炔炘炅炓炆炄炑炖炂炚炃牪狖狋狘狉狜狒狔狚狌狑玤玡玭玦玢玠玬玝瓝瓨甿畀甾疌疘皯盳盱盰盵矸矼矹矻矺\"],[\"cda1\",\"矷祂礿秅穸穻竻籵糽耵肏肮肣肸肵肭舠芠苀芫芚芘芛芵芧芮芼芞芺芴芨芡芩苂芤苃芶芢虰虯虭虮豖迒迋迓迍迖迕迗邲邴邯邳邰阹阽阼阺陃俍俅俓侲俉俋俁俔俜俙侻侳俛俇俖侺俀侹俬剄剉勀勂匽卼厗厖厙厘咺咡咭咥哏\"],[\"ce40\",\"哃茍咷咮哖咶哅哆咠呰咼咢咾呲哞咰垵垞垟垤垌垗垝垛垔垘垏垙垥垚垕壴复奓姡姞姮娀姱姝姺姽姼姶姤姲姷姛姩姳姵姠姾姴姭宨屌峐峘峌峗峋峛\"],[\"cea1\",\"峞峚峉峇峊峖峓峔峏峈峆峎峟峸巹帡帢帣帠帤庰庤庢庛庣庥弇弮彖徆怷怹恔恲恞恅恓恇恉恛恌恀恂恟怤恄恘恦恮扂扃拏挍挋拵挎挃拫拹挏挌拸拶挀挓挔拺挕拻拰敁敃斪斿昶昡昲昵昜昦昢昳昫昺昝昴昹昮朏朐柁柲柈枺\"],[\"cf40\",\"柜枻柸柘柀枷柅柫柤柟枵柍枳柷柶柮柣柂枹柎柧柰枲柼柆柭柌枮柦柛柺柉柊柃柪柋欨殂殄殶毖毘毠氠氡洨洴洭洟洼洿洒洊泚洳洄洙洺洚洑洀洝浂\"],[\"cfa1\",\"洁洘洷洃洏浀洇洠洬洈洢洉洐炷炟炾炱炰炡炴炵炩牁牉牊牬牰牳牮狊狤狨狫狟狪狦狣玅珌珂珈珅玹玶玵玴珫玿珇玾珃珆玸珋瓬瓮甮畇畈疧疪癹盄眈眃眄眅眊盷盻盺矧矨砆砑砒砅砐砏砎砉砃砓祊祌祋祅祄秕种秏秖秎窀\"],[\"d040\",\"穾竑笀笁籺籸籹籿粀粁紃紈紁罘羑羍羾耇耎耏耔耷胘胇胠胑胈胂胐胅胣胙胜胊胕胉胏胗胦胍臿舡芔苙苾苹茇苨茀苕茺苫苖苴苬苡苲苵茌苻苶苰苪\"],[\"d0a1\",\"苤苠苺苳苭虷虴虼虳衁衎衧衪衩觓訄訇赲迣迡迮迠郱邽邿郕郅邾郇郋郈釔釓陔陏陑陓陊陎倞倅倇倓倢倰倛俵俴倳倷倬俶俷倗倜倠倧倵倯倱倎党冔冓凊凄凅凈凎剡剚剒剞剟剕剢勍匎厞唦哢唗唒哧哳哤唚哿唄唈哫唑唅哱\"],[\"d140\",\"唊哻哷哸哠唎唃唋圁圂埌堲埕埒垺埆垽垼垸垶垿埇埐垹埁夎奊娙娖娭娮娕娏娗娊娞娳孬宧宭宬尃屖屔峬峿峮峱峷崀峹帩帨庨庮庪庬弳弰彧恝恚恧\"],[\"d1a1\",\"恁悢悈悀悒悁悝悃悕悛悗悇悜悎戙扆拲挐捖挬捄捅挶捃揤挹捋捊挼挩捁挴捘捔捙挭捇挳捚捑挸捗捀捈敊敆旆旃旄旂晊晟晇晑朒朓栟栚桉栲栳栻桋桏栖栱栜栵栫栭栯桎桄栴栝栒栔栦栨栮桍栺栥栠欬欯欭欱欴歭肂殈毦毤\"],[\"d240\",\"毨毣毢毧氥浺浣浤浶洍浡涒浘浢浭浯涑涍淯浿涆浞浧浠涗浰浼浟涂涘洯浨涋浾涀涄洖涃浻浽浵涐烜烓烑烝烋缹烢烗烒烞烠烔烍烅烆烇烚烎烡牂牸\"],[\"d2a1\",\"牷牶猀狺狴狾狶狳狻猁珓珙珥珖玼珧珣珩珜珒珛珔珝珚珗珘珨瓞瓟瓴瓵甡畛畟疰痁疻痄痀疿疶疺皊盉眝眛眐眓眒眣眑眕眙眚眢眧砣砬砢砵砯砨砮砫砡砩砳砪砱祔祛祏祜祓祒祑秫秬秠秮秭秪秜秞秝窆窉窅窋窌窊窇竘笐\"],[\"d340\",\"笄笓笅笏笈笊笎笉笒粄粑粊粌粈粍粅紞紝紑紎紘紖紓紟紒紏紌罜罡罞罠罝罛羖羒翃翂翀耖耾耹胺胲胹胵脁胻脀舁舯舥茳茭荄茙荑茥荖茿荁茦茜茢\"],[\"d3a1\",\"荂荎茛茪茈茼荍茖茤茠茷茯茩荇荅荌荓茞茬荋茧荈虓虒蚢蚨蚖蚍蚑蚞蚇蚗蚆蚋蚚蚅蚥蚙蚡蚧蚕蚘蚎蚝蚐蚔衃衄衭衵衶衲袀衱衿衯袃衾衴衼訒豇豗豻貤貣赶赸趵趷趶軑軓迾迵适迿迻逄迼迶郖郠郙郚郣郟郥郘郛郗郜郤酐\"],[\"d440\",\"酎酏釕釢釚陜陟隼飣髟鬯乿偰偪偡偞偠偓偋偝偲偈偍偁偛偊偢倕偅偟偩偫偣偤偆偀偮偳偗偑凐剫剭剬剮勖勓匭厜啵啶唼啍啐唴唪啑啢唶唵唰啒啅\"],[\"d4a1\",\"唌唲啥啎唹啈唭唻啀啋圊圇埻堔埢埶埜埴堀埭埽堈埸堋埳埏堇埮埣埲埥埬埡堎埼堐埧堁堌埱埩埰堍堄奜婠婘婕婧婞娸娵婭婐婟婥婬婓婤婗婃婝婒婄婛婈媎娾婍娹婌婰婩婇婑婖婂婜孲孮寁寀屙崞崋崝崚崠崌崨崍崦崥崏\"],[\"d540\",\"崰崒崣崟崮帾帴庱庴庹庲庳弶弸徛徖徟悊悐悆悾悰悺惓惔惏惤惙惝惈悱惛悷惊悿惃惍惀挲捥掊掂捽掽掞掭掝掗掫掎捯掇掐据掯捵掜捭掮捼掤挻掟\"],[\"d5a1\",\"捸掅掁掑掍捰敓旍晥晡晛晙晜晢朘桹梇梐梜桭桮梮梫楖桯梣梬梩桵桴梲梏桷梒桼桫桲梪梀桱桾梛梖梋梠梉梤桸桻梑梌梊桽欶欳欷欸殑殏殍殎殌氪淀涫涴涳湴涬淩淢涷淶淔渀淈淠淟淖涾淥淜淝淛淴淊涽淭淰涺淕淂淏淉\"],[\"d640\",\"淐淲淓淽淗淍淣涻烺焍烷焗烴焌烰焄烳焐烼烿焆焓焀烸烶焋焂焎牾牻牼牿猝猗猇猑猘猊猈狿猏猞玈珶珸珵琄琁珽琇琀珺珼珿琌琋珴琈畤畣痎痒痏\"],[\"d6a1\",\"痋痌痑痐皏皉盓眹眯眭眱眲眴眳眽眥眻眵硈硒硉硍硊硌砦硅硐祤祧祩祪祣祫祡离秺秸秶秷窏窔窐笵筇笴笥笰笢笤笳笘笪笝笱笫笭笯笲笸笚笣粔粘粖粣紵紽紸紶紺絅紬紩絁絇紾紿絊紻紨罣羕羜羝羛翊翋翍翐翑翇翏翉耟\"],[\"d740\",\"耞耛聇聃聈脘脥脙脛脭脟脬脞脡脕脧脝脢舑舸舳舺舴舲艴莐莣莨莍荺荳莤荴莏莁莕莙荵莔莩荽莃莌莝莛莪莋荾莥莯莈莗莰荿莦莇莮荶莚虙虖蚿蚷\"],[\"d7a1\",\"蛂蛁蛅蚺蚰蛈蚹蚳蚸蛌蚴蚻蚼蛃蚽蚾衒袉袕袨袢袪袚袑袡袟袘袧袙袛袗袤袬袌袓袎覂觖觙觕訰訧訬訞谹谻豜豝豽貥赽赻赹趼跂趹趿跁軘軞軝軜軗軠軡逤逋逑逜逌逡郯郪郰郴郲郳郔郫郬郩酖酘酚酓酕釬釴釱釳釸釤釹釪\"],[\"d840\",\"釫釷釨釮镺閆閈陼陭陫陱陯隿靪頄飥馗傛傕傔傞傋傣傃傌傎傝偨傜傒傂傇兟凔匒匑厤厧喑喨喥喭啷噅喢喓喈喏喵喁喣喒喤啽喌喦啿喕喡喎圌堩堷\"],[\"d8a1\",\"堙堞堧堣堨埵塈堥堜堛堳堿堶堮堹堸堭堬堻奡媯媔媟婺媢媞婸媦婼媥媬媕媮娷媄媊媗媃媋媩婻婽媌媜媏媓媝寪寍寋寔寑寊寎尌尰崷嵃嵫嵁嵋崿崵嵑嵎嵕崳崺嵒崽崱嵙嵂崹嵉崸崼崲崶嵀嵅幄幁彘徦徥徫惉悹惌惢惎惄愔\"],[\"d940\",\"惲愊愖愅惵愓惸惼惾惁愃愘愝愐惿愄愋扊掔掱掰揎揥揨揯揃撝揳揊揠揶揕揲揵摡揟掾揝揜揄揘揓揂揇揌揋揈揰揗揙攲敧敪敤敜敨敥斌斝斞斮旐旒\"],[\"d9a1\",\"晼晬晻暀晱晹晪晲朁椌棓椄棜椪棬棪棱椏棖棷棫棤棶椓椐棳棡椇棌椈楰梴椑棯棆椔棸棐棽棼棨椋椊椗棎棈棝棞棦棴棑椆棔棩椕椥棇欹欻欿欼殔殗殙殕殽毰毲毳氰淼湆湇渟湉溈渼渽湅湢渫渿湁湝湳渜渳湋湀湑渻渃渮湞\"],[\"da40\",\"湨湜湡渱渨湠湱湫渹渢渰湓湥渧湸湤湷湕湹湒湦渵渶湚焠焞焯烻焮焱焣焥焢焲焟焨焺焛牋牚犈犉犆犅犋猒猋猰猢猱猳猧猲猭猦猣猵猌琮琬琰琫琖\"],[\"daa1\",\"琚琡琭琱琤琣琝琩琠琲瓻甯畯畬痧痚痡痦痝痟痤痗皕皒盚睆睇睄睍睅睊睎睋睌矞矬硠硤硥硜硭硱硪确硰硩硨硞硢祴祳祲祰稂稊稃稌稄窙竦竤筊笻筄筈筌筎筀筘筅粢粞粨粡絘絯絣絓絖絧絪絏絭絜絫絒絔絩絑絟絎缾缿罥\"],[\"db40\",\"罦羢羠羡翗聑聏聐胾胔腃腊腒腏腇脽腍脺臦臮臷臸臹舄舼舽舿艵茻菏菹萣菀菨萒菧菤菼菶萐菆菈菫菣莿萁菝菥菘菿菡菋菎菖菵菉萉萏菞萑萆菂菳\"],[\"dba1\",\"菕菺菇菑菪萓菃菬菮菄菻菗菢萛菛菾蛘蛢蛦蛓蛣蛚蛪蛝蛫蛜蛬蛩蛗蛨蛑衈衖衕袺裗袹袸裀袾袶袼袷袽袲褁裉覕覘覗觝觚觛詎詍訹詙詀詗詘詄詅詒詈詑詊詌詏豟貁貀貺貾貰貹貵趄趀趉跘跓跍跇跖跜跏跕跙跈跗跅軯軷軺\"],[\"dc40\",\"軹軦軮軥軵軧軨軶軫軱軬軴軩逭逴逯鄆鄬鄄郿郼鄈郹郻鄁鄀鄇鄅鄃酡酤酟酢酠鈁鈊鈥鈃鈚鈦鈏鈌鈀鈒釿釽鈆鈄鈧鈂鈜鈤鈙鈗鈅鈖镻閍閌閐隇陾隈\"],[\"dca1\",\"隉隃隀雂雈雃雱雰靬靰靮頇颩飫鳦黹亃亄亶傽傿僆傮僄僊傴僈僂傰僁傺傱僋僉傶傸凗剺剸剻剼嗃嗛嗌嗐嗋嗊嗝嗀嗔嗄嗩喿嗒喍嗏嗕嗢嗖嗈嗲嗍嗙嗂圔塓塨塤塏塍塉塯塕塎塝塙塥塛堽塣塱壼嫇嫄嫋媺媸媱媵媰媿嫈媻嫆\"],[\"dd40\",\"媷嫀嫊媴媶嫍媹媐寖寘寙尟尳嵱嵣嵊嵥嵲嵬嵞嵨嵧嵢巰幏幎幊幍幋廅廌廆廋廇彀徯徭惷慉慊愫慅愶愲愮慆愯慏愩慀戠酨戣戥戤揅揱揫搐搒搉搠搤\"],[\"dda1\",\"搳摃搟搕搘搹搷搢搣搌搦搰搨摁搵搯搊搚摀搥搧搋揧搛搮搡搎敯斒旓暆暌暕暐暋暊暙暔晸朠楦楟椸楎楢楱椿楅楪椹楂楗楙楺楈楉椵楬椳椽楥棰楸椴楩楀楯楄楶楘楁楴楌椻楋椷楜楏楑椲楒椯楻椼歆歅歃歂歈歁殛嗀毻毼\"],[\"de40\",\"毹毷毸溛滖滈溏滀溟溓溔溠溱溹滆滒溽滁溞滉溷溰滍溦滏溲溾滃滜滘溙溒溎溍溤溡溿溳滐滊溗溮溣煇煔煒煣煠煁煝煢煲煸煪煡煂煘煃煋煰煟煐煓\"],[\"dea1\",\"煄煍煚牏犍犌犑犐犎猼獂猻猺獀獊獉瑄瑊瑋瑒瑑瑗瑀瑏瑐瑎瑂瑆瑍瑔瓡瓿瓾瓽甝畹畷榃痯瘏瘃痷痾痼痹痸瘐痻痶痭痵痽皙皵盝睕睟睠睒睖睚睩睧睔睙睭矠碇碚碔碏碄碕碅碆碡碃硹碙碀碖硻祼禂祽祹稑稘稙稒稗稕稢稓\"],[\"df40\",\"稛稐窣窢窞竫筦筤筭筴筩筲筥筳筱筰筡筸筶筣粲粴粯綈綆綀綍絿綅絺綎絻綃絼綌綔綄絽綒罭罫罧罨罬羦羥羧翛翜耡腤腠腷腜腩腛腢腲朡腞腶腧腯\"],[\"dfa1\",\"腄腡舝艉艄艀艂艅蓱萿葖葶葹蒏蒍葥葑葀蒆葧萰葍葽葚葙葴葳葝蔇葞萷萺萴葺葃葸萲葅萩菙葋萯葂萭葟葰萹葎葌葒葯蓅蒎萻葇萶萳葨葾葄萫葠葔葮葐蜋蜄蛷蜌蛺蛖蛵蝍蛸蜎蜉蜁蛶蜍蜅裖裋裍裎裞裛裚裌裐覅覛觟觥觤\"],[\"e040\",\"觡觠觢觜触詶誆詿詡訿詷誂誄詵誃誁詴詺谼豋豊豥豤豦貆貄貅賌赨赩趑趌趎趏趍趓趔趐趒跰跠跬跱跮跐跩跣跢跧跲跫跴輆軿輁輀輅輇輈輂輋遒逿\"],[\"e0a1\",\"遄遉逽鄐鄍鄏鄑鄖鄔鄋鄎酮酯鉈鉒鈰鈺鉦鈳鉥鉞銃鈮鉊鉆鉭鉬鉏鉠鉧鉯鈶鉡鉰鈱鉔鉣鉐鉲鉎鉓鉌鉖鈲閟閜閞閛隒隓隑隗雎雺雽雸雵靳靷靸靲頏頍頎颬飶飹馯馲馰馵骭骫魛鳪鳭鳧麀黽僦僔僗僨僳僛僪僝僤僓僬僰僯僣僠\"],[\"e140\",\"凘劀劁勩勫匰厬嘧嘕嘌嘒嗼嘏嘜嘁嘓嘂嗺嘝嘄嗿嗹墉塼墐墘墆墁塿塴墋塺墇墑墎塶墂墈塻墔墏壾奫嫜嫮嫥嫕嫪嫚嫭嫫嫳嫢嫠嫛嫬嫞嫝嫙嫨嫟孷寠\"],[\"e1a1\",\"寣屣嶂嶀嵽嶆嵺嶁嵷嶊嶉嶈嵾嵼嶍嵹嵿幘幙幓廘廑廗廎廜廕廙廒廔彄彃彯徶愬愨慁慞慱慳慒慓慲慬憀慴慔慺慛慥愻慪慡慖戩戧戫搫摍摛摝摴摶摲摳摽摵摦撦摎撂摞摜摋摓摠摐摿搿摬摫摙摥摷敳斠暡暠暟朅朄朢榱榶槉\"],[\"e240\",\"榠槎榖榰榬榼榑榙榎榧榍榩榾榯榿槄榽榤槔榹槊榚槏榳榓榪榡榞槙榗榐槂榵榥槆歊歍歋殞殟殠毃毄毾滎滵滱漃漥滸漷滻漮漉潎漙漚漧漘漻漒滭漊\"],[\"e2a1\",\"漶潳滹滮漭潀漰漼漵滫漇漎潃漅滽滶漹漜滼漺漟漍漞漈漡熇熐熉熀熅熂熏煻熆熁熗牄牓犗犕犓獃獍獑獌瑢瑳瑱瑵瑲瑧瑮甀甂甃畽疐瘖瘈瘌瘕瘑瘊瘔皸瞁睼瞅瞂睮瞀睯睾瞃碲碪碴碭碨硾碫碞碥碠碬碢碤禘禊禋禖禕禔禓\"],[\"e340\",\"禗禈禒禐稫穊稰稯稨稦窨窫窬竮箈箜箊箑箐箖箍箌箛箎箅箘劄箙箤箂粻粿粼粺綧綷緂綣綪緁緀緅綝緎緄緆緋緌綯綹綖綼綟綦綮綩綡緉罳翢翣翥翞\"],[\"e3a1\",\"耤聝聜膉膆膃膇膍膌膋舕蒗蒤蒡蒟蒺蓎蓂蒬蒮蒫蒹蒴蓁蓍蒪蒚蒱蓐蒝蒧蒻蒢蒔蓇蓌蒛蒩蒯蒨蓖蒘蒶蓏蒠蓗蓔蓒蓛蒰蒑虡蜳蜣蜨蝫蝀蜮蜞蜡蜙蜛蝃蜬蝁蜾蝆蜠蜲蜪蜭蜼蜒蜺蜱蜵蝂蜦蜧蜸蜤蜚蜰蜑裷裧裱裲裺裾裮裼裶裻\"],[\"e440\",\"裰裬裫覝覡覟覞觩觫觨誫誙誋誒誏誖谽豨豩賕賏賗趖踉踂跿踍跽踊踃踇踆踅跾踀踄輐輑輎輍鄣鄜鄠鄢鄟鄝鄚鄤鄡鄛酺酲酹酳銥銤鉶銛鉺銠銔銪銍\"],[\"e4a1\",\"銦銚銫鉹銗鉿銣鋮銎銂銕銢鉽銈銡銊銆銌銙銧鉾銇銩銝銋鈭隞隡雿靘靽靺靾鞃鞀鞂靻鞄鞁靿韎韍頖颭颮餂餀餇馝馜駃馹馻馺駂馽駇骱髣髧鬾鬿魠魡魟鳱鳲鳵麧僿儃儰僸儆儇僶僾儋儌僽儊劋劌勱勯噈噂噌嘵噁噊噉噆噘\"],[\"e540\",\"噚噀嘳嘽嘬嘾嘸嘪嘺圚墫墝墱墠墣墯墬墥墡壿嫿嫴嫽嫷嫶嬃嫸嬂嫹嬁嬇嬅嬏屧嶙嶗嶟嶒嶢嶓嶕嶠嶜嶡嶚嶞幩幝幠幜緳廛廞廡彉徲憋憃慹憱憰憢憉\"],[\"e5a1\",\"憛憓憯憭憟憒憪憡憍慦憳戭摮摰撖撠撅撗撜撏撋撊撌撣撟摨撱撘敶敺敹敻斲斳暵暰暩暲暷暪暯樀樆樗槥槸樕槱槤樠槿槬槢樛樝槾樧槲槮樔槷槧橀樈槦槻樍槼槫樉樄樘樥樏槶樦樇槴樖歑殥殣殢殦氁氀毿氂潁漦潾澇濆澒\"],[\"e640\",\"澍澉澌潢潏澅潚澖潶潬澂潕潲潒潐潗澔澓潝漀潡潫潽潧澐潓澋潩潿澕潣潷潪潻熲熯熛熰熠熚熩熵熝熥熞熤熡熪熜熧熳犘犚獘獒獞獟獠獝獛獡獚獙\"],[\"e6a1\",\"獢璇璉璊璆璁瑽璅璈瑼瑹甈甇畾瘥瘞瘙瘝瘜瘣瘚瘨瘛皜皝皞皛瞍瞏瞉瞈磍碻磏磌磑磎磔磈磃磄磉禚禡禠禜禢禛歶稹窲窴窳箷篋箾箬篎箯箹篊箵糅糈糌糋緷緛緪緧緗緡縃緺緦緶緱緰緮緟罶羬羰羭翭翫翪翬翦翨聤聧膣膟\"],[\"e740\",\"膞膕膢膙膗舖艏艓艒艐艎艑蔤蔻蔏蔀蔩蔎蔉蔍蔟蔊蔧蔜蓻蔫蓺蔈蔌蓴蔪蓲蔕蓷蓫蓳蓼蔒蓪蓩蔖蓾蔨蔝蔮蔂蓽蔞蓶蔱蔦蓧蓨蓰蓯蓹蔘蔠蔰蔋蔙蔯虢\"],[\"e7a1\",\"蝖蝣蝤蝷蟡蝳蝘蝔蝛蝒蝡蝚蝑蝞蝭蝪蝐蝎蝟蝝蝯蝬蝺蝮蝜蝥蝏蝻蝵蝢蝧蝩衚褅褌褔褋褗褘褙褆褖褑褎褉覢覤覣觭觰觬諏諆誸諓諑諔諕誻諗誾諀諅諘諃誺誽諙谾豍貏賥賟賙賨賚賝賧趠趜趡趛踠踣踥踤踮踕踛踖踑踙踦踧\"],[\"e840\",\"踔踒踘踓踜踗踚輬輤輘輚輠輣輖輗遳遰遯遧遫鄯鄫鄩鄪鄲鄦鄮醅醆醊醁醂醄醀鋐鋃鋄鋀鋙銶鋏鋱鋟鋘鋩鋗鋝鋌鋯鋂鋨鋊鋈鋎鋦鋍鋕鋉鋠鋞鋧鋑鋓\"],[\"e8a1\",\"銵鋡鋆銴镼閬閫閮閰隤隢雓霅霈霂靚鞊鞎鞈韐韏頞頝頦頩頨頠頛頧颲餈飺餑餔餖餗餕駜駍駏駓駔駎駉駖駘駋駗駌骳髬髫髳髲髱魆魃魧魴魱魦魶魵魰魨魤魬鳼鳺鳽鳿鳷鴇鴀鳹鳻鴈鴅鴄麃黓鼏鼐儜儓儗儚儑凞匴叡噰噠噮\"],[\"e940\",\"噳噦噣噭噲噞噷圜圛壈墽壉墿墺壂墼壆嬗嬙嬛嬡嬔嬓嬐嬖嬨嬚嬠嬞寯嶬嶱嶩嶧嶵嶰嶮嶪嶨嶲嶭嶯嶴幧幨幦幯廩廧廦廨廥彋徼憝憨憖懅憴懆懁懌憺\"],[\"e9a1\",\"憿憸憌擗擖擐擏擉撽撉擃擛擳擙攳敿敼斢曈暾曀曊曋曏暽暻暺曌朣樴橦橉橧樲橨樾橝橭橶橛橑樨橚樻樿橁橪橤橐橏橔橯橩橠樼橞橖橕橍橎橆歕歔歖殧殪殫毈毇氄氃氆澭濋澣濇澼濎濈潞濄澽澞濊澨瀄澥澮澺澬澪濏澿澸\"],[\"ea40\",\"澢濉澫濍澯澲澰燅燂熿熸燖燀燁燋燔燊燇燏熽燘熼燆燚燛犝犞獩獦獧獬獥獫獪瑿璚璠璔璒璕璡甋疀瘯瘭瘱瘽瘳瘼瘵瘲瘰皻盦瞚瞝瞡瞜瞛瞢瞣瞕瞙\"],[\"eaa1\",\"瞗磝磩磥磪磞磣磛磡磢磭磟磠禤穄穈穇窶窸窵窱窷篞篣篧篝篕篥篚篨篹篔篪篢篜篫篘篟糒糔糗糐糑縒縡縗縌縟縠縓縎縜縕縚縢縋縏縖縍縔縥縤罃罻罼罺羱翯耪耩聬膱膦膮膹膵膫膰膬膴膲膷膧臲艕艖艗蕖蕅蕫蕍蕓蕡蕘\"],[\"eb40\",\"蕀蕆蕤蕁蕢蕄蕑蕇蕣蔾蕛蕱蕎蕮蕵蕕蕧蕠薌蕦蕝蕔蕥蕬虣虥虤螛螏螗螓螒螈螁螖螘蝹螇螣螅螐螑螝螄螔螜螚螉褞褦褰褭褮褧褱褢褩褣褯褬褟觱諠\"],[\"eba1\",\"諢諲諴諵諝謔諤諟諰諈諞諡諨諿諯諻貑貒貐賵賮賱賰賳赬赮趥趧踳踾踸蹀蹅踶踼踽蹁踰踿躽輶輮輵輲輹輷輴遶遹遻邆郺鄳鄵鄶醓醐醑醍醏錧錞錈錟錆錏鍺錸錼錛錣錒錁鍆錭錎錍鋋錝鋺錥錓鋹鋷錴錂錤鋿錩錹錵錪錔錌\"],[\"ec40\",\"錋鋾錉錀鋻錖閼闍閾閹閺閶閿閵閽隩雔霋霒霐鞙鞗鞔韰韸頵頯頲餤餟餧餩馞駮駬駥駤駰駣駪駩駧骹骿骴骻髶髺髹髷鬳鮀鮅鮇魼魾魻鮂鮓鮒鮐魺鮕\"],[\"eca1\",\"魽鮈鴥鴗鴠鴞鴔鴩鴝鴘鴢鴐鴙鴟麈麆麇麮麭黕黖黺鼒鼽儦儥儢儤儠儩勴嚓嚌嚍嚆嚄嚃噾嚂噿嚁壖壔壏壒嬭嬥嬲嬣嬬嬧嬦嬯嬮孻寱寲嶷幬幪徾徻懃憵憼懧懠懥懤懨懞擯擩擣擫擤擨斁斀斶旚曒檍檖檁檥檉檟檛檡檞檇檓檎\"],[\"ed40\",\"檕檃檨檤檑橿檦檚檅檌檒歛殭氉濌澩濴濔濣濜濭濧濦濞濲濝濢濨燡燱燨燲燤燰燢獳獮獯璗璲璫璐璪璭璱璥璯甐甑甒甏疄癃癈癉癇皤盩瞵瞫瞲瞷瞶\"],[\"eda1\",\"瞴瞱瞨矰磳磽礂磻磼磲礅磹磾礄禫禨穜穛穖穘穔穚窾竀竁簅簏篲簀篿篻簎篴簋篳簂簉簃簁篸篽簆篰篱簐簊糨縭縼繂縳顈縸縪繉繀繇縩繌縰縻縶繄縺罅罿罾罽翴翲耬膻臄臌臊臅臇膼臩艛艚艜薃薀薏薧薕薠薋薣蕻薤薚薞\"],[\"ee40\",\"蕷蕼薉薡蕺蕸蕗薎薖薆薍薙薝薁薢薂薈薅蕹蕶薘薐薟虨螾螪螭蟅螰螬螹螵螼螮蟉蟃蟂蟌螷螯蟄蟊螴螶螿螸螽蟞螲褵褳褼褾襁襒褷襂覭覯覮觲觳謞\"],[\"eea1\",\"謘謖謑謅謋謢謏謒謕謇謍謈謆謜謓謚豏豰豲豱豯貕貔賹赯蹎蹍蹓蹐蹌蹇轃轀邅遾鄸醚醢醛醙醟醡醝醠鎡鎃鎯鍤鍖鍇鍼鍘鍜鍶鍉鍐鍑鍠鍭鎏鍌鍪鍹鍗鍕鍒鍏鍱鍷鍻鍡鍞鍣鍧鎀鍎鍙闇闀闉闃闅閷隮隰隬霠霟霘霝霙鞚鞡鞜\"],[\"ef40\",\"鞞鞝韕韔韱顁顄顊顉顅顃餥餫餬餪餳餲餯餭餱餰馘馣馡騂駺駴駷駹駸駶駻駽駾駼騃骾髾髽鬁髼魈鮚鮨鮞鮛鮦鮡鮥鮤鮆鮢鮠鮯鴳鵁鵧鴶鴮鴯鴱鴸鴰\"],[\"efa1\",\"鵅鵂鵃鴾鴷鵀鴽翵鴭麊麉麍麰黈黚黻黿鼤鼣鼢齔龠儱儭儮嚘嚜嚗嚚嚝嚙奰嬼屩屪巀幭幮懘懟懭懮懱懪懰懫懖懩擿攄擽擸攁攃擼斔旛曚曛曘櫅檹檽櫡櫆檺檶檷櫇檴檭歞毉氋瀇瀌瀍瀁瀅瀔瀎濿瀀濻瀦濼濷瀊爁燿燹爃燽獶\"],[\"f040\",\"璸瓀璵瓁璾璶璻瓂甔甓癜癤癙癐癓癗癚皦皽盬矂瞺磿礌礓礔礉礐礒礑禭禬穟簜簩簙簠簟簭簝簦簨簢簥簰繜繐繖繣繘繢繟繑繠繗繓羵羳翷翸聵臑臒\"],[\"f0a1\",\"臐艟艞薴藆藀藃藂薳薵薽藇藄薿藋藎藈藅薱薶藒蘤薸薷薾虩蟧蟦蟢蟛蟫蟪蟥蟟蟳蟤蟔蟜蟓蟭蟘蟣螤蟗蟙蠁蟴蟨蟝襓襋襏襌襆襐襑襉謪謧謣謳謰謵譇謯謼謾謱謥謷謦謶謮謤謻謽謺豂豵貙貘貗賾贄贂贀蹜蹢蹠蹗蹖蹞蹥蹧\"],[\"f140\",\"蹛蹚蹡蹝蹩蹔轆轇轈轋鄨鄺鄻鄾醨醥醧醯醪鎵鎌鎒鎷鎛鎝鎉鎧鎎鎪鎞鎦鎕鎈鎙鎟鎍鎱鎑鎲鎤鎨鎴鎣鎥闒闓闑隳雗雚巂雟雘雝霣霢霥鞬鞮鞨鞫鞤鞪\"],[\"f1a1\",\"鞢鞥韗韙韖韘韺顐顑顒颸饁餼餺騏騋騉騍騄騑騊騅騇騆髀髜鬈鬄鬅鬩鬵魊魌魋鯇鯆鯃鮿鯁鮵鮸鯓鮶鯄鮹鮽鵜鵓鵏鵊鵛鵋鵙鵖鵌鵗鵒鵔鵟鵘鵚麎麌黟鼁鼀鼖鼥鼫鼪鼩鼨齌齕儴儵劖勷厴嚫嚭嚦嚧嚪嚬壚壝壛夒嬽嬾嬿巃幰\"],[\"f240\",\"徿懻攇攐攍攉攌攎斄旞旝曞櫧櫠櫌櫑櫙櫋櫟櫜櫐櫫櫏櫍櫞歠殰氌瀙瀧瀠瀖瀫瀡瀢瀣瀩瀗瀤瀜瀪爌爊爇爂爅犥犦犤犣犡瓋瓅璷瓃甖癠矉矊矄矱礝礛\"],[\"f2a1\",\"礡礜礗礞禰穧穨簳簼簹簬簻糬糪繶繵繸繰繷繯繺繲繴繨罋罊羃羆羷翽翾聸臗臕艤艡艣藫藱藭藙藡藨藚藗藬藲藸藘藟藣藜藑藰藦藯藞藢蠀蟺蠃蟶蟷蠉蠌蠋蠆蟼蠈蟿蠊蠂襢襚襛襗襡襜襘襝襙覈覷覶觶譐譈譊譀譓譖譔譋譕\"],[\"f340\",\"譑譂譒譗豃豷豶貚贆贇贉趬趪趭趫蹭蹸蹳蹪蹯蹻軂轒轑轏轐轓辴酀鄿醰醭鏞鏇鏏鏂鏚鏐鏹鏬鏌鏙鎩鏦鏊鏔鏮鏣鏕鏄鏎鏀鏒鏧镽闚闛雡霩霫霬霨霦\"],[\"f3a1\",\"鞳鞷鞶韝韞韟顜顙顝顗颿颽颻颾饈饇饃馦馧騚騕騥騝騤騛騢騠騧騣騞騜騔髂鬋鬊鬎鬌鬷鯪鯫鯠鯞鯤鯦鯢鯰鯔鯗鯬鯜鯙鯥鯕鯡鯚鵷鶁鶊鶄鶈鵱鶀鵸鶆鶋鶌鵽鵫鵴鵵鵰鵩鶅鵳鵻鶂鵯鵹鵿鶇鵨麔麑黀黼鼭齀齁齍齖齗齘匷嚲\"],[\"f440\",\"嚵嚳壣孅巆巇廮廯忀忁懹攗攖攕攓旟曨曣曤櫳櫰櫪櫨櫹櫱櫮櫯瀼瀵瀯瀷瀴瀱灂瀸瀿瀺瀹灀瀻瀳灁爓爔犨獽獼璺皫皪皾盭矌矎矏矍矲礥礣礧礨礤礩\"],[\"f4a1\",\"禲穮穬穭竷籉籈籊籇籅糮繻繾纁纀羺翿聹臛臙舋艨艩蘢藿蘁藾蘛蘀藶蘄蘉蘅蘌藽蠙蠐蠑蠗蠓蠖襣襦覹觷譠譪譝譨譣譥譧譭趮躆躈躄轙轖轗轕轘轚邍酃酁醷醵醲醳鐋鐓鏻鐠鐏鐔鏾鐕鐐鐨鐙鐍鏵鐀鏷鐇鐎鐖鐒鏺鐉鏸鐊鏿\"],[\"f540\",\"鏼鐌鏶鐑鐆闞闠闟霮霯鞹鞻韽韾顠顢顣顟飁飂饐饎饙饌饋饓騲騴騱騬騪騶騩騮騸騭髇髊髆鬐鬒鬑鰋鰈鯷鰅鰒鯸鱀鰇鰎鰆鰗鰔鰉鶟鶙鶤鶝鶒鶘鶐鶛\"],[\"f5a1\",\"鶠鶔鶜鶪鶗鶡鶚鶢鶨鶞鶣鶿鶩鶖鶦鶧麙麛麚黥黤黧黦鼰鼮齛齠齞齝齙龑儺儹劘劗囃嚽嚾孈孇巋巏廱懽攛欂櫼欃櫸欀灃灄灊灈灉灅灆爝爚爙獾甗癪矐礭礱礯籔籓糲纊纇纈纋纆纍罍羻耰臝蘘蘪蘦蘟蘣蘜蘙蘧蘮蘡蘠蘩蘞蘥\"],[\"f640\",\"蠩蠝蠛蠠蠤蠜蠫衊襭襩襮襫觺譹譸譅譺譻贐贔趯躎躌轞轛轝酆酄酅醹鐿鐻鐶鐩鐽鐼鐰鐹鐪鐷鐬鑀鐱闥闤闣霵霺鞿韡顤飉飆飀饘饖騹騽驆驄驂驁騺\"],[\"f6a1\",\"騿髍鬕鬗鬘鬖鬺魒鰫鰝鰜鰬鰣鰨鰩鰤鰡鶷鶶鶼鷁鷇鷊鷏鶾鷅鷃鶻鶵鷎鶹鶺鶬鷈鶱鶭鷌鶳鷍鶲鹺麜黫黮黭鼛鼘鼚鼱齎齥齤龒亹囆囅囋奱孋孌巕巑廲攡攠攦攢欋欈欉氍灕灖灗灒爞爟犩獿瓘瓕瓙瓗癭皭礵禴穰穱籗籜籙籛籚\"],[\"f740\",\"糴糱纑罏羇臞艫蘴蘵蘳蘬蘲蘶蠬蠨蠦蠪蠥襱覿覾觻譾讄讂讆讅譿贕躕躔躚躒躐躖躗轠轢酇鑌鑐鑊鑋鑏鑇鑅鑈鑉鑆霿韣顪顩飋饔饛驎驓驔驌驏驈驊\"],[\"f7a1\",\"驉驒驐髐鬙鬫鬻魖魕鱆鱈鰿鱄鰹鰳鱁鰼鰷鰴鰲鰽鰶鷛鷒鷞鷚鷋鷐鷜鷑鷟鷩鷙鷘鷖鷵鷕鷝麶黰鼵鼳鼲齂齫龕龢儽劙壨壧奲孍巘蠯彏戁戃戄攩攥斖曫欑欒欏毊灛灚爢玂玁玃癰矔籧籦纕艬蘺虀蘹蘼蘱蘻蘾蠰蠲蠮蠳襶襴襳觾\"],[\"f840\",\"讌讎讋讈豅贙躘轤轣醼鑢鑕鑝鑗鑞韄韅頀驖驙鬞鬟鬠鱒鱘鱐鱊鱍鱋鱕鱙鱌鱎鷻鷷鷯鷣鷫鷸鷤鷶鷡鷮鷦鷲鷰鷢鷬鷴鷳鷨鷭黂黐黲黳鼆鼜鼸鼷鼶齃齏\"],[\"f8a1\",\"齱齰齮齯囓囍孎屭攭曭曮欓灟灡灝灠爣瓛瓥矕礸禷禶籪纗羉艭虃蠸蠷蠵衋讔讕躞躟躠躝醾醽釂鑫鑨鑩雥靆靃靇韇韥驞髕魙鱣鱧鱦鱢鱞鱠鸂鷾鸇鸃鸆鸅鸀鸁鸉鷿鷽鸄麠鼞齆齴齵齶囔攮斸欘欙欗欚灢爦犪矘矙礹籩籫糶纚\"],[\"f940\",\"纘纛纙臠臡虆虇虈襹襺襼襻觿讘讙躥躤躣鑮鑭鑯鑱鑳靉顲饟鱨鱮鱭鸋鸍鸐鸏鸒鸑麡黵鼉齇齸齻齺齹圞灦籯蠼趲躦釃鑴鑸鑶鑵驠鱴鱳鱱鱵鸔鸓黶鼊\"],[\"f9a1\",\"龤灨灥糷虪蠾蠽蠿讞貜躩軉靋顳顴飌饡馫驤驦驧鬤鸕鸗齈戇欞爧虌躨钂钀钁驩驨鬮鸙爩虋讟钃鱹麷癵驫鱺鸝灩灪麤齾齉龘碁銹裏墻恒粧嫺╔╦╗╠╬╣╚╩╝╒╤╕╞╪╡╘╧╛╓╥╖╟╫╢╙╨╜║═╭╮╰╯▓\"]]");
 
 /***/ }),
-/* 192 */
+/* 193 */
 /***/ (function(module, exports) {
 
 const Secret = function (data) {
@@ -35642,11 +35568,11 @@ module.exports = Secret
 
 
 /***/ }),
-/* 193 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* MIT license */
-var cssKeywords = __webpack_require__(371);
+var cssKeywords = __webpack_require__(370);
 
 // NOTE: conversions should only return primitive values (i.e. arrays, or
 //       values that give correct `typeof` results).
@@ -36516,7 +36442,7 @@ convert.rgb.gray = function (rgb) {
 
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, exports) {
 
 function _arrayWithHoles(arr) {
@@ -36527,7 +36453,7 @@ module.exports = _arrayWithHoles;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, exports) {
 
 function _arrayLikeToArray(arr, len) {
@@ -36544,7 +36470,7 @@ module.exports = _arrayLikeToArray;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 196 */
+/* 197 */
 /***/ (function(module, exports) {
 
 function _nonIterableRest() {
@@ -36555,7 +36481,7 @@ module.exports = _nonIterableRest;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 197 */
+/* 198 */
 /***/ (function(module, exports) {
 
 /** Detect free variable `global` from Node.js. */
@@ -36565,7 +36491,7 @@ module.exports = freeGlobal;
 
 
 /***/ }),
-/* 198 */
+/* 199 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -36597,12 +36523,12 @@ module.exports = toSource;
 
 
 /***/ }),
-/* 199 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var SetCache = __webpack_require__(106),
+var SetCache = __webpack_require__(104),
     arraySome = __webpack_require__(318),
-    cacheHas = __webpack_require__(107);
+    cacheHas = __webpack_require__(105);
 
 /** Used to compose bitmasks for value comparisons. */
 var COMPARE_PARTIAL_FLAG = 1,
@@ -36687,7 +36613,7 @@ module.exports = equalArrays;
 
 
 /***/ }),
-/* 200 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var root = __webpack_require__(33);
@@ -36699,12 +36625,12 @@ module.exports = Uint8Array;
 
 
 /***/ }),
-/* 201 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetAllKeys = __webpack_require__(202),
-    getSymbols = __webpack_require__(137),
-    keys = __webpack_require__(63);
+var baseGetAllKeys = __webpack_require__(203),
+    getSymbols = __webpack_require__(136),
+    keys = __webpack_require__(62);
 
 /**
  * Creates an array of own enumerable property names and symbols of `object`.
@@ -36721,10 +36647,10 @@ module.exports = getAllKeys;
 
 
 /***/ }),
-/* 202 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayPush = __webpack_require__(108),
+var arrayPush = __webpack_require__(106),
     isArray = __webpack_require__(11);
 
 /**
@@ -36747,7 +36673,7 @@ module.exports = baseGetAllKeys;
 
 
 /***/ }),
-/* 203 */
+/* 204 */
 /***/ (function(module, exports) {
 
 /**
@@ -36776,15 +36702,15 @@ module.exports = stubArray;
 
 
 /***/ }),
-/* 204 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseTimes = __webpack_require__(205),
-    isArguments = __webpack_require__(83),
+var baseTimes = __webpack_require__(206),
+    isArguments = __webpack_require__(82),
     isArray = __webpack_require__(11),
-    isBuffer = __webpack_require__(84),
-    isIndex = __webpack_require__(96),
-    isTypedArray = __webpack_require__(109);
+    isBuffer = __webpack_require__(83),
+    isIndex = __webpack_require__(94),
+    isTypedArray = __webpack_require__(107);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -36831,7 +36757,7 @@ module.exports = arrayLikeKeys;
 
 
 /***/ }),
-/* 205 */
+/* 206 */
 /***/ (function(module, exports) {
 
 /**
@@ -36857,7 +36783,7 @@ module.exports = baseTimes;
 
 
 /***/ }),
-/* 206 */
+/* 207 */
 /***/ (function(module, exports) {
 
 /**
@@ -36878,10 +36804,10 @@ module.exports = overArg;
 
 
 /***/ }),
-/* 207 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(55),
+var getNative = __webpack_require__(56),
     root = __webpack_require__(33);
 
 /* Built-in method references that are verified to be native. */
@@ -36891,10 +36817,10 @@ module.exports = Set;
 
 
 /***/ }),
-/* 208 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(55),
+var getNative = __webpack_require__(56),
     root = __webpack_require__(33);
 
 /* Built-in method references that are verified to be native. */
@@ -36904,7 +36830,7 @@ module.exports = WeakMap;
 
 
 /***/ }),
-/* 209 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(29);
@@ -36925,7 +36851,7 @@ module.exports = isStrictComparable;
 
 
 /***/ }),
-/* 210 */
+/* 211 */
 /***/ (function(module, exports) {
 
 /**
@@ -36951,10 +36877,10 @@ module.exports = matchesStrictComparable;
 
 
 /***/ }),
-/* 211 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var MapCache = __webpack_require__(134);
+var MapCache = __webpack_require__(133);
 
 /** Error message constants. */
 var FUNC_ERROR_TEXT = 'Expected a function';
@@ -37030,11 +36956,11 @@ module.exports = memoize;
 
 
 /***/ }),
-/* 212 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseHasIn = __webpack_require__(422),
-    hasPath = __webpack_require__(213);
+var baseHasIn = __webpack_require__(423),
+    hasPath = __webpack_require__(214);
 
 /**
  * Checks if `path` is a direct or inherited property of `object`.
@@ -37070,15 +36996,15 @@ module.exports = hasIn;
 
 
 /***/ }),
-/* 213 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var castPath = __webpack_require__(69),
-    isArguments = __webpack_require__(83),
+var castPath = __webpack_require__(68),
+    isArguments = __webpack_require__(82),
     isArray = __webpack_require__(11),
-    isIndex = __webpack_require__(96),
-    isLength = __webpack_require__(138),
-    toKey = __webpack_require__(66);
+    isIndex = __webpack_require__(94),
+    isLength = __webpack_require__(137),
+    toKey = __webpack_require__(65);
 
 /**
  * Checks if `path` exists on `object`.
@@ -37115,10 +37041,10 @@ module.exports = hasPath;
 
 
 /***/ }),
-/* 214 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var apply = __webpack_require__(132);
+var apply = __webpack_require__(131);
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeMax = Math.max;
@@ -37157,10 +37083,10 @@ module.exports = overRest;
 
 
 /***/ }),
-/* 215 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(55);
+var getNative = __webpack_require__(56);
 
 var defineProperty = (function() {
   try {
@@ -37174,10 +37100,10 @@ module.exports = defineProperty;
 
 
 /***/ }),
-/* 216 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var createBaseFor = __webpack_require__(428);
+var createBaseFor = __webpack_require__(429);
 
 /**
  * The base implementation of `baseForOwn` which iterates over `object`
@@ -37196,11 +37122,11 @@ module.exports = baseFor;
 
 
 /***/ }),
-/* 217 */,
 /* 218 */,
 /* 219 */,
 /* 220 */,
-/* 221 */
+/* 221 */,
+/* 222 */
 /***/ (function(module, exports) {
 
 /** Used to match a single whitespace character. */
@@ -37225,7 +37151,7 @@ module.exports = trimmedEndIndex;
 
 
 /***/ }),
-/* 222 */
+/* 223 */
 /***/ (function(module, exports) {
 
 /**
@@ -37248,10 +37174,10 @@ module.exports = noop;
 
 
 /***/ }),
-/* 223 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var realNames = __webpack_require__(436);
+var realNames = __webpack_require__(437);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -37285,7 +37211,7 @@ module.exports = getFuncName;
 
 
 /***/ }),
-/* 224 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(33);
@@ -37324,16 +37250,16 @@ function cloneBuffer(buffer, isDeep) {
 
 module.exports = cloneBuffer;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(39)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(41)(module)))
 
 /***/ }),
-/* 225 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayPush = __webpack_require__(108),
-    getPrototype = __webpack_require__(150),
-    getSymbols = __webpack_require__(137),
-    stubArray = __webpack_require__(203);
+var arrayPush = __webpack_require__(106),
+    getPrototype = __webpack_require__(149),
+    getSymbols = __webpack_require__(136),
+    stubArray = __webpack_require__(204);
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeGetSymbols = Object.getOwnPropertySymbols;
@@ -37358,10 +37284,10 @@ module.exports = getSymbolsIn;
 
 
 /***/ }),
-/* 226 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var cloneArrayBuffer = __webpack_require__(152);
+var cloneArrayBuffer = __webpack_require__(151);
 
 /**
  * Creates a clone of `typedArray`.
@@ -37380,12 +37306,12 @@ module.exports = cloneTypedArray;
 
 
 /***/ }),
-/* 227 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseCreate = __webpack_require__(126),
-    getPrototype = __webpack_require__(150),
-    isPrototype = __webpack_require__(110);
+var baseCreate = __webpack_require__(125),
+    getPrototype = __webpack_require__(149),
+    isPrototype = __webpack_require__(108);
 
 /**
  * Initializes an object clone.
@@ -37404,12 +37330,12 @@ module.exports = initCloneObject;
 
 
 /***/ }),
-/* 228 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayEach = __webpack_require__(176),
-    baseEach = __webpack_require__(112),
-    castFunction = __webpack_require__(457),
+var arrayEach = __webpack_require__(177),
+    baseEach = __webpack_require__(110),
+    castFunction = __webpack_require__(458),
     isArray = __webpack_require__(11);
 
 /**
@@ -37451,11 +37377,11 @@ module.exports = forEach;
 
 
 /***/ }),
-/* 229 */,
 /* 230 */,
 /* 231 */,
 /* 232 */,
-/* 233 */
+/* 233 */,
+/* 234 */
 /***/ (function(module, exports) {
 
 /**
@@ -37481,7 +37407,7 @@ module.exports = last;
 
 
 /***/ }),
-/* 234 */
+/* 235 */
 /***/ (function(module, exports) {
 
 /**
@@ -37518,14 +37444,14 @@ module.exports = baseSlice;
 
 
 /***/ }),
-/* 235 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var origSymbol = typeof Symbol !== 'undefined' && Symbol;
-var hasSymbolSham = __webpack_require__(236);
+var hasSymbolSham = __webpack_require__(237);
 
 module.exports = function hasNativeSymbols() {
 	if (typeof origSymbol !== 'function') { return false; }
@@ -37538,7 +37464,7 @@ module.exports = function hasNativeSymbols() {
 
 
 /***/ }),
-/* 236 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37587,7 +37513,7 @@ module.exports = function hasSymbols() {
 
 
 /***/ }),
-/* 237 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37611,19 +37537,19 @@ module.exports = function isArguments(value) {
 
 
 /***/ }),
-/* 238 */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"notifications\":{\"expiration\":{\"email\":{\"title\":\"Your document is about to expire\",\"appName\":\"Mes papiers\",\"button\":\"See\",\"content\":{\"hello\":\"Hello 👋,\",\"info\":\"Documents saved in your My Papers application will soon expire:\",\"view\":\"Click on the name of the document to view it in your My Papers application.\",\"seeyou\":\"See you soon!\"}}}}}");
-
-/***/ }),
 /* 239 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"notifications\":{\"expiration\":{\"email\":{\"title\":\"Votre document arrive bientôt à expiration\",\"appName\":\"Mes papiers\",\"button\":\"Voir\",\"content\":{\"hello\":\"Bonjour 👋,\",\"info\":\"Des documents enregistrés dans votre application Mes Papiers vont bientôt arriver à expiration :\",\"view\":\"Cliquez sur le nom du document pour le consulter dans votre application Mes Papiers.\",\"seeyou\":\"À très bientôt !\"}}}}}");
+module.exports = JSON.parse("{\"notifications\":{\"expiration\":{\"email\":{\"title\":\"Your document is about to expire\",\"appName\":\"Mes papiers\",\"button\":\"See\",\"content\":{\"hello\":\"Hello 👋,\",\"info\":\"Documents saved in your My Papers application will soon expire:\",\"view\":\"Click on the name of the document to view it in your My Papers application.\",\"seeyou\":\"See you soon!\"}}}},\"help\":{\"title\":\"Do you need help?\",\"content\":{\"paragraph01\":\"You can get help directly by phone: <a href=\\\"tel://0483439040\\\">04 83 43 90 40</a>\",\"paragraph02\":\"Free call Monday to Friday from 3pm to 5pm, Thursday until 7pm, and Saturday from 10am to 12pm.\",\"paragraph03\":\"You can also find help, report a problem, or suggest a good idea on <a href=\\\"%{url}\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">the user support site</a> My Papers.\",\"paragraph04\":\"Do not hesitate to write to us, the My Papers team will answer you with pleasure.\"},\"actions\":{\"later\":\"Close\",\"go\":\"Read help\"}}}");
 
 /***/ }),
 /* 240 */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"notifications\":{\"expiration\":{\"email\":{\"title\":\"Votre document arrive bientôt à expiration\",\"appName\":\"Mes papiers\",\"button\":\"Voir\",\"content\":{\"hello\":\"Bonjour 👋,\",\"info\":\"Des documents enregistrés dans votre application Mes Papiers vont bientôt arriver à expiration :\",\"view\":\"Cliquez sur le nom du document pour le consulter dans votre application Mes Papiers.\",\"seeyou\":\"À très bientôt !\"}}}},\"help\":{\"title\":\"Besoin d'aide ?\",\"content\":{\"paragraph01\":\"Vous pouvez obtenir de l’aide directement par téléphone : <a href=\\\"tel://0483439040\\\">04 83 43 90 40</a>\",\"paragraph02\":\"Appel gratuit du lundi au vendredi de 15h à 17h, le jeudi jusqu'à 19h, et le samedi de 10h à 12h.\",\"paragraph03\":\"Vous pouvez trouver aussi de l’aide, nous signaler un problème, ou nous suggérer une bonne idée sur <a href=\\\"%{url}\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">le site d’assistance utilisateurs</a> Mes Papiers.\",\"paragraph04\":\"N'hésitez pas à nous écrire, l'équipe Mes Papiers vous répondra avec plaisir.\"},\"actions\":{\"later\":\"Fermer\",\"go\":\"Lire l'aide\"}}}");
+
+/***/ }),
+/* 241 */
 /***/ (function(module, exports) {
 
 function _typeof(obj) {
@@ -37650,16 +37576,16 @@ module.exports = _typeof;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 241 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayWithHoles = __webpack_require__(194);
+var arrayWithHoles = __webpack_require__(195);
 
-var iterableToArray = __webpack_require__(242);
+var iterableToArray = __webpack_require__(243);
 
-var unsupportedIterableToArray = __webpack_require__(131);
+var unsupportedIterableToArray = __webpack_require__(130);
 
-var nonIterableRest = __webpack_require__(196);
+var nonIterableRest = __webpack_require__(197);
 
 function _toArray(arr) {
   return arrayWithHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableRest();
@@ -37669,7 +37595,7 @@ module.exports = _toArray;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 242 */
+/* 243 */
 /***/ (function(module, exports) {
 
 function _iterableToArray(iter) {
@@ -37680,14 +37606,14 @@ module.exports = _iterableToArray;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 243 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayFilter = __webpack_require__(179),
+var arrayFilter = __webpack_require__(180),
     arrayMap = __webpack_require__(32),
-    baseProperty = __webpack_require__(142),
-    baseTimes = __webpack_require__(205),
-    isArrayLikeObject = __webpack_require__(113);
+    baseProperty = __webpack_require__(141),
+    baseTimes = __webpack_require__(206),
+    isArrayLikeObject = __webpack_require__(111);
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeMax = Math.max;
@@ -37731,13 +37657,13 @@ module.exports = unzip;
 
 
 /***/ }),
-/* 244 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -37775,22 +37701,22 @@ Object.defineProperty(exports, "normalizeDoc", {
   }
 });
 
-var _CozyStackClient = _interopRequireDefault(__webpack_require__(245));
+var _CozyStackClient = _interopRequireDefault(__webpack_require__(246));
 
-var _OAuthClient = _interopRequireDefault(__webpack_require__(537));
+var _OAuthClient = _interopRequireDefault(__webpack_require__(540));
 
-var _errors = _interopRequireWildcard(__webpack_require__(56));
+var _errors = _interopRequireWildcard(__webpack_require__(48));
 
-var _DocumentCollection = __webpack_require__(21);
+var _DocumentCollection = __webpack_require__(19);
 
 /***/ }),
-/* 245 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -37799,59 +37725,63 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _cloneDeep = _interopRequireDefault(__webpack_require__(246));
+var _cloneDeep = _interopRequireDefault(__webpack_require__(247));
 
-var _AppCollection = _interopRequireWildcard(__webpack_require__(247));
+var _AppCollection = _interopRequireWildcard(__webpack_require__(248));
 
-var _AppToken = _interopRequireDefault(__webpack_require__(518));
+var _AppToken = _interopRequireDefault(__webpack_require__(519));
 
-var _AccessToken = _interopRequireDefault(__webpack_require__(262));
+var _AccessToken = _interopRequireDefault(__webpack_require__(263));
 
-var _DocumentCollection = _interopRequireDefault(__webpack_require__(21));
+var _DocumentCollection = _interopRequireDefault(__webpack_require__(19));
 
-var _FileCollection = _interopRequireDefault(__webpack_require__(161));
+var _FileCollection = _interopRequireDefault(__webpack_require__(160));
 
-var _JobCollection = _interopRequireWildcard(__webpack_require__(265));
+var _JobCollection = _interopRequireWildcard(__webpack_require__(266));
 
-var _KonnectorCollection = _interopRequireWildcard(__webpack_require__(524));
+var _KonnectorCollection = _interopRequireWildcard(__webpack_require__(525));
 
-var _SharingCollection = _interopRequireDefault(__webpack_require__(526));
+var _SharingCollection = _interopRequireDefault(__webpack_require__(527));
 
-var _PermissionCollection = _interopRequireDefault(__webpack_require__(527));
+var _PermissionCollection = _interopRequireDefault(__webpack_require__(528));
 
-var _TriggerCollection = _interopRequireWildcard(__webpack_require__(266));
+var _TriggerCollection = _interopRequireWildcard(__webpack_require__(267));
 
-var _SettingsCollection = _interopRequireWildcard(__webpack_require__(528));
+var _SettingsCollection = _interopRequireWildcard(__webpack_require__(529));
 
-var _NotesCollection = _interopRequireWildcard(__webpack_require__(529));
+var _NotesCollection = _interopRequireWildcard(__webpack_require__(530));
 
-var _OAuthClientsCollection = _interopRequireWildcard(__webpack_require__(531));
+var _OAuthClientsCollection = _interopRequireWildcard(__webpack_require__(532));
 
-var _ShortcutsCollection = _interopRequireWildcard(__webpack_require__(532));
+var _ShortcutsCollection = _interopRequireWildcard(__webpack_require__(533));
 
-var _ContactsCollection = _interopRequireWildcard(__webpack_require__(533));
+var _ContactsCollection = _interopRequireWildcard(__webpack_require__(534));
 
-var _getIconURL2 = _interopRequireDefault(__webpack_require__(534));
+var _AppsRegistryCollection = _interopRequireWildcard(__webpack_require__(535));
 
-var _logDeprecate = _interopRequireDefault(__webpack_require__(267));
+var _getIconURL2 = _interopRequireDefault(__webpack_require__(536));
 
-var _errors = _interopRequireWildcard(__webpack_require__(56));
+var _logDeprecate = _interopRequireDefault(__webpack_require__(268));
 
-var _xhrFetch = __webpack_require__(536);
+var _xhrFetch = __webpack_require__(538);
 
-var _microee = _interopRequireDefault(__webpack_require__(114));
+var _microee = _interopRequireDefault(__webpack_require__(112));
 
-var _logger = _interopRequireDefault(__webpack_require__(57));
+var _errors = _interopRequireWildcard(__webpack_require__(48));
+
+var _logger = _interopRequireDefault(__webpack_require__(44));
+
+var _promiseCache = _interopRequireDefault(__webpack_require__(539));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -37866,10 +37796,6 @@ var normalizeUri = function normalizeUri(uriArg) {
   }
 
   return uri;
-};
-
-var isRevocationError = function isRevocationError(err) {
-  return err.message && _errors.default.CLIENT_NOT_FOUND.test(err.message);
 };
 /**
  * Main API against the `cozy-stack` server.
@@ -37890,16 +37816,24 @@ var CozyStackClient = /*#__PURE__*/function () {
     this.setToken(token);
     this.konnectors = new _KonnectorCollection.default(this);
     this.jobs = new _JobCollection.default(this);
+    this._promiseCache = new _promiseCache.default();
   }
-  /**
-   * Creates a {@link DocumentCollection} instance.
-   *
-   * @param  {string} doctype The collection doctype.
-   * @returns {DocumentCollection}
-   */
-
 
   (0, _createClass2.default)(CozyStackClient, [{
+    key: "isRevocationError",
+    value: function isRevocationError(err) {
+      var message = err === null || err === void 0 ? void 0 : err.message;
+      if (!message) return false;
+      if (_errors.default.CLIENT_NOT_FOUND.test(err.message) || _errors.default.UNREGISTERED_CLIENT.test(err.message)) return true;
+    }
+    /**
+     * Creates a {@link DocumentCollection} instance.
+     *
+     * @param  {string} doctype The collection doctype.
+     * @returns {DocumentCollection}
+     */
+
+  }, {
     key: "collection",
     value: function collection(doctype) {
       if (!doctype) {
@@ -37942,6 +37876,9 @@ var CozyStackClient = /*#__PURE__*/function () {
 
         case _ShortcutsCollection.SHORTCUTS_DOCTYPE:
           return new _ShortcutsCollection.default(this);
+
+        case _AppsRegistryCollection.APPS_REGISTRY_DOCTYPE:
+          return new _AppsRegistryCollection.default(this);
 
         default:
           return new _DocumentCollection.default(doctype, this);
@@ -38021,7 +37958,7 @@ var CozyStackClient = /*#__PURE__*/function () {
                 _context.prev = 17;
                 _context.t0 = _context["catch"](9);
 
-                if (isRevocationError(_context.t0)) {
+                if (this.isRevocationError(_context.t0)) {
                   this.onRevocationChange(true);
                 }
 
@@ -38054,44 +37991,6 @@ var CozyStackClient = /*#__PURE__*/function () {
       }
     }
     /**
-     * Returns whether the client has been revoked on the server
-     */
-
-  }, {
-    key: "checkForRevocation",
-    value: function () {
-      var _checkForRevocation = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-        return _regenerator.default.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.prev = 0;
-                _context2.next = 3;
-                return this.fetchInformation();
-
-              case 3:
-                return _context2.abrupt("return", false);
-
-              case 6:
-                _context2.prev = 6;
-                _context2.t0 = _context2["catch"](0);
-                return _context2.abrupt("return", isRevocationError(_context2.t0));
-
-              case 9:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this, [[0, 6]]);
-      }));
-
-      function checkForRevocation() {
-        return _checkForRevocation.apply(this, arguments);
-      }
-
-      return checkForRevocation;
-    }()
-    /**
      * Retrieves a new app token by refreshing the currently used token.
      *
      * @throws {Error} The client should already have an access token to use this function
@@ -38102,14 +38001,14 @@ var CozyStackClient = /*#__PURE__*/function () {
   }, {
     key: "refreshToken",
     value: function () {
-      var _refreshToken = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+      var _refreshToken = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
         var options, response, html, parser, doc, appNode, data, token, newToken;
-        return _regenerator.default.wrap(function _callee3$(_context3) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 if (this.token) {
-                  _context3.next = 2;
+                  _context2.next = 2;
                   break;
                 }
 
@@ -38122,37 +38021,37 @@ var CozyStackClient = /*#__PURE__*/function () {
                 };
 
                 if (global.document) {
-                  _context3.next = 5;
+                  _context2.next = 5;
                   break;
                 }
 
                 throw new Error('Not in a web context, cannot refresh token');
 
               case 5:
-                _context3.next = 7;
+                _context2.next = 7;
                 return fetch('/?refreshToken', options);
 
               case 7:
-                response = _context3.sent;
+                response = _context2.sent;
 
                 if (response.ok) {
-                  _context3.next = 10;
+                  _context2.next = 10;
                   break;
                 }
 
                 throw new Error("couldn't fetch a new token - response " + response.statusCode);
 
               case 10:
-                _context3.next = 12;
+                _context2.next = 12;
                 return response.text();
 
               case 12:
-                html = _context3.sent;
+                html = _context2.sent;
                 parser = new DOMParser();
                 doc = parser.parseFromString(html, 'text/html');
 
                 if (doc) {
-                  _context3.next = 17;
+                  _context2.next = 17;
                   break;
                 }
 
@@ -38162,7 +38061,7 @@ var CozyStackClient = /*#__PURE__*/function () {
                 appNode = doc.querySelector('div[role="application"]');
 
                 if (appNode) {
-                  _context3.next = 20;
+                  _context2.next = 20;
                   break;
                 }
 
@@ -38177,7 +38076,7 @@ var CozyStackClient = /*#__PURE__*/function () {
                 }
 
                 if (token) {
-                  _context3.next = 25;
+                  _context2.next = 25;
                   break;
                 }
 
@@ -38187,14 +38086,14 @@ var CozyStackClient = /*#__PURE__*/function () {
                 newToken = new _AppToken.default(token);
                 this.setToken(newToken);
                 this.onTokenRefresh(newToken);
-                return _context3.abrupt("return", newToken);
+                return _context2.abrupt("return", newToken);
 
               case 29:
               case "end":
-                return _context3.stop();
+                return _context2.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee2, this);
       }));
 
       function refreshToken() {
@@ -38217,59 +38116,65 @@ var CozyStackClient = /*#__PURE__*/function () {
   }, {
     key: "fetchJSON",
     value: function () {
-      var _fetchJSON = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(method, path, body) {
+      var _fetchJSON = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(method, path, body) {
+        var _this = this;
+
         var options,
-            _args4 = arguments;
-        return _regenerator.default.wrap(function _callee4$(_context4) {
+            _args3 = arguments;
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                options = _args4.length > 3 && _args4[3] !== undefined ? _args4[3] : {};
-                _context4.prev = 1;
-                _context4.next = 4;
+                options = _args3.length > 3 && _args3[3] !== undefined ? _args3[3] : {};
+                _context3.prev = 1;
+                _context3.next = 4;
                 return this.fetchJSONWithCurrentToken(method, path, body, options);
 
               case 4:
-                return _context4.abrupt("return", _context4.sent);
+                return _context3.abrupt("return", _context3.sent);
 
               case 7:
-                _context4.prev = 7;
-                _context4.t0 = _context4["catch"](1);
+                _context3.prev = 7;
+                _context3.t0 = _context3["catch"](1);
 
-                if (!(_errors.default.EXPIRED_TOKEN.test(_context4.t0.message) || _errors.default.INVALID_TOKEN.test(_context4.t0.message))) {
-                  _context4.next = 23;
+                if (!(_errors.default.EXPIRED_TOKEN.test(_context3.t0.message) || _errors.default.INVALID_TOKEN.test(_context3.t0.message) || _errors.default.INVALID_TOKEN_ALT.test(_context3.t0.message))) {
+                  _context3.next = 23;
                   break;
                 }
 
-                _context4.prev = 10;
-                _context4.next = 13;
-                return this.refreshToken();
+                _context3.prev = 10;
+                _context3.next = 13;
+                return this._promiseCache.exec(function () {
+                  return _this.refreshToken();
+                }, function () {
+                  return 'refreshToken';
+                });
 
               case 13:
-                _context4.next = 18;
+                _context3.next = 18;
                 break;
 
               case 15:
-                _context4.prev = 15;
-                _context4.t1 = _context4["catch"](10);
-                throw _context4.t0;
+                _context3.prev = 15;
+                _context3.t1 = _context3["catch"](10);
+                throw _context3.t0;
 
               case 18:
-                _context4.next = 20;
+                _context3.next = 20;
                 return this.fetchJSONWithCurrentToken(method, path, body, options);
 
               case 20:
-                return _context4.abrupt("return", _context4.sent);
+                return _context3.abrupt("return", _context3.sent);
 
               case 23:
-                throw _context4.t0;
+                throw _context3.t0;
 
               case 24:
               case "end":
-                return _context4.stop();
+                return _context3.stop();
             }
           }
-        }, _callee4, this, [[1, 7], [10, 15]]);
+        }, _callee3, this, [[1, 7], [10, 15]]);
       }));
 
       function fetchJSON(_x7, _x8, _x9) {
@@ -38281,7 +38186,7 @@ var CozyStackClient = /*#__PURE__*/function () {
   }, {
     key: "fetchJSONWithCurrentToken",
     value: function () {
-      var _fetchJSONWithCurrentToken = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(method, path, bodyArg) {
+      var _fetchJSONWithCurrentToken = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(method, path, bodyArg) {
         var options,
             clonedOptions,
             headers,
@@ -38290,12 +38195,12 @@ var CozyStackClient = /*#__PURE__*/function () {
             contentType,
             isJson,
             data,
-            _args5 = arguments;
-        return _regenerator.default.wrap(function _callee5$(_context5) {
+            _args4 = arguments;
+        return _regenerator.default.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                options = _args5.length > 3 && _args5[3] !== undefined ? _args5[3] : {};
+                options = _args4.length > 3 && _args4[3] !== undefined ? _args4[3] : {};
                 //Since we modify the object later by adding in some case a
                 //content-type, let's clone this object to scope the modification
                 clonedOptions = (0, _cloneDeep.default)(options);
@@ -38310,35 +38215,35 @@ var CozyStackClient = /*#__PURE__*/function () {
                   }
                 }
 
-                _context5.next = 8;
+                _context4.next = 8;
                 return this.fetch(method, path, body, clonedOptions);
 
               case 8:
-                resp = _context5.sent;
+                resp = _context4.sent;
                 contentType = resp.headers.get('content-type');
                 isJson = contentType && contentType.indexOf('json') >= 0;
-                _context5.next = 13;
+                _context4.next = 13;
                 return isJson ? resp.json() : resp.text();
 
               case 13:
-                data = _context5.sent;
+                data = _context4.sent;
 
                 if (!resp.ok) {
-                  _context5.next = 16;
+                  _context4.next = 16;
                   break;
                 }
 
-                return _context5.abrupt("return", data);
+                return _context4.abrupt("return", data);
 
               case 16:
                 throw new _errors.FetchError(resp, data);
 
               case 17:
               case "end":
-                return _context5.stop();
+                return _context4.stop();
             }
           }
-        }, _callee5, this);
+        }, _callee4, this);
       }));
 
       function fetchJSONWithCurrentToken(_x10, _x11, _x12) {
@@ -38431,10 +38336,10 @@ var _default = CozyStackClient;
 exports.default = _default;
 
 /***/ }),
-/* 246 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseClone = __webpack_require__(177);
+var baseClone = __webpack_require__(178);
 
 /** Used to compose bitmasks for cloning. */
 var CLONE_DEEP_FLAG = 1,
@@ -38466,13 +38371,13 @@ module.exports = cloneDeep;
 
 
 /***/ }),
-/* 247 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -38481,11 +38386,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.normalizeApp = exports.APPS_DOCTYPE = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -38493,21 +38398,21 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _get3 = _interopRequireDefault(__webpack_require__(15));
+var _get3 = _interopRequireDefault(__webpack_require__(14));
 
-var _registry = __webpack_require__(248);
+var _registry = __webpack_require__(249);
 
-var _Collection = _interopRequireDefault(__webpack_require__(73));
+var _Collection = _interopRequireDefault(__webpack_require__(72));
 
-var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(21));
+var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(19));
 
-var _errors = __webpack_require__(56);
+var _errors = __webpack_require__(48);
 
-var _logger = _interopRequireDefault(__webpack_require__(57));
+var _logger = _interopRequireDefault(__webpack_require__(44));
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
@@ -38601,7 +38506,7 @@ var AppCollection = /*#__PURE__*/function (_DocumentCollection) {
 
               case 8:
                 if ((_step = _iterator.n()).done) {
-                  _context.next = 26;
+                  _context.next = 27;
                   break;
                 }
 
@@ -38621,49 +38526,51 @@ var AppCollection = /*#__PURE__*/function (_DocumentCollection) {
                 return _context.abrupt("return", res);
 
               case 16:
+                _logger.default.warn("The use of source registry is deprecated since it can polute the io.cozy.apps slice. For exemple, if we request data from the registry, than the app will be present in the io.cozy.apps slice and then the isInstalled() will return true.\n\n            Use Q('io.cozy.apps_registry) instead");
+
                 data = (0, _registry.transformRegistryFormatToStackFormat)(res);
                 return _context.abrupt("return", {
                   data: normalizeApp(data, this.doctype)
                 });
 
-              case 20:
-                _context.prev = 20;
+              case 21:
+                _context.prev = 21;
                 _context.t0 = _context["catch"](10);
 
                 if (!(source === sources[sources.length - 1])) {
-                  _context.next = 24;
+                  _context.next = 25;
                   break;
                 }
 
                 throw _context.t0;
 
-              case 24:
+              case 25:
                 _context.next = 8;
                 break;
 
-              case 26:
-                _context.next = 31;
+              case 27:
+                _context.next = 32;
                 break;
 
-              case 28:
-                _context.prev = 28;
+              case 29:
+                _context.prev = 29;
                 _context.t1 = _context["catch"](6);
 
                 _iterator.e(_context.t1);
 
-              case 31:
-                _context.prev = 31;
+              case 32:
+                _context.prev = 32;
 
                 _iterator.f();
 
-                return _context.finish(31);
+                return _context.finish(32);
 
-              case 34:
+              case 35:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[6, 28, 31, 34], [10, 20]]);
+        }, _callee, this, [[6, 29, 32, 35], [10, 21]]);
       }));
 
       function get(_x, _x2) {
@@ -38803,7 +38710,7 @@ var _default = AppCollection;
 exports.default = _default;
 
 /***/ }),
-/* 248 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38816,23 +38723,23 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.registryEndpoint = exports.transformRegistryFormatToStackFormat = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _get = _interopRequireDefault(__webpack_require__(15));
+var _get = _interopRequireDefault(__webpack_require__(14));
 
-__webpack_require__(485);
+__webpack_require__(486);
 
-var _terms = _interopRequireDefault(__webpack_require__(486));
+var _terms = _interopRequireDefault(__webpack_require__(487));
 
-var _constants = __webpack_require__(487);
+var _constants = __webpack_require__(488);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -39092,7 +38999,7 @@ var _default = Registry;
 exports.default = _default;
 
 /***/ }),
-/* 249 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39114,12 +39021,12 @@ var _default = {};
 exports.default = _default;
 
 /***/ }),
-/* 250 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseFindKey = __webpack_require__(491),
-    baseForOwn = __webpack_require__(144),
-    baseIteratee = __webpack_require__(36);
+var baseFindKey = __webpack_require__(490),
+    baseForOwn = __webpack_require__(143),
+    baseIteratee = __webpack_require__(35);
 
 /**
  * This method is like `_.find` except that it returns the key of the first
@@ -39164,27 +39071,27 @@ module.exports = findKey;
 
 
 /***/ }),
-/* 251 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(252);
+module.exports = __webpack_require__(253);
 
-var consoleLogger = __webpack_require__(493);
+var consoleLogger = __webpack_require__(492);
 
 // if we are running inside Electron then use the web version of console.js
 var isElectron = (typeof window !== 'undefined' && window.process && window.process.type === 'renderer');
 if (isElectron) {
-  consoleLogger = __webpack_require__(501).minilog;
+  consoleLogger = __webpack_require__(500).minilog;
 }
 
 // intercept the pipe method and transparently wrap the stringifier, if the
 // destination is a Node core stream
 
-module.exports.Stringifier = __webpack_require__(504);
+module.exports.Stringifier = __webpack_require__(503);
 
 var oldPipe = module.exports.pipe;
 module.exports.pipe = function(dest) {
-  if(dest instanceof __webpack_require__(62)) {
+  if(dest instanceof __webpack_require__(61)) {
     return oldPipe.call(module.exports, new (module.exports.Stringifier)).pipe(dest);
   } else {
     return oldPipe.call(module.exports, dest);
@@ -39195,18 +39102,18 @@ module.exports.defaultBackend = consoleLogger;
 module.exports.defaultFormatter = consoleLogger.formatMinilog;
 
 module.exports.backends = {
-  redis: __webpack_require__(505),
+  redis: __webpack_require__(504),
   nodeConsole: consoleLogger,
   console: consoleLogger
 };
 
 
 /***/ }),
-/* 252 */
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Transform = __webpack_require__(22),
-    Filter = __webpack_require__(492);
+var Transform = __webpack_require__(21),
+    Filter = __webpack_require__(491);
 
 var log = new Transform(),
     slice = Array.prototype.slice;
@@ -39255,7 +39162,7 @@ exports.enable = function() {
 
 
 /***/ }),
-/* 253 */
+/* 254 */
 /***/ (function(module, exports) {
 
 var hex = {
@@ -39281,7 +39188,7 @@ module.exports = color;
 
 
 /***/ }),
-/* 254 */
+/* 255 */
 /***/ (function(module, exports) {
 
 /**
@@ -39310,11 +39217,11 @@ module.exports = head;
 
 
 /***/ }),
-/* 255 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseAssignValue = __webpack_require__(70),
-    eq = __webpack_require__(82);
+var baseAssignValue = __webpack_require__(69),
+    eq = __webpack_require__(81);
 
 /**
  * This function is like `assignValue` except that it doesn't assign
@@ -39336,7 +39243,7 @@ module.exports = assignMergeValue;
 
 
 /***/ }),
-/* 256 */
+/* 257 */
 /***/ (function(module, exports) {
 
 /**
@@ -39363,7 +39270,7 @@ module.exports = safeGet;
 
 
 /***/ }),
-/* 257 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39372,7 +39279,7 @@ module.exports = safeGet;
 var replace = String.prototype.replace;
 var percentTwenties = /%20/g;
 
-var util = __webpack_require__(158);
+var util = __webpack_require__(157);
 
 var Format = {
     RFC1738: 'RFC1738',
@@ -39396,7 +39303,7 @@ module.exports = util.assign(
 
 
 /***/ }),
-/* 258 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39407,17 +39314,17 @@ var _interopRequireDefault = __webpack_require__(0);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.isMatchingIndex = exports.isInconsistentIndex = exports.getIndexFields = exports.transformSort = exports.getIndexNameFromFields = exports.normalizeDesignDoc = void 0;
+exports.isMatchingIndex = exports.getIndexFields = exports.transformSort = exports.getIndexNameFromFields = exports.normalizeDesignDoc = void 0;
 
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(38));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _head = _interopRequireDefault(__webpack_require__(254));
+var _head = _interopRequireDefault(__webpack_require__(255));
 
-var _get = _interopRequireDefault(__webpack_require__(15));
+var _get = _interopRequireDefault(__webpack_require__(14));
 
-var _isEqual = _interopRequireDefault(__webpack_require__(159));
+var _isEqual = _interopRequireDefault(__webpack_require__(158));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -39530,39 +39437,6 @@ _ref2) {
   })), (0, _toConsumableArray2.default)(selector ? Object.keys(selector) : []), (0, _toConsumableArray2.default)(partialFilter ? Object.keys(partialFilter) : []))));
 };
 /**
- * Check if an index is in an inconsistent state, i.e. it evaluates one of these:
- * - its name contains the indexed attributes which are not in correct order
- * - it contains a partial filter, but the fields are not in the name
- *
- * @param {DesignDoc} index - The index to check
- * @returns {boolean} True if the index is inconsistent
- */
-
-
-exports.getIndexFields = getIndexFields;
-
-var isInconsistentIndex = function isInconsistentIndex(index) {
-  var indexId = index._id;
-
-  if (!indexId.startsWith('_design/by_')) {
-    return false;
-  }
-
-  var fieldsInName = indexId.split('_design/by_')[1].split('_filter_')[0].split('_and_');
-  var viewId = Object.keys((0, _get.default)(index, "views"))[0];
-  var fieldsInIndex = Object.keys((0, _get.default)(index, "views.".concat(viewId, ".map.fields")));
-
-  if (!(0, _isEqual.default)(fieldsInName, fieldsInIndex)) {
-    return true;
-  }
-
-  var partialFilter = (0, _get.default)(index, "views.".concat(viewId, ".map.partial_filter_selector"));
-  var partialFilterFields = partialFilter ? Object.keys(partialFilter) : [];
-  var filteredName = indexId.split('_filter_');
-  var partialFilterFieldsInName = filteredName.length > 1 ? filteredName[1].split('_and_') : [];
-  return !(0, _isEqual.default)(partialFilterFields, partialFilterFieldsInName);
-};
-/**
  * Check if an index is matching the given fields
  *
  * @param {DesignDoc} index - The index to check
@@ -39572,7 +39446,7 @@ var isInconsistentIndex = function isInconsistentIndex(index) {
  */
 
 
-exports.isInconsistentIndex = isInconsistentIndex;
+exports.getIndexFields = getIndexFields;
 
 var isMatchingIndex = function isMatchingIndex(index, fields, partialFilter) {
   var viewId = Object.keys((0, _get.default)(index, "views"))[0];
@@ -39596,13 +39470,13 @@ var isMatchingIndex = function isMatchingIndex(index, fields, partialFilter) {
 exports.isMatchingIndex = isMatchingIndex;
 
 /***/ }),
-/* 259 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayMap = __webpack_require__(32),
-    baseIteratee = __webpack_require__(36),
-    basePickBy = __webpack_require__(260),
-    getAllKeysIn = __webpack_require__(151);
+    baseIteratee = __webpack_require__(35),
+    basePickBy = __webpack_require__(261),
+    getAllKeysIn = __webpack_require__(150);
 
 /**
  * Creates an object composed of the `object` properties `predicate` returns
@@ -39639,12 +39513,12 @@ module.exports = pickBy;
 
 
 /***/ }),
-/* 260 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGet = __webpack_require__(85),
-    baseSet = __webpack_require__(261),
-    castPath = __webpack_require__(69);
+var baseGet = __webpack_require__(84),
+    baseSet = __webpack_require__(262),
+    castPath = __webpack_require__(68);
 
 /**
  * The base implementation of  `_.pickBy` without support for iteratee shorthands.
@@ -39675,14 +39549,14 @@ module.exports = basePickBy;
 
 
 /***/ }),
-/* 261 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assignValue = __webpack_require__(149),
-    castPath = __webpack_require__(69),
-    isIndex = __webpack_require__(96),
+var assignValue = __webpack_require__(148),
+    castPath = __webpack_require__(68),
+    isIndex = __webpack_require__(94),
     isObject = __webpack_require__(29),
-    toKey = __webpack_require__(66);
+    toKey = __webpack_require__(65);
 
 /**
  * The base implementation of `_.set`.
@@ -39732,7 +39606,7 @@ module.exports = baseSet;
 
 
 /***/ }),
-/* 262 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39745,7 +39619,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -39804,11 +39678,11 @@ var AccessToken = /*#__PURE__*/function () {
 exports.default = AccessToken;
 
 /***/ }),
-/* 263 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseHas = __webpack_require__(522),
-    hasPath = __webpack_require__(213);
+var baseHas = __webpack_require__(523),
+    hasPath = __webpack_require__(214);
 
 /**
  * Checks if `path` is a direct property of `object`.
@@ -39845,7 +39719,7 @@ module.exports = has;
 
 
 /***/ }),
-/* 264 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39873,13 +39747,13 @@ var getIllegalCharacters = function getIllegalCharacters(name) {
 exports.getIllegalCharacters = getIllegalCharacters;
 
 /***/ }),
-/* 265 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -39888,13 +39762,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.hasJobFinished = exports.normalizeJob = exports.JOBS_DOCTYPE = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(43));
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(39));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -39902,15 +39776,15 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _Collection = _interopRequireDefault(__webpack_require__(73));
+var _Collection = _interopRequireDefault(__webpack_require__(72));
 
-var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(21));
+var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(19));
 
-var _utils = __webpack_require__(44);
+var _utils = __webpack_require__(40);
 
 function _templateObject() {
   var data = (0, _taggedTemplateLiteral2.default)(["/jobs/", ""]);
@@ -40185,13 +40059,13 @@ var _default = JobCollection;
 exports.default = _default;
 
 /***/ }),
-/* 266 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -40200,37 +40074,37 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.isForAccount = exports.isForKonnector = exports.normalizeTrigger = exports.TRIGGERS_DOCTYPE = exports.JOBS_DOCTYPE = void 0;
 
-var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(42));
+var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(43));
 
-var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(43));
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(39));
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _get3 = _interopRequireDefault(__webpack_require__(91));
+var _get3 = _interopRequireDefault(__webpack_require__(115));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _Collection = _interopRequireWildcard(__webpack_require__(73));
+var _Collection = _interopRequireWildcard(__webpack_require__(72));
 
-var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(21));
+var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(19));
 
-var _JobCollection = __webpack_require__(265);
+var _JobCollection = __webpack_require__(266);
 
-var _utils = __webpack_require__(44);
+var _utils = __webpack_require__(40);
 
-var _errors = __webpack_require__(56);
+var _errors = __webpack_require__(48);
 
 function _templateObject4() {
   var data = (0, _taggedTemplateLiteral2.default)(["/jobs/triggers/", "/launch"]);
@@ -40645,25 +40519,71 @@ var TriggerCollection = /*#__PURE__*/function (_DocumentCollection) {
 
       return launch;
     }()
+    /**
+     * Updates a Trigger document. Only updatable attributes plus _id are allowed.
+     *
+     * @param  {object}  trigger Trigger's attributes to update + id
+     * @returns {object}  Stack response, containing resulting trigger document under `data` attribute.
+     */
+
   }, {
     key: "update",
     value: function () {
-      var _update = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee7() {
+      var _update = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee7(trigger) {
+        var key, attributes, triggerUpdateResult;
         return _regenerator.default.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
-                throw new Error('update() method is not available for triggers');
+                _context7.t0 = _regenerator.default.keys(trigger);
 
               case 1:
+                if ((_context7.t1 = _context7.t0()).done) {
+                  _context7.next = 7;
+                  break;
+                }
+
+                key = _context7.t1.value;
+
+                if (['_id', '_rev', '_type', 'arguments', 'message', 'cozyMetadata'].includes(key)) {
+                  _context7.next = 5;
+                  break;
+                }
+
+                throw new Error("TriggerCollection.update only works for 'arguments', and 'message' attributes.");
+
+              case 5:
+                _context7.next = 1;
+                break;
+
+              case 7:
+                attributes = _objectSpread(_objectSpread({}, trigger.arguments ? {
+                  arguments: trigger.arguments
+                } : {}), trigger.message ? {
+                  message: trigger.message
+                } : {});
+                _context7.next = 10;
+                return this.stackClient.fetchJSON('PATCH', "/jobs/triggers/".concat(trigger._id), {
+                  data: {
+                    attributes: attributes
+                  }
+                });
+
+              case 10:
+                triggerUpdateResult = _context7.sent;
+                return _context7.abrupt("return", {
+                  data: normalizeTrigger(triggerUpdateResult.data)
+                });
+
+              case 12:
               case "end":
                 return _context7.stop();
             }
           }
-        }, _callee7);
+        }, _callee7, this);
       }));
 
-      function update() {
+      function update(_x5) {
         return _update.apply(this, arguments);
       }
 
@@ -40678,7 +40598,7 @@ var _default = TriggerCollection;
 exports.default = _default;
 
 /***/ }),
-/* 267 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40691,7 +40611,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _logger = _interopRequireDefault(__webpack_require__(57));
+var _logger = _interopRequireDefault(__webpack_require__(44));
 
 var logDeprecate = function logDeprecate() {
   if (false) {}
@@ -40703,7 +40623,7 @@ var _default = logDeprecate;
 exports.default = _default;
 
 /***/ }),
-/* 268 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40716,13 +40636,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.transformBulkDocsResponse = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(42));
+var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(43));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -40730,21 +40650,19 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _zipWith = _interopRequireDefault(__webpack_require__(269));
+var _zipWith = _interopRequireDefault(__webpack_require__(270));
 
-var _dsl = __webpack_require__(14);
+var _dsl = __webpack_require__(13);
 
-var _CozyLink2 = _interopRequireDefault(__webpack_require__(163));
+var _CozyLink2 = _interopRequireDefault(__webpack_require__(162));
 
-var _types = __webpack_require__(12);
+var _const = __webpack_require__(49);
 
-var _const = __webpack_require__(48);
-
-var _errors = __webpack_require__(270);
+var _errors = __webpack_require__(271);
 
 var _logger = _interopRequireDefault(__webpack_require__(20));
 
@@ -40779,9 +40697,9 @@ var hasFindOptions = function hasFindOptions(queryDefinition) {
  *
  * @private
  *
- * @param  {CouchDBBulkResult[]} bulkResponse - Response from bulk docs
- * @param  {CozyClientDocument[]} originalDocuments - Documents that were updated
- * @returns {{ data: CozyClientDocument[] }} - Full documents with updated _id and _rev
+ * @param  {import("./types").CouchDBBulkResult[]} bulkResponse - Response from bulk docs
+ * @param  {import("./types").CozyClientDocument[]} originalDocuments - Documents that were updated
+ * @returns {{ data: import("./types").CozyClientDocument[] }} - Full documents with updated _id and _rev
  */
 
 
@@ -40860,7 +40778,7 @@ var StackLink = /*#__PURE__*/function (_CozyLink) {
     /**
      *
      * @param {QueryDefinition} query - Query to execute
-     * @returns {Promise<ClientResponse>}
+     * @returns {Promise<import("./types").ClientResponse>}
      */
 
   }, {
@@ -40985,11 +40903,11 @@ var StackLink = /*#__PURE__*/function (_CozyLink) {
 exports.default = StackLink;
 
 /***/ }),
-/* 269 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseRest = __webpack_require__(50),
-    unzipWith = __webpack_require__(538);
+var baseRest = __webpack_require__(51),
+    unzipWith = __webpack_require__(541);
 
 /**
  * This method is like `_.zip` except that it accepts `iteratee` to specify
@@ -41023,7 +40941,7 @@ module.exports = zipWith;
 
 
 /***/ }),
-/* 270 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41038,7 +40956,7 @@ exports.BulkEditError = void 0;
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -41046,13 +40964,11 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(90));
+var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(89));
 
-var _zipWith = _interopRequireDefault(__webpack_require__(269));
-
-var _types = __webpack_require__(12);
+var _zipWith = _interopRequireDefault(__webpack_require__(270));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -41070,8 +40986,8 @@ var BulkEditError = /*#__PURE__*/function (_Error) {
   /**
    * Indicates that a bulk edit has (potentially partially) failed
    *
-   * @param  {CouchDBBulkResult[]} bulkResponse - CouchDB Bulk response
-   * @param  {CozyClientDocument[]} updatedDocs - Docs with updated _id and _rev
+   * @param  {import("./types").CouchDBBulkResult[]} bulkResponse - CouchDB Bulk response
+   * @param  {import("./types").CozyClientDocument[]} updatedDocs - Docs with updated _id and _rev
    */
   function BulkEditError(bulkResponse, updatedDocs) {
     var _this;
@@ -41089,7 +41005,7 @@ var BulkEditError = /*#__PURE__*/function (_Error) {
   /**
    * Get documents that have been correctly updated
    *
-   * @returns {CozyClientDocument[]}
+   * @returns {import("./types").CozyClientDocument[]}
    */
 
 
@@ -41105,7 +41021,7 @@ var BulkEditError = /*#__PURE__*/function (_Error) {
     /**
      * Get bulk errors results
      *
-     * @returns {Array<CouchDBBulkResult & { doc: CozyClientDocument }>}
+     * @returns {Array<import("./types").CouchDBBulkResult & { doc: import("./types").CozyClientDocument }>}
      */
 
   }, {
@@ -41122,7 +41038,7 @@ var BulkEditError = /*#__PURE__*/function (_Error) {
 exports.BulkEditError = BulkEditError;
 
 /***/ }),
-/* 271 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41135,45 +41051,43 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.getFileDatetime = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(38));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _get3 = _interopRequireDefault(__webpack_require__(91));
+var _get3 = _interopRequireDefault(__webpack_require__(115));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(34));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(28));
 
-var _get4 = _interopRequireDefault(__webpack_require__(15));
+var _get4 = _interopRequireDefault(__webpack_require__(14));
 
-var _omit = _interopRequireDefault(__webpack_require__(98));
+var _omit = _interopRequireDefault(__webpack_require__(96));
 
-var _uniq = _interopRequireDefault(__webpack_require__(115));
+var _uniq = _interopRequireDefault(__webpack_require__(114));
 
-var _dsl = __webpack_require__(14);
+var _dsl = __webpack_require__(13);
 
-var _store = __webpack_require__(76);
+var _store = __webpack_require__(75);
 
-var _types = __webpack_require__(12);
+var _const = __webpack_require__(49);
 
-var _const = __webpack_require__(48);
+var _Association = _interopRequireDefault(__webpack_require__(57));
 
-var _Association = _interopRequireDefault(__webpack_require__(58));
-
-var _HasMany2 = _interopRequireDefault(__webpack_require__(92));
+var _HasMany2 = _interopRequireDefault(__webpack_require__(90));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -41186,10 +41100,10 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 /**
  * newCursor - Returns a CouchDB view Cursor for cursor-based pagination
  *
- * @param {ViewKey} key - The CouchDB key of the view which will be requested
- * @param {DocId} startDocId - The first doc _id to return from the view
+ * @param {import("../types").ViewKey} key - The CouchDB key of the view which will be requested
+ * @param {import("../types").DocId} startDocId - The first doc _id to return from the view
  *
- * @returns {CouchDBViewCursor}
+ * @returns {import("../types").CouchDBViewCursor}
  */
 var newCursor = function newCursor(_ref, startDocId) {
   var _ref2 = (0, _slicedToArray2.default)(_ref, 3),
@@ -41316,17 +41230,15 @@ var HasManyFiles = /*#__PURE__*/function (_HasMany) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 ids = Array.isArray(idsArg) ? idsArg : [idsArg];
+                this.addTargetRelationships(ids);
                 relations = ids.map(function (id) {
                   return {
                     _id: id,
                     _type: _this2.doctype
                   };
                 });
-                _context3.next = 4;
+                _context3.next = 5;
                 return this.mutate(this.addReferences(relations));
-
-              case 4:
-                this.addTargetRelationships(ids);
 
               case 5:
               case "end":
@@ -41354,17 +41266,15 @@ var HasManyFiles = /*#__PURE__*/function (_HasMany) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 ids = Array.isArray(idsArg) ? idsArg : [idsArg];
+                this.removeTargetRelationships(idsArg);
                 references = ids.map(function (id) {
                   return {
                     _id: id,
                     _type: _this3.doctype
                   };
                 });
-                _context4.next = 4;
+                _context4.next = 5;
                 return this.mutate(this.removeReferences(references));
-
-              case 4:
-                this.removeTargetRelationships(ids);
 
               case 5:
               case "end":
@@ -41409,11 +41319,11 @@ var HasManyFiles = /*#__PURE__*/function (_HasMany) {
       return (0, _omit.default)(doc, [this.name, "relationships.".concat(this.name)]);
     }
     /**
-     * @param {CozyClientDocument} document - Document to query
+     * @param {import("../types").CozyClientDocument} document - Document to query
      * @param {object} client - The CozyClient instance
      * @param {Association} assoc - The query params
      *
-     * @returns {CozyClientDocument | QueryDefinition}
+     * @returns {import("../types").CozyClientDocument | QueryDefinition}
      */
 
   }, {
@@ -41455,7 +41365,7 @@ var HasManyFiles = /*#__PURE__*/function (_HasMany) {
 exports.default = HasManyFiles;
 
 /***/ }),
-/* 272 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41470,27 +41380,25 @@ exports.extractAndMergeDocument = exports.getCollectionFromSlice = exports.getDo
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _keyBy = _interopRequireDefault(__webpack_require__(273));
+var _keyBy = _interopRequireDefault(__webpack_require__(274));
 
-var _get = _interopRequireDefault(__webpack_require__(15));
+var _get = _interopRequireDefault(__webpack_require__(14));
 
-var _isEqual = _interopRequireDefault(__webpack_require__(159));
+var _isEqual = _interopRequireDefault(__webpack_require__(158));
 
-var _omit = _interopRequireDefault(__webpack_require__(98));
+var _omit = _interopRequireDefault(__webpack_require__(96));
 
-var _merge = _interopRequireDefault(__webpack_require__(75));
+var _merge = _interopRequireDefault(__webpack_require__(74));
 
 var _logger = _interopRequireDefault(__webpack_require__(20));
 
-var _queries = __webpack_require__(164);
+var _queries = __webpack_require__(163);
 
-var _dsl = __webpack_require__(14);
+var _dsl = __webpack_require__(13);
 
-var _mutations = __webpack_require__(165);
+var _mutations = __webpack_require__(164);
 
-var _types = __webpack_require__(12);
-
-var _helpers = __webpack_require__(280);
+var _helpers = __webpack_require__(281);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -41525,7 +41433,7 @@ var mergeDocumentsWithRelationships = function mergeDocumentsWithRelationships()
   var nextDocument = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
   /**
-   * @type {CozyClientDocument}
+   * @type {import("../types").CozyClientDocument}
    */
   var merged = _objectSpread(_objectSpread({}, prevDocument), nextDocument);
 
@@ -41654,11 +41562,11 @@ var extractAndMergeDocument = function extractAndMergeDocument(data, updatedStat
 exports.extractAndMergeDocument = extractAndMergeDocument;
 
 /***/ }),
-/* 273 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseAssignValue = __webpack_require__(70),
-    createAggregator = __webpack_require__(274);
+var baseAssignValue = __webpack_require__(69),
+    createAggregator = __webpack_require__(275);
 
 /**
  * Creates an object composed of keys generated from the results of running
@@ -41696,12 +41604,12 @@ module.exports = keyBy;
 
 
 /***/ }),
-/* 274 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayAggregator = __webpack_require__(540),
-    baseAggregator = __webpack_require__(541),
-    baseIteratee = __webpack_require__(36),
+var arrayAggregator = __webpack_require__(543),
+    baseAggregator = __webpack_require__(544),
+    baseIteratee = __webpack_require__(35),
     isArray = __webpack_require__(11);
 
 /**
@@ -41725,11 +41633,11 @@ module.exports = createAggregator;
 
 
 /***/ }),
-/* 275 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseAssignValue = __webpack_require__(70),
-    createAggregator = __webpack_require__(274);
+var baseAssignValue = __webpack_require__(69),
+    createAggregator = __webpack_require__(275);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -41772,13 +41680,13 @@ module.exports = groupBy;
 
 
 /***/ }),
-/* 276 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayMap = __webpack_require__(32),
-    baseIntersection = __webpack_require__(277),
-    baseRest = __webpack_require__(50),
-    castArrayLikeObject = __webpack_require__(278);
+    baseIntersection = __webpack_require__(278),
+    baseRest = __webpack_require__(51),
+    castArrayLikeObject = __webpack_require__(279);
 
 /**
  * Creates an array of unique values that are included in all given arrays
@@ -41808,15 +41716,15 @@ module.exports = intersection;
 
 
 /***/ }),
-/* 277 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var SetCache = __webpack_require__(106),
-    arrayIncludes = __webpack_require__(127),
-    arrayIncludesWith = __webpack_require__(156),
+var SetCache = __webpack_require__(104),
+    arrayIncludes = __webpack_require__(126),
+    arrayIncludesWith = __webpack_require__(155),
     arrayMap = __webpack_require__(32),
-    baseUnary = __webpack_require__(64),
-    cacheHas = __webpack_require__(107);
+    baseUnary = __webpack_require__(63),
+    cacheHas = __webpack_require__(105);
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeMin = Math.min;
@@ -41888,10 +41796,10 @@ module.exports = baseIntersection;
 
 
 /***/ }),
-/* 278 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isArrayLikeObject = __webpack_require__(113);
+var isArrayLikeObject = __webpack_require__(111);
 
 /**
  * Casts `value` to an empty array if it's not an array like object.
@@ -41908,17 +41816,17 @@ module.exports = castArrayLikeObject;
 
 
 /***/ }),
-/* 279 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayMap = __webpack_require__(32),
-    baseGet = __webpack_require__(85),
-    baseIteratee = __webpack_require__(36),
+    baseGet = __webpack_require__(84),
+    baseIteratee = __webpack_require__(35),
     baseMap = __webpack_require__(335),
-    baseSortBy = __webpack_require__(545),
-    baseUnary = __webpack_require__(64),
-    compareMultiple = __webpack_require__(546),
-    identity = __webpack_require__(78),
+    baseSortBy = __webpack_require__(548),
+    baseUnary = __webpack_require__(63),
+    compareMultiple = __webpack_require__(549),
+    identity = __webpack_require__(77),
     isArray = __webpack_require__(11);
 
 /**
@@ -41963,7 +41871,7 @@ module.exports = baseOrderBy;
 
 
 /***/ }),
-/* 280 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41981,7 +41889,7 @@ var properId = function properId(doc) {
 exports.properId = properId;
 
 /***/ }),
-/* 281 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41996,7 +41904,7 @@ exports.default = void 0;
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -42004,17 +41912,15 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _get2 = _interopRequireDefault(__webpack_require__(15));
+var _get2 = _interopRequireDefault(__webpack_require__(14));
 
-var _set = _interopRequireDefault(__webpack_require__(549));
+var _set = _interopRequireDefault(__webpack_require__(552));
 
-var _dsl = __webpack_require__(14);
+var _dsl = __webpack_require__(13);
 
-var _types = __webpack_require__(12);
-
-var _Association2 = _interopRequireDefault(__webpack_require__(58));
+var _Association2 = _interopRequireDefault(__webpack_require__(57));
 
 var _logger = _interopRequireDefault(__webpack_require__(20));
 
@@ -42042,8 +41948,8 @@ var HasOne = /*#__PURE__*/function (_Association) {
     /**
      * Add the relationship to the target document
      *
-     * @param {CozyClientDocument} doc - Document to add as a relationship
-     * @returns {CozyClientDocument} The saved target document
+     * @param {import("../types").CozyClientDocument} doc - Document to add as a relationship
+     * @returns {import("../types").CozyClientDocument} The saved target document
      */
     value: function add(doc) {
       this.setRelationship(doc);
@@ -42052,7 +41958,7 @@ var HasOne = /*#__PURE__*/function (_Association) {
     /**
      * Remove the relationship from the target document
      *
-     * @returns {CozyClientDocument} The saved target document
+     * @returns {import("../types").CozyClientDocument} The saved target document
      */
 
   }, {
@@ -42121,11 +42027,11 @@ var HasOne = /*#__PURE__*/function (_Association) {
       return this.get(this.doctype, this.raw._id);
     }
     /**
-     * @param {CozyClientDocument} document - Document to query
+     * @param {import("../types").CozyClientDocument} document - Document to query
      * @param {object} client - The CozyClient instance
      * @param {Association} assoc - The query params
      *
-     * @returns {CozyClientDocument | QueryDefinition}
+     * @returns {import("../types").CozyClientDocument | QueryDefinition}
      */
 
   }], [{
@@ -42146,7 +42052,7 @@ var HasOne = /*#__PURE__*/function (_Association) {
 exports.default = HasOne;
 
 /***/ }),
-/* 282 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42161,7 +42067,7 @@ exports.BelongsToInPlace = exports.default = void 0;
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -42169,13 +42075,11 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _Association2 = _interopRequireDefault(__webpack_require__(58));
+var _Association2 = _interopRequireDefault(__webpack_require__(57));
 
-var _dsl = __webpack_require__(14);
-
-var _types = __webpack_require__(12);
+var _dsl = __webpack_require__(13);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -42215,11 +42119,11 @@ var HasOneInPlace = /*#__PURE__*/function (_Association) {
       return this.get(this.doctype, this.raw);
     }
     /**
-     * @param {CozyClientDocument} document - Document to query
+     * @param {import("../types").CozyClientDocument} document - Document to query
      * @param {object} client - The CozyClient instance
      * @param {Association} assoc - The query params
      *
-     * @returns {CozyClientDocument | QueryDefinition}
+     * @returns {import("../types").CozyClientDocument | QueryDefinition}
      */
 
   }], [{
@@ -42237,7 +42141,7 @@ var BelongsToInPlace = HasOneInPlace;
 exports.BelongsToInPlace = BelongsToInPlace;
 
 /***/ }),
-/* 283 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42252,7 +42156,7 @@ exports.default = void 0;
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -42260,13 +42164,11 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _dsl = __webpack_require__(14);
+var _dsl = __webpack_require__(13);
 
-var _types = __webpack_require__(12);
-
-var _Association2 = _interopRequireDefault(__webpack_require__(58));
+var _Association2 = _interopRequireDefault(__webpack_require__(57));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -42384,11 +42286,11 @@ var HasManyInPlace = /*#__PURE__*/function (_Association) {
       });
     }
     /**
-     * @param {CozyClientDocument} document - Document to query
+     * @param {import("../types").CozyClientDocument} document - Document to query
      * @param {object} client - The CozyClient instance
      * @param {Association} assoc - The query params
      *
-     * @returns {CozyClientDocument | QueryDefinition}
+     * @returns {import("../types").CozyClientDocument | QueryDefinition}
      */
 
   }], [{
@@ -42410,224 +42312,157 @@ var _default = HasManyInPlace;
 exports.default = _default;
 
 /***/ }),
-/* 284 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(0);
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getReferencedById = exports.getReferencedBy = exports.isReferencedById = exports.isReferencedBy = exports.create = exports.resolveClass = exports.attachRelationships = exports.responseToRelationship = exports.pickTypeAndId = void 0;
-
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
-
-var _pick = _interopRequireDefault(__webpack_require__(162));
-
-var _pickBy = _interopRequireDefault(__webpack_require__(259));
-
-var _Association = _interopRequireDefault(__webpack_require__(58));
-
-var _HasOne = _interopRequireDefault(__webpack_require__(281));
-
-var _HasOneInPlace = _interopRequireDefault(__webpack_require__(282));
-
-var _HasMany = _interopRequireDefault(__webpack_require__(92));
-
-var _HasManyInPlace = _interopRequireDefault(__webpack_require__(283));
-
-var _HasManyFiles = _interopRequireDefault(__webpack_require__(271));
-
-var _types = __webpack_require__(12);
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-var pickTypeAndId = function pickTypeAndId(x) {
-  return (0, _pick.default)(x, '_type', '_id');
-};
-
-exports.pickTypeAndId = pickTypeAndId;
-
-var applyHelper = function applyHelper(fn, objOrArr) {
-  return Array.isArray(objOrArr) ? objOrArr.map(fn) : fn(objOrArr);
-};
-
-var responseToRelationship = function responseToRelationship(response) {
-  return (0, _pickBy.default)({
-    data: applyHelper(pickTypeAndId, response.data),
-    meta: response.meta,
-    next: response.next,
-    skip: response.skip,
-    bookmark: response.bookmark
-  });
-};
-
-exports.responseToRelationship = responseToRelationship;
-
-var attachRelationship = function attachRelationship(doc, relationships) {
-  return _objectSpread(_objectSpread({}, doc), {}, {
-    relationships: _objectSpread(_objectSpread({}, doc.relationships), relationships)
-  });
-};
-
-var attachRelationships = function attachRelationships(response, relationshipsByDocId) {
-  if (Array.isArray(response.data)) {
-    return _objectSpread(_objectSpread({}, response), {}, {
-      data: response.data.map(function (doc) {
-        return attachRelationship(doc, relationshipsByDocId[doc._id]);
-      })
-    });
-  } else {
-    var doc = response.data;
-    return _objectSpread(_objectSpread({}, response), {}, {
-      data: attachRelationship(doc, relationshipsByDocId[doc._id])
-    });
+Object.defineProperty(exports, "checkApp", {
+  enumerable: true,
+  get: function get() {
+    return _apps.checkApp;
   }
-};
-
-exports.attachRelationships = attachRelationships;
-var aliases = {
-  'io.cozy.files:has-many': _HasManyFiles.default,
-  'has-many': _HasMany.default,
-  'belongs-to-in-place': _HasOneInPlace.default,
-  'has-one': _HasOne.default,
-  'has-one-in-place': _HasOneInPlace.default,
-  'has-many-in-place': _HasManyInPlace.default
-};
-/**
- * Returns the relationship class for a given doctype/type.
- *
- * In the schema definition, some classes have string aliases
- * so you do not have to import directly the association.
- *
- * Some doctypes can have built-in overriden relationships.
- *
- * @private
- */
-
-var resolveClass = function resolveClass(doctype, type) {
-  if (type === undefined) {
-    throw new Error('Undefined type for ' + doctype);
+});
+Object.defineProperty(exports, "getDeviceName", {
+  enumerable: true,
+  get: function get() {
+    return _device.getDeviceName;
   }
-
-  if (typeof type !== 'string') {
-    return type;
-  } else {
-    var qualified = "".concat(doctype, ":").concat(type);
-    var cls = aliases[qualified] || aliases[type];
-
-    if (!cls) {
-      throw new Error("Unknown association '".concat(type, "'"));
-    } else {
-      return cls;
-    }
+});
+Object.defineProperty(exports, "getFlagshipMetadata", {
+  enumerable: true,
+  get: function get() {
+    return _flagship.getFlagshipMetadata;
   }
-};
-
-exports.resolveClass = resolveClass;
-
-var create = function create(target, _ref, accessors) {
-  var name = _ref.name,
-      type = _ref.type,
-      doctype = _ref.doctype;
-
-  if (target[name] instanceof _Association.default) {
-    throw new Error("Association ".concat(name, " already exists"));
+});
+Object.defineProperty(exports, "getPlatform", {
+  enumerable: true,
+  get: function get() {
+    return _platform.getPlatform;
   }
+});
+Object.defineProperty(exports, "hasDevicePlugin", {
+  enumerable: true,
+  get: function get() {
+    return _plugins.hasDevicePlugin;
+  }
+});
+Object.defineProperty(exports, "hasInAppBrowserPlugin", {
+  enumerable: true,
+  get: function get() {
+    return _plugins.hasInAppBrowserPlugin;
+  }
+});
+Object.defineProperty(exports, "hasNetworkInformationPlugin", {
+  enumerable: true,
+  get: function get() {
+    return _plugins.hasNetworkInformationPlugin;
+  }
+});
+Object.defineProperty(exports, "hasSafariPlugin", {
+  enumerable: true,
+  get: function get() {
+    return _plugins.hasSafariPlugin;
+  }
+});
+Object.defineProperty(exports, "isAndroid", {
+  enumerable: true,
+  get: function get() {
+    return _platform.isAndroid;
+  }
+});
+Object.defineProperty(exports, "isAndroidApp", {
+  enumerable: true,
+  get: function get() {
+    return _platform.isAndroidApp;
+  }
+});
+Object.defineProperty(exports, "isCordova", {
+  enumerable: true,
+  get: function get() {
+    return _cordova.isCordova;
+  }
+});
+Object.defineProperty(exports, "isFlagshipApp", {
+  enumerable: true,
+  get: function get() {
+    return _flagship.isFlagshipApp;
+  }
+});
+Object.defineProperty(exports, "isIOS", {
+  enumerable: true,
+  get: function get() {
+    return _platform.isIOS;
+  }
+});
+Object.defineProperty(exports, "isIOSApp", {
+  enumerable: true,
+  get: function get() {
+    return _platform.isIOSApp;
+  }
+});
+Object.defineProperty(exports, "isMobile", {
+  enumerable: true,
+  get: function get() {
+    return _platform.isMobile;
+  }
+});
+Object.defineProperty(exports, "isMobileApp", {
+  enumerable: true,
+  get: function get() {
+    return _platform.isMobileApp;
+  }
+});
+Object.defineProperty(exports, "isWebApp", {
+  enumerable: true,
+  get: function get() {
+    return _platform.isWebApp;
+  }
+});
+Object.defineProperty(exports, "nativeLinkOpen", {
+  enumerable: true,
+  get: function get() {
+    return _link.nativeLinkOpen;
+  }
+});
+Object.defineProperty(exports, "openDeeplinkOrRedirect", {
+  enumerable: true,
+  get: function get() {
+    return _deeplink.openDeeplinkOrRedirect;
+  }
+});
+Object.defineProperty(exports, "startApp", {
+  enumerable: true,
+  get: function get() {
+    return _apps.startApp;
+  }
+});
 
-  return new type(target, name, doctype, accessors);
-};
-/**
- * Checks if the file is referenced by a specific doctype
- *
- * @param {IOCozyFile} file - io.cozy.files document
- * @param {Doctype} referencedBy - Doctype where document is referenced
- * @returns {boolean} If a reference is found
- */
+var _platform = __webpack_require__(166);
 
+var _device = __webpack_require__(557);
 
-exports.create = create;
+var _apps = __webpack_require__(563);
 
-var isReferencedBy = function isReferencedBy(file, referencedBy) {
-  var _file$relationships, _file$relationships$r;
+var _plugins = __webpack_require__(168);
 
-  var references = (file === null || file === void 0 ? void 0 : (_file$relationships = file.relationships) === null || _file$relationships === void 0 ? void 0 : (_file$relationships$r = _file$relationships.referenced_by) === null || _file$relationships$r === void 0 ? void 0 : _file$relationships$r.data) || (file === null || file === void 0 ? void 0 : file.referenced_by) || [];
-  return references.some(function (reference) {
-    return reference.type === referencedBy;
-  });
-};
-/**
- * Checks if the file is referenced by a specific doctype and a specific Id of that reference
- *
- * @param {IOCozyFile} file - io.cozy.files document
- * @param {Doctype} referencedBy - Doctype where document is referenced
- * @param {string} referencedId - Id of the referenced document
- * @returns {boolean} If a reference is found
- */
+var _cordova = __webpack_require__(118);
 
+var _link = __webpack_require__(564);
 
-exports.isReferencedBy = isReferencedBy;
+var _deeplink = __webpack_require__(565);
 
-var isReferencedById = function isReferencedById(file, referencedBy, referencedId) {
-  var _file$relationships2, _file$relationships2$;
-
-  var references = (file === null || file === void 0 ? void 0 : (_file$relationships2 = file.relationships) === null || _file$relationships2 === void 0 ? void 0 : (_file$relationships2$ = _file$relationships2.referenced_by) === null || _file$relationships2$ === void 0 ? void 0 : _file$relationships2$.data) || (file === null || file === void 0 ? void 0 : file.referenced_by) || [];
-  return references.some(function (reference) {
-    return reference.type === referencedBy && reference.id === referencedId;
-  });
-};
-/**
- * Get array of reference by an specific doctype
- *
- * @param {IOCozyFile} file - io.cozy.files document
- * @param {Doctype} referencedBy - Doctype where document is referenced
- * @returns {Reference[]} Array of references found
- */
-
-
-exports.isReferencedById = isReferencedById;
-
-var getReferencedBy = function getReferencedBy(file, referencedBy) {
-  var _file$relationships3, _file$relationships3$;
-
-  var references = (file === null || file === void 0 ? void 0 : (_file$relationships3 = file.relationships) === null || _file$relationships3 === void 0 ? void 0 : (_file$relationships3$ = _file$relationships3.referenced_by) === null || _file$relationships3$ === void 0 ? void 0 : _file$relationships3$.data) || (file === null || file === void 0 ? void 0 : file.referenced_by) || [];
-  return references.filter(function (reference) {
-    return reference.type === referencedBy;
-  });
-};
-/**
- * Get array of reference by an specific doctype and a specific Id of that reference
- *
- * @param {IOCozyFile} file - io.cozy.files document
- * @param {Doctype} referencedBy - Doctype where document is referenced
- * @param {string} referencedId - Id of the referenced document
- * @returns {Reference[]} Array of the reference found
- */
-
-
-exports.getReferencedBy = getReferencedBy;
-
-var getReferencedById = function getReferencedById(file, referencedBy, referencedId) {
-  var _file$relationships4, _file$relationships4$;
-
-  var references = (file === null || file === void 0 ? void 0 : (_file$relationships4 = file.relationships) === null || _file$relationships4 === void 0 ? void 0 : (_file$relationships4$ = _file$relationships4.referenced_by) === null || _file$relationships4$ === void 0 ? void 0 : _file$relationships4$.data) || (file === null || file === void 0 ? void 0 : file.referenced_by) || [];
-  return references.filter(function (reference) {
-    return reference.type === referencedBy && reference.id === referencedId;
-  });
-};
-
-exports.getReferencedById = getReferencedById;
+var _flagship = __webpack_require__(566);
 
 /***/ }),
-/* 285 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseSlice = __webpack_require__(234);
+var baseSlice = __webpack_require__(235);
 
 /**
  * Casts `array` to a slice if it's needed.
@@ -42648,12 +42483,12 @@ module.exports = castSlice;
 
 
 /***/ }),
-/* 286 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var asciiToArray = __webpack_require__(559),
+var asciiToArray = __webpack_require__(561),
     hasUnicode = __webpack_require__(167),
-    unicodeToArray = __webpack_require__(560);
+    unicodeToArray = __webpack_require__(562);
 
 /**
  * Converts `string` to an array.
@@ -42672,7 +42507,7 @@ module.exports = stringToArray;
 
 
 /***/ }),
-/* 287 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42723,40 +42558,6 @@ var _default = fetchPolicies;
 exports.default = _default;
 
 /***/ }),
-/* 288 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-/**
- * @typedef {string} jws - A JSON Web Signature
- */
-
-/**
- * @typedef {string} base64string - A JSON Web Signature
- */
-
-/**
- * @typedef {object} AttestationResult - An app attestation from the app store
- * @property {string} platform
- * @property {jws|base64string} attestation
- * @property {string} [keyId]
- */
-
-/**
- * @typedef {object} CertificationConfig - Configuration to access the stores certification API
- * @property {string} androidSafetyNetApiKey
- */
-var _default = {};
-exports.default = _default;
-
-/***/ }),
 /* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -42776,11 +42577,11 @@ exports.getIdentifier = exports.sanitizeIdentifier = exports.legacyLoginFields =
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _flow2 = _interopRequireDefault(__webpack_require__(184));
+var _flow2 = _interopRequireDefault(__webpack_require__(185));
 
-var _cloneDeep2 = _interopRequireDefault(__webpack_require__(246));
+var _cloneDeep2 = _interopRequireDefault(__webpack_require__(247));
 
-var _findKey = _interopRequireDefault(__webpack_require__(250));
+var _findKey = _interopRequireDefault(__webpack_require__(251));
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
@@ -43049,219 +42850,230 @@ var _interopRequireDefault = __webpack_require__(0);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.isAccountWithTrigger = exports.buildAccount = exports.getAccountName = exports.getAccountLogin = exports.setContractSyncStatusInAccount = exports.getContractSyncStatusFromAccount = exports.muteError = exports.getMutedErrors = void 0;
+exports.makeDiskInfos = exports.hasPasswordDefinedAttribute = exports.buildPremiumLink = exports.hasAnOffer = exports.shouldDisplayOffers = exports.getUuid = exports.isFreemiumUser = exports.arePremiumLinksEnabled = exports.isSelfHosted = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
+var _get = _interopRequireDefault(__webpack_require__(14));
 
-var _merge = _interopRequireDefault(__webpack_require__(75));
+var _dsl = __webpack_require__(13);
 
-var _dsl = __webpack_require__(14);
-
-var _HasMany = __webpack_require__(92);
-
-var _manifest = __webpack_require__(289);
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
+var FallbackQuota = 1e11;
+var GB = 1000 * 1000 * 1000;
+var PREMIUM_QUOTA = 50 * GB;
 /**
- * getMutedErrors - Returns the list of errors that have been muted for the given account
- *
- * @param {import('../types').IOCozyAccount} account io.cozy.accounts
- *
- * @returns {Array} An array of errors with a `type` and `mutedAt` field
- */
-var getMutedErrors = function getMutedErrors(account) {
-  return (account === null || account === void 0 ? void 0 : account.mutedErrors) || [];
-};
-/**
- * muteError - Adds an error to the list of muted errors for the given account
- *
- * @param {import('../types').IOCozyAccount} account   io.cozy.accounts
- * @param {string} errorType The type of the error to mute
- *
- * @returns {import('../types').IOCozyAccount} An updated io.cozy.accounts
+ * @typedef {object} InstanceInfo
+ * @typedef {object} ContextInfo
+ * @typedef {object} DiskUsageInfo
  */
 
+/**
+ * @typedef SettingsInfo
+ * @property {ContextInfo} context - Object returned by /settings/context
+ * @property {InstanceInfo} instance - Object returned by /settings/instance
+ * @property {DiskUsageInfo} diskUsage - Object returned by /settings/disk-usage
+ */
+// If manager URL is present, then the instance is not self-hosted
 
-exports.getMutedErrors = getMutedErrors;
-
-var muteError = function muteError(account, errorType) {
-  var mutedErrors = getMutedErrors(account);
-  mutedErrors.push({
-    type: errorType,
-    mutedAt: new Date().toISOString()
-  });
-  return _objectSpread(_objectSpread({}, account), {}, {
-    mutedErrors: mutedErrors
-  });
+var isSelfHosted = function isSelfHosted(instanceInfo) {
+  return (0, _get.default)(instanceInfo, 'context.data.attributes.manager_url') ? false : true;
 };
 
-exports.muteError = muteError;
-var DEFAULT_CONTRACT_SYNC_STATUS = true;
-/**
- * Returns whether a contract is synced from account relationship
- *
- * @param  {import('../types').IOCozyAccount} account - Cozy account
- * @param  {String} contractId - contract identifier
- * @returns  {Boolean} synchronisation status
- */
+exports.isSelfHosted = isSelfHosted;
 
-var getContractSyncStatusFromAccount = function getContractSyncStatusFromAccount(account, contractId) {
-  var _relItem$metadata$imp, _relItem$metadata;
+var arePremiumLinksEnabled = function arePremiumLinksEnabled(instanceInfo) {
+  return (0, _get.default)(instanceInfo, 'context.data.attributes.enable_premium_links') ? true : false;
+};
 
-  var relItem = (0, _HasMany.getHasManyItem)(account, 'contracts', contractId);
+exports.arePremiumLinksEnabled = arePremiumLinksEnabled;
 
-  if (!relItem) {
-    throw new Error("Cannot find contrat ".concat(contractId, " in account"));
-  }
+var isFreemiumUser = function isFreemiumUser(instanceInfo) {
+  var quota = (0, _get.default)(instanceInfo, 'diskUsage.data.attributes.quota', false);
+  return parseInt(quota) <= PREMIUM_QUOTA;
+};
 
-  return (_relItem$metadata$imp = relItem === null || relItem === void 0 ? void 0 : (_relItem$metadata = relItem.metadata) === null || _relItem$metadata === void 0 ? void 0 : _relItem$metadata.imported) !== null && _relItem$metadata$imp !== void 0 ? _relItem$metadata$imp : DEFAULT_CONTRACT_SYNC_STATUS;
+exports.isFreemiumUser = isFreemiumUser;
+
+var getUuid = function getUuid(instanceInfo) {
+  return (0, _get.default)(instanceInfo, 'instance.data.attributes.uuid');
 };
 /**
- * Sets contract sync status into account relationship
+ * Returns whether an instance is concerned by our offers
  *
- * @param  {import('../types').IOCozyAccount} account - Cozy account
- * @param  {String} contractId - contract identifier
- * @param  {String} syncStatus - synchronisation status
- * @returns {import('../types').IOCozyAccount}
+ * @param {SettingsInfo} data Object containing all the results from /settings/*
+ * @returns {boolean} Should we display offers
  */
 
 
-exports.getContractSyncStatusFromAccount = getContractSyncStatusFromAccount;
+exports.getUuid = getUuid;
 
-var setContractSyncStatusInAccount = function setContractSyncStatusInAccount(account, contractId, syncStatus) {
-  return (0, _HasMany.updateHasManyItem)(account, 'contracts', contractId, function (contractRel) {
-    if (contractRel === undefined) {
-      throw new Error("Cannot find contrat ".concat(contractId, " in account"));
-    }
-
-    return (0, _merge.default)({}, contractRel, {
-      metadata: {
-        imported: syncStatus
-      }
-    });
-  });
+var shouldDisplayOffers = function shouldDisplayOffers(data) {
+  return !isSelfHosted(data) && arePremiumLinksEnabled(data) && getUuid(data) && isFreemiumUser(data);
 };
 /**
- * Get the account login field value from a given account
+ * Returns if an instance has subscribed to one of our offers
  *
- * @param {import('../types').IOCozyAccount} account - the given cozy account
- * @returns {String|null} - Account login
+ * @param {SettingsInfo} data Object containing all the results from /settings/*
+ * @returns {boolean} Does the cozy have offers
  */
 
 
-exports.setContractSyncStatusInAccount = setContractSyncStatusInAccount;
+exports.shouldDisplayOffers = shouldDisplayOffers;
 
-var getAccountLogin = function getAccountLogin(account) {
-  if (account && account.auth) {
-    var _iterator = _createForOfIteratorHelper(_manifest.legacyLoginFields),
-        _step;
-
-    try {
-      for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        var fieldName = _step.value;
-        if (account.auth[fieldName]) return account.auth[fieldName];
-      }
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
-    }
-  }
-
-  return null;
+var hasAnOffer = function hasAnOffer(data) {
+  return !isSelfHosted(data) && arePremiumLinksEnabled(data) && getUuid(data) && !isFreemiumUser(data);
 };
 /**
- * Get the account name from a given account
+ * Returns the link to the Premium page on the Cozy's Manager
  *
- * @param {import('../types').IOCozyAccount} account - the given cozy account
- * @returns {String|null} - Account name
+ * @param {InstanceInfo} instanceInfo - Instance information
  */
 
 
-exports.getAccountLogin = getAccountLogin;
+exports.hasAnOffer = hasAnOffer;
 
-var getAccountName = function getAccountName(account) {
-  if (!account) return null;
+var buildPremiumLink = function buildPremiumLink(instanceInfo) {
+  var managerUrl = (0, _get.default)(instanceInfo, 'context.data.attributes.manager_url', false);
+  var uuid = getUuid(instanceInfo);
 
-  if (account.auth) {
-    return account.auth.accountName || getAccountLogin(account) || account._id;
+  if (managerUrl && uuid) {
+    return "".concat(managerUrl, "/cozy/instances/").concat(uuid, "/premium");
   } else {
-    return account._id;
+    return null;
   }
 };
 /**
- * Transforms account auth data to io.cozy.accounts document
+ * Checks the value of the password_defined attribute
  *
- * @param  {import('../types').IOCozyKonnector} konnector Konnector related to account
- * @param  {object} authData  Authentication data
- * @returns {import('../types').IOCozyAccount}          io.cozy.accounts attributes
+ * @param {import("../CozyClient").default} client - The CozyClient instance
+ * @returns {Promise<boolean>} - Returns the value of the password_defined attribute
  */
 
 
-exports.getAccountName = getAccountName;
+exports.buildPremiumLink = buildPremiumLink;
 
-var buildAccount = function buildAccount(konnector, authData) {
-  return {
-    auth: authData,
-    account_type: konnector.slug,
-    identifier: (0, _manifest.getIdentifier)(konnector.fields),
-    state: null
-  };
-};
-/**
- * Look if the given account has an associated trigger or not.
- *
- * @param {import('../CozyClient').default} client - CozyClient instance
- * @param {import('../types').IOCozyAccount} account - account document
- * @returns {Promise<Boolean>}
- */
+var hasPasswordDefinedAttribute = /*#__PURE__*/function () {
+  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client) {
+    var _yield$client$fetchQu, password_defined;
 
-
-exports.buildAccount = buildAccount;
-
-var isAccountWithTrigger = /*#__PURE__*/function () {
-  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client, account) {
-    var result;
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
-            return client.query((0, _dsl.Q)('io.cozy.triggers').where({
-              'message.account': account._id
-            }).indexFields(['message.account']).limitBy(1));
+            _context.prev = 0;
+            _context.next = 3;
+            return client.fetchQueryAndGetFromState({
+              definition: (0, _dsl.Q)('io.cozy.settings').getById('io.cozy.settings.instance'),
+              options: {
+                as: 'io.cozy.settings/io.cozy.settings.instance',
+                singleDocData: true
+              }
+            });
 
-          case 2:
-            result = _context.sent;
-            return _context.abrupt("return", result.data.length > 0);
+          case 3:
+            _yield$client$fetchQu = _context.sent;
+            password_defined = _yield$client$fetchQu.data.attributes.password_defined;
+            return _context.abrupt("return", Boolean(password_defined));
 
-          case 4:
+          case 8:
+            _context.prev = 8;
+            _context.t0 = _context["catch"](0);
+            return _context.abrupt("return", false);
+
+          case 11:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee);
+    }, _callee, null, [[0, 8]]);
   }));
 
-  return function isAccountWithTrigger(_x, _x2) {
+  return function hasPasswordDefinedAttribute(_x) {
     return _ref.apply(this, arguments);
   };
 }();
+/**
+ * @typedef DiskInfosRaw
+ * @property diskQuota {number} - Space used in GB
+ * @property diskUsage {number} -  Maximum space available in GB
+ * @property percentUsage {number} - Usage percent of the disk
+ */
 
-exports.isAccountWithTrigger = isAccountWithTrigger;
+/**
+ * @typedef DiskInfos
+ * @property humanDiskQuota {string} - Space used in GB rounded
+ * @property humanDiskUsage {string} - Maximum space available in GB rounded
+ * @property percentUsage {string} - Usage percent of the disk rounded
+ */
+
+/**
+ * Convert input value into GB
+ *
+ * @param {number} bytes - Value in bytes
+ * @returns {number} - Returns the value in GB
+ */
+
+
+exports.hasPasswordDefinedAttribute = hasPasswordDefinedAttribute;
+
+var convertBytesToGB = function convertBytesToGB(bytes) {
+  return bytes * 1e-9;
+};
+/**
+ * Computes `value` rounded to `fractionDigits`.
+ *
+ * @param {number} value - Value to format
+ * @param {number} fractionDigits - Number of decimal numbers
+ * @returns {string} - Returns the rounded number as a string
+ */
+
+
+var formatDecimals = function formatDecimals(value) {
+  var fractionDigits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+  return "".concat(value % 1 ? value.toFixed(fractionDigits) : value);
+};
+/**
+ * Transform bytes data to GB data and compute percent usage
+ *
+ * @param {number} usage - Value in bytes representing the space used
+ * @param {number} quota - Value in bytes representing the maximum space available
+ * @returns {DiskInfosRaw} - Returns an transform data to GB and usage percent of the disk
+ */
+
+
+var computeDiskInfos = function computeDiskInfos(usage) {
+  var quota = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : FallbackQuota;
+  return {
+    diskQuota: convertBytesToGB(quota),
+    diskUsage: convertBytesToGB(usage),
+    percentUsage: usage / quota * 100
+  };
+};
+/**
+ * Make human readable information from disk information (usage, quota)
+ *
+ * @param {number|string} usage - Value in bytes representing the space used
+ * @param {number|string} [quota] - Value in bytes representing the maximum space available
+ * @returns {DiskInfos} - Return a set of human readable information about disk
+ */
+
+
+var makeDiskInfos = function makeDiskInfos(usage, quota) {
+  var _computeDiskInfos = computeDiskInfos(+usage, quota ? +quota : undefined),
+      diskQuota = _computeDiskInfos.diskQuota,
+      diskUsage = _computeDiskInfos.diskUsage,
+      percentUsage = _computeDiskInfos.percentUsage;
+
+  return {
+    humanDiskQuota: formatDecimals(diskQuota),
+    humanDiskUsage: formatDecimals(diskUsage),
+    percentUsage: Math.round(percentUsage).toString()
+  };
+};
+
+exports.makeDiskInfos = makeDiskInfos;
 
 /***/ }),
 /* 292 */
@@ -43280,29 +43092,27 @@ exports.ensureFilePath = ensureFilePath;
 exports.getParentFolderId = getParentFolderId;
 exports.fetchBlobFileById = exports.isFromKonnector = exports.hasCertifications = exports.hasQualifications = exports.isPlainText = exports.doMobileUpload = exports.readMobileFile = exports.uploadFileWithConflictStrategy = exports.generateFileNameForRevision = exports.generateNewFileNameOnConflict = exports.overrideFileForPath = exports.move = exports.getFullpath = exports.hasMetadataAttribute = exports.fetchFilesByQualificationRules = exports.saveFileQualification = exports.isSharingShorcutNew = exports.isSharingShortcutNew = exports.isSharingShorcut = exports.isSharingShortcut = exports.getSharingShortcutTargetDoctype = exports.getSharingShortcutTargetMime = exports.getSharingShortcutStatus = exports.isShortcut = exports.shouldBeOpenedByOnlyOffice = exports.isOnlyOfficeFile = exports.isEncrypted = exports.isNote = exports.isDirectory = exports.isFile = exports.splitFilename = exports.ALBUMS_DOCTYPE = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _get = _interopRequireDefault(__webpack_require__(15));
+var _get = _interopRequireDefault(__webpack_require__(14));
 
-var _isString = _interopRequireDefault(__webpack_require__(129));
+var _isString = _interopRequireDefault(__webpack_require__(128));
 
-var _has = _interopRequireDefault(__webpack_require__(263));
+var _has = _interopRequireDefault(__webpack_require__(264));
 
-var _trimEnd = _interopRequireDefault(__webpack_require__(594));
+var _trimEnd = _interopRequireDefault(__webpack_require__(595));
 
-var _qualification = __webpack_require__(169);
+var _qualification = __webpack_require__(170);
 
-var _dsl = __webpack_require__(14);
+var _dsl = __webpack_require__(13);
 
-var _types = __webpack_require__(12);
+var _const = __webpack_require__(49);
 
-var _const = __webpack_require__(48);
-
-var _CozyClient = _interopRequireDefault(__webpack_require__(41));
+var _CozyClient = _interopRequireDefault(__webpack_require__(37));
 
 var _logger = _interopRequireDefault(__webpack_require__(20));
 
@@ -43318,8 +43128,8 @@ var FILENAME_WITH_EXTENSION_REGEX = /(.+)(\..*)$/;
 /**
  * Returns base filename and extension
  *
- * @param {IOCozyFile} file An io.cozy.files
- * @returns {object}  {filename, extension}
+ * @param {import("../types").IOCozyFile} file An io.cozy.files
+ * @returns {{filename: string, extension: string}}
  */
 
 var splitFilename = function splitFilename(file) {
@@ -43343,7 +43153,7 @@ var splitFilename = function splitFilename(file) {
 };
 /**
  *
- * @param {IOCozyFile} file io.cozy.files
+ * @param {import("../types").IOCozyFile} file io.cozy.files
  */
 
 
@@ -43354,7 +43164,7 @@ var isFile = function isFile(file) {
 };
 /**
  *
- * @param {IOCozyFile} file io.cozy.files
+ * @param {import("../types").IOCozyFile} file io.cozy.files
  */
 
 
@@ -43366,7 +43176,7 @@ var isDirectory = function isDirectory(file) {
 /**
  * Is file param a correct note
  *
- * @param {IOCozyFile} file io.cozy.files
+ * @param {import("../types").IOCozyFile} file io.cozy.files
  * @returns {boolean}
  */
 
@@ -43380,7 +43190,7 @@ var isNote = function isNote(file) {
 /**
  * Whether the file is client-side encrypted
  *
- * @param {IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
  * @returns {boolean}
  */
 
@@ -43393,7 +43203,7 @@ var isEncrypted = function isEncrypted(file) {
 /**
  * Whether the file is supported by Only Office
  *
- * @param {IOCozyFile} file - io.cozy.file document
+ * @param {import("../types").IOCozyFile} file - io.cozy.file document
  * @returns {boolean}
  */
 
@@ -43408,7 +43218,7 @@ var isOnlyOfficeFile = function isOnlyOfficeFile(file) {
  * We want to be consistent with the stack so we check the class attributes
  * But we want to exclude .txt and .md because the CozyUI Viewer can already show them
  *
- * @param {IOCozyFile} file - io.cozy.file document
+ * @param {import("../types").IOCozyFile} file - io.cozy.file document
  * @returns {boolean}
  */
 
@@ -43420,7 +43230,7 @@ var shouldBeOpenedByOnlyOffice = function shouldBeOpenedByOnlyOffice(file) {
 };
 /**
  *
- * @param {IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
  * @returns {boolean} true if the file is a shortcut
  */
 
@@ -43485,7 +43295,7 @@ function getParentFolderId(file) {
 /**
  * Returns the status of a sharing shortcut.
  *
- * @param {IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
  *
  * @returns {string} A description of the status
  */
@@ -43497,7 +43307,7 @@ var getSharingShortcutStatus = function getSharingShortcutStatus(file) {
 /**
  * Returns the mime type of the target of the sharing shortcut, if it is a file.
  *
- * @param {IOCozyFile} file  - io.cozy.files document
+ * @param {import("../types").IOCozyFile} file  - io.cozy.files document
  *
  * @returns {string} The mime-type of the target file, or an empty string is the target is not a file.
  */
@@ -43511,7 +43321,7 @@ var getSharingShortcutTargetMime = function getSharingShortcutTargetMime(file) {
 /**
  * Returns the doctype of the target of the sharing shortcut.
  *
- * @param {IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
  *
  * @returns {string} A doctype
  */
@@ -43525,7 +43335,7 @@ var getSharingShortcutTargetDoctype = function getSharingShortcutTargetDoctype(f
 /**
  * Returns whether the file is a shortcut to a sharing
  *
- * @param {IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
  *
  * @returns {boolean}
  */
@@ -43540,7 +43350,7 @@ var isSharingShortcut = function isSharingShortcut(file) {
  * Returns whether the file is a shortcut to a sharing
  *
  * @deprecated Prefer to use isSharingShortcut.
- * @param {IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
  *
  * @returns {boolean}
  */
@@ -43556,7 +43366,7 @@ var isSharingShorcut = function isSharingShorcut(file) {
 /**
  * Returns whether the sharing shortcut is new
  *
- * @param {IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
  *
  * @returns {boolean}
  */
@@ -43588,9 +43398,9 @@ var isSharingShorcutNew = function isSharingShorcutNew(file) {
  * Save the file with the given qualification
  *
  * @param {CozyClient} client - The CozyClient instance
- * @param {IOCozyFile} file - The file to qualify
+ * @param {import("../types").IOCozyFile} file - The file to qualify
  * @param {object} qualification - The file qualification
- * @returns {Promise<IOCozyFile>} The saved file
+ * @returns {Promise<import("../types").IOCozyFile>} The saved file
  */
 
 
@@ -43623,7 +43433,7 @@ var saveFileQualification = /*#__PURE__*/function () {
  *
  * @param {object} client - The CozyClient instance
  * @param {object} docRules - the rules containing the searched qualification and the count
- * @returns {Promise<QueryResult>} The files found by the rules
+ * @returns {Promise<import("../types").QueryResult>} The files found by the rules
  */
 
 
@@ -43665,7 +43475,7 @@ var fetchFilesByQualificationRules = /*#__PURE__*/function () {
  * Whether the file's metadata attribute exists
  *
  * @param {object} params - Param
- * @param {IOCozyFile} params.file - An io.cozy.files document
+ * @param {import("../types").IOCozyFile} params.file - An io.cozy.files document
  * @param {string} params.attribute - Metadata attribute to check
  * @returns {boolean}
  */
@@ -43853,7 +43663,7 @@ var move = /*#__PURE__*/function () {
  * @param {string} dirPath      - Fullpath of directory to upload to ex: path/to/
  * @param {object} file         - HTML Object file
  * @param {object} metadata     - An object containing the wanted metadata to attach
- * @returns {Promise<IOCozyFile>} The overrided file
+ * @returns {Promise<import("../types").IOCozyFile>} The overrided file
  */
 
 
@@ -43931,31 +43741,33 @@ var overrideFileForPath = /*#__PURE__*/function () {
  * Method to generate a new filename if there is a conflict
  *
  * @param {string} filenameWithoutExtension - A filename without the extension
+ * @param {import('../types').ConflictOptions} [conflictOptions] - Conflict options
  * @returns {string} A filename with the right suffix
  */
 
 
 exports.overrideFileForPath = overrideFileForPath;
 
-var generateNewFileNameOnConflict = function generateNewFileNameOnConflict(filenameWithoutExtension) {
-  //Check if the string ends by _1
-  var regex = new RegExp('(_)([0-9]+)$');
+var generateNewFileNameOnConflict = function generateNewFileNameOnConflict(filenameWithoutExtension, conflictOptions) {
+  var delimiter = (conflictOptions === null || conflictOptions === void 0 ? void 0 : conflictOptions.delimiter) || '_'; //Check if the string ends by _1
+
+  var regex = new RegExp("(".concat(delimiter, ")([0-9]+)$"));
   var matches = filenameWithoutExtension.match(regex);
 
   if (matches) {
     var versionNumber = parseInt(matches[2]); //increment versionNumber
 
     versionNumber++;
-    var newFilenameWithoutExtension = filenameWithoutExtension.replace(new RegExp('(_)([0-9]+)$'), "_".concat(versionNumber));
+    var newFilenameWithoutExtension = filenameWithoutExtension.replace(new RegExp("(".concat(delimiter, ")([0-9]+)$")), "".concat(delimiter).concat(versionNumber));
     return newFilenameWithoutExtension;
   } else {
-    return "".concat(filenameWithoutExtension, "_1");
+    return "".concat(filenameWithoutExtension).concat(delimiter, "1");
   }
 };
 /**
  * Generate a file name for a revision
  *
- * @param {IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
  * @param {object} revision - The revision containing the updated_at
  * @param {function} f      - A function taking a a date and a format as arguments to generate the name.
  */
@@ -43977,6 +43789,7 @@ var generateFileNameForRevision = function generateFileNameForRevision(file, rev
  * @property {object} [metadata]          - An object containing the metadata to attach
  * @property {string} [contentType]       - The file Content-Type
  * @property {string} [conflictStrategy]  - Erase / rename
+ * @property {import('../types').ConflictOptions} [conflictOptions] - Conflict options
  */
 
 /**
@@ -44000,13 +43813,13 @@ exports.generateFileNameForRevision = generateFileNameForRevision;
 
 var uploadFileWithConflictStrategy = /*#__PURE__*/function () {
   var _ref7 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee6(client, file, options) {
-    var name, dirId, conflictStrategy, path, existingFile, fileId, resp, _splitFilename2, filename, extension, newFileName;
+    var name, dirId, conflictStrategy, conflictOptions, path, existingFile, fileId, resp, _splitFilename2, filename, extension, newFileName;
 
     return _regenerator.default.wrap(function _callee6$(_context6) {
       while (1) {
         switch (_context6.prev = _context6.next) {
           case 0:
-            name = options.name, dirId = options.dirId, conflictStrategy = options.conflictStrategy;
+            name = options.name, dirId = options.dirId, conflictStrategy = options.conflictStrategy, conflictOptions = options.conflictOptions;
             _context6.prev = 1;
             _context6.next = 4;
             return getFullpath(client, dirId, name);
@@ -44040,7 +43853,7 @@ var uploadFileWithConflictStrategy = /*#__PURE__*/function () {
               name: name,
               type: 'file'
             }), filename = _splitFilename2.filename, extension = _splitFilename2.extension;
-            newFileName = generateNewFileNameOnConflict(filename) + extension; //recall itself with the newFilename.
+            newFileName = generateNewFileNameOnConflict(filename, conflictOptions) + extension; //recall itself with the newFilename.
 
             return _context6.abrupt("return", uploadFileWithConflictStrategy(client, file, _objectSpread(_objectSpread({}, options), {}, {
               name: newFileName
@@ -44240,7 +44053,7 @@ var isPlainText = function isPlainText() {
   return mimeType ? /^text\//.test(mimeType) : /\.(txt|md)$/.test(fileName);
 };
 /**
- * @param {IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
  * @returns {boolean}
  */
 
@@ -44251,7 +44064,7 @@ var hasQualifications = function hasQualifications(file) {
   return (0, _has.default)(file, 'metadata.qualification');
 };
 /**
- * @param {IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
  * @returns {boolean}
  */
 
@@ -44262,7 +44075,7 @@ var hasCertifications = function hasCertifications(file) {
   return (0, _get.default)(file, 'metadata.carbonCopy', false) || (0, _get.default)(file, 'metadata.electronicSafe', false);
 };
 /**
- * @param {IOCozyFile} file - io.cozy.files document
+ * @param {import("../types").IOCozyFile} file - io.cozy.files document
  * @returns {boolean}
  */
 
@@ -44323,8 +44136,207 @@ exports.fetchBlobFileById = fetchBlobFileById;
 "use strict";
 
 
-module.exports = __webpack_require__(608);
+var _interopRequireDefault = __webpack_require__(0);
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getReferencedFolder = exports.createFolderWithReference = exports.ensureMagicFolder = exports.MAGIC_FOLDERS = void 0;
+
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
+
+var _sortBy = _interopRequireDefault(__webpack_require__(598));
+
+var _CozyClient = _interopRequireDefault(__webpack_require__(37));
+
+var _const = __webpack_require__(49);
+
+var APP_DOCTYPE = 'io.cozy.apps';
+var administrative = 'administrative';
+var photos = 'photos';
+var MAGIC_FOLDERS = {
+  ADMINISTRATIVE: "".concat(APP_DOCTYPE, "/").concat(administrative),
+  PHOTOS: "".concat(APP_DOCTYPE, "/").concat(photos),
+  PHOTOS_BACKUP: "".concat(APP_DOCTYPE, "/").concat(photos, "/mobile"),
+  PHOTOS_UPLOAD: "".concat(APP_DOCTYPE, "/").concat(photos, "/upload"),
+  NOTES: "".concat(APP_DOCTYPE, "/notes"),
+  HOME: "".concat(APP_DOCTYPE, "/home"),
+  PAPERS: "".concat(APP_DOCTYPE, "/").concat(administrative, "/papers"),
+  COACH_CO2: "".concat(APP_DOCTYPE, "/").concat(administrative, "/coachco2")
+};
+/**
+ * Returns a "Magic Folder", given its id. See https://docs.cozy.io/en/cozy-doctypes/docs/io.cozy.apps/#special-iocozyapps-doctypes
+ *
+ * @param  {CozyClient} client    cozy-client instance
+ * @param  {string} id Magic Folder id. `CozyFolder.magicFolders` contains the
+ * ids of folders that can be magic folders.
+ * @param {string} path Default path to use if magic folder does not exist
+ * @returns {Promise<import("../types").IOCozyFolder>} Folder document
+ */
+
+exports.MAGIC_FOLDERS = MAGIC_FOLDERS;
+
+var ensureMagicFolder = /*#__PURE__*/function () {
+  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client, id, path) {
+    var magicFolderDocument, existingMagicFolder, magicFoldersValues;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            magicFolderDocument = {
+              _type: APP_DOCTYPE,
+              _id: id
+            };
+            _context.next = 3;
+            return getReferencedFolder(client, magicFolderDocument);
+
+          case 3:
+            existingMagicFolder = _context.sent;
+
+            if (!existingMagicFolder) {
+              _context.next = 6;
+              break;
+            }
+
+            return _context.abrupt("return", existingMagicFolder);
+
+          case 6:
+            magicFoldersValues = Object.values(MAGIC_FOLDERS);
+
+            if (magicFoldersValues.includes(id)) {
+              _context.next = 9;
+              break;
+            }
+
+            throw new Error("Cannot create Magic folder with id ".concat(id, ". Allowed values are ").concat(magicFoldersValues.join(', '), "."));
+
+          case 9:
+            if (path) {
+              _context.next = 11;
+              break;
+            }
+
+            throw new Error('Magic folder default path must be defined');
+
+          case 11:
+            return _context.abrupt("return", createFolderWithReference(client, path, magicFolderDocument));
+
+          case 12:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function ensureMagicFolder(_x, _x2, _x3) {
+    return _ref.apply(this, arguments);
+  };
+}();
+/**
+ * The next functions are considered private and only exported for unit tests
+ */
+
+/**
+ * Create a folder with a reference to the given document
+ *
+ * @param  {CozyClient}  client - cozy-client instance
+ * @param  {string}  path - Folder path
+ * @param  {import("../types").CozyClientDocument}  document - Document to make reference to. Any doctype.
+ * @returns {Promise<import("../types").IOCozyFolder>}  Folder document
+ */
+
+
+exports.ensureMagicFolder = ensureMagicFolder;
+
+var createFolderWithReference = /*#__PURE__*/function () {
+  var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(client, path, document) {
+    var collection, dirId, _yield$collection$get, dirInfos;
+
+    return _regenerator.default.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            collection = client.collection(_const.DOCTYPE_FILES);
+            _context2.next = 3;
+            return collection.ensureDirectoryExists(path);
+
+          case 3:
+            dirId = _context2.sent;
+            _context2.next = 6;
+            return collection.addReferencesTo(document, [{
+              _id: dirId
+            }]);
+
+          case 6:
+            _context2.next = 8;
+            return collection.get(dirId);
+
+          case 8:
+            _yield$collection$get = _context2.sent;
+            dirInfos = _yield$collection$get.data;
+            return _context2.abrupt("return", dirInfos);
+
+          case 11:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function createFolderWithReference(_x4, _x5, _x6) {
+    return _ref2.apply(this, arguments);
+  };
+}();
+/**
+ * Returns the most recent folder referenced by the given document
+ *
+ * @param  {CozyClient}  client    cozy-client instance
+ * @param  {import("../types").CozyClientDocument}  document  Document to get references from
+ * @returns {Promise<import("../types").IOCozyFolder>} Folder referenced by the given document
+ */
+
+
+exports.createFolderWithReference = createFolderWithReference;
+
+var getReferencedFolder = /*#__PURE__*/function () {
+  var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(client, document) {
+    var _yield$client$collect, included, foldersOutsideTrash;
+
+    return _regenerator.default.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.next = 2;
+            return client.collection(_const.DOCTYPE_FILES).findReferencedBy(document);
+
+          case 2:
+            _yield$client$collect = _context3.sent;
+            included = _yield$client$collect.included;
+            foldersOutsideTrash = included.filter(function (folder) {
+              return !/^\/\.cozy_trash/.test(folder.path);
+            }); // there can be multiple folders with the same reference in some edge cases
+            // when this happens we return the most recent one
+
+            return _context3.abrupt("return", foldersOutsideTrash.length > 0 ? (0, _sortBy.default)(foldersOutsideTrash, 'created_at').pop() : null);
+
+          case 6:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  }));
+
+  return function getReferencedFolder(_x7, _x8) {
+    return _ref3.apply(this, arguments);
+  };
+}();
+
+exports.getReferencedFolder = getReferencedFolder;
 
 /***/ }),
 /* 294 */
@@ -44333,19 +44345,105 @@ module.exports = __webpack_require__(608);
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
-var callBound = __webpack_require__(54);
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getLocalizer = exports.getBoundT = void 0;
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
+
+var _nodePolyglot = _interopRequireDefault(__webpack_require__(600));
+
+var _emojiCountry = __webpack_require__(643);
+
+var _en = _interopRequireDefault(__webpack_require__(644));
+
+var _fr = _interopRequireDefault(__webpack_require__(645));
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+var locales = {
+  en: _en.default,
+  fr: _fr.default
+};
+var polyglots = {};
+var langs = ['fr', 'en'];
+
+for (var _i = 0, _langs = langs; _i < _langs.length; _i++) {
+  var lang = _langs[_i];
+  var polyglot = new _nodePolyglot.default();
+  polyglot.extend(locales[lang]);
+  polyglots[lang] = polyglot;
+}
+/**
+ * @param {string} lang - fr, en, etc
+ * @returns {(label: string, opts?: {country?: string, smart_count?: number}) => string}
+ */
+
+
+var getBoundT = function getBoundT(lang) {
+  var t = getLocalizer(lang);
+  return function (label) {
+    var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    var newOpts = _objectSpread(_objectSpread({}, opts), {}, {
+      smart_count: (opts === null || opts === void 0 ? void 0 : opts.smart_count) || 1
+    });
+
+    var emojiCountry = (0, _emojiCountry.getEmojiByCountry)(opts === null || opts === void 0 ? void 0 : opts.country, t);
+    return emojiCountry ? "".concat(t(label, newOpts), " ").concat(emojiCountry) : t(label, newOpts);
+  };
+};
+/**
+ * @param {string} lang - fr, en, etc
+ * @returns {Function} - localization function
+ */
+
+
+exports.getBoundT = getBoundT;
+
+var getLocalizer = function getLocalizer(lang) {
+  var polyglot = polyglots[lang] || polyglots['en'];
+  var t = polyglot.t.bind(polyglot);
+  return t;
+};
+
+exports.getLocalizer = getLocalizer;
+
+/***/ }),
+/* 295 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(602);
+
+
+/***/ }),
+/* 296 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var GetIntrinsic = __webpack_require__(16);
+var callBound = __webpack_require__(55);
 var $TypeError = GetIntrinsic('%TypeError%');
 
-var Call = __webpack_require__(609);
-var Get = __webpack_require__(295);
-var HasProperty = __webpack_require__(614);
-var IsCallable = __webpack_require__(615);
-var LengthOfArrayLike = __webpack_require__(617);
-var ToObject = __webpack_require__(637);
-var ToString = __webpack_require__(638);
+var Call = __webpack_require__(603);
+var Get = __webpack_require__(297);
+var HasProperty = __webpack_require__(608);
+var IsCallable = __webpack_require__(609);
+var LengthOfArrayLike = __webpack_require__(611);
+var ToObject = __webpack_require__(631);
+var ToString = __webpack_require__(632);
 
-var isString = __webpack_require__(639);
+var isString = __webpack_require__(633);
 
 var $split = callBound('String.prototype.split');
 
@@ -44384,20 +44482,20 @@ module.exports = function forEach(callbackfn) {
 
 
 /***/ }),
-/* 295 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
 var $TypeError = GetIntrinsic('%TypeError%');
 
-var inspect = __webpack_require__(611);
+var inspect = __webpack_require__(605);
 
-var IsPropertyKey = __webpack_require__(296);
-var Type = __webpack_require__(170);
+var IsPropertyKey = __webpack_require__(298);
+var Type = __webpack_require__(171);
 
 /**
  * 7.3.1 Get (O, P) - https://ecma-international.org/ecma-262/6.0/#sec-get-o-p
@@ -44421,7 +44519,7 @@ module.exports = function Get(O, P) {
 
 
 /***/ }),
-/* 296 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44435,7 +44533,7 @@ module.exports = function IsPropertyKey(argument) {
 
 
 /***/ }),
-/* 297 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44447,15 +44545,15 @@ module.exports = function isPrimitive(value) {
 
 
 /***/ }),
-/* 298 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var arrayMethodBoxesProperly = __webpack_require__(641);
+var arrayMethodBoxesProperly = __webpack_require__(635);
 
-var implementation = __webpack_require__(294);
+var implementation = __webpack_require__(296);
 
 module.exports = function getPolyfill() {
 	var method = Array.prototype.forEach;
@@ -44464,14 +44562,14 @@ module.exports = function getPolyfill() {
 
 
 /***/ }),
-/* 299 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var RequireObjectCoercible = __webpack_require__(300);
-var callBound = __webpack_require__(54);
+var RequireObjectCoercible = __webpack_require__(302);
+var callBound = __webpack_require__(55);
 var $isEnumerable = callBound('Object.prototype.propertyIsEnumerable');
 var $push = callBound('Array.prototype.push');
 
@@ -44488,23 +44586,23 @@ module.exports = function entries(O) {
 
 
 /***/ }),
-/* 300 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(644);
+module.exports = __webpack_require__(638);
 
 
 /***/ }),
-/* 301 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var implementation = __webpack_require__(299);
+var implementation = __webpack_require__(301);
 
 module.exports = function getPolyfill() {
 	return typeof Object.entries === 'function' ? Object.entries : implementation;
@@ -44512,15 +44610,15 @@ module.exports = function getPolyfill() {
 
 
 /***/ }),
-/* 302 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var RequireObjectCoercible = __webpack_require__(300);
-var ToString = __webpack_require__(647);
-var callBound = __webpack_require__(54);
+var RequireObjectCoercible = __webpack_require__(302);
+var ToString = __webpack_require__(641);
+var callBound = __webpack_require__(55);
 var $replace = callBound('String.prototype.replace');
 
 /* eslint-disable no-control-regex */
@@ -44535,13 +44633,13 @@ module.exports = function trim() {
 
 
 /***/ }),
-/* 303 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var implementation = __webpack_require__(302);
+var implementation = __webpack_require__(304);
 
 var zeroWidthSpace = '\u200b';
 
@@ -44554,7 +44652,7 @@ module.exports = function getPolyfill() {
 
 
 /***/ }),
-/* 304 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44565,14 +44663,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.themesList = void 0;
 
-var _qualification = __webpack_require__(169);
-
-var _types = __webpack_require__(12);
+var _qualification = __webpack_require__(170);
 
 /**
  *
- * @param {Array<ItemsLabels>} labels - Array of items labels
- * @returns {Array<QualificationAttributes>}
+ * @param {Array<import("../../types").ItemsLabels>} labels - Array of items labels
+ * @returns {Array<import("../../types").QualificationAttributes>}
  */
 var buildItemsByLabel = function buildItemsByLabel(labels) {
   return labels.map(function (label) {
@@ -44588,53 +44684,58 @@ var buildItemsByLabel = function buildItemsByLabel(labels) {
   });
 };
 /**
- * @type {Array<IdentityLabel>}
+ * @type {Array<import("../../types").IdentityLabel>}
  */
 
 
-var identityLabels = ['identity_photo', 'national_id_card', 'passport', 'residence_permit', 'electoral_card', 'family_record_book', 'birth_certificate', 'driver_license', 'citizen_registration_certificate', 'other_identity_document'];
+var identityLabels = ['identity_photo', 'national_id_card', 'passport', 'residence_permit', 'electoral_card', 'family_record_book', 'birth_certificate', 'driver_license', 'citizen_registration_certificate', 'note_identity_document', 'other_identity_document'];
 /**
- * @type {Array<FamilyLabel>}
+ * @type {Array<import("../../types").FamilyLabel>}
  */
 
-var familyLabels = ['family_record_book', 'birth_certificate', 'wedding', 'pacs', 'single_parent_benefit', 'divorce', 'large_family_card', 'caf', 'payment_proof_family_allowance', 'other_family_document'];
+var familyLabels = ['family_record_book', 'birth_certificate', 'wedding', 'pacs', 'single_parent_benefit', 'divorce', 'large_family_card', 'caf', 'payment_proof_family_allowance', 'note_family_document', 'other_family_document', 'person_insurance'];
 /**
- * @type {Array<WorkStudyLabels>}
+ * @type {Array<import("../../types").WorkStudyLabels>}
  */
 
-var workStudyLabels = ['diploma', 'work_contract', 'pay_sheet', 'unemployment_benefit', 'employment_center_certificate', 'pension', 'work_disability_recognition', 'gradebook', 'student_card', 'school_attendance_certificate', 'school_insurance_certificate', 'resume', 'motivation_letter', 'other_work_document'];
+var workStudyLabels = ['diploma', 'work_contract', 'pay_sheet', 'unemployment_benefit', 'employment_center_certificate', 'pension', 'work_disability_recognition', 'gradebook', 'student_card', 'school_attendance_certificate', 'school_insurance_certificate', 'resume', 'motivation_letter', 'expense_claim', 'note_work_document', 'other_work_document'];
 /**
- * @type {Array<HealthLabels>}
+ * @type {Array<import("../../types").HealthLabels>}
  */
 
-var healthLabels = ['health_certificate', 'health_book', 'national_health_insurance_card', 'national_health_insurance_right_certificate', 'health_insurance_card', 'prescription', 'health_invoice', 'work_disability_recognition', 'pregnancy_medical_certificate', 'other_health_document'];
+var healthLabels = ['health_certificate', 'health_book', 'national_health_insurance_card', 'national_health_insurance_right_certificate', 'health_insurance_card', 'prescription', 'health_invoice', 'work_disability_recognition', 'pregnancy_medical_certificate', 'note_health_document', 'other_health_document'];
 /**
- * @type {Array<HomeLabels>}
+ * @type {Array<import("../../types").HomeLabels>}
  */
 
-var homeLabels = ['phone_invoice', 'isp_invoice', 'telecom_invoice', 'energy_invoice', 'water_invoice', 'other_invoice', 'work_invoice', 'house_sale_agreeement', 'building_permit', 'technical_diagnostic_record', 'unfit_for_habitation_declaration', 'lease', 'rent_receipt', 'accommodation_proof', 'house_insurance', 'work_quote', 'other_house_document'];
+var homeLabels = ['phone_invoice', 'isp_invoice', 'telecom_invoice', 'energy_invoice', 'water_invoice', 'other_invoice', 'work_invoice', 'house_sale_agreeement', 'building_permit', 'technical_diagnostic_record', 'unfit_for_habitation_declaration', 'lease', 'rent_receipt', 'accommodation_proof', 'house_insurance', 'work_quote', 'note_house_document', 'other_house_document', 'real_estate_insurance'];
 /**
- * @type {Array<TransportLabels>}
+ * @type {Array<import("../../types").TransportLabels>}
  */
 
-var transportLabels = ['driver_license', 'vehicle_registration', 'car_insurance', 'transport_card', 'mechanic_invoice', 'transport_invoice', 'other_transport_document'];
+var transportLabels = ['driver_license', 'vehicle_registration', 'car_insurance', 'transport_card', 'mechanic_invoice', 'transport_invoice', 'note_transport_document', 'other_transport_document'];
 /**
- * @type {Array<ActivityLabels>}
+ * @type {Array<import("../../types").ActivityLabels>}
  */
 
-var activityLabels = ['personal_sporting_licence', 'fidelity_card', 'library_card', 'other_activity_document'];
+var activityLabels = ['personal_sporting_licence', 'fidelity_card', 'library_card', 'note_activity_document', 'other_activity_document'];
 /**
- * @type {Array<FinanceLabels>}
+ * @type {Array<import("../../types").FinanceLabels>}
  */
 
-var financeLabels = ['tax_return', 'tax_notice', 'tax_timetable', 'real_estate_tax', 'pay_sheet', 'receipt', 'single_parent_benefit', 'other_tax_document', 'bank_details', 'bank_statement', 'loan_agreement', 'payment_proof_family_allowance', 'other_bank_document', 'other_revenue'];
+var financeLabels = ['tax_return', 'tax_notice', 'tax_timetable', 'real_estate_tax', 'pay_sheet', 'receipt', 'single_parent_benefit', 'other_tax_document', 'bank_details', 'bank_statement', 'loan_agreement', 'payment_proof_family_allowance', 'note_finance', 'expense_claim', 'other_bank_document', 'other_revenue'];
 /**
- * @type {Array<InvoiceLabels>}
+ * @type {Array<import("../../types").InvoiceLabels>}
  */
 
-var invoiceLabels = ['phone_invoice', 'isp_invoice', 'telecom_invoice', 'energy_invoice', 'water_invoice', 'appliance_invoice', 'web_service_invoice', 'restaurant_invoice', 'work_invoice', 'transport_invoice', 'health_invoice', 'other_invoice'];
+var invoiceLabels = ['phone_invoice', 'isp_invoice', 'telecom_invoice', 'energy_invoice', 'water_invoice', 'appliance_invoice', 'web_service_invoice', 'restaurant_invoice', 'work_invoice', 'transport_invoice', 'health_invoice', 'note_invoice', 'expense_claim', 'other_invoice'];
 /**
- * @type {ThemesList}
+ * @type {Array<import("../../types").OthersLabels>}
+ */
+
+var othersLabels = ['other_administrative_document'];
+/**
+ * @type {import("../../types").ThemesList}
  */
 
 var themesList = [{
@@ -44685,17 +44786,23 @@ var themesList = [{
   label: 'invoice',
   icon: 'bill',
   items: buildItemsByLabel(invoiceLabels)
+}, {
+  id: 'theme10',
+  label: 'others',
+  icon: 'dots',
+  items: buildItemsByLabel(othersLabels)
 }];
 exports.themesList = themesList;
 
 /***/ }),
-/* 305 */
+/* 307 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var src_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(19);
- // the documents schema, necessary for CozyClient
+/* harmony import */ var src_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18);
 
+
+// the documents schema, necessary for CozyClient
 /* harmony default export */ __webpack_exports__["a"] = ({
   contacts: {
     doctype: src_constants__WEBPACK_IMPORTED_MODULE_0__[/* CONTACTS_DOCTYPE */ "c"],
@@ -44710,14 +44817,13 @@ exports.themesList = themesList;
 });
 
 /***/ }),
-/* 306 */,
-/* 307 */
+/* 308 */
 /***/ (function(module, exports) {
 
 module.exports = require("string_decoder");
 
 /***/ }),
-/* 308 */
+/* 309 */
 /***/ (function(module, exports) {
 
 /**
@@ -44751,9 +44857,9 @@ module.exports = fromPairs;
 
 
 /***/ }),
-/* 309 */,
 /* 310 */,
-/* 311 */
+/* 311 */,
+/* 312 */
 /***/ (function(module, exports) {
 
 /**
@@ -44783,15 +44889,33 @@ module.exports = baseFindIndex;
 
 
 /***/ }),
-/* 312 */,
 /* 313 */,
-/* 314 */
+/* 314 */,
+/* 315 */
 /***/ (function(module, exports) {
 
 module.exports = require("zlib");
 
 /***/ }),
-/* 315 */
+/* 316 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
+
+module.exports = function (str) {
+	if (typeof str !== 'string') {
+		throw new TypeError('Expected a string');
+	}
+
+	return str.replace(matchOperatorsRe, '\\$&');
+};
+
+
+/***/ }),
+/* 317 */
 /***/ (function(module, exports) {
 
 exports = module.exports = stringify
@@ -44821,39 +44945,6 @@ function serializer(replacer, cycleReplacer) {
     return replacer == null ? value : replacer.call(this, key, value)
   }
 }
-
-
-/***/ }),
-/* 316 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
-
-module.exports = function (str) {
-	if (typeof str !== 'string') {
-		throw new TypeError('Expected a string');
-	}
-
-	return str.replace(matchOperatorsRe, '\\$&');
-};
-
-
-/***/ }),
-/* 317 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = (flag, argv) => {
-	argv = argv || process.argv;
-	const prefix = flag.startsWith('-') ? '' : (flag.length === 1 ? '-' : '--');
-	const pos = argv.indexOf(prefix + flag);
-	const terminatorPos = argv.indexOf('--');
-	return pos !== -1 && (terminatorPos === -1 ? true : pos < terminatorPos);
-};
 
 
 /***/ }),
@@ -44889,7 +44980,7 @@ module.exports = arraySome;
 /* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var memoizeCapped = __webpack_require__(421);
+var memoizeCapped = __webpack_require__(422);
 
 /** Used to match property names within property paths. */
 var rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
@@ -44975,7 +45066,7 @@ module.exports = shortOut;
 /* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toNumber = __webpack_require__(434);
+var toNumber = __webpack_require__(435);
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0,
@@ -45023,7 +45114,7 @@ module.exports = toFinite;
 /* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var WeakMap = __webpack_require__(208);
+var WeakMap = __webpack_require__(209);
 
 /** Used to store function metadata. */
 var metaMap = WeakMap && new WeakMap;
@@ -45035,10 +45126,10 @@ module.exports = metaMap;
 /* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var LazyWrapper = __webpack_require__(146),
-    getData = __webpack_require__(182),
-    getFuncName = __webpack_require__(223),
-    lodash = __webpack_require__(437);
+var LazyWrapper = __webpack_require__(145),
+    getData = __webpack_require__(183),
+    getFuncName = __webpack_require__(224),
+    lodash = __webpack_require__(438);
 
 /**
  * Checks if `func` has a lazy counterpart.
@@ -45069,8 +45160,8 @@ module.exports = isLaziable;
 /* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(71),
-    keys = __webpack_require__(63);
+var copyObject = __webpack_require__(70),
+    keys = __webpack_require__(62);
 
 /**
  * The base implementation of `_.assign` without support for multiple sources
@@ -45092,7 +45183,7 @@ module.exports = baseAssign;
 /* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseEach = __webpack_require__(112),
+var baseEach = __webpack_require__(110),
     isArrayLike = __webpack_require__(45);
 
 /**
@@ -45126,9 +45217,9 @@ module.exports = baseMap;
 /* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayPush = __webpack_require__(108),
-    baseFlatten = __webpack_require__(111),
-    copyArray = __webpack_require__(93),
+var arrayPush = __webpack_require__(106),
+    baseFlatten = __webpack_require__(109),
+    copyArray = __webpack_require__(91),
     isArray = __webpack_require__(11);
 
 /**
@@ -45338,7 +45429,7 @@ function checkEncoding(name) {
 "use strict";
 
 
-var Buffer = __webpack_require__(18).Buffer;
+var Buffer = __webpack_require__(17).Buffer;
 
 var bomHandling = __webpack_require__(347),
     iconv = module.exports;
@@ -45500,7 +45591,7 @@ iconv.enableStreamingAPI = function enableStreamingAPI(stream_module) {
 // Enable Streaming API automatically if 'stream' module is available and non-empty (the majority of environments).
 var stream_module;
 try {
-    stream_module = __webpack_require__(62);
+    stream_module = __webpack_require__(61);
 } catch (e) {}
 
 if (stream_module && stream_module.Transform) {
@@ -45611,7 +45702,7 @@ for (var i = 0; i < modules.length; i++) {
 
 "use strict";
 
-var Buffer = __webpack_require__(18).Buffer;
+var Buffer = __webpack_require__(17).Buffer;
 
 // Export Node.js internal encodings.
 
@@ -45658,7 +45749,7 @@ InternalCodec.prototype.decoder = InternalDecoder;
 //------------------------------------------------------------------------------
 
 // We use node.js internal decoder. Its signature is the same as ours.
-var StringDecoder = __webpack_require__(307).StringDecoder;
+var StringDecoder = __webpack_require__(308).StringDecoder;
 
 if (!StringDecoder.prototype.end) // Node v0.8 doesn't have this method.
     StringDecoder.prototype.end = function() {};
@@ -45817,7 +45908,7 @@ InternalDecoderCesu8.prototype.end = function() {
 "use strict";
 
 
-var Buffer = __webpack_require__(18).Buffer;
+var Buffer = __webpack_require__(17).Buffer;
 
 // == UTF32-LE/BE codec. ==========================================================
 
@@ -46142,7 +46233,7 @@ function detectEncoding(bufs, defaultEncoding) {
 
 "use strict";
 
-var Buffer = __webpack_require__(18).Buffer;
+var Buffer = __webpack_require__(17).Buffer;
 
 // Note: UTF16-LE (or UCS2) codec is Node.js native. See encodings/internal.js
 
@@ -46346,7 +46437,7 @@ function detectEncoding(bufs, defaultEncoding) {
 
 "use strict";
 
-var Buffer = __webpack_require__(18).Buffer;
+var Buffer = __webpack_require__(17).Buffer;
 
 // UTF-7 codec, according to https://tools.ietf.org/html/rfc2152
 // See also below a UTF-7-IMAP codec, according to http://tools.ietf.org/html/rfc3501#section-5.1.3
@@ -46643,7 +46734,7 @@ Utf7IMAPDecoder.prototype.end = function() {
 
 "use strict";
 
-var Buffer = __webpack_require__(18).Buffer;
+var Buffer = __webpack_require__(17).Buffer;
 
 // Single-byte codec. Needs a 'chars' string parameter that contains 256 or 128 chars that
 // correspond to encoded bytes (if 128 - then lower half is ASCII). 
@@ -47365,7 +47456,7 @@ module.exports = {
 
 "use strict";
 
-var Buffer = __webpack_require__(18).Buffer;
+var Buffer = __webpack_require__(17).Buffer;
 
 // Multibyte codec. In this scheme, a character is represented by 1 or more bytes.
 // Our codec supports UTF-16 surrogates, extensions for GB18030 and unicode sequences.
@@ -48054,13 +48145,13 @@ module.exports = {
     '936': 'cp936',
     'cp936': {
         type: '_dbcs',
-        table: function() { return __webpack_require__(130) },
+        table: function() { return __webpack_require__(129) },
     },
 
     // GBK (~22000 chars) is an extension of CP936 that added user-mapped chars and some other.
     'gbk': {
         type: '_dbcs',
-        table: function() { return __webpack_require__(130).concat(__webpack_require__(190)) },
+        table: function() { return __webpack_require__(129).concat(__webpack_require__(191)) },
     },
     'xgbk': 'gbk',
     'isoir58': 'gbk',
@@ -48072,7 +48163,7 @@ module.exports = {
     // http://www.khngai.com/chinese/charmap/tblgbk.php?page=0
     'gb18030': {
         type: '_dbcs',
-        table: function() { return __webpack_require__(130).concat(__webpack_require__(190)) },
+        table: function() { return __webpack_require__(129).concat(__webpack_require__(191)) },
         gb18030: function() { return __webpack_require__(360) },
         encodeSkipVals: [0x80],
         encodeAdd: {'€': 0xA2E3},
@@ -48129,14 +48220,14 @@ module.exports = {
     '950': 'cp950',
     'cp950': {
         type: '_dbcs',
-        table: function() { return __webpack_require__(191) },
+        table: function() { return __webpack_require__(192) },
     },
 
     // Big5 has many variations and is an extension of cp950. We use Encoding Standard's as a consensus.
     'big5': 'big5hkscs',
     'big5hkscs': {
         type: '_dbcs',
-        table: function() { return __webpack_require__(191).concat(__webpack_require__(362)) },
+        table: function() { return __webpack_require__(192).concat(__webpack_require__(362)) },
         encodeSkipVals: [
             // Although Encoding Standard says we should avoid encoding to HKSCS area (See Step 1 of
             // https://encoding.spec.whatwg.org/#index-big5-pointer), we still do it to increase compatibility with ICU.
@@ -48195,7 +48286,7 @@ module.exports = JSON.parse("[[\"8740\",\"䏰䰲䘃䖦䕸𧉧䵷䖳𧲱䳢𧳅�
 "use strict";
 
 
-var Buffer = __webpack_require__(18).Buffer;
+var Buffer = __webpack_require__(17).Buffer;
 
 // NOTE: Due to 'stream' module being pretty large (~100Kb, significant in browser environments), 
 // we opt to dependency-inject it instead of creating a hard dependency.
@@ -48318,7 +48409,7 @@ const levels = {
   critical: 50
 }
 
-const Secret = __webpack_require__(192)
+const Secret = __webpack_require__(193)
 
 const filterSecrets = function (level, type, message) {
   if (type !== 'secret' && message instanceof Secret) {
@@ -48340,8 +48431,8 @@ module.exports = {
 /* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const prodFormat = __webpack_require__(366)
-const devFormat = __webpack_require__(367)
+const devFormat = __webpack_require__(366)
+const prodFormat = __webpack_require__(375)
 
 switch ("production") {
   case 'production':
@@ -48365,49 +48456,9 @@ switch ("production") {
 /* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const stringify = __webpack_require__(315)
+const util = __webpack_require__(22)
 
-const LOG_LENGTH_LIMIT = 64 * 1024 - 1
-
-function prodFormat(type, message, label, namespace) {
-  const log = { time: new Date(), type, label, namespace }
-
-  if (typeof message === 'object') {
-    if (message && message.no_retry) {
-      log.no_retry = message.no_retry
-    }
-    if (message && message.message) {
-      log.message = message.message
-    }
-  } else {
-    log.message = message
-  }
-
-  // properly display error messages
-  if (log.message && log.message.stack) {
-    log.message = log.message.stack
-  }
-
-  // cut the string to avoid a fail in the stack
-  let result = log
-  try {
-    result = stringify(log).substr(0, LOG_LENGTH_LIMIT)
-  } catch (err) {
-    // eslint-disable-next-line no-console
-    console.log(err.message, 'cozy-logger: Failed to convert message to JSON')
-  }
-  return result
-}
-
-module.exports = prodFormat
-
-
-/***/ }),
-/* 367 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const util = __webpack_require__(23)
-const chalk = __webpack_require__(368)
+const chalk = __webpack_require__(367)
 
 if (util && util.inspect && util.inspect.defaultOptions) {
   util.inspect.defaultOptions.maxArrayLength = null
@@ -48445,14 +48496,14 @@ module.exports = devFormat
 
 
 /***/ }),
-/* 368 */
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 const escapeStringRegexp = __webpack_require__(316);
-const ansiStyles = __webpack_require__(369);
-const stdoutColor = __webpack_require__(373).stdout;
+const ansiStyles = __webpack_require__(368);
+const stdoutColor = __webpack_require__(372).stdout;
 
 const template = __webpack_require__(374);
 
@@ -48680,12 +48731,12 @@ module.exports.default = module.exports; // For TypeScript
 
 
 /***/ }),
-/* 369 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(module) {
-const colorConvert = __webpack_require__(370);
+const colorConvert = __webpack_require__(369);
 
 const wrapAnsi16 = (fn, offset) => function () {
 	const code = fn.apply(colorConvert, arguments);
@@ -48850,14 +48901,14 @@ Object.defineProperty(module, 'exports', {
 	get: assembleStyles
 });
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(39)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(41)(module)))
 
 /***/ }),
-/* 370 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var conversions = __webpack_require__(193);
-var route = __webpack_require__(372);
+var conversions = __webpack_require__(194);
+var route = __webpack_require__(371);
 
 var convert = {};
 
@@ -48937,7 +48988,7 @@ module.exports = convert;
 
 
 /***/ }),
-/* 371 */
+/* 370 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49096,10 +49147,10 @@ module.exports = {
 
 
 /***/ }),
-/* 372 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var conversions = __webpack_require__(193);
+var conversions = __webpack_require__(194);
 
 /*
 	this function routes a model to all other models.
@@ -49199,13 +49250,13 @@ module.exports = function (fromModel) {
 
 
 /***/ }),
-/* 373 */
+/* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-const os = __webpack_require__(174);
-const hasFlag = __webpack_require__(317);
+const os = __webpack_require__(175);
+const hasFlag = __webpack_require__(373);
 
 const env = process.env;
 
@@ -49333,6 +49384,21 @@ module.exports = {
 	supportsColor: getSupportLevel,
 	stdout: getSupportLevel(process.stdout),
 	stderr: getSupportLevel(process.stderr)
+};
+
+
+/***/ }),
+/* 373 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = (flag, argv) => {
+	argv = argv || process.argv;
+	const prefix = flag.startsWith('-') ? '' : (flag.length === 1 ? '-' : '--');
+	const pos = argv.indexOf(prefix + flag);
+	const terminatorPos = argv.indexOf('--');
+	return pos !== -1 && (terminatorPos === -1 ? true : pos < terminatorPos);
 };
 
 
@@ -49473,6 +49539,47 @@ module.exports = (chalk, tmp) => {
 
 /***/ }),
 /* 375 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const stringify = __webpack_require__(317)
+
+const LOG_LENGTH_LIMIT = 64 * 1024 - 1
+
+function prodFormat(type, message, label, namespace) {
+  const log = { time: new Date(), type, label, namespace }
+
+  if (typeof message === 'object') {
+    if (message && message.no_retry) {
+      log.no_retry = message.no_retry
+    }
+    if (message && message.message) {
+      log.message = message.message
+    }
+  } else {
+    log.message = message
+  }
+
+  // properly display error messages
+  if (log.message && log.message.stack) {
+    log.message = log.message.stack
+  }
+
+  // cut the string to avoid a fail in the stack
+  let result = log
+  try {
+    result = stringify(log).substr(0, LOG_LENGTH_LIMIT)
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.log(err.message, 'cozy-logger: Failed to convert message to JSON')
+  }
+  return result
+}
+
+module.exports = prodFormat
+
+
+/***/ }),
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -50226,7 +50333,7 @@ try {
 
 
 /***/ }),
-/* 376 */
+/* 377 */
 /***/ (function(module, exports) {
 
 function _iterableToArrayLimit(arr, i) {
@@ -50263,12 +50370,12 @@ module.exports = _iterableToArrayLimit;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 377 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsMatch = __webpack_require__(378),
-    getMatchData = __webpack_require__(419),
-    matchesStrictComparable = __webpack_require__(210);
+var baseIsMatch = __webpack_require__(379),
+    getMatchData = __webpack_require__(420),
+    matchesStrictComparable = __webpack_require__(211);
 
 /**
  * The base implementation of `_.matches` which doesn't clone `source`.
@@ -50291,11 +50398,11 @@ module.exports = baseMatches;
 
 
 /***/ }),
-/* 378 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Stack = __webpack_require__(101),
-    baseIsEqual = __webpack_require__(135);
+var Stack = __webpack_require__(99),
+    baseIsEqual = __webpack_require__(134);
 
 /** Used to compose bitmasks for value comparisons. */
 var COMPARE_PARTIAL_FLAG = 1,
@@ -50359,7 +50466,7 @@ module.exports = baseIsMatch;
 
 
 /***/ }),
-/* 379 */
+/* 380 */
 /***/ (function(module, exports) {
 
 /**
@@ -50378,10 +50485,10 @@ module.exports = listCacheClear;
 
 
 /***/ }),
-/* 380 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(103);
+var assocIndexOf = __webpack_require__(101);
 
 /** Used for built-in method references. */
 var arrayProto = Array.prototype;
@@ -50419,10 +50526,10 @@ module.exports = listCacheDelete;
 
 
 /***/ }),
-/* 381 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(103);
+var assocIndexOf = __webpack_require__(101);
 
 /**
  * Gets the list cache value for `key`.
@@ -50444,10 +50551,10 @@ module.exports = listCacheGet;
 
 
 /***/ }),
-/* 382 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(103);
+var assocIndexOf = __webpack_require__(101);
 
 /**
  * Checks if a list cache value for `key` exists.
@@ -50466,10 +50573,10 @@ module.exports = listCacheHas;
 
 
 /***/ }),
-/* 383 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(103);
+var assocIndexOf = __webpack_require__(101);
 
 /**
  * Sets the list cache `key` to `value`.
@@ -50498,10 +50605,10 @@ module.exports = listCacheSet;
 
 
 /***/ }),
-/* 384 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ListCache = __webpack_require__(102);
+var ListCache = __webpack_require__(100);
 
 /**
  * Removes all key-value entries from the stack.
@@ -50519,7 +50626,7 @@ module.exports = stackClear;
 
 
 /***/ }),
-/* 385 */
+/* 386 */
 /***/ (function(module, exports) {
 
 /**
@@ -50543,7 +50650,7 @@ module.exports = stackDelete;
 
 
 /***/ }),
-/* 386 */
+/* 387 */
 /***/ (function(module, exports) {
 
 /**
@@ -50563,7 +50670,7 @@ module.exports = stackGet;
 
 
 /***/ }),
-/* 387 */
+/* 388 */
 /***/ (function(module, exports) {
 
 /**
@@ -50583,12 +50690,12 @@ module.exports = stackHas;
 
 
 /***/ }),
-/* 388 */
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ListCache = __webpack_require__(102),
-    Map = __webpack_require__(133),
-    MapCache = __webpack_require__(134);
+var ListCache = __webpack_require__(100),
+    Map = __webpack_require__(132),
+    MapCache = __webpack_require__(133);
 
 /** Used as the size to enable large array optimizations. */
 var LARGE_ARRAY_SIZE = 200;
@@ -50623,13 +50730,13 @@ module.exports = stackSet;
 
 
 /***/ }),
-/* 389 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isFunction = __webpack_require__(124),
-    isMasked = __webpack_require__(392),
+var isFunction = __webpack_require__(123),
+    isMasked = __webpack_require__(393),
     isObject = __webpack_require__(29),
-    toSource = __webpack_require__(198);
+    toSource = __webpack_require__(199);
 
 /**
  * Used to match `RegExp`
@@ -50676,10 +50783,10 @@ module.exports = baseIsNative;
 
 
 /***/ }),
-/* 390 */
+/* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(68);
+var Symbol = __webpack_require__(67);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -50728,7 +50835,7 @@ module.exports = getRawTag;
 
 
 /***/ }),
-/* 391 */
+/* 392 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -50756,10 +50863,10 @@ module.exports = objectToString;
 
 
 /***/ }),
-/* 392 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var coreJsData = __webpack_require__(393);
+var coreJsData = __webpack_require__(394);
 
 /** Used to detect methods masquerading as native. */
 var maskSrcKey = (function() {
@@ -50782,7 +50889,7 @@ module.exports = isMasked;
 
 
 /***/ }),
-/* 393 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var root = __webpack_require__(33);
@@ -50794,7 +50901,7 @@ module.exports = coreJsData;
 
 
 /***/ }),
-/* 394 */
+/* 395 */
 /***/ (function(module, exports) {
 
 /**
@@ -50813,12 +50920,12 @@ module.exports = getValue;
 
 
 /***/ }),
-/* 395 */
+/* 396 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Hash = __webpack_require__(396),
-    ListCache = __webpack_require__(102),
-    Map = __webpack_require__(133);
+var Hash = __webpack_require__(397),
+    ListCache = __webpack_require__(100),
+    Map = __webpack_require__(132);
 
 /**
  * Removes all key-value entries from the map.
@@ -50840,14 +50947,14 @@ module.exports = mapCacheClear;
 
 
 /***/ }),
-/* 396 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var hashClear = __webpack_require__(397),
-    hashDelete = __webpack_require__(398),
-    hashGet = __webpack_require__(399),
-    hashHas = __webpack_require__(400),
-    hashSet = __webpack_require__(401);
+var hashClear = __webpack_require__(398),
+    hashDelete = __webpack_require__(399),
+    hashGet = __webpack_require__(400),
+    hashHas = __webpack_require__(401),
+    hashSet = __webpack_require__(402);
 
 /**
  * Creates a hash object.
@@ -50878,10 +50985,10 @@ module.exports = Hash;
 
 
 /***/ }),
-/* 397 */
+/* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var nativeCreate = __webpack_require__(104);
+var nativeCreate = __webpack_require__(102);
 
 /**
  * Removes all key-value entries from the hash.
@@ -50899,7 +51006,7 @@ module.exports = hashClear;
 
 
 /***/ }),
-/* 398 */
+/* 399 */
 /***/ (function(module, exports) {
 
 /**
@@ -50922,10 +51029,10 @@ module.exports = hashDelete;
 
 
 /***/ }),
-/* 399 */
+/* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var nativeCreate = __webpack_require__(104);
+var nativeCreate = __webpack_require__(102);
 
 /** Used to stand-in for `undefined` hash values. */
 var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -50958,10 +51065,10 @@ module.exports = hashGet;
 
 
 /***/ }),
-/* 400 */
+/* 401 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var nativeCreate = __webpack_require__(104);
+var nativeCreate = __webpack_require__(102);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -50987,10 +51094,10 @@ module.exports = hashHas;
 
 
 /***/ }),
-/* 401 */
+/* 402 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var nativeCreate = __webpack_require__(104);
+var nativeCreate = __webpack_require__(102);
 
 /** Used to stand-in for `undefined` hash values. */
 var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -51016,10 +51123,10 @@ module.exports = hashSet;
 
 
 /***/ }),
-/* 402 */
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getMapData = __webpack_require__(105);
+var getMapData = __webpack_require__(103);
 
 /**
  * Removes `key` and its value from the map.
@@ -51040,7 +51147,7 @@ module.exports = mapCacheDelete;
 
 
 /***/ }),
-/* 403 */
+/* 404 */
 /***/ (function(module, exports) {
 
 /**
@@ -51061,10 +51168,10 @@ module.exports = isKeyable;
 
 
 /***/ }),
-/* 404 */
+/* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getMapData = __webpack_require__(105);
+var getMapData = __webpack_require__(103);
 
 /**
  * Gets the map value for `key`.
@@ -51083,10 +51190,10 @@ module.exports = mapCacheGet;
 
 
 /***/ }),
-/* 405 */
+/* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getMapData = __webpack_require__(105);
+var getMapData = __webpack_require__(103);
 
 /**
  * Checks if a map value for `key` exists.
@@ -51105,10 +51212,10 @@ module.exports = mapCacheHas;
 
 
 /***/ }),
-/* 406 */
+/* 407 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getMapData = __webpack_require__(105);
+var getMapData = __webpack_require__(103);
 
 /**
  * Sets the map `key` to `value`.
@@ -51133,17 +51240,17 @@ module.exports = mapCacheSet;
 
 
 /***/ }),
-/* 407 */
+/* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Stack = __webpack_require__(101),
-    equalArrays = __webpack_require__(199),
-    equalByTag = __webpack_require__(410),
-    equalObjects = __webpack_require__(412),
-    getTag = __webpack_require__(65),
+var Stack = __webpack_require__(99),
+    equalArrays = __webpack_require__(200),
+    equalByTag = __webpack_require__(411),
+    equalObjects = __webpack_require__(413),
+    getTag = __webpack_require__(64),
     isArray = __webpack_require__(11),
-    isBuffer = __webpack_require__(84),
-    isTypedArray = __webpack_require__(109);
+    isBuffer = __webpack_require__(83),
+    isTypedArray = __webpack_require__(107);
 
 /** Used to compose bitmasks for value comparisons. */
 var COMPARE_PARTIAL_FLAG = 1;
@@ -51222,7 +51329,7 @@ module.exports = baseIsEqualDeep;
 
 
 /***/ }),
-/* 408 */
+/* 409 */
 /***/ (function(module, exports) {
 
 /** Used to stand-in for `undefined` hash values. */
@@ -51247,7 +51354,7 @@ module.exports = setCacheAdd;
 
 
 /***/ }),
-/* 409 */
+/* 410 */
 /***/ (function(module, exports) {
 
 /**
@@ -51267,15 +51374,15 @@ module.exports = setCacheHas;
 
 
 /***/ }),
-/* 410 */
+/* 411 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(68),
-    Uint8Array = __webpack_require__(200),
-    eq = __webpack_require__(82),
-    equalArrays = __webpack_require__(199),
-    mapToArray = __webpack_require__(411),
-    setToArray = __webpack_require__(136);
+var Symbol = __webpack_require__(67),
+    Uint8Array = __webpack_require__(201),
+    eq = __webpack_require__(81),
+    equalArrays = __webpack_require__(200),
+    mapToArray = __webpack_require__(412),
+    setToArray = __webpack_require__(135);
 
 /** Used to compose bitmasks for value comparisons. */
 var COMPARE_PARTIAL_FLAG = 1,
@@ -51385,7 +51492,7 @@ module.exports = equalByTag;
 
 
 /***/ }),
-/* 411 */
+/* 412 */
 /***/ (function(module, exports) {
 
 /**
@@ -51409,10 +51516,10 @@ module.exports = mapToArray;
 
 
 /***/ }),
-/* 412 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getAllKeys = __webpack_require__(201);
+var getAllKeys = __webpack_require__(202);
 
 /** Used to compose bitmasks for value comparisons. */
 var COMPARE_PARTIAL_FLAG = 1;
@@ -51505,10 +51612,10 @@ module.exports = equalObjects;
 
 
 /***/ }),
-/* 413 */
+/* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(49),
+var baseGetTag = __webpack_require__(50),
     isObjectLike = __webpack_require__(30);
 
 /** `Object#toString` result references. */
@@ -51529,7 +51636,7 @@ module.exports = baseIsArguments;
 
 
 /***/ }),
-/* 414 */
+/* 415 */
 /***/ (function(module, exports) {
 
 /**
@@ -51553,11 +51660,11 @@ module.exports = stubFalse;
 
 
 /***/ }),
-/* 415 */
+/* 416 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(49),
-    isLength = __webpack_require__(138),
+var baseGetTag = __webpack_require__(50),
+    isLength = __webpack_require__(137),
     isObjectLike = __webpack_require__(30);
 
 /** `Object#toString` result references. */
@@ -51619,10 +51726,10 @@ module.exports = baseIsTypedArray;
 
 
 /***/ }),
-/* 416 */
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var overArg = __webpack_require__(206);
+var overArg = __webpack_require__(207);
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeKeys = overArg(Object.keys, Object);
@@ -51631,10 +51738,10 @@ module.exports = nativeKeys;
 
 
 /***/ }),
-/* 417 */
+/* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(55),
+var getNative = __webpack_require__(56),
     root = __webpack_require__(33);
 
 /* Built-in method references that are verified to be native. */
@@ -51644,10 +51751,10 @@ module.exports = DataView;
 
 
 /***/ }),
-/* 418 */
+/* 419 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(55),
+var getNative = __webpack_require__(56),
     root = __webpack_require__(33);
 
 /* Built-in method references that are verified to be native. */
@@ -51657,11 +51764,11 @@ module.exports = Promise;
 
 
 /***/ }),
-/* 419 */
+/* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isStrictComparable = __webpack_require__(209),
-    keys = __webpack_require__(63);
+var isStrictComparable = __webpack_require__(210),
+    keys = __webpack_require__(62);
 
 /**
  * Gets the property names, values, and compare flags of `object`.
@@ -51687,16 +51794,16 @@ module.exports = getMatchData;
 
 
 /***/ }),
-/* 420 */
+/* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsEqual = __webpack_require__(135),
-    get = __webpack_require__(15),
-    hasIn = __webpack_require__(212),
-    isKey = __webpack_require__(140),
-    isStrictComparable = __webpack_require__(209),
-    matchesStrictComparable = __webpack_require__(210),
-    toKey = __webpack_require__(66);
+var baseIsEqual = __webpack_require__(134),
+    get = __webpack_require__(14),
+    hasIn = __webpack_require__(213),
+    isKey = __webpack_require__(139),
+    isStrictComparable = __webpack_require__(210),
+    matchesStrictComparable = __webpack_require__(211),
+    toKey = __webpack_require__(65);
 
 /** Used to compose bitmasks for value comparisons. */
 var COMPARE_PARTIAL_FLAG = 1,
@@ -51726,10 +51833,10 @@ module.exports = baseMatchesProperty;
 
 
 /***/ }),
-/* 421 */
+/* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var memoize = __webpack_require__(211);
+var memoize = __webpack_require__(212);
 
 /** Used as the maximum memoize cache size. */
 var MAX_MEMOIZE_SIZE = 500;
@@ -51758,7 +51865,7 @@ module.exports = memoizeCapped;
 
 
 /***/ }),
-/* 422 */
+/* 423 */
 /***/ (function(module, exports) {
 
 /**
@@ -51777,13 +51884,13 @@ module.exports = baseHasIn;
 
 
 /***/ }),
-/* 423 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseProperty = __webpack_require__(142),
-    basePropertyDeep = __webpack_require__(424),
-    isKey = __webpack_require__(140),
-    toKey = __webpack_require__(66);
+var baseProperty = __webpack_require__(141),
+    basePropertyDeep = __webpack_require__(425),
+    isKey = __webpack_require__(139),
+    toKey = __webpack_require__(65);
 
 /**
  * Creates a function that returns the value at `path` of a given object.
@@ -51815,10 +51922,10 @@ module.exports = property;
 
 
 /***/ }),
-/* 424 */
+/* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGet = __webpack_require__(85);
+var baseGet = __webpack_require__(84);
 
 /**
  * A specialized version of `baseProperty` which supports deep paths.
@@ -51837,12 +51944,12 @@ module.exports = basePropertyDeep;
 
 
 /***/ }),
-/* 425 */
+/* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var constant = __webpack_require__(426),
-    defineProperty = __webpack_require__(215),
-    identity = __webpack_require__(78);
+var constant = __webpack_require__(427),
+    defineProperty = __webpack_require__(216),
+    identity = __webpack_require__(77);
 
 /**
  * The base implementation of `setToString` without support for hot loop shorting.
@@ -51865,7 +51972,7 @@ module.exports = baseSetToString;
 
 
 /***/ }),
-/* 426 */
+/* 427 */
 /***/ (function(module, exports) {
 
 /**
@@ -51897,11 +52004,11 @@ module.exports = constant;
 
 
 /***/ }),
-/* 427 */
+/* 428 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(68),
-    isArguments = __webpack_require__(83),
+var Symbol = __webpack_require__(67),
+    isArguments = __webpack_require__(82),
     isArray = __webpack_require__(11);
 
 /** Built-in value references. */
@@ -51923,7 +52030,7 @@ module.exports = isFlattenable;
 
 
 /***/ }),
-/* 428 */
+/* 429 */
 /***/ (function(module, exports) {
 
 /**
@@ -51954,17 +52061,17 @@ module.exports = createBaseFor;
 
 
 /***/ }),
-/* 429 */,
 /* 430 */,
 /* 431 */,
 /* 432 */,
 /* 433 */,
-/* 434 */
+/* 434 */,
+/* 435 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseTrim = __webpack_require__(435),
+var baseTrim = __webpack_require__(436),
     isObject = __webpack_require__(29),
-    isSymbol = __webpack_require__(77);
+    isSymbol = __webpack_require__(76);
 
 /** Used as references for various `Number` constants. */
 var NAN = 0 / 0;
@@ -52029,10 +52136,10 @@ module.exports = toNumber;
 
 
 /***/ }),
-/* 435 */
+/* 436 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var trimmedEndIndex = __webpack_require__(221);
+var trimmedEndIndex = __webpack_require__(222);
 
 /** Used to match leading whitespace. */
 var reTrimStart = /^\s+/;
@@ -52054,7 +52161,7 @@ module.exports = baseTrim;
 
 
 /***/ }),
-/* 436 */
+/* 437 */
 /***/ (function(module, exports) {
 
 /** Used to lookup unminified function names. */
@@ -52064,15 +52171,15 @@ module.exports = realNames;
 
 
 /***/ }),
-/* 437 */
+/* 438 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var LazyWrapper = __webpack_require__(146),
-    LodashWrapper = __webpack_require__(148),
-    baseLodash = __webpack_require__(147),
+var LazyWrapper = __webpack_require__(145),
+    LodashWrapper = __webpack_require__(147),
+    baseLodash = __webpack_require__(146),
     isArray = __webpack_require__(11),
     isObjectLike = __webpack_require__(30),
-    wrapperClone = __webpack_require__(438);
+    wrapperClone = __webpack_require__(439);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -52217,12 +52324,12 @@ module.exports = lodash;
 
 
 /***/ }),
-/* 438 */
+/* 439 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var LazyWrapper = __webpack_require__(146),
-    LodashWrapper = __webpack_require__(148),
-    copyArray = __webpack_require__(93);
+var LazyWrapper = __webpack_require__(145),
+    LodashWrapper = __webpack_require__(147),
+    copyArray = __webpack_require__(91);
 
 /**
  * Creates a clone of `wrapper`.
@@ -52246,7 +52353,7 @@ module.exports = wrapperClone;
 
 
 /***/ }),
-/* 439 */
+/* 440 */
 /***/ (function(module, exports) {
 
 /**
@@ -52264,7 +52371,7 @@ module.exports = baseIsNaN;
 
 
 /***/ }),
-/* 440 */
+/* 441 */
 /***/ (function(module, exports) {
 
 /**
@@ -52293,11 +52400,11 @@ module.exports = strictIndexOf;
 
 
 /***/ }),
-/* 441 */
+/* 442 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(71),
-    keysIn = __webpack_require__(88);
+var copyObject = __webpack_require__(70),
+    keysIn = __webpack_require__(87);
 
 /**
  * The base implementation of `_.assignIn` without support for multiple sources
@@ -52316,12 +52423,12 @@ module.exports = baseAssignIn;
 
 
 /***/ }),
-/* 442 */
+/* 443 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(29),
-    isPrototype = __webpack_require__(110),
-    nativeKeysIn = __webpack_require__(443);
+    isPrototype = __webpack_require__(108),
+    nativeKeysIn = __webpack_require__(444);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -52355,7 +52462,7 @@ module.exports = baseKeysIn;
 
 
 /***/ }),
-/* 443 */
+/* 444 */
 /***/ (function(module, exports) {
 
 /**
@@ -52381,11 +52488,11 @@ module.exports = nativeKeysIn;
 
 
 /***/ }),
-/* 444 */
+/* 445 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(71),
-    getSymbols = __webpack_require__(137);
+var copyObject = __webpack_require__(70),
+    getSymbols = __webpack_require__(136);
 
 /**
  * Copies own symbols of `source` to `object`.
@@ -52403,11 +52510,11 @@ module.exports = copySymbols;
 
 
 /***/ }),
-/* 445 */
+/* 446 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(71),
-    getSymbolsIn = __webpack_require__(225);
+var copyObject = __webpack_require__(70),
+    getSymbolsIn = __webpack_require__(226);
 
 /**
  * Copies own and inherited symbols of `source` to `object`.
@@ -52425,7 +52532,7 @@ module.exports = copySymbolsIn;
 
 
 /***/ }),
-/* 446 */
+/* 447 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -52457,14 +52564,14 @@ module.exports = initCloneArray;
 
 
 /***/ }),
-/* 447 */
+/* 448 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var cloneArrayBuffer = __webpack_require__(152),
-    cloneDataView = __webpack_require__(448),
-    cloneRegExp = __webpack_require__(449),
-    cloneSymbol = __webpack_require__(450),
-    cloneTypedArray = __webpack_require__(226);
+var cloneArrayBuffer = __webpack_require__(151),
+    cloneDataView = __webpack_require__(449),
+    cloneRegExp = __webpack_require__(450),
+    cloneSymbol = __webpack_require__(451),
+    cloneTypedArray = __webpack_require__(227);
 
 /** `Object#toString` result references. */
 var boolTag = '[object Boolean]',
@@ -52540,10 +52647,10 @@ module.exports = initCloneByTag;
 
 
 /***/ }),
-/* 448 */
+/* 449 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var cloneArrayBuffer = __webpack_require__(152);
+var cloneArrayBuffer = __webpack_require__(151);
 
 /**
  * Creates a clone of `dataView`.
@@ -52562,7 +52669,7 @@ module.exports = cloneDataView;
 
 
 /***/ }),
-/* 449 */
+/* 450 */
 /***/ (function(module, exports) {
 
 /** Used to match `RegExp` flags from their coerced string values. */
@@ -52585,10 +52692,10 @@ module.exports = cloneRegExp;
 
 
 /***/ }),
-/* 450 */
+/* 451 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(68);
+var Symbol = __webpack_require__(67);
 
 /** Used to convert symbols to primitives and strings. */
 var symbolProto = Symbol ? Symbol.prototype : undefined,
@@ -52609,12 +52716,12 @@ module.exports = cloneSymbol;
 
 
 /***/ }),
-/* 451 */
+/* 452 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsMap = __webpack_require__(452),
-    baseUnary = __webpack_require__(64),
-    nodeUtil = __webpack_require__(139);
+var baseIsMap = __webpack_require__(453),
+    baseUnary = __webpack_require__(63),
+    nodeUtil = __webpack_require__(138);
 
 /* Node.js helper references. */
 var nodeIsMap = nodeUtil && nodeUtil.isMap;
@@ -52642,10 +52749,10 @@ module.exports = isMap;
 
 
 /***/ }),
-/* 452 */
+/* 453 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getTag = __webpack_require__(65),
+var getTag = __webpack_require__(64),
     isObjectLike = __webpack_require__(30);
 
 /** `Object#toString` result references. */
@@ -52666,12 +52773,12 @@ module.exports = baseIsMap;
 
 
 /***/ }),
-/* 453 */
+/* 454 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsSet = __webpack_require__(454),
-    baseUnary = __webpack_require__(64),
-    nodeUtil = __webpack_require__(139);
+var baseIsSet = __webpack_require__(455),
+    baseUnary = __webpack_require__(63),
+    nodeUtil = __webpack_require__(138);
 
 /* Node.js helper references. */
 var nodeIsSet = nodeUtil && nodeUtil.isSet;
@@ -52699,10 +52806,10 @@ module.exports = isSet;
 
 
 /***/ }),
-/* 454 */
+/* 455 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getTag = __webpack_require__(65),
+var getTag = __webpack_require__(64),
     isObjectLike = __webpack_require__(30);
 
 /** `Object#toString` result references. */
@@ -52723,7 +52830,7 @@ module.exports = baseIsSet;
 
 
 /***/ }),
-/* 455 */
+/* 456 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isArrayLike = __webpack_require__(45);
@@ -52761,13 +52868,13 @@ module.exports = createBaseEach;
 
 
 /***/ }),
-/* 456 */
+/* 457 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var LodashWrapper = __webpack_require__(148),
+var LodashWrapper = __webpack_require__(147),
     flatRest = __webpack_require__(121),
-    getData = __webpack_require__(182),
-    getFuncName = __webpack_require__(223),
+    getData = __webpack_require__(183),
+    getFuncName = __webpack_require__(224),
     isArray = __webpack_require__(11),
     isLaziable = __webpack_require__(333);
 
@@ -52845,10 +52952,10 @@ module.exports = createFlow;
 
 
 /***/ }),
-/* 457 */
+/* 458 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var identity = __webpack_require__(78);
+var identity = __webpack_require__(77);
 
 /**
  * Casts `value` to `identity` if it's not a function.
@@ -52865,7 +52972,6 @@ module.exports = castFunction;
 
 
 /***/ }),
-/* 458 */,
 /* 459 */,
 /* 460 */,
 /* 461 */,
@@ -52879,13 +52985,14 @@ module.exports = castFunction;
 /* 469 */,
 /* 470 */,
 /* 471 */,
-/* 472 */
+/* 472 */,
+/* 473 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var castPath = __webpack_require__(69),
-    last = __webpack_require__(233),
-    parent = __webpack_require__(473),
-    toKey = __webpack_require__(66);
+var castPath = __webpack_require__(68),
+    last = __webpack_require__(234),
+    parent = __webpack_require__(474),
+    toKey = __webpack_require__(65);
 
 /**
  * The base implementation of `_.unset`.
@@ -52905,11 +53012,11 @@ module.exports = baseUnset;
 
 
 /***/ }),
-/* 473 */
+/* 474 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGet = __webpack_require__(85),
-    baseSlice = __webpack_require__(234);
+var baseGet = __webpack_require__(84),
+    baseSlice = __webpack_require__(235);
 
 /**
  * Gets the parent value at `path` of `object`.
@@ -52927,10 +53034,10 @@ module.exports = parent;
 
 
 /***/ }),
-/* 474 */
+/* 475 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isPlainObject = __webpack_require__(128);
+var isPlainObject = __webpack_require__(127);
 
 /**
  * Used by `_.omit` to customize its `_.cloneDeep` use to only clone plain
@@ -52949,7 +53056,7 @@ module.exports = customOmitClone;
 
 
 /***/ }),
-/* 475 */
+/* 476 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53008,17 +53115,17 @@ module.exports = function bind(that) {
 
 
 /***/ }),
-/* 476 */
+/* 477 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var slice = Array.prototype.slice;
-var isArgs = __webpack_require__(237);
+var isArgs = __webpack_require__(238);
 
 var origKeys = Object.keys;
-var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(477);
+var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(478);
 
 var originalKeys = Object.keys;
 
@@ -53047,7 +53154,7 @@ module.exports = keysShim;
 
 
 /***/ }),
-/* 477 */
+/* 478 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53058,7 +53165,7 @@ if (!Object.keys) {
 	// modified from https://github.com/es-shims/es5-shim
 	var has = Object.prototype.hasOwnProperty;
 	var toStr = Object.prototype.toString;
-	var isArgs = __webpack_require__(237); // eslint-disable-line global-require
+	var isArgs = __webpack_require__(238); // eslint-disable-line global-require
 	var isEnumerable = Object.prototype.propertyIsEnumerable;
 	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
 	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
@@ -53176,14 +53283,14 @@ module.exports = keysShim;
 
 
 /***/ }),
-/* 478 */
+/* 479 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./en": 238,
-	"./en.json": 238,
-	"./fr": 239,
-	"./fr.json": 239
+	"./en": 239,
+	"./en.json": 239,
+	"./fr": 240,
+	"./fr.json": 240
 };
 
 
@@ -53204,13 +53311,13 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 478;
+webpackContext.id = 479;
 
 /***/ }),
-/* 479 */
+/* 480 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayLikeToArray = __webpack_require__(195);
+var arrayLikeToArray = __webpack_require__(196);
 
 function _arrayWithoutHoles(arr) {
   if (Array.isArray(arr)) return arrayLikeToArray(arr);
@@ -53220,7 +53327,7 @@ module.exports = _arrayWithoutHoles;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 480 */
+/* 481 */
 /***/ (function(module, exports) {
 
 function _nonIterableSpread() {
@@ -53231,7 +53338,7 @@ module.exports = _nonIterableSpread;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 481 */
+/* 482 */
 /***/ (function(module, exports) {
 
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -53253,11 +53360,11 @@ module.exports = _objectWithoutPropertiesLoose;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 482 */
+/* 483 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIteratee = __webpack_require__(36),
-    baseUniq = __webpack_require__(155);
+var baseIteratee = __webpack_require__(35),
+    baseUniq = __webpack_require__(154);
 
 /**
  * This method is like `_.uniq` except that it accepts `iteratee` which is
@@ -53290,12 +53397,12 @@ module.exports = uniqBy;
 
 
 /***/ }),
-/* 483 */
+/* 484 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Set = __webpack_require__(207),
-    noop = __webpack_require__(222),
-    setToArray = __webpack_require__(136);
+var Set = __webpack_require__(208),
+    noop = __webpack_require__(223),
+    setToArray = __webpack_require__(135);
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0;
@@ -53315,11 +53422,11 @@ module.exports = createSet;
 
 
 /***/ }),
-/* 484 */
+/* 485 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseRest = __webpack_require__(50),
-    unzip = __webpack_require__(243);
+var baseRest = __webpack_require__(51),
+    unzip = __webpack_require__(244);
 
 /**
  * Creates an array of grouped elements, the first of which contains the
@@ -53343,7 +53450,7 @@ module.exports = zip;
 
 
 /***/ }),
-/* 485 */
+/* 486 */
 /***/ (function(module, exports) {
 
 /**
@@ -53704,7 +53811,7 @@ module.exports = zip;
 
 
 /***/ }),
-/* 486 */
+/* 487 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53717,13 +53824,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(42));
+var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(43));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -53812,7 +53919,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 487 */
+/* 488 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53829,7 +53936,7 @@ var APP_TYPE = {
 exports.APP_TYPE = APP_TYPE;
 
 /***/ }),
-/* 488 */
+/* 489 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53842,19 +53949,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.resetFlags = exports.listFlags = exports.initializeFromRemote = exports.initializeFromDOM = exports.initialize = exports.getTemplateData = exports.enable = exports.default = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(34));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(28));
 
-var _store = _interopRequireDefault(__webpack_require__(489));
+var _dsl = __webpack_require__(13);
 
-var _dsl = __webpack_require__(14);
+var _store = _interopRequireDefault(__webpack_require__(505));
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
@@ -53962,7 +54069,7 @@ var initializeFromRemote = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return client.query((0, _dsl.Q)('io.cozy.settings').getById('flags'));
+            return client.query((0, _dsl.Q)('io.cozy.settings').getById('io.cozy.settings.flags'));
 
           case 2:
             _yield$client$query = _context.sent;
@@ -54237,7 +54344,499 @@ var _default = flag;
 exports.default = _default;
 
 /***/ }),
-/* 489 */
+/* 490 */
+/***/ (function(module, exports) {
+
+/**
+ * The base implementation of methods like `_.findKey` and `_.findLastKey`,
+ * without support for iteratee shorthands, which iterates over `collection`
+ * using `eachFunc`.
+ *
+ * @private
+ * @param {Array|Object} collection The collection to inspect.
+ * @param {Function} predicate The function invoked per iteration.
+ * @param {Function} eachFunc The function to iterate over `collection`.
+ * @returns {*} Returns the found element or its key, else `undefined`.
+ */
+function baseFindKey(collection, predicate, eachFunc) {
+  var result;
+  eachFunc(collection, function(value, key, collection) {
+    if (predicate(value, key, collection)) {
+      result = key;
+      return false;
+    }
+  });
+  return result;
+}
+
+module.exports = baseFindKey;
+
+
+/***/ }),
+/* 491 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// default filter
+var Transform = __webpack_require__(21);
+
+var levelMap = { debug: 1, info: 2, warn: 3, error: 4 };
+
+function Filter() {
+  this.enabled = true;
+  this.defaultResult = true;
+  this.clear();
+}
+
+Transform.mixin(Filter);
+
+// allow all matching, with level >= given level
+Filter.prototype.allow = function(name, level) {
+  this._white.push({ n: name, l: levelMap[level] });
+  return this;
+};
+
+// deny all matching, with level <= given level
+Filter.prototype.deny = function(name, level) {
+  this._black.push({ n: name, l: levelMap[level] });
+  return this;
+};
+
+Filter.prototype.clear = function() {
+  this._white = [];
+  this._black = [];
+  return this;
+};
+
+function test(rule, name) {
+  // use .test for RegExps
+  return (rule.n.test ? rule.n.test(name) : rule.n == name);
+};
+
+Filter.prototype.test = function(name, level) {
+  var i, len = Math.max(this._white.length, this._black.length);
+  for(i = 0; i < len; i++) {
+    if(this._white[i] && test(this._white[i], name) && levelMap[level] >= this._white[i].l) {
+      return true;
+    }
+    if(this._black[i] && test(this._black[i], name) && levelMap[level] <= this._black[i].l) {
+      return false;
+    }
+  }
+  return this.defaultResult;
+};
+
+Filter.prototype.write = function(name, level, args) {
+  if(!this.enabled || this.test(name, level)) {
+    return this.emit('item', name, level, args);
+  }
+};
+
+module.exports = Filter;
+
+
+/***/ }),
+/* 492 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Transform = __webpack_require__(21);
+
+function ConsoleBackend() { }
+
+Transform.mixin(ConsoleBackend);
+
+ConsoleBackend.prototype.write = function() {
+  console.log.apply(console, arguments);
+};
+
+var e = new ConsoleBackend();
+
+var levelMap = __webpack_require__(73).levelMap;
+
+e.filterEnv = function() {
+  console.error('Minilog.backends.console.filterEnv is deprecated in Minilog v2.');
+  // return the instance of Minilog
+  return __webpack_require__(253);
+};
+
+e.formatters = [
+    'formatClean', 'formatColor', 'formatNpm',
+    'formatLearnboost', 'formatMinilog', 'formatWithStack', 'formatTime'
+];
+
+e.formatClean = new (__webpack_require__(493));
+e.formatColor = new (__webpack_require__(494));
+e.formatNpm = new (__webpack_require__(495));
+e.formatLearnboost = new (__webpack_require__(496));
+e.formatMinilog = new (__webpack_require__(497));
+e.formatWithStack = new (__webpack_require__(498));
+e.formatTime = new (__webpack_require__(499));
+
+module.exports = e;
+
+
+/***/ }),
+/* 493 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Transform = __webpack_require__(21);
+
+function FormatClean() {}
+
+Transform.mixin(FormatClean);
+
+FormatClean.prototype.write = function(name, level, args) {
+  function pad(s) { return (s.toString().length == 1? '0'+s : s); }
+  this.emit('item', (name ? name + ' ' : '') + (level ? level + ' ' : '') + args.join(' '));
+};
+
+module.exports = FormatClean;
+
+
+/***/ }),
+/* 494 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Transform = __webpack_require__(21),
+    style = __webpack_require__(73).style;
+
+function FormatColor() {}
+
+Transform.mixin(FormatColor);
+
+FormatColor.prototype.write = function(name, level, args) {
+  var colors = { debug: 'magenta', info: 'cyan', warn: 'yellow', error: 'red' };
+  function pad(s) { return (s.toString().length == 4? ' '+s : s); }
+  this.emit('item', (name ? name + ' ' : '')
+          + (level ? style('- ' + pad(level.toUpperCase()) + ' -', colors[level]) + ' ' : '')
+          + args.join(' '));
+};
+
+module.exports = FormatColor;
+
+
+/***/ }),
+/* 495 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Transform = __webpack_require__(21);
+
+function FormatNpm() {}
+
+Transform.mixin(FormatNpm);
+
+FormatNpm.prototype.write = function(name, level, args) {
+  var out = {
+    debug: "\x1B[34;40m" + "debug" + "\x1B[39m ",
+    info: "\x1B[32m" + "info" + "\x1B[39m  ",
+    warn: "\x1B[30;41m" + "WARN" + "\x1B[0m  ",
+    error: "\x1B[31;40m" + "ERR!" + "\x1B[0m  "
+  };
+  this.emit(
+    "item",
+    (name ? "\x1B[37;40m" + name + "\x1B[0m " : "") +
+      (level && out[level] ? out[level] : "") +
+      args.join(" ")
+  );
+};
+
+module.exports = FormatNpm;
+
+
+/***/ }),
+/* 496 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Transform = __webpack_require__(21),
+    style = __webpack_require__(73).style;
+
+function FormatLearnboost() {}
+
+Transform.mixin(FormatLearnboost);
+
+FormatLearnboost.prototype.write = function(name, level, args) {
+  var colors = { debug: 'grey', info: 'cyan', warn: 'yellow', error: 'red' };
+  this.emit('item', (name ? style(name +' ', 'grey') : '')
+          + (level ? style(level, colors[level]) + ' ' : '')
+          + args.join(' '));
+};
+
+module.exports = FormatLearnboost;
+
+
+/***/ }),
+/* 497 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Transform = __webpack_require__(21),
+    style = __webpack_require__(73).style,
+    util = __webpack_require__(22);
+
+function FormatMinilog() {}
+
+Transform.mixin(FormatMinilog);
+
+FormatMinilog.prototype.write = function(name, level, args) {
+  var colors = { debug: 'blue', info: 'cyan', warn: 'yellow', error: 'red' };
+  this.emit('item', (name ? style(name +' ', 'grey') : '')
+            + (level ? style(level, colors[level]) + ' ' : '')
+            + args.map(function(item) {
+              return (typeof item == 'string' ? item : util.inspect(item, null, 3, true));
+            }).join(' '));
+};
+
+module.exports = FormatMinilog;
+
+
+/***/ }),
+/* 498 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Transform = __webpack_require__(21),
+    style = __webpack_require__(73).style;
+
+function FormatNpm() {}
+
+Transform.mixin(FormatNpm);
+
+function noop(a){
+  return a;
+}
+
+var types = {
+  string: noop,
+  number: noop,
+  default: JSON.stringify.bind(JSON)
+};
+
+function stringify(args) {
+  return args.map(function(arg) {
+    return (types[typeof arg] || types.default)(arg);
+  });
+}
+
+FormatNpm.prototype.write = function(name, level, args) {
+  var colors = { debug: 'magenta', info: 'cyan', warn: 'yellow', error: 'red' };
+  function pad(s) { return (s.toString().length == 4? ' '+s : s); }
+  function getStack() {
+    var orig = Error.prepareStackTrace;
+    Error.prepareStackTrace = function (err, stack) {
+      return stack;
+    };
+    var err = new Error;
+    Error.captureStackTrace(err, arguments.callee);
+    var stack = err.stack;
+    Error.prepareStackTrace = orig;
+    return stack;
+  }
+
+  var frame = getStack()[5],
+      fileName = FormatNpm.fullPath ? frame.getFileName() : frame.getFileName().replace(/^.*\/(.+)$/, '/$1');
+
+  this.emit('item', (name ? name + ' ' : '')
+          + (level ? style(pad(level), colors[level]) + ' ' : '')
+          + style(fileName + ":" + frame.getLineNumber(), 'grey')
+          + ' '
+          + stringify(args).join(' '));
+};
+
+FormatNpm.fullPath = true;
+
+module.exports = FormatNpm;
+
+
+
+/***/ }),
+/* 499 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Transform = __webpack_require__(21),
+    style = __webpack_require__(73).style,
+    util = __webpack_require__(22);
+
+function FormatTime() {}
+
+function timestamp() {
+  var d = new Date();
+  return ('0' + d.getDate()).slice(-2) + '-' +
+    ('0' + (d.getMonth() + 1)).slice(-2) + '-' +
+    d.getFullYear() + ' ' +
+    ('0' + d.getHours()).slice(-2) + ':' +
+    ('0' + d.getMinutes()).slice(-2) + ':' +
+    ('0' + d.getSeconds()).slice(-2) + '.' +
+    ('00' + d.getMilliseconds()).slice(-3);
+}
+
+Transform.mixin(FormatTime);
+
+FormatTime.prototype.write = function(name, level, args) {
+  var colors = { debug: 'blue', info: 'cyan', warn: 'yellow', error: 'red' };
+  this.emit('item', style(timestamp() +' ', 'grey')
+            + (name ? style(name +' ', 'grey') : '')
+            + (level ? style(level, colors[level]) + ' ' : '')
+            + args.map(function(item) {
+              return (typeof item == 'string' ? item : util.inspect(item, null, 3, true));
+            }).join(' '));
+};
+
+module.exports = FormatTime;
+
+
+/***/ }),
+/* 500 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Transform = __webpack_require__(21);
+
+var newlines = /\n+$/,
+    logger = new Transform();
+
+logger.write = function(name, level, args) {
+  var i = args.length-1;
+  if (typeof console === 'undefined' || !console.log) {
+    return;
+  }
+  if(console.log.apply) {
+    return console.log.apply(console, [name, level].concat(args));
+  } else if(JSON && JSON.stringify) {
+    // console.log.apply is undefined in IE8 and IE9
+    // for IE8/9: make console.log at least a bit less awful
+    if(args[i] && typeof args[i] == 'string') {
+      args[i] = args[i].replace(newlines, '');
+    }
+    try {
+      for(i = 0; i < args.length; i++) {
+        args[i] = JSON.stringify(args[i]);
+      }
+    } catch(e) {}
+    console.log(args.join(' '));
+  }
+};
+
+logger.formatters = ['color', 'minilog'];
+logger.color = __webpack_require__(501);
+logger.minilog = __webpack_require__(502);
+
+module.exports = logger;
+
+
+/***/ }),
+/* 501 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Transform = __webpack_require__(21),
+    color = __webpack_require__(254);
+
+var colors = { debug: ['cyan'], info: ['purple' ], warn: [ 'yellow', true ], error: [ 'red', true ] },
+    logger = new Transform();
+
+logger.write = function(name, level, args) {
+  var fn = console.log;
+  if(console[level] && console[level].apply) {
+    fn = console[level];
+    fn.apply(console, [ '%c'+name+' %c'+level, color('gray'), color.apply(color, colors[level])].concat(args));
+  }
+};
+
+// NOP, because piping the formatted logs can only cause trouble.
+logger.pipe = function() { };
+
+module.exports = logger;
+
+
+/***/ }),
+/* 502 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Transform = __webpack_require__(21),
+    color = __webpack_require__(254),
+    colors = { debug: ['gray'], info: ['purple' ], warn: [ 'yellow', true ], error: [ 'red', true ] },
+    logger = new Transform();
+
+logger.write = function(name, level, args) {
+  var fn = console.log;
+  if(level != 'debug' && console[level]) {
+    fn = console[level];
+  }
+
+  var subset = [], i = 0;
+  if(level != 'info') {
+    for(; i < args.length; i++) {
+      if(typeof args[i] != 'string') break;
+    }
+    fn.apply(console, [ '%c'+name +' '+ args.slice(0, i).join(' '), color.apply(color, colors[level]) ].concat(args.slice(i)));
+  } else {
+    fn.apply(console, [ '%c'+name, color.apply(color, colors[level]) ].concat(args));
+  }
+};
+
+// NOP, because piping the formatted logs can only cause trouble.
+logger.pipe = function() { };
+
+module.exports = logger;
+
+
+/***/ }),
+/* 503 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Transform = __webpack_require__(21);
+
+function Stringify() {}
+
+Transform.mixin(Stringify);
+
+Stringify.prototype.write = function(name, level, args) {
+  var result = [];
+  if(name) result.push(name);
+  if(level) result.push(level);
+  result = result.concat(args);
+  for(var i = 0; i < result.length; i++) {
+    if(result[i] && typeof result[i] == 'object') {
+      // Buffers in Node.js look bad when stringified
+      if(result[i].constructor && result[i].constructor.isBuffer) {
+        result[i] = result[i].toString();
+      } else {
+        try {
+          result[i] = JSON.stringify(result[i]);
+        } catch(stringifyError) {
+          // happens when an object has a circular structure
+          // do not throw an error, when printing, the toString() method of the object will be used
+        }
+      }
+    } else {
+      result[i] = result[i];
+    }
+  }
+  this.emit('item',  result.join(' ') + '\n');
+};
+
+module.exports = Stringify;
+
+
+/***/ }),
+/* 504 */
+/***/ (function(module, exports) {
+
+function RedisBackend(options) {
+  this.client = options.client;
+  this.key = options.key;
+}
+
+RedisBackend.prototype.write = function(str) {
+  this.client.rpush(this.key, str);
+};
+
+RedisBackend.prototype.end = function() {};
+
+RedisBackend.prototype.clear = function(cb) {
+  this.client.del(this.key, cb);
+};
+
+module.exports = RedisBackend;
+
+
+/***/ }),
+/* 505 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54250,15 +54849,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(34));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(28));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _microee = _interopRequireDefault(__webpack_require__(114));
+var _microee = _interopRequireDefault(__webpack_require__(112));
 
-var _lsAdapter = _interopRequireDefault(__webpack_require__(490));
+var _lsAdapter = _interopRequireDefault(__webpack_require__(506));
 
 /**
  * In memory key value storage.
@@ -54306,11 +54905,27 @@ var FlagStore = /*#__PURE__*/function () {
     key: "get",
     value: function get(name) {
       // eslint-disable-next-line no-prototype-builtins
-      if (!this.store.hasOwnProperty(name)) {
-        this.store[name] = null;
+      if (this.store.hasOwnProperty(name)) {
+        return this.store[name];
       }
 
-      return this.store[name];
+      if (typeof name === 'string') {
+        var nameElements = name.split('.');
+        var size = nameElements.length;
+
+        for (var idx = size - 1; idx > 0; idx--) {
+          var currentKey = nameElements.slice(0, idx).join('.'); // eslint-disable-next-line no-prototype-builtins
+
+          if (this.store.hasOwnProperty(currentKey)) {
+            return nameElements.slice(idx, size).reduce(function (previousValue, currentValue) {
+              // eslint-disable-next-line no-prototype-builtins
+              return previousValue && previousValue.hasOwnProperty(currentValue) ? previousValue[currentValue] : null;
+            }, this.store[currentKey]);
+          }
+        }
+      }
+
+      return null;
     }
   }, {
     key: "set",
@@ -54343,7 +54958,7 @@ var _default = FlagStore;
 exports.default = _default;
 
 /***/ }),
-/* 490 */
+/* 506 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54468,508 +55083,16 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 491 */
-/***/ (function(module, exports) {
-
-/**
- * The base implementation of methods like `_.findKey` and `_.findLastKey`,
- * without support for iteratee shorthands, which iterates over `collection`
- * using `eachFunc`.
- *
- * @private
- * @param {Array|Object} collection The collection to inspect.
- * @param {Function} predicate The function invoked per iteration.
- * @param {Function} eachFunc The function to iterate over `collection`.
- * @returns {*} Returns the found element or its key, else `undefined`.
- */
-function baseFindKey(collection, predicate, eachFunc) {
-  var result;
-  eachFunc(collection, function(value, key, collection) {
-    if (predicate(value, key, collection)) {
-      result = key;
-      return false;
-    }
-  });
-  return result;
-}
-
-module.exports = baseFindKey;
-
-
-/***/ }),
-/* 492 */
+/* 507 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// default filter
-var Transform = __webpack_require__(22);
-
-var levelMap = { debug: 1, info: 2, warn: 3, error: 4 };
-
-function Filter() {
-  this.enabled = true;
-  this.defaultResult = true;
-  this.clear();
-}
-
-Transform.mixin(Filter);
-
-// allow all matching, with level >= given level
-Filter.prototype.allow = function(name, level) {
-  this._white.push({ n: name, l: levelMap[level] });
-  return this;
-};
-
-// deny all matching, with level <= given level
-Filter.prototype.deny = function(name, level) {
-  this._black.push({ n: name, l: levelMap[level] });
-  return this;
-};
-
-Filter.prototype.clear = function() {
-  this._white = [];
-  this._black = [];
-  return this;
-};
-
-function test(rule, name) {
-  // use .test for RegExps
-  return (rule.n.test ? rule.n.test(name) : rule.n == name);
-};
-
-Filter.prototype.test = function(name, level) {
-  var i, len = Math.max(this._white.length, this._black.length);
-  for(i = 0; i < len; i++) {
-    if(this._white[i] && test(this._white[i], name) && levelMap[level] >= this._white[i].l) {
-      return true;
-    }
-    if(this._black[i] && test(this._black[i], name) && levelMap[level] <= this._black[i].l) {
-      return false;
-    }
-  }
-  return this.defaultResult;
-};
-
-Filter.prototype.write = function(name, level, args) {
-  if(!this.enabled || this.test(name, level)) {
-    return this.emit('item', name, level, args);
-  }
-};
-
-module.exports = Filter;
-
-
-/***/ }),
-/* 493 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Transform = __webpack_require__(22);
-
-function ConsoleBackend() { }
-
-Transform.mixin(ConsoleBackend);
-
-ConsoleBackend.prototype.write = function() {
-  console.log.apply(console, arguments);
-};
-
-var e = new ConsoleBackend();
-
-var levelMap = __webpack_require__(74).levelMap;
-
-e.filterEnv = function() {
-  console.error('Minilog.backends.console.filterEnv is deprecated in Minilog v2.');
-  // return the instance of Minilog
-  return __webpack_require__(252);
-};
-
-e.formatters = [
-    'formatClean', 'formatColor', 'formatNpm',
-    'formatLearnboost', 'formatMinilog', 'formatWithStack', 'formatTime'
-];
-
-e.formatClean = new (__webpack_require__(494));
-e.formatColor = new (__webpack_require__(495));
-e.formatNpm = new (__webpack_require__(496));
-e.formatLearnboost = new (__webpack_require__(497));
-e.formatMinilog = new (__webpack_require__(498));
-e.formatWithStack = new (__webpack_require__(499));
-e.formatTime = new (__webpack_require__(500));
-
-module.exports = e;
-
-
-/***/ }),
-/* 494 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Transform = __webpack_require__(22);
-
-function FormatClean() {}
-
-Transform.mixin(FormatClean);
-
-FormatClean.prototype.write = function(name, level, args) {
-  function pad(s) { return (s.toString().length == 1? '0'+s : s); }
-  this.emit('item', (name ? name + ' ' : '') + (level ? level + ' ' : '') + args.join(' '));
-};
-
-module.exports = FormatClean;
-
-
-/***/ }),
-/* 495 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Transform = __webpack_require__(22),
-    style = __webpack_require__(74).style;
-
-function FormatColor() {}
-
-Transform.mixin(FormatColor);
-
-FormatColor.prototype.write = function(name, level, args) {
-  var colors = { debug: 'magenta', info: 'cyan', warn: 'yellow', error: 'red' };
-  function pad(s) { return (s.toString().length == 4? ' '+s : s); }
-  this.emit('item', (name ? name + ' ' : '')
-          + (level ? style('- ' + pad(level.toUpperCase()) + ' -', colors[level]) + ' ' : '')
-          + args.join(' '));
-};
-
-module.exports = FormatColor;
-
-
-/***/ }),
-/* 496 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Transform = __webpack_require__(22);
-
-function FormatNpm() {}
-
-Transform.mixin(FormatNpm);
-
-FormatNpm.prototype.write = function(name, level, args) {
-  var out = {
-    debug: "\x1B[34;40m" + "debug" + "\x1B[39m ",
-    info: "\x1B[32m" + "info" + "\x1B[39m  ",
-    warn: "\x1B[30;41m" + "WARN" + "\x1B[0m  ",
-    error: "\x1B[31;40m" + "ERR!" + "\x1B[0m  "
-  };
-  this.emit(
-    "item",
-    (name ? "\x1B[37;40m" + name + "\x1B[0m " : "") +
-      (level && out[level] ? out[level] : "") +
-      args.join(" ")
-  );
-};
-
-module.exports = FormatNpm;
-
-
-/***/ }),
-/* 497 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Transform = __webpack_require__(22),
-    style = __webpack_require__(74).style;
-
-function FormatLearnboost() {}
-
-Transform.mixin(FormatLearnboost);
-
-FormatLearnboost.prototype.write = function(name, level, args) {
-  var colors = { debug: 'grey', info: 'cyan', warn: 'yellow', error: 'red' };
-  this.emit('item', (name ? style(name +' ', 'grey') : '')
-          + (level ? style(level, colors[level]) + ' ' : '')
-          + args.join(' '));
-};
-
-module.exports = FormatLearnboost;
-
-
-/***/ }),
-/* 498 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Transform = __webpack_require__(22),
-    style = __webpack_require__(74).style,
-    util = __webpack_require__(23);
-
-function FormatMinilog() {}
-
-Transform.mixin(FormatMinilog);
-
-FormatMinilog.prototype.write = function(name, level, args) {
-  var colors = { debug: 'blue', info: 'cyan', warn: 'yellow', error: 'red' };
-  this.emit('item', (name ? style(name +' ', 'grey') : '')
-            + (level ? style(level, colors[level]) + ' ' : '')
-            + args.map(function(item) {
-              return (typeof item == 'string' ? item : util.inspect(item, null, 3, true));
-            }).join(' '));
-};
-
-module.exports = FormatMinilog;
-
-
-/***/ }),
-/* 499 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Transform = __webpack_require__(22),
-    style = __webpack_require__(74).style;
-
-function FormatNpm() {}
-
-Transform.mixin(FormatNpm);
-
-function noop(a){
-  return a;
-}
-
-var types = {
-  string: noop,
-  number: noop,
-  default: JSON.stringify.bind(JSON)
-};
-
-function stringify(args) {
-  return args.map(function(arg) {
-    return (types[typeof arg] || types.default)(arg);
-  });
-}
-
-FormatNpm.prototype.write = function(name, level, args) {
-  var colors = { debug: 'magenta', info: 'cyan', warn: 'yellow', error: 'red' };
-  function pad(s) { return (s.toString().length == 4? ' '+s : s); }
-  function getStack() {
-    var orig = Error.prepareStackTrace;
-    Error.prepareStackTrace = function (err, stack) {
-      return stack;
-    };
-    var err = new Error;
-    Error.captureStackTrace(err, arguments.callee);
-    var stack = err.stack;
-    Error.prepareStackTrace = orig;
-    return stack;
-  }
-
-  var frame = getStack()[5],
-      fileName = FormatNpm.fullPath ? frame.getFileName() : frame.getFileName().replace(/^.*\/(.+)$/, '/$1');
-
-  this.emit('item', (name ? name + ' ' : '')
-          + (level ? style(pad(level), colors[level]) + ' ' : '')
-          + style(fileName + ":" + frame.getLineNumber(), 'grey')
-          + ' '
-          + stringify(args).join(' '));
-};
-
-FormatNpm.fullPath = true;
-
-module.exports = FormatNpm;
-
-
-
-/***/ }),
-/* 500 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Transform = __webpack_require__(22),
-    style = __webpack_require__(74).style,
-    util = __webpack_require__(23);
-
-function FormatTime() {}
-
-function timestamp() {
-  var d = new Date();
-  return ('0' + d.getDate()).slice(-2) + '-' +
-    ('0' + (d.getMonth() + 1)).slice(-2) + '-' +
-    d.getFullYear() + ' ' +
-    ('0' + d.getHours()).slice(-2) + ':' +
-    ('0' + d.getMinutes()).slice(-2) + ':' +
-    ('0' + d.getSeconds()).slice(-2) + '.' +
-    ('00' + d.getMilliseconds()).slice(-3);
-}
-
-Transform.mixin(FormatTime);
-
-FormatTime.prototype.write = function(name, level, args) {
-  var colors = { debug: 'blue', info: 'cyan', warn: 'yellow', error: 'red' };
-  this.emit('item', style(timestamp() +' ', 'grey')
-            + (name ? style(name +' ', 'grey') : '')
-            + (level ? style(level, colors[level]) + ' ' : '')
-            + args.map(function(item) {
-              return (typeof item == 'string' ? item : util.inspect(item, null, 3, true));
-            }).join(' '));
-};
-
-module.exports = FormatTime;
-
-
-/***/ }),
-/* 501 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Transform = __webpack_require__(22);
-
-var newlines = /\n+$/,
-    logger = new Transform();
-
-logger.write = function(name, level, args) {
-  var i = args.length-1;
-  if (typeof console === 'undefined' || !console.log) {
-    return;
-  }
-  if(console.log.apply) {
-    return console.log.apply(console, [name, level].concat(args));
-  } else if(JSON && JSON.stringify) {
-    // console.log.apply is undefined in IE8 and IE9
-    // for IE8/9: make console.log at least a bit less awful
-    if(args[i] && typeof args[i] == 'string') {
-      args[i] = args[i].replace(newlines, '');
-    }
-    try {
-      for(i = 0; i < args.length; i++) {
-        args[i] = JSON.stringify(args[i]);
-      }
-    } catch(e) {}
-    console.log(args.join(' '));
-  }
-};
-
-logger.formatters = ['color', 'minilog'];
-logger.color = __webpack_require__(502);
-logger.minilog = __webpack_require__(503);
-
-module.exports = logger;
-
-
-/***/ }),
-/* 502 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Transform = __webpack_require__(22),
-    color = __webpack_require__(253);
-
-var colors = { debug: ['cyan'], info: ['purple' ], warn: [ 'yellow', true ], error: [ 'red', true ] },
-    logger = new Transform();
-
-logger.write = function(name, level, args) {
-  var fn = console.log;
-  if(console[level] && console[level].apply) {
-    fn = console[level];
-    fn.apply(console, [ '%c'+name+' %c'+level, color('gray'), color.apply(color, colors[level])].concat(args));
-  }
-};
-
-// NOP, because piping the formatted logs can only cause trouble.
-logger.pipe = function() { };
-
-module.exports = logger;
-
-
-/***/ }),
-/* 503 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Transform = __webpack_require__(22),
-    color = __webpack_require__(253),
-    colors = { debug: ['gray'], info: ['purple' ], warn: [ 'yellow', true ], error: [ 'red', true ] },
-    logger = new Transform();
-
-logger.write = function(name, level, args) {
-  var fn = console.log;
-  if(level != 'debug' && console[level]) {
-    fn = console[level];
-  }
-
-  var subset = [], i = 0;
-  if(level != 'info') {
-    for(; i < args.length; i++) {
-      if(typeof args[i] != 'string') break;
-    }
-    fn.apply(console, [ '%c'+name +' '+ args.slice(0, i).join(' '), color.apply(color, colors[level]) ].concat(args.slice(i)));
-  } else {
-    fn.apply(console, [ '%c'+name, color.apply(color, colors[level]) ].concat(args));
-  }
-};
-
-// NOP, because piping the formatted logs can only cause trouble.
-logger.pipe = function() { };
-
-module.exports = logger;
-
-
-/***/ }),
-/* 504 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Transform = __webpack_require__(22);
-
-function Stringify() {}
-
-Transform.mixin(Stringify);
-
-Stringify.prototype.write = function(name, level, args) {
-  var result = [];
-  if(name) result.push(name);
-  if(level) result.push(level);
-  result = result.concat(args);
-  for(var i = 0; i < result.length; i++) {
-    if(result[i] && typeof result[i] == 'object') {
-      // Buffers in Node.js look bad when stringified
-      if(result[i].constructor && result[i].constructor.isBuffer) {
-        result[i] = result[i].toString();
-      } else {
-        try {
-          result[i] = JSON.stringify(result[i]);
-        } catch(stringifyError) {
-          // happens when an object has a circular structure
-          // do not throw an error, when printing, the toString() method of the object will be used
-        }
-      }
-    } else {
-      result[i] = result[i];
-    }
-  }
-  this.emit('item',  result.join(' ') + '\n');
-};
-
-module.exports = Stringify;
-
-
-/***/ }),
-/* 505 */
-/***/ (function(module, exports) {
-
-function RedisBackend(options) {
-  this.client = options.client;
-  this.key = options.key;
-}
-
-RedisBackend.prototype.write = function(str) {
-  this.client.rpush(this.key, str);
-};
-
-RedisBackend.prototype.end = function() {};
-
-RedisBackend.prototype.clear = function(cb) {
-  this.client.del(this.key, cb);
-};
-
-module.exports = RedisBackend;
-
-
-/***/ }),
-/* 506 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Stack = __webpack_require__(101),
-    assignMergeValue = __webpack_require__(255),
-    baseFor = __webpack_require__(216),
-    baseMergeDeep = __webpack_require__(507),
+var Stack = __webpack_require__(99),
+    assignMergeValue = __webpack_require__(256),
+    baseFor = __webpack_require__(217),
+    baseMergeDeep = __webpack_require__(508),
     isObject = __webpack_require__(29),
-    keysIn = __webpack_require__(88),
-    safeGet = __webpack_require__(256);
+    keysIn = __webpack_require__(87),
+    safeGet = __webpack_require__(257);
 
 /**
  * The base implementation of `_.merge` without support for multiple sources.
@@ -55008,24 +55131,24 @@ module.exports = baseMerge;
 
 
 /***/ }),
-/* 507 */
+/* 508 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assignMergeValue = __webpack_require__(255),
-    cloneBuffer = __webpack_require__(224),
-    cloneTypedArray = __webpack_require__(226),
-    copyArray = __webpack_require__(93),
-    initCloneObject = __webpack_require__(227),
-    isArguments = __webpack_require__(83),
+var assignMergeValue = __webpack_require__(256),
+    cloneBuffer = __webpack_require__(225),
+    cloneTypedArray = __webpack_require__(227),
+    copyArray = __webpack_require__(91),
+    initCloneObject = __webpack_require__(228),
+    isArguments = __webpack_require__(82),
     isArray = __webpack_require__(11),
-    isArrayLikeObject = __webpack_require__(113),
-    isBuffer = __webpack_require__(84),
-    isFunction = __webpack_require__(124),
+    isArrayLikeObject = __webpack_require__(111),
+    isBuffer = __webpack_require__(83),
+    isFunction = __webpack_require__(123),
     isObject = __webpack_require__(29),
-    isPlainObject = __webpack_require__(128),
-    isTypedArray = __webpack_require__(109),
-    safeGet = __webpack_require__(256),
-    toPlainObject = __webpack_require__(508);
+    isPlainObject = __webpack_require__(127),
+    isTypedArray = __webpack_require__(107),
+    safeGet = __webpack_require__(257),
+    toPlainObject = __webpack_require__(509);
 
 /**
  * A specialized version of `baseMerge` for arrays and objects which performs
@@ -55108,11 +55231,11 @@ module.exports = baseMergeDeep;
 
 
 /***/ }),
-/* 508 */
+/* 509 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(71),
-    keysIn = __webpack_require__(88);
+var copyObject = __webpack_require__(70),
+    keysIn = __webpack_require__(87);
 
 /**
  * Converts `value` to a plain object flattening inherited enumerable string
@@ -55146,11 +55269,11 @@ module.exports = toPlainObject;
 
 
 /***/ }),
-/* 509 */
+/* 510 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseRest = __webpack_require__(50),
-    isIterateeCall = __webpack_require__(153);
+var baseRest = __webpack_require__(51),
+    isIterateeCall = __webpack_require__(152);
 
 /**
  * Creates a function like `_.assign`.
@@ -55189,13 +55312,13 @@ module.exports = createAssigner;
 
 
 /***/ }),
-/* 510 */
+/* 511 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseClamp = __webpack_require__(511),
-    baseToString = __webpack_require__(141),
-    toInteger = __webpack_require__(145),
-    toString = __webpack_require__(60);
+var baseClamp = __webpack_require__(512),
+    baseToString = __webpack_require__(140),
+    toInteger = __webpack_require__(144),
+    toString = __webpack_require__(59);
 
 /**
  * Checks if `string` starts with the given target string.
@@ -55234,7 +55357,7 @@ module.exports = startsWith;
 
 
 /***/ }),
-/* 511 */
+/* 512 */
 /***/ (function(module, exports) {
 
 /**
@@ -55262,15 +55385,15 @@ module.exports = baseClamp;
 
 
 /***/ }),
-/* 512 */
+/* 513 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var stringify = __webpack_require__(513);
-var parse = __webpack_require__(514);
-var formats = __webpack_require__(257);
+var stringify = __webpack_require__(514);
+var parse = __webpack_require__(515);
+var formats = __webpack_require__(258);
 
 module.exports = {
     formats: formats,
@@ -55280,14 +55403,14 @@ module.exports = {
 
 
 /***/ }),
-/* 513 */
+/* 514 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(158);
-var formats = __webpack_require__(257);
+var utils = __webpack_require__(157);
+var formats = __webpack_require__(258);
 var has = Object.prototype.hasOwnProperty;
 
 var arrayPrefixGenerators = {
@@ -55558,13 +55681,13 @@ module.exports = function (object, opts) {
 
 
 /***/ }),
-/* 514 */
+/* 515 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(158);
+var utils = __webpack_require__(157);
 
 var has = Object.prototype.hasOwnProperty;
 var isArray = Array.isArray;
@@ -55822,7 +55945,7 @@ module.exports = function (str, opts) {
 
 
 /***/ }),
-/* 515 */
+/* 516 */
 /***/ (function(module, exports) {
 
 function _isNativeFunction(fn) {
@@ -55833,12 +55956,12 @@ module.exports = _isNativeFunction;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 516 */
+/* 517 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var setPrototypeOf = __webpack_require__(157);
+var setPrototypeOf = __webpack_require__(156);
 
-var isNativeReflectConstruct = __webpack_require__(517);
+var isNativeReflectConstruct = __webpack_require__(518);
 
 function _construct(Parent, args, Class) {
   if (isNativeReflectConstruct()) {
@@ -55864,7 +55987,7 @@ module.exports = _construct;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 517 */
+/* 518 */
 /***/ (function(module, exports) {
 
 function _isNativeReflectConstruct() {
@@ -55884,7 +56007,7 @@ module.exports = _isNativeReflectConstruct;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 518 */
+/* 519 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55897,7 +56020,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -55936,18 +56059,18 @@ var AppToken = /*#__PURE__*/function () {
 exports.default = AppToken;
 
 /***/ }),
-/* 519 */
+/* 520 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-let Mime = __webpack_require__(520);
-module.exports = new Mime(__webpack_require__(521));
+let Mime = __webpack_require__(521);
+module.exports = new Mime(__webpack_require__(522));
 
 
 /***/ }),
-/* 520 */
+/* 521 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56051,13 +56174,13 @@ module.exports = Mime;
 
 
 /***/ }),
-/* 521 */
+/* 522 */
 /***/ (function(module, exports) {
 
 module.exports = {"application/andrew-inset":["ez"],"application/applixware":["aw"],"application/atom+xml":["atom"],"application/atomcat+xml":["atomcat"],"application/atomdeleted+xml":["atomdeleted"],"application/atomsvc+xml":["atomsvc"],"application/atsc-dwd+xml":["dwd"],"application/atsc-held+xml":["held"],"application/atsc-rsat+xml":["rsat"],"application/bdoc":["bdoc"],"application/calendar+xml":["xcs"],"application/ccxml+xml":["ccxml"],"application/cdfx+xml":["cdfx"],"application/cdmi-capability":["cdmia"],"application/cdmi-container":["cdmic"],"application/cdmi-domain":["cdmid"],"application/cdmi-object":["cdmio"],"application/cdmi-queue":["cdmiq"],"application/cu-seeme":["cu"],"application/dash+xml":["mpd"],"application/davmount+xml":["davmount"],"application/docbook+xml":["dbk"],"application/dssc+der":["dssc"],"application/dssc+xml":["xdssc"],"application/ecmascript":["ecma","es"],"application/emma+xml":["emma"],"application/emotionml+xml":["emotionml"],"application/epub+zip":["epub"],"application/exi":["exi"],"application/fdt+xml":["fdt"],"application/font-tdpfr":["pfr"],"application/geo+json":["geojson"],"application/gml+xml":["gml"],"application/gpx+xml":["gpx"],"application/gxf":["gxf"],"application/gzip":["gz"],"application/hjson":["hjson"],"application/hyperstudio":["stk"],"application/inkml+xml":["ink","inkml"],"application/ipfix":["ipfix"],"application/its+xml":["its"],"application/java-archive":["jar","war","ear"],"application/java-serialized-object":["ser"],"application/java-vm":["class"],"application/javascript":["js","mjs"],"application/json":["json","map"],"application/json5":["json5"],"application/jsonml+json":["jsonml"],"application/ld+json":["jsonld"],"application/lgr+xml":["lgr"],"application/lost+xml":["lostxml"],"application/mac-binhex40":["hqx"],"application/mac-compactpro":["cpt"],"application/mads+xml":["mads"],"application/manifest+json":["webmanifest"],"application/marc":["mrc"],"application/marcxml+xml":["mrcx"],"application/mathematica":["ma","nb","mb"],"application/mathml+xml":["mathml"],"application/mbox":["mbox"],"application/mediaservercontrol+xml":["mscml"],"application/metalink+xml":["metalink"],"application/metalink4+xml":["meta4"],"application/mets+xml":["mets"],"application/mmt-aei+xml":["maei"],"application/mmt-usd+xml":["musd"],"application/mods+xml":["mods"],"application/mp21":["m21","mp21"],"application/mp4":["mp4s","m4p"],"application/mrb-consumer+xml":["*xdf"],"application/mrb-publish+xml":["*xdf"],"application/msword":["doc","dot"],"application/mxf":["mxf"],"application/n-quads":["nq"],"application/n-triples":["nt"],"application/node":["cjs"],"application/octet-stream":["bin","dms","lrf","mar","so","dist","distz","pkg","bpk","dump","elc","deploy","exe","dll","deb","dmg","iso","img","msi","msp","msm","buffer"],"application/oda":["oda"],"application/oebps-package+xml":["opf"],"application/ogg":["ogx"],"application/omdoc+xml":["omdoc"],"application/onenote":["onetoc","onetoc2","onetmp","onepkg"],"application/oxps":["oxps"],"application/p2p-overlay+xml":["relo"],"application/patch-ops-error+xml":["*xer"],"application/pdf":["pdf"],"application/pgp-encrypted":["pgp"],"application/pgp-signature":["asc","sig"],"application/pics-rules":["prf"],"application/pkcs10":["p10"],"application/pkcs7-mime":["p7m","p7c"],"application/pkcs7-signature":["p7s"],"application/pkcs8":["p8"],"application/pkix-attr-cert":["ac"],"application/pkix-cert":["cer"],"application/pkix-crl":["crl"],"application/pkix-pkipath":["pkipath"],"application/pkixcmp":["pki"],"application/pls+xml":["pls"],"application/postscript":["ai","eps","ps"],"application/provenance+xml":["provx"],"application/pskc+xml":["pskcxml"],"application/raml+yaml":["raml"],"application/rdf+xml":["rdf","owl"],"application/reginfo+xml":["rif"],"application/relax-ng-compact-syntax":["rnc"],"application/resource-lists+xml":["rl"],"application/resource-lists-diff+xml":["rld"],"application/rls-services+xml":["rs"],"application/route-apd+xml":["rapd"],"application/route-s-tsid+xml":["sls"],"application/route-usd+xml":["rusd"],"application/rpki-ghostbusters":["gbr"],"application/rpki-manifest":["mft"],"application/rpki-roa":["roa"],"application/rsd+xml":["rsd"],"application/rss+xml":["rss"],"application/rtf":["rtf"],"application/sbml+xml":["sbml"],"application/scvp-cv-request":["scq"],"application/scvp-cv-response":["scs"],"application/scvp-vp-request":["spq"],"application/scvp-vp-response":["spp"],"application/sdp":["sdp"],"application/senml+xml":["senmlx"],"application/sensml+xml":["sensmlx"],"application/set-payment-initiation":["setpay"],"application/set-registration-initiation":["setreg"],"application/shf+xml":["shf"],"application/sieve":["siv","sieve"],"application/smil+xml":["smi","smil"],"application/sparql-query":["rq"],"application/sparql-results+xml":["srx"],"application/srgs":["gram"],"application/srgs+xml":["grxml"],"application/sru+xml":["sru"],"application/ssdl+xml":["ssdl"],"application/ssml+xml":["ssml"],"application/swid+xml":["swidtag"],"application/tei+xml":["tei","teicorpus"],"application/thraud+xml":["tfi"],"application/timestamped-data":["tsd"],"application/toml":["toml"],"application/ttml+xml":["ttml"],"application/ubjson":["ubj"],"application/urc-ressheet+xml":["rsheet"],"application/urc-targetdesc+xml":["td"],"application/voicexml+xml":["vxml"],"application/wasm":["wasm"],"application/widget":["wgt"],"application/winhlp":["hlp"],"application/wsdl+xml":["wsdl"],"application/wspolicy+xml":["wspolicy"],"application/xaml+xml":["xaml"],"application/xcap-att+xml":["xav"],"application/xcap-caps+xml":["xca"],"application/xcap-diff+xml":["xdf"],"application/xcap-el+xml":["xel"],"application/xcap-error+xml":["xer"],"application/xcap-ns+xml":["xns"],"application/xenc+xml":["xenc"],"application/xhtml+xml":["xhtml","xht"],"application/xliff+xml":["xlf"],"application/xml":["xml","xsl","xsd","rng"],"application/xml-dtd":["dtd"],"application/xop+xml":["xop"],"application/xproc+xml":["xpl"],"application/xslt+xml":["*xsl","xslt"],"application/xspf+xml":["xspf"],"application/xv+xml":["mxml","xhvml","xvml","xvm"],"application/yang":["yang"],"application/yin+xml":["yin"],"application/zip":["zip"],"audio/3gpp":["*3gpp"],"audio/adpcm":["adp"],"audio/amr":["amr"],"audio/basic":["au","snd"],"audio/midi":["mid","midi","kar","rmi"],"audio/mobile-xmf":["mxmf"],"audio/mp3":["*mp3"],"audio/mp4":["m4a","mp4a"],"audio/mpeg":["mpga","mp2","mp2a","mp3","m2a","m3a"],"audio/ogg":["oga","ogg","spx","opus"],"audio/s3m":["s3m"],"audio/silk":["sil"],"audio/wav":["wav"],"audio/wave":["*wav"],"audio/webm":["weba"],"audio/xm":["xm"],"font/collection":["ttc"],"font/otf":["otf"],"font/ttf":["ttf"],"font/woff":["woff"],"font/woff2":["woff2"],"image/aces":["exr"],"image/apng":["apng"],"image/avif":["avif"],"image/bmp":["bmp"],"image/cgm":["cgm"],"image/dicom-rle":["drle"],"image/emf":["emf"],"image/fits":["fits"],"image/g3fax":["g3"],"image/gif":["gif"],"image/heic":["heic"],"image/heic-sequence":["heics"],"image/heif":["heif"],"image/heif-sequence":["heifs"],"image/hej2k":["hej2"],"image/hsj2":["hsj2"],"image/ief":["ief"],"image/jls":["jls"],"image/jp2":["jp2","jpg2"],"image/jpeg":["jpeg","jpg","jpe"],"image/jph":["jph"],"image/jphc":["jhc"],"image/jpm":["jpm"],"image/jpx":["jpx","jpf"],"image/jxr":["jxr"],"image/jxra":["jxra"],"image/jxrs":["jxrs"],"image/jxs":["jxs"],"image/jxsc":["jxsc"],"image/jxsi":["jxsi"],"image/jxss":["jxss"],"image/ktx":["ktx"],"image/ktx2":["ktx2"],"image/png":["png"],"image/sgi":["sgi"],"image/svg+xml":["svg","svgz"],"image/t38":["t38"],"image/tiff":["tif","tiff"],"image/tiff-fx":["tfx"],"image/webp":["webp"],"image/wmf":["wmf"],"message/disposition-notification":["disposition-notification"],"message/global":["u8msg"],"message/global-delivery-status":["u8dsn"],"message/global-disposition-notification":["u8mdn"],"message/global-headers":["u8hdr"],"message/rfc822":["eml","mime"],"model/3mf":["3mf"],"model/gltf+json":["gltf"],"model/gltf-binary":["glb"],"model/iges":["igs","iges"],"model/mesh":["msh","mesh","silo"],"model/mtl":["mtl"],"model/obj":["obj"],"model/stl":["stl"],"model/vrml":["wrl","vrml"],"model/x3d+binary":["*x3db","x3dbz"],"model/x3d+fastinfoset":["x3db"],"model/x3d+vrml":["*x3dv","x3dvz"],"model/x3d+xml":["x3d","x3dz"],"model/x3d-vrml":["x3dv"],"text/cache-manifest":["appcache","manifest"],"text/calendar":["ics","ifb"],"text/coffeescript":["coffee","litcoffee"],"text/css":["css"],"text/csv":["csv"],"text/html":["html","htm","shtml"],"text/jade":["jade"],"text/jsx":["jsx"],"text/less":["less"],"text/markdown":["markdown","md"],"text/mathml":["mml"],"text/mdx":["mdx"],"text/n3":["n3"],"text/plain":["txt","text","conf","def","list","log","in","ini"],"text/richtext":["rtx"],"text/rtf":["*rtf"],"text/sgml":["sgml","sgm"],"text/shex":["shex"],"text/slim":["slim","slm"],"text/spdx":["spdx"],"text/stylus":["stylus","styl"],"text/tab-separated-values":["tsv"],"text/troff":["t","tr","roff","man","me","ms"],"text/turtle":["ttl"],"text/uri-list":["uri","uris","urls"],"text/vcard":["vcard"],"text/vtt":["vtt"],"text/xml":["*xml"],"text/yaml":["yaml","yml"],"video/3gpp":["3gp","3gpp"],"video/3gpp2":["3g2"],"video/h261":["h261"],"video/h263":["h263"],"video/h264":["h264"],"video/iso.segment":["m4s"],"video/jpeg":["jpgv"],"video/jpm":["*jpm","jpgm"],"video/mj2":["mj2","mjp2"],"video/mp2t":["ts"],"video/mp4":["mp4","mp4v","mpg4"],"video/mpeg":["mpeg","mpg","mpe","m1v","m2v"],"video/ogg":["ogv"],"video/quicktime":["qt","mov"],"video/webm":["webm"]};
 
 /***/ }),
-/* 522 */
+/* 523 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -56082,11 +56205,11 @@ module.exports = baseHas;
 
 
 /***/ }),
-/* 523 */
+/* 524 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var basePickBy = __webpack_require__(260),
-    hasIn = __webpack_require__(212);
+var basePickBy = __webpack_require__(261),
+    hasIn = __webpack_require__(213);
 
 /**
  * The base implementation of `_.pick` without support for individual
@@ -56107,13 +56230,13 @@ module.exports = basePick;
 
 
 /***/ }),
-/* 524 */
+/* 525 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -56122,11 +56245,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.KONNECTORS_DOCTYPE = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -56134,15 +56257,15 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _pick = _interopRequireDefault(__webpack_require__(162));
+var _pick = _interopRequireDefault(__webpack_require__(161));
 
-var _AppCollection2 = _interopRequireDefault(__webpack_require__(247));
+var _AppCollection2 = _interopRequireDefault(__webpack_require__(248));
 
-var _TriggerCollection = _interopRequireWildcard(__webpack_require__(266));
+var _TriggerCollection = _interopRequireWildcard(__webpack_require__(267));
 
-var _DocumentCollection = __webpack_require__(21);
+var _DocumentCollection = __webpack_require__(19);
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 
@@ -56405,10 +56528,10 @@ var _default = KonnectorCollection;
 exports.default = _default;
 
 /***/ }),
-/* 525 */
+/* 526 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getPrototypeOf = __webpack_require__(7);
+var getPrototypeOf = __webpack_require__(6);
 
 function _superPropBase(object, property) {
   while (!Object.prototype.hasOwnProperty.call(object, property)) {
@@ -56423,13 +56546,13 @@ module.exports = _superPropBase;
 module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
-/* 526 */
+/* 527 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -56438,15 +56561,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.getSharingRules = exports.BITWARDEN_CIPHERS_DOCTYPE = exports.BITWARDEN_ORGANIZATIONS_DOCTYPE = exports.SHARING_DOCTYPE = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(43));
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(39));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -56454,15 +56577,15 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(21));
+var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(19));
 
-var _FileCollection = __webpack_require__(161);
+var _FileCollection = __webpack_require__(160);
 
-var _utils = __webpack_require__(44);
+var _utils = __webpack_require__(40);
 
-var _logger = _interopRequireDefault(__webpack_require__(57));
+var _logger = _interopRequireDefault(__webpack_require__(44));
 
 function _templateObject6() {
   var data = (0, _taggedTemplateLiteral2.default)(["/sharings/", "/recipients"]);
@@ -57113,13 +57236,13 @@ var _default = SharingCollection;
 exports.default = _default;
 
 /***/ }),
-/* 527 */
+/* 528 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -57132,15 +57255,15 @@ var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(38));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(42));
+var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(43));
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(43));
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(39));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -57148,15 +57271,15 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(21));
+var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(19));
 
-var _FileCollection = __webpack_require__(161);
+var _FileCollection = __webpack_require__(160);
 
-var _utils = __webpack_require__(44);
+var _utils = __webpack_require__(40);
 
-var _logger = _interopRequireDefault(__webpack_require__(57));
+var _logger = _interopRequireDefault(__webpack_require__(44));
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
@@ -57831,26 +57954,28 @@ var _default = PermissionCollection;
 exports.default = _default;
 
 /***/ }),
-/* 528 */
+/* 529 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.SETTINGS_DOCTYPE = void 0;
+exports.default = exports.normalizeSettings = exports.SETTINGS_DOCTYPE = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(39));
 
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -57858,24 +57983,54 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _DocumentCollection2 = _interopRequireDefault(__webpack_require__(21));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(19));
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var _logger = _interopRequireDefault(__webpack_require__(44));
+
+var _utils = __webpack_require__(40);
+
+function _templateObject() {
+  var data = (0, _taggedTemplateLiteral2.default)(["/data/", "/", ""]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
 var SETTINGS_DOCTYPE = 'io.cozy.settings';
+/**
+ * Normalizing a document for SettingsCollection context
+ *
+ * @param {object} doc - Document to normalize
+ * @returns {object} normalized document
+ */
+
+exports.SETTINGS_DOCTYPE = SETTINGS_DOCTYPE;
+
+var normalizeSettings = function normalizeSettings(doc) {
+  var normDoc = (0, _DocumentCollection2.normalizeDoc)(doc, SETTINGS_DOCTYPE);
+  return _objectSpread(_objectSpread({}, normDoc), normDoc.attributes);
+};
 /**
  * Implements `DocumentCollection` API to interact with the /settings endpoint of the stack
  */
 
-exports.SETTINGS_DOCTYPE = SETTINGS_DOCTYPE;
+
+exports.normalizeSettings = normalizeSettings;
 
 var SettingsCollection = /*#__PURE__*/function (_DocumentCollection) {
   (0, _inherits2.default)(SettingsCollection, _DocumentCollection);
@@ -57889,7 +58044,7 @@ var SettingsCollection = /*#__PURE__*/function (_DocumentCollection) {
   /**
    * async get - Calls a route on the /settings API
    *
-   * @param  {string} path The setting route to call, eg `instance` or `context`
+   * @param  {string} id The setting id to call, eg `io.cozy.settings.instance` for `instance` route or `io.cozy.settings.context` for `context`route
    * @returns {object} The response from the route
    */
 
@@ -57897,24 +58052,48 @@ var SettingsCollection = /*#__PURE__*/function (_DocumentCollection) {
   (0, _createClass2.default)(SettingsCollection, [{
     key: "get",
     value: function () {
-      var _get = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(path) {
-        var resp;
+      var _get = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(id) {
+        var _resp, path, resp;
+
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return this.stackClient.fetchJSON('GET', "/settings/".concat(path));
+                if (!(id === 'io.cozy.settings.bitwarden')) {
+                  _context.next = 5;
+                  break;
+                }
 
-              case 2:
-                resp = _context.sent;
+                _context.next = 3;
+                return this.stackClient.fetchJSON('GET', '/data/io.cozy.settings/io.cozy.settings.bitwarden');
+
+              case 3:
+                _resp = _context.sent;
                 return _context.abrupt("return", {
-                  data: _DocumentCollection2.default.normalizeDoctypeJsonApi(SETTINGS_DOCTYPE)(_objectSpread({
-                    id: "/settings/".concat(path)
-                  }, resp.data), resp)
+                  data: _DocumentCollection2.default.normalizeDoctypeJsonApi(SETTINGS_DOCTYPE)(_resp, _resp)
                 });
 
-              case 4:
+              case 5:
+                if (id.startsWith('io.cozy.settings.')) {
+                  path = id.substring(17);
+                } else {
+                  _logger.default.warn("Deprecated: in next versions of cozy-client, it will not be possible to query settings with an incomplete id\n\n- Q('io.cozy.settings').getById('instance')\n+ Q('io.cozy.settings').getById('io.cozy.settings.instance')");
+
+                  path = id;
+                }
+
+                _context.next = 8;
+                return this.stackClient.fetchJSON('GET', "/settings/".concat(path));
+
+              case 8:
+                resp = _context.sent;
+                return _context.abrupt("return", {
+                  data: normalizeSettings(_objectSpread({
+                    id: "/settings/".concat(path)
+                  }, resp.data))
+                });
+
+              case 10:
               case "end":
                 return _context.stop();
             }
@@ -57928,6 +58107,62 @@ var SettingsCollection = /*#__PURE__*/function (_DocumentCollection) {
 
       return get;
     }()
+    /**
+     * Updates a settings document
+     *
+     * @param {object} document - Document to update. Do not forget the _id attribute
+     */
+
+  }, {
+    key: "update",
+    value: function () {
+      var _update = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(document) {
+        var resp;
+        return _regenerator.default.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (!(document._id === 'io.cozy.settings.instance')) {
+                  _context2.next = 6;
+                  break;
+                }
+
+                _context2.next = 3;
+                return this.stackClient.fetchJSON('PUT', '/settings/instance', {
+                  data: document
+                });
+
+              case 3:
+                resp = _context2.sent;
+                _context2.next = 9;
+                break;
+
+              case 6:
+                _context2.next = 8;
+                return this.stackClient.fetchJSON('PUT', (0, _utils.uri)(_templateObject(), this.doctype, document._id), document);
+
+              case 8:
+                resp = _context2.sent;
+
+              case 9:
+                return _context2.abrupt("return", {
+                  data: normalizeSettings(resp.data)
+                });
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function update(_x2) {
+        return _update.apply(this, arguments);
+      }
+
+      return update;
+    }()
   }]);
   return SettingsCollection;
 }(_DocumentCollection2.default);
@@ -57937,7 +58172,7 @@ var _default = SettingsCollection;
 exports.default = _default;
 
 /***/ }),
-/* 529 */
+/* 530 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57950,13 +58185,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.NOTES_URL_DOCTYPE = exports.NOTES_DOCTYPE = void 0;
 
-var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(43));
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(39));
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -57964,15 +58199,15 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _DocumentCollection2 = _interopRequireDefault(__webpack_require__(21));
+var _DocumentCollection2 = _interopRequireDefault(__webpack_require__(19));
 
-var _utils = __webpack_require__(44);
+var _utils = __webpack_require__(40);
 
-var _NotesSchema = __webpack_require__(530);
+var _NotesSchema = __webpack_require__(531);
 
 function _templateObject2() {
   var data = (0, _taggedTemplateLiteral2.default)(["/notes/", "/open"]);
@@ -58230,7 +58465,7 @@ var _default = NotesCollection;
 exports.default = _default;
 
 /***/ }),
-/* 530 */
+/* 531 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58590,13 +58825,13 @@ var getDefaultSchema = function getDefaultSchema() {
 exports.getDefaultSchema = getDefaultSchema;
 
 /***/ }),
-/* 531 */
+/* 532 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -58605,13 +58840,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.OAUTH_CLIENTS_DOCTYPE = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(43));
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(39));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -58619,21 +58854,21 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _get2 = _interopRequireDefault(__webpack_require__(15));
+var _get2 = _interopRequireDefault(__webpack_require__(14));
 
-var _DocumentCollection2 = _interopRequireDefault(__webpack_require__(21));
+var _DocumentCollection2 = _interopRequireDefault(__webpack_require__(19));
 
-var _utils = __webpack_require__(44);
+var _utils = __webpack_require__(40);
 
-var querystring = _interopRequireWildcard(__webpack_require__(160));
+var querystring = _interopRequireWildcard(__webpack_require__(159));
 
-var _Collection = __webpack_require__(73);
+var _Collection = __webpack_require__(72);
 
-var _errors = __webpack_require__(56);
+var _errors = __webpack_require__(48);
 
 function _templateObject3() {
   var data = (0, _taggedTemplateLiteral2.default)(["/settings/clients/", ""]);
@@ -58926,7 +59161,7 @@ var _default = OAuthClientsCollection;
 exports.default = _default;
 
 /***/ }),
-/* 532 */
+/* 533 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58939,13 +59174,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.SHORTCUTS_DOCTYPE = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(43));
+var _taggedTemplateLiteral2 = _interopRequireDefault(__webpack_require__(39));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -58953,13 +59188,13 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _DocumentCollection2 = _interopRequireDefault(__webpack_require__(21));
+var _DocumentCollection2 = _interopRequireDefault(__webpack_require__(19));
 
-var _utils = __webpack_require__(44);
+var _utils = __webpack_require__(40);
 
-var _getIllegalCharacter = __webpack_require__(264);
+var _getIllegalCharacter = __webpack_require__(265);
 
 function _templateObject2() {
   var data = (0, _taggedTemplateLiteral2.default)(["/shortcuts/", ""]);
@@ -59120,13 +59355,13 @@ var _default = ShortcutsCollection;
 exports.default = _default;
 
 /***/ }),
-/* 533 */
+/* 534 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -59135,25 +59370,25 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = exports.CONTACTS_DOCTYPE = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _get2 = _interopRequireDefault(__webpack_require__(91));
+var _get2 = _interopRequireDefault(__webpack_require__(115));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(21));
+var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(19));
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 
@@ -59257,13 +59492,204 @@ var _default = ContactsCollection;
 exports.default = _default;
 
 /***/ }),
-/* 534 */
+/* 535 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.normalizeAppFromRegistry = exports.APPS_REGISTRY_DOCTYPE = void 0;
+
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(5));
+
+var _inherits2 = _interopRequireDefault(__webpack_require__(8));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
+
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
+
+var _DocumentCollection2 = _interopRequireWildcard(__webpack_require__(19));
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+var APPS_REGISTRY_DOCTYPE = 'io.cozy.apps_registry';
+exports.APPS_REGISTRY_DOCTYPE = APPS_REGISTRY_DOCTYPE;
+
+var normalizeAppFromRegistry = function normalizeAppFromRegistry(data, doctype) {
+  var _data$latest_version;
+
+  // The registry don't return a id, so we use the slug as id.
+  // Without id the document can't be stored in the cache.
+  var id = "".concat(data.type === 'webapp' ? 'io.cozy.apps' : 'io.cozy.konnectors', "/").concat(data.slug);
+
+  var attributes = _objectSpread(_objectSpread({}, data.attributes), (_data$latest_version = data.latest_version) === null || _data$latest_version === void 0 ? void 0 : _data$latest_version.manifest);
+
+  return _objectSpread({}, (0, _DocumentCollection2.normalizeDoc)(_objectSpread(_objectSpread({}, data), {}, {
+    attributes: attributes,
+    id: id,
+    _id: id
+  }), doctype));
+};
+/**
+ * Extends `DocumentCollection` API along with specific methods for `io.cozy.apps_registry`.
+ */
+
+
+exports.normalizeAppFromRegistry = normalizeAppFromRegistry;
+
+var AppsRegistryCollection = /*#__PURE__*/function (_DocumentCollection) {
+  (0, _inherits2.default)(AppsRegistryCollection, _DocumentCollection);
+
+  var _super = _createSuper(AppsRegistryCollection);
+
+  function AppsRegistryCollection(stackClient) {
+    var _this;
+
+    (0, _classCallCheck2.default)(this, AppsRegistryCollection);
+    _this = _super.call(this, APPS_REGISTRY_DOCTYPE, stackClient);
+    _this.endpoint = '/registry/';
+    return _this;
+  }
+  /**
+   * Fetches an app from the registry.
+   *
+   * @param  {string} slug - Slug of the app
+   * @returns {Promise<{data: object}>} JsonAPI response containing normalized document as data attribute
+   * @throws {FetchError}
+   */
+
+
+  (0, _createClass2.default)(AppsRegistryCollection, [{
+    key: "get",
+    value: function () {
+      var _get = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(slug) {
+        var _this2 = this;
+
+        var resp;
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.stackClient.fetchJSON('GET', "".concat(this.endpoint).concat(slug));
+
+              case 2:
+                resp = _context.sent;
+
+                if (!(slug === 'maintenance')) {
+                  _context.next = 5;
+                  break;
+                }
+
+                return _context.abrupt("return", {
+                  data: resp.map(function (data) {
+                    return normalizeAppFromRegistry(data, _this2.doctype);
+                  })
+                });
+
+              case 5:
+                return _context.abrupt("return", {
+                  data: normalizeAppFromRegistry(resp, this.doctype)
+                });
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function get(_x) {
+        return _get.apply(this, arguments);
+      }
+
+      return get;
+    }()
+  }, {
+    key: "create",
+    value: function () {
+      var _create = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                throw new Error('create() method is not available for AppsRegistryCollection');
+
+              case 1:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function create() {
+        return _create.apply(this, arguments);
+      }
+
+      return create;
+    }()
+  }, {
+    key: "destroy",
+    value: function () {
+      var _destroy = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                throw new Error('destroy() method is not available for AppsRegistryCollection');
+
+              case 1:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }));
+
+      function destroy() {
+        return _destroy.apply(this, arguments);
+      }
+
+      return destroy;
+    }()
+  }]);
+  return AppsRegistryCollection;
+}(_DocumentCollection2.default);
+
+var _default = AppsRegistryCollection;
+exports.default = _default;
+
+/***/ }),
+/* 536 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireWildcard = __webpack_require__(12);
 
 var _interopRequireDefault = __webpack_require__(0);
 
@@ -59272,13 +59698,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getIconURL = exports.default = exports._getIconURL = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _memoize = _interopRequireWildcard(__webpack_require__(535));
+var _types = __webpack_require__(250);
 
-var _types = __webpack_require__(249);
+var _memoize = _interopRequireWildcard(__webpack_require__(537));
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
@@ -59643,7 +60069,7 @@ var _default = (0, _memoize.default)(getIconURL, {
 exports.default = _default;
 
 /***/ }),
-/* 535 */
+/* 537 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59656,15 +60082,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.ErrorReturned = exports.default = void 0;
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(90));
+var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(89));
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 
@@ -59751,7 +60177,7 @@ var _default = memoize;
 exports.default = _default;
 
 /***/ }),
-/* 536 */
+/* 538 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59764,13 +60190,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.shouldXMLHTTPRequestBeUsed = exports.fetchWithXMLHttpRequest = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(34));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(28));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _memoize = _interopRequireDefault(__webpack_require__(211));
+var _memoize = _interopRequireDefault(__webpack_require__(212));
 
 var headersFromString = function headersFromString(headerString) {
   return new Headers(headerString.split('\r\n').map(function (x) {
@@ -59910,7 +60336,7 @@ var shouldXMLHTTPRequestBeUsed = function shouldXMLHTTPRequestBeUsed(method, pat
 exports.shouldXMLHTTPRequestBeUsed = shouldXMLHTTPRequestBeUsed;
 
 /***/ }),
-/* 537 */
+/* 539 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59923,33 +60349,151 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(90));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
-
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
-
-var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(42));
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _get2 = _interopRequireDefault(__webpack_require__(91));
+/**
+ * Caches promises while they are pending
+ * Serves to dedupe equal queries requested at the same time
+ */
+var PromiseCache = /*#__PURE__*/function () {
+  function PromiseCache() {
+    (0, _classCallCheck2.default)(this, PromiseCache);
+
+    /**
+     * Holds pending promises
+     *
+     * @type {Object.<string, Promise>}
+     */
+    this.pending = {};
+  }
+  /**
+   * Tries to find a pending promise corresponding to the result of keyFunc
+   * - If not found, promiseFunc is executed and the resulting promise is stored while it's pending
+   * - If found, it is immediately returned
+   *
+   * @template T
+   * @param  {function(): Promise<T>} promiseFunc - Not executed only if an "equal" promise is already pending.
+   * @param  {function(): string} keyFunc - Returns a key to find in cache to find a pending promise.
+   * @returns {Promise<T>}
+   */
+
+
+  (0, _createClass2.default)(PromiseCache, [{
+    key: "exec",
+    value: function () {
+      var _exec = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(promiseFunc, keyFunc) {
+        var key, already, prom, response;
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                key = keyFunc();
+                already = this.pending[key];
+
+                if (already) {
+                  prom = already;
+                } else {
+                  prom = promiseFunc();
+                  this.pending[key] = prom;
+                }
+
+                _context.prev = 3;
+                _context.next = 6;
+                return prom;
+
+              case 6:
+                response = _context.sent;
+                return _context.abrupt("return", response);
+
+              case 8:
+                _context.prev = 8;
+                this.pending[key] = null;
+                return _context.finish(8);
+
+              case 11:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[3,, 8, 11]]);
+      }));
+
+      function exec(_x, _x2) {
+        return _exec.apply(this, arguments);
+      }
+
+      return exec;
+    }()
+    /**
+     *
+     * @param {function(): string} keyFunc - Returns a key to find in cache to find a pending promise.
+     * @returns {Promise | null}
+     */
+
+  }, {
+    key: "get",
+    value: function get(keyFunc) {
+      var key = keyFunc();
+      var already = this.pending[key];
+      if (already) return already;
+      return null;
+    }
+  }]);
+  return PromiseCache;
+}();
+
+var _default = PromiseCache;
+exports.default = _default;
+
+/***/ }),
+/* 540 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(89));
+
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
+
+var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(43));
+
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
+
+var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _CozyStackClient2 = _interopRequireDefault(__webpack_require__(245));
+var _CozyStackClient2 = _interopRequireDefault(__webpack_require__(246));
 
-var _AccessToken = _interopRequireDefault(__webpack_require__(262));
+var _AccessToken = _interopRequireDefault(__webpack_require__(263));
 
-var _logDeprecate = _interopRequireDefault(__webpack_require__(267));
+var _logDeprecate = _interopRequireDefault(__webpack_require__(268));
+
+var _errors = _interopRequireDefault(__webpack_require__(48));
+
+var _logger = _interopRequireDefault(__webpack_require__(44));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -60680,7 +61224,7 @@ var OAuthClient = /*#__PURE__*/function (_CozyStackClient) {
     key: "refreshToken",
     value: function () {
       var _refreshToken = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee10() {
-        var data, result, newToken;
+        var data, result, newToken, revoked;
         return _regenerator.default.wrap(function _callee10$(_context10) {
           while (1) {
             switch (_context10.prev = _context10.next) {
@@ -60707,14 +61251,15 @@ var OAuthClient = /*#__PURE__*/function (_CozyStackClient) {
                   client_id: this.oauthOptions.clientID,
                   client_secret: this.oauthOptions.clientSecret
                 };
-                _context10.next = 7;
-                return (0, _get2.default)((0, _getPrototypeOf2.default)(OAuthClient.prototype), "fetchJSON", this).call(this, 'POST', '/auth/access_token', this.dataToQueryString(data), {
+                _context10.prev = 5;
+                _context10.next = 8;
+                return this.fetchJSONWithCurrentToken('POST', '/auth/access_token', this.dataToQueryString(data), {
                   headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                   }
                 });
 
-              case 7:
+              case 8:
                 result = _context10.sent;
                 newToken = new _AccessToken.default(_objectSpread({
                   refresh_token: this.token.refreshToken
@@ -60727,12 +61272,51 @@ var OAuthClient = /*#__PURE__*/function (_CozyStackClient) {
 
                 return _context10.abrupt("return", newToken);
 
-              case 12:
+              case 15:
+                _context10.prev = 15;
+                _context10.t0 = _context10["catch"](5);
+
+                if (!this.isRevocationError(_context10.t0)) {
+                  _context10.next = 21;
+                  break;
+                }
+
+                this.onRevocationChange(true);
+
+                _logger.default.warn('Client has been revoked. Please authenticate again.');
+
+                throw _context10.t0;
+
+              case 21:
+                if (!(_errors.default.EXPIRED_TOKEN.test(_context10.t0.message) || _errors.default.INVALID_TOKEN.test(_context10.t0.message) || _errors.default.INVALID_TOKEN_ALT.test(_context10.t0.message))) {
+                  _context10.next = 28;
+                  break;
+                }
+
+                _context10.next = 24;
+                return this.checkForRevocation();
+
+              case 24:
+                revoked = _context10.sent;
+
+                if (!revoked) {
+                  _context10.next = 28;
+                  break;
+                }
+
+                _logger.default.warn('Client has been revoked. Please authenticate again.');
+
+                throw _context10.t0;
+
+              case 28:
+                throw _context10.t0;
+
+              case 29:
               case "end":
                 return _context10.stop();
             }
           }
-        }, _callee10, this);
+        }, _callee10, this, [[5, 15]]);
       }));
 
       function refreshToken() {
@@ -60856,6 +61440,58 @@ var OAuthClient = /*#__PURE__*/function (_CozyStackClient) {
         }
       });
     }
+    /**
+     * Check if the OAuth client's has been revoked.
+     * If this is the case, call the onRevocationChange callback
+     *
+     * @async
+     * @returns {Promise<boolean>} A Promise that resolves to `false` if client is still valid, or `true` if it has been revoked.
+     */
+
+  }, {
+    key: "checkForRevocation",
+    value: function () {
+      var _checkForRevocation = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee11() {
+        return _regenerator.default.wrap(function _callee11$(_context11) {
+          while (1) {
+            switch (_context11.prev = _context11.next) {
+              case 0:
+                _context11.prev = 0;
+                _context11.next = 3;
+                return this.fetchInformation();
+
+              case 3:
+                return _context11.abrupt("return", false);
+
+              case 6:
+                _context11.prev = 6;
+                _context11.t0 = _context11["catch"](0);
+
+                if (!this.isRevocationError(_context11.t0)) {
+                  _context11.next = 11;
+                  break;
+                }
+
+                this.onRevocationChange(true);
+                return _context11.abrupt("return", true);
+
+              case 11:
+                return _context11.abrupt("return", false);
+
+              case 12:
+              case "end":
+                return _context11.stop();
+            }
+          }
+        }, _callee11, this, [[0, 6]]);
+      }));
+
+      function checkForRevocation() {
+        return _checkForRevocation.apply(this, arguments);
+      }
+
+      return checkForRevocation;
+    }()
   }]);
   return OAuthClient;
 }(_CozyStackClient2.default);
@@ -60883,12 +61519,12 @@ var _default = OAuthClient;
 exports.default = _default;
 
 /***/ }),
-/* 538 */
+/* 541 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var apply = __webpack_require__(132),
+var apply = __webpack_require__(131),
     arrayMap = __webpack_require__(32),
-    unzip = __webpack_require__(243);
+    unzip = __webpack_require__(244);
 
 /**
  * This method is like `_.unzip` except that it accepts `iteratee` to specify
@@ -60928,7 +61564,7 @@ module.exports = unzipWith;
 
 
 /***/ }),
-/* 539 */
+/* 542 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -60955,7 +61591,7 @@ thunk.withExtraArgument = createThunkMiddleware;
 /* harmony default export */ __webpack_exports__["default"] = (thunk);
 
 /***/ }),
-/* 540 */
+/* 543 */
 /***/ (function(module, exports) {
 
 /**
@@ -60983,10 +61619,10 @@ module.exports = arrayAggregator;
 
 
 /***/ }),
-/* 541 */
+/* 544 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseEach = __webpack_require__(112);
+var baseEach = __webpack_require__(110);
 
 /**
  * Aggregates elements of `collection` on `accumulator` with keys transformed
@@ -61010,13 +61646,13 @@ module.exports = baseAggregator;
 
 
 /***/ }),
-/* 542 */
+/* 545 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseDifference = __webpack_require__(543),
-    baseFlatten = __webpack_require__(111),
-    baseRest = __webpack_require__(50),
-    isArrayLikeObject = __webpack_require__(113);
+var baseDifference = __webpack_require__(546),
+    baseFlatten = __webpack_require__(109),
+    baseRest = __webpack_require__(51),
+    isArrayLikeObject = __webpack_require__(111);
 
 /**
  * Creates an array of `array` values not included in the other given arrays
@@ -61049,15 +61685,15 @@ module.exports = difference;
 
 
 /***/ }),
-/* 543 */
+/* 546 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var SetCache = __webpack_require__(106),
-    arrayIncludes = __webpack_require__(127),
-    arrayIncludesWith = __webpack_require__(156),
+var SetCache = __webpack_require__(104),
+    arrayIncludes = __webpack_require__(126),
+    arrayIncludesWith = __webpack_require__(155),
     arrayMap = __webpack_require__(32),
-    baseUnary = __webpack_require__(64),
-    cacheHas = __webpack_require__(107);
+    baseUnary = __webpack_require__(63),
+    cacheHas = __webpack_require__(105);
 
 /** Used as the size to enable large array optimizations. */
 var LARGE_ARRAY_SIZE = 200;
@@ -61122,10 +61758,10 @@ module.exports = baseDifference;
 
 
 /***/ }),
-/* 544 */
+/* 547 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseOrderBy = __webpack_require__(279),
+var baseOrderBy = __webpack_require__(280),
     isArray = __webpack_require__(11);
 
 /**
@@ -61175,7 +61811,7 @@ module.exports = orderBy;
 
 
 /***/ }),
-/* 545 */
+/* 548 */
 /***/ (function(module, exports) {
 
 /**
@@ -61202,10 +61838,10 @@ module.exports = baseSortBy;
 
 
 /***/ }),
-/* 546 */
+/* 549 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var compareAscending = __webpack_require__(547);
+var compareAscending = __webpack_require__(550);
 
 /**
  * Used by `_.orderBy` to compare multiple properties of a value to another
@@ -61252,10 +61888,10 @@ module.exports = compareMultiple;
 
 
 /***/ }),
-/* 547 */
+/* 550 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSymbol = __webpack_require__(77);
+var isSymbol = __webpack_require__(76);
 
 /**
  * Compares values to sort them in ascending order.
@@ -61299,7 +61935,7 @@ module.exports = compareAscending;
 
 
 /***/ }),
-/* 548 */
+/* 551 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -61893,10 +62529,10 @@ module.exports = compareAscending;
 
 
 /***/ }),
-/* 549 */
+/* 552 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseSet = __webpack_require__(261);
+var baseSet = __webpack_require__(262);
 
 /**
  * Sets the value at `path` of `object`. If a portion of `path` doesn't exist,
@@ -61934,7 +62570,7 @@ module.exports = set;
 
 
 /***/ }),
-/* 550 */
+/* 553 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61947,21 +62583,21 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
-var _get2 = _interopRequireDefault(__webpack_require__(91));
+var _get2 = _interopRequireDefault(__webpack_require__(115));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _HasMany2 = _interopRequireDefault(__webpack_require__(92));
+var _HasMany2 = _interopRequireDefault(__webpack_require__(90));
 
-var _dsl = __webpack_require__(14);
+var _dsl = __webpack_require__(13);
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 
@@ -62015,7 +62651,7 @@ var _default = HasManyTriggers;
 exports.default = _default;
 
 /***/ }),
-/* 551 */
+/* 554 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62026,29 +62662,27 @@ var _interopRequireDefault = __webpack_require__(0);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.rootCozyUrl = exports.InvalidCozyUrlError = exports.InvalidProtocolError = exports.InvalidRedirectLinkError = exports.deconstructRedirectLink = exports.deconstructCozyWebLinkWithSlug = exports.generateWebLink = exports.ensureFirstSlash = void 0;
+exports.rootCozyUrl = exports.InvalidCozyUrlError = exports.BlockedCozyError = exports.InvalidProtocolError = exports.InvalidRedirectLinkError = exports.deconstructRedirectLink = exports.deconstructCozyWebLinkWithSlug = exports.generateWebLink = exports.ensureFirstSlash = void 0;
 
 var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(38));
 
-var _toArray2 = _interopRequireDefault(__webpack_require__(241));
+var _toArray2 = _interopRequireDefault(__webpack_require__(242));
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(90));
+var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(89));
 
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(34));
-
-var _types = __webpack_require__(12);
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(28));
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 
@@ -62101,7 +62735,7 @@ var generateWebLink = function generateWebLink(_ref) {
   url.host = subDomainType === 'nested' ? "".concat(slug, ".").concat(url.host) : url.host.split('.').map(function (x, i) {
     return i === 0 ? x + '-' + slug : x;
   }).join('.');
-  url.pathname = pathname;
+  url.pathname = ensureFirstSlash(pathname);
   url.hash = ensureFirstSlash(hash);
 
   var _iterator = _createForOfIteratorHelper(searchParams),
@@ -62129,8 +62763,8 @@ var generateWebLink = function generateWebLink(_ref) {
  * The given link MUST contain a slug
  *
  * @param {string} webLink - link to deconstruct. It should be a link from a Cozy and containing a slug
- * @param {SubdomainType} [subDomainType=flat] - whether the cozy is using flat or nested subdomains.
- * @returns {CozyLinkData} Deconstructed link
+ * @param {import("../types").SubdomainType} [subDomainType=flat] - whether the cozy is using flat or nested subdomains.
+ * @returns {import("../types").CozyLinkData} Deconstructed link
  */
 
 
@@ -62162,7 +62796,7 @@ var isValidSlug = function isValidSlug(slug) {
  * Deconstruct the given redirect link in order to retrieve slug, pathname and hash
  *
  * @param {string} redirectLink - redirect link to deconstruct (i.e. 'drive/public/#/folder/SOME_ID')
- * @returns {RedirectLinkData} Deconstructed link
+ * @returns {import("../types").RedirectLinkData} Deconstructed link
  * @throws {InvalidRedirectLinkError} Thrown when redirect link is invalid
  */
 
@@ -62229,18 +62863,37 @@ var InvalidProtocolError = /*#__PURE__*/function (_Error2) {
 
 exports.InvalidProtocolError = InvalidProtocolError;
 
-var InvalidCozyUrlError = /*#__PURE__*/function (_Error3) {
-  (0, _inherits2.default)(InvalidCozyUrlError, _Error3);
+var BlockedCozyError = /*#__PURE__*/function (_Error3) {
+  (0, _inherits2.default)(BlockedCozyError, _Error3);
 
-  var _super3 = _createSuper(InvalidCozyUrlError);
+  var _super3 = _createSuper(BlockedCozyError);
 
-  function InvalidCozyUrlError(url) {
+  function BlockedCozyError(url) {
     var _this3;
 
-    (0, _classCallCheck2.default)(this, InvalidCozyUrlError);
-    _this3 = _super3.call(this, "URL ".concat(url.toString(), " does not seem to be a valid Cozy URL"));
+    (0, _classCallCheck2.default)(this, BlockedCozyError);
+    _this3 = _super3.call(this, "Blocked cozy ".concat(url.toString()));
     _this3.url = url;
     return _this3;
+  }
+
+  return BlockedCozyError;
+}( /*#__PURE__*/(0, _wrapNativeSuper2.default)(Error));
+
+exports.BlockedCozyError = BlockedCozyError;
+
+var InvalidCozyUrlError = /*#__PURE__*/function (_Error4) {
+  (0, _inherits2.default)(InvalidCozyUrlError, _Error4);
+
+  var _super4 = _createSuper(InvalidCozyUrlError);
+
+  function InvalidCozyUrlError(url) {
+    var _this4;
+
+    (0, _classCallCheck2.default)(this, InvalidCozyUrlError);
+    _this4 = _super4.call(this, "URL ".concat(url.toString(), " does not seem to be a valid Cozy URL"));
+    _this4.url = url;
+    return _this4;
   }
 
   return InvalidCozyUrlError;
@@ -62293,23 +62946,25 @@ var wellKnownUrl = function wellKnownUrl(url) {
  *   page accessible from the given origin so we suppose it's a valid Cozy
  *   origin (i.e. it could be another site altogether though)
  * - a 401 response status means the pointed page requires authentication so the
- *   origin is probably pointing to a Cozy app
+ *   origin is probably pointing to a cozy-app. In that case we should consider this
+ *   URL to be invalid
+ * - a 503 response status with a "Blocked" reason means the pointed page is a Cozy
+ *   but it is blocked. In that case we consider that the url is a valid Cozy origin
+ *   but we want the method to throw as we cannot verify if the URL points to the
+ *   Cozy's root or to a specifc slug. The caller is responsible to handle that exception
  * - another status means there aren't any Cozy behind to the given origin
  *
- * @param {object} url          Object of URL elements
- * @param {string} url.protocol Protocol to use in the origin (e.g. http)
- * @param {string} url.hostname Hostname to use in the origin (e.g. claude.mycozy.cloud)
- * @param {string} url.port     Port to use in the origin (e.g. 8080)
+ * @param {URL} url URL to validate
  *
  * @returns {Promise<boolean>} True if we believe there's a Cozy behind the given origin
  * @throws {InvalidCozyUrlError} Thrown when we know for sure there aren't any Cozy behind the given origin
+ * @throws {BlockedCozyError} Thrown when we know for sure there is Cozy behind the given origin but it is in a "Blocked" state
  */
 
 
 var isValidOrigin = /*#__PURE__*/function () {
   var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(url) {
-    var _yield$fetch, status;
-
+    var response, status, responseUri, wasRedirected;
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -62318,8 +62973,8 @@ var isValidOrigin = /*#__PURE__*/function () {
             return fetch(wellKnownUrl(url));
 
           case 2:
-            _yield$fetch = _context.sent;
-            status = _yield$fetch.status;
+            response = _context.sent;
+            status = response.status, responseUri = response.url;
 
             if (!(status === 404)) {
               _context.next = 6;
@@ -62329,9 +62984,22 @@ var isValidOrigin = /*#__PURE__*/function () {
             throw new InvalidCozyUrlError(url);
 
           case 6:
-            return _context.abrupt("return", status === 200);
+            _context.next = 8;
+            return isResponseAboutBlockedCozy(response);
 
-          case 7:
+          case 8:
+            if (!_context.sent) {
+              _context.next = 10;
+              break;
+            }
+
+            throw new BlockedCozyError(url);
+
+          case 10:
+            wasRedirected = url.origin !== new URL(responseUri).origin;
+            return _context.abrupt("return", status === 200 && !wasRedirected);
+
+          case 12:
           case "end":
             return _context.stop();
         }
@@ -62388,7 +63056,7 @@ var isValidOrigin = /*#__PURE__*/function () {
 
 var rootCozyUrl = /*#__PURE__*/function () {
   var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(url) {
-    var _url$hostname$split, _url$hostname$split2, subDomain, domain, _hostname, hostname;
+    var _url$hostname$split, _url$hostname$split2, subDomain, domain, _hostname, noSlugUrl, hostname, noSubUrl;
 
     return _regenerator.default.wrap(function _callee2$(_context2) {
       while (1) {
@@ -62411,62 +63079,60 @@ var rootCozyUrl = /*#__PURE__*/function () {
               break;
             }
 
-            return _context2.abrupt("return", url);
+            return _context2.abrupt("return", new URL(uri({
+              protocol: url.protocol,
+              hostname: url.hostname,
+              port: url.port
+            })));
 
           case 6:
             if (!/^[^.-][^.]+-[^.-]+\./.test(url.hostname)) {
-              _context2.next = 13;
+              _context2.next = 14;
               break;
             }
 
             _url$hostname$split = url.hostname.split('.'), _url$hostname$split2 = (0, _toArray2.default)(_url$hostname$split), subDomain = _url$hostname$split2[0], domain = _url$hostname$split2.slice(1);
             _hostname = [subDomain.replace(/-.+/, '')].concat((0, _toConsumableArray2.default)(domain)).join('.');
-            _context2.next = 11;
-            return isValidOrigin({
+            noSlugUrl = new URL(uri({
               protocol: url.protocol,
               hostname: _hostname,
               port: url.port
-            });
+            }));
+            _context2.next = 12;
+            return isValidOrigin(noSlugUrl);
 
-          case 11:
+          case 12:
             if (!_context2.sent) {
-              _context2.next = 13;
+              _context2.next = 14;
               break;
             }
 
-            return _context2.abrupt("return", new URL(uri({
-              protocol: url.protocol,
-              hostname: _hostname,
-              port: url.port
-            })));
+            return _context2.abrupt("return", noSlugUrl);
 
-          case 13:
+          case 14:
             // Try to remove the first sub-domain in case its a nested app name
             // eslint-disable-next-line no-unused-vars
             hostname = url.hostname.split('.').splice(1).join('.');
-            _context2.next = 16;
-            return isValidOrigin({
+            noSubUrl = new URL(uri({
               protocol: url.protocol,
               hostname: hostname,
               port: url.port
-            });
+            }));
+            _context2.next = 18;
+            return isValidOrigin(noSubUrl);
 
-          case 16:
+          case 18:
             if (!_context2.sent) {
-              _context2.next = 18;
+              _context2.next = 20;
               break;
             }
 
-            return _context2.abrupt("return", new URL(uri({
-              protocol: url.protocol,
-              hostname: hostname,
-              port: url.port
-            })));
+            return _context2.abrupt("return", noSubUrl);
 
-          case 18:
+          case 20:
             throw new InvalidCozyUrlError(url);
 
-          case 19:
+          case 21:
           case "end":
             return _context2.stop();
         }
@@ -62478,11 +63144,68 @@ var rootCozyUrl = /*#__PURE__*/function () {
     return _ref4.apply(this, arguments);
   };
 }();
+/**
+ * Check if the given response is about a Cozy being blocked
+ *
+ * @param {Response} response - Fetch API response
+ * @returns {Promise<boolean>} true if the response is about a Cozy being blocked, false otherwize
+ */
+
 
 exports.rootCozyUrl = rootCozyUrl;
 
+var isResponseAboutBlockedCozy = /*#__PURE__*/function () {
+  var _ref5 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(response) {
+    var _data$some;
+
+    var contentType, isJson, data;
+    return _regenerator.default.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            if (!(response.status !== 503)) {
+              _context3.next = 2;
+              break;
+            }
+
+            return _context3.abrupt("return", false);
+
+          case 2:
+            contentType = response.headers.get('content-type');
+            isJson = contentType && contentType.indexOf('json') >= 0;
+            _context3.next = 6;
+            return isJson ? response.json() : response.text();
+
+          case 6:
+            data = _context3.sent;
+
+            if (!(data !== null && data !== void 0 && (_data$some = data.some) !== null && _data$some !== void 0 && _data$some.call(data, function (reason) {
+              return reason.title === 'Blocked';
+            }))) {
+              _context3.next = 9;
+              break;
+            }
+
+            return _context3.abrupt("return", true);
+
+          case 9:
+            return _context3.abrupt("return", false);
+
+          case 10:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  }));
+
+  return function isResponseAboutBlockedCozy(_x3) {
+    return _ref5.apply(this, arguments);
+  };
+}();
+
 /***/ }),
-/* 552 */
+/* 555 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62495,7 +63218,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.dehydrate = void 0;
 
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(34));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(28));
 
 var _associations = __webpack_require__(116);
 
@@ -62524,7 +63247,7 @@ var dehydrate = function dehydrate(document) {
 exports.dehydrate = dehydrate;
 
 /***/ }),
-/* 553 */
+/* 556 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62537,20 +63260,18 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.authFunction = exports.authenticateWithCordova = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _const = __webpack_require__(48);
+var _const = __webpack_require__(49);
 
-var _cozyDeviceHelper = __webpack_require__(554);
-
-var _types = __webpack_require__(12);
+var _cozyDeviceHelper = __webpack_require__(285);
 
 /* global prompt */
 
 /**
- * @type {CordovaWindow}
+ * @type {import("../types").CordovaWindow}
  */
 // @ts-ignore
 var win = typeof window !== 'undefined' ? window : null;
@@ -62707,154 +63428,7 @@ var authFunction = authenticateWithCordova;
 exports.authFunction = authFunction;
 
 /***/ }),
-/* 554 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "checkApp", {
-  enumerable: true,
-  get: function get() {
-    return _apps.checkApp;
-  }
-});
-Object.defineProperty(exports, "getDeviceName", {
-  enumerable: true,
-  get: function get() {
-    return _device.getDeviceName;
-  }
-});
-Object.defineProperty(exports, "getFlagshipMetadata", {
-  enumerable: true,
-  get: function get() {
-    return _flagship.getFlagshipMetadata;
-  }
-});
-Object.defineProperty(exports, "getPlatform", {
-  enumerable: true,
-  get: function get() {
-    return _platform.getPlatform;
-  }
-});
-Object.defineProperty(exports, "hasDevicePlugin", {
-  enumerable: true,
-  get: function get() {
-    return _plugins.hasDevicePlugin;
-  }
-});
-Object.defineProperty(exports, "hasInAppBrowserPlugin", {
-  enumerable: true,
-  get: function get() {
-    return _plugins.hasInAppBrowserPlugin;
-  }
-});
-Object.defineProperty(exports, "hasNetworkInformationPlugin", {
-  enumerable: true,
-  get: function get() {
-    return _plugins.hasNetworkInformationPlugin;
-  }
-});
-Object.defineProperty(exports, "hasSafariPlugin", {
-  enumerable: true,
-  get: function get() {
-    return _plugins.hasSafariPlugin;
-  }
-});
-Object.defineProperty(exports, "isAndroid", {
-  enumerable: true,
-  get: function get() {
-    return _platform.isAndroid;
-  }
-});
-Object.defineProperty(exports, "isAndroidApp", {
-  enumerable: true,
-  get: function get() {
-    return _platform.isAndroidApp;
-  }
-});
-Object.defineProperty(exports, "isCordova", {
-  enumerable: true,
-  get: function get() {
-    return _cordova.isCordova;
-  }
-});
-Object.defineProperty(exports, "isFlagshipApp", {
-  enumerable: true,
-  get: function get() {
-    return _flagship.isFlagshipApp;
-  }
-});
-Object.defineProperty(exports, "isIOS", {
-  enumerable: true,
-  get: function get() {
-    return _platform.isIOS;
-  }
-});
-Object.defineProperty(exports, "isIOSApp", {
-  enumerable: true,
-  get: function get() {
-    return _platform.isIOSApp;
-  }
-});
-Object.defineProperty(exports, "isMobile", {
-  enumerable: true,
-  get: function get() {
-    return _platform.isMobile;
-  }
-});
-Object.defineProperty(exports, "isMobileApp", {
-  enumerable: true,
-  get: function get() {
-    return _platform.isMobileApp;
-  }
-});
-Object.defineProperty(exports, "isWebApp", {
-  enumerable: true,
-  get: function get() {
-    return _platform.isWebApp;
-  }
-});
-Object.defineProperty(exports, "nativeLinkOpen", {
-  enumerable: true,
-  get: function get() {
-    return _link.nativeLinkOpen;
-  }
-});
-Object.defineProperty(exports, "openDeeplinkOrRedirect", {
-  enumerable: true,
-  get: function get() {
-    return _deeplink.openDeeplinkOrRedirect;
-  }
-});
-Object.defineProperty(exports, "startApp", {
-  enumerable: true,
-  get: function get() {
-    return _apps.startApp;
-  }
-});
-
-var _platform = __webpack_require__(166);
-
-var _device = __webpack_require__(555);
-
-var _apps = __webpack_require__(561);
-
-var _plugins = __webpack_require__(168);
-
-var _cordova = __webpack_require__(118);
-
-var _link = __webpack_require__(562);
-
-var _deeplink = __webpack_require__(563);
-
-var _flagship = __webpack_require__(564);
-
-/***/ }),
-/* 555 */
+/* 557 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62867,7 +63441,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getDeviceName = void 0;
 
-var _capitalize = _interopRequireDefault(__webpack_require__(556));
+var _capitalize = _interopRequireDefault(__webpack_require__(558));
 
 var _cordova = __webpack_require__(118);
 
@@ -62911,11 +63485,11 @@ var getDeviceName = function getDeviceName() {
 exports.getDeviceName = getDeviceName;
 
 /***/ }),
-/* 556 */
+/* 558 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toString = __webpack_require__(60),
-    upperFirst = __webpack_require__(557);
+var toString = __webpack_require__(59),
+    upperFirst = __webpack_require__(559);
 
 /**
  * Converts the first character of `string` to upper case and the remaining
@@ -62940,10 +63514,10 @@ module.exports = capitalize;
 
 
 /***/ }),
-/* 557 */
+/* 559 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var createCaseFirst = __webpack_require__(558);
+var createCaseFirst = __webpack_require__(560);
 
 /**
  * Converts the first character of `string` to upper case.
@@ -62968,13 +63542,13 @@ module.exports = upperFirst;
 
 
 /***/ }),
-/* 558 */
+/* 560 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var castSlice = __webpack_require__(285),
+var castSlice = __webpack_require__(286),
     hasUnicode = __webpack_require__(167),
-    stringToArray = __webpack_require__(286),
-    toString = __webpack_require__(60);
+    stringToArray = __webpack_require__(287),
+    toString = __webpack_require__(59);
 
 /**
  * Creates a function like `_.lowerFirst`.
@@ -63007,7 +63581,7 @@ module.exports = createCaseFirst;
 
 
 /***/ }),
-/* 559 */
+/* 561 */
 /***/ (function(module, exports) {
 
 /**
@@ -63025,7 +63599,7 @@ module.exports = asciiToArray;
 
 
 /***/ }),
-/* 560 */
+/* 562 */
 /***/ (function(module, exports) {
 
 /** Used to compose unicode character classes. */
@@ -63071,7 +63645,7 @@ module.exports = unicodeToArray;
 
 
 /***/ }),
-/* 561 */
+/* 563 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63084,9 +63658,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.startApp = exports.default = exports.checkApp = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
 var _platform = __webpack_require__(166);
 
@@ -63224,7 +63798,7 @@ var _default = exported;
 exports.default = _default;
 
 /***/ }),
-/* 562 */
+/* 564 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63237,9 +63811,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.nativeLinkOpen = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
 var _plugins = __webpack_require__(168);
 
@@ -63308,7 +63882,7 @@ var nativeLinkOpen = /*#__PURE__*/function () {
 exports.nativeLinkOpen = nativeLinkOpen;
 
 /***/ }),
-/* 563 */
+/* 565 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63430,7 +64004,7 @@ var openDeeplinkOrRedirect = function openDeeplinkOrRedirect(deeplink, failCb) {
 exports.openDeeplinkOrRedirect = openDeeplinkOrRedirect;
 
 /***/ }),
-/* 564 */
+/* 566 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63443,7 +64017,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.isFlagshipApp = exports.getFlagshipMetadata = exports.FlagshipRoutes = void 0;
 
-var _cozyLogger = _interopRequireDefault(__webpack_require__(16));
+var _cozyLogger = _interopRequireDefault(__webpack_require__(15));
 
 var FlagshipRoutes;
 exports.FlagshipRoutes = FlagshipRoutes;
@@ -63477,7 +64051,7 @@ var isFlagshipApp = function isFlagshipApp() {
 exports.isFlagshipApp = isFlagshipApp;
 
 /***/ }),
-/* 565 */
+/* 567 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63490,19 +64064,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _mapValues = _interopRequireDefault(__webpack_require__(86));
+var _mapValues = _interopRequireDefault(__webpack_require__(85));
 
-var _groupBy2 = _interopRequireDefault(__webpack_require__(275));
+var _groupBy2 = _interopRequireDefault(__webpack_require__(276));
 
-var _flatten = _interopRequireDefault(__webpack_require__(143));
+var _flatten = _interopRequireDefault(__webpack_require__(142));
 
-var _isEqual = _interopRequireDefault(__webpack_require__(159));
+var _isEqual = _interopRequireDefault(__webpack_require__(158));
 
-var _uniq = _interopRequireDefault(__webpack_require__(115));
+var _uniq = _interopRequireDefault(__webpack_require__(114));
 
-var _uniqWith = _interopRequireDefault(__webpack_require__(566));
+var _uniqWith = _interopRequireDefault(__webpack_require__(568));
 
-var _dsl = __webpack_require__(14);
+var _dsl = __webpack_require__(13);
 
 var isIdQuery = function isIdQuery(query) {
   return query.id || query.ids;
@@ -63557,10 +64131,10 @@ var _default = optimizeQueries;
 exports.default = _default;
 
 /***/ }),
-/* 566 */
+/* 568 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseUniq = __webpack_require__(155);
+var baseUniq = __webpack_require__(154);
 
 /**
  * This method is like `_.uniq` except that it accepts `comparator` which
@@ -63591,7 +64165,7 @@ module.exports = uniqWith;
 
 
 /***/ }),
-/* 567 */
+/* 569 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63604,25 +64178,25 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _keyBy = _interopRequireDefault(__webpack_require__(273));
+var _keyBy = _interopRequireDefault(__webpack_require__(274));
 
-var _mapValues = _interopRequireDefault(__webpack_require__(86));
+var _mapValues = _interopRequireDefault(__webpack_require__(85));
 
-var _merge = _interopRequireDefault(__webpack_require__(75));
+var _merge = _interopRequireDefault(__webpack_require__(74));
 
-var _size = _interopRequireDefault(__webpack_require__(568));
+var _size = _interopRequireDefault(__webpack_require__(570));
 
-var _intersectionBy = _interopRequireDefault(__webpack_require__(572));
+var _intersectionBy = _interopRequireDefault(__webpack_require__(574));
 
 var _associations = __webpack_require__(116);
 
@@ -63909,14 +64483,14 @@ var _default = Schema;
 exports.default = _default;
 
 /***/ }),
-/* 568 */
+/* 570 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseKeys = __webpack_require__(125),
-    getTag = __webpack_require__(65),
+var baseKeys = __webpack_require__(124),
+    getTag = __webpack_require__(64),
     isArrayLike = __webpack_require__(45),
-    isString = __webpack_require__(129),
-    stringSize = __webpack_require__(569);
+    isString = __webpack_require__(128),
+    stringSize = __webpack_require__(571);
 
 /** `Object#toString` result references. */
 var mapTag = '[object Map]',
@@ -63961,12 +64535,12 @@ module.exports = size;
 
 
 /***/ }),
-/* 569 */
+/* 571 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var asciiSize = __webpack_require__(570),
+var asciiSize = __webpack_require__(572),
     hasUnicode = __webpack_require__(167),
-    unicodeSize = __webpack_require__(571);
+    unicodeSize = __webpack_require__(573);
 
 /**
  * Gets the number of symbols in `string`.
@@ -63985,10 +64559,10 @@ module.exports = stringSize;
 
 
 /***/ }),
-/* 570 */
+/* 572 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseProperty = __webpack_require__(142);
+var baseProperty = __webpack_require__(141);
 
 /**
  * Gets the size of an ASCII `string`.
@@ -64003,7 +64577,7 @@ module.exports = asciiSize;
 
 
 /***/ }),
-/* 571 */
+/* 573 */
 /***/ (function(module, exports) {
 
 /** Used to compose unicode character classes. */
@@ -64053,15 +64627,15 @@ module.exports = unicodeSize;
 
 
 /***/ }),
-/* 572 */
+/* 574 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayMap = __webpack_require__(32),
-    baseIntersection = __webpack_require__(277),
-    baseIteratee = __webpack_require__(36),
-    baseRest = __webpack_require__(50),
-    castArrayLikeObject = __webpack_require__(278),
-    last = __webpack_require__(233);
+    baseIntersection = __webpack_require__(278),
+    baseIteratee = __webpack_require__(35),
+    baseRest = __webpack_require__(51),
+    castArrayLikeObject = __webpack_require__(279),
+    last = __webpack_require__(234);
 
 /**
  * This method is like `_.intersection` except that it accepts `iteratee`
@@ -64104,7 +64678,7 @@ module.exports = intersectionBy;
 
 
 /***/ }),
-/* 573 */
+/* 575 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64117,15 +64691,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _get = _interopRequireDefault(__webpack_require__(15));
+var _get = _interopRequireDefault(__webpack_require__(14));
 
-var _store = __webpack_require__(76);
+var _store = __webpack_require__(75);
 
 /**
  * ObservableQueries are the glue between the store and observers
@@ -64303,7 +64877,7 @@ function shallowEqual(objA, objB) {
 }
 
 /***/ }),
-/* 574 */
+/* 576 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64320,9 +64894,9 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(8));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(9));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(7));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 
@@ -64349,10 +64923,10 @@ var CozyClient = /*#__PURE__*/function (_SnapshotObject) {
 exports.CozyClient = CozyClient;
 
 /***/ }),
-/* 575 */
+/* 577 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var json = typeof JSON !== 'undefined' ? JSON : __webpack_require__(576);
+var json = typeof JSON !== 'undefined' ? JSON : __webpack_require__(578);
 
 module.exports = function (obj, opts) {
     if (!opts) opts = {};
@@ -64439,15 +65013,15 @@ var objectKeys = Object.keys || function (obj) {
 
 
 /***/ }),
-/* 576 */
+/* 578 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports.parse = __webpack_require__(577);
-exports.stringify = __webpack_require__(578);
+exports.parse = __webpack_require__(579);
+exports.stringify = __webpack_require__(580);
 
 
 /***/ }),
-/* 577 */
+/* 579 */
 /***/ (function(module, exports) {
 
 var at, // The index of the current character
@@ -64726,7 +65300,7 @@ module.exports = function (source, reviver) {
 
 
 /***/ }),
-/* 578 */
+/* 580 */
 /***/ (function(module, exports) {
 
 var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
@@ -64886,7 +65460,7 @@ module.exports = function (value, replacer, space) {
 
 
 /***/ }),
-/* 579 */
+/* 581 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64899,11 +65473,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(3));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
@@ -65002,7 +65576,7 @@ var _default = PromiseCache;
 exports.default = _default;
 
 /***/ }),
-/* 580 */
+/* 582 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65015,17 +65589,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.certifyFlagship = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _CozyClient = _interopRequireDefault(__webpack_require__(41));
+var _CozyClient = _interopRequireDefault(__webpack_require__(37));
 
-var _logger = _interopRequireDefault(__webpack_require__(20));
-
-var _storeAttestation = __webpack_require__(581);
-
-var _typedefs = __webpack_require__(288);
+var _storeAttestation = __webpack_require__(583);
 
 /**
  * Request a challenge from the Stack that can be used to request the app attestation from the app store
@@ -65073,7 +65643,7 @@ var getStackChallenge = /*#__PURE__*/function () {
 /**
  * Give the app attestation to the Stack
  *
- * @param {AttestationResult} appAttestation - the app attestation that was returned by the app store
+ * @param {import("./typedefs").AttestationResult} appAttestation - the app attestation that was returned by the app store
  * @param {string} nonce - the Nonce string retrieved from the stack
  * @param {CozyClient} client - the CozyClient instance
  */
@@ -65126,7 +65696,7 @@ var giveAppAttestationToStack = /*#__PURE__*/function () {
  * Verify app's identity and integrity so the Stack can trust it
  * Verification is done on Stack side by using information from the app's store (Google Play or Apple AppStore)
  *
- * @param {CertificationConfig} certificationConfig - the required configuration to access the stores API
+ * @param {import("./typedefs").CertificationConfig} certificationConfig - the required configuration to access the stores API
  * @param {CozyClient} client - the CozyClient instance
  */
 
@@ -65167,10 +65737,8 @@ var certifyFlagship = /*#__PURE__*/function () {
           case 13:
             _context3.prev = 13;
             _context3.t0 = _context3["catch"](2);
-
-            _logger.default.warn('[FLAGSHIP_CERTIFICATION] Certification failed but the cozy-stack will continue with 2FA certification');
-
-            _logger.default.warn(_context3.t0.message);
+            console.warn("[FLAGSHIP_CERTIFICATION] Certification for URI \"".concat(client.stackClient.uri, "\" failed but the cozy-stack will continue with 2FA certification"));
+            console.warn(_context3.t0.message);
 
           case 17:
           case "end":
@@ -65188,7 +65756,7 @@ var certifyFlagship = /*#__PURE__*/function () {
 exports.certifyFlagship = certifyFlagship;
 
 /***/ }),
-/* 581 */
+/* 583 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65201,19 +65769,17 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getAppAttestationFromStore = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
-
-var _typedefs = __webpack_require__(288);
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
 /**
  * Retrieve the app's attestation from the app's store
  * /!\ This is a mock implementation that should never be called
  *
  * @param {string} nonce - the Nonce string retrieved from the stack
- * @param {CertificationConfig} certificationConfig - Configuration to access the stores certification API
- * @returns {Promise<AttestationResult>} the app's attestation
+ * @param {import("./typedefs").CertificationConfig} certificationConfig - Configuration to access the stores certification API
+ * @returns {Promise<import("./typedefs").AttestationResult>} the app's attestation
  */
 var validateAppMock = /*#__PURE__*/function () {
   var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(nonce, certificationConfig) {
@@ -65240,7 +65806,7 @@ var getAppAttestationFromStore = validateAppMock;
 exports.getAppAttestationFromStore = getAppAttestationFromStore;
 
 /***/ }),
-/* 582 */
+/* 584 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65251,7 +65817,7 @@ var _interopRequireDefault = __webpack_require__(0);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.hasQueryBeenLoaded = exports.isQueryLoading = exports.cancelable = void 0;
+exports.hasQueriesBeenLoaded = exports.isQueriesLoading = exports.hasQueryBeenLoaded = exports.isQueryLoading = exports.cancelable = void 0;
 
 var _logger = _interopRequireDefault(__webpack_require__(20));
 
@@ -65311,11 +65877,35 @@ exports.isQueryLoading = isQueryLoading;
 var hasQueryBeenLoaded = function hasQueryBeenLoaded(col) {
   return col.lastFetch;
 };
+/**
+ * Returns whether the result of queries are loading
+ */
+
 
 exports.hasQueryBeenLoaded = hasQueryBeenLoaded;
 
+var isQueriesLoading = function isQueriesLoading(queriesResults) {
+  return Object.values(queriesResults).some(function (queryResult) {
+    return isQueryLoading(queryResult);
+  });
+};
+/**
+ * Returns whether queries have been loaded at least once
+ */
+
+
+exports.isQueriesLoading = isQueriesLoading;
+
+var hasQueriesBeenLoaded = function hasQueriesBeenLoaded(queriesResults) {
+  return Object.values(queriesResults).some(function (queryResult) {
+    return hasQueryBeenLoaded(queryResult);
+  });
+};
+
+exports.hasQueriesBeenLoaded = hasQueriesBeenLoaded;
+
 /***/ }),
-/* 583 */
+/* 585 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65328,19 +65918,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createMockClient = void 0;
 
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(34));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(28));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(42));
+var _objectWithoutProperties2 = _interopRequireDefault(__webpack_require__(43));
 
-var _CozyClient = _interopRequireDefault(__webpack_require__(41));
+var _CozyClient = _interopRequireDefault(__webpack_require__(37));
 
-var _store = __webpack_require__(76);
+var _store = __webpack_require__(75);
 
-var _cozyStackClient = __webpack_require__(244);
+var _cozyStackClient = __webpack_require__(245);
 
-var _dsl = __webpack_require__(14);
+var _dsl = __webpack_require__(13);
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -65350,13 +65940,19 @@ var fillQueryInsideClient = function fillQueryInsideClient(client, queryName, qu
   var definition = queryOptions.definition,
       doctype = queryOptions.doctype,
       data = queryOptions.data,
-      queryResult = (0, _objectWithoutProperties2.default)(queryOptions, ["definition", "doctype", "data"]);
+      queryError = queryOptions.queryError,
+      queryResult = (0, _objectWithoutProperties2.default)(queryOptions, ["definition", "doctype", "data", "queryError"]);
   client.store.dispatch((0, _store.initQuery)(queryName, definition || (0, _dsl.Q)(doctype)));
-  client.store.dispatch((0, _store.receiveQueryResult)(queryName, _objectSpread({
-    data: data ? data.map(function (doc) {
-      return (0, _cozyStackClient.normalizeDoc)(doc, doctype);
-    }) : data
-  }, queryResult)));
+
+  if (queryError) {
+    client.store.dispatch((0, _store.receiveQueryError)(queryName, queryError));
+  } else {
+    client.store.dispatch((0, _store.receiveQueryResult)(queryName, _objectSpread({
+      data: data ? data.map(function (doc) {
+        return (0, _cozyStackClient.normalizeDoc)(doc, doctype);
+      }) : data
+    }, queryResult)));
+  }
 };
 
 var mockedQueryFromMockedRemoteData = function mockedQueryFromMockedRemoteData(remoteData) {
@@ -65417,7 +66013,7 @@ var createMockClient = function createMockClient(_ref) {
 exports.createMockClient = createMockClient;
 
 /***/ }),
-/* 584 */
+/* 586 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65430,25 +66026,25 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createClientInteractive = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _http = _interopRequireDefault(__webpack_require__(100));
+var _http = _interopRequireDefault(__webpack_require__(98));
 
-var _open = _interopRequireDefault(__webpack_require__(585));
+var _open = _interopRequireDefault(__webpack_require__(587));
 
 var _fs = _interopRequireDefault(__webpack_require__(47));
 
-var _merge = _interopRequireDefault(__webpack_require__(75));
+var _merge = _interopRequireDefault(__webpack_require__(74));
 
-var _serverDestroy = _interopRequireDefault(__webpack_require__(588));
+var _serverDestroy = _interopRequireDefault(__webpack_require__(590));
 
-var _CozyClient = _interopRequireDefault(__webpack_require__(41));
+var _CozyClient = _interopRequireDefault(__webpack_require__(37));
 
-var _cozyLogger = _interopRequireDefault(__webpack_require__(16));
+var _cozyLogger = _interopRequireDefault(__webpack_require__(15));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -65456,9 +66052,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 var log = _cozyLogger.default.namespace('create-cli-client');
 
-var nodeFetch = __webpack_require__(171);
+var nodeFetch = __webpack_require__(172);
 
-var btoa = __webpack_require__(589);
+var btoa = __webpack_require__(591);
 /**
  * Creates and starts and HTTP server suitable for OAuth authentication
  *
@@ -65750,19 +66346,19 @@ if (__webpack_require__.c[__webpack_require__.s] === module) {
     process.exit(1);
   });
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(39)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(41)(module)))
 
 /***/ }),
-/* 585 */
+/* 587 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(__dirname) {
-const {promisify} = __webpack_require__(23);
-const path = __webpack_require__(51);
-const childProcess = __webpack_require__(586);
+const {promisify} = __webpack_require__(22);
+const path = __webpack_require__(52);
+const childProcess = __webpack_require__(588);
 const fs = __webpack_require__(47);
-const isWsl = __webpack_require__(587);
+const isWsl = __webpack_require__(589);
 const isDocker = __webpack_require__(290);
 
 const pAccess = promisify(fs.access);
@@ -65956,18 +66552,18 @@ module.exports = async (target, options) => {
 /* WEBPACK VAR INJECTION */}.call(this, "/"))
 
 /***/ }),
-/* 586 */
+/* 588 */
 /***/ (function(module, exports) {
 
 module.exports = require("child_process");
 
 /***/ }),
-/* 587 */
+/* 589 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-const os = __webpack_require__(174);
+const os = __webpack_require__(175);
 const fs = __webpack_require__(47);
 const isDocker = __webpack_require__(290);
 
@@ -66000,7 +66596,7 @@ if (process.env.__IS_WSL_TEST__) {
 
 
 /***/ }),
-/* 588 */
+/* 590 */
 /***/ (function(module, exports) {
 
 module.exports = enableDestroy;
@@ -66025,7 +66621,7 @@ function enableDestroy(server) {
 
 
 /***/ }),
-/* 589 */
+/* 591 */
 /***/ (function(module, exports) {
 
 (function () {
@@ -66048,28 +66644,28 @@ function enableDestroy(server) {
 
 
 /***/ }),
-/* 590 */
+/* 592 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireWildcard = __webpack_require__(13);
+var _interopRequireWildcard = __webpack_require__(12);
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.paper = exports.doctypes = exports.dacc = exports.sharing = exports.timeseries = exports.document = exports.contact = exports.utils = exports.permission = exports.note = exports.account = exports.folder = exports.file = exports.applications = exports.instance = exports.trigger = exports.accounts = exports.triggers = void 0;
+exports.geo = exports.user = exports.paper = exports.dacc = exports.sharing = exports.timeseries = exports.document = exports.contact = exports.utils = exports.permission = exports.note = exports.account = exports.konnectorFolder = exports.folder = exports.file = exports.applications = exports.instance = exports.trigger = exports.accounts = exports.triggers = void 0;
 
-var trigger = _interopRequireWildcard(__webpack_require__(591));
+var trigger = _interopRequireWildcard(__webpack_require__(593));
 
 exports.trigger = trigger;
 
-var instance = _interopRequireWildcard(__webpack_require__(592));
+var instance = _interopRequireWildcard(__webpack_require__(291));
 
 exports.instance = instance;
 
-var applications = _interopRequireWildcard(__webpack_require__(593));
+var applications = _interopRequireWildcard(__webpack_require__(594));
 
 exports.applications = applications;
 
@@ -66077,53 +66673,61 @@ var file = _interopRequireWildcard(__webpack_require__(292));
 
 exports.file = file;
 
-var folder = _interopRequireWildcard(__webpack_require__(597));
+var folder = _interopRequireWildcard(__webpack_require__(293));
 
 exports.folder = folder;
 
-var account = _interopRequireWildcard(__webpack_require__(291));
+var konnectorFolder = _interopRequireWildcard(__webpack_require__(599));
+
+exports.konnectorFolder = konnectorFolder;
+
+var account = _interopRequireWildcard(__webpack_require__(169));
 
 exports.account = account;
 
-var note = _interopRequireWildcard(__webpack_require__(599));
+var note = _interopRequireWildcard(__webpack_require__(646));
 
 exports.note = note;
 
-var permission = _interopRequireWildcard(__webpack_require__(600));
+var permission = _interopRequireWildcard(__webpack_require__(647));
 
 exports.permission = permission;
 
-var utils = _interopRequireWildcard(__webpack_require__(601));
+var utils = _interopRequireWildcard(__webpack_require__(648));
 
 exports.utils = utils;
 
-var contact = _interopRequireWildcard(__webpack_require__(602));
+var contact = _interopRequireWildcard(__webpack_require__(649));
 
 exports.contact = contact;
 
-var document = _interopRequireWildcard(__webpack_require__(604));
+var document = _interopRequireWildcard(__webpack_require__(651));
 
 exports.document = document;
 
-var timeseries = _interopRequireWildcard(__webpack_require__(654));
+var timeseries = _interopRequireWildcard(__webpack_require__(653));
 
 exports.timeseries = timeseries;
 
-var sharing = _interopRequireWildcard(__webpack_require__(655));
+var sharing = _interopRequireWildcard(__webpack_require__(654));
 
 exports.sharing = sharing;
 
-var dacc = _interopRequireWildcard(__webpack_require__(656));
+var dacc = _interopRequireWildcard(__webpack_require__(655));
 
 exports.dacc = dacc;
 
-var doctypes = _interopRequireWildcard(__webpack_require__(657));
-
-exports.doctypes = doctypes;
-
-var paper = _interopRequireWildcard(__webpack_require__(661));
+var paper = _interopRequireWildcard(__webpack_require__(656));
 
 exports.paper = paper;
+
+var user = _interopRequireWildcard(__webpack_require__(658));
+
+exports.user = user;
+
+var geo = _interopRequireWildcard(__webpack_require__(661));
+
+exports.geo = geo;
 // For backward compatibility before 9.0.0
 var triggers = trigger;
 exports.triggers = triggers;
@@ -66131,7 +66735,7 @@ var accounts = account;
 exports.accounts = accounts;
 
 /***/ }),
-/* 591 */
+/* 593 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66146,7 +66750,7 @@ exports.triggers = exports.triggerStates = void 0;
 
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _account = __webpack_require__(291);
+var _account = __webpack_require__(169);
 
 var _logger = _interopRequireDefault(__webpack_require__(20));
 
@@ -66233,6 +66837,9 @@ var triggers = {
   isKonnectorWorker: function isKonnectorWorker(trigger) {
     return trigger.worker === 'konnector';
   },
+  isKonnector: function isKonnector(trigger) {
+    return trigger.worker === 'konnector' || trigger.worker === 'client';
+  },
 
   /**
    * Returns the konnector slug that executed a trigger
@@ -66242,7 +66849,7 @@ var triggers = {
    * @returns {string|void} A konnector slug
    */
   getKonnector: function getKonnector(trigger) {
-    if (!triggers.isKonnectorWorker(trigger)) {
+    if (!triggers.isKonnector(trigger)) {
       return null;
     }
 
@@ -66350,109 +66957,7 @@ var triggers = {
 exports.triggers = triggers;
 
 /***/ }),
-/* 592 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(0);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.buildPremiumLink = exports.hasAnOffer = exports.shouldDisplayOffers = exports.getUuid = exports.isFreemiumUser = exports.arePremiumLinksEnabled = exports.isSelfHosted = void 0;
-
-var _get = _interopRequireDefault(__webpack_require__(15));
-
-var GB = 1000 * 1000 * 1000;
-var PREMIUM_QUOTA = 50 * GB;
-/**
- * @typedef {object} InstanceInfo
- * @typedef {object} ContextInfo
- * @typedef {object} DiskUsageInfo
- */
-
-/**
- * @typedef SettingsInfo
- * @property {ContextInfo} context - Object returned by /settings/context
- * @property {InstanceInfo} instance - Object returned by /settings/instance
- * @property {DiskUsageInfo} diskUsage - Object returned by /settings/disk-usage
- */
-// If manager URL is present, then the instance is not self-hosted
-
-var isSelfHosted = function isSelfHosted(instanceInfo) {
-  return (0, _get.default)(instanceInfo, 'context.data.attributes.manager_url') ? false : true;
-};
-
-exports.isSelfHosted = isSelfHosted;
-
-var arePremiumLinksEnabled = function arePremiumLinksEnabled(instanceInfo) {
-  return (0, _get.default)(instanceInfo, 'context.data.attributes.enable_premium_links') ? true : false;
-};
-
-exports.arePremiumLinksEnabled = arePremiumLinksEnabled;
-
-var isFreemiumUser = function isFreemiumUser(instanceInfo) {
-  var quota = (0, _get.default)(instanceInfo, 'diskUsage.data.attributes.quota', false);
-  return parseInt(quota) <= PREMIUM_QUOTA;
-};
-
-exports.isFreemiumUser = isFreemiumUser;
-
-var getUuid = function getUuid(instanceInfo) {
-  return (0, _get.default)(instanceInfo, 'instance.data.attributes.uuid');
-};
-/**
- * Returns whether an instance is concerned by our offers
- *
- * @param {SettingsInfo} data Object containing all the results from /settings/*
- * @returns {boolean} Should we display offers
- */
-
-
-exports.getUuid = getUuid;
-
-var shouldDisplayOffers = function shouldDisplayOffers(data) {
-  return !isSelfHosted(data) && arePremiumLinksEnabled(data) && getUuid(data) && isFreemiumUser(data);
-};
-/**
- * Returns if an instance has subscribed to one of our offers
- *
- * @param {SettingsInfo} data Object containing all the results from /settings/*
- * @returns {boolean} Does the cozy have offers
- */
-
-
-exports.shouldDisplayOffers = shouldDisplayOffers;
-
-var hasAnOffer = function hasAnOffer(data) {
-  return !isSelfHosted(data) && arePremiumLinksEnabled(data) && getUuid(data) && !isFreemiumUser(data);
-};
-/**
- * Returns the link to the Premium page on the Cozy's Manager
- *
- * @param {InstanceInfo} instanceInfo - Instance information
- */
-
-
-exports.hasAnOffer = hasAnOffer;
-
-var buildPremiumLink = function buildPremiumLink(instanceInfo) {
-  var managerUrl = (0, _get.default)(instanceInfo, 'context.data.attributes.manager_url', false);
-  var uuid = getUuid(instanceInfo);
-
-  if (managerUrl && uuid) {
-    return "".concat(managerUrl, "/cozy/instances/").concat(uuid, "/premium");
-  } else {
-    return null;
-  }
-};
-
-exports.buildPremiumLink = buildPremiumLink;
-
-/***/ }),
-/* 593 */
+/* 594 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66465,7 +66970,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getAppDisplayName = exports.getUrl = exports.isInstalled = exports.getStoreInstallationURL = exports.getStoreURL = void 0;
 
-var _get = _interopRequireDefault(__webpack_require__(15));
+var _get = _interopRequireDefault(__webpack_require__(14));
 
 var STORE_SLUG = 'store';
 /**
@@ -66567,15 +67072,15 @@ var getAppDisplayName = function getAppDisplayName(app, lang) {
 exports.getAppDisplayName = getAppDisplayName;
 
 /***/ }),
-/* 594 */
+/* 595 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseToString = __webpack_require__(141),
-    castSlice = __webpack_require__(285),
-    charsEndIndex = __webpack_require__(595),
-    stringToArray = __webpack_require__(286),
-    toString = __webpack_require__(60),
-    trimmedEndIndex = __webpack_require__(221);
+var baseToString = __webpack_require__(140),
+    castSlice = __webpack_require__(286),
+    charsEndIndex = __webpack_require__(596),
+    stringToArray = __webpack_require__(287),
+    toString = __webpack_require__(59),
+    trimmedEndIndex = __webpack_require__(222);
 
 /**
  * Removes trailing whitespace or specified characters from `string`.
@@ -66614,10 +67119,10 @@ module.exports = trimEnd;
 
 
 /***/ }),
-/* 595 */
+/* 596 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIndexOf = __webpack_require__(183);
+var baseIndexOf = __webpack_require__(184);
 
 /**
  * Used by `_.trim` and `_.trimEnd` to get the index of the last string symbol
@@ -66639,230 +67144,19 @@ module.exports = charsEndIndex;
 
 
 /***/ }),
-/* 596 */
+/* 597 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"qualifications\":[{\"label\":\"identity_photo\",\"purpose\":\"attestation\",\"subjects\":[\"identity\"]},{\"label\":\"national_id_card\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"identity\"]},{\"label\":\"passport\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"identity\"]},{\"label\":\"residence_permit\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"immigration\",\"subjects\":[\"permit\",\"identity\"]},{\"label\":\"family_record_book\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"family\"]},{\"label\":\"birth_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"identity\",\"family\"]},{\"label\":\"driver_license\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"transport\",\"subjects\":[\"permit\",\"driving\"]},{\"label\":\"other_identity_document\",\"purpose\":\"attestation\",\"subjects\":[\"identity\"]},{\"label\":\"wedding\",\"purpose\":\"contract\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"family\"]},{\"label\":\"pacs\",\"purpose\":\"contract\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"family\"]},{\"label\":\"divorce\",\"purpose\":\"contract\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"family\"]},{\"label\":\"large_family_card\",\"purpose\":\"attestation\",\"sourceCategory\":\"transport\",\"subjects\":[\"right\"]},{\"label\":\"caf\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"family\",\"subjects\":[\"right\"]},{\"label\":\"other_family_document\",\"subjects\":[\"family\"]},{\"label\":\"diploma\",\"purpose\":\"attestation\",\"sourceCategory\":\"education\",\"subjects\":[\"achievement\"]},{\"label\":\"work_contract\",\"purpose\":\"contract\",\"sourceCategory\":\"employer\",\"subjects\":[\"work\",\"employment\"]},{\"label\":\"pay_sheet\",\"purpose\":\"attestation\",\"sourceCategory\":\"employer\",\"subjects\":[\"work\",\"revenues\"]},{\"label\":\"fidelity_card\",\"sourceCategory\":\"shopping\"},{\"label\":\"library_card\",\"sourceCategory\":\"individual\"},{\"label\":\"single_parent_benefit\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"family\",\"subjects\":[\"revenues\"]},{\"label\":\"transport_card\",\"sourceCategory\":\"transport\",\"subjects\":[\"vehicule\"]},{\"label\":\"electoral_card\",\"sourceCategory\":\"gov\"},{\"label\":\"employment_center_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"subjects\":[\"employment\"]},{\"label\":\"unemployment_benefit\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"subjects\":[\"revenues\"]},{\"label\":\"pension\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"subjects\":[\"revenues\"]},{\"label\":\"other_revenue\",\"purpose\":\"attestation\",\"subjects\":[\"revenues\"]},{\"label\":\"gradebook\",\"purpose\":\"report\",\"sourceCategory\":\"education\",\"subjects\":[\"history\"]},{\"label\":\"student_card\",\"purpose\":\"attestation\",\"sourceCategory\":\"education\",\"subjects\":[\"identity\",\"right\",\"employment\",\"education\"]},{\"label\":\"resume\",\"purpose\":\"description\",\"subjects\":[\"employment\"]},{\"label\":\"motivation_letter\",\"purpose\":\"description\",\"subjects\":[\"employment\"]},{\"label\":\"other_work_document\",\"purpose\":\"employment\"},{\"label\":\"health_book\",\"purpose\":\"attestation\",\"sourceCategory\":\"health\",\"subjects\":[\"capacity\",\"vaccine\"]},{\"label\":\"health_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"health\",\"subjects\":[\"capacity\",\"vaccine\"]},{\"label\":\"pregnancy_medical_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"health\",\"subjects\":[\"pregnancy\"]},{\"label\":\"work_disability_recognition\",\"purpose\":\"attestation\",\"sourceCategory\":\"health\",\"subjects\":[\"right\"]},{\"label\":\"national_health_insurance_card\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"health\",\"subjects\":[\"insurance\"]},{\"label\":\"national_health_insurance_right_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"health\",\"subjects\":[\"right\",\"insurance\"]},{\"label\":\"health_insurance_card\",\"purpose\":\"attestation\",\"sourceCategory\":\"insurance\",\"sourceSubCategory\":\"health\",\"subjects\":[\"insurance\"]},{\"label\":\"prescription\",\"purpose\":\"attestation\",\"sourceCategory\":\"health\",\"subjects\":[\"right\",\"medecine\"]},{\"label\":\"health_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"health\"},{\"label\":\"other_health_document\",\"subjects\":[\"health\"]},{\"label\":\"vehicle_registration\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"transport\",\"subjects\":[\"vehicule\",\"identity\",\"right\"]},{\"label\":\"car_insurance\",\"purpose\":\"attestation\",\"sourceCategory\":\"insurance\",\"sourceSubCategory\":\"transport\",\"subjects\":[\"insurance\",\"car\"]},{\"label\":\"mechanic_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"transport\"},{\"label\":\"transport_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"transport\"},{\"label\":\"other_transport_document\",\"sourceCategory\":\"transport\"},{\"label\":\"house_sale_agreeement\",\"purpose\":\"contract\",\"sourceCategory\":\"real_estate\",\"subjects\":[\"house\"]},{\"label\":\"real_estate_tax\",\"purpose\":\"invoice\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"real_estate\",\"subjects\":[\"tax\",\"house\"]},{\"label\":\"building_permit\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"real_estate\",\"subjects\":[\"permit\",\"house\"]},{\"label\":\"technical_diagnostic_record\",\"purpose\":\"report\",\"sourceCategory\":\"real_estate\",\"subjects\":[\"compliance\",\"house\"]},{\"label\":\"lease\",\"purpose\":\"contract\",\"sourceCategory\":\"real_estate\",\"subjects\":[\"house\"]},{\"label\":\"rent_receipt\",\"purpose\":\"invoice\",\"sourceCategory\":\"real_estate\",\"subjects\":[\"house\"]},{\"label\":\"house_insurance\",\"purpose\":\"contract\",\"sourceCategory\":\"insurance\",\"sourceSubCategory\":\"real_estate\",\"subjects\":[\"insurance\",\"house\"]},{\"label\":\"work_quote\",\"purpose\":\"description\",\"sourceCategory\":\"building\",\"subjects\":[\"building\",\"house\"]},{\"label\":\"work_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"building\",\"subjects\":[\"building\",\"house\"]},{\"label\":\"other_house_document\",\"subjects\":[\"house\"]},{\"label\":\"phone_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"telecom\",\"sourceSubCategory\":\"mobile\"},{\"label\":\"isp_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"telecom\",\"sourceSubCategory\":\"internet\",\"subjects\":[\"subscription\"]},{\"label\":\"telecom_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"telecom\"},{\"label\":\"energy_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"energy\"},{\"label\":\"water_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"water\"},{\"label\":\"energy_contract\",\"purpose\":\"contract\",\"sourceCategory\":\"energy\"},{\"label\":\"appliance_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"retail\"},{\"label\":\"web_service_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"web\"},{\"label\":\"restaurant_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"alimentation\"},{\"label\":\"grocery_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"shopping\"},{\"label\":\"other_invoice\",\"purpose\":\"invoice\"},{\"label\":\"tax_return\",\"purpose\":\"report\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"tax\",\"subjects\":[\"tax\"]},{\"label\":\"tax_notice\",\"purpose\":\"invoice\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"tax\",\"subjects\":[\"tax\"]},{\"label\":\"tax_timetable\",\"purpose\":\"report\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"tax\",\"subjects\":[\"tax\"]},{\"label\":\"other_tax_document\",\"subjects\":[\"tax\"]},{\"label\":\"bank_details\",\"purpose\":\"attestation\",\"sourceCategory\":\"bank\",\"subjects\":[\"bank_account\"]},{\"label\":\"bank_statement\",\"purpose\":\"report\",\"sourceCategory\":\"bank\",\"subjects\":[\"history\"]},{\"label\":\"loan_agreement\",\"purpose\":\"contract\",\"sourceCategory\":\"bank\"},{\"label\":\"other_bank_document\",\"sourceCategory\":\"bank\"},{\"label\":\"receipt\",\"purpose\":\"report\"},{\"label\":\"payment_proof_family_allowance\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"tax\",\"subjects\":[\"subvention\"]},{\"label\":\"school_attendance_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"education\",\"subjects\":[\"identity\",\"right\",\"education\"]},{\"label\":\"school_insurance_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"education\",\"subjects\":[\"education\",\"insurance\"]},{\"label\":\"unfit_for_habitation_declaration\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"real_estate\",\"subjects\":[\"compliance\"]},{\"label\":\"accommodation_proof\",\"purpose\":\"attestation\",\"sourceCategory\":\"individual\",\"subjects\":[\"address\"]},{\"label\":\"citizen_registration_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"achievement\",\"education\"]},{\"label\":\"personal_sporting_licence\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"sport\",\"subjects\":[\"permit\",\"invoice\"]},{\"label\":\"other_activity_document\",\"sourceSubCategory\":\"sport\",\"subjects\":[\"permit\",\"invoice\"]}],\"purposeKnownValues\":[\"attestation\",\"contract\",\"invoice\",\"report\",\"description\",\"evaluation\",\"employment\"],\"sourceCategoryKnownValues\":[\"bank\",\"insurance\",\"retail\",\"telecom\",\"energy\",\"water\",\"health\",\"gov\",\"association\",\"education\",\"employer\",\"transport\",\"goods\",\"alimentation\",\"building\",\"real_estate\",\"web\",\"individual\",\"shopping\"],\"sourceSubCategoryKnownValues\":[\"civil_registration\",\"immigration\",\"transport\",\"family\",\"tax\",\"health\",\"real_estate\",\"mobile\",\"internet\",\"citizen\",\"sport\"],\"subjectsKnownValues\":[\"identity\",\"permit\",\"family\",\"address\",\"driving\",\"right\",\"subvention\",\"achievement\",\"degree\",\"work\",\"employment\",\"revenues\",\"history\",\"insurance\",\"medical_act\",\"vehicule\",\"car\",\"moto\",\"truck\",\"boat\",\"subscription\",\"buy/sale\",\"house\",\"compliance\",\"building\",\"food\",\"real_estate\",\"tax\",\"address\",\"education\",\"statement\",\"course\",\"internet\",\"phone\",\"vaccine\",\"capacity\",\"health\",\"drugs\",\"child\",\"pregnancy\",\"bank_account\"]}");
-
-/***/ }),
-/* 597 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(0);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getReferencedFolder = exports.createFolderWithReference = exports.ensureMagicFolder = exports.MAGIC_FOLDERS = void 0;
-
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
-
-var _sortBy = _interopRequireDefault(__webpack_require__(598));
-
-var _CozyClient = _interopRequireDefault(__webpack_require__(41));
-
-var _types = __webpack_require__(12);
-
-var _const = __webpack_require__(48);
-
-var APP_DOCTYPE = 'io.cozy.apps';
-var administrative = 'administrative';
-var photos = 'photos';
-var MAGIC_FOLDERS = {
-  ADMINISTRATIVE: "".concat(APP_DOCTYPE, "/").concat(administrative),
-  PHOTOS: "".concat(APP_DOCTYPE, "/").concat(photos),
-  PHOTOS_BACKUP: "".concat(APP_DOCTYPE, "/").concat(photos, "/mobile"),
-  PHOTOS_UPLOAD: "".concat(APP_DOCTYPE, "/").concat(photos, "/upload"),
-  NOTES: "".concat(APP_DOCTYPE, "/notes"),
-  HOME: "".concat(APP_DOCTYPE, "/home"),
-  PAPERS: "".concat(APP_DOCTYPE, "/").concat(administrative, "/papers"),
-  COACH_CO2: "".concat(APP_DOCTYPE, "/").concat(administrative, "/coachco2")
-};
-/**
- * Returns a "Magic Folder", given its id. See https://docs.cozy.io/en/cozy-doctypes/docs/io.cozy.apps/#special-iocozyapps-doctypes
- *
- * @param  {CozyClient} client    cozy-client instance
- * @param  {string} id Magic Folder id. `CozyFolder.magicFolders` contains the
- * ids of folders that can be magic folders.
- * @param {string} path Default path to use if magic folder does not exist
- * @returns {Promise<IOCozyFolder>} Folder document
- */
-
-exports.MAGIC_FOLDERS = MAGIC_FOLDERS;
-
-var ensureMagicFolder = /*#__PURE__*/function () {
-  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client, id, path) {
-    var magicFolderDocument, existingMagicFolder, magicFoldersValues;
-    return _regenerator.default.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            magicFolderDocument = {
-              _type: APP_DOCTYPE,
-              _id: id
-            };
-            _context.next = 3;
-            return getReferencedFolder(client, magicFolderDocument);
-
-          case 3:
-            existingMagicFolder = _context.sent;
-
-            if (!existingMagicFolder) {
-              _context.next = 6;
-              break;
-            }
-
-            return _context.abrupt("return", existingMagicFolder);
-
-          case 6:
-            magicFoldersValues = Object.values(MAGIC_FOLDERS);
-
-            if (magicFoldersValues.includes(id)) {
-              _context.next = 9;
-              break;
-            }
-
-            throw new Error("Cannot create Magic folder with id ".concat(id, ". Allowed values are ").concat(magicFoldersValues.join(', '), "."));
-
-          case 9:
-            if (path) {
-              _context.next = 11;
-              break;
-            }
-
-            throw new Error('Magic folder default path must be defined');
-
-          case 11:
-            return _context.abrupt("return", createFolderWithReference(client, path, magicFolderDocument));
-
-          case 12:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-
-  return function ensureMagicFolder(_x, _x2, _x3) {
-    return _ref.apply(this, arguments);
-  };
-}();
-/**
- * The next functions are considered private and only exported for unit tests
- */
-
-/**
- * Create a folder with a reference to the given document
- *
- * @param  {CozyClient}  client - cozy-client instance
- * @param  {string}  path - Folder path
- * @param  {CozyClientDocument}  document - Document to make reference to. Any doctype.
- * @returns {Promise<IOCozyFolder>}  Folder document
- */
-
-
-exports.ensureMagicFolder = ensureMagicFolder;
-
-var createFolderWithReference = /*#__PURE__*/function () {
-  var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(client, path, document) {
-    var collection, dirId, _yield$collection$get, dirInfos;
-
-    return _regenerator.default.wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            collection = client.collection(_const.DOCTYPE_FILES);
-            _context2.next = 3;
-            return collection.ensureDirectoryExists(path);
-
-          case 3:
-            dirId = _context2.sent;
-            _context2.next = 6;
-            return collection.addReferencesTo(document, [{
-              _id: dirId
-            }]);
-
-          case 6:
-            _context2.next = 8;
-            return collection.get(dirId);
-
-          case 8:
-            _yield$collection$get = _context2.sent;
-            dirInfos = _yield$collection$get.data;
-            return _context2.abrupt("return", dirInfos);
-
-          case 11:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee2);
-  }));
-
-  return function createFolderWithReference(_x4, _x5, _x6) {
-    return _ref2.apply(this, arguments);
-  };
-}();
-/**
- * Returns the most recent folder referenced by the given document
- *
- * @param  {CozyClient}  client    cozy-client instance
- * @param  {CozyClientDocument}  document  Document to get references from
- * @returns {Promise<IOCozyFolder>} Folder referenced by the given document
- */
-
-
-exports.createFolderWithReference = createFolderWithReference;
-
-var getReferencedFolder = /*#__PURE__*/function () {
-  var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(client, document) {
-    var _yield$client$collect, included, foldersOutsideTrash;
-
-    return _regenerator.default.wrap(function _callee3$(_context3) {
-      while (1) {
-        switch (_context3.prev = _context3.next) {
-          case 0:
-            _context3.next = 2;
-            return client.collection(_const.DOCTYPE_FILES).findReferencedBy(document);
-
-          case 2:
-            _yield$client$collect = _context3.sent;
-            included = _yield$client$collect.included;
-            foldersOutsideTrash = included.filter(function (folder) {
-              return !/^\/\.cozy_trash/.test(folder.attributes.path);
-            }); // there can be multiple folders with the same reference in some edge cases
-            // when this happens we return the most recent one
-
-            return _context3.abrupt("return", foldersOutsideTrash.length > 0 ? (0, _sortBy.default)(foldersOutsideTrash, 'created_at').pop() : null);
-
-          case 6:
-          case "end":
-            return _context3.stop();
-        }
-      }
-    }, _callee3);
-  }));
-
-  return function getReferencedFolder(_x7, _x8) {
-    return _ref3.apply(this, arguments);
-  };
-}();
-
-exports.getReferencedFolder = getReferencedFolder;
+module.exports = JSON.parse("{\"qualifications\":[{\"label\":\"identity_photo\",\"purpose\":\"attestation\",\"subjects\":[\"identity\"]},{\"label\":\"national_id_card\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"identity\"]},{\"label\":\"passport\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"identity\"]},{\"label\":\"residence_permit\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"immigration\",\"subjects\":[\"permit\",\"identity\"]},{\"label\":\"family_record_book\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"family\"]},{\"label\":\"birth_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"identity\",\"family\"]},{\"label\":\"driver_license\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"transport\",\"subjects\":[\"permit\",\"driving\"]},{\"label\":\"other_identity_document\",\"purpose\":\"attestation\",\"subjects\":[\"identity\"]},{\"label\":\"wedding\",\"purpose\":\"contract\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"family\"]},{\"label\":\"pacs\",\"purpose\":\"contract\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"family\"]},{\"label\":\"divorce\",\"purpose\":\"contract\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"family\"]},{\"label\":\"large_family_card\",\"purpose\":\"attestation\",\"sourceCategory\":\"transport\",\"subjects\":[\"right\"]},{\"label\":\"caf\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"family\",\"subjects\":[\"right\"]},{\"label\":\"other_family_document\",\"subjects\":[\"family\"]},{\"label\":\"diploma\",\"purpose\":\"attestation\",\"sourceCategory\":\"education\",\"subjects\":[\"achievement\"]},{\"label\":\"work_contract\",\"purpose\":\"contract\",\"sourceCategory\":\"employer\",\"subjects\":[\"work\",\"employment\"]},{\"label\":\"pay_sheet\",\"purpose\":\"attestation\",\"sourceCategory\":\"employer\",\"subjects\":[\"work\",\"revenues\"]},{\"label\":\"fidelity_card\",\"sourceCategory\":\"shopping\"},{\"label\":\"library_card\",\"sourceCategory\":\"individual\"},{\"label\":\"single_parent_benefit\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"family\",\"subjects\":[\"revenues\"]},{\"label\":\"transport_card\",\"sourceCategory\":\"transport\",\"subjects\":[\"vehicule\"]},{\"label\":\"electoral_card\",\"sourceCategory\":\"gov\"},{\"label\":\"employment_center_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"subjects\":[\"employment\"]},{\"label\":\"unemployment_benefit\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"subjects\":[\"revenues\"]},{\"label\":\"pension\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"subjects\":[\"revenues\"]},{\"label\":\"other_revenue\",\"purpose\":\"attestation\",\"subjects\":[\"revenues\"]},{\"label\":\"gradebook\",\"purpose\":\"report\",\"sourceCategory\":\"education\",\"subjects\":[\"history\"]},{\"label\":\"student_card\",\"purpose\":\"attestation\",\"sourceCategory\":\"education\",\"subjects\":[\"identity\",\"right\",\"employment\",\"education\"]},{\"label\":\"resume\",\"purpose\":\"description\",\"subjects\":[\"employment\"]},{\"label\":\"motivation_letter\",\"purpose\":\"description\",\"subjects\":[\"employment\"]},{\"label\":\"other_work_document\",\"purpose\":\"employment\"},{\"label\":\"health_book\",\"purpose\":\"attestation\",\"sourceCategory\":\"health\",\"subjects\":[\"capacity\",\"vaccine\"]},{\"label\":\"health_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"health\",\"subjects\":[\"capacity\",\"vaccine\"]},{\"label\":\"pregnancy_medical_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"health\",\"subjects\":[\"pregnancy\"]},{\"label\":\"work_disability_recognition\",\"purpose\":\"attestation\",\"sourceCategory\":\"health\",\"subjects\":[\"right\"]},{\"label\":\"national_health_insurance_card\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"health\",\"subjects\":[\"insurance\"]},{\"label\":\"national_health_insurance_right_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"health\",\"subjects\":[\"right\",\"insurance\"]},{\"label\":\"health_insurance_card\",\"purpose\":\"attestation\",\"sourceCategory\":\"insurance\",\"sourceSubCategory\":\"health\",\"subjects\":[\"insurance\"]},{\"label\":\"prescription\",\"purpose\":\"attestation\",\"sourceCategory\":\"health\",\"subjects\":[\"right\",\"medecine\"]},{\"label\":\"health_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"health\"},{\"label\":\"other_health_document\",\"subjects\":[\"health\"]},{\"label\":\"vehicle_registration\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"transport\",\"subjects\":[\"vehicule\",\"identity\",\"right\"]},{\"label\":\"car_insurance\",\"purpose\":\"attestation\",\"sourceCategory\":\"insurance\",\"sourceSubCategory\":\"transport\",\"subjects\":[\"insurance\",\"car\"]},{\"label\":\"mechanic_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"transport\"},{\"label\":\"transport_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"transport\"},{\"label\":\"other_transport_document\",\"sourceCategory\":\"transport\"},{\"label\":\"house_sale_agreeement\",\"purpose\":\"contract\",\"sourceCategory\":\"real_estate\",\"subjects\":[\"house\"]},{\"label\":\"real_estate_tax\",\"purpose\":\"invoice\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"real_estate\",\"subjects\":[\"tax\",\"house\"]},{\"label\":\"building_permit\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"real_estate\",\"subjects\":[\"permit\",\"house\"]},{\"label\":\"technical_diagnostic_record\",\"purpose\":\"report\",\"sourceCategory\":\"real_estate\",\"subjects\":[\"compliance\",\"house\"]},{\"label\":\"lease\",\"purpose\":\"contract\",\"sourceCategory\":\"real_estate\",\"subjects\":[\"house\"]},{\"label\":\"rent_receipt\",\"purpose\":\"invoice\",\"sourceCategory\":\"real_estate\",\"subjects\":[\"house\"]},{\"label\":\"house_insurance\",\"purpose\":\"contract\",\"sourceCategory\":\"insurance\",\"sourceSubCategory\":\"real_estate\",\"subjects\":[\"insurance\",\"house\"]},{\"label\":\"work_quote\",\"purpose\":\"description\",\"sourceCategory\":\"building\",\"subjects\":[\"building\",\"house\"]},{\"label\":\"work_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"building\",\"subjects\":[\"building\",\"house\"]},{\"label\":\"other_house_document\",\"subjects\":[\"house\"]},{\"label\":\"phone_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"telecom\",\"sourceSubCategory\":\"mobile\"},{\"label\":\"isp_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"telecom\",\"sourceSubCategory\":\"internet\",\"subjects\":[\"subscription\"]},{\"label\":\"telecom_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"telecom\"},{\"label\":\"energy_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"energy\"},{\"label\":\"water_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"water\"},{\"label\":\"energy_contract\",\"purpose\":\"contract\",\"sourceCategory\":\"energy\"},{\"label\":\"appliance_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"retail\"},{\"label\":\"web_service_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"web\"},{\"label\":\"restaurant_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"alimentation\"},{\"label\":\"grocery_invoice\",\"purpose\":\"invoice\",\"sourceCategory\":\"shopping\"},{\"label\":\"other_invoice\",\"purpose\":\"invoice\"},{\"label\":\"tax_return\",\"purpose\":\"report\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"tax\",\"subjects\":[\"tax\"]},{\"label\":\"tax_notice\",\"purpose\":\"invoice\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"tax\",\"subjects\":[\"tax\"]},{\"label\":\"tax_timetable\",\"purpose\":\"report\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"tax\",\"subjects\":[\"tax\"]},{\"label\":\"other_tax_document\",\"subjects\":[\"tax\"]},{\"label\":\"bank_details\",\"purpose\":\"attestation\",\"sourceCategory\":\"bank\",\"subjects\":[\"bank_account\"]},{\"label\":\"bank_statement\",\"purpose\":\"report\",\"sourceCategory\":\"bank\",\"subjects\":[\"history\"]},{\"label\":\"loan_agreement\",\"purpose\":\"contract\",\"sourceCategory\":\"bank\"},{\"label\":\"other_bank_document\",\"sourceCategory\":\"bank\"},{\"label\":\"receipt\",\"purpose\":\"report\"},{\"label\":\"payment_proof_family_allowance\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"tax\",\"subjects\":[\"subvention\"]},{\"label\":\"school_attendance_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"education\",\"subjects\":[\"identity\",\"right\",\"education\"]},{\"label\":\"school_insurance_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"education\",\"subjects\":[\"education\",\"insurance\"]},{\"label\":\"unfit_for_habitation_declaration\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"real_estate\",\"subjects\":[\"compliance\"]},{\"label\":\"accommodation_proof\",\"purpose\":\"attestation\",\"sourceCategory\":\"individual\",\"subjects\":[\"address\"]},{\"label\":\"citizen_registration_certificate\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"civil_registration\",\"subjects\":[\"achievement\",\"education\"]},{\"label\":\"personal_sporting_licence\",\"purpose\":\"attestation\",\"sourceCategory\":\"gov\",\"sourceSubCategory\":\"sport\",\"subjects\":[\"permit\",\"invoice\"]},{\"label\":\"other_activity_document\",\"sourceSubCategory\":\"sport\",\"subjects\":[\"permit\",\"invoice\"]},{\"label\":\"real_estate_insurance\",\"purpose\":\"contract\",\"sourceCategory\":\"insurance\",\"sourceSubCategory\":\"real_estate\",\"subjects\":[\"insurance\"]},{\"label\":\"person_insurance\",\"purpose\":\"contract\",\"sourceCategory\":\"insurance\",\"subjects\":[\"insurance\"]},{\"label\":\"other_administrative_document\"},{\"label\":\"expense_claim\",\"purpose\":\"invoice\"},{\"label\":\"note_identity_document\"},{\"label\":\"note_family_document\"},{\"label\":\"note_work_document\"},{\"label\":\"note_health_document\"},{\"label\":\"note_house_document\"},{\"label\":\"note_transport_document\"},{\"label\":\"note_activity_document\"},{\"label\":\"note_finance\"},{\"label\":\"note_invoice\"}],\"purposeKnownValues\":[\"attestation\",\"contract\",\"invoice\",\"report\",\"description\",\"evaluation\",\"employment\"],\"sourceCategoryKnownValues\":[\"bank\",\"insurance\",\"retail\",\"telecom\",\"energy\",\"water\",\"health\",\"gov\",\"association\",\"education\",\"employer\",\"transport\",\"goods\",\"alimentation\",\"building\",\"real_estate\",\"web\",\"individual\",\"shopping\"],\"sourceSubCategoryKnownValues\":[\"civil_registration\",\"immigration\",\"transport\",\"family\",\"tax\",\"health\",\"real_estate\",\"mobile\",\"internet\",\"citizen\",\"sport\"],\"subjectsKnownValues\":[\"identity\",\"permit\",\"family\",\"address\",\"driving\",\"right\",\"subvention\",\"achievement\",\"degree\",\"work\",\"employment\",\"revenues\",\"history\",\"insurance\",\"medical_act\",\"vehicule\",\"car\",\"moto\",\"truck\",\"boat\",\"subscription\",\"buy/sale\",\"house\",\"compliance\",\"building\",\"food\",\"real_estate\",\"tax\",\"address\",\"education\",\"statement\",\"course\",\"internet\",\"phone\",\"vaccine\",\"capacity\",\"health\",\"drugs\",\"child\",\"pregnancy\",\"bank_account\"]}");
 
 /***/ }),
 /* 598 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseFlatten = __webpack_require__(111),
-    baseOrderBy = __webpack_require__(279),
-    baseRest = __webpack_require__(50),
-    isIterateeCall = __webpack_require__(153);
+var baseFlatten = __webpack_require__(109),
+    baseOrderBy = __webpack_require__(280),
+    baseRest = __webpack_require__(51),
+    isIterateeCall = __webpack_require__(152);
 
 /**
  * Creates an array of elements, sorted in ascending order by the results of
@@ -66921,101 +67215,92 @@ var _interopRequireDefault = __webpack_require__(0);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.fetchURL = exports.generateUrlForNote = exports.generatePrivateUrl = void 0;
+exports.buildFolderPermission = exports.buildFolderPath = exports.statDirectoryByPath = exports.createDirectoryByPath = exports.ensureKonnectorFolder = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(28));
 
-var _helpers = __webpack_require__(117);
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _logger = _interopRequireDefault(__webpack_require__(20));
+var _folder = __webpack_require__(293);
 
+var _CozyClient = _interopRequireDefault(__webpack_require__(37));
+
+var _account = __webpack_require__(169);
+
+var _locales = __webpack_require__(294);
+
+//@ts-check
+var FILES_DOCTYPE = 'io.cozy.files';
+var PERMISSIONS_DOCTYPE = 'io.cozy.permissions'; // Default name for base directory
+
+var DEFAULT_LOCALIZED_BASE_DIR = 'Administrative';
 /**
+ * Ensures the destination folder of a konnector exists and is initiated with proper permissions and references
  *
- * @param {string} notesAppUrl URL to the Notes App (https://notes.foo.mycozy.cloud)
- * @param {object} file io.cozy.files object
- */
-var generatePrivateUrl = function generatePrivateUrl(notesAppUrl, file) {
-  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-  var returnUrl = options.returnUrl;
-  var url = new URL(notesAppUrl);
-
-  if (returnUrl) {
-    url.searchParams.set('returnUrl', returnUrl);
-  }
-
-  url.hash = "#/n/".concat(file.id);
-  return url.toString();
-};
-
-exports.generatePrivateUrl = generatePrivateUrl;
-
-var generateUrlForNote = function generateUrlForNote(notesAppUrl, file) {
-  _logger.default.warn('generateUrlForNote is deprecated. Please use models.note.generatePrivateUrl instead');
-
-  return generatePrivateUrl(notesAppUrl, file);
-};
-/**
- * Fetch and build an URL to open a note.
- *
- * @param {object} client CozyClient instance
- * @param {object} file io.cozy.file object
- * @returns {Promise<string>} url
+ * @param {CozyClient} client - CozyClient instance
+ * @param {Object} options - options object
+ * @param {import('../types').IOCozyKonnector} options.konnector - io.cozy.konnectors document
+ * @param {import('../types').IOCozyAccount} options.account - io.cozy.accounts document
+ * @param {String} options.lang - instance current language. ex: 'fr'
+ * @returns {Promise<import('../types').IOCozyFolder>}
  */
 
-
-exports.generateUrlForNote = generateUrlForNote;
-
-var fetchURL = /*#__PURE__*/function () {
-  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client, file) {
-    var _yield$client$getStac, _yield$client$getStac2, note_id, subdomain, protocol, instance, sharecode, public_name, searchParams;
+var ensureKonnectorFolder = /*#__PURE__*/function () {
+  var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client, _ref) {
+    var konnector, account, lang, permissions, files, t, _yield$Promise$all, _yield$Promise$all2, adminFolder, photosFolder, path, folder;
 
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
-            return client.getStackClient().collection('io.cozy.notes').fetchURL({
-              _id: file.id
+            konnector = _ref.konnector, account = _ref.account, lang = _ref.lang;
+            permissions = client.collection(PERMISSIONS_DOCTYPE);
+            files = client.collection(FILES_DOCTYPE);
+            t = (0, _locales.getLocalizer)(lang);
+            _context.next = 6;
+            return Promise.all([(0, _folder.ensureMagicFolder)(client, _folder.MAGIC_FOLDERS.ADMINISTRATIVE, t('MagicFolders.administrative')), (0, _folder.ensureMagicFolder)(client, _folder.MAGIC_FOLDERS.PHOTOS, t('MagicFolders.photos'))]);
+
+          case 6:
+            _yield$Promise$all = _context.sent;
+            _yield$Promise$all2 = (0, _slicedToArray2.default)(_yield$Promise$all, 2);
+            adminFolder = _yield$Promise$all2[0];
+            photosFolder = _yield$Promise$all2[1];
+            path = buildFolderPath(konnector, account, {
+              administrative: adminFolder.path,
+              photos: photosFolder.path
             });
+            _context.next = 13;
+            return statDirectoryByPath(client, path);
 
-          case 2:
-            _yield$client$getStac = _context.sent;
-            _yield$client$getStac2 = _yield$client$getStac.data;
-            note_id = _yield$client$getStac2.note_id;
-            subdomain = _yield$client$getStac2.subdomain;
-            protocol = _yield$client$getStac2.protocol;
-            instance = _yield$client$getStac2.instance;
-            sharecode = _yield$client$getStac2.sharecode;
-            public_name = _yield$client$getStac2.public_name;
+          case 13:
+            _context.t0 = _context.sent;
 
-            if (!sharecode) {
-              _context.next = 17;
+            if (_context.t0) {
+              _context.next = 18;
               break;
             }
 
-            searchParams = [['id', note_id]];
-            searchParams.push(['sharecode', sharecode]);
-            if (public_name) searchParams.push(['username', public_name]);
-            return _context.abrupt("return", (0, _helpers.generateWebLink)({
-              cozyUrl: "".concat(protocol, "://").concat(instance),
-              searchParams: searchParams,
-              pathname: '/public/',
-              slug: 'notes',
-              subDomainType: subdomain
-            }));
+            _context.next = 17;
+            return createDirectoryByPath(client, path);
 
           case 17:
-            return _context.abrupt("return", (0, _helpers.generateWebLink)({
-              cozyUrl: "".concat(protocol, "://").concat(instance),
-              pathname: '',
-              slug: 'notes',
-              subDomainType: subdomain,
-              hash: "/n/".concat(note_id)
-            }));
+            _context.t0 = _context.sent;
 
           case 18:
+            folder = _context.t0;
+            _context.next = 21;
+            return permissions.add(konnector, buildFolderPermission(folder));
+
+          case 21:
+            _context.next = 23;
+            return files.addReferencesTo(konnector, [folder]);
+
+          case 23:
+            return _context.abrupt("return", folder);
+
+          case 24:
           case "end":
             return _context.stop();
         }
@@ -67023,946 +67308,289 @@ var fetchURL = /*#__PURE__*/function () {
     }, _callee);
   }));
 
-  return function fetchURL(_x, _x2) {
-    return _ref.apply(this, arguments);
+  return function ensureKonnectorFolder(_x, _x2) {
+    return _ref2.apply(this, arguments);
   };
 }();
+/**
+ * Creates a directory from a given path
+ *
+ * @param  {CozyClient}  client CozyClient
+ * @param  {string}  path   Directory path
+ * @returns {Promise<import('../types').IOCozyFolder>}         Directory attributes
+ */
 
-exports.fetchURL = fetchURL;
+
+exports.ensureKonnectorFolder = ensureKonnectorFolder;
+
+var createDirectoryByPath = /*#__PURE__*/function () {
+  var _ref3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(client, path) {
+    var _yield$client$collect, data;
+
+    return _regenerator.default.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return client.collection(FILES_DOCTYPE).createDirectoryByPath(path);
+
+          case 2:
+            _yield$client$collect = _context2.sent;
+            data = _yield$client$collect.data;
+            return _context2.abrupt("return", data);
+
+          case 5:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function createDirectoryByPath(_x3, _x4) {
+    return _ref3.apply(this, arguments);
+  };
+}();
+/**
+ * Retrieves a directory from its path
+ *
+ * @param  {CozyClient}  client CozyClient
+ * @param  {string}  path   Directory path
+ * @returns {Promise<import('../types').IOCozyFolder|null>}        Created io.cozy.files document
+ * @throws will throw an error on any error without status === 404
+ */
+
+
+exports.createDirectoryByPath = createDirectoryByPath;
+
+var statDirectoryByPath = /*#__PURE__*/function () {
+  var _ref4 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(client, path) {
+    var response;
+    return _regenerator.default.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.prev = 0;
+            _context3.next = 3;
+            return client.collection(FILES_DOCTYPE).statByPath(path);
+
+          case 3:
+            response = _context3.sent;
+
+            if (!response.data.trashed) {
+              _context3.next = 6;
+              break;
+            }
+
+            return _context3.abrupt("return", null);
+
+          case 6:
+            return _context3.abrupt("return", response.data);
+
+          case 9:
+            _context3.prev = 9;
+            _context3.t0 = _context3["catch"](0);
+
+            if (!(_context3.t0 && _context3.t0.status === 404)) {
+              _context3.next = 13;
+              break;
+            }
+
+            return _context3.abrupt("return", null);
+
+          case 13:
+            throw new Error(_context3.t0.message);
+
+          case 14:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3, null, [[0, 9]]);
+  }));
+
+  return function statDirectoryByPath(_x5, _x6) {
+    return _ref4.apply(this, arguments);
+  };
+}();
+/**
+ * Build folder path for a given konnector and a given account.
+ *
+ * If konnector.folders[0].defaultDir exists, it is used as default directory.
+ *
+ * Occurrences of following strings in base directory are replaced by:
+ * * `$administrative`: Administrative folder
+ * * `$photos`: Photos folder
+ *
+ * Occurrences of following strings in path are replaced by:
+ * * `$account: Account label (id or name)`
+ * * `$konnector`: Konnector name
+ *
+ * If no konnectors.folders[0].defaultDir is set, the default dir used is
+ * *  `$administrative/$konnector/$account`
+ *
+ * @param  {import('../types').IOCozyKonnector} konnector Konnector document
+ * @param  {import('../types').IOCozyAccount} account   Account document
+ * @param  {Object<string, string>} magicFolders   Object containing a mapping from folder
+ * identifiers (ex: $administrative) to their localized values (ex:
+ * Administratif).
+ * @returns {String}           The result path
+ */
+
+
+exports.statDirectoryByPath = statDirectoryByPath;
+
+var buildFolderPath = function buildFolderPath(konnector, account) {
+  var _konnector$folders, _konnector$folders$;
+
+  var magicFolders = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  var fullPath = (konnector === null || konnector === void 0 ? void 0 : (_konnector$folders = konnector.folders) === null || _konnector$folders === void 0 ? void 0 : (_konnector$folders$ = _konnector$folders[0]) === null || _konnector$folders$ === void 0 ? void 0 : _konnector$folders$.defaultDir) || '$administrative/$konnector/$account'; // Trim `/` and avoid multiple `/` characters with regexp
+
+  var sanitizedPath = trim(fullPath.replace(/(\/+)/g, '/'), '/'); // If the konnector doesn't have any of our base dir, we set it to $administrative
+
+  if (!hasBaseDir(sanitizedPath)) {
+    sanitizedPath = '$administrative/' + sanitizedPath;
+  }
+  /**
+   * Now that we have our sanitizedPath, we can split it in two strings
+   * * `baseDir` containing the baseDir path
+   * * `buildedSubDir` containing the rest of the path (ie the path without baseDir)
+   */
+
+
+  var baseDir = sanitizedPath.split('/', 1);
+  var buildedSubDir = buildSubDir(sanitizedPath, baseDir[0]);
+  var renderedBaseDir = renderBaseDir(baseDir[0], magicFolders);
+  var renderedPath = renderSubDir(buildedSubDir, {
+    // When adding a new allowed variable here, please keep documentation
+    // of `renderSubDir` function up to date.
+    konnector: konnector.name,
+    account: (0, _account.getAccountName)(account).replace(sanitizeAccountIdentifierRx, '-')
+  });
+  return "/".concat(renderedBaseDir, "/").concat(renderedPath);
+};
+/**
+ * Check if the provided Path start withs our allowedBaseDirPath to see
+ *
+ * @param {String} path - path to test
+ * @returns {Boolean}
+ */
+
+
+exports.buildFolderPath = buildFolderPath;
+
+var hasBaseDir = function hasBaseDir(path) {
+  return allowedBaseDirVariables.some(function (baseDirVar) {
+    return path.startsWith(baseDirVar);
+  });
+};
+/**
+ * Base directories are directory where konnector may copy their data.
+ * They are expressed as variables which then need to be localized.
+ * Default is `$administrative`.
+ */
+
+
+var allowedBaseDirVariables = ['$administrative', '$photos'];
+/**
+ * This method creates the subDir. We can't have an empty subDir, so we set
+ * it to our default '$konnector/$account'
+ *
+ * @param {String} fullPath String containing potentially the defaultDir
+ * @param {String} defaultDir String to remove from the fullPath
+ * @returns {String}
+ */
+
+var buildSubDir = function buildSubDir(fullPath, defaultDir) {
+  var buildedSubDir = fullPath.substring(defaultDir.length);
+
+  if (buildedSubDir === '') {
+    buildedSubDir = '$konnector/$account';
+  }
+
+  return buildedSubDir;
+};
+/**
+ * Render base directory, based on given magicFolders object.
+ * For example, it will render `$administrative` with the given value passed in
+ * folders object. We expect to find in folders a localized value.
+ *
+ * @param  {String} baseDir base directory variable, expects `$administrative`
+ * or `$photos`
+ * @param  {Object<string, string>} magicFolders Object indexing base directory variable with
+ * corresponding localized name.
+ * @returns {String}         Localized directory
+ */
+
+
+var renderBaseDir = function renderBaseDir(baseDir) {
+  var magicFolders = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  // Look for variable name into folders but without $ prefix
+  var renderedBaseDir = magicFolders[baseDir.slice(1)] || DEFAULT_LOCALIZED_BASE_DIR; // Trim `/` and avoid multiple `/` characters with regexp
+
+  return trim(renderedBaseDir.replace(/(\/+)/g, '/'), '/');
+};
+/**
+ * Render the given folder path using the given `variables` object.
+ * Available variable are `$konnector` (konnector name) and `$account`
+ * (account label, i.e. id or name)
+ *
+ * @param  {String} path      Path to render : ex '/Administratif/$konnector/$account'
+ * @param  {Object} variables Object mapping variable to actual values
+ * @param  {import('../types').IOCozyKonnector['name']} variables.konnector - konnector name
+ * @param  {String} variables.account - account name
+ * @returns {String}           Rendered path
+ */
+
+
+var renderSubDir = function renderSubDir(path, variables) {
+  // Trim `/` and avoid multiple `/` characters with regexp
+  var sanitizedPath = trim(path.replace(/(\/+)/g, '/'), '/'); // Let's get only full variable name limited by '/'. We want to avoid false
+  // positive like parsing `$variableInString` to `valueInString`
+
+  var segments = sanitizedPath.split('/');
+  return segments.map(function (segment) {
+    return (variables === null || variables === void 0 ? void 0 : variables[segment.slice(1)]) || segment;
+  }).join('/');
+};
+
+var sanitizeAccountIdentifierRx = /\//g;
+/**
+ * Returns a permission ready to be passed to
+ * client.collection('io.cozy.permissions').add().
+ *
+ * @param  {import('../types').IOCozyFolder} folder    The folder which the konnector should have access
+ * @returns {Object}           Permission object
+ */
+
+var buildFolderPermission = function buildFolderPermission(folder) {
+  return {
+    // Legacy name
+    saveFolder: {
+      type: 'io.cozy.files',
+      values: [folder._id],
+      verbs: ['GET', 'PATCH', 'POST']
+    }
+  };
+};
+/**
+ * Replacer of the lodash/trim function
+ *
+ * @param {String} str - Input string
+ * @param {String} c - String to trim from the input string
+ * @returns {String}
+ */
+
+
+exports.buildFolderPermission = buildFolderPermission;
+
+var trim = function trim(str) {
+  var c = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '\\s';
+  return str.replace(new RegExp("^([".concat(c, "]*)(.*?)([").concat(c, "]*)$")), '$2');
+};
 
 /***/ }),
 /* 600 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(0);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.isReadOnly = isReadOnly;
-exports.fetchOwn = fetchOwn;
-exports.isForType = isForType;
-exports.isDocumentReadOnly = isDocumentReadOnly;
-exports.isShortcutCreatedOnTheRecipientCozy = void 0;
-
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
-
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
-
-var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(38));
-
-var _intersection = _interopRequireDefault(__webpack_require__(276));
-
-var _get = _interopRequireDefault(__webpack_require__(15));
-
-var _CozyClient = _interopRequireDefault(__webpack_require__(41));
-
-var _dsl = __webpack_require__(14);
-
-var _file = __webpack_require__(292);
-
-var _const = __webpack_require__(48);
-
-var _logger = _interopRequireDefault(__webpack_require__(20));
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-/**
- * @typedef {object} Document - Couchdb document like an io.cozy.files
- * @property {string} _id
- * @property {string} id
- * @property {string} _type
- * @property {string} type
- */
-
-/**
- * @typedef {('ALL'|'GET'|'PATCH'|'POST'|'PUT'|'DELETE')} PermissionVerb
- */
-
-/**
- * @typedef {object} PermissionItem
- * @property {PermissionVerb[]} verbs - ALL, GET, PUT, PATCH, DELETE, POST…
- * @property {string} selector - defaults to `id`
- * @property {string[]} values
- * @property {string} type - a couch db database like 'io.cozy.files'
- */
-
-/**
- * Is this permission read only ?
- *
- * @private
- * @param {PermissionItem} perm - permission node in a io.cozy.permissions document
- * @param {object} options - Options
- * @param {PermissionVerb[]} [options.writability] - Writability
- * @returns {boolean} true if the note should be displayed read-only
- */
-function isReadOnly(perm) {
-  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  var _options$writability = options.writability,
-      writability = _options$writability === void 0 ? ['PATCH', 'POST', 'PUT', 'DELETE'] : _options$writability;
-  return perm.verbs && // no verbs is equivalent to ['ALL']
-  perm.verbs.length > 0 && // empty array is equivalent to ['ALL']
-  (0, _intersection.default)(perm.verbs, ['ALL'].concat((0, _toConsumableArray2.default)(writability))).length === 0;
-}
-/**
- * Fetches the list of permissions blocks
- *
- * @param {CozyClient} client -
- * @returns {Promise<PermissionItem[]>} list of permissions
- */
-
-
-function fetchOwn(_x) {
-  return _fetchOwn.apply(this, arguments);
-}
-/**
- * Checks if the permission item is about a specific doctype
- *
- * @param {PermissionItem} permission -
- * @param {string} type - doctype
- */
-
-
-function _fetchOwn() {
-  _fetchOwn = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client) {
-    var collection, data, permissions;
-    return _regenerator.default.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            collection = client.collection('io.cozy.permissions');
-            _context.next = 3;
-            return collection.fetchOwnPermissions();
-
-          case 3:
-            data = _context.sent;
-            permissions = (0, _get.default)(data, 'data.attributes.permissions');
-
-            if (permissions) {
-              _context.next = 7;
-              break;
-            }
-
-            throw "Can't get self permissions";
-
-          case 7:
-            return _context.abrupt("return", Object.values(permissions));
-
-          case 8:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-  return _fetchOwn.apply(this, arguments);
-}
-
-function isForType(permission, type) {
-  return permission.type === type || permission.type + '.*' === type;
-}
-/**
- * Finds the permission block for the the file
- * in the permissions owned by the current cozy-client.
- *
- * Iterates through parent folders if needed
- * until we can find the permissions attached to the share
- *
- * @private
- * @param {object} options - Options
- * @param {Document} options.document - a couchdb document
- * @param {CozyClient} options.client - A cozy client
- * @param {PermissionItem[]} options.permissions -
- * @returns {Promise<PermissionItem|undefined>} the corresponding permission block
- */
-
-
-function findPermissionFor(_x2) {
-  return _findPermissionFor2.apply(this, arguments);
-}
-
-function _findPermissionFor2() {
-  _findPermissionFor2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(options) {
-    var document, client, permissions, id, type, doc, definedPermissions, perms, getFile, _getFile, _findPermissionFor, _findPermissionFor3;
-
-    return _regenerator.default.wrap(function _callee4$(_context4) {
-      while (1) {
-        switch (_context4.prev = _context4.next) {
-          case 0:
-            _findPermissionFor3 = function _findPermissionFor5() {
-              _findPermissionFor3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(_ref) {
-                var doc, client, perms, perm, parentId, parentFolder;
-                return _regenerator.default.wrap(function _callee3$(_context3) {
-                  while (1) {
-                    switch (_context3.prev = _context3.next) {
-                      case 0:
-                        doc = _ref.doc, client = _ref.client, perms = _ref.perms;
-                        perm = perms.find(function (perm) {
-                          if (perm.values) {
-                            var selector = perm.selector || 'id';
-                            var value = doc[selector];
-                            return perm.values.includes(value);
-                          } else {
-                            return true;
-                          }
-                        });
-
-                        if (!perm) {
-                          _context3.next = 6;
-                          break;
-                        }
-
-                        return _context3.abrupt("return", perm);
-
-                      case 6:
-                        if (!(type === _const.DOCTYPE_FILES)) {
-                          _context3.next = 16;
-                          break;
-                        }
-
-                        // for files, we recursively try to check for parent folders
-                        parentId = (0, _file.getParentFolderId)(doc);
-                        _context3.t0 = parentId;
-
-                        if (!_context3.t0) {
-                          _context3.next = 13;
-                          break;
-                        }
-
-                        _context3.next = 12;
-                        return getFile(parentId);
-
-                      case 12:
-                        _context3.t0 = _context3.sent;
-
-                      case 13:
-                        parentFolder = _context3.t0;
-
-                        if (!parentFolder) {
-                          _context3.next = 16;
-                          break;
-                        }
-
-                        return _context3.abrupt("return", _findPermissionFor({
-                          doc: parentFolder,
-                          perms: perms,
-                          client: client
-                        }));
-
-                      case 16:
-                        return _context3.abrupt("return", undefined);
-
-                      case 17:
-                      case "end":
-                        return _context3.stop();
-                    }
-                  }
-                }, _callee3);
-              }));
-              return _findPermissionFor3.apply(this, arguments);
-            };
-
-            _findPermissionFor = function _findPermissionFor4(_x5) {
-              return _findPermissionFor3.apply(this, arguments);
-            };
-
-            _getFile = function _getFile3() {
-              _getFile = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {
-                var query, data;
-                return _regenerator.default.wrap(function _callee2$(_context2) {
-                  while (1) {
-                    switch (_context2.prev = _context2.next) {
-                      case 0:
-                        query = (0, _dsl.Q)(_const.DOCTYPE_FILES).getById(id);
-                        _context2.next = 3;
-                        return client.query(query);
-
-                      case 3:
-                        data = _context2.sent;
-                        return _context2.abrupt("return", data && data.data);
-
-                      case 5:
-                      case "end":
-                        return _context2.stop();
-                    }
-                  }
-                }, _callee2);
-              }));
-              return _getFile.apply(this, arguments);
-            };
-
-            getFile = function _getFile2(_x4) {
-              return _getFile.apply(this, arguments);
-            };
-
-            document = options.document, client = options.client, permissions = options.permissions;
-            id = document._id || document.id;
-            type = document._type || document.type;
-            doc = _objectSpread(_objectSpread({}, document), {}, {
-              id: id,
-              type: type
-            });
-
-            if (!permissions) {
-              _context4.next = 12;
-              break;
-            }
-
-            _context4.t0 = permissions;
-            _context4.next = 15;
-            break;
-
-          case 12:
-            _context4.next = 14;
-            return fetchOwn(client);
-
-          case 14:
-            _context4.t0 = _context4.sent;
-
-          case 15:
-            definedPermissions = _context4.t0;
-            perms = definedPermissions.filter(function (p) {
-              return isForType(p, type);
-            });
-            return _context4.abrupt("return", _findPermissionFor({
-              doc: doc,
-              client: client,
-              perms: perms
-            }));
-
-          case 18:
-          case "end":
-            return _context4.stop();
-        }
-      }
-    }, _callee4);
-  }));
-  return _findPermissionFor2.apply(this, arguments);
-}
-
-function isDocumentReadOnly(_x3) {
-  return _isDocumentReadOnly.apply(this, arguments);
-}
-/**
- * When a cozy to cozy sharing is created Cozy's stack creates a
- * shortcut in `/Inbox of sharing` on the recipient's cozy to have a
- * quick access even when the sharing is not accepted yet.
- *
- * However, this file is created only if the stack knows the URL of the cozy.
- * This is not always the case.
- *
- * This method is here to tell us if the shortcut's file is created
- * on the recipient's cozy. It can be used to make an UI distinction between the
- * both situation.
- *
- * @typedef  {object} Permission
- * @property {object} data Permission document
- * @property {Array} included Member information from the sharing
- *
- * @param {Permission} permission From getOwnPermissions mainly
- */
-
-
-function _isDocumentReadOnly() {
-  _isDocumentReadOnly = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(args) {
-    var document, client, writability, _args$permissions, permissions, perm;
-
-    return _regenerator.default.wrap(function _callee5$(_context5) {
-      while (1) {
-        switch (_context5.prev = _context5.next) {
-          case 0:
-            document = args.document;
-            client = args.client;
-            writability = args.writability;
-            _args$permissions = args.permissions;
-
-            if (!(_args$permissions === void 0)) {
-              _context5.next = 10;
-              break;
-            }
-
-            _context5.next = 7;
-            return fetchOwn(client);
-
-          case 7:
-            _context5.t0 = _context5.sent;
-            _context5.next = 11;
-            break;
-
-          case 10:
-            _context5.t0 = _args$permissions;
-
-          case 11:
-            permissions = _context5.t0;
-
-            if (!(permissions.length <= 1)) {
-              _context5.next = 16;
-              break;
-            }
-
-            _context5.t1 = permissions[0] // shortcut because most of time, there will be only one permission block
-            ;
-            _context5.next = 19;
-            break;
-
-          case 16:
-            _context5.next = 18;
-            return findPermissionFor({
-              document: document,
-              client: client,
-              permissions: permissions
-            });
-
-          case 18:
-            _context5.t1 = _context5.sent;
-
-          case 19:
-            perm = _context5.t1;
-
-            if (!perm) {
-              _context5.next = 24;
-              break;
-            }
-
-            return _context5.abrupt("return", isReadOnly(perm, {
-              writability: writability
-            }));
-
-          case 24:
-            _logger.default.warn("can't find the document in current attached permissions");
-
-            return _context5.abrupt("return", undefined);
-
-          case 26:
-          case "end":
-            return _context5.stop();
-        }
-      }
-    }, _callee5);
-  }));
-  return _isDocumentReadOnly.apply(this, arguments);
-}
-
-var isShortcutCreatedOnTheRecipientCozy = function isShortcutCreatedOnTheRecipientCozy(permission) {
-  if (!permission.included) return false;
-  var sharingMember = permission.included.find(function (item) {
-    return item.type === 'io.cozy.sharings.members';
-  });
-
-  if (sharingMember && sharingMember.attributes.instance) {
-    return true;
-  }
-
-  return false;
-};
-
-exports.isShortcutCreatedOnTheRecipientCozy = isShortcutCreatedOnTheRecipientCozy;
-
-/***/ }),
-/* 601 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(0);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getCreatedByApp = exports.hasBeenUpdatedByApp = void 0;
-
-var _get = _interopRequireDefault(__webpack_require__(15));
-
-var hasBeenUpdatedByApp = function hasBeenUpdatedByApp(doc, appSlug) {
-  var updatedByApps = (0, _get.default)(doc, 'cozyMetadata.updatedByApps');
-  return Boolean(updatedByApps && updatedByApps.find(function (x) {
-    return x.slug === appSlug;
-  }));
-};
-
-exports.hasBeenUpdatedByApp = hasBeenUpdatedByApp;
-
-var getCreatedByApp = function getCreatedByApp(doc) {
-  return (0, _get.default)(doc, 'cozyMetadata.createdByApp');
-};
-
-exports.getCreatedByApp = getCreatedByApp;
-
-/***/ }),
-/* 602 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(0);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.isContact = exports.getIndexByFamilyNameGivenNameEmailCozyUrl = exports.getDefaultSortIndexValue = exports.makeDefaultSortIndexValue = exports.getDisplayName = exports.makeDisplayName = exports.getFullname = exports.makeFullname = exports.getPrimaryAddress = exports.getPrimaryPhone = exports.getPrimaryCozyDomain = exports.getPrimaryCozy = exports.getPrimaryEmail = exports.getInitials = exports.getPrimaryOrFirst = exports.CONTACTS_DOCTYPE = void 0;
-
-var _get = _interopRequireDefault(__webpack_require__(15));
-
-var _isEmpty = _interopRequireDefault(__webpack_require__(603));
-
-var _logger = _interopRequireDefault(__webpack_require__(20));
-
-var CONTACTS_DOCTYPE = 'io.cozy.contacts';
-exports.CONTACTS_DOCTYPE = CONTACTS_DOCTYPE;
-
-var getPrimaryOrFirst = function getPrimaryOrFirst(property) {
-  return function (obj) {
-    return !obj[property] || obj[property].length === 0 ? '' : obj[property].find(function (property) {
-      return property.primary;
-    }) || obj[property][0];
-  };
-};
-/**
- * Returns the initials of the contact.
- *
- * @param {object} contact - A contact
- * @returns {string} - the contact's initials
- */
-
-
-exports.getPrimaryOrFirst = getPrimaryOrFirst;
-
-var getInitials = function getInitials(contact) {
-  if (contact.name && !(0, _isEmpty.default)(contact.name)) {
-    return ['givenName', 'familyName'].map(function (part) {
-      return (0, _get.default)(contact, ['name', part, 0], '');
-    }).join('').toUpperCase();
-  }
-
-  var email = getPrimaryEmail(contact);
-
-  if (email) {
-    return email[0].toUpperCase();
-  }
-
-  var cozy = getPrimaryCozyDomain(contact);
-
-  if (cozy) {
-    return cozy[0].toUpperCase();
-  }
-
-  return '';
-};
-/**
- * Returns the contact's main email
- *
- * @param {object} contact - A contact
- * @returns {string} - The contact's main email
- */
-
-
-exports.getInitials = getInitials;
-
-var getPrimaryEmail = function getPrimaryEmail(contact) {
-  return Array.isArray(contact.email) ? getPrimaryOrFirst('email')(contact).address || '' : contact.email;
-};
-/**
- * Returns the contact's main cozy
- *
- * @param {object} contact - A contact
- * @returns {string} - The contact's main cozy
- */
-
-
-exports.getPrimaryEmail = getPrimaryEmail;
-
-var getPrimaryCozy = function getPrimaryCozy(contact) {
-  return Array.isArray(contact.cozy) ? getPrimaryOrFirst('cozy')(contact).url || '' : contact.url;
-};
-/**
- * Returns the contact's main cozy url without protocol
- *
- * @param {object} contact - A contact
- * @returns {string} - The contact's main cozy url
- */
-
-
-exports.getPrimaryCozy = getPrimaryCozy;
-
-var getPrimaryCozyDomain = function getPrimaryCozyDomain(contact) {
-  try {
-    var url = new URL(getPrimaryCozy(contact));
-    return url.hostname.replace(/^(www.)/g, '');
-  } catch (_unused) {
-    return getPrimaryCozy(contact);
-  }
-};
-/**
- * Returns the contact's main phone number
- *
- * @param {object} contact - A contact
- * @returns {string} - The contact's main phone number
- */
-
-
-exports.getPrimaryCozyDomain = getPrimaryCozyDomain;
-
-var getPrimaryPhone = function getPrimaryPhone(contact) {
-  return getPrimaryOrFirst('phone')(contact).number || '';
-};
-/**
- * Returns the contact's main address
- *
- * @param {object} contact - A contact
- * @returns {string} - The contact's main address
- */
-
-
-exports.getPrimaryPhone = getPrimaryPhone;
-
-var getPrimaryAddress = function getPrimaryAddress(contact) {
-  return getPrimaryOrFirst('address')(contact).formattedAddress || '';
-};
-/**
- * Makes fullname from contact name
- *
- * @param {*} contact - A contact
- * @returns {string} - The contact's fullname
- */
-
-
-exports.getPrimaryAddress = getPrimaryAddress;
-
-var makeFullname = function makeFullname(contact) {
-  if (contact.name) {
-    return ['namePrefix', 'givenName', 'additionalName', 'familyName', 'nameSuffix'].map(function (part) {
-      return contact.name[part];
-    }).filter(function (part) {
-      return part !== undefined;
-    }).join(' ').trim();
-  }
-
-  return '';
-};
-/**
- * Returns the contact's fullname
- *
- * @param {object} contact - A contact
- * @returns {string} - The contact's fullname
- */
-
-
-exports.makeFullname = makeFullname;
-
-var getFullname = function getFullname(contact) {
-  if ((0, _get.default)(contact, 'fullname')) {
-    return contact.fullname;
-  }
-
-  return makeFullname(contact);
-};
-/**
- * Makes displayName from contact data
- *
- * @param {*} contact - A contact
- * @returns {string} - The contact's displayName
- */
-
-
-exports.getFullname = getFullname;
-
-var makeDisplayName = function makeDisplayName(contact) {
-  var fullname = makeFullname(contact);
-  var primaryEmail = getPrimaryEmail(contact);
-  var primaryCozyDomain = getPrimaryCozyDomain(contact);
-
-  if (fullname && fullname.length > 0) {
-    return fullname;
-  }
-
-  if (primaryEmail && primaryEmail.length > 0) {
-    return primaryEmail;
-  }
-
-  if (primaryCozyDomain && primaryCozyDomain.length > 0) {
-    return primaryCozyDomain;
-  }
-
-  return '';
-};
-/**
- * Returns a display name for the contact
- *
- * @param {object} contact - A contact
- * @returns {string} - the contact's display name
- **/
-
-
-exports.makeDisplayName = makeDisplayName;
-
-var getDisplayName = function getDisplayName(contact) {
-  if ((0, _get.default)(contact, 'displayName')) {
-    return contact.displayName;
-  }
-
-  return makeDisplayName(contact);
-};
-/**
- * Makes 'byFamilyNameGivenNameEmailCozyUrl' index of a contact
- *
- * @param {object} contact - A contact
- * @returns {string} - the contact's 'byFamilyNameGivenNameEmailCozyUrl' index
- */
-
-
-exports.getDisplayName = getDisplayName;
-
-var makeDefaultSortIndexValue = function makeDefaultSortIndexValue(contact) {
-  var defaultSortIndexValue = [(0, _get.default)(contact, 'name.familyName', ''), (0, _get.default)(contact, 'name.givenName', ''), getPrimaryEmail(contact), getPrimaryCozyDomain(contact)].join('').trim().toLowerCase();
-
-  if (defaultSortIndexValue.length === 0) {
-    return null;
-  }
-
-  return defaultSortIndexValue;
-};
-/**
- * Returns 'byFamilyNameGivenNameEmailCozyUrl' index of a contact
- *
- * @param {object} contact - A contact
- * @returns {string} - the contact's 'byFamilyNameGivenNameEmailCozyUrl' index
- */
-
-
-exports.makeDefaultSortIndexValue = makeDefaultSortIndexValue;
-
-var getDefaultSortIndexValue = function getDefaultSortIndexValue(contact) {
-  var defaultSortIndexValue = (0, _get.default)(contact, 'indexes.byFamilyNameGivenNameEmailCozyUrl', null);
-
-  if (defaultSortIndexValue !== null) {
-    return (0, _isEmpty.default)(defaultSortIndexValue) ? null : defaultSortIndexValue;
-  }
-
-  return makeDefaultSortIndexValue(contact);
-};
-/**
- * Returns 'byFamilyNameGivenNameEmailCozyUrl' index of a contact
- *
- * @deprecated Prefer to use getDefaultSortIndexValue.
- * @param {object} contact - A contact
- * @returns {string} - the contact's 'byFamilyNameGivenNameEmailCozyUrl' index
- */
-
-
-exports.getDefaultSortIndexValue = getDefaultSortIndexValue;
-
-var getIndexByFamilyNameGivenNameEmailCozyUrl = function getIndexByFamilyNameGivenNameEmailCozyUrl(contact) {
-  _logger.default.warn('Deprecation: `getIndexByFamilyNameGivenNameEmailCozyUrl` is deprecated, please use `getDefaultSortIndexValue` instead');
-
-  return getDefaultSortIndexValue(contact);
-};
-/**
- * Whether the document is a contact
- *
- * @param {object} doc - A document (from io.cozy.something, or com.bitwarden or anything else)
- * @returns {boolean}
- */
-
-
-exports.getIndexByFamilyNameGivenNameEmailCozyUrl = getIndexByFamilyNameGivenNameEmailCozyUrl;
-
-var isContact = function isContact(doc) {
-  return doc._type === CONTACTS_DOCTYPE;
-};
-
-exports.isContact = isContact;
-
-/***/ }),
-/* 603 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseKeys = __webpack_require__(125),
-    getTag = __webpack_require__(65),
-    isArguments = __webpack_require__(83),
-    isArray = __webpack_require__(11),
-    isArrayLike = __webpack_require__(45),
-    isBuffer = __webpack_require__(84),
-    isPrototype = __webpack_require__(110),
-    isTypedArray = __webpack_require__(109);
-
-/** `Object#toString` result references. */
-var mapTag = '[object Map]',
-    setTag = '[object Set]';
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Checks if `value` is an empty object, collection, map, or set.
- *
- * Objects are considered empty if they have no own enumerable string keyed
- * properties.
- *
- * Array-like values such as `arguments` objects, arrays, buffers, strings, or
- * jQuery-like collections are considered empty if they have a `length` of `0`.
- * Similarly, maps and sets are considered empty if they have a `size` of `0`.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is empty, else `false`.
- * @example
- *
- * _.isEmpty(null);
- * // => true
- *
- * _.isEmpty(true);
- * // => true
- *
- * _.isEmpty(1);
- * // => true
- *
- * _.isEmpty([1, 2, 3]);
- * // => false
- *
- * _.isEmpty({ 'a': 1 });
- * // => false
- */
-function isEmpty(value) {
-  if (value == null) {
-    return true;
-  }
-  if (isArrayLike(value) &&
-      (isArray(value) || typeof value == 'string' || typeof value.splice == 'function' ||
-        isBuffer(value) || isTypedArray(value) || isArguments(value))) {
-    return !value.length;
-  }
-  var tag = getTag(value);
-  if (tag == mapTag || tag == setTag) {
-    return !value.size;
-  }
-  if (isPrototype(value)) {
-    return !baseKeys(value).length;
-  }
-  for (var key in value) {
-    if (hasOwnProperty.call(value, key)) {
-      return false;
-    }
-  }
-  return true;
-}
-
-module.exports = isEmpty;
-
-
-/***/ }),
-/* 604 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireWildcard = __webpack_require__(13);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "Qualification", {
-  enumerable: true,
-  get: function get() {
-    return _qualification.Qualification;
-  }
-});
-Object.defineProperty(exports, "setQualification", {
-  enumerable: true,
-  get: function get() {
-    return _qualification.setQualification;
-  }
-});
-Object.defineProperty(exports, "getQualification", {
-  enumerable: true,
-  get: function get() {
-    return _qualification.getQualification;
-  }
-});
-exports.helpers = exports.themes = exports.locales = void 0;
-
-var _qualification = __webpack_require__(169);
-
-var locales = _interopRequireWildcard(__webpack_require__(605));
-
-exports.locales = locales;
-
-var themes = _interopRequireWildcard(__webpack_require__(304));
-
-exports.themes = themes;
-
-var helpers = _interopRequireWildcard(__webpack_require__(653));
-
-exports.helpers = helpers;
-
-/***/ }),
-/* 605 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(0);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getBoundT = void 0;
-
-var _nodePolyglot = _interopRequireDefault(__webpack_require__(606));
-
-var _emojiCountry = __webpack_require__(649);
-
-var polyglots = {};
-var langs = ['fr', 'en'];
-
-for (var _i = 0, _langs = langs; _i < _langs.length; _i++) {
-  var lang = _langs[_i];
-  var locales = {};
-
-  try {
-    locales = __webpack_require__(650)("./".concat(lang, ".json"));
-  } catch (e) {// eslint-disable-line no-empty-block
-  }
-
-  var polyglot = new _nodePolyglot.default();
-  polyglot.extend(locales);
-  polyglots[lang] = polyglot;
-}
-/**
- * @param {string} lang - fr, en, etc
- * @returns {(label: string, country?: string) => string}
- */
-
-
-var getBoundT = function getBoundT(lang) {
-  var polyglot = polyglots[lang] || polyglots['en'];
-  var t = polyglot.t.bind(polyglot);
-  return function (label, country) {
-    var emojiCountry = (0, _emojiCountry.getEmojiByCountry)(country, t);
-    return emojiCountry ? "".concat(t(label), " (").concat(emojiCountry, ")") : t(label);
-  };
-};
-
-exports.getBoundT = getBoundT;
-
-/***/ }),
-/* 606 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67985,11 +67613,11 @@ exports.getBoundT = getBoundT;
 
 
 
-var forEach = __webpack_require__(607);
-var entries = __webpack_require__(643);
+var forEach = __webpack_require__(601);
+var entries = __webpack_require__(637);
 var warning = __webpack_require__(344);
-var has = __webpack_require__(188);
-var trim = __webpack_require__(646);
+var has = __webpack_require__(189);
+var trim = __webpack_require__(640);
 
 var warn = function warn(message) {
   warning(false, message);
@@ -68398,21 +68026,21 @@ module.exports = Polyglot;
 
 
 /***/ }),
-/* 607 */
+/* 601 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var define = __webpack_require__(61);
-var callBind = __webpack_require__(81);
-var callBound = __webpack_require__(54);
-var RequireObjectCoercible = __webpack_require__(293);
+var define = __webpack_require__(60);
+var callBind = __webpack_require__(80);
+var callBound = __webpack_require__(55);
+var RequireObjectCoercible = __webpack_require__(295);
 
-var implementation = __webpack_require__(294);
-var getPolyfill = __webpack_require__(298);
+var implementation = __webpack_require__(296);
+var getPolyfill = __webpack_require__(300);
 var polyfill = getPolyfill();
-var shim = __webpack_require__(642);
+var shim = __webpack_require__(636);
 
 var $slice = callBound('Array.prototype.slice');
 
@@ -68433,13 +68061,13 @@ module.exports = boundCoercible;
 
 
 /***/ }),
-/* 608 */
+/* 602 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
 var $TypeError = GetIntrinsic('%TypeError%');
 
@@ -68454,18 +68082,18 @@ module.exports = function CheckObjectCoercible(value, optMessage) {
 
 
 /***/ }),
-/* 609 */
+/* 603 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
-var callBound = __webpack_require__(54);
+var GetIntrinsic = __webpack_require__(16);
+var callBound = __webpack_require__(55);
 
 var $TypeError = GetIntrinsic('%TypeError%');
 
-var IsArray = __webpack_require__(610);
+var IsArray = __webpack_require__(604);
 
 var $apply = GetIntrinsic('%Reflect.apply%', true) || callBound('%Function.prototype.apply%');
 
@@ -68481,18 +68109,18 @@ module.exports = function Call(F, V) {
 
 
 /***/ }),
-/* 610 */
+/* 604 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
 var $Array = GetIntrinsic('%Array%');
 
 // eslint-disable-next-line global-require
-var toStr = !$Array.isArray && __webpack_require__(54)('Object.prototype.toString');
+var toStr = !$Array.isArray && __webpack_require__(55)('Object.prototype.toString');
 
 // https://ecma-international.org/ecma-262/6.0/#sec-isarray
 
@@ -68502,7 +68130,7 @@ module.exports = $Array.isArray || function IsArray(argument) {
 
 
 /***/ }),
-/* 611 */
+/* 605 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var hasMap = typeof Map === 'function' && Map.prototype;
@@ -68537,7 +68165,7 @@ var gPO = (typeof Reflect === 'function' ? Reflect.getPrototypeOf : Object.getPr
         : null
 );
 
-var inspectCustom = __webpack_require__(612).custom;
+var inspectCustom = __webpack_require__(606).custom;
 var inspectSymbol = inspectCustom && isSymbol(inspectCustom) ? inspectCustom : null;
 var toStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag !== 'undefined' ? Symbol.toStringTag : null;
 
@@ -68976,14 +68604,14 @@ function arrObjKeys(obj, inspect) {
 
 
 /***/ }),
-/* 612 */
+/* 606 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(23).inspect;
+module.exports = __webpack_require__(22).inspect;
 
 
 /***/ }),
-/* 613 */
+/* 607 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69014,18 +68642,18 @@ module.exports = function Type(x) {
 
 
 /***/ }),
-/* 614 */
+/* 608 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
 var $TypeError = GetIntrinsic('%TypeError%');
 
-var IsPropertyKey = __webpack_require__(296);
-var Type = __webpack_require__(170);
+var IsPropertyKey = __webpack_require__(298);
+var Type = __webpack_require__(171);
 
 // https://ecma-international.org/ecma-262/6.0/#sec-hasproperty
 
@@ -69041,7 +68669,7 @@ module.exports = function HasProperty(O, P) {
 
 
 /***/ }),
-/* 615 */
+/* 609 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69049,11 +68677,11 @@ module.exports = function HasProperty(O, P) {
 
 // http://262.ecma-international.org/5.1/#sec-9.11
 
-module.exports = __webpack_require__(616);
+module.exports = __webpack_require__(610);
 
 
 /***/ }),
-/* 616 */
+/* 610 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69134,19 +68762,19 @@ module.exports = reflectApply
 
 
 /***/ }),
-/* 617 */
+/* 611 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
 var $TypeError = GetIntrinsic('%TypeError%');
 
-var Get = __webpack_require__(295);
-var ToLength = __webpack_require__(618);
-var Type = __webpack_require__(170);
+var Get = __webpack_require__(297);
+var ToLength = __webpack_require__(612);
+var Type = __webpack_require__(171);
 
 // https://262.ecma-international.org/11.0/#sec-lengthofarraylike
 
@@ -69161,15 +68789,15 @@ module.exports = function LengthOfArrayLike(obj) {
 
 
 /***/ }),
-/* 618 */
+/* 612 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var MAX_SAFE_INTEGER = __webpack_require__(619);
+var MAX_SAFE_INTEGER = __webpack_require__(613);
 
-var ToIntegerOrInfinity = __webpack_require__(620);
+var ToIntegerOrInfinity = __webpack_require__(614);
 
 module.exports = function ToLength(argument) {
 	var len = ToIntegerOrInfinity(argument);
@@ -69180,13 +68808,13 @@ module.exports = function ToLength(argument) {
 
 
 /***/ }),
-/* 619 */
+/* 613 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
 var $Math = GetIntrinsic('%Math%');
 var $Number = GetIntrinsic('%Number%');
@@ -69195,15 +68823,15 @@ module.exports = $Number.MAX_SAFE_INTEGER || $Math.pow(2, 53) - 1;
 
 
 /***/ }),
-/* 620 */
+/* 614 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var ES5ToInteger = __webpack_require__(621);
+var ES5ToInteger = __webpack_require__(615);
 
-var ToNumber = __webpack_require__(630);
+var ToNumber = __webpack_require__(624);
 
 // https://www.ecma-international.org/ecma-262/11.0/#sec-tointeger
 
@@ -69217,19 +68845,19 @@ module.exports = function ToInteger(value) {
 
 
 /***/ }),
-/* 621 */
+/* 615 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var abs = __webpack_require__(622);
-var floor = __webpack_require__(623);
-var ToNumber = __webpack_require__(624);
+var abs = __webpack_require__(616);
+var floor = __webpack_require__(617);
+var ToNumber = __webpack_require__(618);
 
-var $isNaN = __webpack_require__(627);
-var $isFinite = __webpack_require__(628);
-var $sign = __webpack_require__(629);
+var $isNaN = __webpack_require__(621);
+var $isFinite = __webpack_require__(622);
+var $sign = __webpack_require__(623);
 
 // http://262.ecma-international.org/5.1/#sec-9.4
 
@@ -69242,13 +68870,13 @@ module.exports = function ToInteger(value) {
 
 
 /***/ }),
-/* 622 */
+/* 616 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
 var $abs = GetIntrinsic('%Math.abs%');
 
@@ -69260,7 +68888,7 @@ module.exports = function abs(x) {
 
 
 /***/ }),
-/* 623 */
+/* 617 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69278,13 +68906,13 @@ module.exports = function floor(x) {
 
 
 /***/ }),
-/* 624 */
+/* 618 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var ToPrimitive = __webpack_require__(625);
+var ToPrimitive = __webpack_require__(619);
 
 // http://262.ecma-international.org/5.1/#sec-9.3
 
@@ -69305,7 +68933,7 @@ module.exports = function ToNumber(value) {
 
 
 /***/ }),
-/* 625 */
+/* 619 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69313,11 +68941,11 @@ module.exports = function ToNumber(value) {
 
 // http://262.ecma-international.org/5.1/#sec-9.1
 
-module.exports = __webpack_require__(626);
+module.exports = __webpack_require__(620);
 
 
 /***/ }),
-/* 626 */
+/* 620 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69325,9 +68953,9 @@ module.exports = __webpack_require__(626);
 
 var toStr = Object.prototype.toString;
 
-var isPrimitive = __webpack_require__(297);
+var isPrimitive = __webpack_require__(299);
 
-var isCallable = __webpack_require__(187);
+var isCallable = __webpack_require__(188);
 
 // http://ecma-international.org/ecma-262/5.1/#sec-8.12.8
 var ES5internalSlots = {
@@ -69369,7 +68997,7 @@ module.exports = function ToPrimitive(input) {
 
 
 /***/ }),
-/* 627 */
+/* 621 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69381,7 +69009,7 @@ module.exports = Number.isNaN || function isNaN(a) {
 
 
 /***/ }),
-/* 628 */
+/* 622 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69393,7 +69021,7 @@ module.exports = Number.isFinite || function (x) { return typeof x === 'number' 
 
 
 /***/ }),
-/* 629 */
+/* 623 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69405,22 +69033,22 @@ module.exports = function sign(number) {
 
 
 /***/ }),
-/* 630 */
+/* 624 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
 var $TypeError = GetIntrinsic('%TypeError%');
 var $Number = GetIntrinsic('%Number%');
 var $RegExp = GetIntrinsic('%RegExp%');
 var $parseInteger = GetIntrinsic('%parseInt%');
 
-var callBound = __webpack_require__(54);
-var regexTester = __webpack_require__(631);
-var isPrimitive = __webpack_require__(632);
+var callBound = __webpack_require__(55);
+var regexTester = __webpack_require__(625);
+var isPrimitive = __webpack_require__(626);
 
 var $strSlice = callBound('String.prototype.slice');
 var isBinary = regexTester(/^0b[01]+$/i);
@@ -69443,7 +69071,7 @@ var $trim = function (value) {
 	return $replace(value, trimRegex, '');
 };
 
-var ToPrimitive = __webpack_require__(633);
+var ToPrimitive = __webpack_require__(627);
 
 // https://ecma-international.org/ecma-262/6.0/#sec-tonumber
 
@@ -69474,17 +69102,17 @@ module.exports = function ToNumber(argument) {
 
 
 /***/ }),
-/* 631 */
+/* 625 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
 var $test = GetIntrinsic('RegExp.prototype.test');
 
-var callBind = __webpack_require__(81);
+var callBind = __webpack_require__(80);
 
 module.exports = function regexTester(regex) {
 	return callBind($test, regex);
@@ -69492,7 +69120,7 @@ module.exports = function regexTester(regex) {
 
 
 /***/ }),
-/* 632 */
+/* 626 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69504,13 +69132,13 @@ module.exports = function isPrimitive(value) {
 
 
 /***/ }),
-/* 633 */
+/* 627 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var toPrimitive = __webpack_require__(634);
+var toPrimitive = __webpack_require__(628);
 
 // https://ecma-international.org/ecma-262/6.0/#sec-toprimitive
 
@@ -69523,7 +69151,7 @@ module.exports = function ToPrimitive(input) {
 
 
 /***/ }),
-/* 634 */
+/* 628 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69531,10 +69159,10 @@ module.exports = function ToPrimitive(input) {
 
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol';
 
-var isPrimitive = __webpack_require__(297);
-var isCallable = __webpack_require__(187);
-var isDate = __webpack_require__(635);
-var isSymbol = __webpack_require__(636);
+var isPrimitive = __webpack_require__(299);
+var isCallable = __webpack_require__(188);
+var isDate = __webpack_require__(629);
+var isSymbol = __webpack_require__(630);
 
 var ordinaryToPrimitive = function OrdinaryToPrimitive(O, hint) {
 	if (typeof O === 'undefined' || O === null) {
@@ -69605,7 +69233,7 @@ module.exports = function ToPrimitive(input) {
 
 
 /***/ }),
-/* 635 */
+/* 629 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69634,14 +69262,14 @@ module.exports = function isDateObject(value) {
 
 
 /***/ }),
-/* 636 */
+/* 630 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var toStr = Object.prototype.toString;
-var hasSymbols = __webpack_require__(235)();
+var hasSymbols = __webpack_require__(236)();
 
 if (hasSymbols) {
 	var symToStr = Symbol.prototype.toString;
@@ -69676,17 +69304,17 @@ if (hasSymbols) {
 
 
 /***/ }),
-/* 637 */
+/* 631 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
 var $Object = GetIntrinsic('%Object%');
 
-var RequireObjectCoercible = __webpack_require__(293);
+var RequireObjectCoercible = __webpack_require__(295);
 
 // https://ecma-international.org/ecma-262/6.0/#sec-toobject
 
@@ -69697,13 +69325,13 @@ module.exports = function ToObject(value) {
 
 
 /***/ }),
-/* 638 */
+/* 632 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
 var $String = GetIntrinsic('%String%');
 var $TypeError = GetIntrinsic('%TypeError%');
@@ -69719,7 +69347,7 @@ module.exports = function ToString(argument) {
 
 
 /***/ }),
-/* 639 */
+/* 633 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69736,7 +69364,7 @@ var tryStringObject = function tryStringObject(value) {
 };
 var toStr = Object.prototype.toString;
 var strClass = '[object String]';
-var hasToStringTag = __webpack_require__(640)();
+var hasToStringTag = __webpack_require__(634)();
 
 module.exports = function isString(value) {
 	if (typeof value === 'string') {
@@ -69750,13 +69378,13 @@ module.exports = function isString(value) {
 
 
 /***/ }),
-/* 640 */
+/* 634 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var hasSymbols = __webpack_require__(236);
+var hasSymbols = __webpack_require__(237);
 
 module.exports = function hasToStringTagShams() {
 	return hasSymbols() && !!Symbol.toStringTag;
@@ -69764,7 +69392,7 @@ module.exports = function hasToStringTagShams() {
 
 
 /***/ }),
-/* 641 */
+/* 635 */
 /***/ (function(module, exports) {
 
 module.exports = function properlyBoxed(method) {
@@ -69800,14 +69428,14 @@ module.exports = function properlyBoxed(method) {
 
 
 /***/ }),
-/* 642 */
+/* 636 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var define = __webpack_require__(61);
-var getPolyfill = __webpack_require__(298);
+var define = __webpack_require__(60);
+var getPolyfill = __webpack_require__(300);
 
 module.exports = function shimForEach() {
 	var polyfill = getPolyfill();
@@ -69821,18 +69449,18 @@ module.exports = function shimForEach() {
 
 
 /***/ }),
-/* 643 */
+/* 637 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var define = __webpack_require__(61);
-var callBind = __webpack_require__(81);
+var define = __webpack_require__(60);
+var callBind = __webpack_require__(80);
 
-var implementation = __webpack_require__(299);
-var getPolyfill = __webpack_require__(301);
-var shim = __webpack_require__(645);
+var implementation = __webpack_require__(301);
+var getPolyfill = __webpack_require__(303);
+var shim = __webpack_require__(639);
 
 var polyfill = callBind(getPolyfill(), Object);
 
@@ -69846,13 +69474,13 @@ module.exports = polyfill;
 
 
 /***/ }),
-/* 644 */
+/* 638 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
 var $TypeError = GetIntrinsic('%TypeError%');
 
@@ -69867,14 +69495,14 @@ module.exports = function CheckObjectCoercible(value, optMessage) {
 
 
 /***/ }),
-/* 645 */
+/* 639 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var getPolyfill = __webpack_require__(301);
-var define = __webpack_require__(61);
+var getPolyfill = __webpack_require__(303);
+var define = __webpack_require__(60);
 
 module.exports = function shimEntries() {
 	var polyfill = getPolyfill();
@@ -69888,18 +69516,18 @@ module.exports = function shimEntries() {
 
 
 /***/ }),
-/* 646 */
+/* 640 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var callBind = __webpack_require__(81);
-var define = __webpack_require__(61);
+var callBind = __webpack_require__(80);
+var define = __webpack_require__(60);
 
-var implementation = __webpack_require__(302);
-var getPolyfill = __webpack_require__(303);
-var shim = __webpack_require__(648);
+var implementation = __webpack_require__(304);
+var getPolyfill = __webpack_require__(305);
+var shim = __webpack_require__(642);
 
 var boundTrim = callBind(getPolyfill());
 
@@ -69913,13 +69541,13 @@ module.exports = boundTrim;
 
 
 /***/ }),
-/* 647 */
+/* 641 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var GetIntrinsic = __webpack_require__(17);
+var GetIntrinsic = __webpack_require__(16);
 
 var $String = GetIntrinsic('%String%');
 var $TypeError = GetIntrinsic('%TypeError%');
@@ -69935,14 +69563,14 @@ module.exports = function ToString(argument) {
 
 
 /***/ }),
-/* 648 */
+/* 642 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var define = __webpack_require__(61);
-var getPolyfill = __webpack_require__(303);
+var define = __webpack_require__(60);
+var getPolyfill = __webpack_require__(305);
 
 module.exports = function shimStringTrim() {
 	var polyfill = getPolyfill();
@@ -69956,7 +69584,7 @@ module.exports = function shimStringTrim() {
 
 
 /***/ }),
-/* 649 */
+/* 643 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69983,48 +69611,1077 @@ var getEmojiByCountry = function getEmojiByCountry(country, t) {
 exports.getEmojiByCountry = getEmojiByCountry;
 
 /***/ }),
+/* 644 */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"country\":{\"stranger\":\"Stranger\"},\"Scan\":{\"scan_a_doc\":\"Scan a doc\",\"save_doc\":\"Save the doc\",\"filename\":\"Filename\",\"save\":\"Save\",\"cancel\":\"Cancel\",\"qualify\":\"Describe\",\"apply\":\"Apply\",\"error\":{\"offline\":\"You are currently offline and you can't use this functionality. Please, try again later.\",\"uploading\":\"You are already uploading a file. Please wait until the end of this upload and try again.\",\"generic\":\"Something went wrong. Please try again.\"},\"successful\":{\"qualified_ok\":\"You just have successfully described your file! \"},\"items\":{\"accommodation_proof\":\"Proof of accommodation |||| Proof of accommodations\",\"appliance_invoice\":\"Appliance invoice |||| Appliance invoices\",\"bank_details\":\"Bank detail |||| Bank details\",\"bank_statement\":\"Bank statement |||| Bank statements\",\"birth_certificate\":\"Birth certificate |||| Birth certificates\",\"building_permit\":\"Building permit |||| Building permits\",\"caf\":\"Social benefit rate |||| Social benefit rates\",\"car_insurance\":\"Car insurance certificate |||| Car insurance certificates\",\"citizen_registration_certificate\":\"Certificate of citizen registration |||| Certificates of citizen registration\",\"diploma\":\"Diploma |||| Diplomas\",\"divorce\":\"Divorce |||| Divorces\",\"driver_license\":\"Driving license |||| Driving licenses\",\"electoral_card\":\"Electoral card |||| Electoral cards\",\"employment_center_certificate\":\"Employment center certificate |||| Employment center certificates\",\"energy_contract\":\"Energy provider contract |||| Energy provider contracts\",\"energy_invoice\":\"Energy invoice |||| Energy invoices\",\"expense_claim\":\"Expense claim |||| Expense claims\",\"family_record_book\":\"Family record book |||| Family record books\",\"family\":\"Family\",\"fidelity_card\":\"Fidelity card |||| Fidelity cards\",\"gradebook\":\"Gradebook |||| Gradebooks\",\"grocery_invoice\":\"Grocery invoice |||| Grocery invoices\",\"health_book\":\"Health book |||| Health books\",\"health_certificate\":\"Health/Vaccination certificate |||| Health/Vaccination certificates\",\"health_insurance_card\":\"Insurance card |||| Insurance cards\",\"health_invoice\":\"Health invoice |||| Health invoices\",\"health\":\"Health\",\"home\":\"Home\",\"house_insurance\":\"Home insurance |||| Home insurances\",\"house_sale_agreeement\":\"House sale agreement |||| House sale agreements\",\"identity_photo\":\"Identity photo |||| Identity photos\",\"identity\":\"Identity\",\"invoice\":\"Invoice |||| Invoices\",\"isp_invoice\":\"ISP invoice |||| ISP invoices\",\"large_family_card\":\" Large Family Card |||| Large Family Cards\",\"lease\":\"Lease |||| Leases\",\"library_card\":\"library card |||| library cards\",\"loan_agreement\":\"Loan agreement |||| Loan agreements\",\"mechanic_invoice\":\"Repair bill |||| Repair bills\",\"motivation_letter\":\"Motivation letter |||| Motivation letters\",\"national_health_insurance_card\":\"National health insurance card |||| National health insurance cards\",\"national_health_insurance_right_certificate\":\"National health insurance right certificate |||| National health insurance right certificates\",\"national_id_card\":\"ID card |||| ID cards\",\"note_identity_document\":\"Note Identity |||| Notes Identity\",\"note_family_document\":\"Note Family |||| Notes Family\",\"note_work_document\":\"Note Work & Study |||| Notes Work & Study\",\"note_health_document\":\"Note Health |||| Notes Health\",\"note_house_document\":\"Note Home |||| Notes Home\",\"note_transport_document\":\"Note Transport |||| Notes Transport\",\"note_activity_document\":\"Note Activities |||| Notes Activities\",\"note_finance\":\"Note Finance |||| Notes Finance\",\"note_invoice\":\"Note Invoice |||| Notes Invoice\",\"other_activity_document\":\"Other sports document |||| Other sports documents\",\"other_bank_document\":\"Other banking document |||| Other banking documents\",\"other_family_document\":\"Other family document |||| Other family documents\",\"other_health_document\":\"Other health document |||| Other health documents\",\"other_house_document\":\"Other house document |||| Other house documents\",\"other_identity_document\":\"Other document of identity |||| Other documents of identity\",\"other_invoice\":\"Other invoice |||| Other invoices\",\"other_revenue\":\"Other revenue |||| Other revenues\",\"other_tax_document\":\"Other tax document |||| Other tax documents\",\"other_transport_document\":\"Other transport document |||| Other transport documents\",\"other_work_document\":\"Other work document |||| Other work documents\",\"other_administrative_document\":\"Other administrative document |||| Other administrative documents\",\"others\":\"Others\",\"pacs\":\"Civil union |||| Civil unions\",\"passport\":\"Passeport |||| Passeports\",\"pay_sheet\":\"Pay sheet |||| Pay sheets\",\"payment_proof_family_allowance\":\"family allowance payment proof |||| family allowance payment proofs\",\"pension\":\"Pension |||| Pensions\",\"person_insurance\":\"Individual insurance certificate |||| Individual insurance certificates\",\"personal_sporting_licence\":\"Sporting licence |||| Sporting licences\",\"phone_invoice\":\"Phone invoice |||| Phone invoices\",\"pregnancy_medical_certificate\":\"Certificate of pregnancy |||| Certificates of pregnancy\",\"prescription\":\"Prescription |||| Prescriptions\",\"real_estate_insurance\":\"Real estate insurance certificate |||| Real estate insurance certificates\",\"real_estate_tax\":\"Real estate tax |||| Real estate taxes\",\"receipt\":\"Receipt |||| Receipts\",\"rent_receipt\":\"Rent receipt |||| Rent receipts\",\"residence_permit\":\"Residence permit |||| Residence permits\",\"restaurant_invoice\":\"Restaurant invoice |||| Restaurant invoices\",\"resume\":\"Resume |||| Resumes\",\"school_attendance_certificate\":\"Certificate of school attendance |||| Certificates of school attendance\",\"school_insurance_certificate\":\"Certificate of school insurance |||| Certificates of school insurance\",\"single_parent_benefit\":\"Single parent benefit |||| Single parent benefits\",\"student_card\":\"Student card |||| Student cards\",\"tax_notice\":\"Tax notice |||| Tax notices\",\"tax_return\":\"Tax return |||| Tax returns\",\"tax_timetable\":\"Payment Plans Installment Agreement |||| Payment Plans Installment Agreements\",\"technical_diagnostic_record\":\"Technical diagnostic record |||| Technical diagnostic records\",\"telecom_invoice\":\"Telecom invoice |||| Telecom invoices\",\"transport_card\":\"Transport card |||| Transport cards\",\"transport_invoice\":\"Transport invoice |||| Transport invoices\",\"transport\":\"Transport\",\"unemployment_benefit\":\"Unemployment benefit |||| Unemployment benefits\",\"unfit_for_habitation_declaration\":\"Declaration of unfit for habitation |||| Declarations of unfit for habitation\",\"vehicle_registration\":\"Vehicle registration |||| Vehicle registrations\",\"water_invoice\":\"Water invoice |||| Water invoices\",\"web_service_invoice\":\"Web service invoice |||| Web service invoices\",\"wedding\":\"Wedding contract |||| Wedding contracts\",\"work_contract\":\"Work contract |||| Work contracts\",\"work_disability_recognition\":\"Recognition of disability |||| Recognitions of disability\",\"work_invoice\":\"Work invoice |||| Work invoices\",\"work_quote\":\"Work quote |||| Work quotes\",\"work_study\":\"Work & Study\"},\"attributes\":{\"contractType\":{\"cdi\":\"CDI\",\"cdd\":\"CDD\",\"alternate\":\"Alternate\",\"internship\":\"Internship\",\"other\":\"Other\"}},\"themes\":{\"activity\":\"Activities\",\"family\":\"Family\",\"finance\":\"Finance\",\"health\":\"Health\",\"home\":\"Home\",\"identity\":\"Identity\",\"invoice\":\"Invoice\",\"others\":\"Others\",\"transport\":\"Transport\",\"undefined\":\"Undefined\",\"work_study\":\"Work & Study\"}},\"MagicFolders\":{\"administrative\":\"Administrative\",\"photos\":\"Photos\"}}");
+
+/***/ }),
+/* 645 */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"country\":{\"stranger\":\"Étranger\"},\"Scan\":{\"scan_a_doc\":\"Numériser un doc\",\"save_doc\":\"Enregistrer le document\",\"filename\":\"Nom du fichier\",\"save\":\"Sauvegarder\",\"cancel\":\"Annuler\",\"qualify\":\"Qualifier\",\"apply\":\"Appliquer\",\"error\":{\"offline\":\"Vous êtes actuellement déconnecté, vous ne pouvez donc pas utiliser cette fonctionnalité. Connectez-vous à internet et recommencez. \",\"uploading\":\"Vous avez déjà un fichier en cours de téléchargement. Attendez la fin et recommencez.\",\"generic\":\"Un problème est survenu. Veuillez réessayer. \"},\"successful\":{\"qualified_ok\":\"Vous venez de qualifier votre fichier avec succès !\"},\"items\":{\"accommodation_proof\":\"Attestation d'hébergement |||| Attestations d'hébergement\",\"appliance_invoice\":\"Facture d'électroménager |||| Factures d'électroménager\",\"bank_details\":\"RIB\",\"bank_statement\":\"Relevé de compte |||| Relevés de compte\",\"birth_certificate\":\"Certificat de naissance |||| Certificats de naissance\",\"building_permit\":\"Permis de construire\",\"caf\":\"Attestation de quotient familial CAF |||| Attestations de quotient familial CAF\",\"car_insurance\":\"Attestation d'assurance auto |||| Attestations d'assurance auto\",\"citizen_registration_certificate\":\"Attestation de recensement citoyen |||| Attestations de recensement citoyen\",\"diploma\":\"Diplôme |||| Diplômes\",\"divorce\":\"Attestation de divorce |||| Attestations de divorce\",\"driver_license\":\"Permis de conduire\",\"electoral_card\":\"Carte électorale |||| Cartes électorales\",\"employment_center_certificate\":\"Attestation de Pôle emploi |||| Attestations de Pôle emploi\",\"energy_contract\":\"Contrat de fournisseur d'énergies |||| Contrats de fournisseur d'énergies\",\"energy_invoice\":\"Facture d'énergie |||| Factures d'énergie\",\"expense_claim\":\"Note de frais |||| Notes de frais\",\"family_record_book\":\"Livret de famille |||| Livrets de famille\",\"family\":\"Famille\",\"fidelity_card\":\"Carte de fidélité |||| Cartes de fidélité\",\"gradebook\":\"Bulletin de notes |||| Bulletins de notes\",\"grocery_invoice\":\"Facture de courses |||| Factures de courses\",\"health_book\":\"Carnet de santé |||| Carnets de santé\",\"health_certificate\":\"Certificat de santé/vaccination |||| Certificats de santé/vaccination\",\"health_insurance_card\":\"Carte de mutuelle |||| Cartes de mutuelle\",\"health_invoice\":\"Facture médicale |||| Factures médicales\",\"health\":\"Santé\",\"home\":\"Logement\",\"house_insurance\":\"Assurance logement |||| Assurances logement\",\"house_sale_agreeement\":\"Compromis de vente\",\"identity_photo\":\"Photo d'identité |||| Photos d'identité\",\"identity\":\"Identité\",\"invoice\":\"Facture |||| Factures\",\"isp_invoice\":\"Facture d'internet |||| Factures d'internet\",\"large_family_card\":\"Carte famille nombreuse |||| Cartes famille nombreuse\",\"lease\":\"Bail |||| Baux\",\"library_card\":\"Carte de bibliothèque |||| Cartes de bibliothèque\",\"loan_agreement\":\"Contrat de prêt |||| Contrats de prêt\",\"mechanic_invoice\":\"Facture de réparation |||| Factures de réparation\",\"motivation_letter\":\"Lettre de motivation |||| Lettres de motivation\",\"national_health_insurance_card\":\"Carte vitale |||| Cartes vitales\",\"national_health_insurance_right_certificate\":\"Attestation de droits de l'Assurance Maladie (vitale) |||| Attestations de droits de l'Assurance Maladie (vitale)\",\"national_id_card\":\"Carte d'identité |||| Cartes d'identité\",\"note_identity_document\":\"Note Identité |||| Notes Identité\",\"note_family_document\":\"Note Famille |||| Notes Famille\",\"note_work_document\":\"Note Travail & Études |||| Notes Travail & Études\",\"note_health_document\":\"Note Santé |||| Notes Santé\",\"note_house_document\":\"Note Logement |||| Notes Logement\",\"note_transport_document\":\"Note Transport |||| Notes Transport\",\"note_activity_document\":\"Note Activités & loisirs |||| Notes Activités & loisirs\",\"note_finance\":\"Note Finances |||| Notes Finances\",\"note_invoice\":\"Note Factures |||| Notes Factures\",\"other_activity_document\":\"Autre document sportif |||| Autres documents sportifs\",\"other_bank_document\":\"Autre document bancaire |||| Autres documents bancaires\",\"other_family_document\":\"Autre document de famille |||| Autres documents de famille\",\"other_health_document\":\"Autre document de santé |||| Autres documents de santé\",\"other_house_document\":\"Autre document de logement |||| Autres documents de logement\",\"other_identity_document\":\"Autre document d'identité |||| Autres documents d'identité\",\"other_invoice\":\"Autre facture |||| Autres factures\",\"other_revenue\":\"Autre revenu |||| Autres revenus\",\"other_tax_document\":\"Impôts - Autre document |||| Impôts - Autres documents\",\"other_transport_document\":\"Autre document de transport |||| Autres documents de transport\",\"other_work_document\":\"Autre document de travail |||| Autres documents de travail\",\"other_administrative_document\":\"Autre document administratif |||| Autres documents administratifs\",\"others\":\"Autres\",\"pacs\":\"Attestation de PACS |||| Attestations de PACS\",\"passport\":\"Passeport |||| Passeports\",\"pay_sheet\":\"Fiche de paie |||| Fiches de paie\",\"payment_proof_family_allowance\":\"Attestation de paiement CAF |||| Attestations de paiement CAF\",\"pension\":\"Retraite |||| Retraites\",\"person_insurance\":\"Attestation d'assurance individuelle |||| Attestations d'assurance individuelle\",\"personal_sporting_licence\":\"Licence sportive |||| Licences sportives\",\"phone_invoice\":\"Facture de téléphone |||| Factures de téléphone\",\"pregnancy_medical_certificate\":\"Certificat de grossesse |||| Certificats de grossesse\",\"prescription\":\"Ordonnance |||| Ordonnances\",\"real_estate_insurance\":\"Attestation d'assurance immobilière |||| Attestations d'assurance immobilière\",\"real_estate_tax\":\"Taxe foncière |||| Taxes foncières\",\"receipt\":\"Accusé de réception |||| Accusés de réception\",\"rent_receipt\":\"Quittance de loyer |||| Quittances de loyer\",\"residence_permit\":\"Titre de séjour |||| Titres de séjour\",\"restaurant_invoice\":\"Facture de restaurant |||| Factures de restaurant\",\"resume\":\"CV\",\"school_attendance_certificate\":\"Certificat de scolarité |||| Certificats de scolarité\",\"school_insurance_certificate\":\"Attestation d'assurance scolaire |||| Attestations d'assurance scolaire\",\"single_parent_benefit\":\"Allocation parent isolé |||| Allocations parent isolé\",\"student_card\":\"Carte d'étudiant |||| Cartes d'étudiant\",\"tax_notice\":\"Impôts - Avis d'imposition\",\"tax_return\":\"Impôts - Déclaration de revenus |||| Impôts - Déclarations de revenus\",\"tax_timetable\":\"Impôts - Echéancier |||| Impôts - Echéanciers\",\"technical_diagnostic_record\":\"Dossier de diagnostic technique |||| Dossiers de diagnostic technique\",\"telecom_invoice\":\"Facture de télécom |||| Factures de télécom\",\"transport_card\":\"Carte de transport |||| Cartes de transport\",\"transport_invoice\":\"Facture de transport |||| Factures de transport\",\"transport\":\"Transport\",\"unemployment_benefit\":\"Allocation chômage |||| Allocations chômage\",\"unfit_for_habitation_declaration\":\"Arrêté d'insalubrité |||| Arrêtés d'insalubrité\",\"vehicle_registration\":\"Carte grise |||| Cartes grises\",\"water_invoice\":\"Facture d'eau |||| Factures d'eau\",\"web_service_invoice\":\"Facture de service web |||| Factures de service web\",\"wedding\":\"Contrat de mariage |||| Contrats de mariage\",\"work_contract\":\"Contrat de travail |||| Contrats de travail\",\"work_disability_recognition\":\"Reconnaissance de handicap - RQTH |||| Reconnaissances de handicap - RQTH\",\"work_invoice\":\"Facture de travaux |||| Factures de travaux\",\"work_quote\":\"Devis de travaux\",\"work_study\":\"Travail & Études\"},\"attributes\":{\"contractType\":{\"cdi\":\"CDI\",\"cdd\":\"CDD\",\"alternate\":\"Alternance\",\"internship\":\"Stage\",\"other\":\"Autre\"}},\"themes\":{\"activity\":\"Activités & loisirs\",\"family\":\"Famille\",\"finance\":\"Finances\",\"health\":\"Santé\",\"home\":\"Logement\",\"identity\":\"Identité\",\"invoice\":\"Factures\",\"others\":\"Autres\",\"transport\":\"Transport\",\"undefined\":\"Indéfini\",\"work_study\":\"Travail & Études\"}},\"MagicFolders\":{\"administrative\":\"Administratif\",\"photos\":\"Photos\"}}");
+
+/***/ }),
+/* 646 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.fetchURL = exports.generateUrlForNote = exports.generatePrivateUrl = void 0;
+
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
+
+var _helpers = __webpack_require__(117);
+
+var _logger = _interopRequireDefault(__webpack_require__(20));
+
+/**
+ *
+ * @param {string} notesAppUrl URL to the Notes App (https://notes.foo.mycozy.cloud)
+ * @param {object} file io.cozy.files object
+ */
+var generatePrivateUrl = function generatePrivateUrl(notesAppUrl, file) {
+  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  var returnUrl = options.returnUrl;
+  var url = new URL(notesAppUrl);
+
+  if (returnUrl) {
+    url.searchParams.set('returnUrl', returnUrl);
+  }
+
+  url.hash = "#/n/".concat(file.id);
+  return url.toString();
+};
+
+exports.generatePrivateUrl = generatePrivateUrl;
+
+var generateUrlForNote = function generateUrlForNote(notesAppUrl, file) {
+  _logger.default.warn('generateUrlForNote is deprecated. Please use models.note.generatePrivateUrl instead');
+
+  return generatePrivateUrl(notesAppUrl, file);
+};
+/**
+ * Fetch and build an URL to open a note.
+ *
+ * @param {object} client CozyClient instance
+ * @param {object} file io.cozy.file object
+ * @param {object} options Options
+ * @param {string} [options.pathname] Pathname to use in the URL
+ * @returns {Promise<string>} url
+ */
+
+
+exports.generateUrlForNote = generateUrlForNote;
+
+var fetchURL = /*#__PURE__*/function () {
+  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client, file) {
+    var options,
+        _yield$client$getStac,
+        _yield$client$getStac2,
+        note_id,
+        subdomain,
+        protocol,
+        instance,
+        sharecode,
+        public_name,
+        _options$pathname,
+        searchParams,
+        _options$pathname2,
+        _args = arguments;
+
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            options = _args.length > 2 && _args[2] !== undefined ? _args[2] : {};
+            _context.next = 3;
+            return client.getStackClient().collection('io.cozy.notes').fetchURL({
+              _id: file.id
+            });
+
+          case 3:
+            _yield$client$getStac = _context.sent;
+            _yield$client$getStac2 = _yield$client$getStac.data;
+            note_id = _yield$client$getStac2.note_id;
+            subdomain = _yield$client$getStac2.subdomain;
+            protocol = _yield$client$getStac2.protocol;
+            instance = _yield$client$getStac2.instance;
+            sharecode = _yield$client$getStac2.sharecode;
+            public_name = _yield$client$getStac2.public_name;
+
+            if (!sharecode) {
+              _context.next = 18;
+              break;
+            }
+
+            searchParams = [['id', note_id]];
+            searchParams.push(['sharecode', sharecode]);
+            if (public_name) searchParams.push(['username', public_name]);
+            return _context.abrupt("return", (0, _helpers.generateWebLink)({
+              cozyUrl: "".concat(protocol, "://").concat(instance),
+              searchParams: searchParams,
+              pathname: (_options$pathname = options.pathname) !== null && _options$pathname !== void 0 ? _options$pathname : '/public/',
+              slug: 'notes',
+              subDomainType: subdomain
+            }));
+
+          case 18:
+            return _context.abrupt("return", (0, _helpers.generateWebLink)({
+              cozyUrl: "".concat(protocol, "://").concat(instance),
+              pathname: (_options$pathname2 = options.pathname) !== null && _options$pathname2 !== void 0 ? _options$pathname2 : '',
+              slug: 'notes',
+              subDomainType: subdomain,
+              hash: "/n/".concat(note_id)
+            }));
+
+          case 19:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function fetchURL(_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+exports.fetchURL = fetchURL;
+
+/***/ }),
+/* 647 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isReadOnly = isReadOnly;
+exports.fetchOwn = fetchOwn;
+exports.isForType = isForType;
+exports.isDocumentReadOnly = isDocumentReadOnly;
+exports.isShortcutCreatedOnTheRecipientCozy = void 0;
+
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
+
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
+
+var _toConsumableArray2 = _interopRequireDefault(__webpack_require__(38));
+
+var _intersection = _interopRequireDefault(__webpack_require__(277));
+
+var _get = _interopRequireDefault(__webpack_require__(14));
+
+var _CozyClient = _interopRequireDefault(__webpack_require__(37));
+
+var _dsl = __webpack_require__(13);
+
+var _file = __webpack_require__(292);
+
+var _const = __webpack_require__(49);
+
+var _logger = _interopRequireDefault(__webpack_require__(20));
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+/**
+ * @typedef {object} Document - Couchdb document like an io.cozy.files
+ * @property {string} _id
+ * @property {string} id
+ * @property {string} _type
+ * @property {string} type
+ */
+
+/**
+ * @typedef {('ALL'|'GET'|'PATCH'|'POST'|'PUT'|'DELETE')} PermissionVerb
+ */
+
+/**
+ * @typedef {object} PermissionItem
+ * @property {PermissionVerb[]} verbs - ALL, GET, PUT, PATCH, DELETE, POST…
+ * @property {string} selector - defaults to `id`
+ * @property {string[]} values
+ * @property {string} type - a couch db database like 'io.cozy.files'
+ */
+
+/**
+ * Is this permission read only ?
+ *
+ * @private
+ * @param {PermissionItem} perm - permission node in a io.cozy.permissions document
+ * @param {object} options - Options
+ * @param {PermissionVerb[]} [options.writability] - Writability
+ * @returns {boolean} true if the note should be displayed read-only
+ */
+function isReadOnly(perm) {
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var _options$writability = options.writability,
+      writability = _options$writability === void 0 ? ['PATCH', 'POST', 'PUT', 'DELETE'] : _options$writability;
+  return perm.verbs && // no verbs is equivalent to ['ALL']
+  perm.verbs.length > 0 && // empty array is equivalent to ['ALL']
+  (0, _intersection.default)(perm.verbs, ['ALL'].concat((0, _toConsumableArray2.default)(writability))).length === 0;
+}
+/**
+ * Fetches the list of permissions blocks
+ *
+ * @param {CozyClient} client -
+ * @returns {Promise<PermissionItem[]>} list of permissions
+ */
+
+
+function fetchOwn(_x) {
+  return _fetchOwn.apply(this, arguments);
+}
+/**
+ * Checks if the permission item is about a specific doctype
+ *
+ * @param {PermissionItem} permission -
+ * @param {string} type - doctype
+ */
+
+
+function _fetchOwn() {
+  _fetchOwn = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client) {
+    var collection, data, permissions;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            collection = client.collection('io.cozy.permissions');
+            _context.next = 3;
+            return collection.fetchOwnPermissions();
+
+          case 3:
+            data = _context.sent;
+            permissions = (0, _get.default)(data, 'data.attributes.permissions');
+
+            if (permissions) {
+              _context.next = 7;
+              break;
+            }
+
+            throw "Can't get self permissions";
+
+          case 7:
+            return _context.abrupt("return", Object.values(permissions));
+
+          case 8:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _fetchOwn.apply(this, arguments);
+}
+
+function isForType(permission, type) {
+  return permission.type === type || permission.type + '.*' === type;
+}
+/**
+ * Finds the permission block for the the file
+ * in the permissions owned by the current cozy-client.
+ *
+ * Iterates through parent folders if needed
+ * until we can find the permissions attached to the share
+ *
+ * @private
+ * @param {object} options - Options
+ * @param {Document} options.document - a couchdb document
+ * @param {CozyClient} options.client - A cozy client
+ * @param {PermissionItem[]} options.permissions -
+ * @returns {Promise<PermissionItem|undefined>} the corresponding permission block
+ */
+
+
+function findPermissionFor(_x2) {
+  return _findPermissionFor2.apply(this, arguments);
+}
+
+function _findPermissionFor2() {
+  _findPermissionFor2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(options) {
+    var document, client, permissions, id, type, doc, definedPermissions, perms, getFile, _getFile, _findPermissionFor, _findPermissionFor3;
+
+    return _regenerator.default.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            _findPermissionFor3 = function _findPermissionFor5() {
+              _findPermissionFor3 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(_ref) {
+                var doc, client, perms, perm, parentId, parentFolder;
+                return _regenerator.default.wrap(function _callee3$(_context3) {
+                  while (1) {
+                    switch (_context3.prev = _context3.next) {
+                      case 0:
+                        doc = _ref.doc, client = _ref.client, perms = _ref.perms;
+                        perm = perms.find(function (perm) {
+                          if (perm.values) {
+                            var selector = perm.selector || 'id';
+                            var value = doc[selector];
+                            return perm.values.includes(value);
+                          } else {
+                            return true;
+                          }
+                        });
+
+                        if (!perm) {
+                          _context3.next = 6;
+                          break;
+                        }
+
+                        return _context3.abrupt("return", perm);
+
+                      case 6:
+                        if (!(type === _const.DOCTYPE_FILES)) {
+                          _context3.next = 16;
+                          break;
+                        }
+
+                        // for files, we recursively try to check for parent folders
+                        parentId = (0, _file.getParentFolderId)(doc);
+                        _context3.t0 = parentId;
+
+                        if (!_context3.t0) {
+                          _context3.next = 13;
+                          break;
+                        }
+
+                        _context3.next = 12;
+                        return getFile(parentId);
+
+                      case 12:
+                        _context3.t0 = _context3.sent;
+
+                      case 13:
+                        parentFolder = _context3.t0;
+
+                        if (!parentFolder) {
+                          _context3.next = 16;
+                          break;
+                        }
+
+                        return _context3.abrupt("return", _findPermissionFor({
+                          doc: parentFolder,
+                          perms: perms,
+                          client: client
+                        }));
+
+                      case 16:
+                        return _context3.abrupt("return", undefined);
+
+                      case 17:
+                      case "end":
+                        return _context3.stop();
+                    }
+                  }
+                }, _callee3);
+              }));
+              return _findPermissionFor3.apply(this, arguments);
+            };
+
+            _findPermissionFor = function _findPermissionFor4(_x5) {
+              return _findPermissionFor3.apply(this, arguments);
+            };
+
+            _getFile = function _getFile3() {
+              _getFile = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {
+                var query, data;
+                return _regenerator.default.wrap(function _callee2$(_context2) {
+                  while (1) {
+                    switch (_context2.prev = _context2.next) {
+                      case 0:
+                        query = (0, _dsl.Q)(_const.DOCTYPE_FILES).getById(id);
+                        _context2.next = 3;
+                        return client.query(query);
+
+                      case 3:
+                        data = _context2.sent;
+                        return _context2.abrupt("return", data && data.data);
+
+                      case 5:
+                      case "end":
+                        return _context2.stop();
+                    }
+                  }
+                }, _callee2);
+              }));
+              return _getFile.apply(this, arguments);
+            };
+
+            getFile = function _getFile2(_x4) {
+              return _getFile.apply(this, arguments);
+            };
+
+            document = options.document, client = options.client, permissions = options.permissions;
+            id = document._id || document.id;
+            type = document._type || document.type;
+            doc = _objectSpread(_objectSpread({}, document), {}, {
+              id: id,
+              type: type
+            });
+
+            if (!permissions) {
+              _context4.next = 12;
+              break;
+            }
+
+            _context4.t0 = permissions;
+            _context4.next = 15;
+            break;
+
+          case 12:
+            _context4.next = 14;
+            return fetchOwn(client);
+
+          case 14:
+            _context4.t0 = _context4.sent;
+
+          case 15:
+            definedPermissions = _context4.t0;
+            perms = definedPermissions.filter(function (p) {
+              return isForType(p, type);
+            });
+            return _context4.abrupt("return", _findPermissionFor({
+              doc: doc,
+              client: client,
+              perms: perms
+            }));
+
+          case 18:
+          case "end":
+            return _context4.stop();
+        }
+      }
+    }, _callee4);
+  }));
+  return _findPermissionFor2.apply(this, arguments);
+}
+
+function isDocumentReadOnly(_x3) {
+  return _isDocumentReadOnly.apply(this, arguments);
+}
+/**
+ * When a cozy to cozy sharing is created Cozy's stack creates a
+ * shortcut in `/Inbox of sharing` on the recipient's cozy to have a
+ * quick access even when the sharing is not accepted yet.
+ *
+ * However, this file is created only if the stack knows the URL of the cozy.
+ * This is not always the case.
+ *
+ * This method is here to tell us if the shortcut's file is created
+ * on the recipient's cozy. It can be used to make an UI distinction between the
+ * both situation.
+ *
+ * @typedef  {object} Permission
+ * @property {object} data Permission document
+ * @property {Array} included Member information from the sharing
+ *
+ * @param {Permission} permission From getOwnPermissions mainly
+ */
+
+
+function _isDocumentReadOnly() {
+  _isDocumentReadOnly = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5(args) {
+    var document, client, writability, _args$permissions, permissions, perm;
+
+    return _regenerator.default.wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            document = args.document;
+            client = args.client;
+            writability = args.writability;
+            _args$permissions = args.permissions;
+
+            if (!(_args$permissions === void 0)) {
+              _context5.next = 10;
+              break;
+            }
+
+            _context5.next = 7;
+            return fetchOwn(client);
+
+          case 7:
+            _context5.t0 = _context5.sent;
+            _context5.next = 11;
+            break;
+
+          case 10:
+            _context5.t0 = _args$permissions;
+
+          case 11:
+            permissions = _context5.t0;
+
+            if (!(permissions.length <= 1)) {
+              _context5.next = 16;
+              break;
+            }
+
+            _context5.t1 = permissions[0] // shortcut because most of time, there will be only one permission block
+            ;
+            _context5.next = 19;
+            break;
+
+          case 16:
+            _context5.next = 18;
+            return findPermissionFor({
+              document: document,
+              client: client,
+              permissions: permissions
+            });
+
+          case 18:
+            _context5.t1 = _context5.sent;
+
+          case 19:
+            perm = _context5.t1;
+
+            if (!perm) {
+              _context5.next = 24;
+              break;
+            }
+
+            return _context5.abrupt("return", isReadOnly(perm, {
+              writability: writability
+            }));
+
+          case 24:
+            _logger.default.warn("can't find the document in current attached permissions");
+
+            return _context5.abrupt("return", undefined);
+
+          case 26:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+  return _isDocumentReadOnly.apply(this, arguments);
+}
+
+var isShortcutCreatedOnTheRecipientCozy = function isShortcutCreatedOnTheRecipientCozy(permission) {
+  if (!permission.included) return false;
+  var sharingMember = permission.included.find(function (item) {
+    return item.type === 'io.cozy.sharings.members';
+  });
+
+  if (sharingMember && sharingMember.attributes.instance) {
+    return true;
+  }
+
+  return false;
+};
+
+exports.isShortcutCreatedOnTheRecipientCozy = isShortcutCreatedOnTheRecipientCozy;
+
+/***/ }),
+/* 648 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getFlagshipDownloadLink = exports.getCreatedByApp = exports.hasBeenUpdatedByApp = void 0;
+
+var _get = _interopRequireDefault(__webpack_require__(14));
+
+var _cozyDeviceHelper = __webpack_require__(285);
+
+var _cozyFlags = _interopRequireDefault(__webpack_require__(113));
+
+/**
+ * Checks if a document has been updated by a specific app
+ *
+ * @param {object} doc - The document to check
+ * @param {string} appSlug - The slug of the app to check
+ * @returns {boolean} - True if the document has been updated by the app, false otherwise
+ */
+var hasBeenUpdatedByApp = function hasBeenUpdatedByApp(doc, appSlug) {
+  var updatedByApps = (0, _get.default)(doc, 'cozyMetadata.updatedByApps');
+  return Boolean(updatedByApps && updatedByApps.find(function (x) {
+    return x.slug === appSlug;
+  }));
+};
+/**
+ * Gets the app that created a document
+ *
+ * @param {object} doc - The document to check
+ * @returns {string} - The slug of the app that created the document
+ */
+
+
+exports.hasBeenUpdatedByApp = hasBeenUpdatedByApp;
+
+var getCreatedByApp = function getCreatedByApp(doc) {
+  return (0, _get.default)(doc, 'cozyMetadata.createdByApp');
+};
+/**
+ * Gets the download link for the Cozy Flagship app and his white-labels versions
+ *
+ * @param {string} lang - The language code for the download page
+ * @returns {string} - The URL of the download page
+ */
+
+
+exports.getCreatedByApp = getCreatedByApp;
+
+var getFlagshipDownloadLink = function getFlagshipDownloadLink(lang) {
+  if ((0, _cozyDeviceHelper.isAndroid)()) {
+    var id = (0, _cozyFlags.default)('flagship.playstore-id') || 'io.cozy.flagship.mobile';
+    return "https://play.google.com/store/apps/details?id=".concat(id, "&hl=").concat(lang);
+  }
+
+  if ((0, _cozyDeviceHelper.isIOS)()) {
+    var _id = (0, _cozyFlags.default)('flagship.appstore-id') || 'id1600636174';
+
+    return "https://apps.apple.com/".concat(lang, "/app/").concat(_id);
+  }
+
+  return (0, _cozyFlags.default)('flagship.download-link') || "https://cozy.io/".concat(lang, "/download");
+};
+
+exports.getFlagshipDownloadLink = getFlagshipDownloadLink;
+
+/***/ }),
+/* 649 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isContact = exports.getIndexByFamilyNameGivenNameEmailCozyUrl = exports.getDefaultSortIndexValue = exports.makeDefaultSortIndexValue = exports.getDisplayName = exports.makeDisplayName = exports.getFullname = exports.makeFullname = exports.getPrimaryAddress = exports.getPrimaryPhone = exports.getPrimaryCozyDomain = exports.getPrimaryCozy = exports.getPrimaryEmail = exports.getInitials = exports.getPrimaryOrFirst = exports.CONTACTS_DOCTYPE = void 0;
+
+var _get = _interopRequireDefault(__webpack_require__(14));
+
+var _isEmpty = _interopRequireDefault(__webpack_require__(650));
+
+var _logger = _interopRequireDefault(__webpack_require__(20));
+
+var CONTACTS_DOCTYPE = 'io.cozy.contacts';
+exports.CONTACTS_DOCTYPE = CONTACTS_DOCTYPE;
+
+var getPrimaryOrFirst = function getPrimaryOrFirst(property) {
+  return function (obj) {
+    return !obj[property] || obj[property].length === 0 ? '' : obj[property].find(function (property) {
+      return property.primary;
+    }) || obj[property][0];
+  };
+};
+/**
+ * Returns the initials of the contact.
+ *
+ * @param {object} contact - A contact
+ * @returns {string} - the contact's initials
+ */
+
+
+exports.getPrimaryOrFirst = getPrimaryOrFirst;
+
+var getInitials = function getInitials(contact) {
+  if (contact.name && !(0, _isEmpty.default)(contact.name)) {
+    return ['givenName', 'familyName'].map(function (part) {
+      return (0, _get.default)(contact, ['name', part, 0], '');
+    }).join('').toUpperCase();
+  }
+
+  var email = getPrimaryEmail(contact);
+
+  if (email) {
+    return email[0].toUpperCase();
+  }
+
+  var cozy = getPrimaryCozyDomain(contact);
+
+  if (cozy) {
+    return cozy[0].toUpperCase();
+  }
+
+  return '';
+};
+/**
+ * Returns the contact's main email
+ *
+ * @param {object} contact - A contact
+ * @returns {string} - The contact's main email
+ */
+
+
+exports.getInitials = getInitials;
+
+var getPrimaryEmail = function getPrimaryEmail(contact) {
+  return Array.isArray(contact.email) ? getPrimaryOrFirst('email')(contact).address || '' : contact.email;
+};
+/**
+ * Returns the contact's main cozy
+ *
+ * @param {object} contact - A contact
+ * @returns {string} - The contact's main cozy
+ */
+
+
+exports.getPrimaryEmail = getPrimaryEmail;
+
+var getPrimaryCozy = function getPrimaryCozy(contact) {
+  return Array.isArray(contact.cozy) ? getPrimaryOrFirst('cozy')(contact).url || '' : contact.url;
+};
+/**
+ * Returns the contact's main cozy url without protocol
+ *
+ * @param {object} contact - A contact
+ * @returns {string} - The contact's main cozy url
+ */
+
+
+exports.getPrimaryCozy = getPrimaryCozy;
+
+var getPrimaryCozyDomain = function getPrimaryCozyDomain(contact) {
+  try {
+    var url = new URL(getPrimaryCozy(contact));
+    return url.hostname.replace(/^(www.)/g, '');
+  } catch (_unused) {
+    return getPrimaryCozy(contact);
+  }
+};
+/**
+ * Returns the contact's main phone number
+ *
+ * @param {object} contact - A contact
+ * @returns {string} - The contact's main phone number
+ */
+
+
+exports.getPrimaryCozyDomain = getPrimaryCozyDomain;
+
+var getPrimaryPhone = function getPrimaryPhone(contact) {
+  return getPrimaryOrFirst('phone')(contact).number || '';
+};
+/**
+ * Returns the contact's main address
+ *
+ * @param {object} contact - A contact
+ * @returns {string} - The contact's main address
+ */
+
+
+exports.getPrimaryPhone = getPrimaryPhone;
+
+var getPrimaryAddress = function getPrimaryAddress(contact) {
+  return getPrimaryOrFirst('address')(contact).formattedAddress || '';
+};
+/**
+ * Makes fullname from contact name
+ *
+ * @param {*} contact - A contact
+ * @returns {string} - The contact's fullname
+ */
+
+
+exports.getPrimaryAddress = getPrimaryAddress;
+
+var makeFullname = function makeFullname(contact) {
+  if (contact.name) {
+    return ['namePrefix', 'givenName', 'additionalName', 'familyName', 'nameSuffix'].map(function (part) {
+      return contact.name[part];
+    }).filter(function (part) {
+      return part !== undefined;
+    }).join(' ').trim();
+  }
+
+  return '';
+};
+/**
+ * Returns the contact's fullname
+ *
+ * @param {object} contact - A contact
+ * @returns {string} - The contact's fullname
+ */
+
+
+exports.makeFullname = makeFullname;
+
+var getFullname = function getFullname(contact) {
+  if ((0, _get.default)(contact, 'fullname')) {
+    return contact.fullname;
+  }
+
+  return makeFullname(contact);
+};
+/**
+ * Makes displayName from contact data
+ *
+ * @param {*} contact - A contact
+ * @returns {string} - The contact's displayName
+ */
+
+
+exports.getFullname = getFullname;
+
+var makeDisplayName = function makeDisplayName(contact) {
+  var fullname = makeFullname(contact);
+  var primaryEmail = getPrimaryEmail(contact);
+  var primaryCozyDomain = getPrimaryCozyDomain(contact);
+
+  if (fullname && fullname.length > 0) {
+    return fullname;
+  }
+
+  if (primaryEmail && primaryEmail.length > 0) {
+    return primaryEmail;
+  }
+
+  if (primaryCozyDomain && primaryCozyDomain.length > 0) {
+    return primaryCozyDomain;
+  }
+
+  return '';
+};
+/**
+ * Returns a display name for the contact
+ *
+ * @param {object} contact - A contact
+ * @returns {string} - the contact's display name
+ **/
+
+
+exports.makeDisplayName = makeDisplayName;
+
+var getDisplayName = function getDisplayName(contact) {
+  if ((0, _get.default)(contact, 'displayName')) {
+    return contact.displayName;
+  }
+
+  return makeDisplayName(contact);
+};
+/**
+ * Makes 'byFamilyNameGivenNameEmailCozyUrl' index of a contact
+ *
+ * @param {object} contact - A contact
+ * @returns {string} - the contact's 'byFamilyNameGivenNameEmailCozyUrl' index
+ */
+
+
+exports.getDisplayName = getDisplayName;
+
+var makeDefaultSortIndexValue = function makeDefaultSortIndexValue(contact) {
+  var defaultSortIndexValue = [(0, _get.default)(contact, 'name.familyName', ''), (0, _get.default)(contact, 'name.givenName', ''), getPrimaryEmail(contact), getPrimaryCozyDomain(contact)].join('').trim().toLowerCase();
+
+  if (defaultSortIndexValue.length === 0) {
+    return null;
+  }
+
+  return defaultSortIndexValue;
+};
+/**
+ * Returns 'byFamilyNameGivenNameEmailCozyUrl' index of a contact
+ *
+ * @param {object} contact - A contact
+ * @returns {string} - the contact's 'byFamilyNameGivenNameEmailCozyUrl' index
+ */
+
+
+exports.makeDefaultSortIndexValue = makeDefaultSortIndexValue;
+
+var getDefaultSortIndexValue = function getDefaultSortIndexValue(contact) {
+  var defaultSortIndexValue = (0, _get.default)(contact, 'indexes.byFamilyNameGivenNameEmailCozyUrl', null);
+
+  if (defaultSortIndexValue !== null) {
+    return (0, _isEmpty.default)(defaultSortIndexValue) ? null : defaultSortIndexValue;
+  }
+
+  return makeDefaultSortIndexValue(contact);
+};
+/**
+ * Returns 'byFamilyNameGivenNameEmailCozyUrl' index of a contact
+ *
+ * @deprecated Prefer to use getDefaultSortIndexValue.
+ * @param {object} contact - A contact
+ * @returns {string} - the contact's 'byFamilyNameGivenNameEmailCozyUrl' index
+ */
+
+
+exports.getDefaultSortIndexValue = getDefaultSortIndexValue;
+
+var getIndexByFamilyNameGivenNameEmailCozyUrl = function getIndexByFamilyNameGivenNameEmailCozyUrl(contact) {
+  _logger.default.warn('Deprecation: `getIndexByFamilyNameGivenNameEmailCozyUrl` is deprecated, please use `getDefaultSortIndexValue` instead');
+
+  return getDefaultSortIndexValue(contact);
+};
+/**
+ * Whether the document is a contact
+ *
+ * @param {object} doc - A document (from io.cozy.something, or com.bitwarden or anything else)
+ * @returns {boolean}
+ */
+
+
+exports.getIndexByFamilyNameGivenNameEmailCozyUrl = getIndexByFamilyNameGivenNameEmailCozyUrl;
+
+var isContact = function isContact(doc) {
+  return doc._type === CONTACTS_DOCTYPE;
+};
+
+exports.isContact = isContact;
+
+/***/ }),
 /* 650 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var map = {
-	"./en.json": 651,
-	"./fr.json": 652
-};
+var baseKeys = __webpack_require__(124),
+    getTag = __webpack_require__(64),
+    isArguments = __webpack_require__(82),
+    isArray = __webpack_require__(11),
+    isArrayLike = __webpack_require__(45),
+    isBuffer = __webpack_require__(83),
+    isPrototype = __webpack_require__(108),
+    isTypedArray = __webpack_require__(107);
 
+/** `Object#toString` result references. */
+var mapTag = '[object Map]',
+    setTag = '[object Set]';
 
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Checks if `value` is an empty object, collection, map, or set.
+ *
+ * Objects are considered empty if they have no own enumerable string keyed
+ * properties.
+ *
+ * Array-like values such as `arguments` objects, arrays, buffers, strings, or
+ * jQuery-like collections are considered empty if they have a `length` of `0`.
+ * Similarly, maps and sets are considered empty if they have a `size` of `0`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is empty, else `false`.
+ * @example
+ *
+ * _.isEmpty(null);
+ * // => true
+ *
+ * _.isEmpty(true);
+ * // => true
+ *
+ * _.isEmpty(1);
+ * // => true
+ *
+ * _.isEmpty([1, 2, 3]);
+ * // => false
+ *
+ * _.isEmpty({ 'a': 1 });
+ * // => false
+ */
+function isEmpty(value) {
+  if (value == null) {
+    return true;
+  }
+  if (isArrayLike(value) &&
+      (isArray(value) || typeof value == 'string' || typeof value.splice == 'function' ||
+        isBuffer(value) || isTypedArray(value) || isArguments(value))) {
+    return !value.length;
+  }
+  var tag = getTag(value);
+  if (tag == mapTag || tag == setTag) {
+    return !value.size;
+  }
+  if (isPrototype(value)) {
+    return !baseKeys(value).length;
+  }
+  for (var key in value) {
+    if (hasOwnProperty.call(value, key)) {
+      return false;
+    }
+  }
+  return true;
 }
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 650;
+
+module.exports = isEmpty;
+
 
 /***/ }),
 /* 651 */
-/***/ (function(module) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = JSON.parse("{\"country\":{\"stranger\":\"Stranger\"},\"Scan\":{\"scan_a_doc\":\"Scan a doc\",\"save_doc\":\"Save the doc\",\"filename\":\"Filename\",\"save\":\"Save\",\"cancel\":\"Cancel\",\"qualify\":\"Describe\",\"apply\":\"Apply\",\"error\":{\"offline\":\"You are currently offline and you can't use this functionality. Please, try again later.\",\"uploading\":\"You are already uploading a file. Please wait until the end of this upload and try again.\",\"generic\":\"Something went wrong. Please try again.\"},\"successful\":{\"qualified_ok\":\"You just have successfully described your file! \"},\"items\":{\"accommodation_proof\":\"Proof of accommodation\",\"appliance_invoice\":\"Appliance invoice\",\"bank_details\":\"IBAN\",\"bank_statement\":\"Bank statement\",\"birth_certificate\":\"Birth certificate\",\"building_permit\":\"Building permit\",\"caf\":\"Social benefit rate\",\"car_insurance\":\"Car insurance certificate\",\"citizen_registration_certificate\":\"Certificate of citizen registration\",\"diploma\":\"Diploma\",\"divorce\":\"Divorce\",\"driver_license\":\"Driving license\",\"electoral_card\":\"Electoral card\",\"employment_center_certificate\":\"Employment center certificate\",\"energy_contract\":\"Energy provider contract\",\"energy_invoice\":\"Energy invoice\",\"family_record_book\":\"Family record book\",\"family\":\"Family\",\"fidelity_card\":\"Fidelity card\",\"gradebook\":\"Gradebook\",\"grocery_invoice\":\"Grocery invoice\",\"health_book\":\"Health book\",\"health_certificate\":\"Health/Vaccination certificate\",\"health_insurance_card\":\"Insurance card\",\"health_invoice\":\"Health invoice\",\"health\":\"Health\",\"home\":\"Home\",\"house_insurance\":\"Home insurance\",\"house_sale_agreeement\":\"House sale agreement\",\"identity_photo\":\"Identity photo\",\"identity\":\"Identity\",\"invoice\":\"Invoice\",\"invoices\":\"Invoices\",\"isp_invoice\":\"ISP invoice\",\"large_family_card\":\" Large Family Card\",\"lease\":\"Lease\",\"library_card\":\"library card\",\"loan_agreement\":\"Loan agreement\",\"mechanic_invoice\":\"Repair bill\",\"motivation_letter\":\"Motivation letter\",\"national_health_insurance_card\":\"National health insurance card\",\"national_health_insurance_right_certificate\":\"National health insurance right certificate\",\"national_id_card\":\"ID card\",\"other_activity_document\":\"Other sports document\",\"other_bank_document\":\"Other banking document\",\"other_family_document\":\"Other family document\",\"other_health_document\":\"Other health document\",\"other_house_document\":\"Other house document\",\"other_identity_document\":\"Other document of identity\",\"other_invoice\":\"Other invoice\",\"other_revenue\":\"Other revenues\",\"other_tax_document\":\"Other tax document\",\"other_transport_document\":\"Other transport document\",\"other_work_document\":\"Other work document\",\"others\":\"Others\",\"pacs\":\"Civil union\",\"passport\":\"Passeport\",\"pay_sheet\":\"Pay sheet\",\"payment_proof_family_allowance\":\"family allowance payment proof\",\"pension\":\"Pension\",\"personal_sporting_licence\":\"Sporting licence\",\"phone_invoice\":\"Phone invoice\",\"pregnancy_medical_certificate\":\"Certificate of pregnancy\",\"prescription\":\"Prescription\",\"real_estate_tax\":\"Real estate tax\",\"receipt\":\"Receipt\",\"rent_receipt\":\"Rent receipt\",\"residence_permit\":\"Residence permit\",\"restaurant_invoice\":\"Restaurant invoice\",\"resume\":\"Resume\",\"school_attendance_certificate\":\"Certificate of school attendance\",\"school_insurance_certificate\":\"Certificate of school insurance\",\"single_parent_benefit\":\"Single parent benefit\",\"student_card\":\"Student card\",\"tax_notice\":\"Tax notice\",\"tax_return\":\"Tax return\",\"tax_timetable\":\"Payment Plans Installment Agreements\",\"technical_diagnostic_record\":\"Technical diagnostic record\",\"telecom_invoice\":\"Telecom invoice\",\"transport_card\":\"Transport card\",\"transport_invoice\":\"Transport invoice\",\"transport\":\"Transport\",\"unemployment_benefit\":\"Unemployment benefit\",\"unfit_for_habitation_declaration\":\"Declaration of unfit for habitation\",\"vehicle_registration\":\"Vehicle registration\",\"water_invoice\":\"Water invoice\",\"web_service_invoice\":\"Web service invoice\",\"wedding\":\"Wedding contract\",\"work_contract\":\"Work contract\",\"work_disability_recognition\":\"Recognition of disability\",\"work_invoice\":\"Work invoice\",\"work_quote\":\"Work quote\",\"work_study\":\"Work & Study\"},\"attributes\":{\"contractType\":{\"cdi\":\"CDI\",\"cdd\":\"CDD\",\"alternate\":\"Alternate\",\"internship\":\"Internship\",\"other\":\"Other\"}},\"themes\":{\"activity\":\"Activities\",\"family\":\"Family\",\"finance\":\"Finance\",\"health\":\"Health\",\"home\":\"Home\",\"identity\":\"Identity\",\"invoice\":\"Invoice\",\"others\":\"Others\",\"transport\":\"Transport\",\"undefined\":\"Undefined\",\"work_study\":\"Work & Study\"}}}");
+"use strict";
+
+
+var _interopRequireWildcard = __webpack_require__(12);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "Qualification", {
+  enumerable: true,
+  get: function get() {
+    return _qualification.Qualification;
+  }
+});
+Object.defineProperty(exports, "setQualification", {
+  enumerable: true,
+  get: function get() {
+    return _qualification.setQualification;
+  }
+});
+Object.defineProperty(exports, "getQualification", {
+  enumerable: true,
+  get: function get() {
+    return _qualification.getQualification;
+  }
+});
+exports.helpers = exports.themes = exports.locales = void 0;
+
+var _qualification = __webpack_require__(170);
+
+var locales = _interopRequireWildcard(__webpack_require__(294));
+
+exports.locales = locales;
+
+var themes = _interopRequireWildcard(__webpack_require__(306));
+
+exports.themes = themes;
+
+var helpers = _interopRequireWildcard(__webpack_require__(652));
+
+exports.helpers = helpers;
 
 /***/ }),
 /* 652 */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"country\":{\"stranger\":\"Étranger\"},\"Scan\":{\"scan_a_doc\":\"Numériser un doc\",\"save_doc\":\"Enregistrer le document\",\"filename\":\"Nom du fichier\",\"save\":\"Sauvegarder\",\"cancel\":\"Annuler\",\"qualify\":\"Qualifier\",\"apply\":\"Appliquer\",\"error\":{\"offline\":\"Vous êtes actuellement déconnecté, vous ne pouvez donc pas utiliser cette fonctionnalité. Connectez-vous à internet et recommencez. \",\"uploading\":\"Vous avez déjà un fichier en cours de téléchargement. Attendez la fin et recommencez.\",\"generic\":\"Un problème est survenu. Veuillez réessayer. \"},\"successful\":{\"qualified_ok\":\"Vous venez de qualifier votre fichier avec succès !\"},\"items\":{\"accommodation_proof\":\"Attestation d'hébergement\",\"appliance_invoice\":\"Facture d'électroménager\",\"bank_details\":\"IBAN\",\"bank_statement\":\"Relevé de compte\",\"birth_certificate\":\"Certificat de naissance\",\"building_permit\":\"Permis de construire\",\"caf\":\"Attestation de quotient familial (CAF)\",\"car_insurance\":\"Attestation d'assurance auto\",\"citizen_registration_certificate\":\"Attestation de recensement citoyen\",\"diploma\":\"Diplôme\",\"divorce\":\"Attestation de divorce\",\"driver_license\":\"Permis\",\"electoral_card\":\"Carte électorale\",\"employment_center_certificate\":\"Attestation de Pôle emploi\",\"energy_contract\":\"Contrat de fournisseur d'énergies\",\"energy_invoice\":\"Facture d'énergie\",\"family_record_book\":\"Livret de famille\",\"family\":\"Famille\",\"fidelity_card\":\"Carte de fidélité\",\"gradebook\":\"Bulletin de notes\",\"grocery_invoice\":\"Facture de courses\",\"health_book\":\"Carnet de santé\",\"health_certificate\":\"Certificat de santé/vaccination\",\"health_insurance_card\":\"Carte de mutuelle\",\"health_invoice\":\"Facture médicale\",\"health\":\"Santé\",\"home\":\"Logement\",\"house_insurance\":\"Assurance logement\",\"house_sale_agreeement\":\"Compromis de vente\",\"identity_photo\":\"Photo d'identité\",\"identity\":\"Identité\",\"invoice\":\"Factures\",\"invoices\":\"Factures\",\"isp_invoice\":\"Facture d'internet\",\"large_family_card\":\"Carte famille nombreuse\",\"lease\":\"Bail\",\"library_card\":\"Carte de bibliothèque\",\"loan_agreement\":\"Contrat de prêt\",\"mechanic_invoice\":\"Facture de réparation\",\"motivation_letter\":\"Lettre de motivation\",\"national_health_insurance_card\":\"Carte vitale\",\"national_health_insurance_right_certificate\":\"Attestation de droits de l'Assurance Maladie (vitale)\",\"national_id_card\":\"Carte d'identité\",\"other_activity_document\":\"Autre document sportif\",\"other_bank_document\":\"Autre document bancaire\",\"other_family_document\":\"Autre document de famille\",\"other_health_document\":\"Autre document de santé\",\"other_house_document\":\"Autre document de logement\",\"other_identity_document\":\"Autre document d'identité\",\"other_invoice\":\"Autre facture\",\"other_revenue\":\"Autres revenus\",\"other_tax_document\":\"Impôts - Autre document\",\"other_transport_document\":\"Autre document de transport\",\"other_work_document\":\"Autre document de travail\",\"others\":\"Autres\",\"pacs\":\"Attestation de PACS\",\"passport\":\"Passeport\",\"pay_sheet\":\"Fiche de paie\",\"payment_proof_family_allowance\":\"Attestation de paiement CAF\",\"pension\":\"Retraite\",\"personal_sporting_licence\":\"Licences sportives\",\"phone_invoice\":\"Facture de téléphone\",\"pregnancy_medical_certificate\":\"Certificat de grossesse\",\"prescription\":\"Ordonnance\",\"real_estate_tax\":\"Taxe foncière\",\"receipt\":\"Accusé de réception\",\"rent_receipt\":\"Quittance de loyer\",\"residence_permit\":\"Titre de séjour\",\"restaurant_invoice\":\"Facture de restaurant\",\"resume\":\"CV\",\"school_attendance_certificate\":\"Certificat de scolarité\",\"school_insurance_certificate\":\"Attestation d'assurance scolaire\",\"single_parent_benefit\":\"Allocation parent isolé\",\"student_card\":\"Carte d'étudiant\",\"tax_notice\":\"Impôts - Avis d'imposition\",\"tax_return\":\"Impôts - Déclaration de revenus\",\"tax_timetable\":\"Impôts - Echéancier\",\"technical_diagnostic_record\":\"Dossier de diagnostic technique\",\"telecom_invoice\":\"Facture de télécom\",\"transport_card\":\"Carte de transport\",\"transport_invoice\":\"Facture de transport\",\"transport\":\"Transport\",\"unemployment_benefit\":\"Allocations chômage\",\"unfit_for_habitation_declaration\":\"Arrêté d'insalubrité\",\"vehicle_registration\":\"Carte grise\",\"water_invoice\":\"Facture d'eau\",\"web_service_invoice\":\"Facture de service web\",\"wedding\":\"Contrat de mariage\",\"work_contract\":\"Contrat de travail\",\"work_disability_recognition\":\"Reconnaissance de handicap - RQTH\",\"work_invoice\":\"Facture de travaux\",\"work_quote\":\"Devis de travaux\",\"work_study\":\"Travail & Études\"},\"attributes\":{\"contractType\":{\"cdi\":\"CDI\",\"cdd\":\"CDD\",\"alternate\":\"Alternance\",\"internship\":\"Stage\",\"other\":\"Autre\"}},\"themes\":{\"activity\":\"Activités & loisirs\",\"family\":\"Famille\",\"finance\":\"Finances\",\"health\":\"Santé\",\"home\":\"Logement\",\"identity\":\"Identité\",\"invoice\":\"Factures\",\"others\":\"Autres\",\"transport\":\"Transport\",\"undefined\":\"Indéfini\",\"work_study\":\"Travail & Études\"}}}");
-
-/***/ }),
-/* 653 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -70033,15 +70690,13 @@ module.exports = JSON.parse("{\"country\":{\"stranger\":\"Étranger\"},\"Scan\":
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getThemeByItem = void 0;
+exports.isQualificationNote = exports.getThemeByItem = void 0;
 
-var _types = __webpack_require__(12);
-
-var _documentTypeData = __webpack_require__(304);
+var _documentTypeData = __webpack_require__(306);
 
 /**
- * @param {QualificationAttributes} item - Qualification item
- * @returns {Theme|undefined}
+ * @param {import("../../types").QualificationAttributes} item - Qualification item
+ * @returns {import("../../types").Theme|undefined}
  */
 var findDefaultItemTheme = function findDefaultItemTheme(item) {
   return _documentTypeData.themesList.find(function (theme) {
@@ -70049,8 +70704,8 @@ var findDefaultItemTheme = function findDefaultItemTheme(item) {
   });
 };
 /**
- * @param {QualificationAttributes} item - Qualification item
- * @returns {Theme|undefined}
+ * @param {import("../../types").QualificationAttributes} item - Qualification item
+ * @returns {import("../../types").Theme|undefined}
  */
 
 
@@ -70067,11 +70722,24 @@ var getThemeByItem = function getThemeByItem(item) {
     });
   });
 };
+/**
+ * Check if a qualification is a note
+ *
+ * @param {import("../../types").QualificationAttributes} item - Qualification item
+ * @returns {boolean}
+ */
+
 
 exports.getThemeByItem = getThemeByItem;
 
+var isQualificationNote = function isQualificationNote(item) {
+  return item.label.toLowerCase().startsWith('note_');
+};
+
+exports.isQualificationNote = isQualificationNote;
+
 /***/ }),
-/* 654 */
+/* 653 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -70084,13 +70752,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchTimeSeriesByIntervalAndSource = exports.saveTimeSeries = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _dsl = __webpack_require__(14);
-
-var _types = __webpack_require__(12);
+var _dsl = __webpack_require__(13);
 
 var validateTimeSeriesFormat = function validateTimeSeriesFormat(timeseries) {
   if (!timeseries.startDate || !timeseries.endDate) {
@@ -70197,7 +70863,7 @@ var fetchTimeSeriesByIntervalAndSource = /*#__PURE__*/function () {
             startDate = _ref2.startDate, endDate = _ref2.endDate, dataType = _ref2.dataType, source = _ref2.source, limit = _ref2.limit;
 
             /**
-             * @type {Doctype}
+             * @type {import("../types").Doctype}
              */
             doctype = "io.cozy.timeseries.".concat(dataType);
             query = (0, _dsl.Q)(doctype).where({
@@ -70233,7 +70899,7 @@ var fetchTimeSeriesByIntervalAndSource = /*#__PURE__*/function () {
 exports.fetchTimeSeriesByIntervalAndSource = fetchTimeSeriesByIntervalAndSource;
 
 /***/ }),
-/* 655 */
+/* 654 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -70246,35 +70912,51 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getSharingLink = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(4));
 
-var _const = __webpack_require__(48);
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _CozyClient = _interopRequireDefault(__webpack_require__(41));
+var _const = __webpack_require__(49);
+
+var _CozyClient = _interopRequireDefault(__webpack_require__(37));
 
 var _helpers = __webpack_require__(117);
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 /**
  * Generate Sharing link for one or many files
  *
  * @param {CozyClient} client - Instance of CozyClient
  * @param {string[]} filesIds - Array of io.cozy.files ids
- * @param {boolean} [isFlatDomain] -
+ * @param {object} options - Options
+ * @param {string} [options.ttl] - Time to live (bigduration format, e.g. "4Y3M2D1h30m15s")
+ * @param {string} [options.password] - To generate a password-protected link
  * @returns {Promise<string>} Shared link
  */
 var getSharingLink = /*#__PURE__*/function () {
-  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client, filesIds, isFlatDomain) {
+  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client, filesIds) {
     var _sharedLink$attribute, _sharedLink$attribute2;
 
-    var PERMS, _yield$client$save, sharedLink, webLink;
+    var _ref2,
+        ttl,
+        password,
+        PERMS,
+        _yield$client$save,
+        sharedLink,
+        webLink,
+        _args = arguments;
 
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            PERMS = {
+            _ref2 = _args.length > 2 && _args[2] !== undefined ? _args[2] : {}, ttl = _ref2.ttl, password = _ref2.password;
+            PERMS = _objectSpread(_objectSpread({
               _type: _const.DOCTYPE_PERMISSIONS,
               permissions: {
                 files: {
@@ -70283,11 +70965,15 @@ var getSharingLink = /*#__PURE__*/function () {
                   verbs: ['GET']
                 }
               }
-            };
-            _context.next = 3;
+            }, ttl && {
+              ttl: ttl
+            }), password && {
+              password: password
+            });
+            _context.next = 4;
             return client.save(PERMS);
 
-          case 3:
+          case 4:
             _yield$client$save = _context.sent;
             sharedLink = _yield$client$save.data;
             webLink = (0, _helpers.generateWebLink)({
@@ -70295,11 +70981,11 @@ var getSharingLink = /*#__PURE__*/function () {
               searchParams: [['sharecode', sharedLink === null || sharedLink === void 0 ? void 0 : (_sharedLink$attribute = sharedLink.attributes) === null || _sharedLink$attribute === void 0 ? void 0 : (_sharedLink$attribute2 = _sharedLink$attribute.shortcodes) === null || _sharedLink$attribute2 === void 0 ? void 0 : _sharedLink$attribute2.code]],
               pathname: '/public',
               slug: 'drive',
-              subDomainType: isFlatDomain ? 'flat' : 'nested'
+              subDomainType: client.capabilities.flat_subdomains ? 'flat' : 'nested'
             });
             return _context.abrupt("return", webLink);
 
-          case 7:
+          case 8:
           case "end":
             return _context.stop();
         }
@@ -70307,7 +70993,7 @@ var getSharingLink = /*#__PURE__*/function () {
     }, _callee);
   }));
 
-  return function getSharingLink(_x, _x2, _x3) {
+  return function getSharingLink(_x, _x2) {
     return _ref.apply(this, arguments);
   };
 }();
@@ -70315,7 +71001,7 @@ var getSharingLink = /*#__PURE__*/function () {
 exports.getSharingLink = getSharingLink;
 
 /***/ }),
-/* 656 */
+/* 655 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -70328,15 +71014,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchAggregatesFromDACC = exports.buildAggregateParams = exports.sendMeasureToDACC = exports.checkMeasureParams = exports.isCorrectDateFormat = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(2));
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
 
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(3));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
 
-var _cozyLogger = _interopRequireDefault(__webpack_require__(16));
+var _cozyLogger = _interopRequireDefault(__webpack_require__(15));
 
-var _types = __webpack_require__(12);
-
-var _CozyClient = _interopRequireDefault(__webpack_require__(41));
+var _CozyClient = _interopRequireDefault(__webpack_require__(37));
 
 /**
  * Check whether or not the given date is in YYYY-MM-DD format
@@ -70355,7 +71039,7 @@ var isCorrectDateFormat = function isCorrectDateFormat(date) {
 /**
  * Throw an errror if a DACC parameter is incorrect.
  *
- * @param { DACCMeasure} measure - The DACC measure
+ * @param { import("../types").DACCMeasure} measure - The DACC measure
  */
 
 
@@ -70403,7 +71087,7 @@ var checkMeasureParams = function checkMeasureParams(measure) {
  *
  * @param {CozyClient} client - The CozyClient instance
  * @param {string} remoteDoctype - The remote doctype to use
- * @param {DACCMeasure} measure - The DACC measure
+ * @param {import("../types").DACCMeasure} measure - The DACC measure
  */
 
 
@@ -70455,7 +71139,7 @@ var sendMeasureToDACC = /*#__PURE__*/function () {
  * @property {string} [endDate]     - The measure end date
  *
  * @param {Params} params - The unformatted DACC aggregate params
- * @returns {DACCAggregatesParams}
+ * @returns {import("../types").DACCAggregatesParams}
  */
 
 
@@ -70487,8 +71171,8 @@ var buildAggregateParams = function buildAggregateParams(params) {
  *
  * @param {CozyClient} client - The CozyClient instance
  * @param {string} remoteDoctype - The remote doctype to use
- * @param {DACCAggregatesParams} params - The request params
- * @returns { Promise<DACCAggregatesResponse> }
+ * @param {import("../types").DACCAggregatesParams} params - The request params
+ * @returns { Promise<import("../types").DACCAggregatesResponse> }
  */
 
 
@@ -70534,66 +71218,7 @@ var fetchAggregatesFromDACC = /*#__PURE__*/function () {
 exports.fetchAggregatesFromDACC = fetchAggregatesFromDACC;
 
 /***/ }),
-/* 657 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireWildcard = __webpack_require__(13);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.locales = void 0;
-
-var locales = _interopRequireWildcard(__webpack_require__(658));
-
-exports.locales = locales;
-
-/***/ }),
-/* 658 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(0);
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "fr", {
-  enumerable: true,
-  get: function get() {
-    return _fr.default;
-  }
-});
-Object.defineProperty(exports, "en", {
-  enumerable: true,
-  get: function get() {
-    return _en.default;
-  }
-});
-
-var _fr = _interopRequireDefault(__webpack_require__(659));
-
-var _en = _interopRequireDefault(__webpack_require__(660));
-
-/***/ }),
-/* 659 */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"com\":{\"tricount.expenses\":\"Dépenses Tricount\",\"splitwise.expenses\":\"Dépenses Splitwise\",\"bitwarden.profiles\":\"Profils du gestionnaire de mot de passe\",\"bitwarden.ciphers\":\"Entrées du gestionnaire de mot de passe\",\"bitwarden.folders\":\"Dossiers du gestionnaire de mot de passe\",\"bitwarden.organizations\":\"Dossiers partagés du gestionnaire de mot de passe\",\"bitwarden.contacts\":\"Contacts du gestionnaire de mot de passe\",\"grandlyon\":{\"enedis.*\":\"Données de consommation d'électricité\",\"grdf.*\":\"Données de consommation de gaz\",\"egl.*\":\"Données de consommation d'eau\",\"ecolyo.*\":\"Données Ecolyo\"}},\"cc\":{\"cozycloud\":{\"autocategorization\":\"Fichier d'enrichissement du modèle de catégorisation\",\"errors\":\"Journaux de l'application\",\"sentry\":\"Journaux de l'application\",\"dacc\":\"Statistiques agrégées anonymes\",\"dacc_v2\":\"Statistiques agrégées anonymes\",\"dacc.dev\":\"Statistiques agrégées anonymes pour le développement\",\"dacc.dev_v2\":\"Statistiques agrégées anonymes pour le développement\"}},\"eu\":{\"mycozy\":{\"dacc\":\"Statistiques agrégées anonymes\"}},\"io\":{\"cozy\":{\"accounts\":\"Identifiants\",\"apps\":\"Liste des applications installées\",\"apps.suggestions\":\"Suggestions d'applications\",\"bank.accounts\":\"Comptes bancaires\",\"bank.accounts.stats\":\"Statistiques sur les comptes bancaires\",\"bank.balancehistories\":\"Soldes bancaires\",\"bank.groups\":\"Groupes de comptes bancaires\",\"bank.operations\":\"Opérations bancaires\",\"bank.settings\":\"Paramètres de l'application Banks\",\"bank.recipients\":\"Bénéficiaires de virements bancaires\",\"bank.recurrence\":\"Groupes de récurrence bancaire\",\"bills\":\"Factures\",\"certified.carbon_copy\":\"Copie carbone\",\"certified.electronic_safe\":\"Coffre-fort numérique\",\"coachco2.settings\":\"Paramètres de l'application CoachCO2\",\"contacts\":\"Contacts\",\"contacts.groups\":\"Groupe de contacts\",\"contacts.accounts\":\"Comptes associés aux contacts\",\"files\":\"Fichiers\",\"files.versions\":\"Versions des fichiers\",\"files.*\":\"Données liées aux fichiers (fichiers, dossiers, versions, ...)\",\"identities\":\"Identities\",\"jobs\":\"Tâches à exécuter\",\"konnectors\":\"Connecteurs pour importer des données\",\"konnectors.result\":\"Résultats de connecteurs\",\"netflix.views\":\"Historique Netflix\",\"netflix.opinions\":\"Opinions Netflix\",\"notifications\":\"Notifications\",\"oauth.clients\":\"Appareils connectés\",\"permissions\":\"Délégation de permissions\",\"photos.albums\":\"Albums photos\",\"photos.settings\":\"Paramètres des photos\",\"settings\":\"Paramètres\",\"sharings\":\"Partage\",\"tags\":\"Tags\",\"timeseries.geojson\":\"Déplacements\",\"triggers\":\"Planification de tâches à exécuter dans le futur\"}},\"fr\":{\"maif\":{\"events\":\"Évènements (Maif)\",\"maifuser\":{\"contrat\":\"Contrat (Maif)\",\"home\":\"Maison (Maif)\",\"family\":\"Foyer (Maif)\",\"paymentterms\":\"Paiement (Maif)\",\"sinistre\":\"Sinistre (Maif)\",\"societaire\":\"Sociétaire (Maif)\"}}},\"org\":{\"fing\":{\"mesinfos\":{\"insuranceclaim\":\"Déclarations d'assurance (Maif)\"}}}}");
-
-/***/ }),
-/* 660 */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"com\":{\"tricount.expenses\":\"Expenses Tricount\",\"splitwise.expenses\":\"Expenses Splitwise\",\"bitwarden.profiles\":\"Password manager profiles\",\"bitwarden.ciphers\":\"Password manager entries\",\"bitwarden.folders\":\"Password manager folders\",\"bitwarden.organizations\":\"Password manager shared folders\",\"bitwarden.contacts\":\"Password manager contacts\",\"grandlyon\":{\"enedis.*\":\"Electricity consumption data\",\"grdf.*\":\"Gas consumption data\",\"egl.*\":\"Water consumption data\",\"ecolyo.*\":\"Ecolyo data\"}},\"cc\":{\"cozycloud\":{\"autocategorization\":\"Categorization model enrichment file\",\"errors\":\"The application logs\",\"sentry\":\"The application logs\",\"dacc\":\"Anonymous aggregated statistics\",\"dacc_v2\":\"Anonymous aggregated statistics\",\"dacc.dev\":\"Anonymous aggregated statistics for development\",\"dacc.dev_v2\":\"Anonymous aggregated statistics for development\"}},\"eu\":{\"mycozy\":{\"dacc\":\"Anonymous aggregated statistics\",\"dacc_v2\":\"Anonymous aggregated statistics\"}},\"io\":{\"cozy\":{\"accounts\":\"Login details\",\"apps\":\"List of installed applications\",\"apps.suggestions\":\"Application suggestions\",\"bank.accounts\":\"Banking accounts\",\"bank.accounts.stats\":\"Stats on banking accounts\",\"bank.balancehistories\":\"Bank balances\",\"bank.groups\":\"Banking groups\",\"bank.operations\":\"Bank operations\",\"bank.settings\":\"Banks app settings\",\"bank.recipients\":\"Banking transfer recipients\",\"bank.recurrence\":\"Banks recurrence groups\",\"bills\":\"Bills\",\"certified.carbon_copy\":\"Carbon copy\",\"certified.electronic_safe\":\"Electronic safe\",\"coachco2.settings\":\"CoachCO2 app settings\",\"contacts\":\"Contacts\",\"contacts.groups\":\"Contacts groups\",\"contacts.accounts\":\"Accounts linked to the contacts\",\"files\":\"Files\",\"files.versions\":\"Files versions\",\"files.*\":\"File-related data (files, folders, versions, ...)\",\"identities\":\"Identities\",\"jobs\":\"Jobs\",\"konnectors\":\"Connectors for importing data\",\"konnectors.result\":\"Connectors results\",\"netflix.views\":\"Netflix history\",\"netflix.opinions\":\"Netflix opinions\",\"notifications\":\"Notifications\",\"oauth.clients\":\"Connected devices\",\"permissions\":\"Delegating permissions\",\"photos.albums\":\"Photo albums\",\"photos.settings\":\"Photo settings\",\"settings\":\"Settings\",\"sharings\":\"Sharing\",\"tags\":\"Tags\",\"timeseries.geojson\":\"Trips\",\"triggers\":\"Scheduling jobs\"}},\"fr\":{\"maif\":{\"events\":\"Events (Maif)\",\"maifuser\":{\"contrat\":\"Contract (Maif)\",\"home\":\"Home (Maif)\",\"family\":\"Family (Maif)\",\"paymentterms\":\"Payment terms (Maif)\",\"sinistre\":\"Damage (Maif)\",\"societaire\":\"Societary (Maif)\"}}},\"org\":{\"fing\":{\"mesinfos\":{\"insuranceclaim\":\"Insurance claims (Maif)\"}}}}");
-
-/***/ }),
-/* 661 */
+/* 656 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -70606,9 +71231,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.isExpiringSoon = exports.isExpired = exports.computeExpirationNoticeLink = exports.computeExpirationNoticeDate = exports.computeExpirationDate = exports.isExpiring = void 0;
 
-var _add = _interopRequireDefault(__webpack_require__(662));
+var _add = _interopRequireDefault(__webpack_require__(657));
 
-var _sub = _interopRequireDefault(__webpack_require__(664));
+var _sub = _interopRequireDefault(__webpack_require__(663));
 
 /**
  * @typedef {import("../types").IOCozyFile} IOCozyFile
@@ -70618,7 +71243,8 @@ var PERSONAL_SPORTING_LICENCE_NOTICE_PERIOD_DAYS = 15;
 var EXPIRATION_LINK_BY_LABEL = {
   national_id_card: 'https://www.service-public.fr/particuliers/vosdroits/N358',
   residence_permit: 'https://www.service-public.fr/particuliers/vosdroits/N110',
-  passport: 'https://www.service-public.fr/particuliers/vosdroits/N360'
+  passport: 'https://www.service-public.fr/particuliers/vosdroits/N360',
+  driver_license: 'https://permisdeconduire.ants.gouv.fr/demarches-en-ligne/perte-vol-deterioration-fin-de-validite-ou-changement-d-etat-civil'
 };
 /**
  * @param {IOCozyFile} file - io.cozy.files document
@@ -70828,7 +71454,7 @@ var isExpiringSoon = function isExpiringSoon(file) {
 exports.isExpiringSoon = isExpiringSoon;
 
 /***/ }),
-/* 662 */
+/* 657 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -70836,9 +71462,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return add; });
 /* harmony import */ var _addDays_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(120);
 /* harmony import */ var _addMonths_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(119);
-/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(24);
+/* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(23);
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(10);
-/* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
+/* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -70910,7 +71536,394 @@ function add(dirtyDate, duration) {
 }
 
 /***/ }),
-/* 663 */
+/* 658 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.hasPassword = void 0;
+
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
+
+var _instance = __webpack_require__(291);
+
+var _bitwarden = __webpack_require__(659);
+
+var _capability = __webpack_require__(660);
+
+/**
+ * Checks whether the user has a password
+ *
+ * @param {import("../CozyClient").default} client - The CozyClient instance
+ * @returns {Promise<boolean>} - Returns true if the user has a password
+ */
+var hasPassword = /*#__PURE__*/function () {
+  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client) {
+    var hasExtensionInstalled, hasPasswordDefined;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return (0, _bitwarden.hasExtensionInstalledAttribute)(client);
+
+          case 2:
+            hasExtensionInstalled = _context.sent;
+            _context.next = 5;
+            return (0, _instance.hasPasswordDefinedAttribute)(client);
+
+          case 5:
+            hasPasswordDefined = _context.sent;
+            return _context.abrupt("return", !((0, _capability.isMagicLink)(client) || (0, _capability.isOIDC)(client)) || hasExtensionInstalled || hasPasswordDefined);
+
+          case 7:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function hasPassword(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+exports.hasPassword = hasPassword;
+
+/***/ }),
+/* 659 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(0);
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.hasExtensionInstalledAttribute = void 0;
+
+var _regenerator = _interopRequireDefault(__webpack_require__(1));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(2));
+
+var _dsl = __webpack_require__(13);
+
+/**
+ * Checks the value of the extension_installed attribute
+ *
+ * @param {import("../CozyClient").default} client - The CozyClient instance
+ * @returns {Promise<boolean>} - Returns the value of the extension_installed attribute
+ */
+var hasExtensionInstalledAttribute = /*#__PURE__*/function () {
+  var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(client) {
+    var _yield$client$fetchQu, extension_installed;
+
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _context.next = 3;
+            return client.fetchQueryAndGetFromState({
+              definition: (0, _dsl.Q)('io.cozy.settings').getById('io.cozy.settings.bitwarden'),
+              options: {
+                as: 'io.cozy.settings/io.cozy.settings.bitwarden',
+                singleDocData: true
+              }
+            });
+
+          case 3:
+            _yield$client$fetchQu = _context.sent;
+            extension_installed = _yield$client$fetchQu.data.extension_installed;
+            return _context.abrupt("return", Boolean(extension_installed));
+
+          case 8:
+            _context.prev = 8;
+            _context.t0 = _context["catch"](0);
+            return _context.abrupt("return", false);
+
+          case 11:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, null, [[0, 8]]);
+  }));
+
+  return function hasExtensionInstalledAttribute(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+exports.hasExtensionInstalledAttribute = hasExtensionInstalledAttribute;
+
+/***/ }),
+/* 660 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isMagicLink = exports.isOIDC = void 0;
+
+/**
+ * Checks if the instance can auth with OIDC
+ *
+ * @param {import("../CozyClient").default} client - The CozyClient instance
+ * @returns {boolean} - Returns true if the instance can auth with OIDC
+ */
+var isOIDC = function isOIDC(client) {
+  var _client$capabilities$;
+
+  return (_client$capabilities$ = client.capabilities.can_auth_with_oidc) !== null && _client$capabilities$ !== void 0 ? _client$capabilities$ : false;
+};
+/**
+ * Checks if the instance can auth with magic link
+ *
+ * @param {import("../CozyClient").default} client - The CozyClient instance
+ * @returns {boolean} - Returns true if the instance can auth with magic link
+ */
+
+
+exports.isOIDC = isOIDC;
+
+var isMagicLink = function isMagicLink(client) {
+  var _client$capabilities$2;
+
+  return (_client$capabilities$2 = client.capabilities.can_auth_with_magic_links) !== null && _client$capabilities$2 !== void 0 ? _client$capabilities$2 : false;
+};
+
+exports.isMagicLink = isMagicLink;
+
+/***/ }),
+/* 661 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.deltaLatitude = exports.deltaLongitude = exports.computeSphericalCenter = exports.geodesicDistance = exports.computeSpeed = void 0;
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+// @ts-check
+var EARTH_RADIUS_M = 6378137;
+var EARTH_CIRCUMFERENCE_M = 40075000;
+/**
+ * Compute the speed from distance and duration
+ *
+ * @param {number} distance - The distance in meters
+ * @param {number} duration - The duration in seconds
+ * @returns {number} - The speed, in m/s, rounded to 2 decimals
+ */
+
+var computeSpeed = function computeSpeed(distance, duration) {
+  if (!distance || !duration) {
+    return 0;
+  }
+
+  return Math.round(distance / duration * 100) / 100;
+};
+/**
+ * Convert degrees to radians
+ *
+ * @param {number} degrees - The degrees to convert
+ * @returns {number} The converted radians
+ */
+
+
+exports.computeSpeed = computeSpeed;
+
+var degreesToRadians = function degreesToRadians(degrees) {
+  return degrees * Math.PI / 180;
+};
+/**
+ * Convert radians to degrees
+ *
+ * @param {number} radians - The radians to convert
+ * @returns {number} The converted degrees
+ */
+
+
+var radiansToDegrees = function radiansToDegrees(radians) {
+  return radians * 180 / Math.PI;
+};
+/**
+ * Round the value to the n decimal
+ *
+ * @param {number} value - The value to round
+ * @param {number} n - The number of decimals
+ * @returns {number} The rounded value
+ */
+
+
+var roundToNDecimals = function roundToNDecimals(value, n) {
+  var multiplier = Math.pow(10, n);
+  return Math.round(value * multiplier) / multiplier;
+};
+/**
+ * Compute the distance between 2 geographic points, in meters.
+ *
+ * This is an implementation of the Haversine formula, that
+ * supposes a perfect sphere. We know this is not exactly the case
+ * for Earth, especially at the poles, but this approximation is good enough.
+ * More complex methods do exist, such as Vincenty formula, but we prefer
+ * simplicity over precision here.
+ * See https://en.wikipedia.org/wiki/Geodesics_on_an_ellipsoid
+ *
+ * @param {import("../types").Coordinates} point1 - The first point coordinates, in decimal degrees
+ * @param {import("../types").Coordinates} point2 - The second point coordinates, in decimal degrees
+ * @returns {number} The distance between the points, in meters, rounded to 2 decimals
+ */
+
+
+var geodesicDistance = function geodesicDistance(point1, point2) {
+  if ((point1 === null || point1 === void 0 ? void 0 : point1.lon) === undefined || (point1 === null || point1 === void 0 ? void 0 : point1.lat) === undefined || (point2 === null || point2 === void 0 ? void 0 : point2.lon) === undefined || (point2 === null || point2 === void 0 ? void 0 : point2.lat) === undefined) {
+    return null;
+  }
+
+  var lon1 = degreesToRadians(point1.lon);
+  var lat1 = degreesToRadians(point1.lat);
+  var lon2 = degreesToRadians(point2.lon);
+  var lat2 = degreesToRadians(point2.lat);
+  var diffLon = lon2 - lon1;
+  var diffLat = lat2 - lat1;
+  var aLat = Math.pow(Math.sin(diffLat / 2), 2);
+  var aLon = Math.pow(Math.sin(diffLon / 2), 2);
+  var a = aLat + Math.cos(lat1) * Math.cos(lat2) * aLon;
+  var c = 2 * Math.asin(Math.sqrt(a));
+  var distance = EARTH_RADIUS_M * c;
+  return roundToNDecimals(distance, 2);
+};
+/**
+ * Compute the geographical center of the given points
+ *
+ * This consists of finding the centroid of a set of points
+ * in a sphere.
+ * Note this assumes the Earth is a perfect sphere, which is not,
+ * but the approximation should be good enough.
+ *
+ * @param {Array<import("../types").Coordinates>} coordinates - The geo points
+ * @returns {import("../types").Coordinates} The center point
+ */
+
+
+exports.geodesicDistance = geodesicDistance;
+
+var computeSphericalCenter = function computeSphericalCenter(coordinates) {
+  if (coordinates.length < 1) {
+    return null;
+  }
+
+  if (coordinates.length === 1) {
+    return coordinates[0];
+  }
+
+  var totalX = 0;
+  var totalY = 0;
+  var totalZ = 0;
+
+  var _iterator = _createForOfIteratorHelper(coordinates),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var coord = _step.value;
+      var lon = degreesToRadians(coord.lon);
+      var lat = degreesToRadians(coord.lat); // Convert spherical coordinates to Cartesian coordinates
+
+      var x = Math.cos(lat) * Math.cos(lon);
+      var y = Math.cos(lat) * Math.sin(lon);
+      var z = Math.sin(lat);
+      totalX += x;
+      totalY += y;
+      totalZ += z;
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  var avgX = totalX / coordinates.length;
+  var avgY = totalY / coordinates.length;
+  var avgZ = totalZ / coordinates.length; // Don't forget to convert Cartesian coordinates back to spherical
+
+  var centralLon = radiansToDegrees(Math.atan2(avgY, avgX));
+  var hyp = Math.sqrt(avgX * avgX + avgY * avgY);
+  var centralLat = radiansToDegrees(Math.atan2(avgZ, hyp));
+  return {
+    lat: roundToNDecimals(centralLat, 13),
+    lon: roundToNDecimals(centralLon, 13)
+  };
+};
+/**
+ * Compute the longitude delta from a distance, in meters.
+ *
+ * This requires the latitude: we want to compute the horizontal delta
+ * on the Earth surface. As it is a sphere (kind of), this delta won't be
+ * the same depending on whether it is on the equator (min variation)
+ * or on the poles (max variation), for instance.
+ *
+ * @param {number} latitude - The latitude
+ * @param {number} distance - The distance in meters
+ * @returns {number} the longitude delta degrees
+ */
+
+
+exports.computeSphericalCenter = computeSphericalCenter;
+
+var deltaLongitude = function deltaLongitude(latitude, distance) {
+  var phi = degreesToRadians(latitude);
+  var deltaLambda = distance / (EARTH_RADIUS_M * Math.cos(phi));
+  return roundToNDecimals(radiansToDegrees(deltaLambda), 13);
+};
+/**
+ * Compute the latitude delta from a distance, in meters.
+ *
+ * The reasoning is rather simple: there are 360° of latitudes of same distance.
+ * Then, it consists of computing 1 degree distance, and divide the
+ * given distance by this value.
+ *
+ * @param {number} distance - The distance in meters
+ * @returns {number} The delta latitude degrees
+ */
+
+
+exports.deltaLongitude = deltaLongitude;
+
+var deltaLatitude = function deltaLatitude(distance) {
+  var distOneLatDegree = EARTH_CIRCUMFERENCE_M / 360; // 111 319 meters per degree
+
+  var deltaLat = distance / distOneLatDegree;
+  return roundToNDecimals(deltaLat, 13);
+};
+
+exports.deltaLatitude = deltaLatitude;
+
+/***/ }),
+/* 662 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71603,7 +72616,7 @@ if (false) {}
 
 
 /***/ }),
-/* 664 */
+/* 663 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71620,7 +72633,7 @@ var addDays = __webpack_require__(120);
 var requiredArgs = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/date-fns/esm/_lib/toInteger/index.js
-var toInteger = __webpack_require__(6);
+var toInteger = __webpack_require__(7);
 
 // CONCATENATED MODULE: ./node_modules/date-fns/esm/subDays/index.js
 
@@ -71751,8 +72764,7 @@ function sub(date, duration) {
 }
 
 /***/ }),
-/* 665 */,
-/* 666 */
+/* 664 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71764,14 +72776,14 @@ __webpack_require__.d(__webpack_exports__, "a", function() { return /* binding *
 // UNUSED EXPORTS: createTriggerByName, getfilesNeedNotified
 
 // EXTERNAL MODULE: ./node_modules/cozy-logger/src/index.js
-var src = __webpack_require__(16);
+var src = __webpack_require__(15);
 var src_default = /*#__PURE__*/__webpack_require__.n(src);
 
 // EXTERNAL MODULE: ./node_modules/cozy-client/dist/index.node.js
 var index_node = __webpack_require__(46);
 
 // EXTERNAL MODULE: ./src/constants.js
-var constants = __webpack_require__(19);
+var constants = __webpack_require__(18);
 
 // CONCATENATED MODULE: ./src/helpers/queries.js
 
@@ -71812,19 +72824,17 @@ const {
   isExpired,
   isExpiringSoon
 } = index_node["models"].paper;
+
 /**
  * @param {CozyClient} client - Instance of CozyClient
  * @param {string} serviceName - Name of the service
  * @returns {Promise<Object>} Normalized trigger
  */
-
 const createTriggerByName = async (client, serviceName) => {
   src_default()('info', `Create trigger with "${serviceName}" service name`);
-
   if (!serviceName) {
     throw new Error('Invalid service name');
   }
-
   const attrs = {
     _type: constants["g" /* TRIGGERS_DOCTYPE */],
     type: '@daily',
@@ -71837,32 +72847,30 @@ const createTriggerByName = async (client, serviceName) => {
   };
   return client.save(attrs);
 };
+
 /**
  * @param {CozyClient} client - Instance of CozyClient
  * @param {string} serviceName - Name of the service
  * @returns {Promise<Object>} Normalized trigger
  */
-
 const fetchOrCreateTriggerByName = async (client, serviceName) => {
   src_default()('info', `Fetch trigger with "${serviceName}" service name`);
   const triggerByServiceNameQuery = buildTriggerByServiceNameQuery(serviceName);
   const {
     data: triggers
   } = await client.query(triggerByServiceNameQuery.definition);
-
   if (!triggers || triggers.length === 0) {
     src_default()('error', `Can't find trigger with "${serviceName}" service name`);
     return createTriggerByName(client, serviceName);
   }
-
   const triggerByIdQuery = buildTriggerByIdQuery(triggers[0].id);
   return client.query(triggerByIdQuery.definition);
 };
+
 /**
  * @param {IOCozyFile[]} files - List of CozyFile
  * @returns {{ file: IOCozyFile, expirationDate: string }[]} List of CozyFile that must be notified with their noticeDate & expirationDate
  */
-
 const getfilesNeedNotified = files => {
   return files.filter(file => {
     return isExpired(file) || isExpiringSoon(file);
@@ -71874,11 +72882,11 @@ const getfilesNeedNotified = files => {
     };
   });
 };
+
 /**
  * @param {CozyClient} client - Instance of CozyClient
  * @returns {Promise<IOCozyFile[]>} List of CozyFile that must be notified
  */
-
 const fetchAllfilesToNotify = async client => {
   src_default()('info', `Fetch all files to notify`);
   const filesToNotifyQuery = buildAllFilesToNotifyQuery();
@@ -71887,6 +72895,8 @@ const fetchAllfilesToNotify = async client => {
 };
 
 /***/ }),
+/* 665 */,
+/* 666 */,
 /* 667 */,
 /* 668 */,
 /* 669 */,
@@ -72738,20 +73748,22 @@ const fetchAllfilesToNotify = async client => {
 /* 1515 */,
 /* 1516 */,
 /* 1517 */,
-/* 1518 */
+/* 1518 */,
+/* 1519 */,
+/* 1520 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(171);
+/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(172);
 /* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(node_fetch__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var cozy_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(46);
 /* harmony import */ var cozy_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(cozy_client__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var cozy_logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16);
+/* harmony import */ var cozy_logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
 /* harmony import */ var cozy_logger__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(cozy_logger__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var src_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(19);
-/* harmony import */ var src_helpers_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(666);
-/* harmony import */ var src_doctypes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(305);
+/* harmony import */ var src_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(18);
+/* harmony import */ var src_helpers_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(664);
+/* harmony import */ var src_doctypes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(307);
 
 
 
@@ -72760,12 +73772,12 @@ __webpack_require__.r(__webpack_exports__);
 
 global.fetch = node_fetch__WEBPACK_IMPORTED_MODULE_0___default.a;
 const triggersName = [src_constants__WEBPACK_IMPORTED_MODULE_3__[/* EXPIRATION_SERVICE_NAME */ "d"]];
+
 /**
  * @param {CozyClient} client - Instance of CozyClient
  * @param {string} serviceName - Name of service
  * @returns
  */
-
 const fetchAndLaunchTrigger = async (client, serviceName) => {
   const {
     data: normalizedTrigger
@@ -72774,12 +73786,11 @@ const fetchAndLaunchTrigger = async (client, serviceName) => {
   await client.collection(src_constants__WEBPACK_IMPORTED_MODULE_3__[/* TRIGGERS_DOCTYPE */ "g"]).launch(normalizedTrigger);
   return serviceName;
 };
+
 /**
  * Launch manually (& create if necessary) triggers
  * For development usage, see documentation for more details
  */
-
-
 const launchTriggers = async () => {
   try {
     cozy_logger__WEBPACK_IMPORTED_MODULE_2___default()('info', `Start launchTriggers`);
@@ -72787,18 +73798,15 @@ const launchTriggers = async () => {
       schema: src_doctypes__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"]
     });
     const result = await Promise.allSettled(triggersName.map(triggerName => fetchAndLaunchTrigger(client, triggerName)));
-
     for (const res of result) {
       const {
         status,
         value,
         reason
       } = res;
-
       if (status === 'rejected') {
         cozy_logger__WEBPACK_IMPORTED_MODULE_2___default()('critical', reason);
       }
-
       if (status === 'fulfilled') {
         cozy_logger__WEBPACK_IMPORTED_MODULE_2___default()('info', `Launch trigger ${value} success`);
       }
@@ -72808,7 +73816,6 @@ const launchTriggers = async () => {
     process.exit(1);
   }
 };
-
 launchTriggers();
 
 /***/ })
