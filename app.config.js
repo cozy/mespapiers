@@ -1,10 +1,33 @@
 const merge = require('webpack-merge')
+const VersionPlugin = require('cozy-scripts/plugins/VersionPlugin')
+
 const config = [
   require('cozy-scripts/config/webpack.bundle.default.js'),
   require('./app.services')
 ]
 
 const extraConfig = {
+  plugins: [
+    new VersionPlugin({
+      packages: [
+        'cozy-bar',
+        'cozy-client',
+        'cozy-device-helper',
+        'cozy-doctypes',
+        'cozy-flags',
+        'cozy-harvest-lib',
+        'cozy-intent',
+        'cozy-interapp',
+        'cozy-keys-lib',
+        'cozy-logger',
+        'cozy-mespapiers-lib',
+        'cozy-notifications',
+        'cozy-realtime',
+        'cozy-sharing',
+        'cozy-ui'
+      ]
+    })
+  ],
   resolve: {
     alias: {
       handlebars: 'handlebars/dist/handlebars.min.js',
