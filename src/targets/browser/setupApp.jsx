@@ -21,10 +21,6 @@ const setupApp = memoize(() => {
   client.registerPlugin(RealtimePlugin)
   client.registerPlugin(flag.plugin)
 
-  if (process.env.NODE_ENV !== 'production' && flag('switcher') === null) {
-    flag('switcher', true)
-  }
-
   Sentry.init({
     dsn: 'https://1b0c26c4c1474da4b7fb5fa9d1e57869@errors.cozycloud.cc/63',
     environment: process.env.NODE_ENV,
