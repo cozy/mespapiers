@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
-import log from 'cozy-logger'
 import CozyClient from 'cozy-client'
+import minilog from 'cozy-minilog'
 
 import schema from 'src/doctypes'
 import {
@@ -16,6 +16,7 @@ import {
 } from 'src/helpers/migration/metadata'
 
 global.fetch = fetch
+const log = minilog('migration/metadata')
 
 const BATCH_FILES_LIMIT = 1000 // to avoid processing too many files and get timeouts
 
@@ -35,7 +36,7 @@ const getCurrentDate = () => {
  * service time-out.
  */
 export const migrateMetadata = async () => {
-  log('info', 'Start metadata migration service')
+  log.info('Start metadata migration service')
   const client = CozyClient.fromEnv(process.env, { schema })
 
   const filesSettings = await fetchAppSetting(client)
@@ -44,11 +45,11 @@ export const migrateMetadata = async () => {
   let lastRunningMigrateMetadataService = null
 
   if (appSettings?.lastProcessedFileDate != null) {
-    log('info', 'appSettings.lastProcessedFileDate found')
+    log.info('appSettings.lastProcessedFileDate found')
     lastProcessedFileDate = appSettings.lastProcessedFileDate
   }
   if (appSettings?.lastRunningMigrateMetadataService != null) {
-    log('info', 'appSettings.lastRunningMigrateMetadataService found')
+    log.info('appSettings.lastRunningMigrateMetadataService found')
     lastRunningMigrateMetadataService =
       appSettings.lastRunningMigrateMetadataService
   }
@@ -63,9 +64,8 @@ export const migrateMetadata = async () => {
   const filesWithMetadata = getFilesWithMetadata(filesByDateWithMetadata)
 
   if (filesWithMetadata.length === 0) {
-    log('info', 'No new file with metadata found')
-    log(
-      'info',
+    log.info('No new file with metadata found')
+    log.info(
       `Save last running service date: ${lastRunningMigrateMetadataService}`
     )
     await updateAppSettings({
@@ -75,7 +75,7 @@ export const migrateMetadata = async () => {
     })
     return
   }
-  log('info', `Found ${filesWithMetadata.length} files to process`)
+  log.info(`Found ${filesWithMetadata.length} files to process`)
 
   lastProcessedFileDate =
     filesWithMetadata[filesWithMetadata.length - 1].cozyMetadata.updatedAt
@@ -84,15 +84,14 @@ export const migrateMetadata = async () => {
   await specificMigration(client, filesWithMetadata)
 
   const filesToMigrate = extractFilesToMigrate(filesWithMetadata)
-  log('info', `Found ${filesToMigrate.length} files to migrate`)
+  log.info(`Found ${filesToMigrate.length} files to migrate`)
 
   if (filesToMigrate.length === 0) {
-    log('info', 'No file found to migrate')
+    log.info('No file found to migrate')
   } else {
     const migratedFiles = await migrateFileMetadata(client, filesToMigrate)
     if (migratedFiles.length < filesToMigrate.length) {
-      log(
-        'warn',
+      log.warn(
         `${
           filesToMigrate.length - migratedFiles.length
         } files could not be migrated`
@@ -100,10 +99,10 @@ export const migrateMetadata = async () => {
     } else {
       lastProcessedFileDate = getMostRecentUpdatedDate(migratedFiles)
     }
-    log('info', `Migrated ${migratedFiles.length} files`)
+    log.info(`Migrated ${migratedFiles.length} files`)
   }
 
-  log('info', `Save last processed file date: ${lastProcessedFileDate}`)
+  log.info(`Save last processed file date: ${lastProcessedFileDate}`)
   await updateAppSettings({
     client,
     appSettings,
@@ -113,6 +112,6 @@ export const migrateMetadata = async () => {
 }
 
 migrateMetadata().catch(e => {
-  log('critical', e)
+  log.error(e)
   process.exit(1)
 })

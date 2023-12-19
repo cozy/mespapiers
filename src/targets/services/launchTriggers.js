@@ -1,13 +1,14 @@
 import fetch from 'node-fetch'
 
 import CozyClient from 'cozy-client'
-import log from 'cozy-logger'
+import minilog from 'cozy-minilog'
 
 import { EXPIRATION_SERVICE_NAME, TRIGGERS_DOCTYPE } from 'src/constants'
 import { fetchOrCreateTriggerByName } from 'src/helpers/service'
 import schema from 'src/doctypes'
 
 global.fetch = fetch
+const log = minilog('service/launchTriggers')
 
 const triggersName = [EXPIRATION_SERVICE_NAME]
 
@@ -22,7 +23,7 @@ const fetchAndLaunchTrigger = async (client, serviceName) => {
     serviceName
   )
 
-  log('info', `Launch trigger with ${serviceName} service name`)
+  log.info(`Launch trigger with ${serviceName} service name`)
   await client.collection(TRIGGERS_DOCTYPE).launch(normalizedTrigger)
 
   return serviceName
@@ -34,7 +35,7 @@ const fetchAndLaunchTrigger = async (client, serviceName) => {
  */
 const launchTriggers = async () => {
   try {
-    log('info', `Start launchTriggers`)
+    log.info(`Start launchTriggers`)
 
     const client = CozyClient.fromEnv(process.env, { schema })
 
@@ -47,14 +48,14 @@ const launchTriggers = async () => {
       const { status, value, reason } = res
 
       if (status === 'rejected') {
-        log('critical', reason)
+        log.error(reason)
       }
       if (status === 'fulfilled') {
-        log('info', `Launch trigger ${value} success`)
+        log.info(`Launch trigger ${value} success`)
       }
     }
   } catch (error) {
-    log('critical', error)
+    log.error(error)
     process.exit(1)
   }
 }
