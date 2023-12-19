@@ -1,9 +1,10 @@
+import minilog from 'cozy-minilog'
 import { initTranslation } from 'cozy-ui/transpiled/react/providers/I18n/translation'
-import log from 'cozy-logger'
 
 import { dictRequire, lang } from 'src/constants'
 import ExpirationNotification from 'src/notifications'
 
+const log = minilog('buildNotification')
 const translation = initTranslation(lang, dictRequire)
 const t = translation.t.bind(translation)
 
@@ -15,7 +16,7 @@ const t = translation.t.bind(translation)
  * @return {NotificationView} - The konnector alerts notification view
  */
 export const buildNotification = (client, options) => {
-  log('info', `Build notification...`)
+  log.info('Build notification...')
   const notification = new ExpirationNotification({
     client,
     lang,

@@ -1,6 +1,5 @@
-import log from 'cozy-logger'
-
 import { models } from 'cozy-client'
+import minilog from 'cozy-minilog'
 
 import { APP_SLUG, TRIGGERS_DOCTYPE } from 'src/constants'
 import {
@@ -9,6 +8,7 @@ import {
   buildTriggerByServiceNameQuery
 } from 'src/helpers/queries'
 
+const log = minilog('migration/service')
 const { computeExpirationDate, isExpired, isExpiringSoon } = models.paper
 
 /**
@@ -17,7 +17,7 @@ const { computeExpirationDate, isExpired, isExpiringSoon } = models.paper
  * @returns {Promise<Object>} Normalized trigger
  */
 export const createTriggerByName = async (client, serviceName) => {
-  log('info', `Create trigger with "${serviceName}" service name`)
+  log.info(`Create trigger with "${serviceName}" service name`)
   if (!serviceName) {
     throw new Error('Invalid service name')
   }
@@ -42,7 +42,7 @@ export const createTriggerByName = async (client, serviceName) => {
  * @returns {Promise<Object>} Normalized trigger
  */
 export const fetchOrCreateTriggerByName = async (client, serviceName) => {
-  log('info', `Fetch trigger with "${serviceName}" service name`)
+  log.info(`Fetch trigger with "${serviceName}" service name`)
 
   const triggerByServiceNameQuery = buildTriggerByServiceNameQuery(serviceName)
   const { data: triggers } = await client.query(
@@ -50,7 +50,7 @@ export const fetchOrCreateTriggerByName = async (client, serviceName) => {
   )
 
   if (!triggers || triggers.length === 0) {
-    log('error', `Can't find trigger with "${serviceName}" service name`)
+    log.error("Can't find trigger with this service name", serviceName)
     return createTriggerByName(client, serviceName)
   }
 
@@ -81,7 +81,7 @@ export const getfilesNeedNotified = files => {
  * @returns {Promise<IOCozyFile[]>} List of CozyFile that must be notified
  */
 export const fetchAllfilesToNotify = async client => {
-  log('info', `Fetch all files to notify`)
+  log.info('Fetch all files to notify')
 
   const filesToNotifyQuery = buildAllFilesToNotifyQuery()
   const files = await client.queryAll(filesToNotifyQuery.definition)
