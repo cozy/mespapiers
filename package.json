@@ -59,7 +59,8 @@
     "stylint": "2.0.0"
   },
   "dependencies": {
-    "@sentry/react": "7.54.0",
+    "@sentry/integrations": "7.88.0",
+    "@sentry/react": "7.88.0",
     "cozy-client": "^45.0.0",
     "cozy-device-helper": "^3.0.0",
     "cozy-doctypes": "^1.88.6",
@@ -68,7 +69,7 @@
     "cozy-intent": "^2.18.0",
     "cozy-interapp": "^0.8.1",
     "cozy-keys-lib": "^6.0.0",
-    "cozy-mespapiers-lib": "^69.1.2",
+    "cozy-mespapiers-lib": "^70.0.0",
     "cozy-minilog": "3.3.1",
     "cozy-notifications": "^0.14.0",
     "cozy-realtime": "^5.0.0",
