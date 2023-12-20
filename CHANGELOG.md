@@ -1,4 +1,59 @@
+# 3.3.1
+
 # 3.3.0
+
+### ✨ Features
+
+* Update cozy-mespapiers-lib from 66.0.1 to 70.0.0
+  * Add help tooltip in paper selector ([9874a97](https://github.com/cozy/cozy-libs/commit/9874a97c0e9f6b1841f9ddef6e1dd15d429c6aaa))
+  * Add help tooltip on OCR result page ([62cc04d](https://github.com/cozy/cozy-libs/commit/62cc04df8924a3cc324c22ac9ee2e1202fb22c87))
+  * Add help tooltip on Scan actions ([1a9f383](https://github.com/cozy/cozy-libs/commit/1a9f383146549c3073177f452a3c34defc40bba0))
+  * Add PapersCreatedProvider ([9e0cee2](https://github.com/cozy/cozy-libs/commit/9e0cee2fc4f040830eba86dddc7a100a8bef087c))
+  * Add PointerAlert on placeholders if no papers created by the app ([a17c01e](https://github.com/cozy/cozy-libs/commit/a17c01e07516a2d2a92381c6fd873c02426169b6))
+  * Add tooltip on forward Fab ([4e1b3fe](https://github.com/cozy/cozy-libs/commit/4e1b3fe7ae89e5ee5982662addf74572dc23a55f))
+  * Adjust wording ([8bd9ee5](https://github.com/cozy/cozy-libs/commit/8bd9ee5b758ce020074acc1f5a511a9ad334dbf8))
+  * Change wording when no papers ([521cb72](https://github.com/cozy/cozy-libs/commit/521cb72908ef7028721de294a3433be233edae49))
+  * Center Onboarding verticaly ([b1aa84a](https://github.com/cozy/cozy-libs/commit/b1aa84a5965f707f8cdfb58a9e3e332dad9fd128))
+  * Replace paper selection modale by NestedSelect ([b45bb4d](https://github.com/cozy/cozy-libs/commit/b45bb4d1b6762966e3b77c98331f327645dab453))
+  * Replace ScanResultInfo by PointerAlert ([82a1873](https://github.com/cozy/cozy-libs/commit/82a18736eae0a364b83ce1092cec9ab2ad9eb600))
+  * Add BoxDate component ([a1dc01e](https://github.com/cozy/cozy-libs/commit/a1dc01ee750369587f7410c21dbd645f59216462))
+  * Add BoxPassword component ([6ed4b35](https://github.com/cozy/cozy-libs/commit/6ed4b35642dbe208fbd247a7f8ce62c65a8203bb))
+  * Add file thumbnail to ForwardModal ([747912f](https://github.com/cozy/cozy-libs/commit/747912f6f2a468de981dfa8e7d41116dff25279a))
+  * Add helper for copy to clipboard with alert ([c423824](https://github.com/cozy/cozy-libs/commit/c42382459812f7643276a3bb8fcb166e23457f36))
+  * Add helper for make ttl (bigduration format) ([7c97f39](https://github.com/cozy/cozy-libs/commit/7c97f39eb0146fedb94691bc7ee1422ad9320f06))
+  * Add Send option on files in desktop mode ([44a2d8b](https://github.com/cozy/cozy-libs/commit/44a2d8b0ac9917a06efdf036b7c55aeb5cba86a5))
+  * Forward action redirect to ForwardModal ([46a1333](https://github.com/cozy/cozy-libs/commit/46a1333a0073f62518a39b4ded2b8e84ee207427))
+  * Make ForwardModal compatible with a Route ([e125651](https://github.com/cozy/cozy-libs/commit/e1256519621174d306dec0cdc6d093a9cf0bed69))
+  * Multi select on desktop forward files instead download ([c5b8752](https://github.com/cozy/cozy-libs/commit/c5b875230cff6400522bbbe3f8117bc033023ca5))
+  * Render the correct icon when fallback in ForwardModal ([d594138](https://github.com/cozy/cozy-libs/commit/d594138a35fefb36dcaffc321aca297ae9a0d44d))
+  * Replace file sharing icon ([cf60470](https://github.com/cozy/cozy-libs/commit/cf60470e5a46e4099aeb12bd60bdc73d4561ae9e))
+  * Use BoxDate & BoxPassword components in ForwardModal ([9e3617f](https://github.com/cozy/cozy-libs/commit/9e3617f9de9eac2ee587d99b5b6da8598814204d))
+  * Add print action on files ([76a97d5](https://github.com/cozy/cozy-libs/commit/76a97d50881ad14feaa2f433e609655420833764))
+  * Replace spinner by skeletons on papers list ([2303501](https://github.com/cozy/cozy-libs/commit/230350100d4836fa3d9a50777f86252fef81e358))
+  * Replace spinners by skeletons on home and onboarding ([fdf50a0](https://github.com/cozy/cozy-libs/commit/fdf50a05fe16b891ebc91d6960e7f48674764dfd))
+  * Replace Spinner by ListSkeleton in search result ([7dd45a9](https://github.com/cozy/cozy-libs/commit/7dd45a9ea0b12cb3b5287201cea9fc540eb259e1))
+  * Change wording `paper` to `document` ([37967f4](https://github.com/cozy/cozy-libs/commit/37967f46de765d8046a0ebb8bb4750c90a085ab0))
+  * Add regex rules for passport attributes ([a30b431](https://github.com/cozy/cozy-libs/commit/a30b43126fd019fb14eb48ac43288ed55bc5a0d1))
+  * Add `xsmall` size to `CompositeHeaderImage` component ([06e51d9](https://github.com/cozy/cozy-libs/commit/06e51d954395449356f4d0de0f48f18bdceb1065))
+  * Add configuration for SelectPaperFormat modal ([7ade74e](https://github.com/cozy/cozy-libs/commit/7ade74e44e0f6d1893bac8292d26c6982ebe884f))
+  * Add country detection for passport ([8b5a9a2](https://github.com/cozy/cozy-libs/commit/8b5a9a2d1673d9955d18754cab588c0785e2912d))
+  * Add identity card version detection ([ea8475a](https://github.com/cozy/cozy-libs/commit/ea8475a7c8168b2b8c1ca0972f96f64d35e1e21d))
+  * Add new identity card format (2021) ([a9ba5f1](https://github.com/cozy/cozy-libs/commit/a9ba5f1f3e5713525caca01107126891f6782048))
+  * Add paper version detection ([c24d06b](https://github.com/cozy/cozy-libs/commit/c24d06b6589af0ef919f1c030222c46145c8c5a3))
+  * Add SelectPaperFormat component ([5752fb4](https://github.com/cozy/cozy-libs/commit/5752fb41b9c1f9cfd75b4a092a75b774a489221d))
+  * Add the SelectPaperFormat modal to the process ([dce2992](https://github.com/cozy/cozy-libs/commit/dce29929edde4296db31be0978ce6eebe92e4ccb))
+  * Increase the maximum size of images before integrating ([41a7e5c](https://github.com/cozy/cozy-libs/commit/41a7e5c25b5f7be85f0347692b6844a8eabad6a4))
+
+* Upgrade cozy-ui 97.1.0 to 99.0.4
+
+### 🐛 Bug Fixes
+* Scan rotation doesn't work at the last rotation ([3b7227d](https://github.com/cozy/cozy-libs/commit/3b7227dba316a4fdc62b4701f1209cf9bd0a6019))
+* Display the right konnector ([6440349](https://github.com/cozy/cozy-libs/commit/6440349470de6687fbf32f0df318c97ab2542641))
+* An error when file doesn't have a createdByApp cozyMetadata ([8d059b2](https://github.com/cozy/cozy-libs/commit/8d059b2d543784f81b384c3b8d18575514a1277f))
+
+### 🔧 Tech
+* Use CozyDevTools instead FlagSwitcher ([f043279](https://github.com/cozy/cozy-libs/commit/f0432793412fab4210c041379aed55b2c73164cf))
+* Use cozy-minilog instead cozy-logger ([8612f7e](https://github.com/cozy/cozy-libs/commit/8612f7e8048a16c67dec5e49ce622a2aa7e87e31))
 
 # 3.2.0
 
