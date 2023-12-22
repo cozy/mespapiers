@@ -16,9 +16,7 @@ env:
     # REGISTRY_TOKEN
     - secure: "i8gUr4pLlB520lkFfiGlCSkm+wS0HtWuZFAEpQaeEoGope9ajlzDF5nU7zFVaOTFQKpWqljR6/y5pWIZ7VNxMxzFDZ6Hi0hi7HxeuGonJQXcnJ7TB5ViiCrfc04xR2T8BtTFmJkeV0MEYZ0AWkAEM9oD6AeweYoiCntWQS3c58VwgPf7jL5uT2LVGHH81Cqd4y9a/+Owtlvt05mpfI1o6gKJUo8tEG2B+fHWzXqU/CP0BKsRJxXY4vKwOJ3s83L3deeAxT7O//d/61es/6FgqUxQNfjlLhwsM7g7eGAR+5lUs5v57Qna2qh1wGdjcZBIFB+eaBb+YaE1eMxlo1OWK2qsTki9zWkjhUAwcEqoMKM4iMzS+MK+M1/DK07g6+2JpvuOo/17dcZHygYFXbHd4GJh8efido6xMuoCZaJIQHTQR2tgZI+QSj8QEGIA/3vaXxTw8mTTvewkQHzY20ER3rfn9WLXTUh6UutSj05SX6SMYZOkIntD6xtvWu9z/D5KnyOijAtn63U0hm/CxYoI5gXNYdX9wxTlLFAp8B88ESxa2vweuvbh8cwKNxmvgLBsnRN0UsfjRpIWYjHaGnGowaGrlDewzx+CbhJAL89+psCtwHlAXV5+/WKgITVgmcoNmCCrWyL856Ma+7RIL/kIXik2hNdbrLwUs6/bQtAiRUA="
 cache:
-  yarn: true
-  directories:
-    - node_modules
+  npm: false
 stages:
   - prebuild
   - build
