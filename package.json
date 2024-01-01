@@ -76,7 +76,7 @@
     "cozy-sharing": "^10.0.0",
     "cozy-ui": "^99.0.4",
     "date-fns": "2.29.3",
-    "leaflet": "^1.7.1",
+    "leaflet": "^1.9.3",
     "lodash": "4.17.21",
     "react": "17.0.2",
     "react-dom": "17.0.2",
