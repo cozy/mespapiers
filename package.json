@@ -43,7 +43,7 @@
   "devDependencies": {
     "@testing-library/react": "11.2.7",
     "@welldone-software/why-did-you-render": "^6.2.1",
-    "babel-preset-cozy-app": "2.0.2",
+    "babel-preset-cozy-app": "2.1.0",
     "bundlemon": "1.4.0",
     "compare-versions": "^5.0.1",
     "cozy-bar": "7.27.0",
