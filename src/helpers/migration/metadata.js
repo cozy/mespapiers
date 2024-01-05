@@ -1,6 +1,6 @@
 import isSameDay from 'date-fns/isSameDay'
 
-import minilog from 'cozy-minilog'
+import logger from 'cozy-logger'
 
 import {
   APP_SETTINGS_DOCTYPE,
@@ -12,7 +12,7 @@ import {
   buildFilesFromDateQuery
 } from 'src/helpers/migration/queries'
 
-const log = minilog('migration/metadata')
+const logService = logger.namespace('service/metadataMigration')
 
 const OLD_METADATA_ATTRIBUTES = [
   'cafFileNumber',
@@ -29,7 +29,7 @@ const NEW_METADATA_ATTRIBUTE = 'number'
  * @param {import('cozy-client/types/CozyClient').default} client - The CozyClient instance
  */
 export const fetchAppSetting = async client => {
-  log.info('Start fetchAppSetting')
+  logService('info', 'Start fetchAppSetting')
   const appSettingQuery = buildAppSettingQuery()
 
   return client.query(appSettingQuery.definition)
@@ -49,7 +49,7 @@ export const fetchFilesFromDateWithMetadata = async ({
   date,
   limit
 }) => {
-  log.info('Start fetchFilesFromDate')
+  logService('info', 'Start fetchFilesFromDate')
   const filesFromDateQuery = buildFilesFromDateQuery(date, limit)
 
   return client.queryAll(filesFromDateQuery.definition)
@@ -161,7 +161,7 @@ export const migrateFileMetadata = async (client, files) => {
  * @returns {import('cozy-client/types/types').IOCozyFile[]}
  */
 export const extractFilesToMigrate = files => {
-  log.info('Start extractFilesToMigrate')
+  logService('info', 'Start extractFilesToMigrate')
   return files.filter(file => {
     const { metadata } = file
 
@@ -222,7 +222,7 @@ export const getFilesWithMetadata = files => {
  */
 export const launchMetadataMigrationJob = async client => {
   try {
-    log.info('Start launchMetadataMigrationJob')
+    logService('info', 'Start launchMetadataMigrationJob')
     const { data } = await fetchAppSetting(client)
     const settings = data?.[0] || {}
 
@@ -233,13 +233,15 @@ export const launchMetadataMigrationJob = async client => {
         new Date()
       )
     ) {
-      log.info(
+      logService(
+        'info',
         'Stop launchMetadataMigrationJob because is already launched today'
       )
       return
     }
 
-    log.info(
+    logService(
+      'info',
       `Create job service with slug: 'mespapiers' & name: 'metadataMigration'`
     )
     const jobColl = client.collection(JOBS_DOCTYPE)
@@ -250,6 +252,6 @@ export const launchMetadataMigrationJob = async client => {
       true
     )
   } catch (error) {
-    log.error('launchMetadataMigrationJob', error)
+    logService('error', 'launchMetadataMigrationJob', error)
   }
 }
