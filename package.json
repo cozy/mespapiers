@@ -63,7 +63,7 @@
     "@sentry/react": "7.88.0",
     "cozy-client": "^45.6.0",
     "cozy-device-helper": "^3.0.0",
-    "cozy-doctypes": "^1.89.3",
+    "cozy-doctypes": "^1.89.4",
     "cozy-flags": "^3.0.1",
     "cozy-harvest-lib": "^22.0.3",
     "cozy-intent": "^2.19.1",
