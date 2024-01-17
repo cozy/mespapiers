@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { CozyProvider } from 'cozy-client'
 import { WebviewIntentProvider } from 'cozy-intent'
 import { I18n } from 'cozy-ui/transpiled/react/providers/I18n'
-import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
+import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import {
   StylesProvider,
@@ -36,9 +36,9 @@ export const AppProviders = ({ client, lang, polyglot, children }) => {
       <StylesProvider generateClassName={generateClassName}>
         <CozyProvider client={client}>
           <I18n lang={lang} polyglot={polyglot}>
-            <MuiCozyTheme>
+            <CozyTheme>
               <BreakpointsProvider>{children}</BreakpointsProvider>
-            </MuiCozyTheme>
+            </CozyTheme>
           </I18n>
         </CozyProvider>
       </StylesProvider>
