@@ -5302,6 +5302,17 @@ cozy-doctypes@^1.89.3:
     lodash "^4.17.19"
     prop-types "^15.7.2"
 
+cozy-doctypes@^1.89.4:
+  version "1.89.4"
+  resolved "https://registry.yarnpkg.com/cozy-doctypes/-/cozy-doctypes-1.89.4.tgz#3d9d2c796bf666293cb7702593cb9961a5fe7018"
+  integrity sha512-TEbM0FRY3uFoL+vez5eFB/RDXlJ6zEf4o6Wi/P85kCJnBOUtSTl767bjjmFZ/x764vBfkn3VaLE1ct5qkyLkcQ==
+  dependencies:
+    cozy-logger "^1.10.4"
+    date-fns "^1.30.1"
+    es6-promise-pool "^2.5.0"
+    lodash "^4.17.19"
+    prop-types "^15.7.2"
+
 cozy-flags@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/cozy-flags/-/cozy-flags-3.0.1.tgz#ffb0f3e57f6e3d631f8fa420e866f0eacddd222a"
@@ -5310,16 +5321,16 @@ cozy-flags@^3.0.1:
     microee "^0.0.6"
 
 cozy-harvest-lib@^22.0.3:
-  version "22.0.3"
-  resolved "https://registry.yarnpkg.com/cozy-harvest-lib/-/cozy-harvest-lib-22.0.3.tgz#60a0ee3bc569d8f236fae707a0d518d7c1dda98f"
-  integrity sha512-yUk1yJmIf+x74ua6RvoonxTnlbZvp8v0et0AMTCmNyiFcPjeLdBFA23nohfyPmzJuFwXs9D7iyhx28soQxsdpQ==
+  version "22.0.6"
+  resolved "https://registry.yarnpkg.com/cozy-harvest-lib/-/cozy-harvest-lib-22.0.6.tgz#8b1b6700cf6da31e2d6e5b0c42bf810c5adec8bb"
+  integrity sha512-vuITHngQk9K1eeE91qiRGt1gH8s4fGskCggQdAK1uous5WSnaqY7Nh0diO3VsR8ZR2yw1i7gdV74giEPzrrycA==
   dependencies:
     "@cozy/minilog" "^1.0.0"
     "@sentry/browser" "^6.0.1"
     classnames "^2.3.1"
     cozy-bi-auth "0.0.25"
-    cozy-doctypes "^1.89.3"
-    cozy-logger "^1.10.3"
+    cozy-doctypes "^1.89.4"
+    cozy-logger "^1.10.4"
     date-fns "^1.30.1"
     final-form "^4.18.5"
     lodash "^4.17.19"
@@ -5331,9 +5342,9 @@ cozy-harvest-lib@^22.0.3:
     uuid "^3.3.2"
 
 cozy-intent@^2.19.1:
-  version "2.19.1"
-  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-2.19.1.tgz#bc7b4e65b38a65ced5db4b8716d1fe30d617aed8"
-  integrity sha512-7zw3l+Dn6IVjBBjNkj0D+bDc4XDTrT7+72PdX55NbjLUpxJh88Vyv5DihTw/JRcwQVwdFlTO1O29z0oOildmTQ==
+  version "2.19.2"
+  resolved "https://registry.yarnpkg.com/cozy-intent/-/cozy-intent-2.19.2.tgz#2f66f2c6613022264b737bb563cf90d9b0288e2a"
+  integrity sha512-frjTf6SQ4oiR3mCs7lDLJ7ldFBNBq6TF18Myoe2mq2riJ9QRHtIgPkcV44zjvk8KW4KElO+A7TW+wJXHAVfjaQ==
   dependencies:
     post-me "0.4.5"
 
@@ -5406,10 +5417,10 @@ cozy-logger@^1.3.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^72.2.0:
-  version "72.2.0"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-72.2.0.tgz#4ddd11bafb8946093c1d770a335350fb832b9e3c"
-  integrity sha512-W1WCgeH8Ci9tbcT8VJaASunx6UeGU2p3tSP51u4EXwPPuUOebGbPbiwHrdmJLuyNdYk80Mr9kjgCaWUxslbzYQ==
+cozy-mespapiers-lib@^72.3.0:
+  version "72.3.0"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-72.3.0.tgz#93a3f3125d2890bd8c1508f1ac133be0036d4fcd"
+  integrity sha512-7LUHRMmgieOSoxwbNtkbSMraFW4giRW3EB9fXOHG2/b/lzTTfU/YvzZ/TCt/iY6dt8fFuGZ1omsuobNB/YivlA==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/pickers" "3.3.10"
