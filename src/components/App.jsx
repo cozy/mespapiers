@@ -11,7 +11,7 @@ import {
 } from 'react-router-dom'
 
 import { useClient } from 'cozy-client'
-import MuiCozyTheme from 'cozy-ui/transpiled/react/MuiCozyTheme'
+import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { Layout, Main, Content } from 'cozy-ui/transpiled/react/Layout'
@@ -51,9 +51,9 @@ export const AppLayout = () => {
           {flag('mespapiers.show-help.enabled') && <Help />}
           {isMobile && (
             <BarCenter>
-              <MuiCozyTheme>
+              <CozyTheme>
                 <Typography variant="h5">{client.appMetadata.slug}</Typography>
-              </MuiCozyTheme>
+              </CozyTheme>
             </BarCenter>
           )}
           <Outlet />
