@@ -18,9 +18,12 @@ jest.mock('cozy-client', () => ({
 jest.mock('cozy-ui/transpiled/react/providers/I18n', () => ({
   I18n: ({ children }) => <div data-testid="I18n">{children}</div>
 }))
-jest.mock('cozy-ui/transpiled/react/MuiCozyTheme', () => ({ children }) => (
-  <div data-testid="MuiCozyTheme">{children}</div>
-))
+jest.mock(
+  'cozy-ui/transpiled/react/providers/CozyTheme',
+  () =>
+    ({ children }) =>
+      <div data-testid="CozyTheme">{children}</div>
+)
 jest.mock('cozy-ui/transpiled/react/providers/Breakpoints', () => ({
   BreakpointsProvider: ({ children }) => (
     <div data-testid="BreakpointsProvider">{children}</div>
@@ -40,7 +43,7 @@ describe('AppProviders', () => {
     expect(queryByTestId('StylesProvider')).toBeTruthy()
     expect(queryByTestId('CozyProvider')).toBeTruthy()
     expect(queryByTestId('I18n')).toBeTruthy()
-    expect(queryByTestId('MuiCozyTheme')).toBeTruthy()
+    expect(queryByTestId('CozyTheme')).toBeTruthy()
     expect(queryByTestId('BreakpointsProvider')).toBeTruthy()
     expect(queryByTestId('WebviewIntentProvider')).toBeTruthy()
   })
