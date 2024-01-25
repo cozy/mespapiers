@@ -1,4 +1,24 @@
+# 3.3.2
+
 # 3.3.1
+
+### ✨ Features
+
+* Add cozy-logger from ^1.10.4
+* Use CozyTheme instead of MuiTheme
+* Update cozy-client from ^45.0.0 to ^45.6.0
+* Update cozy-doctypes from ^1.88.6 to ^1.89.3
+* Update cozy-harvest-lib from ^20.2.1 to ^22.0.3
+* Update cozy-intent from ^2.18.0 to ^2.18.1
+* Update cozy-sharing from ^10.0.0 to ^10.1.3
+* Update cozy-ui from ^99.0.4 to ^101.1.1
+* Update cozy-intent from ^2.18.1 to ^2.19.1
+* Update cozy-mespapiers-lib from ^70.0.0 to 73.2.0
+
+### 🔧 Tech
+
+* Bump to node 20
+* Remove travis caches
 
 # 3.3.0
 
