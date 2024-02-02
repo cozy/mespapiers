@@ -1,4 +1,33 @@
+# 3.3.3
+
 # 3.3.2
+
+### ✨ Features
+* Update cozy-ui and cozy-sharing
+* Upgrade cozy-mespapiers-lib 73.2.0 to 75.6.2
+  * Number of files displayed ([acf8f1a](https://github.com/cozy/cozy-libs/commit/acf8f1ab257375b272d6e2a3803e2eb97f8781a7))
+  * Update copyToClipboard to use navigator.clipboard ([2d82f92](https://github.com/cozy/cozy-libs/commit/2d82f9228d9c0850ce7a765a99dbdbe5a0550513))
+  * Use await for copyToClipboard method ([0bff241](https://github.com/cozy/cozy-libs/commit/0bff2415659ea55aab82bc52eaa869d81bf0bfcc))
+  * Use copyToClipboard instead of copy-text-to-clipboard package ([d1f7d51](https://github.com/cozy/cozy-libs/commit/d1f7d513e99b26c85050a52db190ccb8af6cf105))
+  * Remove copy-text-to-clipboard package ([55b75ed](https://github.com/cozy/cozy-libs/commit/55b75ede59c66f4f4761f463b65bf326e2dc0b01))
+  *  Update cozy-ui to 102.2.1 ([02afc25](https://github.com/cozy/cozy-libs/commit/02afc25f576ada7707ec9f02e6ef0449103e2d56))
+  * Navigate after share as attachment success ([a6d0a3c](https://github.com/cozy/cozy-libs/commit/a6d0a3cead44143a0f9edd9c22de1cd2b71fa15a))
+  * Update multiselect wording ([0200a14](https://github.com/cozy/cozy-libs/commit/0200a14fc772f672cd5d6bd59059c56d2b9e5db1))
+  * Change number of doc displayed ([4c25cbd](https://github.com/cozy/cozy-libs/commit/4c25cbd8eb6a44ad6a9cc2d4c9d730d8326d0ad6))
+  * Change wording in ForwardModal ([be8c252](https://github.com/cozy/cozy-libs/commit/be8c252dee9bb6d64a0fc806e925d6fe9d6d4a5f))
+  * Routes and file viewer behavior in multiselection ([681d49a](https://github.com/cozy/cozy-libs/commit/681d49abeaa178b211981457459b569a6046e945))
+  * Close multiselection after successful delete/forward ([05e7b4f](https://github.com/cozy/cozy-libs/commit/05e7b4faad0b0c4f9b8cbce3e5ca1656c614f1d6))
+  * Calculate isMultiSelectionActive from current URL ([45844d0](https://github.com/cozy/cozy-libs/commit/45844d076cedc79566172fe7f3a47ecf7b0aad17))
+  * Do not allow to go back to ForwardModal ([b24e841](https://github.com/cozy/cozy-libs/commit/b24e8418c3dd630cd93ce54512f0f4ac2c4002ef))
+  * Add a FileSharingProvider to expose feature from flagship app ([dbf10d4](https://github.com/cozy/cozy-libs/commit/dbf10d4cfb6418ca0ec160fe124ae40afed2c738))
+  * Add MultiselectBackdrop to ShareBottomSheet ([661e7e8](https://github.com/cozy/cozy-libs/commit/661e7e83896b8842c6d4b4b37b83615836546a35))
+  * Add ShareBottomSheet ([7175f9f](https://github.com/cozy/cozy-libs/commit/7175f9f9634cd37b25a3dcd985362659f69b87c0))
+  * Open ShareBottomSheet when sharing on flagship ([6f97b15](https://github.com/cozy/cozy-libs/commit/6f97b15fb0989ec90cbd1f055349fbfeec3f983b))
+  * Show success and error alerts at the end of attachment share ([645c922](https://github.com/cozy/cozy-libs/commit/645c92237f1e1582200f4d2cfb0d9992afadbd00))
+  * Multiple file can now be printed from selection ([02cf031](https://github.com/cozy/cozy-libs/commit/02cf03116a07b1fef35c63977c64b50fe3a31312))
+  * Upgrade cozy-ui 102.0.0 to 102.1.0 ([aa99d7c](https://github.com/cozy/cozy-libs/commit/aa99d7c19a0e58e9aff65e36deb55594014db790))
+  * Use sourceAccountIdentifier instead sourceAccount ([28358c6](https://github.com/cozy/cozy-libs/commit/28358c696cfdf74439bcafc0721f012ba96d6e1e))
+  * Upgrade cozy-ui 101.1.1 to 102.0.0 ([c3995c9](https://github.com/cozy/cozy-libs/commit/c3995c9aaad0159c8236cb743a13586921667b5e))
 
 # 3.3.1
 
