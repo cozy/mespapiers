@@ -70,7 +70,7 @@
     "cozy-interapp": "^0.9.0",
     "cozy-keys-lib": "^6.0.0",
     "cozy-logger": "^1.10.4",
-    "cozy-mespapiers-lib": "^78.2.2",
+    "cozy-mespapiers-lib": "^78.2.3",
     "cozy-minilog": "^3.3.1",
     "cozy-notifications": "^0.15.0",
     "cozy-realtime": "^5.0.0",
