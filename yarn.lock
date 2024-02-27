@@ -5242,16 +5242,16 @@ cozy-client@^38.2.1:
     sift "^6.0.0"
     url-search-params-polyfill "^8.0.0"
 
-cozy-client@^45.11.0:
-  version "45.11.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-45.11.0.tgz#aa1d04c26a8829e913ebb3da55d1e1804afaa6e8"
-  integrity sha512-ubMZ+ckNHwvIUK5MuZ+3d+Ikvvi7e5RZjzKiYWEqmC0bg9kjAObvA46s1IFLYid85BcHslG9w1s0MKdPXQTT1A==
+cozy-client@^45.14.0:
+  version "45.14.0"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-45.14.0.tgz#a5bda1d1a0c9a3b2f307cfff0b086c35b897d842"
+  integrity sha512-OMBEVPJVm5uO98CViQeKf0loAdyl5IZd2yvNUDgQMBTJ+BvScOde+2Vfmv3TznZt44SpAdTD/W5p+fuJ+tJNHQ==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
     "@types/lodash" "^4.14.170"
     btoa "^1.2.1"
-    cozy-stack-client "^45.2.0"
+    cozy-stack-client "^45.13.0"
     date-fns "2.29.3"
     json-stable-stringify "^1.0.1"
     lodash "^4.17.13"
@@ -5389,10 +5389,10 @@ cozy-logger@^1.3.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^79.0.0:
-  version "79.0.0"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-79.0.0.tgz#fe5703266c93688420cad78e0cdaf12d256e7df7"
-  integrity sha512-5Vt7y3eKzIoXuvguSmaFHRBgZzNdPcbDBM4ZeEx8rgEwNEVYeVYgujyAmtIiv9UbQh6I9SXfE16uiN1048ueEQ==
+cozy-mespapiers-lib@^80.0.0:
+  version "80.0.0"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-80.0.0.tgz#90b2903ff2bd2a82724edc138670c054620b7c48"
+  integrity sha512-aZn2IPWLZGNidGBLRHzH62nhtLbXa3+PnG87Ie9eYT2T3Db0HXeB7RHQatEQIHIj/r/1k/G+oAUIb9a2c/XhJQ==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/pickers" "3.3.10"
@@ -5527,10 +5527,10 @@ cozy-stack-client@^38.0.2:
     mime "^2.4.0"
     qs "^6.7.0"
 
-cozy-stack-client@^45.2.0:
-  version "45.2.0"
-  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-45.2.0.tgz#c0d20d6e11a57477752cd38f1ca8732c668f5d14"
-  integrity sha512-XpbD568C+gG2ZSkWcdlBQIfXb2kefpQpwjgMISZ0raHk6cA1c626pptfbadXzmNaj9IiDG/gTCztzbnxZ3xBUA==
+cozy-stack-client@^45.13.0:
+  version "45.13.0"
+  resolved "https://registry.yarnpkg.com/cozy-stack-client/-/cozy-stack-client-45.13.0.tgz#394b21a153b752be99ac6c79d073159fd024a4f4"
+  integrity sha512-ruigDMH6XB1Pxa+e3doAMjXihgKSdNZpNPlEcpd7l8MfHazUaHVs/D8Kyop1n+VGM/4va2DU1c1nE7ainT7+jw==
   dependencies:
     detect-node "^2.0.4"
     mime "^2.4.0"
@@ -5558,10 +5558,10 @@ cozy-ui@22.3.1:
     react-pdf "^4.0.5"
     react-select "2.2.0"
 
-cozy-ui@^103.6.2:
-  version "103.6.2"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-103.6.2.tgz#6867e06082aec4c82b2ccd2a626540f22e774984"
-  integrity sha512-cSc6mQj3L81Opux3GpJwJ5mh+c6895vZywr8uFK/xY08yijIMHruivb/HFCAOM34ypQEEpIsmyxxbld+sUT8iQ==
+cozy-ui@^103.8.0:
+  version "103.8.0"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-103.8.0.tgz#b799770190be4087052bf256f3c9a1bfa433c435"
+  integrity sha512-9klKqfXtSAzIGgVVSoZKnKHn0rhREfh9L2PhXddEHX2jeu5wtDGqLBfcyrdtmpeQuCgCgE4scR4Wmfl7F+Pw1A==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@material-ui/core" "4.12.3"
@@ -5583,7 +5583,6 @@ cozy-ui@^103.6.2:
     piwik-react-router "0.12.1"
     react-chartjs-2 "4.1.0"
     react-markdown "^4.0.8"
-    react-middle-ellipsis "1.2.2"
     react-pdf "^5.7.2"
     react-popper "^2.2.3"
     react-remove-scroll "^2.4.0"
@@ -11113,9 +11112,9 @@ msgpack5@^4.0.2:
     readable-stream "^2.3.6"
     safe-buffer "^5.1.2"
 
-"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
@@ -12829,11 +12828,6 @@ react-markdown@^4.0.8, react-markdown@^4.2.2:
     unified "^6.1.5"
     unist-util-visit "^1.3.0"
     xtend "^4.0.1"
-
-react-middle-ellipsis@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/react-middle-ellipsis/-/react-middle-ellipsis-1.2.2.tgz#e1676fe2fbc864ea7e2fc25bedc53db2635bb2a9"
-  integrity sha512-tTsyS/hOjT3C5WjpueAx1/WsYUVnNlUnDRCKSffGT1ns7b0NbSi6FGVVPDLTxn207B0sVjNTbMnk1HFGWd5hzA==
 
 react-pdf@^4.0.5:
   version "4.2.0"
