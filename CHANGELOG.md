@@ -1,8 +1,22 @@
+# 3.3.4
+
 # 3.3.3
+
+### ✨ Features
+
+* Upgrade cozy-client 45.6.0 to 45.14.0
+* Upgrade cozy-doctypes 1.89.3 to 1.89.4
+* Upgrade cozy-harvest-lib 22.0.3 to 22.4.0
+* Upgrade cozy-intent 2.19.1 to 2.19.2
+* Upgrade cozy-interapp 0.8.1 to 0.9.0
+* Upgrade cozy-mespapiers-lib 75.6.2 to 80.0.0
+* Upgrade cozy-notifications 0.14.0 to 0.15.0
+* Upgrade cozy-ui 102.2.1 to 103.8.0
 
 # 3.3.2
 
 ### ✨ Features
+
 * Update cozy-ui and cozy-sharing
 * Upgrade cozy-mespapiers-lib 73.2.0 to 75.6.2
   * Number of files displayed ([acf8f1a](https://github.com/cozy/cozy-libs/commit/acf8f1ab257375b272d6e2a3803e2eb97f8781a7))
