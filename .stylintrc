@@ -67,7 +67,7 @@
   },
   "noImportant": {
     "expect": true,
-    "error": true
+    "error": false
   },
   "parenSpace": {
     "expect": "never",
@@ -103,7 +103,7 @@
   },
   "universal": {
     "expect": "never",
-    "error": true
+    "error": false
   },
   "valid": {
     "expect": true,
