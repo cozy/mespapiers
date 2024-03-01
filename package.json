@@ -49,7 +49,7 @@
     "cozy-bar": "7.27.0",
     "cozy-scripts": "^8.3.0",
     "cozy-tsconfig": "1.2.0",
-    "enzyme-adapter-react-16": "1.15.6",
+    "enzyme-adapter-react-16": "1.15.8",
     "eslint-config-cozy-app": "^4.0.0",
     "git-directory-deploy": "1.5.1",
     "mockdate": "3.0.5",
