@@ -5,9 +5,7 @@
     "node": "~16 || ~20"
   },
   "scripts": {
-    "build": "yarn build:browser",
-    "build:browser": "cs build --browser",
-    "build:mobile": "cs build --mobile",
+    "build": "cs build --browser --barV7 false",
     "cozyPublish": "cozy-app-publish --token $REGISTRY_TOKEN --prepublish downcloud --postpublish mattermost --space mespapiers",
     "deploy": "git-directory-deploy --directory build/ --branch ${DEPLOY_BRANCH:-build} --repo=${DEPLOY_REPOSITORY:-https://$GITHUB_TOKEN@github.com/cozy/mespapiers.git}",
     "lint": "yarn lint:js && yarn lint:styles",
@@ -17,14 +15,12 @@
     "service": "node build/services/expiration/mespapiers.js",
     "stack:docker:dev": "cs stackDocker",
     "stack:docker:prod": "cs stackDocker --prod",
-    "start": "cs start --browser",
+    "start": "cs start --browser --barV7 false",
     "test": "cs test --verbose --coverage",
     "triggers:launch": "node build/services/launchTriggers/mespapiers.js",
     "typecheck": "yarn tsc",
     "update:libs": "node ./scripts/update_libs.js",
-    "watch": "yarn watch:browser",
-    "watch:browser": "cs watch --browser",
-    "watch:mobile": "cs watch --mobile"
+    "watch": "cs watch --browser --barV7 false"
   },
   "repository": {
     "type": "git",
@@ -46,7 +42,6 @@
     "babel-preset-cozy-app": "2.0.2",
     "bundlemon": "1.4.0",
     "compare-versions": "^5.0.1",
-    "cozy-bar": "7.27.0",
     "cozy-scripts": "^8.3.0",
     "cozy-tsconfig": "1.2.0",
     "enzyme-adapter-react-16": "1.15.6",
@@ -54,6 +49,7 @@
     "git-directory-deploy": "1.5.1",
     "mockdate": "3.0.5",
     "raw-loader": "3.1.0",
+    "react-hot-loader": "4.13.1",
     "react-test-renderer": "16.14.0",
     "redux-mock-store": "1.5.4",
     "stylint": "2.0.0"
@@ -61,6 +57,7 @@
   "dependencies": {
     "@sentry/integrations": "7.88.0",
     "@sentry/react": "7.88.0",
+    "cozy-bar": "^12.0.0",
     "cozy-client": "^45.14.0",
     "cozy-device-helper": "^3.0.0",
     "cozy-doctypes": "^1.89.4",
@@ -70,7 +67,7 @@
     "cozy-interapp": "^0.9.0",
     "cozy-keys-lib": "^6.0.0",
     "cozy-logger": "^1.10.4",
-    "cozy-mespapiers-lib": "^82.0.0",
+    "cozy-mespapiers-lib": "^83.0.0",
     "cozy-minilog": "^3.3.1",
     "cozy-notifications": "^0.15.0",
     "cozy-realtime": "^5.0.0",
