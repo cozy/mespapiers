@@ -1,10 +1,25 @@
 import logger from 'cozy-logger'
 import { initTranslation } from 'cozy-ui/transpiled/react/providers/I18n/translation'
 
-import { dictRequire, lang } from 'src/constants'
+import { DEFAULT_LANG, lang } from 'src/constants'
 import ExpirationNotification from 'src/notifications'
 
 const logService = logger.namespace('buildNotification')
+
+const dictRequire = lang => {
+  let res
+  try {
+    res = require(`locales/${lang}`)
+  } catch (error) {
+    res = require(`locales/${DEFAULT_LANG}`)
+    logService(
+      'info',
+      `The "${lang}" language can't be loaded, fallback to "${DEFAULT_LANG}" language.`
+    )
+  }
+  return res
+}
+
 const translation = initTranslation(lang, dictRequire)
 const t = translation.t.bind(translation)
 
