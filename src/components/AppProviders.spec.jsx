@@ -29,6 +29,9 @@ jest.mock('cozy-ui/transpiled/react/providers/Breakpoints', () => ({
     <div data-testid="BreakpointsProvider">{children}</div>
   )
 }))
+jest.mock('cozy-bar', () => ({
+  BarProvider: ({ children }) => <div data-testid="BarProvider">{children}</div>
+}))
 jest.mock('cozy-intent', () => ({
   WebviewIntentProvider: ({ children }) => (
     <div data-testid="WebviewIntentProvider">{children}</div>

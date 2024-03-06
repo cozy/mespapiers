@@ -1,6 +1,6 @@
-/* global cozy */
 import React, { useState } from 'react'
 
+import { BarRight } from 'cozy-bar'
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import Box from 'cozy-ui/transpiled/react/Box'
 import { ConfirmDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
@@ -27,7 +27,6 @@ const BarFixed = props => {
 const Help = () => {
   const [showDialog, setShowDialog] = useState(false)
   const { t } = useI18n()
-  const { BarRight } = cozy.bar
   const { isDesktop } = useBreakpoints()
 
   const Wrapper = !isDesktop ? BarRight : BarFixed

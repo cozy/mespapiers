@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 
+import { BarProvider } from 'cozy-bar'
 import { CozyProvider } from 'cozy-client'
 import { WebviewIntentProvider } from 'cozy-intent'
 import { I18n } from 'cozy-ui/transpiled/react/providers/I18n'
@@ -37,7 +38,9 @@ export const AppProviders = ({ client, lang, polyglot, children }) => {
         <CozyProvider client={client}>
           <I18n lang={lang} polyglot={polyglot}>
             <CozyTheme>
-              <BreakpointsProvider>{children}</BreakpointsProvider>
+              <BreakpointsProvider>
+                <BarProvider>{children}</BarProvider>
+              </BreakpointsProvider>
             </CozyTheme>
           </I18n>
         </CozyProvider>

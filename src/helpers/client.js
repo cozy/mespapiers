@@ -22,7 +22,7 @@ export const getClient = () => {
       version: manifest.version
     },
     schema,
-    store: false
+    store: true
   })
 
   const intents = new Intents({ client })

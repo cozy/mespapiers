@@ -1,5 +1,3 @@
-/* global cozy */
-
 import React from 'react'
 import {
   Route,
@@ -10,8 +8,8 @@ import {
   Outlet
 } from 'react-router-dom'
 
+import { BarComponent, BarCenter } from 'cozy-bar'
 import { useClient } from 'cozy-client'
-import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { Layout, Main, Content } from 'cozy-ui/transpiled/react/Layout'
@@ -40,20 +38,18 @@ const AppRouter = () => {
 }
 
 export const AppLayout = () => {
-  const { BarCenter } = cozy.bar
   const { isMobile } = useBreakpoints()
   const client = useClient()
 
   return (
     <Layout monoColumn>
+      <BarComponent />
       <Main>
         <Content className="app-content">
           {flag('mespapiers.show-help.enabled') && <Help />}
           {isMobile && (
             <BarCenter>
-              <CozyTheme>
-                <Typography variant="h5">{client.appMetadata.slug}</Typography>
-              </CozyTheme>
+              <Typography variant="h5">{client.appMetadata.slug}</Typography>
             </BarCenter>
           )}
           <Outlet />
