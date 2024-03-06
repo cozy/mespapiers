@@ -6,5 +6,5 @@ export const JOBS_DOCTYPE = 'io.cozy.jobs'
 
 export const APP_SLUG = 'mespapiers'
 export const EXPIRATION_SERVICE_NAME = 'expiration'
-export const lang = process.env.COZY_LOCALE || 'fr'
-export const dictRequire = lang => require(`locales/${lang}`)
+export const DEFAULT_LANG = 'en'
+export const lang = process.env.COZY_LOCALE || DEFAULT_LANG
