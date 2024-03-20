@@ -1,4 +1,30 @@
+# 3.3.5
+
 # 3.3.4
+
+### ✨ Features
+
+* Upgrade cozy-bar 7.27.0 to 12.0.0
+* upgrade cozy-sharing 10.2.0 to 10.4.1
+* Upgrade cozy-ui 103.8.0 to 105.0.2
+* Upgrade cozy-client 45.14.0 to 46.0.0
+* Upgrade cozy-flags 3.0.1 to 3.2.0
+* Upgrade cozy-mespapiers-lib 80.0.0 to 88.0.0
+  * Add `editText` on `pay_sheet` attributes ([11994d9](https://github.com/cozy/cozy-libs/commit/11994d9a850e4dbf9003e6c10fe00cb3e9757321))
+  * Add `netSocialAmount` in search ([f1266d7](https://github.com/cozy/cozy-libs/commit/f1266d7360b4be43a98baf87437184a9d51217bc))
+  * Add `pay_sheet` step ([7a36680](https://github.com/cozy/cozy-libs/commit/7a366801755b5752a0677b1cd58bd27cf1d9a669))
+  * Add ref tax number on multiple papers ([104bdaa](https://github.com/cozy/cozy-libs/commit/104bdaa3a697371cfb3391d8d6a5b3134ad65e58))
+  * Add translated `pay_sheet` number in flexsearch ([d953623](https://github.com/cozy/cozy-libs/commit/d9536236456bca260a57cd11c2196f761dcc4c95))
+  * Add foreign `national_id_card` ([90b9449](https://github.com/cozy/cozy-libs/commit/90b9449d16f41fbfca54ea596319437a878e6be8))
+  * Adjust buttons styles for Viewer ([dcad271](https://github.com/cozy/cozy-libs/commit/dcad271401654a0ac7c77b88dfe706877d7b7c08))
+  * Add support for `,` and `.` in input type number ([6fbe07d](https://github.com/cozy/cozy-libs/commit/6fbe07d77aa483875b2be3414760f91aa5287904))
+
+### 🐛 Bug Fixes
+
+* ExpirationNotification should use the `en` locale by default
+* By updating cozy-mespapiers-lib:
+  * Add `metadata.netSocialAmount` into query select ([73d75a2](https://github.com/cozy/cozy-libs/commit/73d75a2307faee9f436d1baeb36b34a09de3f83c))
+  * Change type of the `variant` Alert ([ed3a07e](https://github.com/cozy/cozy-libs/commit/ed3a07e3fc074b64e1a5d4c6ab3e88dfc84d523e))
 
 # 3.3.3
 
