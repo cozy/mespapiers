@@ -37,7 +37,7 @@
     "uglify-js": "npm:terser"
   },
   "devDependencies": {
-    "@testing-library/react": "11.2.7",
+    "@testing-library/react": "14.2.2",
     "@welldone-software/why-did-you-render": "^6.2.1",
     "babel-preset-cozy-app": "2.0.2",
     "bundlemon": "1.4.0",
