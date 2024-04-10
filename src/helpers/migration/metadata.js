@@ -19,7 +19,8 @@ const OLD_METADATA_ATTRIBUTES = [
   'cardNumber',
   'vinNumber',
   'ibanNumber',
-  'passportNumber'
+  'passportNumber',
+  'taxNumber'
 ]
 const NEW_METADATA_ATTRIBUTE = 'number'
 
