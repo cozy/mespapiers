@@ -72,7 +72,7 @@
     "cozy-notifications": "^0.15.0",
     "cozy-realtime": "^5.0.0",
     "cozy-sharing": "^10.4.1",
-    "cozy-ui": "^105.6.0",
+    "cozy-ui": "^105.9.0",
     "date-fns": "2.29.3",
     "leaflet": "^1.7.1",
     "lodash": "4.17.21",
