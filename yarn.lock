@@ -5155,10 +5155,10 @@ cozy-bi-auth@0.0.25:
     lodash "^4.17.20"
     node-jose "^1.1.4"
 
-cozy-client@^46.5.0:
-  version "46.5.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-46.5.0.tgz#8a6ea0ebbd6fa257f53203b22d759e826e9d1a52"
-  integrity sha512-YzKvIDEHRNPEOGAKQkRVy42Hstp8OlIKK1rL5hKoBM7AUd3uzaOS71MHohMKamO3FkryIZjndmMRfQOuitZkxw==
+cozy-client@^46.6.1:
+  version "46.6.1"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-46.6.1.tgz#019b0b1eb2c339f9b33cc175f31a8b6af459b459"
+  integrity sha512-LpLHK/82+pddeZbCRYlvQQllRVdKD10ik3Ny+xu59QdVc8vpn5ipxqGwzPjQcxX7fcfbpGBjMtP/3MH5IdnUjg==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
@@ -5308,10 +5308,10 @@ cozy-logger@^1.3.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^91.4.0:
-  version "91.4.0"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-91.4.0.tgz#434a46514fe658074b974578ae4bc405f853741b"
-  integrity sha512-zdrNJAPmj2+uTrjXoAhgGTY80/sEW8aPqwK0dNCjrEvYHqVcezfrY3/egBXzW5vwcGgPINL+9mmz+Gq9wEhTag==
+cozy-mespapiers-lib@^92.0.1:
+  version "92.0.1"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-92.0.1.tgz#26fa4120652287625a4eea1a30505e14cb1cb227"
+  integrity sha512-A4r9GBEGVJbKAeC97wGHYq1NNIAGFFxf3O1GGwle4sTmFGeCMSX/TOD2EtzNgUQjN+Eg9+IOD060o/sLxUP3SQ==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/pickers" "3.3.10"
@@ -11140,9 +11140,9 @@ msgpack5@^4.0.2:
     readable-stream "^2.3.6"
     safe-buffer "^5.1.2"
 
-"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
