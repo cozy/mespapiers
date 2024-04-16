@@ -5155,10 +5155,10 @@ cozy-bi-auth@0.0.25:
     lodash "^4.17.20"
     node-jose "^1.1.4"
 
-cozy-client@^46.6.1:
-  version "46.6.1"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-46.6.1.tgz#019b0b1eb2c339f9b33cc175f31a8b6af459b459"
-  integrity sha512-LpLHK/82+pddeZbCRYlvQQllRVdKD10ik3Ny+xu59QdVc8vpn5ipxqGwzPjQcxX7fcfbpGBjMtP/3MH5IdnUjg==
+cozy-client@^46.7.0:
+  version "46.7.0"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-46.7.0.tgz#d17d2cb54c9441146930415a84e2fd54dbcd5185"
+  integrity sha512-ksn/aqEKl1Lxv+9gUvv3xvwouOp8EwQL30pN7yHa8ZNeVCUD1Q88VsXeaWrsfdZW+R1xY6QkuoMNEeofoW/pXQ==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
@@ -5308,10 +5308,10 @@ cozy-logger@^1.3.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^92.0.1:
-  version "92.0.1"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-92.0.1.tgz#26fa4120652287625a4eea1a30505e14cb1cb227"
-  integrity sha512-A4r9GBEGVJbKAeC97wGHYq1NNIAGFFxf3O1GGwle4sTmFGeCMSX/TOD2EtzNgUQjN+Eg9+IOD060o/sLxUP3SQ==
+cozy-mespapiers-lib@^93.0.0:
+  version "93.0.0"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-93.0.0.tgz#ac5051741154ff7a520632d51fd97c8e312e00bd"
+  integrity sha512-1EKaQ6knOtXdLqKHELzGcPe9IhzwX3v3Z3jfKKjsQ3ooiwVrfJ66GQlbduG556w1SICHcWdJ7ILhigW564gf8A==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/pickers" "3.3.10"
