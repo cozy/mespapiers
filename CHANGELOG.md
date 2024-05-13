@@ -1,4 +1,43 @@
+# 3.4.0
+
 # 3.3.5
+
+### ✨ Features
+
+* Add `taxNumber` to migration script
+* Upgrade cozy-ui 105.2.1 to 105.10.2
+* Upgrade cozy-client 46.0.0 to 46.8.0
+* Upgrade cozy-mespapiers-lib 90.0.0 to 95.0.3
+  * Add a health paper ([2aadd32](https://github.com/cozy/cozy-libs/commit/2aadd321afe5f2bb38445ffc7a73a2c3d36fd3d2))
+  * Add licenseNumber and confidentialNumber in search ([28149bf](https://github.com/cozy/cozy-libs/commit/28149bf66e0ce58d5caf7a987f28d24617e327d3))
+  * Add licenseNumber and confidentialNumber on vehicle_registration ([5ae2469](https://github.com/cozy/cozy-libs/commit/5ae24696d7a99bee73d3ceb28c07432680daaa40))
+  * Add vehicle registration license number on file name ([92e1a99](https://github.com/cozy/cozy-libs/commit/92e1a992d0550c6d848dc65d0c79e8b4dbb8b612))
+  * Filter with several themes ([7d81402](https://github.com/cozy/cozy-libs/commit/7d81402492ebf3a03271e5ed7813a2342f0176c9))
+  * Hide the badge on the filter button when themes filter is visible ([ae388df](https://github.com/cozy/cozy-libs/commit/ae388dff487e87edc55312f6f8deb47f4051b2d7))
+  * Remove fuse.js lib ([9839d99](https://github.com/cozy/cozy-libs/commit/9839d990fd8e5952628f473b66cd9d8a95b7537d))
+  * Homogenize the behavior of importAuto ([e34f64a](https://github.com/cozy/cozy-libs/commit/e34f64aee0f8b87ea72d3f9c9306ae85f01ec717))
+  * The importAuto action display a contextualize konnector icon ([9511e06](https://github.com/cozy/cozy-libs/commit/9511e061fecc74f8f478b9586f7a0f6dc4ecb48b))
+  * Use the connector name instead of the slug in the description ([15a4458](https://github.com/cozy/cozy-libs/commit/15a44584bd2efe2c0d04b3130d26c40feedfa887))
+  * Add Adornment attribute to TextField in RadioAdapter ([a551d9b](https://github.com/cozy/cozy-libs/commit/a551d9b16417502aeb0d270c6f360ee52950137e))
+  * Convert options of RadioAdapter component to object ([d9cb7b3](https://github.com/cozy/cozy-libs/commit/d9cb7b39ae75456098b9485e6e8221ebdda313eb))
+  * Converting noticePeriod information steps ([9173877](https://github.com/cozy/cozy-libs/commit/91738778789d72f122353b6e6c5bbc979c3e3e5e))
+  * Update information steps with a list of radio inputs ([829bdd8](https://github.com/cozy/cozy-libs/commit/829bdd8324da9f20910726765597bbd20653637a))
+
+### 🐛 Bug Fixes
+
+* By updating cozy-mespapiers-lib:
+  * The selectedThemes argument of ([66365fc](https://github.com/cozy/cozy-libs/commit/66365fc69d07a51703852586dcecd04d5d5f851e))
+  * The konnector category of the phone_invoice paper ([8039e65](https://github.com/cozy/cozy-libs/commit/8039e658ba39b0a2033ea549d38eae505d2b38d5))
+  * When editing, save or get metadata in the right place ([c3a163d](https://github.com/cozy/cozy-libs/commit/c3a163d148544cf128146af2340f83ce16dca52f))
+  * `featureDate` attribute must be the one provided by the papersDefinitions ([4291159](https://github.com/cozy/cozy-libs/commit/4291159bc933332ef90bc10a27a1bb36477a205b))
+  * Save the right information in contractType metadata ([8849e7b](https://github.com/cozy/cozy-libs/commit/8849e7bf1c83a3e6fb33fe26bffa94eace1dc059))
+  * Using the inputLabel attribute in the RadioAdapter ([1544227](https://github.com/cozy/cozy-libs/commit/1544227461e8e9fc6a6fc461b06bd3f40849218b))
+  * Merge all metadata when submit information step ([900c3d7](https://github.com/cozy/cozy-libs/commit/900c3d72d0dd1ad64e775a0696ab59308b44a714))
+  * The noticePeriod field must be a TextField during ocr ([74a6a14](https://github.com/cozy/cozy-libs/commit/74a6a14825a2d46ed1c63b3d8833b5f7aba14c2a)), closes https://github.com/cozy/cozy-libs/issues/2515
+  * Wrong writing of the pay_sheet qualification ([9dafd90](https://github.com/cozy/cozy-libs/commit/9dafd90eeabb104d93c033aebc78f081c0c09499))
+  * Create a paper if myself does not exist ([63b6dd7](https://github.com/cozy/cozy-libs/commit/63b6dd780d96f251c08b9f91e0b4a32898608a37))
+  * Download action calls a function with bad argument ([ae9bbd2](https://github.com/cozy/cozy-libs/commit/ae9bbd2f5bfc3295553d3ae1aaef68c5cb6c63ac))
+  * Add missing locales for installing app button ([82d2122](https://github.com/cozy/cozy-libs/commit/82d2122b14e084eb30ca3871df31bdc7493f87d4))
 
 # 3.3.4
 
