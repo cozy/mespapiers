@@ -37,7 +37,7 @@
     "expiration": {
       "type": "node",
       "file": "services/expiration/mespapiers.js",
-      "trigger": "@daily between 1pm and 3pm"
+      "trigger": "@daily between 7am and 8pm"
     },
     "metadataMigration": {
       "type": "node",
