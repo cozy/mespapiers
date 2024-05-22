@@ -1,14 +1,11 @@
 import format from 'date-fns/format'
 
-import { generateWebLink, models } from 'cozy-client'
+import { generateWebLink } from 'cozy-client'
+import { splitFilename } from 'cozy-client/dist/models/file'
 import { NotificationView } from 'cozy-notifications'
 
 import template from 'raw-loader!./template.hbs'
 import { APP_SLUG } from 'src/constants'
-
-const {
-  file: { splitFilename }
-} = models
 
 /**
  * @typedef {object} FilesInfo
@@ -30,10 +27,13 @@ const {
  * Manages the notification sent for expiration files
  */
 class ExpirationNotification extends NotificationView {
+  #hasMultipleExpiredFiles
+
   constructor(options) {
     super(options)
     this.currentDate = options.currentDate
     this.filesInfo = options.filesInfo
+    this.#hasMultipleExpiredFiles = options.filesInfo.length > 1
   }
 
   /**
@@ -50,7 +50,18 @@ class ExpirationNotification extends NotificationView {
    * @returns {string}
    */
   getPushContent() {
-    return ' '
+    if (!this.#hasMultipleExpiredFiles) {
+      const file = this.filesInfo[0].file
+
+      if (file) {
+        const { filename } = splitFilename(file)
+        return this.t('notifications.expiration.mobile.content.info', {
+          filename
+        })
+      }
+    }
+
+    return this.t('notifications.expiration.mobile.content.multiple')
   }
   /**
    * Subject of mail
@@ -58,6 +69,24 @@ class ExpirationNotification extends NotificationView {
    */
   getTitle() {
     return this.t('notifications.expiration.email.title')
+  }
+
+  getExtraAttributes() {
+    let paperLink = 'paper'
+
+    if (!this.#hasMultipleExpiredFiles) {
+      const file = this.filesInfo[0].file
+      if (file) {
+        paperLink = `paper/files/${file.metadata.qualification.label}/${file._id}`
+      }
+    }
+
+    return {
+      data: {
+        appName: '', // Overwrite the appName in the notification
+        redirectLink: `mespapiers/#/${paperLink}`
+      }
+    }
   }
 
   /**
@@ -104,6 +133,6 @@ class ExpirationNotification extends NotificationView {
 
 ExpirationNotification.template = template
 ExpirationNotification.category = 'expiration'
-ExpirationNotification.preferredChannels = ['mail']
+ExpirationNotification.preferredChannels = ['mobile', 'mail']
 
 export default ExpirationNotification

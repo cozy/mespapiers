@@ -11,6 +11,12 @@
           "view": "Cliquez sur le nom du document pour le consulter dans votre application Mes Papiers.",
           "seeyou": "À très bientôt !"
         }
+      },
+      "mobile": {
+        "content": {
+          "info": "Le document %{filename} dans votre application Mes Papiers va bientôt expirer",
+          "multiple": "Des documents enregistrés dans votre application Mes Papiers vont bientôt arriver à expiration."
+        }
       }
     }
   },
