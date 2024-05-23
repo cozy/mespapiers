@@ -5155,10 +5155,10 @@ cozy-bi-auth@0.0.25:
     lodash "^4.17.20"
     node-jose "^1.1.4"
 
-cozy-client@^47.3.0:
-  version "47.4.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-47.4.0.tgz#18e8f1c86ca3919db5b2751761aca1bf53f84fee"
-  integrity sha512-ggu2P9MZ3NvL/d46fUkkgNrpVAdTwLP98wr2pgplQDfzIgKOyjpflNwbMAXX/qCxFUjvvsrFsOx8+3k9+uiFwQ==
+cozy-client@^47.5.0:
+  version "47.5.0"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-47.5.0.tgz#5f38350ce64d600aaf9bb5707d9f7de0dead9543"
+  integrity sha512-3XoR04tEiDFgUH1e4ZiJOmUApi0yUeoJiemJwRPCq9vxj5vn/o0sBQvGAszEmJMq+Rjsr/jMHtcGLYGi1pTZdA==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
@@ -5298,10 +5298,10 @@ cozy-logger@^1.3.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^99.0.0:
-  version "99.0.0"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-99.0.0.tgz#00df0d57c2b685efd8e3ebc9bc0f1bbc438a7313"
-  integrity sha512-ed3pOb7GkmPQvdEL1nOR1WyC8Q2SV2GdWvRNceVavo81TuNgpIGD4j9tQypwBR+814TsoAsipvUyAfNTitgKaw==
+cozy-mespapiers-lib@^100.0.0:
+  version "100.0.0"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-100.0.0.tgz#5ae503e23ce40639b1cb08adbdb23423cceddf41"
+  integrity sha512-qJ3/+AdPs6AvlWVKzjvtbekXFJycv0jMbzb7E54lUwYzidoF/FpKGz+RtCZUacmg2r2oSgLljV40UfOaToFjtg==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/pickers" "3.3.10"
@@ -11130,9 +11130,9 @@ msgpack5@^4.0.2:
     readable-stream "^2.3.6"
     safe-buffer "^5.1.2"
 
-"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
