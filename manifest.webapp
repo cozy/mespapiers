@@ -70,6 +70,11 @@
       "type": "io.cozy.files",
       "verbs": ["ALL"]
     },
+    "bills": {
+      "description": "Required to access the bills",
+      "type": "io.cozy.bills",
+      "verbs": ["ALL"]
+    },
     "sharings": {
       "description": "Required to have access to the sharings in realtime",
       "type": "io.cozy.sharings",
