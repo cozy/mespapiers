@@ -5298,16 +5298,17 @@ cozy-logger@^1.3.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^100.2.1:
-  version "100.2.1"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-100.2.1.tgz#86b1d8739fc5faf06bb8a45e2f527d6c36f482c3"
-  integrity sha512-TrJaXSIitBnZeV0vvy/PRsUWLefVwHaHRttlEaNwcoIAEzfBn6vfulqXCZyCDeL03LWdlkhTNlKjBQHPdNv3ZQ==
+cozy-mespapiers-lib@^101.0.0:
+  version "101.0.0"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-101.0.0.tgz#53da7ac71480b15b9224608cb40cf467d36f9fa8"
+  integrity sha512-qeVSmpZvWHTD8/VjCqe/MGk4909bk8o5a3HMTznNhx4FByahbjVWVCiEYGq3+uh9Ta6Dzcaqdt3pcWZ2a+Vc0w==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/pickers" "3.3.10"
     classnames "2.3.2"
     date-fns "2.23.0"
     flexsearch "0.7.31"
+    localforage "1.10.0"
     pdf-lib "1.17.1"
     react-input-mask "3.0.0-alpha.2"
 
@@ -10108,7 +10109,7 @@ loader-utils@^2.0.3:
     emojis-list "^3.0.0"
     json5 "^2.1.2"
 
-localforage@^1.8.1:
+localforage@1.10.0, localforage@^1.8.1:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/localforage/-/localforage-1.10.0.tgz#5c465dc5f62b2807c3a84c0c6a1b1b3212781dd4"
   integrity sha512-14/H1aX7hzBBmmh7sGPd+AOMkkIrHM3Z1PAyGgZigA1H1p5O5ANnMyWzvpAETtG68/dC4pC0ncy3+PPGzXZHPg==
@@ -11130,9 +11131,9 @@ msgpack5@^4.0.2:
     readable-stream "^2.3.6"
     safe-buffer "^5.1.2"
 
-"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
