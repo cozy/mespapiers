@@ -5155,10 +5155,10 @@ cozy-bi-auth@0.0.25:
     lodash "^4.17.20"
     node-jose "^1.1.4"
 
-cozy-client@^47.5.0:
-  version "47.5.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-47.5.0.tgz#5f38350ce64d600aaf9bb5707d9f7de0dead9543"
-  integrity sha512-3XoR04tEiDFgUH1e4ZiJOmUApi0yUeoJiemJwRPCq9vxj5vn/o0sBQvGAszEmJMq+Rjsr/jMHtcGLYGi1pTZdA==
+cozy-client@^47.6.0:
+  version "47.6.0"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-47.6.0.tgz#ed151e75003aa3eeda657d398d18958aadaa6e1c"
+  integrity sha512-hBALCB//rdMg2bj3k8dVHRaYFG0CQ7vF9u58BufYuNoJFB4HKh9R/KFSXH0+wkvDjUOK4olYjoz+7xH6bZmEPQ==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
@@ -5298,10 +5298,10 @@ cozy-logger@^1.3.0:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-mespapiers-lib@^100.0.0:
-  version "100.0.0"
-  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-100.0.0.tgz#5ae503e23ce40639b1cb08adbdb23423cceddf41"
-  integrity sha512-qJ3/+AdPs6AvlWVKzjvtbekXFJycv0jMbzb7E54lUwYzidoF/FpKGz+RtCZUacmg2r2oSgLljV40UfOaToFjtg==
+cozy-mespapiers-lib@^100.2.1:
+  version "100.2.1"
+  resolved "https://registry.yarnpkg.com/cozy-mespapiers-lib/-/cozy-mespapiers-lib-100.2.1.tgz#86b1d8739fc5faf06bb8a45e2f527d6c36f482c3"
+  integrity sha512-TrJaXSIitBnZeV0vvy/PRsUWLefVwHaHRttlEaNwcoIAEzfBn6vfulqXCZyCDeL03LWdlkhTNlKjBQHPdNv3ZQ==
   dependencies:
     "@date-io/date-fns" "1"
     "@material-ui/pickers" "3.3.10"
@@ -5432,10 +5432,10 @@ cozy-tsconfig@1.2.0:
   resolved "https://registry.yarnpkg.com/cozy-tsconfig/-/cozy-tsconfig-1.2.0.tgz#17e61f960f139fae4d26cbac2254b9ab632b269e"
   integrity sha512-TRHnY9goF3FzVlUbP7BcHxuN2XAA4AmppT4fHHZmTKaSwYTByVR1Al+riFMDbce94kJZ1wzl9WNLWQuqzGZ6Cw==
 
-cozy-ui@^106.8.0:
-  version "106.8.0"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-106.8.0.tgz#4657af61027d8f50eeb64f7ecd37aea1d7423c5d"
-  integrity sha512-x/iLdutzUyjTs9s2KtALrNy94I/lz9pvTJAmt6J+a65tr+bPLaHJ8TIcQgcQa7PgocXoPd4K7yX7E4RuB4s/Wg==
+cozy-ui@^107.2.0:
+  version "107.2.0"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-107.2.0.tgz#8b92f401ba1847f50a7d4f20c2cfc4dca5c9dd4e"
+  integrity sha512-mI8i2KBqCXuda5kcfieKSXf7m4/aN+1fvKOxQDqcDtDDWMnEOVe9LSO4sHKd8y5oBfthJRdipDulGDlMJsryYA==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@material-ui/core" "4.12.3"
@@ -11130,9 +11130,9 @@ msgpack5@^4.0.2:
     readable-stream "^2.3.6"
     safe-buffer "^5.1.2"
 
-"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
