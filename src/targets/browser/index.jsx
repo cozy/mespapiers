@@ -6,7 +6,6 @@ import 'cozy-ui/dist/cozy-ui.utils.min.css'
 import 'cozy-bar/dist/stylesheet.css'
 import 'cozy-mespapiers-lib/dist/stylesheet.css'
 import '../../styles/index.styl'
-// import '../../utils/wdyr'
 
 import setupApp from 'src/targets/browser/setupApp'
 import { register as registerServiceWorker } from 'src/targets/browser/serviceWorkerRegistration'
