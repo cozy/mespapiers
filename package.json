@@ -42,7 +42,6 @@
     "@testing-library/react": "11.2.7",
     "@typescript-eslint/eslint-plugin": "5.54.0",
     "@typescript-eslint/parser": "5.54.0",
-    "@welldone-software/why-did-you-render": "6.2.1",
     "babel-preset-cozy-app": "2.0.2",
     "bundlemon": "1.4.0",
     "compare-versions": "5.0.1",
