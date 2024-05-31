@@ -19,7 +19,6 @@ const extraConfig = {
         'cozy-intent',
         'cozy-interapp',
         'cozy-keys-lib',
-        'cozy-mespapiers-lib',
         'cozy-minilog',
         'cozy-notifications',
         'cozy-realtime',
