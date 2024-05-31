@@ -5,7 +5,6 @@ import { render } from 'react-dom'
 import 'cozy-ui/transpiled/react/stylesheet.css'
 import 'cozy-ui/dist/cozy-ui.utils.min.css'
 import 'cozy-bar/dist/stylesheet.css'
-import 'cozy-mespapiers-lib/dist/stylesheet.css'
 
 import 'src/styles/index.styl'
 import setupApp from 'src/targets/browser/setupApp'
