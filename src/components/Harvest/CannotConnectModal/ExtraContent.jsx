@@ -6,8 +6,6 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-import withLocales from '../../../locales/withLocales'
-
 const ExtraContent = () => {
   const { t } = useI18n()
   const { qualificationLabel } = useParams()
@@ -33,4 +31,4 @@ const ExtraContent = () => {
   )
 }
 
-export default withLocales(ExtraContent)
+export default ExtraContent
