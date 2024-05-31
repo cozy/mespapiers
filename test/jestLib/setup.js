@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 require('@babel/polyfill')
 
 // polyfill for requestAnimationFrame
@@ -5,6 +6,19 @@ require('@babel/polyfill')
 global.requestAnimationFrame = cb => {
   setTimeout(cb, 0)
 }
+
+// Fix error "Cannot use import statement outside a module"
+jest.mock('flexsearch/dist/module/lang/latin/balance', () => ({
+  encode: jest.fn()
+}))
+
+// Fix error "No available storage method found."
+jest.mock('localforage', () => ({
+  config: jest.fn(),
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  removeItem: jest.fn()
+}))
 
 // Don't print console.warn, console.error, console.info & console.debug in tests
 global.console = {
