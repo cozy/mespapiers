@@ -5319,10 +5319,10 @@ cozy-minilog@^3.3.1:
   dependencies:
     microee "0.0.6"
 
-cozy-notifications@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/cozy-notifications/-/cozy-notifications-0.15.0.tgz#c948fb59233b4a8f5d42fd25d5da67a978774992"
-  integrity sha512-/cXM5gR/tdI7hp3/RUbnhG5R/Pda/QMX99jqz7NhW+4f+Vmg+8pbJjQxZGggUNPs+ZXKgt/BbpyYKAbm9BwHoQ==
+cozy-notifications@^0.16.3:
+  version "0.16.3"
+  resolved "https://registry.yarnpkg.com/cozy-notifications/-/cozy-notifications-0.16.3.tgz#d404c5aa6da9f830acd72f6efda38e4f2b7ee41f"
+  integrity sha512-rZaqLfnnlqWSTzrjo4oLlHYn0HxZGKKGZfO1G0Mroy/wfoUlUOJuijE1PISTiqT45obWuytk60NHCPG2+bshtw==
   dependencies:
     handlebars "^4.1.2"
     handlebars-layouts "^3.1.4"
