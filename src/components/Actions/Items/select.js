@@ -7,8 +7,6 @@ import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-import withLocales from '../../../locales/withLocales'
-
 export const select = ({ hideActionsMenu, addMultiSelectionFile }) => {
   return {
     name: 'select',
@@ -16,29 +14,27 @@ export const select = ({ hideActionsMenu, addMultiSelectionFile }) => {
       hideActionsMenu && hideActionsMenu()
       docs.length > 0 && addMultiSelectionFile && addMultiSelectionFile(docs[0])
     },
-    Component: withLocales(
-      // eslint-disable-next-line react/display-name
-      forwardRef((props, ref) => {
-        const { t } = useI18n()
-        const client = useClient()
+    // eslint-disable-next-line react/display-name
+    Component: forwardRef((props, ref) => {
+      const { t } = useI18n()
+      const client = useClient()
 
-        const webLink = generateWebLink({
-          slug: 'mespapiers',
-          cozyUrl: client.getStackClient().uri,
-          subDomainType: client.getInstanceOptions().subdomain,
-          pathname: '/',
-          hash: '/paper/multiselect'
-        })
-
-        return (
-          <ActionsMenuItem {...props} ref={ref} component="a" href={webLink}>
-            <ListItemIcon>
-              <Icon icon="select-all" />
-            </ListItemIcon>
-            <ListItemText primary={t('action.select')} />
-          </ActionsMenuItem>
-        )
+      const webLink = generateWebLink({
+        slug: 'mespapiers',
+        cozyUrl: client.getStackClient().uri,
+        subDomainType: client.getInstanceOptions().subdomain,
+        pathname: '/',
+        hash: '/paper/multiselect'
       })
-    )
+
+      return (
+        <ActionsMenuItem {...props} ref={ref} component="a" href={webLink}>
+          <ListItemIcon>
+            <Icon icon="select-all" />
+          </ListItemIcon>
+          <ListItemText primary={t('action.select')} />
+        </ActionsMenuItem>
+      )
+    })
   }
 }
