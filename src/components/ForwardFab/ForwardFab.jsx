@@ -1,7 +1,9 @@
-import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { usePapersCreated } from 'src/components/Contexts/PapersCreatedProvider'
+import { SETTINGS_DOCTYPE } from 'src/constants'
+import { getAppSettings } from 'src/helpers/queries'
 
 import { useClient, Q, useQuery } from 'cozy-client'
 import ClickAwayListener from 'cozy-ui/transpiled/react/ClickAwayListener'
@@ -10,17 +12,13 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import Tooltip from 'cozy-ui/transpiled/react/Tooltip'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-import { SETTINGS_DOCTYPE } from '../../doctypes'
-import { getAppSettings } from '../../helpers/queries'
-import withLocales from '../../locales/withLocales'
-import { usePapersCreated } from '../Contexts/PapersCreatedProvider'
-
 const styles = { tooltip: { whiteSpace: 'pre-line' } }
 
-const ForwardFab = ({ className, innerRef, onClick }) => {
+const ForwardFab = () => {
   const { t } = useI18n()
   const client = useClient()
   const { pathname } = useLocation()
+  const navigate = useNavigate()
   const { countPaperCreatedByMesPapiers } = usePapersCreated()
 
   const { data: settings } = useQuery(
@@ -53,11 +51,10 @@ const ForwardFab = ({ className, innerRef, onClick }) => {
         title={<div style={styles.tooltip}>{t('Home.Fab.tooltip')}</div>}
       >
         <Fab
-          className={cx('u-mr-half', className)}
-          innerRef={innerRef}
+          className="u-mr-half"
           onClick={() => {
             hideTooltip()
-            onClick()
+            navigate(`/paper/multiselect`)
           }}
           aria-label={t('Home.Fab.forwardPaper')}
         >
@@ -76,4 +73,4 @@ ForwardFab.propTypes = {
   })
 }
 
-export default withLocales(ForwardFab)
+export default ForwardFab
