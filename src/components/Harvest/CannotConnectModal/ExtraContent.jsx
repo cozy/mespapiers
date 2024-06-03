@@ -20,9 +20,7 @@ const ExtraContent = () => {
         variant="secondary"
         label={t('Harvest.cannotConnectModal.button')}
         onClick={() =>
-          navigate(
-            `/paper/files/${qualificationLabel}/create/${qualificationLabel}`
-          )
+          navigate(`/files/${qualificationLabel}/create/${qualificationLabel}`)
         }
         fullWidth
         startIcon={<Icon icon="camera" />}

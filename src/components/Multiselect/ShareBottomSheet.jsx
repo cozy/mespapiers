@@ -39,7 +39,7 @@ const ShareBottomSheet = ({ onClose, fileId, docs }) => {
         variant: 'filled'
       })
       if (isMultiSelectionActive) {
-        navigate('/paper', { replace: true })
+        navigate('/', { replace: true })
       } else {
         navigate('..', { replace: true })
       }

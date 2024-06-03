@@ -125,6 +125,6 @@
     "accepted_mime_types": ["application/pdf", "image/jpeg", "image/png"],
     "max_number_of_files": 1,
     "max_size_per_file_in_MB": 10,
-    "route_to_upload": "/#/paper/create?fromFlagshipUpload=true"
+    "route_to_upload": "/#/create?fromFlagshipUpload=true"
   }
 }

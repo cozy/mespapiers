@@ -38,7 +38,7 @@ describe('MultiSelectionProvider', () => {
       expect(result.current.allMultiSelectionFiles).toEqual([fileMock01])
 
       // isMultiSelectionActive => false
-      useLocation.mockReturnValue({ pathname: '/paper' })
+      useLocation.mockReturnValue({ pathname: '/' })
 
       rerender()
 

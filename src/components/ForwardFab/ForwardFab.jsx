@@ -27,7 +27,7 @@ const ForwardFab = () => {
   )
 
   const hideForwardFabTooltip = settings?.[0]?.hideForwardFabTooltip
-  const isHome = pathname === '/paper'
+  const isHome = pathname === '/'
 
   const open =
     isHome && countPaperCreatedByMesPapiers === 1 && !hideForwardFabTooltip
@@ -54,7 +54,7 @@ const ForwardFab = () => {
           className="u-mr-half"
           onClick={() => {
             hideTooltip()
-            navigate(`/paper/multiselect`)
+            navigate(`/multiselect`)
           }}
           aria-label={t('Home.Fab.forwardPaper')}
         >

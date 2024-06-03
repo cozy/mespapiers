@@ -87,7 +87,7 @@ const PaperItem = ({
         const route = isMultiSelectionActive
           ? `multiselect/view`
           : `files/${paperTheme}`
-        navigate(`/paper/${route}/${paper._id}`, {
+        navigate(`/${route}/${paper._id}`, {
           state: { background: `${pathname}${search}` }
         })
       }
