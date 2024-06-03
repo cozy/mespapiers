@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Navigate, Outlet, HashRouter, Routes } from 'react-router-dom'
-import { AppLayout } from 'src/components/App'
+import { AppLayout } from 'src/components/AppLayout'
 import { AppProviders } from 'src/components/AppProviders'
 import CreatePaperDataBackupRoute from 'src/components/CreatePaperDataBackupRoute'
 import { AppFabs } from 'src/components/Fabs'
