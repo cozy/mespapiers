@@ -24,7 +24,7 @@ export const select = ({ hideActionsMenu, addMultiSelectionFile }) => {
         cozyUrl: client.getStackClient().uri,
         subDomainType: client.getInstanceOptions().subdomain,
         pathname: '/',
-        hash: '/paper/multiselect'
+        hash: '/multiselect'
       })
 
       return (

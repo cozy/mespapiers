@@ -15,7 +15,7 @@ const CreatePaperDataBackupRoute = () => {
       )
 
       if (qualificationLabel) {
-        navigate(`/paper/create/${qualificationLabel}`)
+        navigate(`/create/${qualificationLabel}`)
       }
     }
 

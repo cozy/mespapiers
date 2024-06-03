@@ -18,7 +18,7 @@ const SelectFileButton = ({ file }) => {
   const icon = <Icon icon="select-all" />
 
   const handleClick = () => {
-    navigate(`/paper/multiselect`)
+    navigate(`/multiselect`)
     addMultiSelectionFile(file)
   }
 

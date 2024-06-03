@@ -71,12 +71,12 @@ class ExpirationNotification extends NotificationView {
   }
 
   getExtraAttributes() {
-    let paperLink = 'paper'
+    let paperLink = ''
 
     if (!this.#hasMultipleExpiredFiles) {
       const file = this.filesInfo[0].file
       if (file) {
-        paperLink = `paper/files/${file.metadata.qualification.label}/${file._id}`
+        paperLink = `files/${file.metadata.qualification.label}/${file._id}`
       }
     }
 
@@ -103,7 +103,7 @@ class ExpirationNotification extends NotificationView {
           cozyUrl: this.client.getStackClient().uri,
           subDomainType: this.client.getInstanceOptions().subdomain,
           pathname: '/',
-          hash: `paper/files/${file.metadata.qualification.label}/${file._id}`
+          hash: `files/${file.metadata.qualification.label}/${file._id}`
         })
 
         return {
@@ -118,7 +118,7 @@ class ExpirationNotification extends NotificationView {
         cozyUrl: this.client.getStackClient().uri,
         subDomainType: this.client.getInstanceOptions().subdomain,
         pathname: '/',
-        hash: 'paper'
+        hash: ''
       }),
       settingsUrl: generateWebLink({
         slug: 'settings',

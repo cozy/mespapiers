@@ -23,7 +23,7 @@ export const open = () => {
         cozyUrl: client.getStackClient().uri,
         subDomainType: client.getInstanceOptions().subdomain,
         pathname: '/',
-        hash: `/paper/files/${qualificationLabel}/${fileId}`
+        hash: `/files/${qualificationLabel}/${fileId}`
       })
 
       return (

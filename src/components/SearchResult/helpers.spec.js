@@ -16,7 +16,7 @@ describe('makeFlexsearchResultLineOnClick', () => {
     getInstanceOptions: () => ({ subdomain: 'cozy' })
   }
   const navigate = jest.fn()
-  const navigateState = { background: '/paper/search' }
+  const navigateState = { background: '/search' }
   const changeCurrentMultiSelectionFile = jest.fn()
 
   beforeEach(() => {
@@ -67,12 +67,9 @@ describe('makeFlexsearchResultLineOnClick', () => {
     })
     onClick()
 
-    expect(navigate).toHaveBeenCalledWith(
-      '/paper/files/qualificationLabel/fileId',
-      {
-        state: { background: '/paper/search' }
-      }
-    )
+    expect(navigate).toHaveBeenCalledWith('/files/qualificationLabel/fileId', {
+      state: { background: '/search' }
+    })
   })
 
   it('should return a function that changes the current multi selection file when the doc is a file and the multi selection is active', () => {
