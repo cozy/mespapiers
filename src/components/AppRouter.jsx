@@ -3,7 +3,6 @@ import { Route, Navigate, Outlet, HashRouter, Routes } from 'react-router-dom'
 import { AppLayout } from 'src/components/AppLayout'
 import { AppProviders } from 'src/components/AppProviders'
 import CreatePaperDataBackupRoute from 'src/components/CreatePaperDataBackupRoute'
-import { AppFabs } from 'src/components/Fabs'
 import InstallAppFromIntent from 'src/components/InstallAppFromIntent/InstallAppFromIntent'
 import InstallKonnectorFromIntent from 'src/components/InstallKonnectorFromIntent/InstallKonnectorFromIntent'
 import ForwardModalByRoute from 'src/components/Multiselect/ForwardModalByRoute'
@@ -41,54 +40,26 @@ export const AppRouter = props => {
       <AppProviders {...props}>
         <Routes>
           <Route errorElement={<ErrorBoundary />}>
-            <Route element={<AppFabs />}>
-              <Route element={<CreatePaperDataBackupRoute />}>
-                <Route element={<AppLayout />} errorElement={<ErrorBoundary />}>
-                  <Route path="/" element={<OutletWrapper Component={Home} />}>
-                    <Route
-                      path="editcontact/:fileId"
-                      element={<ContactEdit />}
-                    />
-                    <Route
-                      path="installAppIntent"
-                      element={<InstallAppFromIntent />}
-                    />
-                    <Route
-                      path="installKonnectorIntent"
-                      element={<InstallKonnectorFromIntent />}
-                    />
-                    <Route path="create" element={<PlaceholdersSelector />} />
-                    <Route
-                      path="create/:qualificationLabel"
-                      element={<CreatePaperModalWrapper />}
-                    />
-                    <Route
-                      path="multiselect"
-                      element={<OutletWrapper Component={MultiselectView} />}
-                    >
-                      <Route
-                        path="forward/:fileId"
-                        element={<ForwardModalByRoute />}
-                      />
-                      <Route
-                        path="share"
-                        element={<ShareBottomSheetByRoute />}
-                      />
-                      <Route
-                        path="view/:fileId"
-                        element={
-                          <OutletWrapper Component={FilesViewerWithQuery} />
-                        }
-                      >
-                        {fileViewerRoutes.map(Component => Component)}
-                      </Route>
-                    </Route>
-                  </Route>
+            <Route element={<CreatePaperDataBackupRoute />}>
+              <Route element={<AppLayout />} errorElement={<ErrorBoundary />}>
+                <Route path="/" element={<OutletWrapper Component={Home} />}>
+                  <Route path="editcontact/:fileId" element={<ContactEdit />} />
                   <Route
-                    path="files/:qualificationLabel"
-                    element={
-                      <OutletWrapper Component={ConditionnalPapersList} />
-                    }
+                    path="installAppIntent"
+                    element={<InstallAppFromIntent />}
+                  />
+                  <Route
+                    path="installKonnectorIntent"
+                    element={<InstallKonnectorFromIntent />}
+                  />
+                  <Route path="create" element={<PlaceholdersSelector />} />
+                  <Route
+                    path="create/:qualificationLabel"
+                    element={<CreatePaperModalWrapper />}
+                  />
+                  <Route
+                    path="multiselect"
+                    element={<OutletWrapper Component={MultiselectView} />}
                   >
                     <Route
                       path="forward/:fileId"
@@ -96,38 +67,51 @@ export const AppRouter = props => {
                     />
                     <Route path="share" element={<ShareBottomSheetByRoute />} />
                     <Route
-                      path="editcontact/:fileId"
-                      element={<ContactEdit />}
-                    />
-                    <Route
-                      path="installAppIntent"
-                      element={<InstallAppFromIntent />}
-                    />
-                    <Route
-                      path="installKonnectorIntent"
-                      element={<InstallKonnectorFromIntent />}
-                    />
-                    <Route path="create" element={<PlaceholdersSelector />} />
-                    <Route
-                      path="create/:qualificationLabel"
-                      element={<CreatePaperModalWrapper />}
-                    />
-                    <Route
-                      path=":fileId"
+                      path="view/:fileId"
                       element={
                         <OutletWrapper Component={FilesViewerWithQuery} />
                       }
                     >
                       {fileViewerRoutes.map(Component => Component)}
                     </Route>
-                    <Route
-                      path="harvest/:connectorSlug/*"
-                      element={<HarvestRoutes />}
-                    />
                   </Route>
-
-                  <Route path="*" element={<Navigate to="/" replace />} />
                 </Route>
+                <Route
+                  path="files/:qualificationLabel"
+                  element={<OutletWrapper Component={ConditionnalPapersList} />}
+                >
+                  <Route
+                    path="forward/:fileId"
+                    element={<ForwardModalByRoute />}
+                  />
+                  <Route path="share" element={<ShareBottomSheetByRoute />} />
+                  <Route path="editcontact/:fileId" element={<ContactEdit />} />
+                  <Route
+                    path="installAppIntent"
+                    element={<InstallAppFromIntent />}
+                  />
+                  <Route
+                    path="installKonnectorIntent"
+                    element={<InstallKonnectorFromIntent />}
+                  />
+                  <Route path="create" element={<PlaceholdersSelector />} />
+                  <Route
+                    path="create/:qualificationLabel"
+                    element={<CreatePaperModalWrapper />}
+                  />
+                  <Route
+                    path=":fileId"
+                    element={<OutletWrapper Component={FilesViewerWithQuery} />}
+                  >
+                    {fileViewerRoutes.map(Component => Component)}
+                  </Route>
+                  <Route
+                    path="harvest/:connectorSlug/*"
+                    element={<HarvestRoutes />}
+                  />
+                </Route>
+
+                <Route path="*" element={<Navigate to="/" replace />} />
               </Route>
             </Route>
           </Route>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { ModalStack } from 'src/components/Contexts/ModalProvider'
 import { usePaywall } from 'src/components/Contexts/PaywallProvider'
+import { AppFabs } from 'src/components/Fabs'
 import Help from 'src/components/Help'
 import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 import PapersPaywall from 'src/components/PapersPaywall/PapersPaywall'
@@ -65,7 +66,10 @@ export const AppLayout = () => {
                 className="u-flex u-flex-justify-center u-mt-2 u-h-5"
               />
             ) : (
-              <Outlet />
+              <>
+                <Outlet />
+                <AppFabs />
+              </>
             )}
             <RealTimeQueries doctype={FILES_DOCTYPE} />
             <RealTimeQueries doctype={CONTACTS_DOCTYPE} />
