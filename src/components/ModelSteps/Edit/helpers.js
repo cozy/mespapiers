@@ -1,8 +1,7 @@
 import set from 'lodash/set'
+import { CONTACTS_DOCTYPE, FILES_DOCTYPE } from 'src/constants'
 
 import { getReferencedBy } from 'cozy-client'
-
-import { CONTACTS_DOCTYPE, FILES_DOCTYPE } from '../../../doctypes'
 
 /**
  * Checks if the edition of the metadata of type "Information" is permitted

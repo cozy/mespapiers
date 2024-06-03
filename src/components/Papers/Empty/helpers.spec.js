@@ -1,8 +1,7 @@
-import { makeCountrySearchParam } from './helpers'
+import { makeCountrySearchParam } from 'src/components/Papers/Empty/helpers'
 
 // no need to test all cases here
 // already tested on findPlaceholderByLabelAndCountry function
-
 describe('makeCountrySearchParam', () => {
   it('should return empty string if no match between paperDefinitions and params', () => {
     const res = makeCountrySearchParam({

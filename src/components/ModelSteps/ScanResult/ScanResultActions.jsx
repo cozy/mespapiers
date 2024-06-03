@@ -1,13 +1,12 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { PaperDefinitionsStepPropTypes } from 'src/PaperDefinitionsPropTypes'
 
 import DialogActions from 'cozy-ui/transpiled/react/DialogActions'
 import Button, { ButtonLink } from 'cozy-ui/transpiled/react/deprecated/Button'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { PaperDefinitionsStepPropTypes } from '../../../constants/PaperDefinitionsPropTypes'
 
 const ScanResultActions = ({ currentStep, onNextStep, onRepeatStep }) => {
   const { t } = useI18n()

@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState, useMemo } from 'react'
+import { useSessionstorage } from 'src/components/Hooks/useSessionstorage'
+import Contact from 'src/components/ModelSteps/Contact'
 
 import Avatar from 'cozy-ui/transpiled/react/Avatar'
 import ContactsListModal from 'cozy-ui/transpiled/react/ContactsListModal'
@@ -10,9 +12,6 @@ import ListItem from 'cozy-ui/transpiled/react/ListItem'
 import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import Contact from './Contact'
-import { useSessionstorage } from '../Hooks/useSessionstorage'
 
 const styleAvatar = {
   color: 'var(--primaryColor)',

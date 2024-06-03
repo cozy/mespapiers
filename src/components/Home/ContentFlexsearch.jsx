@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-
-import ContentWhenNotSearching from './ContentWhenNotSearching'
-import ContentWhenSearching from './ContentWhenSearching'
+import ContentWhenNotSearching from 'src/components/Home/ContentWhenNotSearching'
+import ContentWhenSearching from 'src/components/Home/ContentWhenSearching'
 
 const ContentFlexsearch = ({
   contacts,

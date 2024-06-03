@@ -1,6 +1,6 @@
-import { models } from 'cozy-client'
+import { FILES_DOCTYPE } from 'src/constants'
 
-import { FILES_DOCTYPE } from '../doctypes'
+import { models } from 'cozy-client'
 
 const {
   file: { getFullpath, splitFilename, generateNewFileNameOnConflict }

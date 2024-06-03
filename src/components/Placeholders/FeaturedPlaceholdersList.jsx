@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types'
 import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { usePapersCreated } from 'src/components/Contexts/PapersCreatedProvider'
+import useKonnectorsActions from 'src/components/PapersFab/useKonnectorsActions'
+import Placeholder from 'src/components/Placeholders/Placeholder'
 
 import ActionsMenu from 'cozy-ui/transpiled/react/ActionsMenu'
 import List from 'cozy-ui/transpiled/react/List'
 import ListSubheader from 'cozy-ui/transpiled/react/ListSubheader'
 import PointerAlert from 'cozy-ui/transpiled/react/PointerAlert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import Placeholder from './Placeholder'
-import { usePapersCreated } from '../Contexts/PapersCreatedProvider'
-import useKonnectorsActions from '../PapersFab/useKonnectorsActions'
 
 const FeaturedPlaceholdersList = ({ featuredPlaceholders }) => {
   const actionBtnRefs = useRef([])

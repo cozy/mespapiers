@@ -2,6 +2,18 @@ import cx from 'classnames'
 import get from 'lodash/get'
 import React, { useState } from 'react'
 import { useParams, useNavigate, Navigate } from 'react-router-dom'
+import IlluGenericInputDate from 'src/assets/icons/IlluGenericInputDate.svg'
+import IlluGenericInputText from 'src/assets/icons/IlluGenericInputText.svg'
+import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import {
+  isInformationEditPermitted,
+  updateFileMetadata
+} from 'src/components/ModelSteps/Edit/helpers'
+import styles from 'src/components/ModelSteps/Edit/styles.styl'
+import { useCurrentEditInformations } from 'src/components/ModelSteps/Edit/useCurrentEditInformations'
+import { BILLS_DOCTYPE, FILES_DOCTYPE } from 'src/constants'
+import { makeInputsInformationStep } from 'src/helpers/makeInputsInformationStep'
 
 import { useClient } from 'cozy-client'
 import { isIOS } from 'cozy-device-helper'
@@ -10,19 +22,6 @@ import { FixedDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import IlluGenericInputDate from '../../assets/icons/IlluGenericInputDate.svg'
-import IlluGenericInputText from '../../assets/icons/IlluGenericInputText.svg'
-import { BILLS_DOCTYPE, FILES_DOCTYPE } from '../../doctypes'
-import { makeInputsInformationStep } from '../../helpers/makeInputsInformationStep'
-import CompositeHeader from '../CompositeHeader/CompositeHeader'
-import { useScannerI18n } from '../Hooks/useScannerI18n'
-import {
-  isInformationEditPermitted,
-  updateFileMetadata
-} from '../ModelSteps/Edit/helpers'
-import styles from '../ModelSteps/Edit/styles.styl'
-import { useCurrentEditInformations } from '../ModelSteps/Edit/useCurrentEditInformations'
 
 const InformationEdit = () => {
   const { fileId } = useParams()

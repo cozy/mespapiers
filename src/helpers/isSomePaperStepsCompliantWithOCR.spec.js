@@ -1,4 +1,4 @@
-import { isSomePaperStepsCompliantWithOCR } from './isSomePaperStepsCompliantWithOCR'
+import { isSomePaperStepsCompliantWithOCR } from 'src/helpers/isSomePaperStepsCompliantWithOCR'
 
 describe('isSomePaperStepsCompliantWithOCR', () => {
   it('should return "true" if the "isDisplayed" as "all" or "ocr" value in some step', () => {

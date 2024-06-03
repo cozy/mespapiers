@@ -1,23 +1,22 @@
 import merge from 'lodash/merge'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-
-import { useWebviewIntent } from 'cozy-intent'
-import { Dialog } from 'cozy-ui/transpiled/react/CozyDialogs'
-import Empty from 'cozy-ui/transpiled/react/Empty'
-import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import SelectPaperVersion from './SelectPaperVersion'
-import OcrProcessingIcon from '../../../assets/images/OcrProcessing.svg'
-import { useFormData } from '../../Hooks/useFormData'
-import { useStepperDialog } from '../../Hooks/useStepperDialog'
+import OcrProcessingIcon from 'src/assets/images/OcrProcessing.svg'
+import { useFormData } from 'src/components/Hooks/useFormData'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import SelectPaperVersion from 'src/components/ModelSteps/ScanResult/SelectPaperVersion'
 import {
   getAttributesFromOcr,
   getDefaultSelectedVersion,
   getFormDataFilesForOcr,
   getOcrFromFlagship,
   makeMetadataFromOcr
-} from '../helpers'
+} from 'src/components/ModelSteps/helpers'
+
+import { useWebviewIntent } from 'cozy-intent'
+import { Dialog } from 'cozy-ui/transpiled/react/CozyDialogs'
+import Empty from 'cozy-ui/transpiled/react/Empty'
+import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 // TODO : To improve, the general idea is that for articles with several versions, there is not systematically the SelectPaperVersion modal which appears to ask the user to confirm the version. But to be able to activate it only for certain papers.
 const SHOULD_ASK_CONFIRMATION = false

@@ -1,14 +1,13 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import FilterButton from 'src/components/Home/FilterButton'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import ThemesFilter from 'src/components/ThemesFilter'
 
 import SearchBar from 'cozy-ui/transpiled/react/SearchBar'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import FilterButton from './FilterButton'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
-import ThemesFilter from '../ThemesFilter'
 
 const SearchHeader = ({
   searchValue,

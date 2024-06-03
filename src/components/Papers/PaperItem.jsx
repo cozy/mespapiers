@@ -2,6 +2,11 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import ExpirationAnnotation from 'src/components/Papers/ExpirationAnnotation'
+import { RemindersAnnotation } from 'src/components/Papers/RemindersAnnotation'
+import { generateReturnUrlToNotesIndex } from 'src/components/Papers/helpers'
+import { APPS_DOCTYPE } from 'src/constants'
 
 import { useClient, Q } from 'cozy-client'
 import { isInstalled } from 'cozy-client/dist/models/applications'
@@ -22,12 +27,6 @@ import Thumbnail from 'cozy-ui/transpiled/react/Thumbnail'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 import { makeStyles } from 'cozy-ui/transpiled/react/styles'
-
-import ExpirationAnnotation from './ExpirationAnnotation'
-import { RemindersAnnotation } from './RemindersAnnotation'
-import { generateReturnUrlToNotesIndex } from './helpers'
-import { APPS_DOCTYPE } from '../../doctypes'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
 
 const useStyles = makeStyles(() => ({
   checkbox: {

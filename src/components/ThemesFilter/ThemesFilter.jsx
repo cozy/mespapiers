@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useThemeLabel } from 'src/components/ThemesFilter/useThemeLabel'
+import { getThemesList } from 'src/helpers/themes'
 
 import CircleButton from 'cozy-ui/transpiled/react/CircleButton'
 import Icon from 'cozy-ui/transpiled/react/Icon'
-
-import { useThemeLabel } from './useThemeLabel'
-import { getThemesList } from '../../helpers/themes'
 
 const FilterButton = ({ theme, isSelected, onClick }) => {
   const label = useThemeLabel(theme.label)

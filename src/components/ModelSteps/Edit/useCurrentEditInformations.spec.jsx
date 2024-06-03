@@ -1,14 +1,13 @@
 import { renderHook } from '@testing-library/react-hooks'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import { PapersDefinitionsProvider } from 'src/components/Contexts/PapersDefinitionsProvider'
+import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider'
+import { useCurrentEditInformations } from 'src/components/ModelSteps/Edit/useCurrentEditInformations'
+import enLocale from 'src/locales/en.json'
 
 import { useQuery, isQueryLoading } from 'cozy-client'
 import I18n from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { useCurrentEditInformations } from './useCurrentEditInformations'
-import enLocale from '../../../locales/en.json'
-import { PapersDefinitionsProvider } from '../../Contexts/PapersDefinitionsProvider'
-import { ScannerI18nProvider } from '../../Contexts/ScannerI18nProvider'
 
 jest.mock('cozy-client/dist/utils', () => ({
   ...jest.requireActual('cozy-client/dist/utils'),

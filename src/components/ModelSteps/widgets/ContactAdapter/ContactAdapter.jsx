@@ -1,5 +1,9 @@
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
+import { useFormData } from 'src/components/Hooks/useFormData'
+import { SingleContactPicker } from 'src/components/ModelSteps/widgets/ContactAdapter/SingleContactPicker'
+import { makeDisplayName } from 'src/components/ModelSteps/widgets/ContactAdapter/helpers'
+import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 
 import { useClient } from 'cozy-client'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -7,11 +11,6 @@ import BottomIcon from 'cozy-ui/transpiled/react/Icons/Bottom'
 import InputAdornment from 'cozy-ui/transpiled/react/InputAdornment'
 import TextField from 'cozy-ui/transpiled/react/TextField'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { SingleContactPicker } from './SingleContactPicker'
-import { makeDisplayName } from './helpers'
-import { fetchCurrentUser } from '../../../../helpers/fetchCurrentUser'
-import { useFormData } from '../../../Hooks/useFormData'
 
 const ContactAdapter = ({ attrs: { inputLabel }, setValidInput, idx }) => {
   const { t } = useI18n()

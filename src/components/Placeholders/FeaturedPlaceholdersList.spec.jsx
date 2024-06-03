@@ -2,9 +2,8 @@ import '@testing-library/jest-dom'
 import { fireEvent, render } from '@testing-library/react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
-import FeaturedPlaceholdersList from './FeaturedPlaceholdersList'
-import AppLike from '../../../test/components/AppLike'
+import FeaturedPlaceholdersList from 'src/components/Placeholders/FeaturedPlaceholdersList'
+import AppLike from 'test/components/AppLike'
 
 const fakePlaceholders = [
   {

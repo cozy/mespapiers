@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import ActionsButtons from 'src/components/Viewer/ActionsButtons'
+import FileViewerLoading from 'src/components/Viewer/FileViewerLoading'
 
 import { Q, useClient } from 'cozy-client'
 import { isIOSApp } from 'cozy-device-helper'
@@ -7,9 +9,6 @@ import Viewer, {
   FooterActionButtons,
   ToolbarButtons
 } from 'cozy-ui/transpiled/react/Viewer'
-
-import ActionsButtons from './ActionsButtons'
-import FileViewerLoading from './FileViewerLoading'
 
 const styleStatusBar = switcher => {
   if (window.StatusBar && isIOSApp()) {

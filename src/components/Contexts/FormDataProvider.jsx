@@ -1,14 +1,14 @@
 import React, { createContext, useState, useEffect } from 'react'
-const FormDataContext = createContext()
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { makeExportedFormDataDataFromBase64 } from 'src/components/ModelSteps/helpers'
+import {
+  CREATE_PAPER_DATA_BACKUP_FORM_DATA,
+  getAndRemoveIndexedStorageData
+} from 'src/helpers/indexedStorage'
 
 import { useWebviewIntent, useIsAvailable } from 'cozy-intent'
 
-import {
-  getAndRemoveIndexedStorageData,
-  CREATE_PAPER_DATA_BACKUP_FORM_DATA
-} from '../../utils/indexedStorage'
-import { useStepperDialog } from '../Hooks/useStepperDialog'
-import { makeExportedFormDataDataFromBase64 } from '../ModelSteps/helpers'
+const FormDataContext = createContext()
 
 const FormDataProvider = ({ children }) => {
   const webviewIntent = useWebviewIntent()

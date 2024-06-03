@@ -1,4 +1,4 @@
-import { makeFileFromBlob } from './makeFileFromBlob'
+import { makeFileFromBlob } from 'src/helpers/makeFileFromBlob'
 
 describe('makeFileFromBlob', () => {
   const blob = new Blob(['data'], { type: 'image/png' })

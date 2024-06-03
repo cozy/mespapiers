@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import HomeCloud from 'src/assets/icons/HomeCloud.svg'
+import EmptyWithKonnectors from 'src/components/Papers/Empty/EmptyWithKonnectors'
 
 import UiEmpty from 'cozy-ui/transpiled/react/Empty'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import EmptyWithKonnectors from './EmptyWithKonnectors'
-import HomeCloud from '../../../assets/icons/HomeCloud.svg'
 
 const Empty = ({ konnectors, accountsByFiles, hasFiles }) => {
   const { t } = useI18n()

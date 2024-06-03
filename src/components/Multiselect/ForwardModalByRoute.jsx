@@ -1,14 +1,13 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import ForwardModal from 'src/components/Multiselect/ForwardModal'
+import { buildFileQueryById } from 'src/helpers/queries'
 
 import { isQueryLoading, useQuery } from 'cozy-client'
 import Backdrop from 'cozy-ui/transpiled/react/Backdrop'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import { makeStyles } from 'cozy-ui/transpiled/react/styles'
-
-import ForwardModal from './ForwardModal'
-import { buildFileQueryById } from '../../helpers/queries'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
 
 const useStyles = makeStyles({
   backdropRoot: {

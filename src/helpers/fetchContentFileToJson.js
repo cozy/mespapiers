@@ -1,4 +1,4 @@
-import { FILES_DOCTYPE } from '../doctypes'
+import { FILES_DOCTYPE } from 'src/constants'
 
 export const fetchContentFileToJson = async (client, file) => {
   try {

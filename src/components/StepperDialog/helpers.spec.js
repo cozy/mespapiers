@@ -1,4 +1,4 @@
-import { handleBack } from './helpers'
+import { handleBack } from 'src/components/StepperDialog/helpers'
 
 const mockAllCurrentSteps = [
   { model: 'scan' },

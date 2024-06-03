@@ -8,8 +8,8 @@ import {
   makeMultipleSearchResultIds,
   filterResultIds,
   makeContactFlexsearchProps
-} from './helpers'
-import { index } from './search'
+} from 'src/components/Search/helpers'
+import { index } from 'src/components/Search/search'
 
 jest.mock('./search', () => ({
   ...jest.requireActual('./search'),

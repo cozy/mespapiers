@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { makePapersGroupByQualificationLabel } from 'src/components/Home/helpers'
+import PaperGroup from 'src/components/Papers/PaperGroup'
+import useSearchResult from 'src/components/Search/useSearchResult'
+import FlexsearchResult from 'src/components/SearchResult/FlexsearchResult'
 
 import Empty from 'cozy-ui/transpiled/react/Empty'
 import ListSkeleton from 'cozy-ui/transpiled/react/Skeletons/ListSkeleton'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-import { makePapersGroupByQualificationLabel } from './helpers'
 import SearchEmpty from '../../assets/icons/SearchEmpty.svg'
-import PaperGroup from '../Papers/PaperGroup'
-import useSearchResult from '../Search/useSearchResult'
-import FlexsearchResult from '../SearchResult/FlexsearchResult'
 
 const ContentWhenSearching = ({
   papers,

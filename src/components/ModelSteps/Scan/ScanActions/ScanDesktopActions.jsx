@@ -1,5 +1,11 @@
 import PropTypes from 'prop-types'
 import React, { createRef } from 'react'
+import { usePapersCreated } from 'src/components/Contexts/PapersCreatedProvider'
+import { usePaywall } from 'src/components/Contexts/PaywallProvider'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import ScanDesktopActionsAlert from 'src/components/ModelSteps/Scan/ScanActions/ScanDesktopActionsAlert'
+import { KEYS, SETTINGS_DOCTYPE } from 'src/constants'
+import { getAppSettings } from 'src/helpers/queries'
 
 import { useClient, useQuery, hasQueryBeenLoaded } from 'cozy-client'
 import flag from 'cozy-flags'
@@ -11,14 +17,6 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import PointerAlert from 'cozy-ui/transpiled/react/PointerAlert'
 import useEventListener from 'cozy-ui/transpiled/react/hooks/useEventListener'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import ScanDesktopActionsAlert from './ScanDesktopActionsAlert'
-import { KEYS } from '../../../../constants/const'
-import { SETTINGS_DOCTYPE } from '../../../../doctypes'
-import { getAppSettings } from '../../../../helpers/queries'
-import { usePapersCreated } from '../../../Contexts/PapersCreatedProvider'
-import { usePaywall } from '../../../Contexts/PaywallProvider'
-import { useStepperDialog } from '../../../Hooks/useStepperDialog'
 
 const log = minilog('ScanDesktopActions')
 

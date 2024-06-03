@@ -1,4 +1,4 @@
-import { buildFilename } from './buildFilename'
+import { buildFilename } from 'src/helpers/buildFilename'
 
 const mockOneContact = [
   { _id: 'contactId01', name: { givenName: 'Bernard', familyName: 'Chabert' } }

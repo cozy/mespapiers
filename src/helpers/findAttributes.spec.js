@@ -1,4 +1,4 @@
-import { findAttributes, findPaperVersion } from './findAttributes'
+import { findAttributes, findPaperVersion } from 'src/helpers/findAttributes'
 
 /*
 Nom : John Doe

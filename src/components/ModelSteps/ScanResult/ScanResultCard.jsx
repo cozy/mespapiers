@@ -1,17 +1,19 @@
 import PropTypes from 'prop-types'
 import React, { useState, forwardRef } from 'react'
+import { useFormData } from 'src/components/Hooks/useFormData'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import styles from 'src/components/ModelSteps/ScanResult/ScanResultCard.styl'
+import ScanResultCardActions from 'src/components/ModelSteps/ScanResult/ScanResultCardActions'
+import {
+  getLastFormDataFile,
+  isSameFile
+} from 'src/components/ModelSteps/helpers'
+import RotateImage from 'src/components/ModelSteps/widgets/RotateImage'
 
 import Box from 'cozy-ui/transpiled/react/Box'
 import Card from 'cozy-ui/transpiled/react/Card'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import Typography from 'cozy-ui/transpiled/react/Typography'
-
-import styles from './ScanResultCard.styl'
-import ScanResultCardActions from './ScanResultCardActions'
-import { useFormData } from '../../Hooks/useFormData'
-import { useStepperDialog } from '../../Hooks/useStepperDialog'
-import { getLastFormDataFile, isSameFile } from '../helpers'
-import RotateImage from '../widgets/RotateImage'
 
 const isImageType = file => file.type.match(/image\/.*/)
 

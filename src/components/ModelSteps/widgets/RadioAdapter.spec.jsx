@@ -2,9 +2,8 @@
 import '@testing-library/jest-dom'
 import { render, fireEvent } from '@testing-library/react'
 import React from 'react'
-
-import RadioAdapter from './RadioAdapter'
-import AppLike from '../../../../test/components/AppLike'
+import RadioAdapter from 'src/components/ModelSteps/widgets/RadioAdapter'
+import AppLike from 'test/components/AppLike'
 
 const setup = ({
   attrs = {},

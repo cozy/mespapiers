@@ -1,6 +1,5 @@
 import { useContext } from 'react'
-
-import ScannerI18nContext from '../Contexts/ScannerI18nProvider'
+import ScannerI18nContext from 'src/components/Contexts/ScannerI18nProvider'
 
 export const useScannerI18n = () => {
   const scannerT = useContext(ScannerI18nContext)

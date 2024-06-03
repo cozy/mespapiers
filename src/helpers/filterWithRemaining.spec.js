@@ -1,4 +1,4 @@
-import { filterWithRemaining } from './filterWithRemaining'
+import { filterWithRemaining } from 'src/helpers/filterWithRemaining'
 
 const mockObjectInArray = [
   { model: 'scan' },

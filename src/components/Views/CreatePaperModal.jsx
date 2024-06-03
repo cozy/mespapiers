@@ -1,18 +1,17 @@
 import React, { useEffect, useCallback } from 'react'
 import { useSearchParams, useNavigate, useParams } from 'react-router-dom'
+import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
+import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
+import { useFormData } from 'src/components/Hooks/useFormData'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import {
+  getFirstFileFromNative,
+  makeFileFromBase64
+} from 'src/components/ModelSteps/helpers'
+import StepperDialogWrapper from 'src/components/StepperDialog/StepperDialogWrapper'
 
 import { useWebviewIntent } from 'cozy-intent'
 import minilog from 'cozy-minilog'
-
-import { FormDataProvider } from '../Contexts/FormDataProvider'
-import { StepperDialogProvider } from '../Contexts/StepperDialogProvider'
-import { useFormData } from '../Hooks/useFormData'
-import { useStepperDialog } from '../Hooks/useStepperDialog'
-import {
-  makeFileFromBase64,
-  getFirstFileFromNative
-} from '../ModelSteps/helpers'
-import StepperDialogWrapper from '../StepperDialog/StepperDialogWrapper'
 
 const log = minilog('CreatePaperModal')
 

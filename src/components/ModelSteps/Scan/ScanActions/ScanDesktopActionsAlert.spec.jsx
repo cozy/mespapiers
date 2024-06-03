@@ -1,9 +1,8 @@
 import '@testing-library/jest-dom'
 import { fireEvent, render } from '@testing-library/react'
 import React from 'react'
-
-import ScanDesktopActionsAlert from './ScanDesktopActionsAlert'
-import AppLike from '../../../../../test/components/AppLike'
+import ScanDesktopActionsAlert from 'src/components/ModelSteps/Scan/ScanActions/ScanDesktopActionsAlert'
+import AppLike from 'test/components/AppLike'
 
 jest.mock('cozy-client/dist/utils', () => ({
   ...jest.requireActual('cozy-client/dist/utils'),

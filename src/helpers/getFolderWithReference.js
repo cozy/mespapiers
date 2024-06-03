@@ -1,6 +1,6 @@
-import { models } from 'cozy-client'
+import { APPS_DOCTYPE } from 'src/constants'
 
-import { APPS_DOCTYPE } from '../doctypes'
+import { models } from 'cozy-client'
 
 const { MAGIC_FOLDERS, ensureMagicFolder, getReferencedFolder } = models.folder
 

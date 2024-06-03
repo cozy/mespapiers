@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 
 import { useClient } from 'cozy-client'
 import { isNote } from 'cozy-client/dist/models/file'
@@ -11,8 +12,6 @@ import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import Skeleton from 'cozy-ui/transpiled/react/Skeleton'
 import Thumbnail from 'cozy-ui/transpiled/react/Thumbnail'
-
-import { useScannerI18n } from '../Hooks/useScannerI18n'
 
 const CategoryItemByPaper = ({ papers, category, isLast, onClick }) => {
   const client = useClient()

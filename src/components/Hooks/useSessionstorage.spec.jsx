@@ -6,8 +6,7 @@ import {
   act
 } from '@testing-library/react'
 import React from 'react'
-
-import { useSessionstorage } from './useSessionstorage'
+import { useSessionstorage } from 'src/components/Hooks/useSessionstorage'
 
 describe('useSessionstorage defined', () => {
   it('should be defined', () => {

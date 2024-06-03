@@ -1,4 +1,19 @@
 import { useEffect, useMemo, useState } from 'react'
+import {
+  copyReminderContent,
+  download,
+  editContact,
+  forward,
+  forwardTo,
+  rename,
+  select,
+  trash,
+  open,
+  viewInDrive
+} from 'src/components/Actions/Items'
+import { useFileSharing } from 'src/components/Contexts/FileSharingProvider'
+import { useModal } from 'src/components/Hooks/useModal'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
 
 import { isFile, isNote } from 'cozy-client/dist/models/file'
 import { useWebviewIntent } from 'cozy-intent'
@@ -9,22 +24,6 @@ import {
 } from 'cozy-ui/transpiled/react/ActionsMenu/Actions'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import {
-  open,
-  rename,
-  select,
-  trash,
-  viewInDrive,
-  editContact,
-  copyReminderContent,
-  forward,
-  forwardTo,
-  download
-} from '../Actions/Items'
-import { useFileSharing } from '../Contexts/FileSharingProvider'
-import { useModal } from '../Hooks/useModal'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
 
 const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
   const webviewIntent = useWebviewIntent()

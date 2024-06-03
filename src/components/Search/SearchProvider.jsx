@@ -1,9 +1,12 @@
 import React, { createContext, useContext, useMemo, useState } from 'react'
+import {
+  addAllOnce,
+  makeRealtimeConnection,
+  search
+} from 'src/components/Search/helpers'
 
 import { useClient } from 'cozy-client'
 import useRealtime from 'cozy-realtime/dist/useRealtime'
-
-import { addAllOnce, search, makeRealtimeConnection } from './helpers'
 
 const SearchContext = createContext()
 

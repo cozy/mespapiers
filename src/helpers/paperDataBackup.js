@@ -1,10 +1,10 @@
 import {
-  storeIndexedStorageData,
-  removeIndexedStorageData,
-  CREATE_PAPER_DATA_BACKUP_QUALIFICATION_LABEL,
   CREATE_PAPER_DATA_BACKUP_CURRENT_STEP_INDEX,
-  CREATE_PAPER_DATA_BACKUP_FORM_DATA
-} from '../utils/indexedStorage'
+  CREATE_PAPER_DATA_BACKUP_FORM_DATA,
+  CREATE_PAPER_DATA_BACKUP_QUALIFICATION_LABEL,
+  removeIndexedStorageData,
+  storeIndexedStorageData
+} from 'src/helpers/indexedStorage'
 
 export const storeCreatePaperDataBackup = async ({
   qualificationLabel,

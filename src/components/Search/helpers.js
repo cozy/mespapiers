@@ -1,7 +1,6 @@
 import intersection from 'lodash/intersection'
-
-import { index, addDoc, updateDoc } from './search'
-import { getThemesList } from '../../helpers/themes'
+import { index, addDoc, updateDoc } from 'src/components/Search/search'
+import { getThemesList } from 'src/helpers/themes'
 
 export const addAllOnce =
   ({ isAdded, setIsAdded, scannerT, t }) =>

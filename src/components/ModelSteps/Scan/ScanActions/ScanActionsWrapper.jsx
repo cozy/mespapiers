@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
+import ScanDesktopActions from 'src/components/ModelSteps/Scan/ScanActions/ScanDesktopActions'
+import ScanFlagshipActions from 'src/components/ModelSteps/Scan/ScanActions/ScanFlagshipActions'
+import ScanMobileActions from 'src/components/ModelSteps/Scan/ScanActions/ScanMobileActions'
 
 import { isFlagshipApp, isMobile } from 'cozy-device-helper'
 import flag from 'cozy-flags'
 import { useWebviewIntent } from 'cozy-intent'
-
-import ScanDesktopActions from './ScanDesktopActions'
-import ScanFlagshipActions from './ScanFlagshipActions'
-import ScanMobileActions from './ScanMobileActions'
 
 const ScanActionsWrapper = props => {
   const [isFlagshipScanAvailable, setIsFlagshipScanAvailable] = useState(false)

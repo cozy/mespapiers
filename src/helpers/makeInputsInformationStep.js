@@ -1,8 +1,8 @@
-import { ContactAdapter } from '../components/ModelSteps/widgets/ContactAdapter/ContactAdapter'
-import { CountryListAdapter } from '../components/ModelSteps/widgets/CountryListAdapter'
-import InputDateAdapter from '../components/ModelSteps/widgets/InputDateAdapter'
-import InputTextAdapter from '../components/ModelSteps/widgets/InputTextAdapter'
-import RadioAdapter from '../components/ModelSteps/widgets/RadioAdapter'
+import { ContactAdapter } from 'src/components/ModelSteps/widgets/ContactAdapter/ContactAdapter'
+import { CountryListAdapter } from 'src/components/ModelSteps/widgets/CountryListAdapter'
+import InputDateAdapter from 'src/components/ModelSteps/widgets/InputDateAdapter'
+import InputTextAdapter from 'src/components/ModelSteps/widgets/InputTextAdapter'
+import RadioAdapter from 'src/components/ModelSteps/widgets/RadioAdapter'
 
 const hasInputDate = ({ attrs }) => {
   return attrs.type === 'date'

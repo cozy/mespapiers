@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { trashFiles, removeQualification } from 'src/components/Actions/utils'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
 
 import { useClient } from 'cozy-client'
 import { getCreatedByApp } from 'cozy-client/dist/models/utils'
@@ -11,9 +13,6 @@ import Typography from 'cozy-ui/transpiled/react/Typography'
 import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { trashFiles, removeQualification } from './utils'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
 
 const DeleteConfirm = ({ files, isLast, onClose, children }) => {
   const { t } = useI18n()

@@ -7,7 +7,7 @@ import {
   getCurrentQualificationLabel,
   makeAccountFromPapers,
   generateReturnUrlToNotesIndex
-} from './helpers'
+} from 'src/components/Papers/helpers'
 
 // see https://remarkablemark.org/blog/2018/11/17/mock-window-location/
 const { location } = window

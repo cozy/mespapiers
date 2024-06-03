@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import { useParams, useNavigate, Navigate } from 'react-router-dom'
+import useReferencedContact from 'src/components/Hooks/useReferencedContact'
+import ContactEditDialog from 'src/components/ModelSteps/Edit/ContactEditDialog'
+import { updateReferencedContact } from 'src/components/ModelSteps/Edit/helpers'
+import { useCurrentEditInformations } from 'src/components/ModelSteps/Edit/useCurrentEditInformations'
 
 import { useClient } from 'cozy-client'
 import Backdrop from 'cozy-ui/transpiled/react/Backdrop'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import { makeStyles } from 'cozy-ui/transpiled/react/styles'
-
-import useReferencedContact from '../Hooks/useReferencedContact'
-import ContactEditDialog from '../ModelSteps/Edit/ContactEditDialog'
-import { updateReferencedContact } from '../ModelSteps/Edit/helpers'
-import { useCurrentEditInformations } from '../ModelSteps/Edit/useCurrentEditInformations'
 
 const useStyles = makeStyles({
   backdropRoot: {

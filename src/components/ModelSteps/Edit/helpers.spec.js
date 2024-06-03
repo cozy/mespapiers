@@ -1,11 +1,11 @@
 import {
+  getPaperDefinitionByFile,
   isInformationEditPermitted,
-  updateFileMetadata,
   makeCurrentStep,
-  updateReferencedContact,
-  getPaperDefinitionByFile
-} from './helpers'
-import { mockPapersDefinitions } from '../../../../test/mockPaperDefinitions'
+  updateFileMetadata,
+  updateReferencedContact
+} from 'src/components/ModelSteps/Edit/helpers'
+import { mockPapersDefinitions } from 'test/mockPaperDefinitions'
 
 const informationStep = {
   model: 'information',

@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-
-import EmptyNoHeader from './EmptyNoHeader'
-import EmptyWithHeader from './EmptyWithHeader'
+import EmptyNoHeader from 'src/components/Papers/Empty/EmptyNoHeader'
+import EmptyWithHeader from 'src/components/Papers/Empty/EmptyWithHeader'
 
 const getKonnectorByAccount = (konnectors, account) => {
   return konnectors.find(konnector => konnector.slug === account.account_type)

@@ -1,8 +1,7 @@
 import React from 'react'
+import { computeMaxPapers } from 'src/components/PapersPaywall/helpers'
 
 import { MaxPapersPaywall } from 'cozy-ui/transpiled/react/Paywall'
-
-import { computeMaxPapers } from './helpers'
 
 /**
  * @param {Object} props

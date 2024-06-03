@@ -1,7 +1,4 @@
 import isSameDay from 'date-fns/isSameDay'
-
-import logger from 'cozy-logger'
-
 import {
   APP_SETTINGS_DOCTYPE,
   FILES_DOCTYPE,
@@ -11,6 +8,8 @@ import {
   buildAppSettingQuery,
   buildFilesFromDateQuery
 } from 'src/helpers/migration/queries'
+
+import logger from 'cozy-logger'
 
 const logService = logger.namespace('service/metadataMigration')
 

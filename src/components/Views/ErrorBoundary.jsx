@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react'
 import { useParams, useRouteError } from 'react-router-dom'
+import MesPapiersBroken from 'src/assets/icons/MesPapiersBroken.svg'
+import { useError } from 'src/components/Contexts/ErrorProvider'
+import PapersListToolbar from 'src/components/Papers/PapersListToolbar'
+import styles from 'src/components/Views/styles.styl'
 
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import Empty from 'cozy-ui/transpiled/react/Empty'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import styles from './styles.styl'
-import MesPapiersBroken from '../../assets/icons/MesPapiersBroken.svg'
-import { useError } from '../Contexts/ErrorProvider'
-import PapersListToolbar from '../Papers/PapersListToolbar'
 
 const ErrorBoundary = () => {
   const params = useParams()

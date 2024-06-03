@@ -1,9 +1,8 @@
 import React from 'react'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import SearchProvider from 'src/components/Search/SearchProvider'
 
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { useScannerI18n } from '../Hooks/useScannerI18n'
-import SearchProvider from '../Search/SearchProvider'
 
 const SearchProviderWithT = props => {
   const scannerT = useScannerI18n()

@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
+import IlluGenericInputText from 'src/assets/icons/IlluGenericInputText.svg'
+import CompositeHeaderImage from 'src/components/CompositeHeader/CompositeHeaderImage'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import ContactEditList from 'src/components/ModelSteps/Edit/ContactEditList'
 
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import { Dialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import ContactEditList from './ContactEditList'
-import IlluGenericInputText from '../../../assets/icons/IlluGenericInputText.svg'
-import CompositeHeaderImage from '../../CompositeHeader/CompositeHeaderImage'
-import { useScannerI18n } from '../../Hooks/useScannerI18n'
 
 const ContactEditDialog = ({
   isBusy,

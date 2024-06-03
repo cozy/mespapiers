@@ -1,15 +1,14 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { getCurrentQualificationLabel } from 'src/components/Papers/helpers'
 
 import { BarLeft, BarCenter } from 'cozy-bar'
 import UIBarTitle from 'cozy-ui/transpiled/react/BarTitle'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import IconButton from 'cozy-ui/transpiled/react/IconButton'
-
-import { getCurrentQualificationLabel } from './helpers'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
-import { useScannerI18n } from '../Hooks/useScannerI18n'
 
 const PapersListToolbar = ({ selectedQualificationLabel }) => {
   const params = useParams()

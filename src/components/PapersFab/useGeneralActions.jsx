@@ -1,10 +1,11 @@
 import { useLocation, useParams } from 'react-router-dom'
+import {
+  createPaper,
+  createPaperByQualificationLabel
+} from 'src/components/Actions/Items'
 
 import { useClient } from 'cozy-client'
 import { makeActions } from 'cozy-ui/transpiled/react/ActionsMenu/Actions'
-
-import { createPaper } from '../Actions/Items/createPaper'
-import { createPaperByQualificationLabel } from '../Actions/Items/createPaperByQualificationLabel'
 
 const useGeneralActions = ({
   setShowGeneralMenu,

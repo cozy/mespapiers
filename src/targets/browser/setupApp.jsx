@@ -1,13 +1,12 @@
-import memoize from 'lodash/memoize'
-import * as Sentry from '@sentry/react'
 import { CaptureConsole } from '@sentry/integrations'
-
-import { initTranslation } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { getClient } from 'src/helpers/client'
+import * as Sentry from '@sentry/react'
+import memoize from 'lodash/memoize'
 import { getValues } from 'src/helpers/bar'
-import { RealtimePlugin } from 'cozy-realtime'
+import { getClient } from 'src/helpers/client'
+
 import flag from 'cozy-flags'
+import { RealtimePlugin } from 'cozy-realtime'
+import { initTranslation } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import manifest from '../../../manifest.webapp'
 

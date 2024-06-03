@@ -1,9 +1,9 @@
 import {
-  makePapers,
-  makeQualificationLabelWithoutFiles,
+  makeAccountsByFiles,
   makeKonnectorsAndQualificationLabelWithoutFiles,
-  makeAccountsByFiles
-} from './helpers'
+  makePapers,
+  makeQualificationLabelWithoutFiles
+} from 'src/components/Views/helpers'
 
 const papersDefinitionsLabels = ['caf', 'isp_invoice', 'resume']
 

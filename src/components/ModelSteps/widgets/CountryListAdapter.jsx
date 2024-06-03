@@ -1,5 +1,6 @@
 import PropType from 'prop-types'
 import React, { useState, useEffect, Fragment } from 'react'
+import { CountryRadio } from 'src/components/ModelSteps/widgets/CountryRadio'
 
 import {
   getAllCountries,
@@ -11,8 +12,6 @@ import List from 'cozy-ui/transpiled/react/List'
 import LoadMore from 'cozy-ui/transpiled/react/LoadMore'
 import TextField from 'cozy-ui/transpiled/react/TextField'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { CountryRadio } from './CountryRadio'
 
 const DISPLAYED_OPTION_COUNT = 20
 export const CountryListAdapter = ({

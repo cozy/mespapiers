@@ -1,7 +1,6 @@
 import get from 'lodash/get'
-
-import { harmonizeContactsNames } from '../components/Papers/helpers'
-import { BILLS_DOCTYPE } from '../doctypes'
+import { harmonizeContactsNames } from 'src/components/Papers/helpers'
+import { BILLS_DOCTYPE } from 'src/constants'
 
 /**
  * @param {object} params

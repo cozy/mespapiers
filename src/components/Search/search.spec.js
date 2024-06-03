@@ -1,6 +1,5 @@
 import get from 'lodash/get'
-
-import { addFileDoc, addContactDoc } from './search'
+import { addContactDoc, addFileDoc } from 'src/components/Search/search'
 
 const locales = {
   items: {

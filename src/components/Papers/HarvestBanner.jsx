@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { buildTriggersQueryByKonnectorSlug } from 'src/helpers/queries'
 
 import { useQuery, isQueryLoading } from 'cozy-client'
 import { LaunchTriggerCard } from 'cozy-harvest-lib'
 import Divider from 'cozy-ui/transpiled/react/Divider'
-
-import { buildTriggersQueryByKonnectorSlug } from '../../helpers/queries'
 
 const HarvestBanner = ({ konnector, account }) => {
   const konnectorSlug = konnector?.slug

@@ -1,8 +1,4 @@
 import fetch from 'node-fetch'
-
-import CozyClient from 'cozy-client'
-import logger from 'cozy-logger'
-
 import schema from 'src/doctypes'
 import {
   extractFilesToMigrate,
@@ -14,6 +10,9 @@ import {
   updateAppSettings,
   getFilesWithMetadata
 } from 'src/helpers/migration/metadata'
+
+import CozyClient from 'cozy-client'
+import logger from 'cozy-logger'
 
 global.fetch = fetch
 const logService = logger.namespace('service/metadataMigration')

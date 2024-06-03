@@ -1,6 +1,6 @@
-import { Q, fetchPolicies } from 'cozy-client'
+import { FILES_DOCTYPE } from 'src/constants'
 
-import { FILES_DOCTYPE } from '../../doctypes'
+import { Q, fetchPolicies } from 'cozy-client'
 
 const defaultFetchPolicy = fetchPolicies.olderThan(30 * 1000)
 

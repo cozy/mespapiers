@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { makeZipFolder } from 'src/components/Actions/utils'
+import { useFileSharing } from 'src/components/Contexts/FileSharingProvider'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import MultiselectBackdrop from 'src/components/Multiselect/MultiselectBackdrop'
 
 import { useClient } from 'cozy-client'
 import BottomSheet, {
@@ -13,11 +17,6 @@ import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import MultiselectBackdrop from './MultiselectBackdrop'
-import { makeZipFolder } from '../Actions/utils'
-import { useFileSharing } from '../Contexts/FileSharingProvider'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
 
 const ShareBottomSheet = ({ onClose, fileId, docs }) => {
   const { t, f } = useI18n()

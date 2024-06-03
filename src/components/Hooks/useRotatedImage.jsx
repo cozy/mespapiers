@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
+import { makeRotatedImage } from 'src/components/ModelSteps/helpers'
 
 import minilog from 'cozy-minilog'
-
-import { makeRotatedImage } from '../ModelSteps/helpers'
 
 const log = minilog('useRotatedImage')
 

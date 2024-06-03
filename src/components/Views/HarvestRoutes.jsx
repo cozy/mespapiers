@@ -1,15 +1,14 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import ExtraContent from 'src/components/Harvest/CannotConnectModal/ExtraContent'
+import {
+  buildKonnectorsQueryById,
+  buildTriggersQueryByKonnectorSlug
+} from 'src/helpers/queries'
 
 import { useQuery } from 'cozy-client'
 import { Routes } from 'cozy-harvest-lib'
 import datacardOptions from 'cozy-harvest-lib/dist/datacards/datacardOptions'
-
-import {
-  buildTriggersQueryByKonnectorSlug,
-  buildKonnectorsQueryById
-} from '../../helpers/queries'
-import ExtraContent from '../Harvest/CannotConnectModal/ExtraContent'
 
 const HarvestRoutes = () => {
   const { connectorSlug } = useParams()

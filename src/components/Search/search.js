@@ -1,10 +1,12 @@
 import { Document } from 'flexsearch'
 import { encode } from 'flexsearch/dist/module/lang/latin/balance'
+import {
+  makeContactFlexsearchProps,
+  makeFileFlexsearchProps
+} from 'src/components/Search/helpers'
+import { CONTACTS_DOCTYPE } from 'src/constants'
 
 import { isFile, hasQualifications } from 'cozy-client/dist/models/file'
-
-import { makeFileFlexsearchProps, makeContactFlexsearchProps } from './helpers'
-import { CONTACTS_DOCTYPE } from '../../doctypes'
 
 const isContact = doc => doc._type === CONTACTS_DOCTYPE
 

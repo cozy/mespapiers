@@ -1,12 +1,12 @@
-import { models } from 'cozy-client'
-import logService from 'cozy-logger'
-
 import { APP_SLUG, TRIGGERS_DOCTYPE } from 'src/constants'
 import {
   buildAllFilesToNotifyQuery,
   buildTriggerByIdQuery,
   buildTriggerByServiceNameQuery
 } from 'src/helpers/queries'
+
+import { models } from 'cozy-client'
+import logService from 'cozy-logger'
 
 const { computeExpirationDate, isExpired, isExpiringSoon } = models.paper
 

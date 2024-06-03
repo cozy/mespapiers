@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import Home from 'src/components/Views/Home'
+import PapersList from 'src/components/Views/PapersList'
 
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import { FixedDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { useMultiSelection } from '../Hooks/useMultiSelection'
-import Home from '../Views/Home'
-import PapersList from '../Views/PapersList'
 
 const MultiselectPaperList = ({ setIsFilePickerActive }) => {
   const { t } = useI18n()

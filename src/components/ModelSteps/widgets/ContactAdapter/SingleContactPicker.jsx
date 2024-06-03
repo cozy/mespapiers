@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import ContactList from 'src/components/ModelSteps/ContactList'
 
 import BottomSheet, {
   BottomSheetItem,
@@ -8,8 +9,6 @@ import BottomSheet, {
 import { ConfirmDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import Divider from 'cozy-ui/transpiled/react/Divider'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
-
-import ContactList from '../../ContactList'
 
 const SingleContactPicker = ({
   label,

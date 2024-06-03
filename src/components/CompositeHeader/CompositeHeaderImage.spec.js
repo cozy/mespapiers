@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
 import React from 'react'
+import CompositeHeaderImage from 'src/components/CompositeHeader/CompositeHeaderImage'
 
-import CompositeHeaderImage from './CompositeHeaderImage'
 import MockSVG from '../../assets/icons/IlluGenericNewPage.svg'
 
 const setup = ({ icon, fallbackIcon } = {}) => {

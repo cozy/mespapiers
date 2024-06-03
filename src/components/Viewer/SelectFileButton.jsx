@@ -1,13 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
 
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import IconButton from 'cozy-ui/transpiled/react/IconButton'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { useMultiSelection } from '../Hooks/useMultiSelection'
 
 const SelectFileButton = ({ file }) => {
   const { isDesktop } = useBreakpoints()

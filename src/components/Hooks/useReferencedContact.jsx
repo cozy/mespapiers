@@ -1,7 +1,7 @@
-import { getReferencedBy, useQuery, isQueryLoading } from 'cozy-client'
+import { CONTACTS_DOCTYPE } from 'src/constants'
+import { buildContactsQueryByIds } from 'src/helpers/queries'
 
-import { CONTACTS_DOCTYPE } from '../../doctypes'
-import { buildContactsQueryByIds } from '../../helpers/queries'
+import { getReferencedBy, useQuery, isQueryLoading } from 'cozy-client'
 
 /**
  * Get all contacts document referenced in files

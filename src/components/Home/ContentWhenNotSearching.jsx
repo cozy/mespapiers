@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
+import { makePapersGroupByQualificationLabel } from 'src/components/Home/helpers'
+import PaperGroup from 'src/components/Papers/PaperGroup'
 
 import Empty from 'cozy-ui/transpiled/react/Empty'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-import { makePapersGroupByQualificationLabel } from './helpers'
 import HomeCloud from '../../assets/icons/HomeCloud.svg'
-import PaperGroup from '../Papers/PaperGroup'
 
 const ContentWhenNotSearching = ({ papers, contacts, konnectors }) => {
   const { t } = useI18n()

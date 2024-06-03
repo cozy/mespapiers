@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ContactEditItem from 'src/components/ModelSteps/Edit/ContactEditItem'
 
 import Avatar from 'cozy-ui/transpiled/react/Avatar'
 import ContactsListModal from 'cozy-ui/transpiled/react/ContactsListModal'
@@ -10,8 +11,6 @@ import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import Paper from 'cozy-ui/transpiled/react/Paper'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import ContactEditItem from './ContactEditItem'
 
 const AvatarStyle = {
   color: 'var(--primaryColor)',

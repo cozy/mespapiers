@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import KonnectorEnergy from 'src/assets/icons/Energy.svg'
+import Konnectors from 'src/assets/icons/Konnectors.svg'
+import KonnectorPayslip from 'src/assets/icons/Payslip.svg'
+import KonnectorTelecom from 'src/assets/icons/Telecom.svg'
 
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
 import Icon from 'cozy-ui/transpiled/react/Icon'
-
-import KonnectorEnergy from '../../assets/icons/Energy.svg'
-import Konnectors from '../../assets/icons/Konnectors.svg'
-import KonnectorPayslip from '../../assets/icons/Payslip.svg'
-import KonnectorTelecom from '../../assets/icons/Telecom.svg'
 
 export const KonnectorIcon = ({ konnectorCriteria, ...props }) => {
   if (konnectorCriteria.name) {

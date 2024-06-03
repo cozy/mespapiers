@@ -1,8 +1,7 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-
-import Empty from './Empty'
-import AppLike from '../../../../test/components/AppLike'
+import Empty from 'src/components/Papers/Empty/Empty'
+import AppLike from 'test/components/AppLike'
 
 jest.mock('cozy-flags')
 jest.mock('../HarvestBanner', () => () => <div data-testid="HarvestBanner" />)

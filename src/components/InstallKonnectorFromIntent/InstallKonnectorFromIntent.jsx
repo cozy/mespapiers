@@ -1,10 +1,9 @@
 import React from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { APPS_DOCTYPE } from 'src/constants'
 
 import { useClient } from 'cozy-client'
 import IntentModal from 'cozy-ui/transpiled/react/deprecated/IntentModal'
-
-import { APPS_DOCTYPE } from '../../doctypes'
 
 const InstallKonnectorFromIntent = () => {
   const navigate = useNavigate()

@@ -1,6 +1,6 @@
-import { getAccountName } from 'cozy-client/dist/models/account'
+import { filterWithRemaining } from 'src/helpers/filterWithRemaining'
 
-import { filterWithRemaining } from '../../helpers/filterWithRemaining'
+import { getAccountName } from 'cozy-client/dist/models/account'
 
 export const makePapers = (
   papersDefinitionsLabels,

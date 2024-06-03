@@ -1,14 +1,13 @@
 import parse from 'date-fns/parse'
 import merge from 'lodash/merge'
 import set from 'lodash/set'
+import { ANDROID_APP_URL, IOS_APP_URL } from 'src/constants'
+import { findAttributes, findPaperVersion } from 'src/helpers/findAttributes'
+import { makeReferenceRulesByOcrAttributes } from 'src/helpers/makeReferenceRulesByOcrAttributes'
 
 import { KNOWN_DATE_METADATA_NAMES } from 'cozy-client/dist/models/paper'
 import { isAndroid, isIOS } from 'cozy-device-helper'
 import minilog from 'cozy-minilog'
-
-import { ANDROID_APP_URL, IOS_APP_URL } from '../../constants/const'
-import { findAttributes, findPaperVersion } from '../../helpers/findAttributes'
-import { makeReferenceRulesByOcrAttributes } from '../../helpers/makeReferenceRulesByOcrAttributes'
 
 const log = minilog('ModelSteps/helpers')
 

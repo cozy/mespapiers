@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
-
-import { useRotatedImage } from '../../Hooks/useRotatedImage'
+import { useRotatedImage } from 'src/components/Hooks/useRotatedImage'
 
 const RotateImage = forwardRef(
   ({ image, onLoaded, rotation, a11n, ...props }, ref) => {

@@ -1,6 +1,7 @@
 import format from 'date-fns/format'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { DatePicker } from 'src/components/ModelSteps/widgets/DatePicker'
 
 import Box from 'cozy-ui/transpiled/react/Box'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -11,8 +12,6 @@ import ListItemSecondaryAction from 'cozy-ui/transpiled/react/ListItemSecondaryA
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import Switch from 'cozy-ui/transpiled/react/Switch'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { DatePicker } from '../ModelSteps/widgets/DatePicker'
 
 const BoxDate = ({ isValid, onChange, date, toggle, onToggle, helperText }) => {
   const { t, lang } = useI18n()

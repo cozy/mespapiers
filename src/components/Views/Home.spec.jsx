@@ -1,13 +1,12 @@
 import '@testing-library/jest-dom'
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import React from 'react'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import Home from 'src/components/Views/Home'
+import AppLike from 'test/components/AppLike'
 
 import { isQueryLoading, useQueryAll } from 'cozy-client'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
-
-import Home from './Home'
-import AppLike from '../../../test/components/AppLike'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
 
 /* eslint-disable react/display-name */
 jest.mock('../Papers/PaperGroup', () => () => <div data-testid="PaperGroup" />)

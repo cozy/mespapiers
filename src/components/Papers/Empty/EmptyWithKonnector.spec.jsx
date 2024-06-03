@@ -1,9 +1,8 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
 import React from 'react'
-
-import EmptyWithKonnectors from './EmptyWithKonnectors'
-import AppLike from '../../../../test/components/AppLike'
+import EmptyWithKonnectors from 'src/components/Papers/Empty/EmptyWithKonnectors'
+import AppLike from 'test/components/AppLike'
 
 jest.mock('cozy-harvest-lib', () => ({
   LaunchTriggerCard: () => <div data-testid="LaunchTriggerCard" />

@@ -1,8 +1,7 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-
-import CompositeHeader from './CompositeHeader'
-import AppLike from '../../../test/components/AppLike'
+import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
+import AppLike from 'test/components/AppLike'
 
 const mockStringTitle = 'String Title'
 const mockStringText = 'String Text'

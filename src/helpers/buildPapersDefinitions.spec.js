@@ -1,4 +1,4 @@
-import { buildPapersDefinitions } from './buildPapersDefinitions'
+import { buildPapersDefinitions } from 'src/helpers/buildPapersDefinitions'
 
 describe('buildPapersDefinitions', () => {
   const scannerT = jest.fn(key => {

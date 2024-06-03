@@ -1,26 +1,25 @@
 import React from 'react'
 import { useParams, Navigate } from 'react-router-dom'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import Empty from 'src/components/Papers/Empty/Empty'
+import PapersListByContact from 'src/components/Papers/PapersListByContact'
+import PapersListToolbar from 'src/components/Papers/PapersListToolbar'
+import {
+  getContactsRefIdsByFiles,
+  getCurrentQualificationLabel
+} from 'src/components/Papers/helpers'
+import { makeAccountsByFiles } from 'src/components/Views/helpers'
+import {
+  buildAccountsQueryBySlugs,
+  buildContactsQueryByIds,
+  buildFilesQueryByLabel,
+  buildKonnectorsQueryByQualificationLabels
+} from 'src/helpers/queries'
 
 import { isQueryLoading, useQueryAll, useQuery } from 'cozy-client'
 import { getThemeByItem } from 'cozy-client/dist/models/document/documentTypeDataHelpers'
 import flag from 'cozy-flags'
 import ListSkeleton from 'cozy-ui/transpiled/react/Skeletons/ListSkeleton'
-
-import { makeAccountsByFiles } from './helpers'
-import {
-  buildContactsQueryByIds,
-  buildFilesQueryByLabel,
-  buildAccountsQueryBySlugs,
-  buildKonnectorsQueryByQualificationLabels
-} from '../../helpers/queries'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
-import Empty from '../Papers/Empty/Empty'
-import PapersListByContact from '../Papers/PapersListByContact'
-import PapersListToolbar from '../Papers/PapersListToolbar'
-import {
-  getContactsRefIdsByFiles,
-  getCurrentQualificationLabel
-} from '../Papers/helpers'
 
 const ConditionnalPapersList = props => {
   const params = useParams()

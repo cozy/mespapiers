@@ -1,6 +1,5 @@
 import { useContext } from 'react'
-
-import StepperDialogContext from '../Contexts/StepperDialogProvider'
+import StepperDialogContext from 'src/components/Contexts/StepperDialogProvider'
 
 export const useStepperDialog = () => {
   const stepperDialogContext = useContext(StepperDialogContext)

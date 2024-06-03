@@ -1,17 +1,16 @@
 /* eslint-disable jest/no-focused-tests */
 import { render, waitFor } from '@testing-library/react'
 import React from 'react'
+import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
+import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
+import { useFormData } from 'src/components/Hooks/useFormData'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import ScanWrapper from 'src/components/ModelSteps/Scan/ScanWrapper'
+import AppLike from 'test/components/AppLike'
 
 import { isMobile, isFlagshipApp } from 'cozy-device-helper'
 import flag from 'cozy-flags'
 import { useWebviewIntent } from 'cozy-intent'
-
-import AppLike from '../../../../../test/components/AppLike'
-import { FormDataProvider } from '../../../Contexts/FormDataProvider'
-import { StepperDialogProvider } from '../../../Contexts/StepperDialogProvider'
-import { useFormData } from '../../../Hooks/useFormData'
-import { useStepperDialog } from '../../../Hooks/useStepperDialog'
-import ScanWrapper from '../ScanWrapper'
 
 const mockCurrentStep = ({ page = '', multipage = false } = {}) => ({
   page,

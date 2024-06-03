@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { CategoriesByPaper } from 'src/components/Papers/CategoriesByPaper'
+import KonnectorsCategories from 'src/components/Papers/KonnectorsCategories'
 
 import List from 'cozy-ui/transpiled/react/List'
-
-import { CategoriesByPaper } from './CategoriesByPaper'
-import KonnectorsCategories from './KonnectorsCategories'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
 
 const PaperGroup = ({ papersByCategories, konnectors, selectedThemes }) => {
   const navigate = useNavigate()

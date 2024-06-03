@@ -1,73 +1,61 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { ErrorProvider, useError } from 'src/components/Contexts/ErrorProvider'
+import FileSharingProvider from 'src/components/Contexts/FileSharingProvider'
+import { ModalProvider } from 'src/components/Contexts/ModalProvider'
+import { MultiSelectionProvider } from 'src/components/Contexts/MultiSelectionProvider'
+import PapersCreatedProvider from 'src/components/Contexts/PapersCreatedProvider'
+import { PapersDefinitionsProvider } from 'src/components/Contexts/PapersDefinitionsProvider'
+import { PaywallProvider } from 'src/components/Contexts/PaywallProvider'
+import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider'
+import SearchProvider from 'src/components/Contexts/SearchProvider'
+import FabWrapper from 'src/components/FabWrapper'
+import ForwardFab from 'src/components/ForwardFab/ForwardFab'
+import { MesPapiersLibLayout } from 'src/components/MesPapiersLibLayout'
+import PapersFab from 'src/components/PapersFab/PapersFab'
+import PapersFabWrapper from 'src/components/PapersFab/PapersFabWrapper'
+import { CONTACTS_DOCTYPE, FILES_DOCTYPE } from 'src/constants'
 
 import AlertProvider from 'cozy-ui/transpiled/react/providers/Alert'
-import { I18n, initTranslation } from 'cozy-ui/transpiled/react/providers/I18n'
 
-import { ErrorProvider, useError } from './Contexts/ErrorProvider'
-import { FileSharingProvider } from './Contexts/FileSharingProvider'
-import { ModalProvider } from './Contexts/ModalProvider'
-import { MultiSelectionProvider } from './Contexts/MultiSelectionProvider'
-import PapersCreatedProvider from './Contexts/PapersCreatedProvider'
-import { PapersDefinitionsProvider } from './Contexts/PapersDefinitionsProvider'
-import { PaywallProvider } from './Contexts/PaywallProvider'
-import { ScannerI18nProvider } from './Contexts/ScannerI18nProvider'
-import SearchProvider from './Contexts/SearchProvider'
-import FabWrapper from './FabWrapper'
-import ForwardFabWrapper from './ForwardFab/ForwardFabWrapper'
-import { MesPapiersLibLayout } from './MesPapiersLibLayout'
-import PapersFabWrapper from './PapersFab/PapersFabWrapper'
-import { FILES_DOCTYPE, CONTACTS_DOCTYPE } from '../doctypes'
-import { getComponents } from '../helpers/defaultComponent'
-
-const MesPapiersLibProviders = ({ lang, components }) => {
-  const polyglot = initTranslation(lang, lang => require(`../locales/${lang}`))
-  const { PapersFab, ForwardFab } = getComponents(components)
+const MesPapiersLibProviders = () => {
   const { hasError } = useError()
 
   return (
-    <I18n lang={lang} polyglot={polyglot}>
-      <PapersCreatedProvider>
-        <AlertProvider>
-          <PaywallProvider>
-            <MultiSelectionProvider>
-              <ScannerI18nProvider>
-                <FileSharingProvider>
-                  <SearchProvider doctypes={[FILES_DOCTYPE, CONTACTS_DOCTYPE]}>
-                    <PapersDefinitionsProvider>
-                      <ModalProvider>
-                        <MesPapiersLibLayout />
-                        {!hasError && (
-                          <FabWrapper>
-                            {ForwardFab && (
-                              <ForwardFabWrapper>
-                                <ForwardFab />
-                              </ForwardFabWrapper>
-                            )}
-                            {PapersFab && (
-                              <PapersFabWrapper>
-                                <PapersFab />
-                              </PapersFabWrapper>
-                            )}
-                          </FabWrapper>
-                        )}
-                      </ModalProvider>
-                    </PapersDefinitionsProvider>
-                  </SearchProvider>
-                </FileSharingProvider>
-              </ScannerI18nProvider>
-            </MultiSelectionProvider>
-          </PaywallProvider>
-        </AlertProvider>
-      </PapersCreatedProvider>
-    </I18n>
+    <PapersCreatedProvider>
+      <AlertProvider>
+        <PaywallProvider>
+          <MultiSelectionProvider>
+            <ScannerI18nProvider>
+              <FileSharingProvider>
+                <SearchProvider doctypes={[FILES_DOCTYPE, CONTACTS_DOCTYPE]}>
+                  <PapersDefinitionsProvider>
+                    <ModalProvider>
+                      <MesPapiersLibLayout />
+                      {!hasError && (
+                        <FabWrapper>
+                          <ForwardFab />
+                          <PapersFabWrapper>
+                            <PapersFab />
+                          </PapersFabWrapper>
+                        </FabWrapper>
+                      )}
+                    </ModalProvider>
+                  </PapersDefinitionsProvider>
+                </SearchProvider>
+              </FileSharingProvider>
+            </ScannerI18nProvider>
+          </MultiSelectionProvider>
+        </PaywallProvider>
+      </AlertProvider>
+    </PapersCreatedProvider>
   )
 }
 
-const MesPapiersLibErrorProviders = props => {
+const MesPapiersLibErrorProviders = () => {
   return (
     <ErrorProvider>
-      <MesPapiersLibProviders {...props} />
+      <MesPapiersLibProviders />
     </ErrorProvider>
   )
 }
