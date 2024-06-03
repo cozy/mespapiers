@@ -1,4 +1,5 @@
 import React from 'react'
+import { useError } from 'src/components/Contexts/ErrorProvider'
 
 import Box from 'cozy-ui/transpiled/react/Box'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
@@ -13,12 +14,13 @@ const makeStyle = (isDesktop, offsetRight) => ({
 })
 
 const FabWrapper = ({ children }) => {
+  const { hasError } = useError()
   const { isDesktop } = useBreakpoints()
   const mainElement = document.querySelector('[role=main]')
   const offsetRight =
     window.innerWidth - (mainElement?.getBoundingClientRect()?.right ?? 0)
 
-  if (!children) return null
+  if (!children || hasError) return null
 
   return <Box {...makeStyle(isDesktop, offsetRight)}>{children}</Box>
 }

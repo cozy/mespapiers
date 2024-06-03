@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { ErrorProvider, useError } from 'src/components/Contexts/ErrorProvider'
+import { ErrorProvider } from 'src/components/Contexts/ErrorProvider'
 import FileSharingProvider from 'src/components/Contexts/FileSharingProvider'
 import { ModalProvider } from 'src/components/Contexts/ModalProvider'
 import { MultiSelectionProvider } from 'src/components/Contexts/MultiSelectionProvider'
@@ -7,11 +7,7 @@ import PapersCreatedProvider from 'src/components/Contexts/PapersCreatedProvider
 import { PapersDefinitionsProvider } from 'src/components/Contexts/PapersDefinitionsProvider'
 import { PaywallProvider } from 'src/components/Contexts/PaywallProvider'
 import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider'
-import FabWrapper from 'src/components/FabWrapper'
-import ForwardFab from 'src/components/ForwardFab/ForwardFab'
-import PapersFab from 'src/components/PapersFab/PapersFab'
-import PapersFabWrapper from 'src/components/PapersFab/PapersFabWrapper'
-import SearchProvider from 'src/components/Search/SearchProvider'
+import SearchProvider from 'src/components/Contexts/SearchProvider'
 import { CONTACTS_DOCTYPE, FILES_DOCTYPE } from 'src/constants'
 import { launchMetadataMigrationJob } from 'src/helpers/migration/metadata'
 
@@ -39,8 +35,6 @@ const generateClassName = createGenerateClassName({
 })
 
 const Providers = ({ client, lang, polyglot, children }) => {
-  const { hasError } = useError()
-
   useEffect(() => {
     const launch = async () => {
       launchMetadataMigrationJob(client)
@@ -66,17 +60,7 @@ const Providers = ({ client, lang, polyglot, children }) => {
                                 doctypes={[FILES_DOCTYPE, CONTACTS_DOCTYPE]}
                               >
                                 <PapersDefinitionsProvider>
-                                  <ModalProvider>
-                                    {children}
-                                    {!hasError && (
-                                      <FabWrapper>
-                                        <ForwardFab />
-                                        <PapersFabWrapper>
-                                          <PapersFab />
-                                        </PapersFabWrapper>
-                                      </FabWrapper>
-                                    )}
-                                  </ModalProvider>
+                                  <ModalProvider>{children}</ModalProvider>
                                 </PapersDefinitionsProvider>
                               </SearchProvider>
                             </FileSharingProvider>
