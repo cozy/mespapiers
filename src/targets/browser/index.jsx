@@ -9,11 +9,11 @@ import 'cozy-bar/dist/stylesheet.css'
 import 'src/styles/index.styl'
 import setupApp from 'src/targets/browser/setupApp'
 import { register as registerServiceWorker } from 'src/targets/browser/serviceWorkerRegistration'
-import App from 'src/components/App'
+import { AppRouter } from 'src/components/AppRouter'
 
 const init = () => {
   const { root, ...rest } = setupApp()
-  render(<App {...rest} />, root)
+  render(<AppRouter {...rest} />, root)
 }
 
 registerServiceWorker()
