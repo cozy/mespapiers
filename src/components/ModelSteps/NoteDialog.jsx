@@ -1,5 +1,11 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import { useFormData } from 'src/components/Hooks/useFormData'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import StepperDialogTitle from 'src/components/StepperDialog/StepperDialogTitle'
+import { FILES_DOCTYPE } from 'src/constants'
+import { addContactReferenceToFile } from 'src/helpers/createPdfAndSave'
+import { buildFileQueryById } from 'src/helpers/queries'
 
 import { useClient } from 'cozy-client'
 import { Qualification } from 'cozy-client/dist/models/document'
@@ -7,13 +13,6 @@ import { saveFileQualification, normalize } from 'cozy-client/dist/models/file'
 import { Dialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import IntentIframe from 'cozy-ui/transpiled/react/IntentIframe'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
-
-import { FILES_DOCTYPE } from '../../doctypes'
-import { addContactReferenceToFile } from '../../helpers/createPdfAndSave'
-import { buildFileQueryById } from '../../helpers/queries'
-import { useFormData } from '../Hooks/useFormData'
-import { useStepperDialog } from '../Hooks/useStepperDialog'
-import StepperDialogTitle from '../StepperDialog/StepperDialogTitle'
 
 const NoteDialog = ({ onClose, onBack }) => {
   const client = useClient()

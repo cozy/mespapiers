@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
+import { PaperDefinitionsPropTypes } from 'src/PaperDefinitionsPropTypes'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import FileIcon from 'src/components/Icons/FileIcon'
 
 import Divider from 'cozy-ui/transpiled/react/Divider'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -7,10 +10,6 @@ import InfosBadge from 'cozy-ui/transpiled/react/InfosBadge'
 import ListItem from 'cozy-ui/transpiled/react/ListItem'
 import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import Typography from 'cozy-ui/transpiled/react/Typography'
-
-import { PaperDefinitionsPropTypes } from '../../constants/PaperDefinitionsPropTypes'
-import { useScannerI18n } from '../Hooks/useScannerI18n'
-import FileIcon from '../Icons/FileIcon'
 
 const Placeholder = forwardRef(({ placeholder, divider, onClick }, ref) => {
   const scannerT = useScannerI18n()

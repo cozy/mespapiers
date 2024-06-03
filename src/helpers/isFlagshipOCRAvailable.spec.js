@@ -1,7 +1,7 @@
+import { isFlagshipOCRAvailable } from 'src/helpers/isFlagshipOCRAvailable'
+
 import { isFlagshipApp as isFlagshipAppFn } from 'cozy-device-helper'
 import flag from 'cozy-flags'
-
-import { isFlagshipOCRAvailable } from './isFlagshipOCRAvailable'
 
 jest.mock('cozy-device-helper', () => ({
   ...jest.requireActual('cozy-device-helper'),

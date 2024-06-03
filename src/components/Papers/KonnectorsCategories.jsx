@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import CategoryItemByKonnector from 'src/components/Papers/CategoryItemByKonnector'
+import { makeQualificationLabelsWithoutFiles } from 'src/components/Papers/helpers'
+import { queryAccounts } from 'src/helpers/queries'
 
 import { useQuery, isQueryLoading, hasQueryBeenLoaded } from 'cozy-client'
-
-import CategoryItemByKonnector from './CategoryItemByKonnector'
-import { makeQualificationLabelsWithoutFiles } from './helpers'
-import { queryAccounts } from '../../helpers/queries'
 
 const KonnectorsCategories = ({
   konnectors,

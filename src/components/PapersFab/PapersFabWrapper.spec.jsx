@@ -2,11 +2,10 @@ import '@testing-library/jest-dom'
 import { fireEvent, render } from '@testing-library/react'
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import PapersFabWrapper from 'src/components/PapersFab/PapersFabWrapper'
+import AppLike from 'test/components/AppLike'
 
 import flag from 'cozy-flags'
-
-import PapersFabWrapper from './PapersFabWrapper'
-import AppLike from '../../../test/components/AppLike'
 
 jest.mock('cozy-client/dist/models/applications', () => ({
   isInstalled: jest.fn()

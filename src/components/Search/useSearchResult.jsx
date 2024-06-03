@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
-
-import { useSearch } from './SearchProvider'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useSearch } from 'src/components/Search/SearchProvider'
 
 /**
  * @param {Object} params

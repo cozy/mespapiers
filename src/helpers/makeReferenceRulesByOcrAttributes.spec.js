@@ -1,4 +1,4 @@
-import { makeReferenceRulesByOcrAttributes } from './makeReferenceRulesByOcrAttributes'
+import { makeReferenceRulesByOcrAttributes } from 'src/helpers/makeReferenceRulesByOcrAttributes'
 
 describe('getReferenceRulesByOcrAttributes', () => {
   it('should return reference rules with side attribute', () => {

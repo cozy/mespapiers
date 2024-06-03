@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import HomeCloud from 'src/assets/icons/HomeCloud.svg'
+import CategoryItemByPaper from 'src/components/Papers/CategoryItemByPaper'
 
 import Empty from 'cozy-ui/transpiled/react/Empty'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import CategoryItemByPaper from './CategoryItemByPaper'
-import HomeCloud from '../../assets/icons/HomeCloud.svg'
 
 export const CategoriesByPaper = ({ papersByCategories, onClick }) => {
   const { t } = useI18n()

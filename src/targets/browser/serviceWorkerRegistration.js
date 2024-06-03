@@ -1,3 +1,5 @@
+/* eslint-disable promise/no-nesting */
+/* eslint-disable no-console */
 /* eslint-disable promise/always-return */
 /* eslint-disable promise/catch-or-return */
 // This optional code is used to register a service worker.

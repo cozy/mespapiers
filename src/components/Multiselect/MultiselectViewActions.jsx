@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import MultiselectBackdrop from 'src/components/Multiselect/MultiselectBackdrop'
+import useActions from 'src/components/SearchResult/useActions'
 
 import ActionsBar from 'cozy-ui/transpiled/react/ActionsBar'
-
-import MultiselectBackdrop from './MultiselectBackdrop'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
-import useActions from '../SearchResult/useActions'
 
 const MultiselectViewActions = () => {
   const { allMultiSelectionFiles } = useMultiSelection()

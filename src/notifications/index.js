@@ -1,11 +1,10 @@
 import format from 'date-fns/format'
+import template from 'raw-loader!./template.hbs'
+import { APP_SLUG } from 'src/constants'
 
 import { generateWebLink } from 'cozy-client'
 import { splitFilename } from 'cozy-client/dist/models/file'
 import { NotificationView } from 'cozy-notifications'
-
-import template from 'raw-loader!./template.hbs'
-import { APP_SLUG } from 'src/constants'
 
 /**
  * @typedef {object} FilesInfo

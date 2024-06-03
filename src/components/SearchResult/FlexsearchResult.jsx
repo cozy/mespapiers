@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import FlexsearchResultLine from 'src/components/SearchResult/FlexsearchResultLine'
 
 import Divider from 'cozy-ui/transpiled/react/Divider'
 import List from 'cozy-ui/transpiled/react/List'
 import { hasExpandedAttributesDisplayed } from 'cozy-ui/transpiled/react/ListItem/ExpandedAttributes/helpers'
-
-import FlexsearchResultLine from './FlexsearchResultLine'
 
 const SeparatorWrapper = ({ hasExpandedAttributes, children, ...props }) => {
   if (!hasExpandedAttributes) return children

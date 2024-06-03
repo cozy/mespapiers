@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { makeFlexsearchResultLineOnClick } from 'src/components/SearchResult/helpers'
+import useActions from 'src/components/SearchResult/useActions'
 
 import { useClient } from 'cozy-client'
 import ListItemByDoc from 'cozy-ui/transpiled/react/ListItem/ListItemByDoc'
-
-import { makeFlexsearchResultLineOnClick } from './helpers'
-import useActions from './useActions'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
 
 const FlexsearchResultLine = ({ doc, expandedAttributesProps }) => {
   const actions = useActions([doc])

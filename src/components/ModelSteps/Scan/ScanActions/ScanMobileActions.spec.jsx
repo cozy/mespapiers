@@ -1,12 +1,11 @@
 import '@testing-library/jest-dom'
 import { fireEvent, render, waitFor } from '@testing-library/react'
-import { StepperDialogProvider } from 'components/Contexts/StepperDialogProvider'
 import React from 'react'
+import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
+import ScanMobileActions from 'src/components/ModelSteps/Scan/ScanActions/ScanMobileActions'
+import AppLike from 'test/components/AppLike'
 
 import flag from 'cozy-flags'
-
-import ScanMobileActions from './ScanMobileActions'
-import AppLike from '../../../../../test/components/AppLike'
 
 jest.mock('cozy-flags')
 

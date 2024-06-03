@@ -1,7 +1,7 @@
+import { makeFlexsearchResultLineOnClick } from 'src/components/SearchResult/helpers'
+
 import { isContact } from 'cozy-client/dist/models/contact'
 import { isFile } from 'cozy-client/dist/models/file'
-
-import { makeFlexsearchResultLineOnClick } from './helpers'
 
 jest.mock('cozy-client/dist/models/contact', () => ({
   isContact: jest.fn()

@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import IlluScanner from 'src/assets/icons/IlluScanner.svg'
+import QRCodeModal from 'src/components/ModelSteps/Scan/ScanActions/QRCodeModal'
 
 import Alert from 'cozy-ui/transpiled/react/Alert'
 import AlertTitle from 'cozy-ui/transpiled/react/AlertTitle'
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import QRCodeModal from './QRCodeModal'
-import IlluScanner from '../../../../assets/icons/IlluScanner.svg'
 
 const ScanDesktopActionsAlert = ({ onClose }) => {
   const [showQRCodeModal, setShowQRCodeModal] = useState(false)

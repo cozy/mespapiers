@@ -1,6 +1,15 @@
 import merge from 'lodash/merge'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
+import CompositeHeaderImage from 'src/components/CompositeHeader/CompositeHeaderImage'
+import { useFormData } from 'src/components/Hooks/useFormData'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import {
+  getAttributesFromOcr,
+  getDefaultSelectedVersion,
+  makeMetadataFromOcr
+} from 'src/components/ModelSteps/helpers'
 
 import Box from 'cozy-ui/transpiled/react/Box'
 import Button from 'cozy-ui/transpiled/react/Buttons'
@@ -11,16 +20,6 @@ import ListItemSecondaryAction from 'cozy-ui/transpiled/react/ListItemSecondaryA
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import Radio from 'cozy-ui/transpiled/react/Radios'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import CompositeHeader from '../../CompositeHeader/CompositeHeader'
-import CompositeHeaderImage from '../../CompositeHeader/CompositeHeaderImage'
-import { useFormData } from '../../Hooks/useFormData'
-import { useStepperDialog } from '../../Hooks/useStepperDialog'
-import {
-  getAttributesFromOcr,
-  getDefaultSelectedVersion,
-  makeMetadataFromOcr
-} from '../helpers'
 
 const SelectPaperVersion = ({ onBack, ocrFromFlagship }) => {
   const { t } = useI18n()

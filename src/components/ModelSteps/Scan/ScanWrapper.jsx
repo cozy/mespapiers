@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
+import { PaperDefinitionsStepPropTypes } from 'src/PaperDefinitionsPropTypes'
+import { useFormData } from 'src/components/Hooks/useFormData'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import ScanDialog from 'src/components/ModelSteps/Scan/ScanDialog'
+import ScanResultDialog from 'src/components/ModelSteps/ScanResult/ScanResultDialog'
+import {
+  getLastFormDataFile,
+  isFileAlreadySelected,
+  makeFileFromBase64
+} from 'src/components/ModelSteps/helpers'
+import { FLAGSHIP_SCAN_TEMP_FILENAME } from 'src/constants'
+import { makeFileFromBlob } from 'src/helpers/makeFileFromBlob'
+import {
+  removeCreatePaperDataBackup,
+  storeCreatePaperDataBackup
+} from 'src/helpers/paperDataBackup'
 
 import { useClient, models } from 'cozy-client'
 import { useWebviewIntent } from 'cozy-intent'
 import minilog from 'cozy-minilog'
 import FilePicker from 'cozy-ui/transpiled/react/FilePicker'
-
-import ScanDialog from './ScanDialog'
-import { PaperDefinitionsStepPropTypes } from '../../../constants/PaperDefinitionsPropTypes'
-import { FLAGSHIP_SCAN_TEMP_FILENAME } from '../../../constants/const'
-import { makeFileFromBlob } from '../../../helpers/makeFileFromBlob'
-import {
-  storeCreatePaperDataBackup,
-  removeCreatePaperDataBackup
-} from '../../../helpers/paperDataBackup'
-import { useFormData } from '../../Hooks/useFormData'
-import { useStepperDialog } from '../../Hooks/useStepperDialog'
-import ScanResultDialog from '../ScanResult/ScanResultDialog'
-import {
-  getLastFormDataFile,
-  isFileAlreadySelected,
-  makeFileFromBase64
-} from '../helpers'
 
 const log = minilog('ScanWrapper')
 

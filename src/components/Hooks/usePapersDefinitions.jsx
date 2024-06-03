@@ -1,6 +1,5 @@
 import { useContext } from 'react'
-
-import PapersDefinitionsContext from '../Contexts/PapersDefinitionsProvider'
+import PapersDefinitionsContext from 'src/components/Contexts/PapersDefinitionsProvider'
 
 export const usePapersDefinitions = () => {
   const papersDefinitionsContext = useContext(PapersDefinitionsContext)

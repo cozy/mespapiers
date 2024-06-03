@@ -1,5 +1,11 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import ConfirmReplaceFile from 'src/components/ModelSteps/widgets/ConfirmReplaceFile'
+import { FILES_DOCTYPE, KEYS } from 'src/constants'
+import { createPdfAndSave } from 'src/helpers/createPdfAndSave'
+import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
 
 import { useClient } from 'cozy-client'
 import { models } from 'cozy-client'
@@ -8,14 +14,6 @@ import Button from 'cozy-ui/transpiled/react/Buttons'
 import useEventListener from 'cozy-ui/transpiled/react/hooks/useEventListener'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import ConfirmReplaceFile from './ConfirmReplaceFile'
-import { KEYS } from '../../../constants/const'
-import { FILES_DOCTYPE } from '../../../doctypes'
-import { createPdfAndSave } from '../../../helpers/createPdfAndSave'
-import getOrCreateAppFolderWithReference from '../../../helpers/getFolderWithReference'
-import { useScannerI18n } from '../../Hooks/useScannerI18n'
-import { useStepperDialog } from '../../Hooks/useStepperDialog'
 
 const log = minilog('SubmitButton')
 

@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { attrsProptypesOption } from 'src/components/ModelSteps/widgets/proptypes'
 
 import ListItem from 'cozy-ui/transpiled/react/ListItem'
 import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import Radio from 'cozy-ui/transpiled/react/Radios'
-
-import { attrsProptypesOption } from './proptypes'
-import { useScannerI18n } from '../../Hooks/useScannerI18n'
 
 const RadioAdapterItem = ({ onClick, option, value }) => {
   const scannerT = useScannerI18n()

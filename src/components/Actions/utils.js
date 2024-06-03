@@ -1,13 +1,14 @@
 // TODO Move to cozy-client (files model)
 
+import { FILES_DOCTYPE, JOBS_DOCTYPE } from 'src/constants'
+import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
+import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
+import { handleConflictFilename } from 'src/helpers/handleConflictFilename'
+
 import { isReferencedBy } from 'cozy-client'
 import { getDisplayName } from 'cozy-client/dist/models/contact'
 import { getSharingLink } from 'cozy-client/dist/models/sharing'
 
-import { FILES_DOCTYPE, JOBS_DOCTYPE } from '../../doctypes'
-import { fetchCurrentUser } from '../../helpers/fetchCurrentUser'
-import getOrCreateAppFolderWithReference from '../../helpers/getFolderWithReference'
-import { handleConflictFilename } from '../../utils/handleConflictFilename'
 export const isAnyFileReferencedBy = (files, doctype) => {
   for (let i = 0, l = files.length; i < l; ++i) {
     if (isReferencedBy(files[i], doctype)) return true

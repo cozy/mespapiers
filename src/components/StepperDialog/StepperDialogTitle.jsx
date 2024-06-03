@@ -1,9 +1,8 @@
 import React from 'react'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 
 import Typography from 'cozy-ui/transpiled/react/Typography'
-
-import { useScannerI18n } from '../Hooks/useScannerI18n'
-import { useStepperDialog } from '../Hooks/useStepperDialog'
 
 const StepperDialogTitle = () => {
   const scannerT = useScannerI18n()

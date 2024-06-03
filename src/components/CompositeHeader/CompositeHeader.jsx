@@ -2,12 +2,11 @@ import cx from 'classnames'
 import isArray from 'lodash/isArray'
 import PropTypes from 'prop-types'
 import React, { isValidElement } from 'react'
+import CompositeHeaderImage from 'src/components/CompositeHeader/CompositeHeaderImage'
 
 import { iconPropType } from 'cozy-ui/transpiled/react/Icon'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { makeStyles } from 'cozy-ui/transpiled/react/styles'
-
-import CompositeHeaderImage from './CompositeHeaderImage'
 
 const useStyles = makeStyles(() => ({
   container: {

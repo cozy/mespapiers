@@ -1,15 +1,14 @@
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import React from 'react'
-
-import ScanResultDialog from './ScanResultDialog'
-import AppLike from '../../../../test/components/AppLike'
-import { FLAGSHIP_SCAN_TEMP_FILENAME } from '../../../constants/const'
-import { isFlagshipOCRAvailable } from '../../../helpers/isFlagshipOCRAvailable'
-import { FormDataProvider } from '../../Contexts/FormDataProvider'
-import { StepperDialogProvider } from '../../Contexts/StepperDialogProvider'
-import { useFormData } from '../../Hooks/useFormData'
-import { useStepperDialog } from '../../Hooks/useStepperDialog'
-import { getAttributesFromOcr } from '../helpers'
+import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
+import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
+import { useFormData } from 'src/components/Hooks/useFormData'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import ScanResultDialog from 'src/components/ModelSteps/ScanResult/ScanResultDialog'
+import { getAttributesFromOcr } from 'src/components/ModelSteps/helpers'
+import { FLAGSHIP_SCAN_TEMP_FILENAME } from 'src/constants'
+import { isFlagshipOCRAvailable } from 'src/helpers/isFlagshipOCRAvailable'
+import AppLike from 'test/components/AppLike'
 
 const mockCurrentStep = ({ page = '', multipage = false } = {}) => ({
   page,

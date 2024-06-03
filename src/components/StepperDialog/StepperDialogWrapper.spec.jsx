@@ -1,10 +1,9 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
 import React from 'react'
-
-import StepperDialogWrapper from './StepperDialogWrapper'
-import AppLike from '../../../test/components/AppLike'
-import { useStepperDialog } from '../Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import StepperDialogWrapper from 'src/components/StepperDialog/StepperDialogWrapper'
+import AppLike from 'test/components/AppLike'
 
 /* eslint-disable react/display-name */
 jest.mock('../ModelSteps/Scan/ScanWrapper', () => () => (

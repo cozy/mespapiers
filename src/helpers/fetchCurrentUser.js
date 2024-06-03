@@ -1,4 +1,4 @@
-import { CONTACTS_DOCTYPE } from '../doctypes'
+import { CONTACTS_DOCTYPE } from 'src/constants'
 
 /**
  * Fetch the current user

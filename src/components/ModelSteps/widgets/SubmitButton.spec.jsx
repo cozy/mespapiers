@@ -1,11 +1,9 @@
-/* eslint-disable jest/no-focused-tests */
 import '@testing-library/jest-dom'
 import { fireEvent, render, waitFor } from '@testing-library/react'
-import { StepperDialogProvider } from 'components/Contexts/StepperDialogProvider'
 import React from 'react'
-
-import SubmitButton from './SubmitButton'
-import AppLike from '../../../../test/components/AppLike'
+import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
+import SubmitButton from 'src/components/ModelSteps/widgets/SubmitButton'
+import AppLike from 'test/components/AppLike'
 
 const mockFormData = ({ metadata = {}, data = [], contacts = [] } = {}) => ({
   metadata,

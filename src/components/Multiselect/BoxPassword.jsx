@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { copyToClipboard } from 'src/helpers/copyToClipboard'
 
 import Box from 'cozy-ui/transpiled/react/Box'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -13,8 +14,6 @@ import Switch from 'cozy-ui/transpiled/react/Switch'
 import TextField from 'cozy-ui/transpiled/react/TextField'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { copyToClipboard } from '../../helpers/copyToClipboard'
 
 const BoxPassword = ({
   onChange,

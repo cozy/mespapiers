@@ -1,6 +1,8 @@
 import MockDate from 'mockdate'
-
-import { hasItemByLabel, makePapersGroupByQualificationLabel } from './helpers'
+import {
+  hasItemByLabel,
+  makePapersGroupByQualificationLabel
+} from 'src/components/Home/helpers'
 
 describe('hasItemByLabel', () => {
   it('should return true', () => {

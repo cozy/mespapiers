@@ -1,9 +1,8 @@
 import { fireEvent, render, waitFor } from '@testing-library/react'
 import { StepperDialogProvider } from 'components/Contexts/StepperDialogProvider'
 import React from 'react'
-
-import ScanFlagshipActions from './ScanFlagshipActions'
-import AppLike from '../../../../../test/components/AppLike'
+import ScanFlagshipActions from 'src/components/ModelSteps/Scan/ScanActions/ScanFlagshipActions'
+import AppLike from 'test/components/AppLike'
 
 // Allow to pass 'isReady' in StepperDialogProvider
 jest.mock('../../../../helpers/findPlaceholders', () => ({

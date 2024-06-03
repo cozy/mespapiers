@@ -1,9 +1,8 @@
 'use strict'
 import { render } from '@testing-library/react'
 import React from 'react'
-
-import PapersList from './PapersList'
-import AppLike from '../../../test/components/AppLike'
+import PapersList from 'src/components/Papers/PapersList'
+import AppLike from 'test/components/AppLike'
 
 jest.mock('cozy-harvest-lib', () => ({
   LaunchTriggerCard: () => <div>LaunchTriggerCard</div>

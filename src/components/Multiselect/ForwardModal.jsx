@@ -1,6 +1,11 @@
 import addDays from 'date-fns/addDays'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { forwardFile } from 'src/components/Actions/utils'
+import BoxDate from 'src/components/Multiselect/BoxDate'
+import BoxPassword from 'src/components/Multiselect/BoxPassword'
+import { copyToClipboard } from 'src/helpers/copyToClipboard'
+import { makeTTL } from 'src/helpers/makeTTL'
 
 import { useClient } from 'cozy-client'
 import { isNote } from 'cozy-client/dist/models/file'
@@ -14,12 +19,6 @@ import Skeleton from 'cozy-ui/transpiled/react/Skeleton'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import BoxDate from './BoxDate'
-import BoxPassword from './BoxPassword'
-import { copyToClipboard } from '../../helpers/copyToClipboard'
-import { makeTTL } from '../../helpers/makeTTL'
-import { forwardFile } from '../Actions/utils'
 
 const styles = {
   image: {

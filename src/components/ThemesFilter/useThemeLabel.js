@@ -1,7 +1,7 @@
-import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import enLocale from 'src/locales/en.json'
 
-import enLocale from '../../locales/en.json'
-import { useScannerI18n } from '../Hooks/useScannerI18n'
+import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 export const useThemeLabel = label => {
   const scannerT = useScannerI18n()

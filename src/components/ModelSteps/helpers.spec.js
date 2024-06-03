@@ -1,11 +1,11 @@
 import {
+  getFormDataFilesForOcr,
   isFileAlreadySelected,
   makeBase64FromFile,
   makeFileFromBase64,
-  getFormDataFilesForOcr,
   normalizeFormdataMetadata
-} from './helpers'
-import { FILES_DOCTYPE } from '../../doctypes'
+} from 'src/components/ModelSteps/helpers'
+import { FILES_DOCTYPE } from 'src/constants'
 
 describe('ModalSteps helpers', () => {
   describe('isFileAlreadySelected', () => {

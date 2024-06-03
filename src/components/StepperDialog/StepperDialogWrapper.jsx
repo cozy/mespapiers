@@ -1,15 +1,14 @@
 import React from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import ContactDialog from 'src/components/ModelSteps/ContactDialog'
+import InformationDialog from 'src/components/ModelSteps/InformationDialog'
+import NoteDialog from 'src/components/ModelSteps/NoteDialog'
+import ScanWrapper from 'src/components/ModelSteps/Scan/ScanWrapper'
+import { handleBack } from 'src/components/StepperDialog/helpers'
 
 import { useWebviewIntent } from 'cozy-intent'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
-
-import { handleBack } from './helpers'
-import { useStepperDialog } from '../Hooks/useStepperDialog'
-import ContactDialog from '../ModelSteps/ContactDialog'
-import InformationDialog from '../ModelSteps/InformationDialog'
-import NoteDialog from '../ModelSteps/NoteDialog'
-import ScanWrapper from '../ModelSteps/Scan/ScanWrapper'
 
 const StepperDialogWrapper = ({ onClose, onSubmit }) => {
   const { isMobile } = useBreakpoints()

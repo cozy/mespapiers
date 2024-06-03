@@ -1,6 +1,5 @@
 import { useContext } from 'react'
-
-import FormDataContext from '../Contexts/FormDataProvider'
+import FormDataContext from 'src/components/Contexts/FormDataProvider'
 
 /**
  * @returns {import('../../types').FormDataContext}

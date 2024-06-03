@@ -1,11 +1,10 @@
 'use strict'
 import { render } from '@testing-library/react'
 import React from 'react'
+import PaperLine from 'src/components/Papers/PaperLine'
+import AppLike from 'test/components/AppLike'
 
 import { models } from 'cozy-client'
-
-import PaperLine from './PaperLine'
-import AppLike from '../../../test/components/AppLike'
 
 const {
   locales: { getBoundT }

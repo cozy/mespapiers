@@ -1,12 +1,11 @@
 import format from 'date-fns/format'
 import React, { useState, useEffect } from 'react'
+import { DatePicker } from 'src/components/ModelSteps/widgets/DatePicker'
+import { defaultProptypes } from 'src/components/ModelSteps/widgets/proptypes'
 
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 import { makeStyles } from 'cozy-ui/transpiled/react/styles'
-
-import { DatePicker } from './DatePicker'
-import { defaultProptypes } from './proptypes'
 
 const useStyles = makeStyles(() => ({
   overrides: {

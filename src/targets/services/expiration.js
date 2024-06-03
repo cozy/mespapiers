@@ -1,14 +1,12 @@
 import fetch from 'node-fetch'
+import { EXPIRATION_SERVICE_NAME, FILES_DOCTYPE } from 'src/constants'
+import schema from 'src/doctypes'
+import { fetchAllfilesToNotify } from 'src/helpers/service'
+import { buildNotification } from 'src/notifications/helpers'
 
 import CozyClient from 'cozy-client'
 import logger from 'cozy-logger'
-
 import { sendNotification } from 'cozy-notifications'
-
-import schema from 'src/doctypes'
-import { fetchAllfilesToNotify } from 'src/helpers/service'
-import { EXPIRATION_SERVICE_NAME, FILES_DOCTYPE } from 'src/constants'
-import { buildNotification } from 'src/notifications/helpers'
 
 global.fetch = fetch
 const logService = logger.namespace('service/expiration')

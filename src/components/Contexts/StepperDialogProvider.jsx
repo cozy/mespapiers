@@ -1,15 +1,14 @@
 import React, { createContext, useEffect, useState, useMemo } from 'react'
 import { useSearchParams, useParams } from 'react-router-dom'
+import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import { filterSteps } from 'src/helpers/filterSteps'
+import { findPlaceholderByLabelAndCountry } from 'src/helpers/findPlaceholders'
+import {
+  CREATE_PAPER_DATA_BACKUP_CURRENT_STEP_INDEX,
+  getAndRemoveIndexedStorageData
+} from 'src/helpers/indexedStorage'
 
 import { useWebviewIntent } from 'cozy-intent'
-
-import { filterSteps } from '../../helpers/filterSteps'
-import { findPlaceholderByLabelAndCountry } from '../../helpers/findPlaceholders'
-import {
-  getAndRemoveIndexedStorageData,
-  CREATE_PAPER_DATA_BACKUP_CURRENT_STEP_INDEX
-} from '../../utils/indexedStorage'
-import { usePapersDefinitions } from '../Hooks/usePapersDefinitions'
 
 const StepperDialogContext = createContext()
 

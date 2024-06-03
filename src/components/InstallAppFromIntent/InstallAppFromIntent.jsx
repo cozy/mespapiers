@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { generateReturnUrlToNotesIndex } from 'src/components/Papers/helpers'
+import { APPS_DOCTYPE } from 'src/constants'
+import { buildAppRegistryQueryBySlug } from 'src/helpers/queries'
 
 import { useClient, useQuery } from 'cozy-client'
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'
@@ -11,10 +14,6 @@ import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import IntentModal from 'cozy-ui/transpiled/react/deprecated/IntentModal'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { APPS_DOCTYPE } from '../../doctypes'
-import { buildAppRegistryQueryBySlug } from '../../helpers/queries'
-import { generateReturnUrlToNotesIndex } from '../Papers/helpers'
 
 const InstallAppFromIntent = () => {
   const [showIntent, setShowIntent] = useState(false)

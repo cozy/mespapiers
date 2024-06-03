@@ -1,4 +1,5 @@
 import React from 'react'
+import FabWrapper from 'src/components/FabWrapper'
 
 import CircleButton from 'cozy-ui/transpiled/react/CircleButton'
 import Fab from 'cozy-ui/transpiled/react/Fab'
@@ -7,8 +8,6 @@ import SearchBar from 'cozy-ui/transpiled/react/SearchBar'
 import Skeleton from 'cozy-ui/transpiled/react/Skeleton'
 import ListSkeleton from 'cozy-ui/transpiled/react/Skeletons/ListSkeleton'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import FabWrapper from '../FabWrapper'
 
 const styles = {
   container: {

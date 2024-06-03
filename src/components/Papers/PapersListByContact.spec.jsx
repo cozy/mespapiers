@@ -1,10 +1,9 @@
 'use strict'
 import { render } from '@testing-library/react'
 import React from 'react'
-
-import PapersListByContact from './PapersListByContact'
-import AppLike from '../../../test/components/AppLike'
-import { buildFilesByContacts } from '../Papers/helpers'
+import PapersListByContact from 'src/components/Papers/PapersListByContact'
+import { buildFilesByContacts } from 'src/components/Papers/helpers'
+import AppLike from 'test/components/AppLike'
 
 jest.mock('../Papers/helpers', () => ({
   ...jest.requireActual('../Papers/helpers'),

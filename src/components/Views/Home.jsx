@@ -1,20 +1,19 @@
 import React, { useMemo } from 'react'
-
-import { isQueryLoading, useQueryAll } from 'cozy-client'
-
-import HomeSkeletons from './HomeSkeletons'
+import HomeLayout from 'src/components/Home/HomeLayout'
+import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import useReferencedContact from 'src/components/Hooks/useReferencedContact'
+import HomeSkeletons from 'src/components/Views/HomeSkeletons'
 import {
+  makeKonnectorsAndQualificationLabelWithoutFiles,
   makePapers,
-  makeQualificationLabelWithoutFiles,
-  makeKonnectorsAndQualificationLabelWithoutFiles
-} from './helpers'
+  makeQualificationLabelWithoutFiles
+} from 'src/components/Views/helpers'
 import {
   buildFilesQueryWithQualificationLabel,
   buildKonnectorsQueryByQualificationLabels
-} from '../../helpers/queries'
-import HomeLayout from '../Home/HomeLayout'
-import { usePapersDefinitions } from '../Hooks/usePapersDefinitions'
-import useReferencedContact from '../Hooks/useReferencedContact'
+} from 'src/helpers/queries'
+
+import { isQueryLoading, useQueryAll } from 'cozy-client'
 
 const Home = () => {
   const { papersDefinitions } = usePapersDefinitions()

@@ -1,13 +1,12 @@
 import '@testing-library/jest-dom'
 import { fireEvent, render, waitFor } from '@testing-library/react'
-import { StepperDialogProvider } from 'components/Contexts/StepperDialogProvider'
 import React from 'react'
+import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
+import ScanDesktopActions from 'src/components/ModelSteps/Scan/ScanActions/ScanDesktopActions'
+import AppLike from 'test/components/AppLike'
 
 import { useQuery, hasQueryBeenLoaded } from 'cozy-client'
 import flag from 'cozy-flags'
-
-import ScanDesktopActions from './ScanDesktopActions'
-import AppLike from '../../../../../test/components/AppLike'
 
 jest.mock('cozy-flags')
 jest.mock('cozy-client/dist/hooks/useQuery', () => jest.fn())

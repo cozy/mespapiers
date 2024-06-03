@@ -1,7 +1,6 @@
 import { act } from '@testing-library/react'
-
-import { filterSteps } from './filterSteps'
-import { isFlagshipOCRAvailable } from './isFlagshipOCRAvailable'
+import { filterSteps } from 'src/helpers/filterSteps'
+import { isFlagshipOCRAvailable } from 'src/helpers/isFlagshipOCRAvailable'
 
 jest.mock('./isFlagshipOCRAvailable', () => ({
   isFlagshipOCRAvailable: jest.fn()

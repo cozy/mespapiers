@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import PaperItem from 'src/components/Papers/PaperItem'
 
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import IconButton from 'cozy-ui/transpiled/react/IconButton'
 import Paper from 'cozy-ui/transpiled/react/Paper'
 import { makeStyles } from 'cozy-ui/transpiled/react/styles'
-
-import { useMultiSelection } from '../Hooks/useMultiSelection'
-import PaperItem from '../Papers/PaperItem'
 
 const useStyles = makeStyles(theme => ({
   root: {

@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { useState, useRef, memo } from 'react'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import PaperItem from 'src/components/Papers/PaperItem'
+import useActions from 'src/components/SearchResult/useActions'
 
 import { splitFilename } from 'cozy-client/dist/models/file'
 import ActionsMenu from 'cozy-ui/transpiled/react/ActionsMenu'
@@ -7,10 +10,6 @@ import ActionsMenuMobileHeader from 'cozy-ui/transpiled/react/ActionsMenu/Action
 import Filename from 'cozy-ui/transpiled/react/Filename'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import IconButton from 'cozy-ui/transpiled/react/IconButton'
-
-import { useMultiSelection } from '../Hooks/useMultiSelection'
-import PaperItem from '../Papers/PaperItem'
-import useActions from '../SearchResult/useActions'
 
 const PaperLine = ({
   paper,

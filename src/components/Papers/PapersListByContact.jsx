@@ -1,17 +1,16 @@
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
+import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import PapersList from 'src/components/Papers/PapersList'
+import {
+  buildFilesByContacts,
+  getCurrentQualificationLabel
+} from 'src/components/Papers/helpers'
 
 import List from 'cozy-ui/transpiled/react/List'
 import ListSubheader from 'cozy-ui/transpiled/react/ListSubheader'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { usePapersDefinitions } from '../Hooks/usePapersDefinitions'
-import PapersList from '../Papers/PapersList'
-import {
-  buildFilesByContacts,
-  getCurrentQualificationLabel
-} from '../Papers/helpers'
 
 const PapersListByContact = ({
   selectedQualificationLabel,

@@ -1,8 +1,8 @@
-import logger from 'cozy-logger'
-import { initTranslation } from 'cozy-ui/transpiled/react/providers/I18n/translation'
-
 import { DEFAULT_LANG, lang } from 'src/constants'
 import ExpirationNotification from 'src/notifications'
+
+import logger from 'cozy-logger'
+import { initTranslation } from 'cozy-ui/transpiled/react/providers/I18n/translation'
 
 const logService = logger.namespace('buildNotification')
 

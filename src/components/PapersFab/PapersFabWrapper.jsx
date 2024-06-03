@@ -1,15 +1,14 @@
 import PropTypes from 'prop-types'
 import React, { cloneElement, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import useGeneralActions from 'src/components/PapersFab/useGeneralActions'
+import useKonnectorsActions from 'src/components/PapersFab/useKonnectorsActions'
+import { isReminder } from 'src/components/Placeholders/helpers'
+import { APPS_DOCTYPE } from 'src/constants'
 
 import { useClient, Q } from 'cozy-client'
 import { isInstalled } from 'cozy-client/dist/models/applications'
 import ActionsMenu from 'cozy-ui/transpiled/react/ActionsMenu'
-
-import useGeneralActions from './useGeneralActions'
-import useKonnectorsActions from './useKonnectorsActions'
-import { isReminder } from '../../components/Placeholders/helpers'
-import { APPS_DOCTYPE } from '../../doctypes'
 
 const PapersFabWrapper = ({ children }) => {
   const navigate = useNavigate()

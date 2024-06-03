@@ -1,4 +1,7 @@
-import { checkConstraintsOfIinput, makeConstraintsOfInput } from './input'
+import {
+  checkConstraintsOfIinput,
+  makeConstraintsOfInput
+} from 'src/helpers/input'
 
 describe('Input Utils', () => {
   describe('makeInputTypeAndLength', () => {

@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import IlluCozyCloud from 'src/assets/icons/IlluCozyCloud.svg'
+import { getLink } from 'src/components/ModelSteps/helpers'
 
 import Box from 'cozy-ui/transpiled/react/Box'
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import { Dialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import Empty from 'cozy-ui/transpiled/react/Empty'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import IlluCozyCloud from '../../../assets/icons/IlluCozyCloud.svg'
-import { getLink } from '../helpers'
 
 const InstallAppModal = ({ onBack }) => {
   const { t } = useI18n()

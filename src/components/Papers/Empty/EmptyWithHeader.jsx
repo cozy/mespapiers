@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import HarvestBanner from 'src/components/Papers/HarvestBanner'
 
 import { getAccountName } from 'cozy-client/dist/models/account'
 import List from 'cozy-ui/transpiled/react/List'
@@ -7,8 +8,6 @@ import ListItem from 'cozy-ui/transpiled/react/ListItem'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import ListSubheader from 'cozy-ui/transpiled/react/ListSubheader'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import HarvestBanner from '../HarvestBanner'
 
 const EmptyWithHeader = ({ konnector, account }) => {
   const { t } = useI18n()

@@ -5,12 +5,11 @@ import React, {
   useMemo,
   useState
 } from 'react'
+import { computeMaxPapers } from 'src/components/PapersPaywall/helpers'
+import { buildFilesQueryWithQualificationLabel } from 'src/helpers/queries'
 
 import { isQueryLoading, useQueryAll } from 'cozy-client'
 import flag from 'cozy-flags'
-
-import { buildFilesQueryWithQualificationLabel } from '../../helpers/queries'
-import { computeMaxPapers } from '../PapersPaywall/helpers'
 
 const PaywallContext = createContext()
 

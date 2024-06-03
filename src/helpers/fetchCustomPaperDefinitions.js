@@ -1,7 +1,7 @@
-import { Q, fetchPolicies } from 'cozy-client'
+import { FILES_DOCTYPE } from 'src/constants'
+import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
 
-import { FILES_DOCTYPE } from '../doctypes'
-import getOrCreateAppFolderWithReference from '../helpers/getFolderWithReference'
+import { Q, fetchPolicies } from 'cozy-client'
 
 const paperConfigFilenameCustom = 'papersDefinitions.json'
 

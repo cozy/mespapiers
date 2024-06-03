@@ -1,11 +1,10 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import { MultiSelectionProvider } from 'src/components/Contexts/MultiSelectionProvider'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
 
 import flag from 'cozy-flags'
-
-import { MultiSelectionProvider } from './MultiSelectionProvider'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
 
 jest.mock('cozy-flags')
 jest.mock('react-router-dom')

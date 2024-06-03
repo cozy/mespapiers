@@ -1,6 +1,6 @@
-import { makeInputsInformationStep } from './makeInputsInformationStep'
-import InputDateAdapter from '../components/ModelSteps/widgets/InputDateAdapter'
-import InputTextAdapter from '../components/ModelSteps/widgets/InputTextAdapter'
+import InputDateAdapter from 'src/components/ModelSteps/widgets/InputDateAdapter'
+import InputTextAdapter from 'src/components/ModelSteps/widgets/InputTextAdapter'
+import { makeInputsInformationStep } from 'src/helpers/makeInputsInformationStep'
 
 const attributes = [
   {

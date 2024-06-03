@@ -1,11 +1,10 @@
 import fetch from 'node-fetch'
+import { EXPIRATION_SERVICE_NAME, TRIGGERS_DOCTYPE } from 'src/constants'
+import schema from 'src/doctypes'
+import { fetchOrCreateTriggerByName } from 'src/helpers/service'
 
 import CozyClient from 'cozy-client'
 import logger from 'cozy-logger'
-
-import { EXPIRATION_SERVICE_NAME, TRIGGERS_DOCTYPE } from 'src/constants'
-import { fetchOrCreateTriggerByName } from 'src/helpers/service'
-import schema from 'src/doctypes'
 
 global.fetch = fetch
 const logService = logger.namespace('service/launchTriggers')

@@ -1,7 +1,7 @@
+import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
+
 import { models } from 'cozy-client'
 const { ensureMagicFolder, getReferencedFolder } = models.folder
-
-import getOrCreateFolderWithReference from './getFolderWithReference'
 
 jest.mock('cozy-client', () => ({
   ...jest.requireActual('cozy-client'),
@@ -27,7 +27,7 @@ describe('getFolderWithReference', () => {
     }
     setup(referencedFilesRes)
 
-    const res = await getOrCreateFolderWithReference()
+    const res = await getOrCreateAppFolderWithReference()
     expect(res).toEqual({ id: 'fileId', dir_id: 'dirId', path: '/file_path' })
   })
 })

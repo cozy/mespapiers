@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { usePapersCreated } from 'src/components/Contexts/PapersCreatedProvider'
+import { usePaywall } from 'src/components/Contexts/PaywallProvider'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import Divider from 'cozy-ui/transpiled/react/Divider'
@@ -7,10 +10,6 @@ import FileInput from 'cozy-ui/transpiled/react/FileInput'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import PointerAlert from 'cozy-ui/transpiled/react/PointerAlert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { usePapersCreated } from '../../../Contexts/PapersCreatedProvider'
-import { usePaywall } from '../../../Contexts/PaywallProvider'
-import { useStepperDialog } from '../../../Hooks/useStepperDialog'
 
 const styleBtn = { color: 'var(--primaryTextColor)' }
 

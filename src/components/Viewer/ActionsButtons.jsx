@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useFileSharing } from 'src/components/Contexts/FileSharingProvider'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import SelectFileButton from 'src/components/Viewer/SelectFileButton'
 
 import { ForwardButton } from 'cozy-ui/transpiled/react/Viewer'
-
-import SelectFileButton from './SelectFileButton'
-import { useFileSharing } from '../Contexts/FileSharingProvider'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
 
 const ActionsButtons = ({ file, toolbar }) => {
   const navigate = useNavigate()

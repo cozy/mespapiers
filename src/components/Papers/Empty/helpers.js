@@ -1,4 +1,4 @@
-import { findPlaceholderByLabelAndCountry } from '../../../helpers/findPlaceholders'
+import { findPlaceholderByLabelAndCountry } from 'src/helpers/findPlaceholders'
 
 export const makeCountrySearchParam = ({
   papersDefinitions,

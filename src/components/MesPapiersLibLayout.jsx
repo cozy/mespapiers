@@ -1,5 +1,15 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import { ModalStack } from 'src/components/Contexts/ModalProvider'
+import { usePaywall } from 'src/components/Contexts/PaywallProvider'
+import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import PapersPaywall from 'src/components/PapersPaywall/PapersPaywall'
+import {
+  CONTACTS_DOCTYPE,
+  FILES_DOCTYPE,
+  SETTINGS_DOCTYPE,
+  TRIGGERS_DOCTYPE
+} from 'src/constants'
 
 import { RealTimeQueries } from 'cozy-client'
 import CozyDevTools from 'cozy-client/dist/devtools'
@@ -7,17 +17,6 @@ import flag from 'cozy-flags'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { ModalStack } from './Contexts/ModalProvider'
-import { usePaywall } from './Contexts/PaywallProvider'
-import { usePapersDefinitions } from './Hooks/usePapersDefinitions'
-import PapersPaywall from './PapersPaywall/PapersPaywall'
-import {
-  FILES_DOCTYPE,
-  TRIGGERS_DOCTYPE,
-  SETTINGS_DOCTYPE,
-  CONTACTS_DOCTYPE
-} from '../doctypes'
 
 export const MesPapiersLibLayout = () => {
   const { t } = useI18n()

@@ -1,5 +1,5 @@
-import { isFlagshipOCRAvailable } from './isFlagshipOCRAvailable'
-import { isSomePaperStepsCompliantWithOCR } from './isSomePaperStepsCompliantWithOCR'
+import { isFlagshipOCRAvailable } from 'src/helpers/isFlagshipOCRAvailable'
+import { isSomePaperStepsCompliantWithOCR } from 'src/helpers/isSomePaperStepsCompliantWithOCR'
 
 /**
  * Filter a list of step with OCR contraint

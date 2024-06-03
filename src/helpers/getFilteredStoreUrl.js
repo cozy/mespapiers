@@ -1,6 +1,6 @@
-import { generateUniversalLink } from 'cozy-ui/transpiled/react/AppLinker'
+import { FILES_DOCTYPE } from 'src/constants'
 
-import { FILES_DOCTYPE } from '../doctypes'
+import { generateUniversalLink } from 'cozy-ui/transpiled/react/AppLinker'
 
 export const getFilteredStoreUrl = client =>
   generateUniversalLink({

@@ -1,6 +1,6 @@
-import { Q } from 'cozy-client'
-
 import { APP_SETTINGS_DOCTYPE, FILES_DOCTYPE } from 'src/constants'
+
+import { Q } from 'cozy-client'
 
 export const buildFilesFromDateQuery = (date, limit) => {
   return {

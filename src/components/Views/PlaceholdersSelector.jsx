@@ -1,5 +1,15 @@
 import React, { useMemo } from 'react'
 import { useNavigate, useLocation, useSearchParams } from 'react-router-dom'
+import { usePapersCreated } from 'src/components/Contexts/PapersCreatedProvider'
+import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import FileIcon from 'src/components/Icons/FileIcon'
+import { KonnectorIcon } from 'src/components/Icons/KonnectorIcon'
+import { isReminder } from 'src/components/Placeholders/helpers'
+import { buildURLSearchParamsForInstallKonnectorFromIntent } from 'src/components/Views/helpers'
+import { APPS_DOCTYPE } from 'src/constants'
+import { findPlaceholdersByQualification } from 'src/helpers/findPlaceholders'
+import { getThemesList } from 'src/helpers/themes'
 
 import { useClient, Q } from 'cozy-client'
 import { isInstalled } from 'cozy-client/dist/models/applications'
@@ -8,17 +18,6 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import NestedSelectResponsive from 'cozy-ui/transpiled/react/NestedSelect/NestedSelectResponsive'
 import PointerAlert from 'cozy-ui/transpiled/react/PointerAlert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import { buildURLSearchParamsForInstallKonnectorFromIntent } from './helpers'
-import { APPS_DOCTYPE } from '../../doctypes'
-import { findPlaceholdersByQualification } from '../../helpers/findPlaceholders'
-import { getThemesList } from '../../helpers/themes'
-import { usePapersCreated } from '../Contexts/PapersCreatedProvider'
-import { usePapersDefinitions } from '../Hooks/usePapersDefinitions'
-import { useScannerI18n } from '../Hooks/useScannerI18n'
-import FileIcon from '../Icons/FileIcon'
-import { KonnectorIcon } from '../Icons/KonnectorIcon'
-import { isReminder } from '../Placeholders/helpers'
 
 const PlaceholdersSelector = () => {
   const { t } = useI18n()

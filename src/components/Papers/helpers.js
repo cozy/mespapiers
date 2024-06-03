@@ -1,13 +1,11 @@
 import groupBy from 'lodash/groupBy'
+import { CONTACTS_DOCTYPE, DEFAULT_MAX_FILES_DISPLAYED } from 'src/constants'
+import { filterWithRemaining } from 'src/helpers/filterWithRemaining'
 
 import { models, getReferencedBy } from 'cozy-client'
 import { getAccountName } from 'cozy-client/dist/models/account'
 import { getThemeByItem } from 'cozy-client/dist/models/document/documentTypeDataHelpers'
 import { fetchURL } from 'cozy-client/dist/models/note'
-
-import { DEFAULT_MAX_FILES_DISPLAYED } from '../../constants/const'
-import { CONTACTS_DOCTYPE } from '../../doctypes'
-import { filterWithRemaining } from '../../helpers/filterWithRemaining'
 
 export const RETURN_URL_KEY = 'returnUrl'
 

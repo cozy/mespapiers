@@ -1,10 +1,10 @@
 import {
-  getFeaturedPlaceholders,
+  findPlaceholderByLabelAndCountry,
   findPlaceholdersByQualification,
-  hasNoFileWithSameQualificationLabel,
-  findPlaceholderByLabelAndCountry
-} from './findPlaceholders'
-import { mockPapersDefinitions } from '../../test/mockPaperDefinitions'
+  getFeaturedPlaceholders,
+  hasNoFileWithSameQualificationLabel
+} from 'src/helpers/findPlaceholders'
+import { mockPapersDefinitions } from 'test/mockPaperDefinitions'
 
 const fakeIspInvoiceFile = [
   {

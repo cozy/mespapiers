@@ -2,14 +2,13 @@
 import '@testing-library/jest-dom'
 import { render, waitFor } from '@testing-library/react'
 import React from 'react'
-
-import ContactDialog from './ContactDialog'
-import AppLike from '../../../test/components/AppLike'
-import { fetchCurrentUser } from '../../helpers/fetchCurrentUser'
-import { FormDataProvider } from '../Contexts/FormDataProvider'
-import { StepperDialogProvider } from '../Contexts/StepperDialogProvider'
-import { useFormData } from '../Hooks/useFormData'
-import { useStepperDialog } from '../Hooks/useStepperDialog'
+import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
+import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
+import { useFormData } from 'src/components/Hooks/useFormData'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import ContactDialog from 'src/components/ModelSteps/ContactDialog'
+import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
+import AppLike from 'test/components/AppLike'
 
 const mockCurrentStep = { illustration: 'Account.svg', text: 'text of step' }
 const mockFormData = ({ metadata = {}, data = [], contacts = [] } = {}) => ({

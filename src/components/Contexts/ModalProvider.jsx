@@ -1,6 +1,5 @@
 import React, { createContext, useState, useCallback } from 'react'
-
-import { useModal } from '../Hooks/useModal'
+import { useModal } from 'src/components/Hooks/useModal'
 
 const ModalContext = createContext()
 

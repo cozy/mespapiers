@@ -1,10 +1,9 @@
 import { render } from '@testing-library/react'
 import React from 'react'
+import HarvestBanner from 'src/components/Papers/HarvestBanner'
+import AppLike from 'test/components/AppLike'
 
 import { useQuery } from 'cozy-client'
-
-import HarvestBanner from './HarvestBanner'
-import AppLike from '../../../test/components/AppLike'
 
 jest.mock('cozy-client/dist/hooks/useQuery', () => jest.fn())
 jest.mock('cozy-harvest-lib', () => ({

@@ -1,6 +1,6 @@
-import flag from 'cozy-flags'
+import { computeMaxPapers } from 'src/components/PapersPaywall/helpers'
 
-import { computeMaxPapers } from './helpers'
+import flag from 'cozy-flags'
 
 jest.mock('cozy-flags')
 

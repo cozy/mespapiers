@@ -1,4 +1,4 @@
-import { hasItemByLabel } from '../components/Home/helpers'
+import { hasItemByLabel } from 'src/components/Home/helpers'
 
 /**
  * Checks if a file in a list has a qualification label equal to the label in the paper definition

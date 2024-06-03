@@ -2,13 +2,16 @@ import '@testing-library/jest-dom'
 import { fireEvent, render, waitFor } from '@testing-library/react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import {
+  downloadFiles,
+  forwardFile,
+  makeZipFolder
+} from 'src/components/Actions/utils'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import MultiselectViewActions from 'src/components/Multiselect/MultiselectViewActions'
+import AppLike from 'test/components/AppLike'
 
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
-
-import MultiselectViewActions from './MultiselectViewActions'
-import AppLike from '../../../test/components/AppLike'
-import { downloadFiles, forwardFile, makeZipFolder } from '../Actions/utils'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),

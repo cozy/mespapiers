@@ -8,24 +8,23 @@ import {
   useLocation,
   Outlet
 } from 'react-router-dom'
-
-import CreatePaperDataBackupRoute from './CreatePaperDataBackupRoute'
-import InstallAppFromIntent from './InstallAppFromIntent/InstallAppFromIntent'
-import InstallKonnectorFromIntent from './InstallKonnectorFromIntent/InstallKonnectorFromIntent'
-import MesPapiersLibProviders from './MesPapiersLibProviders'
-import ForwardModalByRoute from './Multiselect/ForwardModalByRoute'
-import ShareBottomSheetByRoute from './Multiselect/ShareBottomSheetByRoute'
-import ContactEdit from './Views/ContactEdit'
-import CreatePaperModal from './Views/CreatePaperModal'
-import ErrorBoundary from './Views/ErrorBoundary'
-import FilesViewerWithQuery from './Views/FileViewerWithQuery'
-import HarvestRoutes from './Views/HarvestRoutes'
-import Home from './Views/Home'
-import InformationEdit from './Views/InformationEdit'
-import MultiselectView from './Views/MultiselectView'
-import PageEdit from './Views/PageEdit'
-import PapersList from './Views/PapersList'
-import PlaceholdersSelector from './Views/PlaceholdersSelector'
+import CreatePaperDataBackupRoute from 'src/components/CreatePaperDataBackupRoute'
+import InstallAppFromIntent from 'src/components/InstallAppFromIntent/InstallAppFromIntent'
+import InstallKonnectorFromIntent from 'src/components/InstallKonnectorFromIntent/InstallKonnectorFromIntent'
+import MesPapiersLibProviders from 'src/components/MesPapiersLibProviders'
+import ForwardModalByRoute from 'src/components/Multiselect/ForwardModalByRoute'
+import ShareBottomSheetByRoute from 'src/components/Multiselect/ShareBottomSheetByRoute'
+import ContactEdit from 'src/components/Views/ContactEdit'
+import CreatePaperModal from 'src/components/Views/CreatePaperModal'
+import ErrorBoundary from 'src/components/Views/ErrorBoundary'
+import FilesViewerWithQuery from 'src/components/Views/FileViewerWithQuery'
+import HarvestRoutes from 'src/components/Views/HarvestRoutes'
+import Home from 'src/components/Views/Home'
+import InformationEdit from 'src/components/Views/InformationEdit'
+import MultiselectView from 'src/components/Views/MultiselectView'
+import PageEdit from 'src/components/Views/PageEdit'
+import PapersList from 'src/components/Views/PapersList'
+import PlaceholdersSelector from 'src/components/Views/PlaceholdersSelector'
 
 const fileViewerRoutes = [
   <Route key="01" path="forward/:fileId" element={<ForwardModalByRoute />} />,
@@ -42,7 +41,7 @@ const OutletWrapper = ({ Component }) => (
   </>
 )
 
-const MesPapiersLibRoutes = ({ lang, components }) => {
+const MesPapiersLibRoutes = () => {
   const location = useLocation()
   const [searchParams] = useSearchParams()
   const konnectorSlug = searchParams.get('connectorSlug')
@@ -55,9 +54,7 @@ const MesPapiersLibRoutes = ({ lang, components }) => {
 
   return (
     <Routes>
-      <Route
-        element={<MesPapiersLibProviders lang={lang} components={components} />}
-      >
+      <Route element={<MesPapiersLibProviders />}>
         <Route errorElement={<ErrorBoundary />}>
           <Route element={<CreatePaperDataBackupRoute />}>
             <Route path="/" element={<OutletWrapper Component={Home} />}>

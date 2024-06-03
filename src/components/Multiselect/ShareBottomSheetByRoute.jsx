@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-
-import ShareBottomSheet from './ShareBottomSheet'
+import ShareBottomSheet from 'src/components/Multiselect/ShareBottomSheet'
 
 const ShareBottomSheetByRoute = () => {
   const { state } = useLocation()

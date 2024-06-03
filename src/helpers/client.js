@@ -1,8 +1,9 @@
+import schema from 'src/doctypes'
+
 import CozyClient from 'cozy-client'
 import { Intents } from 'cozy-interapp'
 
 import manifest from '../../manifest.webapp'
-import schema from 'src/doctypes'
 
 /**
  * Returns cozy client instance

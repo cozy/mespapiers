@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import HarvestBanner from 'src/components/Papers/HarvestBanner'
+import PaperLine from 'src/components/Papers/PaperLine'
+import { makeAccountFromPapers } from 'src/components/Papers/helpers'
 
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import HarvestBanner from './HarvestBanner'
-import { makeAccountFromPapers } from './helpers'
-import PaperLine from '../Papers/PaperLine'
 
 const PapersList = ({ papers, konnector, accounts, isLast }) => {
   const { t } = useI18n()

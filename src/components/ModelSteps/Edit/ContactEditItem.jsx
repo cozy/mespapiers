@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { models } from 'cozy-client'
+import { getDisplayName } from 'cozy-client/dist/models/contact'
 import Avatar from 'cozy-ui/transpiled/react/Avatar'
 import Checkbox from 'cozy-ui/transpiled/react/Checkbox'
 import ListItem from 'cozy-ui/transpiled/react/ListItem'
@@ -9,8 +9,6 @@ import ListItemSecondaryAction from 'cozy-ui/transpiled/react/ListItemSecondaryA
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import Radio from 'cozy-ui/transpiled/react/Radios'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-const { getDisplayName } = models.contact
 
 const AvatarStyle = {
   color: 'var(--primaryColor)',

@@ -1,18 +1,24 @@
-import * as addFileToPdf from 'cozy-ui/transpiled/react/ActionsMenu/Actions/helpers'
-
-import * as buildFilename from './buildFilename'
+import { FILES_DOCTYPE } from 'src/constants'
 import {
   addCountryValueByQualification,
-  updateMetadata,
-  createPdfAndSave
-} from './createPdfAndSave'
-import { FILES_DOCTYPE } from '../doctypes'
+  createPdfAndSave,
+  updateMetadata
+} from 'src/helpers/createPdfAndSave'
 
 jest.mock('cozy-client/dist/models/file', () => ({
   ...jest.requireActual('cozy-client/dist/models/file'),
   uploadFileWithConflictStrategy: jest.fn(() => ({
     data: { _id: '1234' }
   }))
+}))
+
+jest.mock('cozy-ui/transpiled/react/ActionsMenu/Actions/helpers', () => ({
+  ...jest.requireActual('cozy-ui/transpiled/react/ActionsMenu/Actions/helpers'),
+  addFileToPdf: jest.fn().mockReturnValue('')
+}))
+
+jest.mock('./buildFilename', () => ({
+  buildFilename: jest.fn().mockReturnValue('')
 }))
 
 const mockPDFDocument = {
@@ -49,9 +55,6 @@ const mockParams = file => ({
 })
 
 describe('createAndSavePdf', () => {
-  jest.spyOn(addFileToPdf, 'addFileToPdf').mockReturnValue('')
-  jest.spyOn(buildFilename, 'buildFilename').mockReturnValue('')
-
   it('should return array with fileId & theme label', async () => {
     const expectedPDF = [
       {

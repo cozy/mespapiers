@@ -1,9 +1,8 @@
 'use strict'
 import { fireEvent, render } from '@testing-library/react'
 import React from 'react'
-
-import Placeholder from './Placeholder'
-import AppLike from '../../../test/components/AppLike'
+import Placeholder from 'src/components/Placeholders/Placeholder'
+import AppLike from 'test/components/AppLike'
 
 const fakePlaceholders = [
   {

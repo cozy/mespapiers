@@ -1,3 +1,3 @@
-import ThemesFilter from './ThemesFilter'
+import ThemesFilter from 'src/components/ThemesFilter/ThemesFilter'
 
 export default ThemesFilter

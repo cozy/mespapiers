@@ -1,4 +1,4 @@
-import { makeTTL } from './makeTTL'
+import { makeTTL } from 'src/helpers/makeTTL'
 
 describe('makeTTL', () => {
   it('sould return undefined', () => {

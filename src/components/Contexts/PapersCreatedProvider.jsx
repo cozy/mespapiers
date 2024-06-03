@@ -1,8 +1,7 @@
 import React, { useMemo, useContext } from 'react'
+import { buildFilesQueryWithQualificationLabel } from 'src/helpers/queries'
 
 import { isQueryLoading, useQueryAll } from 'cozy-client'
-
-import { buildFilesQueryWithQualificationLabel } from '../../helpers/queries'
 
 export const PapersCreatedContext = React.createContext()
 

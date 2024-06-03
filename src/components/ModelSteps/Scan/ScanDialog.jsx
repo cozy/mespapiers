@@ -1,13 +1,12 @@
 import React from 'react'
+import IlluGenericNewPage from 'src/assets/icons/IlluGenericNewPage.svg'
+import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
+import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import ScanActionsWrapper from 'src/components/ModelSteps/Scan/ScanActions/ScanActionsWrapper'
+import StepperDialogTitle from 'src/components/StepperDialog/StepperDialogTitle'
 
 import { Dialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-import ScanActionsWrapper from './ScanActions/ScanActionsWrapper'
-import IlluGenericNewPage from '../../../assets/icons/IlluGenericNewPage.svg'
-import CompositeHeader from '../../CompositeHeader/CompositeHeader'
-import { useStepperDialog } from '../../Hooks/useStepperDialog'
-import StepperDialogTitle from '../../StepperDialog/StepperDialogTitle'
 
 const ScanDialog = ({
   currentStep,

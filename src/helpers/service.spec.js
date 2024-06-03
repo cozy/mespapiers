@@ -1,5 +1,4 @@
 import MockDate from 'mockdate'
-
 import { getfilesNeedNotified } from 'src/helpers/service'
 
 describe('Service', () => {

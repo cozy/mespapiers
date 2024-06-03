@@ -1,6 +1,6 @@
-import { models } from 'cozy-client'
+import { handleConflictFilename } from 'src/helpers/handleConflictFilename'
 
-import { handleConflictFilename } from './handleConflictFilename'
+import { models } from 'cozy-client'
 
 const {
   file: { getFullpath }

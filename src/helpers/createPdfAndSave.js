@@ -1,10 +1,9 @@
 import { PDFDocument } from 'pdf-lib'
+import { BILLS_DOCTYPE, CONTACTS_DOCTYPE, FILES_DOCTYPE } from 'src/constants'
+import { buildFilename } from 'src/helpers/buildFilename'
 
 import { uploadFileWithConflictStrategy } from 'cozy-client/dist/models/file'
 import { addFileToPdf } from 'cozy-ui/transpiled/react/ActionsMenu/Actions/helpers'
-
-import { CONTACTS_DOCTYPE, FILES_DOCTYPE, BILLS_DOCTYPE } from '../doctypes'
-import { buildFilename } from '../helpers/buildFilename'
 
 /**
  * @param {import('cozy-client/types/types').IOCozyFile} fileCreated

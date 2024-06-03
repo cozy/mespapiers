@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
-
 import {
-  getAndRemoveIndexedStorageData,
-  CREATE_PAPER_DATA_BACKUP_QUALIFICATION_LABEL
-} from '../utils/indexedStorage'
+  CREATE_PAPER_DATA_BACKUP_QUALIFICATION_LABEL,
+  getAndRemoveIndexedStorageData
+} from 'src/helpers/indexedStorage'
 
 const CreatePaperDataBackupRoute = () => {
   const navigate = useNavigate()

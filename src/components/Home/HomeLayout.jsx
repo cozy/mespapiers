@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
 import React, { useMemo, useState, useEffect } from 'react'
-
-import ContentFlexsearch from './ContentFlexsearch'
-import SearchHeader from './SearchHeader'
-import { getFeaturedPlaceholders } from '../../helpers/findPlaceholders'
-import { useMultiSelection } from '../Hooks/useMultiSelection'
-import { usePapersDefinitions } from '../Hooks/usePapersDefinitions'
-import FeaturedPlaceholdersList from '../Placeholders/FeaturedPlaceholdersList'
-import { useSearch } from '../Search/SearchProvider'
+import ContentFlexsearch from 'src/components/Home/ContentFlexsearch'
+import SearchHeader from 'src/components/Home/SearchHeader'
+import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import FeaturedPlaceholdersList from 'src/components/Placeholders/FeaturedPlaceholdersList'
+import { useSearch } from 'src/components/Search/SearchProvider'
+import { getFeaturedPlaceholders } from 'src/helpers/findPlaceholders'
 
 const HomeLayout = ({ contacts, papers, konnectors }) => {
   const [selectedThemes, setSelectedThemes] = useState([])
