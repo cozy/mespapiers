@@ -89,16 +89,11 @@ const FormDataProvider = ({ children }) => {
         if (isSharedMemoryAvailable) {
           const lastScanResult = await webviewIntent.call(
             'getSharedMemory',
-            'mespapiers',
             'scanDocument'
           )
 
           if (lastScanResult) {
-            await webviewIntent.call(
-              'removeSharedMemory',
-              'mespapiers',
-              'scanDocument'
-            )
+            await webviewIntent.call('removeSharedMemory', 'scanDocument')
 
             const lastScanFileData = makeExportedFormDataDataFromBase64(
               currentStep,
