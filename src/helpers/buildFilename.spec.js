@@ -21,21 +21,21 @@ describe('buildFilename', () => {
   formatedDate: '2022.01.01',
   contacts: mockOneContact,
   filenameModel: ['labelGivenByUser', 'contactName', 'featureDate'],
-  metadata: { labelGivenByUser: 'Mon fichier' }
+  metadata: { 'io.cozy.files': { labelGivenByUser: 'Mon fichier' } }
 }} | ${'Mon fichier - Bernard Chabert - 2022.01.01.pdf'}
     ${{
   qualification: { name: 'passport' },
   formatedDate: '2022.01.01',
   contacts: [],
   filenameModel: ['labelGivenByUser', 'featureDate'],
-  metadata: { labelGivenByUser: 'Mon fichier' }
+  metadata: { 'io.cozy.files': { labelGivenByUser: 'Mon fichier' } }
 }} | ${'Mon fichier - 2022.01.01.pdf'}
     ${{
   qualification: { name: 'passport' },
   formatedDate: '2022.01.01',
   contacts: [],
   filenameModel: ['labelGivenByUser', 'featureDate'],
-  metadata: { labelGivenByUser: '' }
+  metadata: { 'io.cozy.files': { labelGivenByUser: '' } }
 }} | ${'2022.01.01.pdf'}
     ${{
   qualification: { name: 'passport' },
@@ -55,7 +55,7 @@ describe('buildFilename', () => {
   formatedDate: '2022.01.01',
   contacts: [],
   filenameModel: ['labelGivenByUser', 'page'],
-  metadata: { labelGivenByUser: 'Mon fichier' },
+  metadata: { 'io.cozy.files': { labelGivenByUser: 'Mon fichier' } },
   pageName: 'front'
 }} | ${'Mon fichier - front.pdf'}
     ${{
@@ -63,7 +63,7 @@ describe('buildFilename', () => {
   formatedDate: '2022.01.01',
   contacts: [],
   filenameModel: ['labelGivenByUser', 'page'],
-  metadata: { labelGivenByUser: 'Mon fichier' }
+  metadata: { 'io.cozy.files': { labelGivenByUser: 'Mon fichier' } }
 }} | ${'Mon fichier.pdf'}
     ${{
   qualification: { name: 'passport' },
@@ -101,7 +101,7 @@ describe('buildFilename', () => {
 }} | ${'passport - Bernard Chabert - 2022.01.01.pdf'}
     ${{
   qualification: { name: 'passport', label: 'vehicle_registration' },
-  metadata: { vehicle: { licenseNumber: '123456' } },
+  metadata: { 'io.cozy.files': { vehicle: { licenseNumber: '123456' } } },
   contacts: mockOneContact,
   formatedDate: '2022.01.01'
 }} | ${'passport - 123456 - Bernard Chabert - 2022.01.01.pdf'}
@@ -112,7 +112,7 @@ describe('buildFilename', () => {
 }} | ${'passport - Bernard Chabert - 2022.01.01.pdf'}
     ${{
   qualification: { name: 'passport' },
-  metadata: { vehicle: { licenseNumber: '123456' } },
+  metadata: { 'io.cozy.files': { vehicle: { licenseNumber: '123456' } } },
   contacts: mockOneContact,
   formatedDate: '2022.01.01'
 }} | ${'passport - Bernard Chabert - 2022.01.01.pdf'}
