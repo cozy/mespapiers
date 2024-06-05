@@ -301,7 +301,7 @@
         "text": "Saisissez la plaque d'immatriculation du véhicule"
       },
       "confidentialNumber": {
-        "inputLabel": "Code confidentiel",
+        "inputLabel": "code confidentiel de la carte grise",
         "text": "Saisissez le code confidentiel de votre certificat d’immatriculation"
       }
     },
