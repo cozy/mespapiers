@@ -301,7 +301,7 @@
         "text": "Enter the vehicle registration number"
       },
       "confidentialNumber": {
-        "inputLabel": "Confidential code",
+        "inputLabel": "confidential vehicle registration code",
         "text": "Enter the confidential code from your registration certificate"
       }
     },
