@@ -1,6 +1,6 @@
 import get from 'lodash/get'
 import { harmonizeContactsNames } from 'src/components/Papers/helpers'
-import { BILLS_DOCTYPE } from 'src/constants'
+import { BILLS_DOCTYPE, FILES_DOCTYPE } from 'src/constants'
 
 /**
  * @param {object} params
@@ -30,7 +30,7 @@ const buildFilenameWithModel = ({
         case 'featureDate':
           return formatedDate
         default:
-          return get(metadata, el)
+          return get(metadata?.[FILES_DOCTYPE], el)
       }
     })
     .filter(Boolean)
@@ -75,9 +75,9 @@ export const buildFilename = ({
 
   if (
     qualification.label === 'vehicle_registration' &&
-    metadata?.vehicle?.licenseNumber
+    metadata?.[FILES_DOCTYPE]?.vehicle?.licenseNumber
   ) {
-    filename.push(metadata.vehicle.licenseNumber)
+    filename.push(metadata[FILES_DOCTYPE].vehicle.licenseNumber)
   }
 
   if (contactName) filename.push(contactName)
