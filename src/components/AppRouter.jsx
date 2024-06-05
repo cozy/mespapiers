@@ -58,6 +58,10 @@ export const AppRouter = props => {
                     element={<CreatePaperModalWrapper />}
                   />
                   <Route
+                    path="forward/:fileId"
+                    element={<ForwardModalByRoute />}
+                  />
+                  <Route
                     path="multiselect"
                     element={<OutletWrapper Component={MultiselectView} />}
                   >
