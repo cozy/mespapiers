@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react'
 import DeleteConfirm from 'src/components/Actions/DeleteConfirm'
+import withLocales from 'src/locales/withLocales'
 
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -19,19 +20,21 @@ export const trash = ({ t, pushModal, popModal }) => {
       pushModal(
         <DeleteConfirm files={docs} isLast={isLast} onClose={popModal} />
       ),
-    // eslint-disable-next-line react/display-name
-    Component: forwardRef((props, ref) => {
-      return (
-        <ActionsMenuItem {...props} ref={ref}>
-          <ListItemIcon>
-            <Icon icon={icon} color="var(--errorColor)" />
-          </ListItemIcon>
-          <ListItemText
-            primary={label}
-            primaryTypographyProps={{ color: 'error' }}
-          />
-        </ActionsMenuItem>
-      )
-    })
+    Component: withLocales(
+      // eslint-disable-next-line react/display-name
+      forwardRef((props, ref) => {
+        return (
+          <ActionsMenuItem {...props} ref={ref}>
+            <ListItemIcon>
+              <Icon icon={icon} color="var(--errorColor)" />
+            </ListItemIcon>
+            <ListItemText
+              primary={label}
+              primaryTypographyProps={{ color: 'error' }}
+            />
+          </ActionsMenuItem>
+        )
+      })
+    )
   }
 }

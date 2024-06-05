@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import withLocales from 'src/locales/withLocales'
 
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -10,27 +11,29 @@ import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 export const editContact = ({ setShowActionMenu }) => {
   return {
     name: 'editContact',
-    // eslint-disable-next-line react/display-name
-    Component: forwardRef((props, ref) => {
-      const { t } = useI18n()
-      const navigate = useNavigate()
-      const { pathname } = useLocation()
+    Component: withLocales(
+      // eslint-disable-next-line react/display-name
+      forwardRef((props, ref) => {
+        const { t } = useI18n()
+        const navigate = useNavigate()
+        const { pathname } = useLocation()
 
-      return (
-        <ActionsMenuItem
-          {...props}
-          ref={ref}
-          onClick={() => {
-            navigate(`${pathname}/editcontact/${props.docs[0]._id}`)
-            setShowActionMenu && setShowActionMenu(false)
-          }}
-        >
-          <ListItemIcon>
-            <Icon icon="people" />
-          </ListItemIcon>
-          <ListItemText primary={t('action.editContact')} />
-        </ActionsMenuItem>
-      )
-    })
+        return (
+          <ActionsMenuItem
+            {...props}
+            ref={ref}
+            onClick={() => {
+              navigate(`${pathname}/editcontact/${props.docs[0]._id}`)
+              setShowActionMenu && setShowActionMenu(false)
+            }}
+          >
+            <ListItemIcon>
+              <Icon icon="people" />
+            </ListItemIcon>
+            <ListItemText primary={t('action.editContact')} />
+          </ActionsMenuItem>
+        )
+      })
+    )
   }
 }

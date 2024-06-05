@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import withLocales from 'src/locales/withLocales'
 
 import { generateWebLink, useClient } from 'cozy-client'
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
@@ -14,27 +15,29 @@ export const select = ({ hideActionsMenu, addMultiSelectionFile }) => {
       hideActionsMenu && hideActionsMenu()
       docs.length > 0 && addMultiSelectionFile && addMultiSelectionFile(docs[0])
     },
-    // eslint-disable-next-line react/display-name
-    Component: forwardRef((props, ref) => {
-      const { t } = useI18n()
-      const client = useClient()
+    Component: withLocales(
+      // eslint-disable-next-line react/display-name
+      forwardRef((props, ref) => {
+        const { t } = useI18n()
+        const client = useClient()
 
-      const webLink = generateWebLink({
-        slug: 'mespapiers',
-        cozyUrl: client.getStackClient().uri,
-        subDomainType: client.getInstanceOptions().subdomain,
-        pathname: '/',
-        hash: '/multiselect'
+        const webLink = generateWebLink({
+          slug: 'mespapiers',
+          cozyUrl: client.getStackClient().uri,
+          subDomainType: client.getInstanceOptions().subdomain,
+          pathname: '/',
+          hash: '/multiselect'
+        })
+
+        return (
+          <ActionsMenuItem {...props} ref={ref} component="a" href={webLink}>
+            <ListItemIcon>
+              <Icon icon="select-all" />
+            </ListItemIcon>
+            <ListItemText primary={t('action.select')} />
+          </ActionsMenuItem>
+        )
       })
-
-      return (
-        <ActionsMenuItem {...props} ref={ref} component="a" href={webLink}>
-          <ListItemIcon>
-            <Icon icon="select-all" />
-          </ListItemIcon>
-          <ListItemText primary={t('action.select')} />
-        </ActionsMenuItem>
-      )
-    })
+    )
   }
 }

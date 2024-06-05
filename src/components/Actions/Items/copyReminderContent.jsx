@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react'
 import { copyToClipboard } from 'src/helpers/copyToClipboard'
+import withLocales from 'src/locales/withLocales'
 
 import useFetchJSON from 'cozy-client/dist/hooks/useFetchJSON'
 import { isMobile } from 'cozy-device-helper'
@@ -22,23 +23,25 @@ export const copyReminderContent = () => {
 
       await copyToClipboard(data, { t, showAlert })
     },
-    // eslint-disable-next-line react/display-name
-    Component: forwardRef(({ docs, onClick, ...props }, ref) => {
-      const { t } = useI18n()
-      const { data } = useFetchJSON('GET', `/notes/${docs[0]._id}/text`)
+    Component: withLocales(
+      // eslint-disable-next-line react/display-name
+      forwardRef(({ docs, onClick, ...props }, ref) => {
+        const { t } = useI18n()
+        const { data } = useFetchJSON('GET', `/notes/${docs[0]._id}/text`)
 
-      return (
-        <ActionsMenuItem
-          {...props}
-          ref={ref}
-          onClick={() => onClick({ noteContent: data })}
-        >
-          <ListItemIcon>
-            <Icon icon="copy" />
-          </ListItemIcon>
-          <ListItemText primary={t('action.copyReminderContent.text')} />
-        </ActionsMenuItem>
-      )
-    })
+        return (
+          <ActionsMenuItem
+            {...props}
+            ref={ref}
+            onClick={() => onClick({ noteContent: data })}
+          >
+            <ListItemIcon>
+              <Icon icon="copy" />
+            </ListItemIcon>
+            <ListItemText primary={t('action.copyReminderContent.text')} />
+          </ActionsMenuItem>
+        )
+      })
+    )
   }
 }

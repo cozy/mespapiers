@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import withLocales from 'src/locales/withLocales'
 
 import { generateWebLink, useClient } from 'cozy-client'
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
@@ -10,35 +11,37 @@ import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 export const viewInDrive = () => {
   return {
     name: 'viewInDrive',
-    // eslint-disable-next-line react/display-name
-    Component: forwardRef((props, ref) => {
-      const { t } = useI18n()
-      const client = useClient()
+    Component: withLocales(
+      // eslint-disable-next-line react/display-name
+      forwardRef((props, ref) => {
+        const { t } = useI18n()
+        const client = useClient()
 
-      const dirId = props.docs[0].dir_id
+        const dirId = props.docs[0].dir_id
 
-      const webLink = generateWebLink({
-        slug: 'drive',
-        cozyUrl: client.getStackClient().uri,
-        subDomainType: client.getInstanceOptions().subdomain,
-        pathname: '/',
-        hash: `folder/${dirId}`
+        const webLink = generateWebLink({
+          slug: 'drive',
+          cozyUrl: client.getStackClient().uri,
+          subDomainType: client.getInstanceOptions().subdomain,
+          pathname: '/',
+          hash: `folder/${dirId}`
+        })
+
+        return (
+          <ActionsMenuItem
+            {...props}
+            ref={ref}
+            component="a"
+            href={webLink}
+            target="_blank"
+          >
+            <ListItemIcon>
+              <Icon icon="folder" />
+            </ListItemIcon>
+            <ListItemText primary={t('action.viewInDrive')} />
+          </ActionsMenuItem>
+        )
       })
-
-      return (
-        <ActionsMenuItem
-          {...props}
-          ref={ref}
-          component="a"
-          href={webLink}
-          target="_blank"
-        >
-          <ListItemIcon>
-            <Icon icon="folder" />
-          </ListItemIcon>
-          <ListItemText primary={t('action.viewInDrive')} />
-        </ActionsMenuItem>
-      )
-    })
+    )
   }
 }
