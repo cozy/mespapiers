@@ -13,6 +13,20 @@ import LoadMore from 'cozy-ui/transpiled/react/LoadMore'
 import TextField from 'cozy-ui/transpiled/react/TextField'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
+const IGNORED_COUNTRIES_CODE_ALPHA2 = [
+  'BL',
+  'BQ',
+  'EH',
+  'GF',
+  'IO',
+  'MF',
+  'PF',
+  'PM',
+  'RE',
+  'SX',
+  'TF'
+]
+
 const DISPLAYED_OPTION_COUNT = 20
 export const CountryListAdapter = ({
   attrs: { name },
@@ -52,9 +66,9 @@ export const CountryListAdapter = ({
     }))
   }
 
-  const sortedCountries = getAllCountries(lang).sort((a, b) =>
-    a.nationality.localeCompare(b.nationality)
-  )
+  const sortedCountries = getAllCountries(lang)
+    .filter(country => !IGNORED_COUNTRIES_CODE_ALPHA2.includes(country.code2))
+    .sort((a, b) => a.nationality.localeCompare(b.nationality))
   const options = sortedCountries.map(({ nationality, code2 }) => ({
     label: nationality,
     value: code2
