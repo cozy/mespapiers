@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import withLocales from 'src/locales/withLocales'
 
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -29,4 +30,4 @@ const ExtraContent = () => {
   )
 }
 
-export default ExtraContent
+export default withLocales(ExtraContent)

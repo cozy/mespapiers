@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react'
 import { downloadFiles } from 'src/components/Actions/utils'
+import withLocales from 'src/locales/withLocales'
 
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -17,16 +18,18 @@ export const download = ({ t, showAlert }) => {
     disabled: docs => docs.length === 0,
     action: (docs, { client }) =>
       downloadFiles({ client, files: docs, showAlert, t }),
-    // eslint-disable-next-line react/display-name
-    Component: forwardRef((props, ref) => {
-      return (
-        <ActionsMenuItem {...props} ref={ref}>
-          <ListItemIcon>
-            <Icon icon={icon} />
-          </ListItemIcon>
-          <ListItemText primary={label} />
-        </ActionsMenuItem>
-      )
-    })
+    Component: withLocales(
+      // eslint-disable-next-line react/display-name
+      forwardRef((props, ref) => {
+        return (
+          <ActionsMenuItem {...props} ref={ref}>
+            <ListItemIcon>
+              <Icon icon={icon} />
+            </ListItemIcon>
+            <ListItemText primary={label} />
+          </ActionsMenuItem>
+        )
+      })
+    )
   }
 }

@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react'
 import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { findPlaceholderByLabelAndCountry } from 'src/helpers/findPlaceholders'
+import withLocales from 'src/locales/withLocales'
 
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -16,34 +17,37 @@ export const createPaperByQualificationLabel = ({
 }) => {
   return {
     name: 'createPaperByQualificationLabel',
-    // eslint-disable-next-line react/display-name
-    Component: forwardRef((props, ref) => {
-      const { t } = useI18n()
-      const scannerT = useScannerI18n()
-      const { papersDefinitions: paperDefinitionsList } = usePapersDefinitions()
+    Component: withLocales(
+      // eslint-disable-next-line react/display-name
+      forwardRef((props, ref) => {
+        const { t } = useI18n()
+        const scannerT = useScannerI18n()
+        const { papersDefinitions: paperDefinitionsList } =
+          usePapersDefinitions()
 
-      const paperDefinition = findPlaceholderByLabelAndCountry(
-        paperDefinitionsList,
-        qualificationLabel,
-        country
-      )[0]
+        const paperDefinition = findPlaceholderByLabelAndCountry(
+          paperDefinitionsList,
+          qualificationLabel,
+          country
+        )[0]
 
-      return (
-        <ActionsMenuItem
-          {...props}
-          ref={ref}
-          onClick={() => showKonnectorMenuOrRedirect(paperDefinition)}
-        >
-          <ListItemIcon>
-            <Icon icon={paperDefinition.icon} />
-          </ListItemIcon>
-          <ListItemText
-            primary={t('action.createPaperByQualificationLabel', {
-              qualificationLabel: scannerT(`items.${qualificationLabel}`)
-            })}
-          />
-        </ActionsMenuItem>
-      )
-    })
+        return (
+          <ActionsMenuItem
+            {...props}
+            ref={ref}
+            onClick={() => showKonnectorMenuOrRedirect(paperDefinition)}
+          >
+            <ListItemIcon>
+              <Icon icon={paperDefinition.icon} />
+            </ListItemIcon>
+            <ListItemText
+              primary={t('action.createPaperByQualificationLabel', {
+                qualificationLabel: scannerT(`items.${qualificationLabel}`)
+              })}
+            />
+          </ActionsMenuItem>
+        )
+      })
+    )
   }
 }

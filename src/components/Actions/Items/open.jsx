@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import withLocales from 'src/locales/withLocales'
 
 import { generateWebLink, useClient } from 'cozy-client'
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
@@ -10,30 +11,32 @@ import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 export const open = () => {
   return {
     name: 'open',
-    // eslint-disable-next-line react/display-name
-    Component: forwardRef((props, ref) => {
-      const { t } = useI18n()
-      const client = useClient()
+    Component: withLocales(
+      // eslint-disable-next-line react/display-name
+      forwardRef((props, ref) => {
+        const { t } = useI18n()
+        const client = useClient()
 
-      const doc = props.docs[0]
-      const fileId = doc?._id
-      const qualificationLabel = doc?.metadata?.qualification?.label
-      const webLink = generateWebLink({
-        slug: 'mespapiers',
-        cozyUrl: client.getStackClient().uri,
-        subDomainType: client.getInstanceOptions().subdomain,
-        pathname: '/',
-        hash: `/files/${qualificationLabel}/${fileId}`
+        const doc = props.docs[0]
+        const fileId = doc?._id
+        const qualificationLabel = doc?.metadata?.qualification?.label
+        const webLink = generateWebLink({
+          slug: 'mespapiers',
+          cozyUrl: client.getStackClient().uri,
+          subDomainType: client.getInstanceOptions().subdomain,
+          pathname: '/',
+          hash: `/files/${qualificationLabel}/${fileId}`
+        })
+
+        return (
+          <ActionsMenuItem {...props} ref={ref} component="a" href={webLink}>
+            <ListItemIcon>
+              <Icon icon="openwith" />
+            </ListItemIcon>
+            <ListItemText primary={t('action.open')} />
+          </ActionsMenuItem>
+        )
       })
-
-      return (
-        <ActionsMenuItem {...props} ref={ref} component="a" href={webLink}>
-          <ListItemIcon>
-            <Icon icon="openwith" />
-          </ListItemIcon>
-          <ListItemText primary={t('action.open')} />
-        </ActionsMenuItem>
-      )
-    })
+    )
   }
 }

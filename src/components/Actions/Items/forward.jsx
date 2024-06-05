@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import withLocales from 'src/locales/withLocales'
 
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -10,34 +11,36 @@ import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 export const forward = ({ isFileSharingAvailable }) => {
   return {
     name: 'forward',
-    // eslint-disable-next-line react/display-name
-    Component: forwardRef((props, ref) => {
-      const { t } = useI18n()
-      const navigate = useNavigate()
-      const { pathname } = useLocation()
+    Component: withLocales(
+      // eslint-disable-next-line react/display-name
+      forwardRef((props, ref) => {
+        const { t } = useI18n()
+        const navigate = useNavigate()
+        const { pathname } = useLocation()
 
-      return (
-        <ActionsMenuItem
-          {...props}
-          ref={ref}
-          onClick={() => {
-            props.onClick()
-            const fileId = props.docs[0]._id
-            if (isFileSharingAvailable) {
-              navigate(`${pathname}/share`, {
-                state: { fileId }
-              })
-            } else {
-              navigate(`${pathname}/forward/${fileId}`)
-            }
-          }}
-        >
-          <ListItemIcon>
-            <Icon icon="reply" />
-          </ListItemIcon>
-          <ListItemText primary={t('action.forward')} />
-        </ActionsMenuItem>
-      )
-    })
+        return (
+          <ActionsMenuItem
+            {...props}
+            ref={ref}
+            onClick={() => {
+              props.onClick()
+              const fileId = props.docs[0]._id
+              if (isFileSharingAvailable) {
+                navigate(`${pathname}/share`, {
+                  state: { fileId }
+                })
+              } else {
+                navigate(`${pathname}/forward/${fileId}`)
+              }
+            }}
+          >
+            <ListItemIcon>
+              <Icon icon="reply" />
+            </ListItemIcon>
+            <ListItemText primary={t('action.forward')} />
+          </ActionsMenuItem>
+        )
+      })
+    )
   }
 }

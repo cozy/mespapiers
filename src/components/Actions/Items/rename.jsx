@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import withLocales from 'src/locales/withLocales'
 
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -12,18 +13,20 @@ export const rename = () => {
     action: (docs, { setIsRenaming }) => {
       setIsRenaming(true)
     },
-    // eslint-disable-next-line react/display-name
-    Component: forwardRef((props, ref) => {
-      const { t } = useI18n()
+    Component: withLocales(
+      // eslint-disable-next-line react/display-name
+      forwardRef((props, ref) => {
+        const { t } = useI18n()
 
-      return (
-        <ActionsMenuItem {...props} ref={ref}>
-          <ListItemIcon>
-            <Icon icon="rename" />
-          </ListItemIcon>
-          <ListItemText primary={t('action.rename')} />
-        </ActionsMenuItem>
-      )
-    })
+        return (
+          <ActionsMenuItem {...props} ref={ref}>
+            <ListItemIcon>
+              <Icon icon="rename" />
+            </ListItemIcon>
+            <ListItemText primary={t('action.rename')} />
+          </ActionsMenuItem>
+        )
+      })
+    )
   }
 }
