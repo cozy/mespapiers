@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { combinePaths } from 'src/helpers/combinePaths'
 import withLocales from 'src/locales/withLocales'
 
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
@@ -26,11 +27,11 @@ export const forward = ({ isFileSharingAvailable }) => {
               props.onClick()
               const fileId = props.docs[0]._id
               if (isFileSharingAvailable) {
-                navigate(`${pathname}/share`, {
+                navigate(combinePaths(pathname, '/share'), {
                   state: { fileId }
                 })
               } else {
-                navigate(`${pathname}/forward/${fileId}`)
+                navigate(combinePaths(pathname, `/forward/${fileId}`))
               }
             }}
           >
