@@ -161,11 +161,6 @@ export const makeFileFlexsearchProps = ({ doc, scannerT }) => ({
         'qualification.information.title.contractType'
       )
     }),
-    ...(doc.metadata.expirationDate && {
-      'metadata.expirationDate': scannerT(
-        'qualification.date.title.expirationDate'
-      )
-    }),
     ...(doc.metadata.vehicle?.licenseNumber && {
       'metadata.vehicle.licenseNumber': scannerT(
         'qualification.information.title.vehicle.licenseNumber'

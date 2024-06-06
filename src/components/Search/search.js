@@ -16,7 +16,6 @@ const flexsearchIndex = [
   'flexsearchProps:translated:metadata.refTaxIncome', // io.cozy.files
   'flexsearchProps:translated:metadata.netSocialAmount', // io.cozy.files
   'flexsearchProps:translated:metadata.contractType', // io.cozy.files
-  'flexsearchProps:translated:metadata.expirationDate', // io.cozy.files
   'flexsearchProps:translated:metadata.vehicle.licenseNumber', // io.cozy.files
   'flexsearchProps:translated:metadata.vehicle.confidentialNumber', // io.cozy.files
   'flexsearchProps:translated:driverLicense', // io.cozy.files
@@ -39,7 +38,6 @@ const flexsearchIndex = [
   'metadata:bicNumber', // io.cozy.files
   'metadata:refTaxIncome', // io.cozy.files
   'metadata:netSocialAmount', // io.cozy.files
-  'metadata:expirationDate', // io.cozy.files
   'fullname', // io.cozy.contacts
   'name', // io.cozy.files, io.cozy.contacts
   'birthday', // io.cozy.contacts

@@ -65,6 +65,7 @@ export const buildFilesQueryWithQualificationLabel = () => {
     'metadata.country',
     'metadata.datetime',
     'metadata.expirationDate',
+    'metadata.issueDate',
     'metadata.noticePeriod',
     'metadata.qualification.label',
     'metadata.referencedDate',
