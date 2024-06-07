@@ -7,7 +7,7 @@ import {
 import { useClient } from 'cozy-client'
 import { makeActions } from 'cozy-ui/transpiled/react/ActionsMenu/Actions'
 
-const useGeneralActions = ({
+export const useGeneralActions = ({
   setShowGeneralMenu,
   setShowKonnectorMenu,
   redirectPaperCreation
@@ -42,5 +42,3 @@ const useGeneralActions = ({
 
   return actions
 }
-
-export default useGeneralActions
