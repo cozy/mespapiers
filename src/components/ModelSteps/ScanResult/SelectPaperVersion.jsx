@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import CompositeHeaderImage from 'src/components/CompositeHeader/CompositeHeaderImage'
-import { useFormData } from 'src/components/Hooks/useFormData'
+import { useFormData } from 'src/components/Contexts/FormDataProvider'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import {
   getAttributesFromOcr,

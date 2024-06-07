@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
-import { useFormData } from 'src/components/Hooks/useFormData'
+import { useFormData } from 'src/components/Contexts/FormDataProvider'
 import { SingleContactPicker } from 'src/components/ModelSteps/widgets/ContactAdapter/SingleContactPicker'
 import { makeDisplayName } from 'src/components/ModelSteps/widgets/ContactAdapter/helpers'
 import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
