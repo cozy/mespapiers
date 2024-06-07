@@ -25,7 +25,7 @@ import {
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
+export const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
   const webviewIntent = useWebviewIntent()
   const { t, f } = useI18n()
   const { pushModal, popModal } = useModal()
@@ -103,5 +103,3 @@ const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
     ? undefined
     : actions
 }
-
-export default useActions
