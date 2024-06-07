@@ -2,7 +2,7 @@ import { CaptureConsole } from '@sentry/integrations'
 import * as Sentry from '@sentry/react'
 import memoize from 'lodash/memoize'
 import { getValues } from 'src/helpers/bar'
-import { getClient } from 'src/helpers/client'
+import { makeClient } from 'src/targets/browser/makeClient'
 
 import flag from 'cozy-flags'
 import { RealtimePlugin } from 'cozy-realtime'
@@ -17,7 +17,7 @@ const setupApp = memoize(() => {
   const root = document.querySelector('[role=application]')
   const { lang } = getValues(JSON.parse(root.dataset.cozy))
   const polyglot = initTranslation(lang, lang => require(`locales/${lang}`))
-  const client = getClient()
+  const client = makeClient()
   client.registerPlugin(RealtimePlugin)
   client.registerPlugin(flag.plugin)
 

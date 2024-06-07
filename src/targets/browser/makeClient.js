@@ -3,13 +3,13 @@ import schema from 'src/doctypes'
 import CozyClient from 'cozy-client'
 import { Intents } from 'cozy-interapp'
 
-import manifest from '../../manifest.webapp'
+import manifest from '../../../manifest.webapp'
 
 /**
- * Returns cozy client instance
- * @returns {object} cozy client instance
+ * Make and returns cozy client instance
+ * @returns {import('cozy-client/types/CozyClient').default} cozy client instance
  */
-export const getClient = () => {
+export const makeClient = () => {
   const root = document.querySelector('[role=application]')
   const data = JSON.parse(root.dataset.cozy)
   const protocol = window.location.protocol
