@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { generateReturnUrlToNotesIndex } from 'src/components/Papers/helpers'
 import { APPS_DOCTYPE } from 'src/constants'
-import { buildAppRegistryQueryBySlug } from 'src/helpers/queries'
+import { buildAppRegistryQueryBySlug } from 'src/queries'
 
 import { useClient, useQuery } from 'cozy-client'
 import AppIcon from 'cozy-ui/transpiled/react/AppIcon'

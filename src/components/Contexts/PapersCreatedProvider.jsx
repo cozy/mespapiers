@@ -1,5 +1,5 @@
 import React, { useMemo, useContext } from 'react'
-import { buildFilesQueryWithQualificationLabel } from 'src/helpers/queries'
+import { buildFilesQueryWithQualificationLabel } from 'src/queries'
 
 import { isQueryLoading, useQueryAll } from 'cozy-client'
 

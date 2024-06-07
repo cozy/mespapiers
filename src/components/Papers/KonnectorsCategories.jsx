@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import CategoryItemByKonnector from 'src/components/Papers/CategoryItemByKonnector'
 import { makeQualificationLabelsWithoutFiles } from 'src/components/Papers/helpers'
-import { queryAccounts } from 'src/helpers/queries'
+import { queryAccounts } from 'src/queries'
 
 import { useQuery, isQueryLoading, hasQueryBeenLoaded } from 'cozy-client'
 

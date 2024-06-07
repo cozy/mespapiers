@@ -3,7 +3,7 @@ import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { usePapersCreated } from 'src/components/Contexts/PapersCreatedProvider'
 import { SETTINGS_DOCTYPE } from 'src/constants'
-import { getAppSettings } from 'src/helpers/queries'
+import { getAppSettings } from 'src/queries'
 
 import { useClient, Q, useQuery } from 'cozy-client'
 import ClickAwayListener from 'cozy-ui/transpiled/react/ClickAwayListener'

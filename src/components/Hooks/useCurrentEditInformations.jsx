@@ -4,7 +4,7 @@ import {
   getPaperDefinitionByFile,
   makeCurrentStep
 } from 'src/components/ModelSteps/Edit/helpers'
-import { buildFileQueryById } from 'src/helpers/queries'
+import { buildFileQueryById } from 'src/queries'
 
 import { isQueryLoading, useQuery } from 'cozy-client'
 

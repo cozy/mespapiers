@@ -1,5 +1,5 @@
 import { CONTACTS_DOCTYPE } from 'src/constants'
-import { buildContactsQueryByIds } from 'src/helpers/queries'
+import { buildContactsQueryByIds } from 'src/queries'
 
 import { getReferencedBy, useQuery, isQueryLoading } from 'cozy-client'
 

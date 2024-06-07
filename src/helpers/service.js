@@ -3,7 +3,7 @@ import {
   buildAllFilesToNotifyQuery,
   buildTriggerByIdQuery,
   buildTriggerByServiceNameQuery
-} from 'src/helpers/queries'
+} from 'src/queries'
 
 import { models } from 'cozy-client'
 import logService from 'cozy-logger'

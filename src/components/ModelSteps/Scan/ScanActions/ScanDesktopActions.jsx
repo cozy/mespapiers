@@ -5,7 +5,7 @@ import { usePaywall } from 'src/components/Contexts/PaywallProvider'
 import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import ScanDesktopActionsAlert from 'src/components/ModelSteps/Scan/ScanActions/ScanDesktopActionsAlert'
 import { KEYS, SETTINGS_DOCTYPE } from 'src/constants'
-import { getAppSettings } from 'src/helpers/queries'
+import { getAppSettings } from 'src/queries'
 
 import { useClient, useQuery, hasQueryBeenLoaded } from 'cozy-client'
 import flag from 'cozy-flags'
