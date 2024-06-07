@@ -5,7 +5,7 @@ import { useParams, useNavigate, Navigate } from 'react-router-dom'
 import IlluGenericInputDate from 'src/assets/icons/IlluGenericInputDate.svg'
 import IlluGenericInputText from 'src/assets/icons/IlluGenericInputText.svg'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
-import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { useScannerI18n } from 'src/components/Contexts/ScannerI18nProvider'
 import {
   isInformationEditPermitted,
   updateFileMetadata

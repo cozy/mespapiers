@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { useScannerI18n } from 'src/components/Contexts/ScannerI18nProvider'
 import { attrsProptypesOption } from 'src/components/ModelSteps/widgets/proptypes'
 
 import ListItem from 'cozy-ui/transpiled/react/ListItem'

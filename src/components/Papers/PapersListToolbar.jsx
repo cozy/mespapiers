@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
-import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { useScannerI18n } from 'src/components/Contexts/ScannerI18nProvider'
 import { getCurrentQualificationLabel } from 'src/components/Papers/helpers'
 
 import { BarLeft, BarCenter } from 'cozy-bar'

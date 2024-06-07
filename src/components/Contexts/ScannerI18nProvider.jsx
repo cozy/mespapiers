@@ -1,4 +1,4 @@
-import React, { createContext, useMemo, useCallback } from 'react'
+import React, { createContext, useMemo, useCallback, useContext } from 'react'
 
 import { getBoundT } from 'cozy-client/dist/models/document/locales'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
@@ -6,7 +6,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 const ScannerI18nContext = createContext()
 
 const prefix = `Scan`
-const ScannerI18nProvider = ({ children }) => {
+export const ScannerI18nProvider = ({ children }) => {
   const { lang } = useI18n()
   const scannerI18n = useMemo(() => getBoundT(lang || 'fr'), [lang])
 
@@ -22,6 +22,13 @@ const ScannerI18nProvider = ({ children }) => {
   )
 }
 
-export default ScannerI18nContext
+export const useScannerI18n = () => {
+  const scannerT = useContext(ScannerI18nContext)
+  if (!scannerT) {
+    throw new Error(
+      'ScannerI18nContext must be used within a ScannerI18nProvider'
+    )
+  }
 
-export { ScannerI18nProvider }
+  return scannerT
+}
