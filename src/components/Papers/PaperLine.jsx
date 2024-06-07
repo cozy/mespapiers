@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { useState, useRef, memo } from 'react'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
+import { useActions } from 'src/components/Hooks/useActions'
 import PaperItem from 'src/components/Papers/PaperItem'
-import useActions from 'src/components/SearchResult/useActions'
 
 import { splitFilename } from 'cozy-client/dist/models/file'
 import ActionsMenu from 'cozy-ui/transpiled/react/ActionsMenu'
