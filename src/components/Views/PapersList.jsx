@@ -14,7 +14,7 @@ import {
   buildContactsQueryByIds,
   buildFilesQueryByLabel,
   buildKonnectorsQueryByQualificationLabels
-} from 'src/helpers/queries'
+} from 'src/queries'
 
 import { isQueryLoading, useQueryAll, useQuery } from 'cozy-client'
 import { getThemeByItem } from 'cozy-client/dist/models/document/documentTypeDataHelpers'

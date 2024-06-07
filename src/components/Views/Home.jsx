@@ -11,7 +11,7 @@ import {
 import {
   buildFilesQueryWithQualificationLabel,
   buildKonnectorsQueryByQualificationLabels
-} from 'src/helpers/queries'
+} from 'src/queries'
 
 import { isQueryLoading, useQueryAll } from 'cozy-client'
 

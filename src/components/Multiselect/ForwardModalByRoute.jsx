@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import ForwardModal from 'src/components/Multiselect/ForwardModal'
-import { buildFileQueryById } from 'src/helpers/queries'
+import { buildFileQueryById } from 'src/queries'
 
 import { isQueryLoading, useQuery } from 'cozy-client'
 import Backdrop from 'cozy-ui/transpiled/react/Backdrop'

@@ -4,7 +4,7 @@ import ExtraContent from 'src/components/Harvest/CannotConnectModal/ExtraContent
 import {
   buildKonnectorsQueryById,
   buildTriggersQueryByKonnectorSlug
-} from 'src/helpers/queries'
+} from 'src/queries'
 
 import { useQuery } from 'cozy-client'
 import { Routes } from 'cozy-harvest-lib'

@@ -6,7 +6,7 @@ import React, {
   useState
 } from 'react'
 import { computeMaxPapers } from 'src/components/PapersPaywall/helpers'
-import { buildFilesQueryWithQualificationLabel } from 'src/helpers/queries'
+import { buildFilesQueryWithQualificationLabel } from 'src/queries'
 
 import { isQueryLoading, useQueryAll } from 'cozy-client'
 import flag from 'cozy-flags'

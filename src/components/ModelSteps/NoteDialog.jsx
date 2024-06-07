@@ -5,7 +5,7 @@ import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import StepperDialogTitle from 'src/components/StepperDialog/StepperDialogTitle'
 import { FILES_DOCTYPE } from 'src/constants'
 import { addContactReferenceToFile } from 'src/helpers/createPdfAndSave'
-import { buildFileQueryById } from 'src/helpers/queries'
+import { buildFileQueryById } from 'src/queries'
 
 import { useClient } from 'cozy-client'
 import { Qualification } from 'cozy-client/dist/models/document'
