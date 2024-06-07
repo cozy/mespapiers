@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { usePapersCreated } from 'src/components/Contexts/PapersCreatedProvider'
 import { usePaywall } from 'src/components/Contexts/PaywallProvider'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import InstallAppModal from 'src/components/ModelSteps/Scan/InstallAppModal'
 
 import flag from 'cozy-flags'

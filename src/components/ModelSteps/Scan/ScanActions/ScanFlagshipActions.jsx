@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { usePapersCreated } from 'src/components/Contexts/PapersCreatedProvider'
 import { usePaywall } from 'src/components/Contexts/PaywallProvider'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import Divider from 'cozy-ui/transpiled/react/Divider'

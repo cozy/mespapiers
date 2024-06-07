@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import { makeExportedFormDataDataFromBase64 } from 'src/components/ModelSteps/helpers'
 import {
   CREATE_PAPER_DATA_BACKUP_FORM_DATA,

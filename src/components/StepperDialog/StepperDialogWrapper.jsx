@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import ContactDialog from 'src/components/ModelSteps/ContactDialog'
 import InformationDialog from 'src/components/ModelSteps/InformationDialog'
 import NoteDialog from 'src/components/ModelSteps/NoteDialog'

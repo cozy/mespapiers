@@ -4,7 +4,7 @@ import React from 'react'
 import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
 import { useFormData } from 'src/components/Contexts/FormDataProvider'
 import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import ScanWrapper from 'src/components/ModelSteps/Scan/ScanWrapper'
 import AppLike from 'test/components/AppLike'
 

@@ -3,7 +3,7 @@ import { useSearchParams, useNavigate, useParams } from 'react-router-dom'
 import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
 import { useFormData } from 'src/components/Contexts/FormDataProvider'
 import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import {
   getFirstFileFromNative,
   makeFileFromBase64

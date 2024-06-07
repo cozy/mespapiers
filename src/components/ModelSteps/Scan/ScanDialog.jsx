@@ -1,7 +1,7 @@
 import React from 'react'
 import IlluGenericNewPage from 'src/assets/icons/IlluGenericNewPage.svg'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import ScanActionsWrapper from 'src/components/ModelSteps/Scan/ScanActions/ScanActionsWrapper'
 import StepperDialogTitle from 'src/components/StepperDialog/StepperDialogTitle'
 

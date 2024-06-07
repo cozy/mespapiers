@@ -1,4 +1,10 @@
-import React, { createContext, useEffect, useState, useMemo } from 'react'
+import React, {
+  createContext,
+  useEffect,
+  useState,
+  useMemo,
+  useContext
+} from 'react'
 import { useSearchParams, useParams } from 'react-router-dom'
 import { usePapersDefinitions } from 'src/components/Contexts/PapersDefinitionsProvider'
 import { filterSteps } from 'src/helpers/filterSteps'
@@ -12,7 +18,7 @@ import { useWebviewIntent } from 'cozy-intent'
 
 const StepperDialogContext = createContext()
 
-const StepperDialogProvider = ({ children }) => {
+export const StepperDialogProvider = ({ children }) => {
   const [stepperDialogTitle, setStepperDialogTitle] = useState('')
   const [allCurrentSteps, setAllCurrentSteps] = useState([])
   const [currentStepIndex, setCurrentStepIndex] = useState(-1)
@@ -134,6 +140,12 @@ const StepperDialogProvider = ({ children }) => {
   )
 }
 
-export default StepperDialogContext
-
-export { StepperDialogProvider }
+export const useStepperDialog = () => {
+  const stepperDialogContext = useContext(StepperDialogContext)
+  if (!stepperDialogContext) {
+    throw new Error(
+      'useStepperDialog must be used within a StepperDialogProvider'
+    )
+  }
+  return stepperDialogContext
+}
