@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState, useEffect, useContext } from 'react'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import { makeExportedFormDataDataFromBase64 } from 'src/components/ModelSteps/helpers'
 import {
@@ -10,7 +10,7 @@ import { useWebviewIntent, useIsAvailable } from 'cozy-intent'
 
 const FormDataContext = createContext()
 
-const FormDataProvider = ({ children }) => {
+export const FormDataProvider = ({ children }) => {
   const webviewIntent = useWebviewIntent()
   const { isAvailable: isSharedMemoryAvailable } =
     useIsAvailable('sharedMemory')
@@ -120,6 +120,13 @@ const FormDataProvider = ({ children }) => {
   )
 }
 
-export default FormDataContext
-
-export { FormDataProvider }
+/**
+ * @returns {import('../../types').FormDataContext}
+ */
+export const useFormData = () => {
+  const formDataContext = useContext(FormDataContext)
+  if (!formDataContext) {
+    throw new Error('useFormData must be used within a FormDataProvider')
+  }
+  return formDataContext
+}

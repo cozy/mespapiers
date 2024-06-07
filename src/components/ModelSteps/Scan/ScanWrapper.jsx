@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { PaperDefinitionsStepPropTypes } from 'src/PaperDefinitionsPropTypes'
-import { useFormData } from 'src/components/Hooks/useFormData'
+import { useFormData } from 'src/components/Contexts/FormDataProvider'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import ScanDialog from 'src/components/ModelSteps/Scan/ScanDialog'
 import ScanResultDialog from 'src/components/ModelSteps/ScanResult/ScanResultDialog'

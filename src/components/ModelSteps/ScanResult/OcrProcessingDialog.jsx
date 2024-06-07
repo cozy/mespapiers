@@ -2,7 +2,7 @@ import merge from 'lodash/merge'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import OcrProcessingIcon from 'src/assets/images/OcrProcessing.svg'
-import { useFormData } from 'src/components/Hooks/useFormData'
+import { useFormData } from 'src/components/Contexts/FormDataProvider'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import SelectPaperVersion from 'src/components/ModelSteps/ScanResult/SelectPaperVersion'
 import {
