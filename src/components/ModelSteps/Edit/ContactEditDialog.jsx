@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import IlluGenericInputText from 'src/assets/icons/IlluGenericInputText.svg'
 import CompositeHeaderImage from 'src/components/CompositeHeader/CompositeHeaderImage'
-import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { useScannerI18n } from 'src/components/Contexts/ScannerI18nProvider'
 import ContactEditList from 'src/components/ModelSteps/Edit/ContactEditList'
 
 import Button from 'cozy-ui/transpiled/react/Buttons'

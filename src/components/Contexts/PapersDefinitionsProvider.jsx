@@ -5,7 +5,7 @@ import React, {
   useMemo,
   useState
 } from 'react'
-import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { useScannerI18n } from 'src/components/Contexts/ScannerI18nProvider'
 import { buildPapersDefinitions } from 'src/helpers/buildPapersDefinitions'
 import { fetchContentFileToJson } from 'src/helpers/fetchContentFileToJson'
 import { fetchCustomPaperDefinitions } from 'src/helpers/fetchCustomPaperDefinitions'

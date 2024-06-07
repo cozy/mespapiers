@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { useScannerI18n } from 'src/components/Contexts/ScannerI18nProvider'
 import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
 import ConfirmReplaceFile from 'src/components/ModelSteps/widgets/ConfirmReplaceFile'
 import { FILES_DOCTYPE, KEYS } from 'src/constants'

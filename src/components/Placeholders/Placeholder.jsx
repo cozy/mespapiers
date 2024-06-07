@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 import { PaperDefinitionsPropTypes } from 'src/PaperDefinitionsPropTypes'
-import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { useScannerI18n } from 'src/components/Contexts/ScannerI18nProvider'
 import FileIcon from 'src/components/Icons/FileIcon'
 
 import Divider from 'cozy-ui/transpiled/react/Divider'

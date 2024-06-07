@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
+import { useScannerI18n } from 'src/components/Contexts/ScannerI18nProvider'
 import styles from 'src/components/Papers/styles.styl'
 
 import Divider from 'cozy-ui/transpiled/react/Divider'
