@@ -10,7 +10,12 @@ import { useSearch } from 'src/components/Contexts/SearchProvider'
  * @param {import('cozy-client/types/types').Theme[]} params.selectedThemes
  * @returns {import('../../types').SearchResult} Result of the search
  */
-const useSearchResult = ({ papers, contacts, searchValue, selectedThemes }) => {
+export const useSearchResult = ({
+  papers,
+  contacts,
+  searchValue,
+  selectedThemes
+}) => {
   const { search } = useSearch()
   const { isMultiSelectionActive } = useMultiSelection()
   const [searchResult, setSearchResult] = useState({
@@ -60,5 +65,3 @@ const useSearchResult = ({ papers, contacts, searchValue, selectedThemes }) => {
 
   return searchResult
 }
-
-export default useSearchResult
