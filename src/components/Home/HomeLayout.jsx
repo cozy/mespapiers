@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 import React, { useMemo, useState, useEffect } from 'react'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import { usePapersDefinitions } from 'src/components/Contexts/PapersDefinitionsProvider'
+import { useSearch } from 'src/components/Contexts/SearchProvider'
 import ContentFlexsearch from 'src/components/Home/ContentFlexsearch'
 import SearchHeader from 'src/components/Home/SearchHeader'
 import FeaturedPlaceholdersList from 'src/components/Placeholders/FeaturedPlaceholdersList'
-import { useSearch } from 'src/components/Search/SearchProvider'
 import { getFeaturedPlaceholders } from 'src/helpers/findPlaceholders'
 
 const HomeLayout = ({ contacts, papers, konnectors }) => {
