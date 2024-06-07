@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { usePapersCreated } from 'src/components/Contexts/PapersCreatedProvider'
-import useKonnectorsActions from 'src/components/PapersFab/useKonnectorsActions'
+import { useKonnectorsActions } from 'src/components/Hooks/useKonnectorsActions'
 import Placeholder from 'src/components/Placeholders/Placeholder'
 
 import ActionsMenu from 'cozy-ui/transpiled/react/ActionsMenu'

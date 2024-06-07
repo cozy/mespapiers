@@ -5,7 +5,7 @@ import { findPlaceholderByLabelAndCountry } from 'src/helpers/findPlaceholders'
 
 import { makeActions } from 'cozy-ui/transpiled/react/ActionsMenu/Actions'
 
-const useKonnectorsActions = ({
+export const useKonnectorsActions = ({
   placeholder,
   redirectPaperCreation,
   setShowKonnectorMenu
@@ -31,5 +31,3 @@ const useKonnectorsActions = ({
 
   return actions
 }
-
-export default useKonnectorsActions

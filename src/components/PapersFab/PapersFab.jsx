@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useGeneralActions } from 'src/components/Hooks/useGeneralActions'
+import { useKonnectorsActions } from 'src/components/Hooks/useKonnectorsActions'
 import { useScroll } from 'src/components/Hooks/useScroll'
-import useKonnectorsActions from 'src/components/PapersFab/useKonnectorsActions'
 import { isReminder } from 'src/components/Placeholders/helpers'
 import { APPS_DOCTYPE } from 'src/constants'
 
