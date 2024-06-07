@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { makeZipFolder } from 'src/components/Actions/utils'
 import { useFileSharing } from 'src/components/Contexts/FileSharingProvider'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import MultiselectBackdrop from 'src/components/Multiselect/MultiselectBackdrop'
 
 import { useClient } from 'cozy-client'

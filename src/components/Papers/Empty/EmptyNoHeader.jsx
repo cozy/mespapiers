@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useNavigate, useParams, useLocation } from 'react-router-dom'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 import { makeCountrySearchParam } from 'src/components/Papers/Empty/helpers'
 import styles from 'src/components/Papers/Empty/styles.styl'

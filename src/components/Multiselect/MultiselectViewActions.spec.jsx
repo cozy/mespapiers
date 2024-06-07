@@ -7,7 +7,7 @@ import {
   forwardFile,
   makeZipFolder
 } from 'src/components/Actions/utils'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import MultiselectViewActions from 'src/components/Multiselect/MultiselectViewActions'
 import AppLike from 'test/components/AppLike'
 

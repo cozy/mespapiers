@@ -1,5 +1,5 @@
 import React from 'react'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import GhostButton from 'src/components/Multiselect/GhostButton'
 import PaperCardItem from 'src/components/Papers/PaperCardItem'
 

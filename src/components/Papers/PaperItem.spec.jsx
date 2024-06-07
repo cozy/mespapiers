@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { fireEvent, render } from '@testing-library/react'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import PaperItem from 'src/components/Papers/PaperItem'
 import AppLike from 'test/components/AppLike'
 

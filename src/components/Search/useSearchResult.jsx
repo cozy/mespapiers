@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import { useSearch } from 'src/components/Search/SearchProvider'
 
 /**

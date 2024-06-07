@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, Navigate } from 'react-router-dom'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import Empty from 'src/components/Papers/Empty/Empty'
 import PapersListByContact from 'src/components/Papers/PapersListByContact'
 import PapersListToolbar from 'src/components/Papers/PapersListToolbar'

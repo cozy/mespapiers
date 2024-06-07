@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useState, useRef, memo } from 'react'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import PaperItem from 'src/components/Papers/PaperItem'
 import useActions from 'src/components/SearchResult/useActions'
 

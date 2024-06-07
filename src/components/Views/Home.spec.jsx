@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import React from 'react'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import Home from 'src/components/Views/Home'
 import AppLike from 'test/components/AppLike'
 

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import PaperItem from 'src/components/Papers/PaperItem'
 
 import Icon from 'cozy-ui/transpiled/react/Icon'

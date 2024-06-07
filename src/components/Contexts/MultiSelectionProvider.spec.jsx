@@ -2,7 +2,7 @@ import { renderHook, act } from '@testing-library/react-hooks'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { MultiSelectionProvider } from 'src/components/Contexts/MultiSelectionProvider'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 
 import flag from 'cozy-flags'
 

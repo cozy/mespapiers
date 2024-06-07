@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import MultiselectBackdrop from 'src/components/Multiselect/MultiselectBackdrop'
 import useActions from 'src/components/SearchResult/useActions'
 

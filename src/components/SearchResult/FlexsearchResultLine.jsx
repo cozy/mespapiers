@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import { makeFlexsearchResultLineOnClick } from 'src/components/SearchResult/helpers'
 import useActions from 'src/components/SearchResult/useActions'
 

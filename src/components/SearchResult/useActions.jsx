@@ -13,7 +13,7 @@ import {
 } from 'src/components/Actions/Items'
 import { useFileSharing } from 'src/components/Contexts/FileSharingProvider'
 import { useModal } from 'src/components/Contexts/ModalProvider'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 
 import { isFile, isNote } from 'cozy-client/dist/models/file'
 import { useWebviewIntent } from 'cozy-intent'
