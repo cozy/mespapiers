@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { makePapersGroupByQualificationLabel } from 'src/components/Home/helpers'
+import { useSearchResult } from 'src/components/Hooks/useSearchResult'
 import PaperGroup from 'src/components/Papers/PaperGroup'
-import useSearchResult from 'src/components/Search/useSearchResult'
 import FlexsearchResult from 'src/components/SearchResult/FlexsearchResult'
 
 import Empty from 'cozy-ui/transpiled/react/Empty'
