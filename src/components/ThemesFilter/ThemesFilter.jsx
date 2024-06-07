@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useThemeLabel } from 'src/components/ThemesFilter/useThemeLabel'
+import { useThemeLabel } from 'src/components/Hooks/useThemeLabel'
 import { getThemesList } from 'src/helpers/themes'
 
 import CircleButton from 'cozy-ui/transpiled/react/CircleButton'
