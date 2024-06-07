@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
-import { useSearch } from 'src/components/Search/SearchProvider'
+import { useSearch } from 'src/components/Contexts/SearchProvider'
 
 /**
  * @param {Object} params

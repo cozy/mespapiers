@@ -9,7 +9,7 @@ import PapersCreatedProvider from 'src/components/Contexts/PapersCreatedProvider
 import { PapersDefinitionsProvider } from 'src/components/Contexts/PapersDefinitionsProvider'
 import { PaywallProvider } from 'src/components/Contexts/PaywallProvider'
 import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider'
-import SearchProvider from 'src/components/Search/SearchProvider'
+import SearchProvider from 'src/components/Contexts/SearchProvider'
 import { CONTACTS_DOCTYPE, FILES_DOCTYPE } from 'src/constants'
 import enLocale from 'src/locales/en.json'
 
