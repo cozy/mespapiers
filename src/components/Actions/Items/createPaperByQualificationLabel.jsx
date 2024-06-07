@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import { usePapersDefinitions } from 'src/components/Contexts/PapersDefinitionsProvider'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { findPlaceholderByLabelAndCountry } from 'src/helpers/findPlaceholders'
 import withLocales from 'src/locales/withLocales'

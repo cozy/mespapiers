@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
-import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import { usePapersDefinitions } from 'src/components/Contexts/PapersDefinitionsProvider'
 import PapersList from 'src/components/Papers/PapersList'
 import {
   buildFilesByContacts,

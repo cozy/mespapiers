@@ -1,10 +1,10 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { ModalStack } from 'src/components/Contexts/ModalProvider'
+import { usePapersDefinitions } from 'src/components/Contexts/PapersDefinitionsProvider'
 import { usePaywall } from 'src/components/Contexts/PaywallProvider'
 import { AppFabs } from 'src/components/Fabs'
 import Help from 'src/components/Help'
-import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 import PapersPaywall from 'src/components/PapersPaywall/PapersPaywall'
 import {
   CONTACTS_DOCTYPE,

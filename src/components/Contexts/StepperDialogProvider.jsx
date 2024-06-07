@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState, useMemo } from 'react'
 import { useSearchParams, useParams } from 'react-router-dom'
-import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import { usePapersDefinitions } from 'src/components/Contexts/PapersDefinitionsProvider'
 import { filterSteps } from 'src/helpers/filterSteps'
 import { findPlaceholderByLabelAndCountry } from 'src/helpers/findPlaceholders'
 import {
