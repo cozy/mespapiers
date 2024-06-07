@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useFileSharing } from 'src/components/Contexts/FileSharingProvider'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import SelectFileButton from 'src/components/Viewer/SelectFileButton'
 
 import { ForwardButton } from 'cozy-ui/transpiled/react/Viewer'

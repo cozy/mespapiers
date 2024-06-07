@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { getCurrentQualificationLabel } from 'src/components/Papers/helpers'
 

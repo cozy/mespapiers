@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { trashFiles, removeQualification } from 'src/components/Actions/utils'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 
 import { useClient } from 'cozy-client'
 import { getCreatedByApp } from 'cozy-client/dist/models/utils'

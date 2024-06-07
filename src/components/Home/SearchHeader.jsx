@@ -1,8 +1,8 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import FilterButton from 'src/components/Home/FilterButton'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
 import ThemesFilter from 'src/components/ThemesFilter'
 
 import SearchBar from 'cozy-ui/transpiled/react/SearchBar'

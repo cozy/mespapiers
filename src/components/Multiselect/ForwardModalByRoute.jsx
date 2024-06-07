@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import ForwardModal from 'src/components/Multiselect/ForwardModal'
 import { buildFileQueryById } from 'src/helpers/queries'
 

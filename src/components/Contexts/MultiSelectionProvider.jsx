@@ -1,9 +1,9 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState, useEffect, useContext } from 'react'
 import { useLocation } from 'react-router-dom'
 
 const MultiSelectionContext = createContext()
 
-const MultiSelectionProvider = ({ children }) => {
+export const MultiSelectionProvider = ({ children }) => {
   const location = useLocation()
   const isMultiSelectionActive = location.pathname.includes('multiselect')
   const [allMultiSelectionFiles, setAllMultiSelectionFiles] = useState([])
@@ -83,6 +83,13 @@ const MultiSelectionProvider = ({ children }) => {
   )
 }
 
-export default MultiSelectionContext
+export const useMultiSelection = () => {
+  const multiSelection = useContext(MultiSelectionContext)
+  if (!multiSelection) {
+    throw new Error(
+      'MultiSelectionContext must be used within a MultiSelectionProvider'
+    )
+  }
 
-export { MultiSelectionProvider }
+  return multiSelection
+}

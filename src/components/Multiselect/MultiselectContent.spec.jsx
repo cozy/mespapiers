@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import { useMultiSelection } from 'src/components/Hooks/useMultiSelection'
+import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import MultiselectContent from 'src/components/Multiselect/MultiselectContent'
 import AppLike from 'test/components/AppLike'
 
