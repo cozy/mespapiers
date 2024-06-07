@@ -1,9 +1,8 @@
-import React, { createContext, useState, useCallback } from 'react'
-import { useModal } from 'src/components/Hooks/useModal'
+import React, { createContext, useState, useCallback, useContext } from 'react'
 
 const ModalContext = createContext()
 
-const ModalProvider = ({ children }) => {
+export const ModalProvider = ({ children }) => {
   const [modalStack, setModalStack] = useState([])
   const pushModal = useCallback(modal => {
     setModalStack(prev => [...prev, modal])
@@ -20,9 +19,13 @@ const ModalProvider = ({ children }) => {
   )
 }
 
-export default ModalContext
-
-export { ModalProvider }
+export const useModal = () => {
+  const modalContext = useContext(ModalContext)
+  if (!modalContext) {
+    throw new Error('useModal must be used within a ModalProvider')
+  }
+  return modalContext
+}
 
 export const ModalStack = () => {
   const { modalStack } = useModal()
