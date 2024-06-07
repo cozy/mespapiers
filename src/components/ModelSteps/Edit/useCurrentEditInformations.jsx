@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom'
-import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import { usePapersDefinitions } from 'src/components/Contexts/PapersDefinitionsProvider'
 import {
   getPaperDefinitionByFile,
   makeCurrentStep

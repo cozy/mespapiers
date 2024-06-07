@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { useNavigate, useLocation, useSearchParams } from 'react-router-dom'
 import { usePapersCreated } from 'src/components/Contexts/PapersCreatedProvider'
-import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import { usePapersDefinitions } from 'src/components/Contexts/PapersDefinitionsProvider'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import FileIcon from 'src/components/Icons/FileIcon'
 import { KonnectorIcon } from 'src/components/Icons/KonnectorIcon'

@@ -1,4 +1,10 @@
-import React, { createContext, useEffect, useMemo, useState } from 'react'
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState
+} from 'react'
 import { useScannerI18n } from 'src/components/Hooks/useScannerI18n'
 import { buildPapersDefinitions } from 'src/helpers/buildPapersDefinitions'
 import { fetchContentFileToJson } from 'src/helpers/fetchContentFileToJson'
@@ -17,7 +23,7 @@ const log = minilog('PapersDefinitionsProvider')
 
 const PapersDefinitionsContext = createContext()
 
-const PapersDefinitionsProvider = ({ children }) => {
+export const PapersDefinitionsProvider = ({ children }) => {
   const client = useClient()
   const { t } = useI18n()
   const scannerT = useScannerI18n()
@@ -115,6 +121,12 @@ const PapersDefinitionsProvider = ({ children }) => {
   )
 }
 
-export default PapersDefinitionsContext
-
-export { PapersDefinitionsProvider }
+export const usePapersDefinitions = () => {
+  const papersDefinitionsContext = useContext(PapersDefinitionsContext)
+  if (!papersDefinitionsContext) {
+    throw new Error(
+      'usePapersDefinitions must be used within a PapersDefinitionsProvider'
+    )
+  }
+  return papersDefinitionsContext
+}

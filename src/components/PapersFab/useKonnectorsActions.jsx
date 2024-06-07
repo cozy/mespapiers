@@ -1,6 +1,6 @@
 import { useLocation, useParams } from 'react-router-dom'
 import { importAuto, scanPicture } from 'src/components/Actions/Items'
-import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
+import { usePapersDefinitions } from 'src/components/Contexts/PapersDefinitionsProvider'
 import { findPlaceholderByLabelAndCountry } from 'src/helpers/findPlaceholders'
 
 import { makeActions } from 'cozy-ui/transpiled/react/ActionsMenu/Actions'

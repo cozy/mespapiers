@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
+import { usePapersDefinitions } from 'src/components/Contexts/PapersDefinitionsProvider'
 import HomeLayout from 'src/components/Home/HomeLayout'
-import { usePapersDefinitions } from 'src/components/Hooks/usePapersDefinitions'
 import useReferencedContact from 'src/components/Hooks/useReferencedContact'
 import HomeSkeletons from 'src/components/Views/HomeSkeletons'
 import {
