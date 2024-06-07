@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, Navigate } from 'react-router-dom'
+import { useCurrentEditInformations } from 'src/components/Hooks/useCurrentEditInformations'
 import PageEditDesktop from 'src/components/ModelSteps/Edit/PageEdit/PageEditDesktop'
 import PageEditItems from 'src/components/ModelSteps/Edit/PageEdit/PageEditItems'
 import PageEditMobile from 'src/components/ModelSteps/Edit/PageEdit/PageEditMobile'
-import { useCurrentEditInformations } from 'src/components/ModelSteps/Edit/useCurrentEditInformations'
 import { FILES_DOCTYPE } from 'src/constants'
 
 import { useClient } from 'cozy-client'

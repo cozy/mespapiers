@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useParams, useNavigate, Navigate } from 'react-router-dom'
+import { useCurrentEditInformations } from 'src/components/Hooks/useCurrentEditInformations'
 import useReferencedContact from 'src/components/Hooks/useReferencedContact'
 import ContactEditDialog from 'src/components/ModelSteps/Edit/ContactEditDialog'
 import { updateReferencedContact } from 'src/components/ModelSteps/Edit/helpers'
-import { useCurrentEditInformations } from 'src/components/ModelSteps/Edit/useCurrentEditInformations'
 
 import { useClient } from 'cozy-client'
 import Backdrop from 'cozy-ui/transpiled/react/Backdrop'

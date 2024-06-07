@@ -6,12 +6,12 @@ import IlluGenericInputDate from 'src/assets/icons/IlluGenericInputDate.svg'
 import IlluGenericInputText from 'src/assets/icons/IlluGenericInputText.svg'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import { useScannerI18n } from 'src/components/Contexts/ScannerI18nProvider'
+import { useCurrentEditInformations } from 'src/components/Hooks/useCurrentEditInformations'
 import {
   isInformationEditPermitted,
   updateFileMetadata
 } from 'src/components/ModelSteps/Edit/helpers'
 import styles from 'src/components/ModelSteps/Edit/styles.styl'
-import { useCurrentEditInformations } from 'src/components/ModelSteps/Edit/useCurrentEditInformations'
 import { BILLS_DOCTYPE, FILES_DOCTYPE } from 'src/constants'
 import { makeInputsInformationStep } from 'src/helpers/makeInputsInformationStep'
 

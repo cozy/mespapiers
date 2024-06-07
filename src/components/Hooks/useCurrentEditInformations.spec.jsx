@@ -3,7 +3,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { PapersDefinitionsProvider } from 'src/components/Contexts/PapersDefinitionsProvider'
 import { ScannerI18nProvider } from 'src/components/Contexts/ScannerI18nProvider'
-import { useCurrentEditInformations } from 'src/components/ModelSteps/Edit/useCurrentEditInformations'
+import { useCurrentEditInformations } from 'src/components/Hooks/useCurrentEditInformations'
 import enLocale from 'src/locales/en.json'
 
 import { useQuery, isQueryLoading } from 'cozy-client'
