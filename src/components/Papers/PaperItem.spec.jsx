@@ -10,7 +10,10 @@ jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: jest.fn()
 }))
-jest.mock('../Hooks/useMultiSelection')
+jest.mock('src/components/Contexts/MultiSelectionProvider', () => ({
+  ...jest.requireActual('src/components/Contexts/MultiSelectionProvider'),
+  useMultiSelection: jest.fn()
+}))
 const mockFile = {
   _id: 'fileId01',
   name: 'file01.pdf',

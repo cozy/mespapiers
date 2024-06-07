@@ -2,10 +2,14 @@
 import '@testing-library/jest-dom'
 import { render, waitFor } from '@testing-library/react'
 import React from 'react'
-import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
-import { useFormData } from 'src/components/Contexts/FormDataProvider'
-import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
-import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
+import {
+  FormDataProvider,
+  useFormData
+} from 'src/components/Contexts/FormDataProvider'
+import {
+  StepperDialogProvider,
+  useStepperDialog
+} from 'src/components/Contexts/StepperDialogProvider'
 import ContactDialog from 'src/components/ModelSteps/ContactDialog'
 import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import AppLike from 'test/components/AppLike'
@@ -17,20 +21,26 @@ const mockFormData = ({ metadata = {}, data = [], contacts = [] } = {}) => ({
   contacts
 })
 
-jest.mock('../Hooks/useFormData')
-jest.mock('../Hooks/useStepperDialog')
-jest.mock('../../helpers/fetchCurrentUser', () => ({
+jest.mock('src/components/Contexts/FormDataProvider', () => ({
+  ...jest.requireActual('src/components/Contexts/FormDataProvider'),
+  useFormData: jest.fn()
+}))
+jest.mock('src/components/Contexts/StepperDialogProvider', () => ({
+  ...jest.requireActual('src/components/Contexts/StepperDialogProvider'),
+  useStepperDialog: jest.fn()
+}))
+jest.mock('src/helpers/fetchCurrentUser', () => ({
   fetchCurrentUser: jest.fn()
 }))
 // Allow to pass 'isReady' in StepperDialogProvider
-jest.mock('../../helpers/findPlaceholders', () => ({
+jest.mock('src/helpers/findPlaceholders', () => ({
   findPlaceholderByLabelAndCountry: arg => arg
 }))
 /* eslint-disable react/display-name */
-jest.mock('./widgets/ConfirmReplaceFile', () => () => (
+jest.mock('src/components/ModelSteps/widgets/ConfirmReplaceFile', () => () => (
   <div data-testid="ConfirmReplaceFile" />
 ))
-jest.mock('./widgets/SubmitButton', () => () => (
+jest.mock('src/components/ModelSteps/widgets/SubmitButton', () => () => (
   <div data-testid="SubmitButton" />
 ))
 /* eslint-enable react/display-name */

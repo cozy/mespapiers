@@ -1,9 +1,13 @@
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import React from 'react'
-import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
-import { useFormData } from 'src/components/Contexts/FormDataProvider'
-import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
-import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
+import {
+  FormDataProvider,
+  useFormData
+} from 'src/components/Contexts/FormDataProvider'
+import {
+  StepperDialogProvider,
+  useStepperDialog
+} from 'src/components/Contexts/StepperDialogProvider'
 import ScanResultDialog from 'src/components/ModelSteps/ScanResult/ScanResultDialog'
 import { getAttributesFromOcr } from 'src/components/ModelSteps/helpers'
 import { FLAGSHIP_SCAN_TEMP_FILENAME } from 'src/constants'
@@ -20,8 +24,14 @@ const mockFormData = ({ metadata = {}, data = [], contacts = [] } = {}) => ({
   data,
   contacts
 })
-jest.mock('../../Hooks/useStepperDialog')
-jest.mock('../../Hooks/useFormData')
+jest.mock('src/components/Contexts/FormDataProvider', () => ({
+  ...jest.requireActual('src/components/Contexts/FormDataProvider'),
+  useFormData: jest.fn()
+}))
+jest.mock('src/components/Contexts/StepperDialogProvider', () => ({
+  ...jest.requireActual('src/components/Contexts/StepperDialogProvider'),
+  useStepperDialog: jest.fn()
+}))
 jest.mock('../../../helpers/isFlagshipOCRAvailable', () => ({
   ...jest.requireActual('../../../helpers/isFlagshipOCRAvailable'),
   isFlagshipOCRAvailable: jest.fn()

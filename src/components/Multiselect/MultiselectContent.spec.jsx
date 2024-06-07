@@ -12,7 +12,10 @@ jest.mock('cozy-ui/transpiled/react/Empty', () => () => (
   <div data-testid="Empty" />
 ))
 /* eslint-enable react/display-name */
-jest.mock('../Hooks/useMultiSelection')
+jest.mock('src/components/Contexts/MultiSelectionProvider', () => ({
+  ...jest.requireActual('src/components/Contexts/MultiSelectionProvider'),
+  useMultiSelection: jest.fn()
+}))
 
 const setup = ({ allMultiSelectionFiles }) => {
   useMultiSelection.mockReturnValue({ allMultiSelectionFiles })
