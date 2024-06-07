@@ -15,7 +15,10 @@ jest.mock('../ModelSteps/InformationDialog', () => () => (
 jest.mock('../ModelSteps/ContactDialog', () => () => (
   <div data-testid="ContactDialog" />
 ))
-jest.mock('../Hooks/useStepperDialog')
+jest.mock('src/components/Contexts/StepperDialogProvider', () => ({
+  ...jest.requireActual('src/components/Contexts/StepperDialogProvider'),
+  useStepperDialog: jest.fn()
+}))
 /* eslint-enable react/display-name */
 
 const mockAllCurrentSteps = [

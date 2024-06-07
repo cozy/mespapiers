@@ -35,7 +35,10 @@ jest.mock('../Actions/utils', () => ({
   makeZipFolder: jest.fn()
 }))
 /* eslint-enable react/display-name */
-jest.mock('../Hooks/useMultiSelection')
+jest.mock('src/components/Contexts/MultiSelectionProvider', () => ({
+  ...jest.requireActual('src/components/Contexts/MultiSelectionProvider'),
+  useMultiSelection: jest.fn()
+}))
 jest.mock('../../helpers/fetchCurrentUser', () => ({
   fetchCurrentUser: jest.fn(() => ({ displayName: 'Bob' }))
 }))

@@ -25,7 +25,10 @@ jest.mock('../Hooks/useReferencedContact', () => ({
   __esModule: true,
   default: jest.fn(() => ({ contacts: [], isLoadingContacts: false }))
 }))
-jest.mock('../Hooks/useMultiSelection')
+jest.mock('src/components/Contexts/MultiSelectionProvider', () => ({
+  ...jest.requireActual('src/components/Contexts/MultiSelectionProvider'),
+  useMultiSelection: jest.fn()
+}))
 jest.mock('cozy-client/dist/hooks', () => ({
   ...jest.requireActual('cozy-client/dist/hooks'),
   useQueryAll: jest.fn()

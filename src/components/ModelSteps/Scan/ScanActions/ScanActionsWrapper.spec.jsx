@@ -1,10 +1,14 @@
 /* eslint-disable jest/no-focused-tests */
 import { render, waitFor } from '@testing-library/react'
 import React from 'react'
-import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
-import { useFormData } from 'src/components/Contexts/FormDataProvider'
-import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
-import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
+import {
+  FormDataProvider,
+  useFormData
+} from 'src/components/Contexts/FormDataProvider'
+import {
+  StepperDialogProvider,
+  useStepperDialog
+} from 'src/components/Contexts/StepperDialogProvider'
 import ScanWrapper from 'src/components/ModelSteps/Scan/ScanWrapper'
 import AppLike from 'test/components/AppLike'
 
@@ -32,8 +36,14 @@ jest.mock('cozy-device-helper', () => ({
   isMobile: jest.fn(),
   isFlagshipApp: jest.fn()
 }))
-jest.mock('../../../Hooks/useFormData')
-jest.mock('../../../Hooks/useStepperDialog')
+jest.mock('src/components/Contexts/FormDataProvider', () => ({
+  ...jest.requireActual('src/components/Contexts/FormDataProvider'),
+  useFormData: jest.fn()
+}))
+jest.mock('src/components/Contexts/StepperDialogProvider', () => ({
+  ...jest.requireActual('src/components/Contexts/StepperDialogProvider'),
+  useStepperDialog: jest.fn()
+}))
 /* eslint-disable react/display-name */
 jest.mock('../../../CompositeHeader/CompositeHeader', () => () => (
   <div data-testid="CompositeHeader" />
