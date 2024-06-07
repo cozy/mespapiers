@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import CompositeHeader from 'src/components/CompositeHeader/CompositeHeader'
 import CompositeHeaderImage from 'src/components/CompositeHeader/CompositeHeaderImage'
 import { useFormData } from 'src/components/Contexts/FormDataProvider'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import {
   getAttributesFromOcr,
   getDefaultSelectedVersion,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import OcrProcessingIcon from 'src/assets/images/OcrProcessing.svg'
 import { useFormData } from 'src/components/Contexts/FormDataProvider'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import SelectPaperVersion from 'src/components/ModelSteps/ScanResult/SelectPaperVersion'
 import {
   getAttributesFromOcr,

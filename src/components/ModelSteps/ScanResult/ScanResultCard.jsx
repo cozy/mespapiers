@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState, forwardRef } from 'react'
 import { useFormData } from 'src/components/Contexts/FormDataProvider'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import styles from 'src/components/ModelSteps/ScanResult/ScanResultCard.styl'
 import ScanResultCardActions from 'src/components/ModelSteps/ScanResult/ScanResultCardActions'
 import {

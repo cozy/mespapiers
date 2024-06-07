@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
 import React from 'react'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import StepperDialogWrapper from 'src/components/StepperDialog/StepperDialogWrapper'
 import AppLike from 'test/components/AppLike'
 

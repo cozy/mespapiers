@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useScannerI18n } from 'src/components/Contexts/ScannerI18nProvider'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import ConfirmReplaceFile from 'src/components/ModelSteps/widgets/ConfirmReplaceFile'
 import { FILES_DOCTYPE, KEYS } from 'src/constants'
 import { createPdfAndSave } from 'src/helpers/createPdfAndSave'

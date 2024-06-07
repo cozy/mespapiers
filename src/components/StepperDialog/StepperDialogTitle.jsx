@@ -1,6 +1,6 @@
 import React from 'react'
 import { useScannerI18n } from 'src/components/Contexts/ScannerI18nProvider'
-import { useStepperDialog } from 'src/components/Hooks/useStepperDialog'
+import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 
 import Typography from 'cozy-ui/transpiled/react/Typography'
 
