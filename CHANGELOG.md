@@ -1,4 +1,52 @@
+# 3.5.0
+
 # 3.4.0
+
+### ✨ Features
+
+* Add CountryList to another papers ([079025a](https://github.com/cozy/cozy-libs/commit/079025a1fd8f3a5fc7a0b4fd4f4098c1e164e209))
+* Add default value country metadata to specific papers ([cf3f820](https://github.com/cozy/cozy-libs/commit/cf3f820a57cffe0c257b9ddc9afcb559e520e465))
+* Correction of the style of creation steps ([f9eda04](https://github.com/cozy/cozy-libs/commit/f9eda04f9bd0c6670d9fb89c97f9f7dd8a9f2353))
+* Use FixedDialog instead Dialog ([cb69653](https://github.com/cozy/cozy-libs/commit/cb696530ce8ae05a899c0158e6938fe7d6069dcb))
+* Remove search on birthcity ([6d29cea](https://github.com/cozy/cozy-libs/commit/6d29ceac8f4ae3e1b9e44ab35547f9259b1c8271))
+* Add translated BIC number label in search ([2e5bb9c](https://github.com/cozy/cozy-libs/commit/2e5bb9ce8a8cb450c01e26a862b232dfa73480f7))
+* Add search on national health insurance card label ([4ac7677](https://github.com/cozy/cozy-libs/commit/4ac76777f2aa5170d5b7280b58200c2f5ab3b87d))
+* Use default expanded attributes in search result ([eedebf2](https://github.com/cozy/cozy-libs/commit/eedebf217da62e191591a38dd5e0496b3a428113))
+* Add tax certificate paper ([bff2dcb](https://github.com/cozy/cozy-libs/commit/bff2dcb25864eb8c6c1d7f5b6599772d9a4b0e7d))
+* Add OCR for vehicle registration ([d72706f](https://github.com/cozy/cozy-libs/commit/d72706f3c3b91a0d31a34e32ed34f1efa807694c))
+* Adjusting the display of konnectors without files ([cce3d43](https://github.com/cozy/cozy-libs/commit/cce3d433671044f5d26f7cceee9ef5e21536b9d2))
+* Change style home page skeleton ([fdb053b](https://github.com/cozy/cozy-libs/commit/fdb053bb6f1276e7354e6736efbc890f05c09d68))
+* Hide search when there are no files ([d9c5d87](https://github.com/cozy/cozy-libs/commit/d9c5d87e79eae45cd0e6a3100c60127c50dd9887))
+* Konnector UI management without files ([0afdaf7](https://github.com/cozy/cozy-libs/commit/0afdaf7170f2e97cbfa4b119a001dd30eb5fdef4))
+* Remove Onboarding feature ([c2e8b97](https://github.com/cozy/cozy-libs/commit/c2e8b9754dd74940a7d0c17c9f4dcd906737452c))
+* Show Empty also when no konnectors have files ([a7635ff](https://github.com/cozy/cozy-libs/commit/a7635ff4478b92b02d9fd17c805a2d5be5ed8d4b))
+* Redirect when webview killed in 'scanDocument' ([19adb35](https://github.com/cozy/cozy-libs/commit/19adb350797764fe6bf8d790ab3334b1f04f769f))
+* Add possibility to define a specific doctype ([6e315d5](https://github.com/cozy/cozy-libs/commit/6e315d5bc37f622efcd9a1542f6277779336eb47))
+* Go to correct step when webview killed in 'scanDocument' ([7040457](https://github.com/cozy/cozy-libs/commit/704045716f57ead408fdd5181c2c42b2d176a77e))
+* Add support for io.cozy.bills and use it in expense_claim ([ac42025](https://github.com/cozy/cozy-libs/commit/ac42025f43c9f8a1b33e40c2ee6dc6cd59f9e4c4))
+* Add mobile notifications to the expiration service ([83ea8d5](https://github.com/cozy/mespapiers/commit/83ea8d5016c605de108ffb7aff83dd5ab5e056ec))
+* Change the execution time slot for the expiration service ([cbf59e0](https://github.com/cozy/mespapiers/commit/cbf59e02f913af5f7828bc82c30fff48bfdce370))
+* Reverse usage of bills in expense_claim paper ([c1295fc](https://github.com/cozy/mespapiers/commit/c1295fcc5082768e5a7f91e564e66ebf06bd9dc6))
+* Adjust search result ([46c1c96](https://github.com/cozy/mespapiers/commit/46c1c96260993774d99ec09f61134d884453f1a0))
+
+### 🐛 Bug Fixes
+
+* Translate country metadata only if valid ([4512b99](https://github.com/cozy/cozy-libs/commit/4512b997c9f37005a03022d9076d6d719f918004))
+* Bic number wasn't supported well in search ([11a1989](https://github.com/cozy/cozy-libs/commit/11a198966196029018b779b903dd6ec4399ffc65))
+* Ensure country code used for translation is valid ([7faf374](https://github.com/cozy/cozy-libs/commit/7faf3749db7e959b722e4ae1af685895f4fcd3d0))
+* Set default value for formData when editing it ([2d32099](https://github.com/cozy/cozy-libs/commit/2d32099896b52a399f7255dff270bcbb10675e56))
+* When using OCR, save or retrieve metadata in the correct place ([9c84c35](https://github.com/cozy/cozy-libs/commit/9c84c353f13fc22999b2a6ecf23550d63520d431))
+* Support old flagship app in FormDataProvider loadFormBackup ([1e58ad1](https://github.com/cozy/cozy-libs/commit/1e58ad1ec08115aaf9c716309d6f0d0ad99311da))
+* Wait until StepperDialogProvider is ready ([c1e2658](https://github.com/cozy/cozy-libs/commit/c1e2658244a3aabcd8b96c2cce73bf07636bfd39))
+* Stuck when OCR was not activated ([406f682](https://github.com/cozy/cozy-libs/commit/406f682b8e670df569e8a96068b0ea444a324272))
+* Forwarding files not working because docs not forwarded in state ([9bcd94c](https://github.com/cozy/mespapiers/commit/9bcd94c3a2d8e58e3b011205ed696621618e67d7))
+* File name wasn't correct ([8b58363](https://github.com/cozy/mespapiers/commit/8b58363eddea7d01c3d09fc5416a985c0e4d8fdc))
+
+### 🔧 Tech
+
+* Add methods to export and import data from FormDataProvider ([6bfa967](https://github.com/cozy/cozy-libs/commit/6bfa9675d62538cd07b375c03d555f0776e37a08))
+* Add an indexed storage wrapper based on localforage ([a8097f9](https://github.com/cozy/cozy-libs/commit/a8097f936ae519e2ee90dae8e213c6b12b07c84c))
+* Merge all files from cozy-mespapiers-lib to mespapiers app ([13c4c44](https://github.com/cozy/mespapiers/commit/13c4c447604613f6fbf019e612b1fd4409451f11))
 
 # 3.3.5
 
