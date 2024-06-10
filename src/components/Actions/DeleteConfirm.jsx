@@ -32,7 +32,7 @@ const DeleteConfirm = ({ files, isLast, onClose, children }) => {
     }
     onClose()
     if (isLast || isMultiSelectionActive) {
-      navigate('/', { replace: true })
+      navigate('/paper', { replace: true })
     }
   }, [
     clearQualification,

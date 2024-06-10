@@ -32,7 +32,7 @@ const CreatePaperModal = () => {
   }, [fromFlagshipUpload, navigate, webviewIntent])
 
   const onSubmit = () => {
-    navigate(`/files/${qualificationLabel}`)
+    navigate(`/paper/files/${qualificationLabel}`)
   }
 
   useEffect(() => {

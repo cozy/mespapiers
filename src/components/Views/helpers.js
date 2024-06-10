@@ -71,7 +71,7 @@ export const buildURLSearchParamsForInstallKonnectorFromIntent = (
 ) => {
   const paramsObj = {
     // Useful for redirecting on the route(harvest) opening the login modal
-    redirectAfterInstall: `/files/${qualificationLabel}/harvest/`,
+    redirectAfterInstall: `/paper/files/${qualificationLabel}/harvest/`,
     ...(konnectorCriteria.name && {
       slug: konnectorCriteria.name
     }),

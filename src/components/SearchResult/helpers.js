@@ -32,7 +32,7 @@ export const makeFlexsearchResultLineOnClick = ({
       if (isMultiSelectionActive) {
         changeCurrentMultiSelectionFile(doc)
       } else {
-        navigate(`/files/${qualificationLabel}/${doc._id}`, {
+        navigate(`/paper/files/${qualificationLabel}/${doc._id}`, {
           state: navigateState
         })
       }
