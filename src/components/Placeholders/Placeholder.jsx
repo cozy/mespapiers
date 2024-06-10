@@ -23,11 +23,7 @@ const Placeholder = forwardRef(({ placeholder, divider, onClick }, ref) => {
         data-testid="Placeholder-ListItem"
       >
         <ListItemIcon>
-          <InfosBadge
-            badgeContent={
-              <Icon icon="plus" size={10} color="var(--primaryTextColor)" />
-            }
-          >
+          <InfosBadge badgeContent={<Icon icon="plus" size={10} />}>
             <FileIcon icon={placeholder.icon} faded />
           </InfosBadge>
         </ListItemIcon>
