@@ -41,7 +41,7 @@ const ForwardModalByRoute = () => {
       file={file}
       onForward={() =>
         isMultiSelectionActive
-          ? navigate('/', { replace: true })
+          ? navigate('/paper', { replace: true })
           : navigate('..', { replace: true })
       }
       onClose={() => navigate('..', { replace: true })}

@@ -62,7 +62,7 @@ const PapersFab = () => {
 
   const handleClick = () => {
     return generalActions.length === 0
-      ? navigate('/create')
+      ? navigate('/paper/create')
       : setShowGeneralMenu(prev => !prev)
   }
 

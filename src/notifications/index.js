@@ -71,12 +71,12 @@ class ExpirationNotification extends NotificationView {
   }
 
   getExtraAttributes() {
-    let paperLink = ''
+    let paperLink = 'paper'
 
     if (!this.#hasMultipleExpiredFiles) {
       const file = this.filesInfo[0].file
       if (file) {
-        paperLink = `files/${file.metadata.qualification.label}/${file._id}`
+        paperLink = `paper/files/${file.metadata.qualification.label}/${file._id}`
       }
     }
 

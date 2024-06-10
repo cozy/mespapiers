@@ -48,7 +48,7 @@ describe('PapersFabWrapper', () => {
       fireEvent.click(btn)
 
       expect(mockNavigate).toBeCalledTimes(1)
-      expect(mockNavigate).toBeCalledWith('/create')
+      expect(mockNavigate).toBeCalledWith('/paper/create')
     })
   })
 

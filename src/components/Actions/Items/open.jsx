@@ -25,7 +25,7 @@ export const open = () => {
           cozyUrl: client.getStackClient().uri,
           subDomainType: client.getInstanceOptions().subdomain,
           pathname: '/',
-          hash: `/files/${qualificationLabel}/${fileId}`
+          hash: `/paper/files/${qualificationLabel}/${fileId}`
         })
 
         return (

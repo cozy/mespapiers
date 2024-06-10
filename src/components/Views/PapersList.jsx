@@ -28,7 +28,7 @@ const ConditionnalPapersList = props => {
     flag('hide.healthTheme.enabled') &&
     getThemeByItem({ label: params.qualificationLabel })?.label === 'health'
   ) {
-    return <Navigate replace to="/" />
+    return <Navigate replace to="/paper" />
   }
 
   return <PapersList {...props} />
