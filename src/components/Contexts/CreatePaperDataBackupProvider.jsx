@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   CREATE_PAPER_DATA_BACKUP_QUALIFICATION_LABEL,
   getAndRemoveIndexedStorageData
 } from 'src/helpers/indexedStorage'
 
-const CreatePaperDataBackupRoute = () => {
+export const CreatePaperDataBackupProvider = ({ children }) => {
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -22,7 +22,5 @@ const CreatePaperDataBackupRoute = () => {
     restoreCreatePaperDataBackupIfNeeded()
   }, [navigate])
 
-  return <Outlet />
+  return children
 }
-
-export default CreatePaperDataBackupRoute

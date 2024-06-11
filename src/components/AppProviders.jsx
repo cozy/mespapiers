@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { CreatePaperDataBackupProvider } from 'src/components/Contexts/CreatePaperDataBackupProvider'
 import { ErrorProvider } from 'src/components/Contexts/ErrorProvider'
 import FileSharingProvider from 'src/components/Contexts/FileSharingProvider'
 import { ModalProvider } from 'src/components/Contexts/ModalProvider'
@@ -50,25 +51,27 @@ const Providers = ({ client, lang, polyglot, children }) => {
             <CozyTheme>
               <BreakpointsProvider>
                 <BarProvider>
-                  <PapersCreatedProvider>
-                    <AlertProvider>
-                      <PaywallProvider>
-                        <MultiSelectionProvider>
-                          <ScannerI18nProvider>
-                            <FileSharingProvider>
-                              <SearchProvider
-                                doctypes={[FILES_DOCTYPE, CONTACTS_DOCTYPE]}
-                              >
-                                <PapersDefinitionsProvider>
-                                  <ModalProvider>{children}</ModalProvider>
-                                </PapersDefinitionsProvider>
-                              </SearchProvider>
-                            </FileSharingProvider>
-                          </ScannerI18nProvider>
-                        </MultiSelectionProvider>
-                      </PaywallProvider>
-                    </AlertProvider>
-                  </PapersCreatedProvider>
+                  <CreatePaperDataBackupProvider>
+                    <PapersCreatedProvider>
+                      <AlertProvider>
+                        <PaywallProvider>
+                          <MultiSelectionProvider>
+                            <ScannerI18nProvider>
+                              <FileSharingProvider>
+                                <SearchProvider
+                                  doctypes={[FILES_DOCTYPE, CONTACTS_DOCTYPE]}
+                                >
+                                  <PapersDefinitionsProvider>
+                                    <ModalProvider>{children}</ModalProvider>
+                                  </PapersDefinitionsProvider>
+                                </SearchProvider>
+                              </FileSharingProvider>
+                            </ScannerI18nProvider>
+                          </MultiSelectionProvider>
+                        </PaywallProvider>
+                      </AlertProvider>
+                    </PapersCreatedProvider>
+                  </CreatePaperDataBackupProvider>
                 </BarProvider>
               </BreakpointsProvider>
             </CozyTheme>
