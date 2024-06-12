@@ -28,3 +28,12 @@ export const ANDROID_APP_URL =
 export const DEFAULT_MAX_FILES_DISPLAYED = 20
 
 export const FLAGSHIP_SCAN_TEMP_FILENAME = 'flagshipScanTemp.png'
+
+export const TWO_SIDED_FILE_QUALIFICATION_LABELS = [
+  'national_id_card',
+  'driver_license',
+  'residence_permit',
+  'transport_card',
+  'fidelity_card',
+  'library_card'
+]
