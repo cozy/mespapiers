@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   copyReminderContent,
   download,
@@ -33,6 +34,7 @@ export const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
   const { addMultiSelectionFile } = useMultiSelection()
   const [isPrintAvailable, setIsPrintAvailable] = useState(false)
   const { isFileSharingAvailable } = useFileSharing()
+  const navigate = useNavigate()
 
   const hasNoteDoc =
     docs.length > 0 && docs.every(doc => isFile(doc))
@@ -65,6 +67,7 @@ export const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
           ...actionsOptions,
           t,
           f,
+          navigate,
           addMultiSelectionFile,
           pushModal,
           popModal,
@@ -80,6 +83,7 @@ export const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
       isPDFDoc,
       t,
       f,
+      navigate,
       addMultiSelectionFile,
       pushModal,
       popModal,
