@@ -1,8 +1,9 @@
 import React from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLoaderData, useNavigate, useSearchParams } from 'react-router-dom'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
-import ForwardModal from 'src/components/Multiselect/ForwardModal'
-import { buildFileQueryById } from 'src/queries'
+import { ForwardModal } from 'src/components/Multiselect/ForwardModal'
+import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
+import { buildFileQueryByIds } from 'src/queries'
 
 import { isQueryLoading, useQuery } from 'cozy-client'
 import Backdrop from 'cozy-ui/transpiled/react/Backdrop'
@@ -15,13 +16,21 @@ const useStyles = makeStyles({
   }
 })
 
-const ForwardModalByRoute = () => {
-  const { fileId } = useParams()
+export const forwardModalByRouteLoader = async ({ request }, { client }) => {
+  const fileIds = new URL(request.url).searchParams.get('fileIds').split(',')
+  const currentUser = fileIds.length > 1 ? await fetchCurrentUser(client) : null
+  return { currentUser }
+}
+
+export const ForwardModalByRoute = () => {
   const navigate = useNavigate()
+  const { currentUser } = useLoaderData()
+  const [urlSearchParams] = useSearchParams()
   const { isMultiSelectionActive } = useMultiSelection()
+  const fileIds = urlSearchParams.get('fileIds').split(',')
   const classes = useStyles()
 
-  const buildedFilesQuery = buildFileQueryById(fileId)
+  const buildedFilesQuery = buildFileQueryByIds(fileIds)
   const { data: files, ...filesQueryResult } = useQuery(
     buildedFilesQuery.definition,
     buildedFilesQuery.options
@@ -38,7 +47,8 @@ const ForwardModalByRoute = () => {
 
   return (
     <ForwardModal
-      file={files[0]}
+      files={files}
+      currentUser={currentUser}
       onForward={() =>
         isMultiSelectionActive
           ? navigate('/paper', { replace: true })
@@ -48,5 +58,3 @@ const ForwardModalByRoute = () => {
     />
   )
 }
-
-export default ForwardModalByRoute

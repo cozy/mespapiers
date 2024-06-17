@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useFileSharing } from 'src/components/Contexts/FileSharingProvider'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import SelectFileButton from 'src/components/Viewer/SelectFileButton'
@@ -9,7 +9,6 @@ import { ForwardButton } from 'cozy-ui/transpiled/react/Viewer'
 
 const ActionsButtons = ({ file, toolbar }) => {
   const navigate = useNavigate()
-  const { pathname } = useLocation()
   const { isMultiSelectionActive } = useMultiSelection()
   const { isFileSharingAvailable } = useFileSharing()
 
@@ -23,7 +22,10 @@ const ActionsButtons = ({ file, toolbar }) => {
         search: `?fileIds=${fileId}`
       })
     } else {
-      navigate(`${pathname}/forward/${fileId}`)
+      navigate({
+        pathname: 'forward',
+        search: `?fileIds=${fileId}`
+      })
     }
   }
 

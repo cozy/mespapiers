@@ -8,8 +8,8 @@ describe('combinePaths', () => {
     expect(result1).toBe('/files/:id')
 
     const path3 = '/files/:id'
-    const path4 = '/forward/:id'
+    const path4 = '/forward'
     const result2 = combinePaths(path3, path4)
-    expect(result2).toBe('/files/:id/forward/:id')
+    expect(result2).toBe('/files/:id/forward')
   })
 })

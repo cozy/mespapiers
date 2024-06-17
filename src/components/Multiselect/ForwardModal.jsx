@@ -1,41 +1,29 @@
 import addDays from 'date-fns/addDays'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { forwardFile } from 'src/components/Actions/utils'
-import BoxDate from 'src/components/Multiselect/BoxDate'
-import BoxPassword from 'src/components/Multiselect/BoxPassword'
+import { forwardFile, makeZipFolder } from 'src/components/Actions/utils'
+import { ForwardModalContent } from 'src/components/Multiselect/ForwardModalContent'
 import { copyToClipboard } from 'src/helpers/copyToClipboard'
 import { makeTTL } from 'src/helpers/makeTTL'
 
 import { useClient } from 'cozy-client'
-import { isNote } from 'cozy-client/dist/models/file'
 import { getSharingLink } from 'cozy-client/dist/models/sharing'
 import { isMobile } from 'cozy-device-helper'
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import { ConfirmDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
-import { FileImageLoader } from 'cozy-ui/transpiled/react/FileImageLoader'
-import Icon from 'cozy-ui/transpiled/react/Icon'
-import Skeleton from 'cozy-ui/transpiled/react/Skeleton'
-import Typography from 'cozy-ui/transpiled/react/Typography'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-const styles = {
-  image: {
-    maxHeight: 64,
-    maxWidth: 64
-  }
-}
-
 const PASSWORD_MIN_LENGTH = 4
 
-const ForwardModal = ({ onClose, onForward, file }) => {
+export const ForwardModal = ({ onClose, onForward, files, currentUser }) => {
   const client = useClient()
-  const { t } = useI18n()
+  const { t, f } = useI18n()
   const { showAlert } = useAlert()
   const [password, setPassword] = useState('')
   const [selectedDate, setSelectedDate] = useState(addDays(new Date(), 30))
   const [isValidDate, setIsValidDate] = useState(true)
+  const [isBusy, setIsBusy] = useState(false)
   const [isValidPassword, setIsValidPassword] = useState(true)
   const [dateToggle, setDateToggle] = useState(true)
   const [passwordToggle, setPasswordToggle] = useState(false)
@@ -43,40 +31,22 @@ const ForwardModal = ({ onClose, onForward, file }) => {
   const isDesktopOrMobileWithoutShareAPI =
     (isMobile() && !navigator.share) || !isMobile()
 
-  // The .zip is made from 2 or more files, we need this distinction for pluralization
-  const isMultipleFile = file.mime === 'application/zip' ? 2 : 1
+  const isMultipleFile = files.length > 1
 
-  // #region Handle BoxPassword
-  const handlePasswordToggle = val => {
-    setPasswordToggle(val)
-  }
-  const handlePassword = evt => {
-    const value = evt.target.value
-    setPassword(value)
-    setIsValidPassword(
-      value.length === 0 || value.length >= PASSWORD_MIN_LENGTH
-    )
-  }
   const helperTextPassword = !isValidPassword
     ? t('InputTextAdapter.invalidTextMessage', {
         smart_count: PASSWORD_MIN_LENGTH - password.length
       })
     : null
-  // #endregion
 
-  // #region Handle BoxDate
-  const handleDateToggle = val => {
-    if (!val) {
-      setIsValidDate(true)
-    }
-    const defaultValue = val ? addDays(new Date(), 30) : null
-    setSelectedDate(defaultValue)
-    setDateToggle(val)
-  }
   const helperTextDate = t('InputDateAdapter.invalidDateMessage')
-  // #endregion
 
   const handleClick = async () => {
+    let file = files[0]
+    if (isMultipleFile) {
+      setIsBusy(true)
+      file = await makeZipFolder({ client, docs: files, t, f })
+    }
     const ttl = makeTTL(dateToggle && selectedDate)
     if (isDesktopOrMobileWithoutShareAPI) {
       const url = await getSharingLink(client, [file._id], {
@@ -91,13 +61,6 @@ const ForwardModal = ({ onClose, onForward, file }) => {
     }
   }
 
-  const textContent = isDesktopOrMobileWithoutShareAPI
-    ? t('ForwardModal.content.desktop', {
-        smart_count: isMultipleFile
-      })
-    : t('ForwardModal.content.mobile', {
-        smart_count: isMultipleFile
-      })
   const textAction = isDesktopOrMobileWithoutShareAPI
     ? t('ForwardModal.action.desktop')
     : t('ForwardModal.action.mobile')
@@ -108,54 +71,28 @@ const ForwardModal = ({ onClose, onForward, file }) => {
       onClose={onClose}
       data-testid="ForwardModal"
       content={
-        <>
-          <div className="u-ta-center u-mb-1">
-            <FileImageLoader
-              client={client}
-              file={file}
-              linkType="tiny"
-              render={src => {
-                return src ? (
-                  <img src={src} alt="" style={styles.image} />
-                ) : (
-                  <Skeleton variant="rect" animation="wave" />
-                )
-              }}
-              renderFallback={() => (
-                <Icon
-                  icon={isNote(file) ? 'file-type-note' : 'file-type-zip'}
-                  size={64}
-                />
-              )}
-            />
-            <Typography variant="h5" className="u-mv-1">
-              {file.name}
-            </Typography>
-            <Typography>{textContent}</Typography>
-          </div>
-          <BoxDate
-            isValid={setIsValidDate}
-            onChange={setSelectedDate}
-            date={selectedDate}
-            onToggle={handleDateToggle}
-            toggle={dateToggle}
-            helperText={helperTextDate}
-          />
-          <BoxPassword
-            onChange={handlePassword}
-            password={password}
-            onToggle={handlePasswordToggle}
-            toggle={passwordToggle}
-            helperText={helperTextPassword}
-            inputProps={{ minLength: PASSWORD_MIN_LENGTH }}
-          />
-        </>
+        <ForwardModalContent
+          files={files}
+          currentUser={currentUser}
+          setIsValidPassword={setIsValidPassword}
+          setIsValidDate={setIsValidDate}
+          helperTextDate={helperTextDate}
+          helperTextPassword={helperTextPassword}
+          dateToggle={dateToggle}
+          setDateToggle={setDateToggle}
+          passwordToggle={passwordToggle}
+          setPasswordToggle={setPasswordToggle}
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          password={password}
+          setPassword={setPassword}
+        />
       }
       actions={
         <Button
           label={textAction}
           onClick={handleClick}
-          disabled={!isValidDate || !isValidPassword}
+          disabled={!isValidDate || !isValidPassword || isBusy}
         />
       }
     />
@@ -165,7 +102,6 @@ const ForwardModal = ({ onClose, onForward, file }) => {
 ForwardModal.propTypes = {
   onForward: PropTypes.func,
   onClose: PropTypes.func,
-  file: PropTypes.object
+  files: PropTypes.array,
+  currentUser: PropTypes.object
 }
-
-export default ForwardModal
