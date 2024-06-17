@@ -19,7 +19,7 @@ export const useCurrentEditInformations = (fileId, model) => {
   const metadataName = new URLSearchParams(location.search).get('metadata')
 
   const buildedFilesQuery = buildFileQueryById(fileId)
-  const { data: file, ...filesQueryResult } = useQuery(
+  const { data: files, ...filesQueryResult } = useQuery(
     buildedFilesQuery.definition,
     buildedFilesQuery.options
   )
@@ -27,13 +27,14 @@ export const useCurrentEditInformations = (fileId, model) => {
     isQueryLoading(filesQueryResult) || filesQueryResult.hasMore
 
   const paperDef =
-    (!isLoadingFiles && getPaperDefinitionByFile(papersDefinitions, file)) ||
+    (!isLoadingFiles &&
+      getPaperDefinitionByFile(papersDefinitions, files[0])) ||
     null
 
   const currentStep = makeCurrentStep({ paperDef, model, metadataName })
 
   return {
-    file,
+    file: files[0],
     paperDef,
     currentStep,
     searchParams: { metadataName },

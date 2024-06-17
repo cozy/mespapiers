@@ -18,7 +18,7 @@ import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-const ShareBottomSheet = ({ onClose, fileId, docs }) => {
+const ShareBottomSheet = ({ onClose, files }) => {
   const { t, f } = useI18n()
   const navigate = useNavigate()
   const client = useClient()
@@ -26,14 +26,14 @@ const ShareBottomSheet = ({ onClose, fileId, docs }) => {
   const { shareFiles } = useFileSharing()
   const [isBackdropOpen, setIsBackdropOpen] = useState(false)
   const { isMultiSelectionActive } = useMultiSelection()
+  const fileIds = files.map(file => file._id)
 
   const shareAsAttachment = async () => {
-    const idsToShare = fileId ? [fileId] : docs.map(doc => doc._id)
     try {
-      await shareFiles(idsToShare)
+      await shareFiles(fileIds)
       showAlert({
         message: t('ShareBottomSheet.attachmentResponse.success', {
-          smart_count: idsToShare.length
+          smart_count: fileIds.length
         }),
         severity: 'success',
         variant: 'filled'
@@ -57,13 +57,11 @@ const ShareBottomSheet = ({ onClose, fileId, docs }) => {
   const shareByLink = async () => {
     let fileToForward
 
-    if (fileId) {
-      fileToForward = { _id: fileId }
-    } else if (docs.length === 1) {
-      fileToForward = docs[0]
+    if (files.length === 1) {
+      fileToForward = files[0]
     } else {
       setIsBackdropOpen(true)
-      fileToForward = await makeZipFolder({ client, docs, t, f })
+      fileToForward = await makeZipFolder({ client, docs: files, t, f })
       setIsBackdropOpen(false)
     }
 
@@ -100,8 +98,7 @@ const ShareBottomSheet = ({ onClose, fileId, docs }) => {
 
 ShareBottomSheet.propTypes = {
   onClose: PropTypes.func,
-  fileId: PropTypes.string,
-  docs: PropTypes.array
+  fileIds: PropTypes.array
 }
 
 export default ShareBottomSheet

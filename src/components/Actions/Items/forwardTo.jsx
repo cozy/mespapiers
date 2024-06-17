@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react'
 
-import { dehydrate } from 'cozy-client'
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
@@ -23,12 +22,13 @@ export const forwardTo = ({
     label,
     icon,
     disabled: docs => docs.length === 0,
-    action: async (docs, { client }) => {
+    action: docs => {
       if (isFileSharingAvailable) {
-        // Docs hydrated with relationships can't be passed to state
-        // because state does not support functions
-        const dehydratedDocs = docs.map(doc => dehydrate(doc))
-        navigate(`./share`, { state: { docs: dehydratedDocs } })
+        const fileIds = docs.map(doc => doc._id)
+        navigate({
+          pathname: 'share',
+          search: `?fileIds=${fileIds}`
+        })
         return
       }
 
@@ -44,7 +44,7 @@ export const forwardTo = ({
         setIsBackdropOpen(false)
       }
 
-      navigate(`./forward/${fileToForward._id}`)
+      navigate(`forward/${fileToForward._id}`)
     },
     Component:
       // eslint-disable-next-line react/display-name
