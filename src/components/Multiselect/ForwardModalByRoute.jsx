@@ -22,7 +22,7 @@ const ForwardModalByRoute = () => {
   const classes = useStyles()
 
   const buildedFilesQuery = buildFileQueryById(fileId)
-  const { data: file, ...filesQueryResult } = useQuery(
+  const { data: files, ...filesQueryResult } = useQuery(
     buildedFilesQuery.definition,
     buildedFilesQuery.options
   )
@@ -38,7 +38,7 @@ const ForwardModalByRoute = () => {
 
   return (
     <ForwardModal
-      file={file}
+      file={files[0]}
       onForward={() =>
         isMultiSelectionActive
           ? navigate('/paper', { replace: true })

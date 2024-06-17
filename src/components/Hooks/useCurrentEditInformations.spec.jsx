@@ -23,7 +23,7 @@ jest.mock('react-router-dom', () => ({
 }))
 
 const setup = ({ mockedData, searchParams = '', currentEditModel } = {}) => {
-  const { queryDataResult = {}, isLoadingQuery = false } = mockedData || {}
+  const { queryDataResult = [], isLoadingQuery = false } = mockedData || {}
   useQuery.mockReturnValue({
     data: queryDataResult,
     hasMore: isLoadingQuery
@@ -68,7 +68,7 @@ describe('useCurrentEditInformations', () => {
   })
 
   it('should return correct data', () => {
-    const queryDataResult = { metadata: { qualification: { label: 'caf' } } }
+    const queryDataResult = [{ metadata: { qualification: { label: 'caf' } } }]
     const searchParams = 'metadata=issueDate'
     const isLoadingQuery = false
 
@@ -90,7 +90,7 @@ describe('useCurrentEditInformations', () => {
   })
 
   it('should return currentStep to "null" if has no metadata searchParams', () => {
-    const queryDataResult = { metadata: { qualification: { label: 'caf' } } }
+    const queryDataResult = [{ metadata: { qualification: { label: 'caf' } } }]
     const searchParams = ''
     const isLoadingQuery = false
 
@@ -109,7 +109,9 @@ describe('useCurrentEditInformations', () => {
   })
 
   it('should return "paperDef" & "currentStep" to "null" if there is no match in the paperDefinitions file', () => {
-    const queryDataResult = { metadata: { qualification: { label: 'other' } } }
+    const queryDataResult = [
+      { metadata: { qualification: { label: 'other' } } }
+    ]
 
     const searchParams = 'metadata=issueDate'
     const isLoadingQuery = false

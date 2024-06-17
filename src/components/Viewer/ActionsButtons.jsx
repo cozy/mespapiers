@@ -18,8 +18,9 @@ const ActionsButtons = ({ file, toolbar }) => {
   const handleForwardClick = () => {
     const fileId = file._id
     if (isFileSharingAvailable) {
-      navigate(`${pathname}/share`, {
-        state: { fileId }
+      navigate({
+        pathname: 'share',
+        search: `?fileIds=${fileId}`
       })
     } else {
       navigate(`${pathname}/forward/${fileId}`)
