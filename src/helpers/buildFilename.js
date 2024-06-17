@@ -15,16 +15,13 @@ const buildFilenameWithModel = ({
   contactName,
   filename,
   formatedDate,
-  metadata,
-  pageName
+  metadata
 }) => {
   return filenameModel
     .map(el => {
       switch (el) {
         case 'label':
           return filename
-        case 'page':
-          return pageName
         case 'contactName':
           return contactName
         case 'featureDate':
@@ -45,7 +42,6 @@ const buildFilenameWithModel = ({
  * @param {string} params.qualification.label - Label of the paper qualification
  * @param {Array<string>} [params.filenameModel] - Array of key for build filename
  * @param {object} [params.metadata] - Object with data of Information input
- * @param {string} [params.pageName] - Name of page (eg Front)
  * @param {string} [params.formatedDate] - Date already formated
  * @returns {string} Paper name with PDF extension
  */
@@ -54,7 +50,6 @@ export const buildFilename = ({
   qualification,
   filenameModel,
   metadata,
-  pageName,
   formatedDate,
   t
 }) => {
@@ -70,8 +65,6 @@ export const buildFilename = ({
   if (metadata?.[BILLS_DOCTYPE]?.subtype) {
     filename.push(metadata[BILLS_DOCTYPE].subtype)
   }
-
-  if (pageName) filename.push(pageName)
 
   if (
     qualification.label === 'vehicle_registration' &&
@@ -90,8 +83,7 @@ export const buildFilename = ({
       contactName,
       filename: safeFileName,
       formatedDate,
-      metadata,
-      pageName
+      metadata
     })
 
     if (filenameWithModel.length > 0) {

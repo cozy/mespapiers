@@ -19,7 +19,6 @@ import HarvestRoutes from 'src/components/Views/HarvestRoutes'
 import Home from 'src/components/Views/Home'
 import InformationEdit from 'src/components/Views/InformationEdit'
 import MultiselectView from 'src/components/Views/MultiselectView'
-import PageEdit from 'src/components/Views/PageEdit'
 import ConditionnalPapersList from 'src/components/Views/PapersList'
 import PlaceholdersSelector from 'src/components/Views/PlaceholdersSelector'
 
@@ -35,10 +34,6 @@ const fileViewerRoutes = [
   {
     path: 'edit/information',
     element: <InformationEdit />
-  },
-  {
-    path: 'edit/page',
-    element: <PageEdit />
   },
   {
     path: 'edit/contact',

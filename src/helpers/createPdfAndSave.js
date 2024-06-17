@@ -121,29 +121,23 @@ export const createPdfAndSave = async ({
         label,
         name: scannerT(`items.${label}`)
       },
-      pageName: fileMetadata.page
-        ? t(`PapersList.label.${fileMetadata.page}`)
-        : null,
       contacts,
       formatedDate: date,
       t
     })
 
-    // Created metadata for pdf file
-    const fileMetadataWithPage = {
-      ...updatedMetadata[FILES_DOCTYPE],
-      ...(fileMetadata.page && { page: fileMetadata.page })
-    }
-
     // If isn't multipage or the last of multipage, save file
-    if (!isMultiPage || (isMultiPage && idx === data.length - 1)) {
+    if (
+      (!isMultiPage && !fileMetadata.page) ||
+      ((isMultiPage || fileMetadata.page) && idx === data.length - 1)
+    ) {
       const { data: fileCreated } = await uploadFileWithConflictStrategy(
         client,
         pdfBytes,
         {
           name: paperName,
           contentType: 'application/pdf',
-          metadata: fileMetadataWithPage,
+          metadata: updatedMetadata[FILES_DOCTYPE],
           dirId: appFolderID,
           conflictStrategy: 'rename'
         }
@@ -168,11 +162,6 @@ export const createPdfAndSave = async ({
         fileId: fileCreated._id,
         qualificationLabel: label
       })
-    }
-
-    // If isn't multipage & not the last page, create new document of PDFDocument
-    if (!isMultiPage && idx !== data.length - 1) {
-      pdfDoc = await PDFDocument.create()
     }
   }
 
