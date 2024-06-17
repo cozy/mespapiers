@@ -9,7 +9,10 @@ import { AppLayout } from 'src/components/AppLayout'
 import { AppProviders } from 'src/components/AppProviders'
 import InstallAppFromIntent from 'src/components/InstallAppFromIntent/InstallAppFromIntent'
 import InstallKonnectorFromIntent from 'src/components/InstallKonnectorFromIntent/InstallKonnectorFromIntent'
-import ForwardModalByRoute from 'src/components/Multiselect/ForwardModalByRoute'
+import {
+  ForwardModalByRoute,
+  forwardModalByRouteLoader
+} from 'src/components/Multiselect/ForwardModalByRoute'
 import ShareBottomSheetByRoute from 'src/components/Multiselect/ShareBottomSheetByRoute'
 import ContactEdit from 'src/components/Views/ContactEdit'
 import CreatePaperModalWrapper from 'src/components/Views/CreatePaperModal'
@@ -22,10 +25,11 @@ import MultiselectView from 'src/components/Views/MultiselectView'
 import ConditionnalPapersList from 'src/components/Views/PapersList'
 import PlaceholdersSelector from 'src/components/Views/PlaceholdersSelector'
 
-const fileViewerRoutes = [
+const fileViewerRoutes = props => [
   {
-    path: 'forward/:fileId',
-    element: <ForwardModalByRoute />
+    path: 'forward',
+    element: <ForwardModalByRoute />,
+    loader: routerProps => forwardModalByRouteLoader(routerProps, props)
   },
   {
     path: 'share',
@@ -83,16 +87,20 @@ const makeRoutes = props => [
             element: <CreatePaperModalWrapper />
           },
           {
-            path: 'forward/:fileId',
-            element: <ForwardModalByRoute />
+            path: 'forward',
+            element: <ForwardModalByRoute />,
+            loader: routerProps => forwardModalByRouteLoader(routerProps, props)
           },
           {
             path: 'multiselect',
             element: <OutletWrapper Component={MultiselectView} />,
             children: [
               {
-                path: 'forward/:fileId',
-                element: <ForwardModalByRoute />
+                path: 'forward',
+                element: <ForwardModalByRoute />,
+                loader: routerProps => {
+                  return forwardModalByRouteLoader(routerProps, props)
+                }
               },
               {
                 path: 'share',
@@ -101,7 +109,7 @@ const makeRoutes = props => [
               {
                 path: 'view/:fileId',
                 element: <OutletWrapper Component={FilesViewerWithQuery} />,
-                children: fileViewerRoutes
+                children: fileViewerRoutes(props)
               }
             ]
           }
@@ -112,8 +120,9 @@ const makeRoutes = props => [
         element: <OutletWrapper Component={ConditionnalPapersList} />,
         children: [
           {
-            path: 'forward/:fileId',
-            element: <ForwardModalByRoute />
+            path: 'forward',
+            element: <ForwardModalByRoute />,
+            loader: routerProps => forwardModalByRouteLoader(routerProps, props)
           },
           {
             path: 'share',
@@ -142,7 +151,7 @@ const makeRoutes = props => [
           {
             path: ':fileId',
             element: <OutletWrapper Component={FilesViewerWithQuery} />,
-            children: fileViewerRoutes
+            children: fileViewerRoutes(props)
           },
           {
             path: 'harvest/:connectorSlug/*',

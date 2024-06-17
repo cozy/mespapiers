@@ -5,15 +5,7 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 
-import { makeZipFolder } from '../utils'
-
-export const forwardTo = ({
-  t,
-  f,
-  navigate,
-  setIsBackdropOpen,
-  isFileSharingAvailable
-}) => {
+export const forwardTo = ({ t, navigate, isFileSharingAvailable }) => {
   const label = t('action.forwardTo')
   const icon = 'reply'
 
@@ -23,8 +15,8 @@ export const forwardTo = ({
     icon,
     disabled: docs => docs.length === 0,
     action: docs => {
+      const fileIds = docs.map(doc => doc._id)
       if (isFileSharingAvailable) {
-        const fileIds = docs.map(doc => doc._id)
         navigate({
           pathname: 'share',
           search: `?fileIds=${fileIds}`
@@ -32,19 +24,10 @@ export const forwardTo = ({
         return
       }
 
-      let fileToForward
-
-      if (docs.length === 1) {
-        fileToForward = docs[0]
-      } else {
-        setIsBackdropOpen(true)
-
-        fileToForward = await makeZipFolder({ client, docs, t, f })
-
-        setIsBackdropOpen(false)
-      }
-
-      navigate(`forward/${fileToForward._id}`)
+      navigate({
+        pathname: 'forward',
+        search: `?fileIds=${fileIds}`
+      })
     },
     Component:
       // eslint-disable-next-line react/display-name

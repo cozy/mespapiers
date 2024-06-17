@@ -114,33 +114,10 @@ describe('MultiselectViewActions', () => {
       fireEvent.click(forwardBtn)
 
       await waitFor(() => {
-        expect(mockNavigate).toHaveBeenCalledWith('./forward/00')
-      })
-    })
-
-    it('should call "makeZipFolder" when click forward Button if there is more than one files', async () => {
-      const mockNavigate = jest.fn()
-      const mockMakeZipFolder = jest
-        .fn()
-        .mockReturnValue({ _id: '02', type: 'file', name: 'folder.zip' })
-      const mockNavigatorShareFunc = jest.fn()
-      const { getByRole } = setup({
-        allMultiSelectionFiles: [
-          { _id: '00', type: 'file', name: 'File00' },
-          { _id: '01', type: 'file', name: 'File01' }
-        ],
-        mockMakeZipFolder,
-        isMobile: true,
-        mockNavigate,
-        mockNavigatorShareFunc
-      })
-
-      const forwardBtn = getByRole('button', { name: 'Send…' })
-      fireEvent.click(forwardBtn)
-
-      await waitFor(() => {
-        expect(mockMakeZipFolder).toBeCalledTimes(1)
-        expect(mockNavigate).toHaveBeenCalledWith('./forward/02')
+        expect(mockNavigate).toHaveBeenCalledWith({
+          pathname: 'forward',
+          search: '?fileIds=00'
+        })
       })
     })
   })
