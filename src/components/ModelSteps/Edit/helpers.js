@@ -62,12 +62,18 @@ const getCurrentContactStep = currentPaperDef => {
   )
 }
 
+/**
+ * Returns the current step according to the model
+ * @param {Object} param
+ * @param {Object} param.paperDef - The paper definition
+ * @param {String} param.model - The model of the current step
+ * @param {String} param.metadataName - The name of the metadata to update
+ * @returns {Object} - The current step
+ */
 export const makeCurrentStep = ({ paperDef, model, metadataName }) => {
   switch (model) {
     case 'information':
       return makeCurrentInformationStep(paperDef, metadataName)
-    case 'page':
-      return null
     case 'contact':
       return getCurrentContactStep(paperDef)
     default:

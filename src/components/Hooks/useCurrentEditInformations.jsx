@@ -10,7 +10,7 @@ import { isQueryLoading, useQuery } from 'cozy-client'
 
 /**
  * @param {string} fileId
- * @param {'information'|'page'|'contact'} model
+ * @param {'information'|'contact'} model
  * @returns {{ file: IOCozyFile, paperDef: object, currentStep: object, searchParams: { backgroundPath: string, metadataName: string }, isLoading: boolean }}
  */
 export const useCurrentEditInformations = (fileId, model) => {

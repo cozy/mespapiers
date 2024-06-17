@@ -434,10 +434,6 @@
     "accountName": "Account %{name} : %{identifier}",
     "contactMerged": "%{firstGivenName} and %{secondGivenName} %{familyName}",
     "defaultName": "Contact not specified",
-    "label": {
-      "back": "Back side",
-      "front": "Front side"
-    },
     "PapersListByContact": {
       "seeMore": "See more (%{number})"
     },
@@ -488,11 +484,6 @@
       "birthday": "Birthday",
       "address": "Address"
     }
-  },
-  "PageEdit": {
-    "title": "Face of the document",
-    "back": "Back",
-    "front": "Front"
   },
   "Harvest": {
     "cannotConnectModal": {

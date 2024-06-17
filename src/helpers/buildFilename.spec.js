@@ -55,9 +55,8 @@ describe('buildFilename', () => {
   formatedDate: '2022.01.01',
   contacts: [],
   filenameModel: ['labelGivenByUser', 'page'],
-  metadata: { 'io.cozy.files': { labelGivenByUser: 'Mon fichier' } },
-  pageName: 'front'
-}} | ${'Mon fichier - front.pdf'}
+  metadata: { 'io.cozy.files': { labelGivenByUser: 'Mon fichier' } }
+}} | ${'Mon fichier.pdf'}
     ${{
   qualification: { name: 'fidelity_card' },
   formatedDate: '2022.01.01',
@@ -71,9 +70,8 @@ describe('buildFilename', () => {
 }} | ${'passport.pdf'}
     ${{
   qualification: { name: 'passport' },
-  contacts: [],
-  pageName: 'front'
-}} | ${'passport - front.pdf'}
+  contacts: []
+}} | ${'passport.pdf'}
     ${{
   qualification: { name: 'passport' },
   contacts: mockOneContact
@@ -85,15 +83,13 @@ describe('buildFilename', () => {
 }} | ${'passport - 2022.01.01.pdf'}
     ${{
   qualification: { name: 'passport' },
-  pageName: 'front',
   contacts: mockOneContact
-}} | ${'passport - front - Bernard Chabert.pdf'}
+}} | ${'passport - Bernard Chabert.pdf'}
     ${{
   qualification: { name: 'passport' },
-  pageName: 'front',
   contacts: [],
   formatedDate: '2022.01.01'
-}} | ${'passport - front - 2022.01.01.pdf'}
+}} | ${'passport - 2022.01.01.pdf'}
     ${{
   qualification: { name: 'passport' },
   contacts: mockOneContact,
@@ -118,10 +114,9 @@ describe('buildFilename', () => {
 }} | ${'passport - Bernard Chabert - 2022.01.01.pdf'}
     ${{
   qualification: { name: 'passport' },
-  pageName: 'front',
   contacts: mockOneContact,
   formatedDate: '2022.01.01'
-}} | ${'passport - front - Bernard Chabert - 2022.01.01.pdf'}
+}} | ${'passport - Bernard Chabert - 2022.01.01.pdf'}
   `(`should return $result with "$opts" parameters`, ({ opts, result }) => {
     expect(buildFilename(opts)).toEqual(result)
   })

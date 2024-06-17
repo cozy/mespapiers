@@ -32,7 +32,6 @@ const FilesViewer = ({ filesQuery, files, fileId, onClose, onChange }) => {
 
   const editPathByModelProps = {
     information: `#${pathname}/edit/information?metadata=__NAME__`,
-    page: `#${pathname}/edit/page`,
     contact: `#${pathname}/edit/contact`
   }
 
