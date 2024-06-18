@@ -539,7 +539,7 @@
     "action": "Recharger"
   },
   "OcrInfoDialog": {
-    "helpTooltip": "Les informations suivantes ont été renseignées automatiquement à partir de ce qui a pu être détectés sur vos photos. Vérifiez-les et complétez-les si besoin."
+    "helpTooltip": "Les informations suivantes ont été renseignées automatiquement à partir de ce qui a pu être détecté sur vos photos. Vérifiez-les et complétez-les si besoin."
   },
   "OcrProcessingDialog": {
     "title": "Analyse du document en cours",
