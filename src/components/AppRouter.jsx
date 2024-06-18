@@ -7,13 +7,12 @@ import {
 } from 'react-router-dom'
 import { AppLayout } from 'src/components/AppLayout'
 import { AppProviders } from 'src/components/AppProviders'
+import {
+  ForwardByRoute,
+  forwardByRouteLoader
+} from 'src/components/ForwardByRoute/ForwardByRoute'
 import InstallAppFromIntent from 'src/components/InstallAppFromIntent/InstallAppFromIntent'
 import InstallKonnectorFromIntent from 'src/components/InstallKonnectorFromIntent/InstallKonnectorFromIntent'
-import {
-  ForwardModalByRoute,
-  forwardModalByRouteLoader
-} from 'src/components/Multiselect/ForwardModalByRoute'
-import ShareBottomSheetByRoute from 'src/components/Multiselect/ShareBottomSheetByRoute'
 import ContactEdit from 'src/components/Views/ContactEdit'
 import CreatePaperModalWrapper from 'src/components/Views/CreatePaperModal'
 import ErrorBoundary from 'src/components/Views/ErrorBoundary'
@@ -28,12 +27,8 @@ import PlaceholdersSelector from 'src/components/Views/PlaceholdersSelector'
 const fileViewerRoutes = props => [
   {
     path: 'forward',
-    element: <ForwardModalByRoute />,
-    loader: routerProps => forwardModalByRouteLoader(routerProps, props)
-  },
-  {
-    path: 'share',
-    element: <ShareBottomSheetByRoute />
+    element: <ForwardByRoute />,
+    loader: routerProps => forwardByRouteLoader(routerProps, props)
   },
   {
     path: 'edit/information',
@@ -88,8 +83,8 @@ const makeRoutes = props => [
           },
           {
             path: 'forward',
-            element: <ForwardModalByRoute />,
-            loader: routerProps => forwardModalByRouteLoader(routerProps, props)
+            element: <ForwardByRoute />,
+            loader: routerProps => forwardByRouteLoader(routerProps, props)
           },
           {
             path: 'multiselect',
@@ -97,14 +92,10 @@ const makeRoutes = props => [
             children: [
               {
                 path: 'forward',
-                element: <ForwardModalByRoute />,
+                element: <ForwardByRoute />,
                 loader: routerProps => {
-                  return forwardModalByRouteLoader(routerProps, props)
+                  return forwardByRouteLoader(routerProps, props)
                 }
-              },
-              {
-                path: 'share',
-                element: <ShareBottomSheetByRoute />
               },
               {
                 path: 'view/:fileId',
@@ -121,12 +112,8 @@ const makeRoutes = props => [
         children: [
           {
             path: 'forward',
-            element: <ForwardModalByRoute />,
-            loader: routerProps => forwardModalByRouteLoader(routerProps, props)
-          },
-          {
-            path: 'share',
-            element: <ShareBottomSheetByRoute />
+            element: <ForwardByRoute />,
+            loader: routerProps => forwardByRouteLoader(routerProps, props)
           },
           {
             path: 'editcontact/:fileId',
