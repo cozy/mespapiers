@@ -42,7 +42,7 @@ export const CountryListAdapter = ({
     lang,
     formDataValue
   )
-    ? tCountry(`nationalities.${formDataValue}`)
+    ? tCountry(`countries.${formDataValue}`)
     : null
   const [searchValue, setSearchValue] = useState(translatedFormDataValue || '')
   const [displayedOptionCount, setDisplayedOptionCount] = useState(
@@ -68,9 +68,10 @@ export const CountryListAdapter = ({
 
   const sortedCountries = getAllCountries(lang)
     .filter(country => !IGNORED_COUNTRIES_CODE_ALPHA2.includes(country.code2))
-    .sort((a, b) => a.nationality.localeCompare(b.nationality))
-  const options = sortedCountries.map(({ nationality, code2 }) => ({
-    label: nationality,
+    .sort((a, b) => a.name.localeCompare(b.name))
+
+  const options = sortedCountries.map(({ name, code2 }) => ({
+    label: name,
     value: code2
   }))
 
