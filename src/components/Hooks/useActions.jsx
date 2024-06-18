@@ -11,7 +11,6 @@ import {
   open,
   viewInDrive
 } from 'src/components/Actions/Items'
-import { useFileSharing } from 'src/components/Contexts/FileSharingProvider'
 import { useModal } from 'src/components/Contexts/ModalProvider'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 
@@ -32,7 +31,6 @@ export const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
   const { showAlert } = useAlert()
   const { addMultiSelectionFile } = useMultiSelection()
   const [isPrintAvailable, setIsPrintAvailable] = useState(false)
-  const { isFileSharingAvailable } = useFileSharing()
   const navigate = useNavigate()
 
   const hasNoteDoc =
@@ -69,8 +67,7 @@ export const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
           addMultiSelectionFile,
           pushModal,
           popModal,
-          showAlert,
-          isFileSharingAvailable
+          showAlert
         }
       ),
     [
@@ -85,8 +82,7 @@ export const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
       addMultiSelectionFile,
       pushModal,
       popModal,
-      showAlert,
-      isFileSharingAvailable
+      showAlert
     ]
   )
 
