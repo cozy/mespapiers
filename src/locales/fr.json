@@ -266,8 +266,8 @@
       },
       "foreign": {
         "country": {
-          "inputLabel": "Nationalité du bénéficiaire",
-          "text": "Quelle est la nationalité du bénéficiaire ?"
+          "inputLabel": "Pays émetteur du document",
+          "text": "Quel est le pays émetteur du document ?"
         },
         "obtentionDate": {
           "inputLabel": "Date d'obtention",
@@ -351,8 +351,8 @@
       },
       "information": {
         "country": {
-          "inputLabel": "Nationalité du bénéficiaire",
-          "text": "Quelle est la Nationalité du bénéficiaire ?"
+          "inputLabel": "Pays émetteur du document",
+          "text": "Quel est le pays émetteur du document ?"
         },
         "number": {
           "inputLabel": "Numéro du passeport",
@@ -367,8 +367,8 @@
     "residence_permit": {
       "information": {
         "country": {
-          "inputLabel": "Nationalité du bénéficiaire",
-          "text": "Quelle est la Nationalité du bénéficiaire ?"
+          "inputLabel": "Pays émetteur du document",
+          "text": "Quel est le pays émetteur du document ?"
         }
       }
     },

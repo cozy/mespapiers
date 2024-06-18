@@ -266,8 +266,8 @@
       },
       "foreign": {
         "country": {
-          "inputLabel": "Beneficiary nationality",
-          "text": "What is the Nationality of the beneficiary?"
+          "inputLabel": "Document issuing country",
+          "text": "Which country issues the document?"
         },
         "obtentionDate": {
           "inputLabel": "Date of obtaining",
@@ -351,8 +351,8 @@
       },
       "information": {
         "country": {
-          "inputLabel": "Beneficiary nationality",
-          "text": "What is the Nationality of the beneficiary?"
+          "inputLabel": "Document issuing country",
+          "text": "Which country issues the document?"
         },
         "number": {
           "inputLabel": "Passport number",
@@ -367,8 +367,8 @@
     "residence_permit": {
       "information": {
         "country": {
-          "inputLabel": "Beneficiary nationality",
-          "text": "What is the Nationality of the beneficiary?"
+          "inputLabel": "Document issuing country",
+          "text": "Which country issues the document?"
         }
       }
     },
