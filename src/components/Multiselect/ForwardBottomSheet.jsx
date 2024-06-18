@@ -15,7 +15,7 @@ import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-export const ShareBottomSheet = ({ onClose, files, shareByLink }) => {
+export const ForwardBottomSheet = ({ onClose, files, shareByLink }) => {
   const { t } = useI18n()
   const navigate = useNavigate()
   const { showAlert } = useAlert()
@@ -71,7 +71,7 @@ export const ShareBottomSheet = ({ onClose, files, shareByLink }) => {
   )
 }
 
-ShareBottomSheet.propTypes = {
+ForwardBottomSheet.propTypes = {
   onClose: PropTypes.func,
   files: PropTypes.array
 }

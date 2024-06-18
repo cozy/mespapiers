@@ -2,8 +2,8 @@ import React, { useReducer } from 'react'
 import { useLoaderData, useNavigate, useSearchParams } from 'react-router-dom'
 import { useFileSharing } from 'src/components/Contexts/FileSharingProvider'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
+import { ForwardBottomSheet } from 'src/components/Multiselect/ForwardBottomSheet'
 import { ForwardModal } from 'src/components/Multiselect/ForwardModal'
-import { ShareBottomSheet } from 'src/components/Multiselect/ShareBottomSheet'
 import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import { buildFileQueryByIds } from 'src/queries'
 
@@ -61,7 +61,7 @@ export const ForwardByRoute = () => {
 
   if (isFileSharingAvailable && openBottomSheet) {
     return (
-      <ShareBottomSheet
+      <ForwardBottomSheet
         onClose={handleClose}
         shareByLink={toggleBottomSheet}
         currentUser={currentUser}
