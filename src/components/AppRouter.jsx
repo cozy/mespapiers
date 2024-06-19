@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Navigate,
   Outlet,
@@ -24,6 +24,10 @@ import InformationEdit from 'src/components/Views/InformationEdit'
 import MultiselectView from 'src/components/Views/MultiselectView'
 import ConditionnalPapersList from 'src/components/Views/PapersList'
 import PlaceholdersSelector from 'src/components/Views/PlaceholdersSelector'
+import { makeClient } from 'src/targets/browser/makeClient'
+
+import { isFlagshipApp } from 'cozy-device-helper'
+import { useWebviewIntent, WebviewIntentProvider } from 'cozy-intent'
 
 const fileViewerRoutes = props => [
   {
@@ -165,7 +169,32 @@ const makeRoutes = props => [
 ]
 
 export const AppRouter = props => {
-  const router = createHashRouter(makeRoutes(props))
+  return (
+    <WebviewIntentProvider>
+      <AppSubRouter {...props} />
+    </WebviewIntentProvider>
+  )
+}
+
+export const AppSubRouter = props => {
+  const webviewIntent = useWebviewIntent()
+  const [client, setClient] = useState(undefined)
+
+  useEffect(() => {
+    if (isFlagshipApp() && !webviewIntent) return
+
+    const client = makeClient(webviewIntent)
+
+    setClient(client)
+  }, [webviewIntent])
+
+  if (!client) {
+    return null
+  }
+
+  const propsWithClient = { ...props, client }
+
+  const router = createHashRouter(makeRoutes(propsWithClient))
 
   return <RouterProvider router={router} />
 }
