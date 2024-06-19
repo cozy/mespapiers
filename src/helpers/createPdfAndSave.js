@@ -61,7 +61,8 @@ export const updateMetadata = ({
       qualification: {
         ...qualification
       },
-      datetime: metadata[FILES_DOCTYPE].featureDate ?? pdfDoc.getCreationDate(),
+      datetime:
+        metadata[FILES_DOCTYPE]?.featureDate ?? pdfDoc.getCreationDate(),
       datetimeLabel: featureDate || 'datetime'
     }
   }
