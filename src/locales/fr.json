@@ -297,8 +297,8 @@
         "text": "Saisissez le Numéro d'identification du véhicule (VIN)"
       },
       "licenseNumber": {
-        "inputLabel": "Num. d'immat. de votre carte grise",
-        "text": "Saisissez la plaque d'immatriculation du véhicule"
+        "inputLabel": "Num. d'immat. de votre véhicule",
+        "text": "Saisissez le numéro d'immatriculation du véhicule"
       },
       "confidentialNumber": {
         "inputLabel": "Code confidentiel de la carte grise",
