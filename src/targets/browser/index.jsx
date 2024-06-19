@@ -10,10 +10,16 @@ import 'src/styles/index.styl'
 import setupApp from 'src/targets/browser/setupApp'
 import { register as registerServiceWorker } from 'src/targets/browser/serviceWorkerRegistration'
 import { AppRouter } from 'src/components/AppRouter'
+import { AppProviders } from 'src/components/AppProviders'
 
 const init = () => {
   const { root, ...rest } = setupApp()
-  render(<AppRouter {...rest} />, root)
+  render(
+    <AppProviders {...rest}>
+      <AppRouter {...rest} />
+    </AppProviders>,
+    root
+  )
 }
 
 registerServiceWorker()
