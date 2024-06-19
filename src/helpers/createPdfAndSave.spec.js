@@ -92,6 +92,21 @@ describe('addCountryValueByQualification', () => {
 })
 
 describe('updateMetadata', () => {
+  it('should works without metadata', () => {
+    const result = updateMetadata({
+      metadata: {},
+      qualification: { label: 'birth_certificate' },
+      pdfDoc: mockPDFDocument
+    })
+
+    expect(result).toEqual({
+      [FILES_DOCTYPE]: {
+        qualification: { label: 'birth_certificate' },
+        datetime: 'mockDate',
+        datetimeLabel: 'datetime'
+      }
+    })
+  })
   it('should return metadata with other keys', () => {
     const result = updateMetadata({
       metadata: { [FILES_DOCTYPE]: { name: 'name' } },
