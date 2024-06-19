@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
-import { CreatePaperDataBackupProvider } from 'src/components/Contexts/CreatePaperDataBackupProvider'
 import { ErrorProvider } from 'src/components/Contexts/ErrorProvider'
 import FileSharingProvider from 'src/components/Contexts/FileSharingProvider'
 import { ModalProvider } from 'src/components/Contexts/ModalProvider'
-import { MultiSelectionProvider } from 'src/components/Contexts/MultiSelectionProvider'
 import PapersCreatedProvider from 'src/components/Contexts/PapersCreatedProvider'
 import { PapersDefinitionsProvider } from 'src/components/Contexts/PapersDefinitionsProvider'
 import { PaywallProvider } from 'src/components/Contexts/PaywallProvider'
@@ -51,27 +49,23 @@ const Providers = ({ client, lang, polyglot, children }) => {
             <CozyTheme>
               <BreakpointsProvider>
                 <BarProvider>
-                  <CreatePaperDataBackupProvider>
-                    <PapersCreatedProvider>
-                      <AlertProvider>
-                        <PaywallProvider>
-                          <MultiSelectionProvider>
-                            <ScannerI18nProvider>
-                              <FileSharingProvider>
-                                <SearchProvider
-                                  doctypes={[FILES_DOCTYPE, CONTACTS_DOCTYPE]}
-                                >
-                                  <PapersDefinitionsProvider>
-                                    <ModalProvider>{children}</ModalProvider>
-                                  </PapersDefinitionsProvider>
-                                </SearchProvider>
-                              </FileSharingProvider>
-                            </ScannerI18nProvider>
-                          </MultiSelectionProvider>
-                        </PaywallProvider>
-                      </AlertProvider>
-                    </PapersCreatedProvider>
-                  </CreatePaperDataBackupProvider>
+                  <PapersCreatedProvider>
+                    <AlertProvider>
+                      <PaywallProvider>
+                        <ScannerI18nProvider>
+                          <FileSharingProvider>
+                            <SearchProvider
+                              doctypes={[FILES_DOCTYPE, CONTACTS_DOCTYPE]}
+                            >
+                              <PapersDefinitionsProvider>
+                                <ModalProvider>{children}</ModalProvider>
+                              </PapersDefinitionsProvider>
+                            </SearchProvider>
+                          </FileSharingProvider>
+                        </ScannerI18nProvider>
+                      </PaywallProvider>
+                    </AlertProvider>
+                  </PapersCreatedProvider>
                 </BarProvider>
               </BreakpointsProvider>
             </CozyTheme>

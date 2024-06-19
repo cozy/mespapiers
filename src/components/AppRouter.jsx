@@ -6,7 +6,8 @@ import {
   createHashRouter
 } from 'react-router-dom'
 import { AppLayout } from 'src/components/AppLayout'
-import { AppProviders } from 'src/components/AppProviders'
+import { CreatePaperDataBackupProvider } from 'src/components/Contexts/CreatePaperDataBackupProvider'
+import { MultiSelectionProvider } from 'src/components/Contexts/MultiSelectionProvider'
 import {
   ForwardByRoute,
   forwardByRouteLoader
@@ -51,9 +52,11 @@ const makeRoutes = props => [
   {
     path: 'paper',
     element: (
-      <AppProviders {...props}>
-        <AppLayout />
-      </AppProviders>
+      <CreatePaperDataBackupProvider>
+        <MultiSelectionProvider>
+          <AppLayout />
+        </MultiSelectionProvider>
+      </CreatePaperDataBackupProvider>
     ),
     errorElement: <ErrorBoundary />,
     children: [
