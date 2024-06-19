@@ -9,6 +9,10 @@ import {
 } from 'src/constants'
 
 import { Q, fetchPolicies } from 'cozy-client'
+import {
+  KNOWN_DATE_METADATA_NAMES,
+  KNOWN_INFORMATION_METADATA_NAMES
+} from 'cozy-client/dist/models/paper'
 
 const defaultFetchPolicy = fetchPolicies.olderThan(86_400_000) // 24 hours
 
@@ -62,20 +66,10 @@ export const buildFilesQueryWithQualificationLabel = () => {
     'name',
     'mime',
     'referenced_by',
-    'metadata.country',
-    'metadata.datetime',
-    'metadata.expirationDate',
-    'metadata.issueDate',
+    ...KNOWN_DATE_METADATA_NAMES.map(x => `metadata.${x}`),
+    ...KNOWN_INFORMATION_METADATA_NAMES.map(x => `metadata.${x}`),
     'metadata.noticePeriod',
     'metadata.qualification.label',
-    'metadata.referencedDate',
-    'metadata.number',
-    'metadata.vehicle.licenseNumber',
-    'metadata.vehicle.confidentialNumber',
-    'metadata.bicNumber',
-    'metadata.contractType',
-    'metadata.refTaxIncome',
-    'metadata.netSocialAmount',
     'metadata.title',
     'metadata.version',
     'cozyMetadata.createdByApp',
