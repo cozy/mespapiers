@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Navigate,
   Outlet,
@@ -22,6 +22,9 @@ import MultiselectView from 'src/components/Views/MultiselectView'
 import PageEdit from 'src/components/Views/PageEdit'
 import ConditionnalPapersList from 'src/components/Views/PapersList'
 import PlaceholdersSelector from 'src/components/Views/PlaceholdersSelector'
+import { useWebviewIntent, WebviewIntentProvider } from 'cozy-intent'
+import { isFlagshipApp } from 'cozy-device-helper'
+import { makeClient } from 'src/targets/browser/makeClient'
 
 const fileViewerRoutes = [
   {
@@ -164,6 +167,37 @@ const makeRoutes = props => [
 ]
 
 export const AppRouter = props => {
-  const router = createHashRouter(makeRoutes(props))
+  console.log('🌈 AppRouter')
+  return (
+    <WebviewIntentProvider>
+      <AppSubRouter {...props} />
+    </WebviewIntentProvider>
+  )
+}
+
+export const AppSubRouter = props => {
+  console.log('🌈 AppSubRouter')
+  const webviewIntent = useWebviewIntent()
+  const [client, setClient] = useState(undefined)
+
+  useEffect(() => {
+    console.log('🌈 AppSubRouter useEffect')
+    console.log('🟢 webviewIntent', webviewIntent)
+    if (isFlagshipApp() && !webviewIntent) return
+
+    const client = makeClient(webviewIntent)
+
+    setClient(client)
+  }, [webviewIntent])
+
+  if (!client) {
+    console.log('🌈 AppSubRouter !client')
+    return null
+  }
+  console.log('🌈 AppSubRouter client')
+
+  const propsWithClient = { ...props, client }
+
+  const router = createHashRouter(makeRoutes(propsWithClient))
   return <RouterProvider router={router} />
 }

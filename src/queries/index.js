@@ -110,9 +110,47 @@ export const buildFilesQueryWithQualificationLabel = () => {
 }
 
 export const buildFilesQueryByLabel = label => ({
+  // definition: () =>
+  //   Q(FILES_DOCTYPE)
+  //     .where({
+  //       'metadata.qualification': {
+  //         label: label
+  //       }
+  //     })
+  //     .partialIndex({
+  //       type: 'file',
+  //       trashed: false,
+  //       'cozyMetadata.createdByApp': { $exists: true }
+  //     })
+  //     .indexFields(['created_at', 'metadata.qualification'])
+  //     .sortBy([{ created_at: 'desc' }]),
+  //*
   definition: () =>
     Q(FILES_DOCTYPE)
       .where({
+        created_at: {
+          $gt: null
+        },
+        'metadata.qualification.label': label
+      })
+      .partialIndex({
+        type: 'file',
+        trashed: false,
+        'cozyMetadata.createdByApp': { $exists: true }
+      })
+      .indexFields(['created_at', 'metadata.qualification.label'])
+      .sortBy([
+        { created_at: 'desc' }
+        // { 'metadata.qualification.label': 'desc' }
+      ]),
+  /*/
+  definition: () =>
+    Q(FILES_DOCTYPE)
+      .where({
+        // created_at: {
+        //   $gt: null
+        // },
+        // 'metadata.qualification.label': label
         'metadata.qualification': {
           label: label
         }
@@ -123,7 +161,11 @@ export const buildFilesQueryByLabel = label => ({
         'cozyMetadata.createdByApp': { $exists: true }
       })
       .indexFields(['created_at', 'metadata.qualification'])
-      .sortBy([{ created_at: 'desc' }]),
+      .sortBy([
+        { created_at: 'desc' },
+        { 'metadata.qualification': 'desc' }
+      ]),
+  //*/
   options: {
     as: `${FILES_DOCTYPE}/${label}`,
     fetchPolicy: defaultFetchPolicy

@@ -1,10 +1,7 @@
 import { CaptureConsole } from '@sentry/integrations'
 import * as Sentry from '@sentry/react'
 import memoize from 'lodash/memoize'
-import { makeClient } from 'src/targets/browser/makeClient'
 
-import flag from 'cozy-flags'
-import { RealtimePlugin } from 'cozy-realtime'
 import { initTranslation } from 'cozy-ui/transpiled/react/providers/I18n'
 
 import manifest from '../../../manifest.webapp'
@@ -16,13 +13,14 @@ const getDataOrDefault = (data, defaultData) =>
  * Memoize this function in its own file so that it is correctly memoized
  */
 const setupApp = memoize(() => {
+  console.log('🌈 setupApp')
   const root = document.querySelector('[role=application]')
   const locale = JSON.parse(root.dataset.cozy)?.locale
   const lang = getDataOrDefault(locale, 'en')
   const polyglot = initTranslation(lang, lang => require(`locales/${lang}`))
-  const client = makeClient()
-  client.registerPlugin(RealtimePlugin)
-  client.registerPlugin(flag.plugin)
+  // const client = makeClient()
+  // client.registerPlugin(RealtimePlugin)
+  // client.registerPlugin(flag.plugin)
 
   Sentry.init({
     dsn: 'https://1b0c26c4c1474da4b7fb5fa9d1e57869@errors.cozycloud.cc/63',
@@ -37,7 +35,8 @@ const setupApp = memoize(() => {
     ignoreErrors: [/^Warning: /]
   })
 
-  return { root, client, lang, polyglot }
+  console.log('🌈 setupApp return')
+  return { root, lang, polyglot }
 })
 
 export default setupApp

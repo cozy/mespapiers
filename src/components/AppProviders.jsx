@@ -14,7 +14,6 @@ import { launchMetadataMigrationJob } from 'src/helpers/migration/metadata'
 
 import { BarProvider } from 'cozy-bar'
 import { CozyProvider } from 'cozy-client'
-import { WebviewIntentProvider } from 'cozy-intent'
 import AlertProvider from 'cozy-ui/transpiled/react/providers/Alert'
 import { BreakpointsProvider } from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import CozyTheme from 'cozy-ui/transpiled/react/providers/CozyTheme'
@@ -44,41 +43,39 @@ const Providers = ({ client, lang, polyglot, children }) => {
   }, [client])
 
   return (
-    <WebviewIntentProvider>
-      <StylesProvider generateClassName={generateClassName}>
-        <CozyProvider client={client}>
-          <I18n lang={lang} polyglot={polyglot}>
-            <CozyTheme>
-              <BreakpointsProvider>
-                <BarProvider>
-                  <CreatePaperDataBackupProvider>
-                    <PapersCreatedProvider>
-                      <AlertProvider>
-                        <PaywallProvider>
-                          <MultiSelectionProvider>
-                            <ScannerI18nProvider>
-                              <FileSharingProvider>
-                                <SearchProvider
-                                  doctypes={[FILES_DOCTYPE, CONTACTS_DOCTYPE]}
-                                >
-                                  <PapersDefinitionsProvider>
-                                    <ModalProvider>{children}</ModalProvider>
-                                  </PapersDefinitionsProvider>
-                                </SearchProvider>
-                              </FileSharingProvider>
-                            </ScannerI18nProvider>
-                          </MultiSelectionProvider>
-                        </PaywallProvider>
-                      </AlertProvider>
-                    </PapersCreatedProvider>
-                  </CreatePaperDataBackupProvider>
-                </BarProvider>
-              </BreakpointsProvider>
-            </CozyTheme>
-          </I18n>
-        </CozyProvider>
-      </StylesProvider>
-    </WebviewIntentProvider>
+    <StylesProvider generateClassName={generateClassName}>
+      <CozyProvider client={client}>
+        <I18n lang={lang} polyglot={polyglot}>
+          <CozyTheme>
+            <BreakpointsProvider>
+              <BarProvider>
+                <CreatePaperDataBackupProvider>
+                  <PapersCreatedProvider>
+                    <AlertProvider>
+                      <PaywallProvider>
+                        <MultiSelectionProvider>
+                          <ScannerI18nProvider>
+                            <FileSharingProvider>
+                              <SearchProvider
+                                doctypes={[FILES_DOCTYPE, CONTACTS_DOCTYPE]}
+                              >
+                                <PapersDefinitionsProvider>
+                                  <ModalProvider>{children}</ModalProvider>
+                                </PapersDefinitionsProvider>
+                              </SearchProvider>
+                            </FileSharingProvider>
+                          </ScannerI18nProvider>
+                        </MultiSelectionProvider>
+                      </PaywallProvider>
+                    </AlertProvider>
+                  </PapersCreatedProvider>
+                </CreatePaperDataBackupProvider>
+              </BarProvider>
+            </BreakpointsProvider>
+          </CozyTheme>
+        </I18n>
+      </CozyProvider>
+    </StylesProvider>
   )
 }
 export const AppProviders = props => {
