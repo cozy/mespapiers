@@ -17,8 +17,8 @@ jest.mock('src/components/Contexts/MultiSelectionProvider', () => ({
   useMultiSelection: jest.fn()
 }))
 
-const setup = ({ allMultiSelectionFiles }) => {
-  useMultiSelection.mockReturnValue({ allMultiSelectionFiles })
+const setup = ({ allMultiSelection }) => {
+  useMultiSelection.mockReturnValue({ allMultiSelection })
 
   return render(
     <AppLike>
@@ -29,14 +29,14 @@ const setup = ({ allMultiSelectionFiles }) => {
 
 describe('MultiselectContent', () => {
   it('should not display PaperCardItem when no files are selected', () => {
-    const { queryByTestId } = setup({ allMultiSelectionFiles: [] })
+    const { queryByTestId } = setup({ allMultiSelection: [] })
 
     expect(queryByTestId('PaperCardItem')).toBeNull()
   })
 
   it('should display PaperCardItem when files are selected', () => {
     const { getByTestId } = setup({
-      allMultiSelectionFiles: [{ _id: '123' }]
+      allMultiSelection: [{ file: { _id: '123' } }]
     })
 
     expect(getByTestId('PaperCardItem'))

@@ -9,7 +9,7 @@ export const MultiSelectionProvider = ({ children }) => {
   /**
    * @type {[import('../../types').AllMultiSelection[], import('../../types').AllMultiSelectionSetter]}
    */
-  const [allMultiSelectionFiles, setAllMultiSelectionFiles] = useState([])
+  const [allMultiSelection, setAllMultiSelection] = useState([])
   const [currentMultiSelectionFiles, setCurrentMultiSelectionFiles] = useState(
     []
   )
@@ -17,7 +17,7 @@ export const MultiSelectionProvider = ({ children }) => {
     useState(null)
 
   const confirmCurrentMultiSelectionFiles = () => {
-    addMultiSelectionFiles(currentMultiSelectionFiles.map(file => ({ file })))
+    addMultiSelectionItems(currentMultiSelectionFiles.map(file => ({ file })))
     removeAllCurrentMultiSelectionFiles()
   }
 
@@ -43,38 +43,38 @@ export const MultiSelectionProvider = ({ children }) => {
    * Adds items to the multi-selection state
    * @param {{ file: import('cozy-client/types/types').IOCozyFile, page: string|null }[]} items - Files to add to the multi-selection state
    */
-  const addMultiSelectionFiles = items => {
-    setAllMultiSelectionFiles(prev => [...prev, ...items])
+  const addMultiSelectionItems = items => {
+    setAllMultiSelection(prev => [...prev, ...items])
   }
 
   /**
-   * Removes a file from the multi-selection state
-   * @param {number} fileToRemoveIndex - Index of the file to remove
+   * Removes a item from the multi-selection state
+   * @param {number} itemIdx - Index of the item to remove
    */
-  const removeMultiSelectionFile = fileToRemoveIndex => {
-    setAllMultiSelectionFiles(items => {
-      return items.filter((_, idx) => fileToRemoveIndex !== idx)
+  const removeMultiSelectionItemByIndex = itemIdx => {
+    setAllMultiSelection(items => {
+      return items.filter((_, idx) => itemIdx !== idx)
     })
   }
 
-  const removeAllMultiSelectionFiles = () => {
-    setAllMultiSelectionFiles([])
+  const removeAllMultiSelectionItems = () => {
+    setAllMultiSelection([])
   }
 
   useEffect(() => {
     // Resets the context by exiting the multi-selection mode
     if (!isMultiSelectionActive) {
-      removeAllMultiSelectionFiles()
+      removeAllMultiSelectionItems()
       removeAllCurrentMultiSelectionFiles()
     }
   }, [isMultiSelectionActive])
 
   const value = {
     isMultiSelectionActive,
-    allMultiSelectionFiles,
-    addMultiSelectionFiles,
-    removeMultiSelectionFile,
-    removeAllMultiSelectionFiles,
+    allMultiSelection,
+    addMultiSelectionItems,
+    removeMultiSelectionItemByIndex,
+    removeAllMultiSelectionItems,
     selectedQualificationLabel,
     setSelectedQualificationLabel,
 

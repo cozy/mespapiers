@@ -55,7 +55,7 @@ const PaperItem = ({
   const navigate = useNavigate()
   const { pathname, search } = useLocation()
   const {
-    allMultiSelectionFiles,
+    allMultiSelection,
     isMultiSelectionActive,
     changeCurrentMultiSelectionFile,
     currentMultiSelectionFiles
@@ -97,14 +97,14 @@ const PaperItem = ({
   const isChecked = () => {
     return (
       currentMultiSelectionFiles.some(file => file._id === paper._id) ||
-      allMultiSelectionFiles.some(file => file._id === paper._id)
+      allMultiSelection.some(({ file }) => file._id === paper._id)
     )
   }
 
   const isAlreadySelected = () => {
     return (
       isMultiSelectionChoice &&
-      allMultiSelectionFiles.some(file => file._id === paper._id)
+      allMultiSelection.some(({ file }) => file._id === paper._id)
     )
   }
 

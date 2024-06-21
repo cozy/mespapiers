@@ -33,14 +33,14 @@ const setup = ({
   hasDivider,
   withCheckbox,
   withChildren,
-  allMultiSelectionFiles = [],
+  allMultiSelection = [],
   isMultiSelectionActive = false,
   currentMultiSelectionFiles = [],
   changeCurrentMultiSelectionFile = jest.fn(),
   mockNav = jest.fn()
 } = {}) => {
   useMultiSelection.mockReturnValue({
-    allMultiSelectionFiles,
+    allMultiSelection,
     isMultiSelectionActive,
     currentMultiSelectionFiles,
     changeCurrentMultiSelectionFile
@@ -129,11 +129,11 @@ describe('PaperItem components', () => {
 
       expect(inputCheckbox).toHaveAttribute('checked')
     })
-    it('should already checked & disabled if is in allMultiSelectionFiles', () => {
+    it('should already checked & disabled if is in allMultiSelection', () => {
       const { container } = setup({
         isMultiSelectionActive: true,
         withCheckbox: true,
-        allMultiSelectionFiles: [{ _id: 'fileId01' }]
+        allMultiSelection: [{ file: { _id: 'fileId01' } }]
       })
 
       const inputCheckbox = container.querySelector('input[type="checkbox"]')
@@ -194,7 +194,7 @@ describe('PaperItem components', () => {
       expect(mockNav).toBeCalledTimes(0)
       expect(changeCurrentMultiSelectionFile).toBeCalledTimes(1)
     })
-    it('should not call "handleClick" when withCheckbox is true & is on multiselection context but the file is already in allMultiSelectionFiles', () => {
+    it('should not call "handleClick" when withCheckbox is true & is on multiselection context but the file is already in allMultiSelection', () => {
       const mockNav = jest.fn()
       const changeCurrentMultiSelectionFile = jest.fn()
       const { getByTestId } = setup({
@@ -202,7 +202,7 @@ describe('PaperItem components', () => {
         isMultiSelectionActive: true,
         mockNav,
         changeCurrentMultiSelectionFile,
-        allMultiSelectionFiles: [{ _id: 'fileId01' }]
+        allMultiSelection: [{ file: { _id: 'fileId01' } }]
       })
 
       fireEvent.click(getByTestId('ListItem'))

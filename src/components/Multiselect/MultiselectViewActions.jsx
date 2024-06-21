@@ -6,8 +6,9 @@ import MultiselectBackdrop from 'src/components/Multiselect/MultiselectBackdrop'
 import ActionsBar from 'cozy-ui/transpiled/react/ActionsBar'
 
 const MultiselectViewActions = () => {
-  const { allMultiSelectionFiles } = useMultiSelection()
+  const { allMultiSelection } = useMultiSelection()
   const [isBackdropOpen, setIsBackdropOpen] = useState(false)
+  const allMultiSelectionFiles = allMultiSelection.map(({ file }) => file)
 
   const actions = useActions(allMultiSelectionFiles, {
     isActionBar: true,

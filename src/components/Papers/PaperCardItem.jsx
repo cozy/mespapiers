@@ -27,14 +27,14 @@ const PaperCardItem = ({
   square = false
 }) => {
   const classes = useStyles(square)
-  const { removeMultiSelectionFile } = useMultiSelection()
+  const { removeMultiSelectionItemByIndex } = useMultiSelection()
 
   return (
     <Paper className={`u-h-3 ${className}`} square={square}>
       <PaperItem paper={paper} divider={divider} classes={classes}>
         <IconButton
           color="error"
-          onClick={() => removeMultiSelectionFile(paperIndex)}
+          onClick={() => removeMultiSelectionItemByIndex(paperIndex)}
         >
           <Icon icon="cross-circle" />
         </IconButton>

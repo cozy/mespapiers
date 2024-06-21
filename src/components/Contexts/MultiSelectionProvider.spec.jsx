@@ -32,47 +32,43 @@ describe('MultiSelectionProvider', () => {
       const { result, rerender } = setup()
 
       act(() => {
-        result.current.addMultiSelectionFiles([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([{ file: fileMock01 }])
       })
 
-      expect(result.current.allMultiSelectionFiles).toEqual([
-        { file: fileMock01 }
-      ])
+      expect(result.current.allMultiSelection).toEqual([{ file: fileMock01 }])
 
       // isMultiSelectionActive => false
       useLocation.mockReturnValue({ pathname: '/paper' })
 
       rerender()
 
-      expect(result.current.allMultiSelectionFiles).toEqual([])
+      expect(result.current.allMultiSelection).toEqual([])
     })
   })
 
-  describe('addMultiSelectionFiles', () => {
+  describe('addMultiSelectionItems', () => {
     it('should add file to its state', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionFiles([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([{ file: fileMock01 }])
       })
 
-      expect(result.current.allMultiSelectionFiles).toEqual([
-        { file: fileMock01 }
-      ])
+      expect(result.current.allMultiSelection).toEqual([{ file: fileMock01 }])
     })
 
     it('should add a second file to its state', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionFiles([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([{ file: fileMock01 }])
       })
 
       act(() => {
-        result.current.addMultiSelectionFiles([{ file: fileMock02 }])
+        result.current.addMultiSelectionItems([{ file: fileMock02 }])
       })
 
-      expect(result.current.allMultiSelectionFiles).toEqual([
+      expect(result.current.allMultiSelection).toEqual([
         { file: fileMock01 },
         { file: fileMock02 }
       ])
@@ -82,59 +78,57 @@ describe('MultiSelectionProvider', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionFiles([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([{ file: fileMock01 }])
       })
 
       act(() => {
-        result.current.addMultiSelectionFiles([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([{ file: fileMock01 }])
       })
 
-      expect(result.current.allMultiSelectionFiles).toEqual([
+      expect(result.current.allMultiSelection).toEqual([
         { file: fileMock01 },
         { file: fileMock01 }
       ])
     })
   })
 
-  describe('removeMultiSelectionFile', () => {
+  describe('removeMultiSelectionItemByIndex', () => {
     it('should remove specific file to its state', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionFiles([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([{ file: fileMock01 }])
       })
 
       act(() => {
-        result.current.addMultiSelectionFiles([{ file: fileMock02 }])
+        result.current.addMultiSelectionItems([{ file: fileMock02 }])
       })
 
       act(() => {
-        result.current.removeMultiSelectionFile(0)
+        result.current.removeMultiSelectionItemByIndex(0)
       })
 
-      expect(result.current.allMultiSelectionFiles).toEqual([
-        { file: fileMock02 }
-      ])
+      expect(result.current.allMultiSelection).toEqual([{ file: fileMock02 }])
     })
   })
 
-  describe('removeAllMultiSelectionFiles', () => {
+  describe('removeAllMultiSelectionItems', () => {
     it('should remove all files to its state', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionFiles([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([{ file: fileMock01 }])
       })
 
       act(() => {
-        result.current.addMultiSelectionFiles([{ file: fileMock02 }])
+        result.current.addMultiSelectionItems([{ file: fileMock02 }])
       })
 
       act(() => {
-        result.current.removeAllMultiSelectionFiles()
+        result.current.removeAllMultiSelectionItems()
       })
 
-      expect(result.current.allMultiSelectionFiles).toEqual([])
+      expect(result.current.allMultiSelection).toEqual([])
     })
   })
 
@@ -234,7 +228,7 @@ describe('MultiSelectionProvider', () => {
         result.current.changeCurrentMultiSelectionFile(fileMock01)
       })
       expect(result.current.currentMultiSelectionFiles).toEqual([fileMock01])
-      expect(result.current.allMultiSelectionFiles).toEqual([])
+      expect(result.current.allMultiSelection).toEqual([])
 
       // add second file to current selection
       act(() => {
@@ -244,17 +238,14 @@ describe('MultiSelectionProvider', () => {
         fileMock01,
         fileMock02
       ])
-      expect(result.current.allMultiSelectionFiles).toEqual([])
+      expect(result.current.allMultiSelection).toEqual([])
 
       // confirm current selection
       act(() => {
         result.current.confirmCurrentMultiSelectionFiles(fileMock02)
       })
       expect(result.current.currentMultiSelectionFiles).toEqual([])
-      expect(result.current.allMultiSelectionFiles).toEqual([
-        fileMock01,
-        fileMock02
-      ])
+      expect(result.current.allMultiSelection).toEqual([fileMock01, fileMock02])
     })
   })
 })
