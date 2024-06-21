@@ -29,7 +29,7 @@ export const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
   const { t, f } = useI18n()
   const { pushModal, popModal } = useModal()
   const { showAlert } = useAlert()
-  const { addMultiSelectionFile } = useMultiSelection()
+  const { addMultiSelectionFiles } = useMultiSelection()
   const [isPrintAvailable, setIsPrintAvailable] = useState(false)
   const navigate = useNavigate()
 
@@ -64,7 +64,7 @@ export const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
           t,
           f,
           navigate,
-          addMultiSelectionFile,
+          addMultiSelectionFiles,
           pushModal,
           popModal,
           showAlert
@@ -79,7 +79,7 @@ export const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
       t,
       f,
       navigate,
-      addMultiSelectionFile,
+      addMultiSelectionFiles,
       pushModal,
       popModal,
       showAlert
