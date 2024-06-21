@@ -5,9 +5,9 @@ import MultiselectContent from 'src/components/Multiselect/MultiselectContent'
 import AppLike from 'test/components/AppLike'
 
 /* eslint-disable react/display-name */
-jest.mock('../Papers/PaperCardItem', () => () => (
-  <div data-testid="PaperCardItem" />
-))
+jest.mock('src/components/Papers/PaperCardItem', () => ({
+  PaperCardItem: () => <div data-testid="PaperCardItem" />
+}))
 jest.mock('cozy-ui/transpiled/react/Empty', () => () => (
   <div data-testid="Empty" />
 ))

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
-import PaperItem from 'src/components/Papers/PaperItem'
+import { MultiSelectPaperItem } from 'src/components/Multiselect/MultiSelectPaperItem'
 
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import IconButton from 'cozy-ui/transpiled/react/IconButton'
@@ -19,10 +19,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const PaperCardItem = ({
-  paper,
+export const PaperCardItem = ({
+  item,
   paperIndex,
-  divider,
   className,
   square = false
 }) => {
@@ -31,21 +30,24 @@ const PaperCardItem = ({
 
   return (
     <Paper className={`u-h-3 ${className}`} square={square}>
-      <PaperItem paper={paper} divider={divider} classes={classes}>
+      <MultiSelectPaperItem item={item} classes={classes}>
         <IconButton
           color="error"
           onClick={() => removeMultiSelectionItemByIndex(paperIndex)}
         >
           <Icon icon="cross-circle" />
         </IconButton>
-      </PaperItem>
+      </MultiSelectPaperItem>
     </Paper>
   )
 }
 
 PaperCardItem.propTypes = {
-  paper: PropTypes.object.isRequired,
-  divider: PropTypes.bool,
+  item: PropTypes.shape({
+    file: PropTypes.object.isRequired,
+    page: PropTypes.number
+  }).isRequired,
+  paperIndex: PropTypes.number,
   className: PropTypes.string,
   square: PropTypes.bool
 }
