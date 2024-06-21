@@ -14,10 +14,8 @@ export const MultiSelectionProvider = ({ children }) => {
     useState(null)
 
   const confirmCurrentMultiSelectionFiles = () => {
+    addMultiSelectionFiles(currentMultiSelectionFiles)
     removeAllCurrentMultiSelectionFiles()
-    for (const file of currentMultiSelectionFiles) {
-      addMultiSelectionFile(file)
-    }
   }
 
   const changeCurrentMultiSelectionFile = fileToAdd => {
@@ -38,8 +36,8 @@ export const MultiSelectionProvider = ({ children }) => {
     setCurrentMultiSelectionFiles([])
   }
 
-  const addMultiSelectionFile = fileToAdd => {
-    setAllMultiSelectionFiles(files => [...files, fileToAdd])
+  const addMultiSelectionFiles = filesToAdd => {
+    setAllMultiSelectionFiles(files => [...files, ...filesToAdd])
   }
 
   const removeMultiSelectionFile = fileToRemoveIndex => {
@@ -63,7 +61,7 @@ export const MultiSelectionProvider = ({ children }) => {
   const value = {
     isMultiSelectionActive,
     allMultiSelectionFiles,
-    addMultiSelectionFile,
+    addMultiSelectionFiles,
     removeMultiSelectionFile,
     removeAllMultiSelectionFiles,
     selectedQualificationLabel,

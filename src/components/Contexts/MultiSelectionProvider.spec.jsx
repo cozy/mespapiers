@@ -32,7 +32,7 @@ describe('MultiSelectionProvider', () => {
       const { result, rerender } = setup()
 
       act(() => {
-        result.current.addMultiSelectionFile(fileMock01)
+        result.current.addMultiSelectionFiles([fileMock01])
       })
 
       expect(result.current.allMultiSelectionFiles).toEqual([fileMock01])
@@ -46,12 +46,12 @@ describe('MultiSelectionProvider', () => {
     })
   })
 
-  describe('addMultiSelectionFile', () => {
+  describe('addMultiSelectionFiles', () => {
     it('should add file to its state', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionFile(fileMock01)
+        result.current.addMultiSelectionFiles([fileMock01])
       })
 
       expect(result.current.allMultiSelectionFiles).toEqual([fileMock01])
@@ -61,11 +61,11 @@ describe('MultiSelectionProvider', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionFile(fileMock01)
+        result.current.addMultiSelectionFiles([fileMock01])
       })
 
       act(() => {
-        result.current.addMultiSelectionFile(fileMock02)
+        result.current.addMultiSelectionFiles([fileMock02])
       })
 
       expect(result.current.allMultiSelectionFiles).toEqual([
@@ -78,11 +78,11 @@ describe('MultiSelectionProvider', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionFile(fileMock01)
+        result.current.addMultiSelectionFiles([fileMock01])
       })
 
       act(() => {
-        result.current.addMultiSelectionFile(fileMock01)
+        result.current.addMultiSelectionFiles([fileMock01])
       })
 
       expect(result.current.allMultiSelectionFiles).toEqual([
@@ -97,11 +97,11 @@ describe('MultiSelectionProvider', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionFile(fileMock01)
+        result.current.addMultiSelectionFiles([fileMock01])
       })
 
       act(() => {
-        result.current.addMultiSelectionFile(fileMock02)
+        result.current.addMultiSelectionFiles([fileMock02])
       })
 
       act(() => {
@@ -117,11 +117,11 @@ describe('MultiSelectionProvider', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionFile(fileMock01)
+        result.current.addMultiSelectionFiles([fileMock01])
       })
 
       act(() => {
-        result.current.addMultiSelectionFile(fileMock02)
+        result.current.addMultiSelectionFiles([fileMock02])
       })
 
       act(() => {
