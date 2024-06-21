@@ -8,14 +8,14 @@ import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-export const select = ({ hideActionsMenu, addMultiSelectionFiles }) => {
+export const select = ({ hideActionsMenu, addMultiSelectionItems }) => {
   return {
     name: 'select',
     action: docs => {
       hideActionsMenu && hideActionsMenu()
       docs.length > 0 &&
-        addMultiSelectionFiles &&
-        addMultiSelectionFiles([{ file: docs[0] }])
+        addMultiSelectionItems &&
+        addMultiSelectionItems([{ file: docs[0] }])
     },
     Component: withLocales(
       // eslint-disable-next-line react/display-name

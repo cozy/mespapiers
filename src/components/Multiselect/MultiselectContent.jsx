@@ -9,7 +9,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const MultiselectContent = ({ setIsFilePickerActive }) => {
   const { t } = useI18n()
-  const { allMultiSelectionFiles } = useMultiSelection()
+  const { allMultiSelection } = useMultiSelection()
 
   return (
     <div className="u-mb-2 u-w-100">
@@ -17,7 +17,7 @@ const MultiselectContent = ({ setIsFilePickerActive }) => {
         {t('Multiselect.subtitle')}
       </Typography>
       <List className="u-flex u-flex-column u-flex-justify-center u-pv-0">
-        {allMultiSelectionFiles.map((file, idx) => (
+        {allMultiSelection.map(({ file }, idx) => (
           <PaperCardItem
             key={`${file._id}${idx}`}
             paperIndex={idx}

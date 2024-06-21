@@ -44,7 +44,7 @@ jest.mock('../../helpers/fetchCurrentUser', () => ({
 }))
 
 const setup = ({
-  allMultiSelectionFiles = [],
+  allMultiSelection = [],
   isMobile = false,
   mockDownloadFiles = jest.fn(),
   mockForwardFiles = jest.fn(),
@@ -53,7 +53,7 @@ const setup = ({
   mockNavigatorShareFunc
 } = {}) => {
   useBreakpoints.mockReturnValue({ isMobile })
-  useMultiSelection.mockReturnValue({ allMultiSelectionFiles })
+  useMultiSelection.mockReturnValue({ allMultiSelection })
   downloadFiles.mockImplementation(mockDownloadFiles)
   forwardFile.mockImplementation(mockForwardFiles)
   makeZipFolder.mockImplementation(mockMakeZipFolder)
@@ -88,7 +88,7 @@ describe('MultiselectViewActions', () => {
       const mockForwardFiles = jest.fn()
       const mockNavigatorShareFunc = jest.fn()
       const { getByRole } = setup({
-        allMultiSelectionFiles: [],
+        allMultiSelection: [],
         mockForwardFiles,
         isMobile: true,
         mockNavigatorShareFunc
@@ -104,7 +104,9 @@ describe('MultiselectViewActions', () => {
       const mockNavigate = jest.fn()
       const mockNavigatorShareFunc = jest.fn()
       const { getByRole } = setup({
-        allMultiSelectionFiles: [{ _id: '00', type: 'file', name: 'File00' }],
+        allMultiSelection: [
+          { file: { _id: '00', type: 'file', name: 'File00' } }
+        ],
         isMobile: true,
         mockNavigate,
         mockNavigatorShareFunc

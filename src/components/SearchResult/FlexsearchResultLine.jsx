@@ -15,7 +15,7 @@ const FlexsearchResultLine = ({ doc, expandedAttributesProps }) => {
   const { pathname, search } = useLocation()
   const {
     isMultiSelectionActive,
-    allMultiSelectionFiles,
+    allMultiSelection,
     currentMultiSelectionFiles,
     changeCurrentMultiSelectionFile
   } = useMultiSelection()
@@ -23,14 +23,14 @@ const FlexsearchResultLine = ({ doc, expandedAttributesProps }) => {
   const isSelected = () => {
     return (
       isMultiSelectionActive &&
-      allMultiSelectionFiles.some(file => file._id === doc._id)
+      allMultiSelection.some(({ file }) => file._id === doc._id)
     )
   }
 
   const isChecked = () => {
     return (
       currentMultiSelectionFiles.some(file => file._id === doc._id) ||
-      allMultiSelectionFiles.some(file => file._id === doc._id)
+      allMultiSelection.some(({ file }) => file._id === doc._id)
     )
   }
 

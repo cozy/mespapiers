@@ -12,14 +12,14 @@ const SelectFileButton = ({ file }) => {
   const { isDesktop } = useBreakpoints()
   const { t } = useI18n()
   const navigate = useNavigate()
-  const { addMultiSelectionFiles } = useMultiSelection()
+  const { addMultiSelectionItems } = useMultiSelection()
 
   const label = t('action.select')
   const icon = <Icon icon="select-all" />
 
   const handleClick = () => {
     navigate(`/paper/multiselect`)
-    addMultiSelectionFiles([{ file }])
+    addMultiSelectionItems([{ file }])
   }
 
   if (isDesktop) {
