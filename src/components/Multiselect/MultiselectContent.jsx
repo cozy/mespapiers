@@ -1,7 +1,7 @@
 import React from 'react'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import GhostButton from 'src/components/Multiselect/GhostButton'
-import PaperCardItem from 'src/components/Papers/PaperCardItem'
+import { PaperCardItem } from 'src/components/Papers/PaperCardItem'
 
 import List from 'cozy-ui/transpiled/react/List'
 import Typography from 'cozy-ui/transpiled/react/Typography'
@@ -17,11 +17,11 @@ const MultiselectContent = ({ setIsFilePickerActive }) => {
         {t('Multiselect.subtitle')}
       </Typography>
       <List className="u-flex u-flex-column u-flex-justify-center u-pv-0">
-        {allMultiSelection.map(({ file }, idx) => (
+        {allMultiSelection.map((item, idx) => (
           <PaperCardItem
-            key={`${file._id}${idx}`}
+            key={`${item.file._id}${idx}`}
             paperIndex={idx}
-            paper={file}
+            item={item}
             className="u-mb-half u-w-100"
           />
         ))}

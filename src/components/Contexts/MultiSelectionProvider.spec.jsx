@@ -245,7 +245,10 @@ describe('MultiSelectionProvider', () => {
         result.current.confirmCurrentMultiSelectionFiles(fileMock02)
       })
       expect(result.current.currentMultiSelectionFiles).toEqual([])
-      expect(result.current.allMultiSelection).toEqual([fileMock01, fileMock02])
+      expect(result.current.allMultiSelection).toEqual([
+        { file: fileMock01 },
+        { file: fileMock02 }
+      ])
     })
   })
 })
