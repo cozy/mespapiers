@@ -8,9 +8,8 @@ export const ModalProvider = ({ children }) => {
     setModalStack(prev => [...prev, modal])
   }, [])
   const popModal = useCallback(() => {
-    modalStack.pop()
-    setModalStack([...modalStack])
-  }, [modalStack])
+    setModalStack(prev => prev.slice(1))
+  }, [])
 
   return (
     <ModalContext.Provider value={{ modalStack, pushModal, popModal }}>
@@ -31,5 +30,6 @@ export const ModalStack = () => {
   const { modalStack } = useModal()
 
   if (modalStack.length === 0) return null
-  else return modalStack[modalStack.length - 1]
+
+  return modalStack[0]
 }
