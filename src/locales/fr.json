@@ -74,6 +74,7 @@
     "viewInDrive": "Voir dans Drive"
   },
   "common": {
+    "ok": "Ok",
     "add": "Ajouter",
     "cancel": "Annuler",
     "apply": "Appliquer",
@@ -470,7 +471,11 @@
     },
     "subtitle": "Ajouter des documents à votre sélection",
     "select": "Ajouter à ma sélection",
-    "folderZipName": "%{contactName} - documents - %{date}.zip"
+    "folderZipName": "%{contactName} - documents - %{date}.zip",
+    "page": {
+      "front": "Face avant",
+      "back": "Face arrière"
+    }
   },
   "Search": {
     "empty": {
@@ -543,5 +548,8 @@
         "2021-03": "Nouvelle version"
       }
     }
+  },
+  "PagePickerModal": {
+    "splitFile": "Séparer le document"
   }
 }
