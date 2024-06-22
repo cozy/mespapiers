@@ -1,10 +1,27 @@
 import React, { createContext, useState, useEffect, useContext } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useModal } from 'src/components/Contexts/ModalProvider'
+import { PagePickerModal } from 'src/components/PagePickerModal/PagePickerModal'
+import { is2SidedFile } from 'src/helpers/is2SidedFile'
+
+import { useClient } from 'cozy-client'
+import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
+
+const pagePickerOptions = [
+  [
+    { value: 'front', label: 'Multiselect.page.front' },
+    { value: 'back', label: 'Multiselect.page.back' }
+  ],
+  [{ value: 'split', label: 'PagePickerModal.splitFile', master: true }]
+]
 
 const MultiSelectionContext = createContext()
 
 export const MultiSelectionProvider = ({ children }) => {
   const location = useLocation()
+  const client = useClient()
+  const { pushModal, popModal } = useModal()
+  const { t } = useI18n()
   const isMultiSelectionActive = location.pathname.includes('multiselect')
   /**
    * @type {[import('../../types').AllMultiSelection[], import('../../types').AllMultiSelectionSetter]}
@@ -16,8 +33,52 @@ export const MultiSelectionProvider = ({ children }) => {
   const [selectedQualificationLabel, setSelectedQualificationLabel] =
     useState(null)
 
-  const confirmCurrentMultiSelectionFiles = () => {
-    addMultiSelectionItems(currentMultiSelectionFiles.map(file => ({ file })))
+  const confirmCurrentMultiSelectionFiles = async () => {
+    for (const currFile of currentMultiSelectionFiles) {
+      const isFileWith2side = await is2SidedFile(client, currFile)
+      if (isFileWith2side) {
+        pushModal(
+          <PagePickerModal
+            file={currFile}
+            options={pagePickerOptions}
+            textAction={t('common.ok')}
+            onClick={selectedChoice => {
+              const frontSide = selectedChoice.find(
+                el => el.value === 'front'
+              )?.value
+              const backSide = selectedChoice.find(
+                el => el.value === 'back'
+              )?.value
+
+              if (frontSide && backSide) {
+                addMultiSelectionItems([
+                  {
+                    file: currFile,
+                    page: frontSide
+                  },
+                  {
+                    file: currFile,
+                    page: backSide
+                  }
+                ])
+                return
+              }
+
+              const page = frontSide ? frontSide : backSide ? backSide : null
+              addMultiSelectionItems([
+                {
+                  file: currFile,
+                  page
+                }
+              ])
+            }}
+            onClose={popModal}
+          />
+        )
+      } else {
+        addMultiSelectionItems([{ file: currFile }])
+      }
+    }
     removeAllCurrentMultiSelectionFiles()
   }
 

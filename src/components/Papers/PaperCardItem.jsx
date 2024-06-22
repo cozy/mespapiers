@@ -45,7 +45,7 @@ export const PaperCardItem = ({
 PaperCardItem.propTypes = {
   item: PropTypes.shape({
     file: PropTypes.object.isRequired,
-    page: PropTypes.number
+    page: PropTypes.string
   }).isRequired,
   paperIndex: PropTypes.number,
   className: PropTypes.string,

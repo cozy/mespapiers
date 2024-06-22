@@ -132,7 +132,7 @@ export const MultiSelectPaperItem = ({
 MultiSelectPaperItem.propTypes = {
   item: PropTypes.shape({
     file: PropTypes.object.isRequired,
-    page: PropTypes.number
+    page: PropTypes.string
   }).isRequired,
   children: PropTypes.node,
   className: PropTypes.string,
