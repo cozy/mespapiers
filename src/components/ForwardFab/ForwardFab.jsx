@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { usePapersCreated } from 'src/components/Contexts/PapersCreatedProvider'
-import { SETTINGS_DOCTYPE } from 'src/constants'
+import { APP_SETTINGS_DOCTYPE } from 'src/constants'
 import { getAppSettings } from 'src/queries'
 
 import { useClient, Q, useQuery } from 'cozy-client'
@@ -35,11 +35,11 @@ const ForwardFab = () => {
   const hideTooltip = async () => {
     if (!open || !isHome) return null
 
-    const { data } = await client.query(Q(SETTINGS_DOCTYPE))
+    const { data } = await client.query(Q(APP_SETTINGS_DOCTYPE))
     const settings = data?.[0] || {}
     await client.save({
       ...settings,
-      _type: SETTINGS_DOCTYPE,
+      _type: APP_SETTINGS_DOCTYPE,
       hideForwardFabTooltip: true
     })
   }

@@ -9,7 +9,7 @@ import PapersPaywall from 'src/components/PapersPaywall/PapersPaywall'
 import {
   CONTACTS_DOCTYPE,
   FILES_DOCTYPE,
-  SETTINGS_DOCTYPE,
+  APP_SETTINGS_DOCTYPE,
   TRIGGERS_DOCTYPE
 } from 'src/constants'
 
@@ -74,7 +74,7 @@ export const AppLayout = () => {
             <RealTimeQueries doctype={FILES_DOCTYPE} />
             <RealTimeQueries doctype={CONTACTS_DOCTYPE} />
             <RealTimeQueries doctype={TRIGGERS_DOCTYPE} />
-            <RealTimeQueries doctype={SETTINGS_DOCTYPE} />
+            <RealTimeQueries doctype={APP_SETTINGS_DOCTYPE} />
             <ModalStack />
             {showPaywall && <PapersPaywall onClose={onClosePaywall} />}
           </>

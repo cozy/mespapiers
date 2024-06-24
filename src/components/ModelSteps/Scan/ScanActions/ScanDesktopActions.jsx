@@ -4,7 +4,7 @@ import { usePapersCreated } from 'src/components/Contexts/PapersCreatedProvider'
 import { usePaywall } from 'src/components/Contexts/PaywallProvider'
 import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import ScanDesktopActionsAlert from 'src/components/ModelSteps/Scan/ScanActions/ScanDesktopActionsAlert'
-import { KEYS, SETTINGS_DOCTYPE } from 'src/constants'
+import { KEYS, APP_SETTINGS_DOCTYPE } from 'src/constants'
 import { getAppSettings } from 'src/queries'
 
 import { useClient, useQuery, hasQueryBeenLoaded } from 'cozy-client'
@@ -54,7 +54,7 @@ const ScanDesktopActions = ({ onOpenFilePickerModal, onChangeFile }) => {
         await client.save({
           ...settingsData[0],
           showScanDesktopActionsAlert: false,
-          _type: SETTINGS_DOCTYPE
+          _type: APP_SETTINGS_DOCTYPE
         })
       } catch (error) {
         log.error('Error when saving settings in ScanDesktopActions', error)
