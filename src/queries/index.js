@@ -2,7 +2,7 @@ import {
   FILES_DOCTYPE,
   TRIGGERS_DOCTYPE,
   CONTACTS_DOCTYPE,
-  SETTINGS_DOCTYPE,
+  APP_SETTINGS_DOCTYPE,
   KONNECTORS_DOCTYPE,
   ACCOUNTS_DOCTYPE,
   APPS_REGISTRY_DOCTYPE
@@ -125,9 +125,9 @@ export const buildFilesQueryByLabel = label => ({
 })
 
 export const getAppSettings = {
-  definition: () => Q(SETTINGS_DOCTYPE),
+  definition: () => Q(APP_SETTINGS_DOCTYPE),
   options: {
-    as: SETTINGS_DOCTYPE,
+    as: APP_SETTINGS_DOCTYPE,
     fetchPolicy: fetchPolicies.noFetch()
   }
 }
