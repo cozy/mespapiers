@@ -91,7 +91,7 @@
     "cozy-notifications": "^0.15.0",
     "cozy-realtime": "^5.0.0",
     "cozy-sharing": "^15.0.0",
-    "cozy-ui": "^110.0.0",
+    "cozy-ui": "^110.1.0",
     "date-fns": "2.23.0",
     "flexsearch": "0.7.31",
     "leaflet": "1.7.1",
