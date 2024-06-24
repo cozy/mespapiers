@@ -10,6 +10,7 @@ import {
   CONTACTS_DOCTYPE,
   FILES_DOCTYPE,
   APP_SETTINGS_DOCTYPE,
+  SETTINGS_DOCTYPE,
   TRIGGERS_DOCTYPE
 } from 'src/constants'
 
@@ -75,6 +76,7 @@ export const AppLayout = () => {
             <RealTimeQueries doctype={CONTACTS_DOCTYPE} />
             <RealTimeQueries doctype={TRIGGERS_DOCTYPE} />
             <RealTimeQueries doctype={APP_SETTINGS_DOCTYPE} />
+            <RealTimeQueries doctype={SETTINGS_DOCTYPE} />
             <ModalStack />
             {showPaywall && <PapersPaywall onClose={onClosePaywall} />}
           </>
