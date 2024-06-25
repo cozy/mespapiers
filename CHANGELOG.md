@@ -1,4 +1,16 @@
+# 3.6.0
+
 # 3.5.0
+
+### ✨ Features
+* Use data API router of react-router-dom by @Merkur39 in https://github.com/cozy/mespapiers/pull/632
+* Update wording manifest.webapp by @BenjaminMty in https://github.com/cozy/mespapiers/pull/631
+* Change country logic by @JF-Cozy in https://github.com/cozy/mespapiers/pull/635
+* feat: Update french wording of the vehicle registration license number by @Merkur39 in https://github.com/cozy/mespapiers/pull/638
+* Add realtime on io.cozy.settings by @JF-Cozy in https://github.com/cozy/mespapiers/pull/641
+
+### 🐛 Bug Fixes
+* Use contants instead of strings to list all known metadata by @Merkur39 in https://github.com/cozy/mespapiers/pull/637
 
 # 3.4.0
 
