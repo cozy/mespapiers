@@ -30,42 +30,51 @@ mockClient.plugins.realtime = {
   unsubscribe: jest.fn()
 }
 
-const AppLike = ({ children, client, history }) => {
+const WithHashRouter = ({ children, history, withoutHashRouter }) => {
+  if (withoutHashRouter) {
+    return children
+  }
   const hashHistory = history || createHashHistory()
+  return <HashRouter history={hashHistory}>{children}</HashRouter>
+}
+
+const AppLike = ({ children, client, history, withoutHashRouter }) => {
   return (
-    <WebviewIntentProvider>
-      <FileSharingProvider>
-        <CozyProvider client={client || mockClient}>
-          <I18n dictRequire={() => enLocale} lang="en">
-            <PapersCreatedProvider>
-              <ErrorProvider>
-                <PaywallProvider>
-                  <ScannerI18nProvider lang="en">
-                    <SearchProvider
-                      doctypes={[FILES_DOCTYPE, CONTACTS_DOCTYPE]}
-                    >
-                      <CozyTheme>
-                        <BreakpointsProvider>
-                          <AlertProvider>
-                            <HashRouter history={hashHistory}>
-                              <MultiSelectionProvider>
-                                <PapersDefinitionsProvider>
-                                  <ModalProvider>{children}</ModalProvider>
-                                </PapersDefinitionsProvider>
-                              </MultiSelectionProvider>
-                            </HashRouter>
-                          </AlertProvider>
-                        </BreakpointsProvider>
-                      </CozyTheme>
-                    </SearchProvider>
-                  </ScannerI18nProvider>
-                </PaywallProvider>
-              </ErrorProvider>
-            </PapersCreatedProvider>
-          </I18n>
-        </CozyProvider>
-      </FileSharingProvider>
-    </WebviewIntentProvider>
+    <WithHashRouter withoutHashRouter={withoutHashRouter} history={history}>
+      <WebviewIntentProvider>
+        <FileSharingProvider>
+          <CozyProvider client={client || mockClient}>
+            <I18n dictRequire={() => enLocale} lang="en">
+              <PapersCreatedProvider>
+                <ErrorProvider>
+                  <PaywallProvider>
+                    <ScannerI18nProvider lang="en">
+                      <SearchProvider
+                        doctypes={[FILES_DOCTYPE, CONTACTS_DOCTYPE]}
+                      >
+                        <CozyTheme>
+                          <BreakpointsProvider>
+                            <AlertProvider>
+                              <ModalProvider>
+                                <MultiSelectionProvider>
+                                  <PapersDefinitionsProvider>
+                                    {children}
+                                  </PapersDefinitionsProvider>
+                                </MultiSelectionProvider>
+                              </ModalProvider>
+                            </AlertProvider>
+                          </BreakpointsProvider>
+                        </CozyTheme>
+                      </SearchProvider>
+                    </ScannerI18nProvider>
+                  </PaywallProvider>
+                </ErrorProvider>
+              </PapersCreatedProvider>
+            </I18n>
+          </CozyProvider>
+        </FileSharingProvider>
+      </WebviewIntentProvider>
+    </WithHashRouter>
   )
 }
 
