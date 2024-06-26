@@ -7,14 +7,6 @@ import { is2SidedFile } from 'src/helpers/is2SidedFile'
 import { useClient } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-const pagePickerOptions = [
-  [
-    { value: 'front', label: 'Multiselect.page.front' },
-    { value: 'back', label: 'Multiselect.page.back' }
-  ],
-  [{ value: 'split', label: 'PagePickerModal.splitFile', master: true }]
-]
-
 const MultiSelectionContext = createContext()
 
 export const MultiSelectionProvider = ({ children }) => {
@@ -40,7 +32,6 @@ export const MultiSelectionProvider = ({ children }) => {
         pushModal(
           <PagePickerModal
             file={currFile}
-            options={pagePickerOptions}
             textAction={t('common.ok')}
             onClick={selectedChoice => {
               const frontSide = selectedChoice.find(
