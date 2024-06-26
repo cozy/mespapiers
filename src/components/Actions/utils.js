@@ -1,12 +1,12 @@
 // TODO Move to cozy-client (files model)
 
 import { FILES_DOCTYPE, JOBS_DOCTYPE } from 'src/constants'
-import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
 import { handleConflictFilename } from 'src/helpers/handleConflictFilename'
 
 import { isReferencedBy } from 'cozy-client'
 import { getDisplayName } from 'cozy-client/dist/models/contact'
+import { splitFilename } from 'cozy-client/dist/models/file'
 import { getSharingLink } from 'cozy-client/dist/models/sharing'
 
 export const isAnyFileReferencedBy = (files, doctype) => {
@@ -25,44 +25,80 @@ const downloadFileError = error => {
 }
 
 /**
+ * @param {object} param
+ * @param {import('cozy-client/types/types').IOCozyFile} param.file - File to rename
+ * @param {string|null} param.page - Page of the file
+ * @param {Function} param.t - i18n function
+ * @returns {string} - Final name of the file
+ */
+export const makeFilenameWithPage = ({ file, page, t }) => {
+  if (!page) {
+    return file.name
+  }
+  const { filename, extension } = splitFilename(file)
+  return `${filename}_${t(`Multiselect.page.${page}`)}${extension}`
+}
+
+const convertPage = page => {
+  if (page === null) {
+    return undefined
+  }
+  return page === 'front' ? 1 : 2
+}
+
+/**
  * Create a zip folder with the list of files and save it in a desired folder in Drive
  * @param {object} param
  * @param {import('cozy-client/types/CozyClient').default} param.client - Instance of CozyClient
- * @param {import('cozy-client/types/types').IOCozyFile[]} param.files - List of files to zip
+ * @param {{file: import('cozy-client/types/types').IOCozyFile, page: string|null}[]} param.filesWithPage - List of files to zip with their page
  * @param {string} param.zipFolderName - Desired name of the Zip folder
  * @param {string} param.dirId - Id of the destination folder of the zip
+ * @param {Function} param.t - i18n function
  * @returns {Promise<string>} - Final name of the zip folder
  */
 export const createZipFolderJob = async ({
   client,
-  files,
+  filesWithPage,
   zipFolderName,
-  dirId
+  dirId,
+  t
 }) => {
-  const filename = await handleConflictFilename(client, dirId, zipFolderName)
+  const opts = Object.fromEntries(
+    filesWithPage.map(({ file, page }) => {
+      const filename = makeFilenameWithPage({ file, page, t })
+      return [filename, { id: file._id, page: convertPage(page) }]
+    })
+  )
+  const zipName = await handleConflictFilename(client, dirId, zipFolderName)
   const zipData = {
-    files: Object.fromEntries(files.map(file => [file.name, file._id])),
+    files: opts,
     dir_id: dirId,
-    filename
+    filename: zipName
   }
 
   const jobCollection = client.collection(JOBS_DOCTYPE)
   await jobCollection.create('zip', zipData, {}, true)
 
-  return filename
+  return zipName
 }
 
 /**
  *
  * @param {object} param
  * @param {import('cozy-client/types/CozyClient').default} param.client - Instance of CozyClient
- * @param {import('cozy-client/types/types').IOCozyFile[]} param.docs - List of files to zip
+ * @param {import('cozy-client/types/types').IOCozyContact} param.currentUser - Current user
+ * @param {{file: import('cozy-client/types/types').IOCozyFile, page: string|null}[]} param.filesWithPage - List of files to zip with their page
  * @param {Function} param.t - i18n function
  * @param {Function} param.f - date formatting function
  * @returns
  */
-export const makeZipFolder = async ({ client, docs, t, f }) => {
-  const currentUser = await fetchCurrentUser(client)
+export const makeZipFolder = async ({
+  client,
+  currentUser,
+  filesWithPage,
+  t,
+  f
+}) => {
   const defaultZipFolderName = t('Multiselect.folderZipName', {
     contactName: getDisplayName(currentUser),
     date: f(Date.now(), 'YYYY.MM.DD')
@@ -75,9 +111,10 @@ export const makeZipFolder = async ({ client, docs, t, f }) => {
 
   const zipName = await createZipFolderJob({
     client,
-    files: docs,
+    filesWithPage,
     zipFolderName: defaultZipFolderName,
-    dirId: parentFolderId
+    dirId: parentFolderId,
+    t
   })
 
   // Should we reject at some time here ?

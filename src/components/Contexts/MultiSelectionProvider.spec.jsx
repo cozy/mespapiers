@@ -1,25 +1,31 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import { MultiSelectionProvider } from 'src/components/Contexts/MultiSelectionProvider'
+import { handleFileSelecting } from 'src/components/Actions/handleFileSelecting'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
+import AppLike from 'test/components/AppLike'
 
 import flag from 'cozy-flags'
 
 jest.mock('cozy-flags')
 jest.mock('react-router-dom')
 
-const setup = () => {
+jest.mock('src/components/Actions/handleFileSelecting', () => ({
+  handleFileSelecting: jest.fn()
+}))
+
+const setup = ({ mockHandleFileSelecting } = {}) => {
   flag.mockReturnValue(true)
 
+  handleFileSelecting.mockImplementation(mockHandleFileSelecting)
   useLocation.mockReturnValue({ pathname: '/files/multiselect' })
 
-  const wrapper = ({ children }) => (
-    <MultiSelectionProvider>{children}</MultiSelectionProvider>
+  const Wrapper = ({ children }) => (
+    <AppLike withoutHashRouter>{children}</AppLike>
   )
 
   return renderHook(() => useMultiSelection(), {
-    wrapper
+    wrapper: Wrapper
   })
 }
 
@@ -32,10 +38,14 @@ describe('MultiSelectionProvider', () => {
       const { result, rerender } = setup()
 
       act(() => {
-        result.current.addMultiSelectionItems([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([
+          { file: fileMock01, page: null }
+        ])
       })
 
-      expect(result.current.allMultiSelection).toEqual([{ file: fileMock01 }])
+      expect(result.current.allMultiSelection).toEqual([
+        { file: fileMock01, page: null }
+      ])
 
       // isMultiSelectionActive => false
       useLocation.mockReturnValue({ pathname: '/paper' })
@@ -51,26 +61,34 @@ describe('MultiSelectionProvider', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionItems([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([
+          { file: fileMock01, page: null }
+        ])
       })
 
-      expect(result.current.allMultiSelection).toEqual([{ file: fileMock01 }])
+      expect(result.current.allMultiSelection).toEqual([
+        { file: fileMock01, page: null }
+      ])
     })
 
     it('should add a second file to its state', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionItems([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([
+          { file: fileMock01, page: null }
+        ])
       })
 
       act(() => {
-        result.current.addMultiSelectionItems([{ file: fileMock02 }])
+        result.current.addMultiSelectionItems([
+          { file: fileMock02, page: 'front' }
+        ])
       })
 
       expect(result.current.allMultiSelection).toEqual([
-        { file: fileMock01 },
-        { file: fileMock02 }
+        { file: fileMock01, page: null },
+        { file: fileMock02, page: 'front' }
       ])
     })
 
@@ -78,16 +96,20 @@ describe('MultiSelectionProvider', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionItems([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([
+          { file: fileMock01, page: null }
+        ])
       })
 
       act(() => {
-        result.current.addMultiSelectionItems([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([
+          { file: fileMock01, page: null }
+        ])
       })
 
       expect(result.current.allMultiSelection).toEqual([
-        { file: fileMock01 },
-        { file: fileMock01 }
+        { file: fileMock01, page: null },
+        { file: fileMock01, page: null }
       ])
     })
   })
@@ -97,18 +119,24 @@ describe('MultiSelectionProvider', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionItems([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([
+          { file: fileMock01, page: null }
+        ])
       })
 
       act(() => {
-        result.current.addMultiSelectionItems([{ file: fileMock02 }])
+        result.current.addMultiSelectionItems([
+          { file: fileMock02, page: null }
+        ])
       })
 
       act(() => {
         result.current.removeMultiSelectionItemByIndex(0)
       })
 
-      expect(result.current.allMultiSelection).toEqual([{ file: fileMock02 }])
+      expect(result.current.allMultiSelection).toEqual([
+        { file: fileMock02, page: null }
+      ])
     })
   })
 
@@ -117,11 +145,15 @@ describe('MultiSelectionProvider', () => {
       const { result } = setup()
 
       act(() => {
-        result.current.addMultiSelectionItems([{ file: fileMock01 }])
+        result.current.addMultiSelectionItems([
+          { file: fileMock01, page: null }
+        ])
       })
 
       act(() => {
-        result.current.addMultiSelectionItems([{ file: fileMock02 }])
+        result.current.addMultiSelectionItems([
+          { file: fileMock02, page: null }
+        ])
       })
 
       act(() => {
@@ -220,8 +252,9 @@ describe('MultiSelectionProvider', () => {
   })
 
   describe('confirmCurrentMultiSelectionFiles', () => {
-    it('should move all files in currentMultiSelectionFilesState to multiSelectionFilesState', () => {
-      const { result } = setup()
+    it('should clean all files in currentMultiSelectionFilesState and call handleFileSelecting', async () => {
+      const mockHandleFileSelecting = jest.fn()
+      const { result } = setup({ mockHandleFileSelecting })
 
       // add first file to current selection
       act(() => {
@@ -244,11 +277,9 @@ describe('MultiSelectionProvider', () => {
       act(() => {
         result.current.confirmCurrentMultiSelectionFiles(fileMock02)
       })
+      expect(mockHandleFileSelecting).toBeCalledTimes(1)
+      await handleFileSelecting()
       expect(result.current.currentMultiSelectionFiles).toEqual([])
-      expect(result.current.allMultiSelection).toEqual([
-        { file: fileMock01 },
-        { file: fileMock02 }
-      ])
     })
   })
 })

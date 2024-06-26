@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { forwardFile, makeZipFolder } from 'src/components/Actions/utils'
 import { ForwardModalContent } from 'src/components/Multiselect/ForwardModalContent'
+import { createPdfFileByPage } from 'src/components/Multiselect/helpers'
 import { copyToClipboard } from 'src/helpers/copyToClipboard'
 import { makeTTL } from 'src/helpers/makeTTL'
 
@@ -16,7 +17,12 @@ import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const PASSWORD_MIN_LENGTH = 4
 
-export const ForwardModal = ({ onClose, onForward, files, currentUser }) => {
+export const ForwardModal = ({
+  onClose,
+  onForward,
+  filesWithPage,
+  currentUser
+}) => {
   const client = useClient()
   const { t, f } = useI18n()
   const { showAlert } = useAlert()
@@ -31,7 +37,7 @@ export const ForwardModal = ({ onClose, onForward, files, currentUser }) => {
   const isDesktopOrMobileWithoutShareAPI =
     (isMobile() && !navigator.share) || !isMobile()
 
-  const isMultipleFile = files.length > 1
+  const isMultipleFile = filesWithPage.length > 1
 
   const helperTextPassword = !isValidPassword
     ? t('InputTextAdapter.invalidTextMessage', {
@@ -42,10 +48,19 @@ export const ForwardModal = ({ onClose, onForward, files, currentUser }) => {
   const helperTextDate = t('InputDateAdapter.invalidDateMessage')
 
   const handleClick = async () => {
-    let file = files[0]
+    setIsBusy(true)
+    let file = filesWithPage[0].file
     if (isMultipleFile) {
-      setIsBusy(true)
-      file = await makeZipFolder({ client, docs: files, t, f })
+      file = await makeZipFolder({ client, currentUser, filesWithPage, t, f })
+    } else {
+      if (filesWithPage[0].page) {
+        const newFile = await createPdfFileByPage({
+          client,
+          t,
+          filesWithSpecificPage: filesWithPage
+        })
+        file = newFile[0]
+      }
     }
     const ttl = makeTTL(dateToggle && selectedDate)
     if (isDesktopOrMobileWithoutShareAPI) {
@@ -72,7 +87,7 @@ export const ForwardModal = ({ onClose, onForward, files, currentUser }) => {
       data-testid="ForwardModal"
       content={
         <ForwardModalContent
-          files={files}
+          filesWithPage={filesWithPage}
           currentUser={currentUser}
           setIsValidPassword={setIsValidPassword}
           setIsValidDate={setIsValidDate}
@@ -102,6 +117,11 @@ export const ForwardModal = ({ onClose, onForward, files, currentUser }) => {
 ForwardModal.propTypes = {
   onForward: PropTypes.func,
   onClose: PropTypes.func,
-  files: PropTypes.array,
+  filesWithPage: PropTypes.arrayOf(
+    PropTypes.shape({
+      file: PropTypes.object,
+      page: PropTypes.string
+    })
+  ),
   currentUser: PropTypes.object
 }

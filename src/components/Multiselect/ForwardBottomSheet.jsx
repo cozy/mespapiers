@@ -3,7 +3,14 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFileSharing } from 'src/components/Contexts/FileSharingProvider'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
+import {
+  createPdfFileByPage,
+  removeFilesPermanently
+} from 'src/components/Multiselect/helpers'
+import { filterWithRemaining } from 'src/helpers/filterWithRemaining'
 
+import { useClient } from 'cozy-client'
+import minilog from 'cozy-minilog'
 import BottomSheet, {
   BottomSheetItem
 } from 'cozy-ui/transpiled/react/BottomSheet'
@@ -14,18 +21,39 @@ import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
+const log = minilog('ForwardBottomSheet')
 
-export const ForwardBottomSheet = ({ onClose, files, shareByLink }) => {
+export const ForwardBottomSheet = ({ onClose, filesWithPage, shareByLink }) => {
   const { t } = useI18n()
   const navigate = useNavigate()
   const { showAlert } = useAlert()
+  const client = useClient()
   const { shareFiles } = useFileSharing()
   const { isMultiSelectionActive } = useMultiSelection()
-  const fileIds = files.map(file => file._id)
+  const {
+    itemsFound: filesWithSpecificPage,
+    remainingItems: filesWithoutSpecificPage
+  } = filterWithRemaining(filesWithPage, ({ page }) => page)
 
   const shareAsAttachment = async () => {
+    const fileIds = filesWithoutSpecificPage.map(({ file }) => file._id)
     try {
+      if (filesWithSpecificPage.length > 0) {
+        const newFiles = await createPdfFileByPage({
+          client,
+          t,
+          filesWithSpecificPage
+        })
+        const tempFileIds = newFiles.map(file => file._id)
+        fileIds.push(...tempFileIds)
+      }
+
       await shareFiles(fileIds)
+
+      removeFilesPermanently(client, fileIds).catch(error => {
+        log.error(`Error while removing files: ${error}`)
+      })
+
       showAlert({
         message: t('ShareBottomSheet.attachmentResponse.success', {
           smart_count: fileIds.length
@@ -40,6 +68,12 @@ export const ForwardBottomSheet = ({ onClose, files, shareByLink }) => {
       }
     } catch (error) {
       if (error.message === 'User did not share') return
+
+      if (fileIds.length > 0) {
+        removeFilesPermanently(client, fileIds).catch(error => {
+          log.error(`Error while removing files in catch: ${error}`)
+        })
+      }
 
       showAlert({
         message: t('ShareBottomSheet.attachmentResponse.error'),
@@ -73,5 +107,11 @@ export const ForwardBottomSheet = ({ onClose, files, shareByLink }) => {
 
 ForwardBottomSheet.propTypes = {
   onClose: PropTypes.func,
-  files: PropTypes.array
+  filesWithPage: PropTypes.arrayOf(
+    PropTypes.shape({
+      file: PropTypes.object,
+      page: PropTypes.string
+    })
+  ),
+  shareByLink: PropTypes.func
 }

@@ -8,12 +8,18 @@ import { fetchCurrentUser } from 'src/helpers/fetchCurrentUser'
 import { buildFileQueryByIds } from 'src/queries'
 
 export const forwardByRouteLoader = async ({ request }, { client }) => {
-  const fileIds = new URL(request.url).searchParams.get('fileIds').split(',')
+  const fileIds = new URL(request.url).searchParams.getAll('fileId')
+  const pages = new URL(request.url).searchParams.getAll('page')
   const { data: files } = await client.fetchQueryAndGetFromState(
     buildFileQueryByIds(fileIds)
   )
-  const currentUser = fileIds.length > 1 ? await fetchCurrentUser(client) : null
-  return { currentUser, files }
+  const currentUser = await fetchCurrentUser(client)
+  const filesWithPage = fileIds.map((fileId, idx) => ({
+    file: files.find(f => f._id === fileId),
+    page: pages[idx] === 'null' ? null : pages[idx]
+  }))
+
+  return { currentUser, filesWithPage }
 }
 
 export const ForwardByRoute = () => {
@@ -22,7 +28,7 @@ export const ForwardByRoute = () => {
     true
   )
   const navigate = useNavigate()
-  const { currentUser, files } = useLoaderData()
+  const { currentUser, filesWithPage } = useLoaderData()
   const { isMultiSelectionActive } = useMultiSelection()
   const { isFileSharingAvailable } = useFileSharing()
 
@@ -39,14 +45,14 @@ export const ForwardByRoute = () => {
         onClose={handleClose}
         shareByLink={toggleBottomSheet}
         currentUser={currentUser}
-        files={files}
+        filesWithPage={filesWithPage}
       />
     )
   }
 
   return (
     <ForwardModal
-      files={files}
+      filesWithPage={filesWithPage}
       currentUser={currentUser}
       onForward={handleForward}
       onClose={handleClose}

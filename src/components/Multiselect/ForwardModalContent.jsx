@@ -1,6 +1,7 @@
 import addDays from 'date-fns/addDays'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { makeFilenameWithPage } from 'src/components/Actions/utils'
 import BoxDate from 'src/components/Multiselect/BoxDate'
 import BoxPassword from 'src/components/Multiselect/BoxPassword'
 
@@ -24,7 +25,7 @@ const styles = {
 const PASSWORD_MIN_LENGTH = 4
 
 export const ForwardModalContent = ({
-  files,
+  filesWithPage,
   currentUser,
   setIsValidPassword,
   helperTextPassword,
@@ -45,14 +46,18 @@ export const ForwardModalContent = ({
   const isDesktopOrMobileWithoutShareAPI =
     (isMobile() && !navigator.share) || !isMobile()
 
-  const isMultipleFile = files.length > 1
+  const isMultipleFile = filesWithPage.length > 1
   const displayName =
     isMultipleFile && currentUser
       ? t('Multiselect.folderZipName', {
           contactName: getDisplayName(currentUser),
           date: f(Date.now(), 'YYYY.MM.DD')
         })
-      : files[0].name
+      : makeFilenameWithPage({
+          file: filesWithPage[0].file,
+          page: filesWithPage[0].page,
+          t
+        })
 
   const handlePasswordToggle = val => {
     setPasswordToggle(val)
@@ -88,7 +93,7 @@ export const ForwardModalContent = ({
         {!isMultipleFile ? (
           <FileImageLoader
             client={client}
-            file={files[0]}
+            file={filesWithPage[0].file}
             linkType="tiny"
             render={src => {
               return src ? (
@@ -99,7 +104,11 @@ export const ForwardModalContent = ({
             }}
             renderFallback={() => (
               <Icon
-                icon={isNote(files[0]) ? 'file-type-note' : 'file-type-files'}
+                icon={
+                  isNote(filesWithPage[0].file)
+                    ? 'file-type-note'
+                    : 'file-type-files'
+                }
                 size={64}
               />
             )}
@@ -135,6 +144,11 @@ export const ForwardModalContent = ({
 ForwardModalContent.propTypes = {
   onForward: PropTypes.func,
   onClose: PropTypes.func,
-  files: PropTypes.array,
+  filesWithPage: PropTypes.arrayOf(
+    PropTypes.shape({
+      file: PropTypes.object,
+      page: PropTypes.string
+    })
+  ),
   currentUser: PropTypes.object
 }
