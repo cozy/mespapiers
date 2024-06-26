@@ -105,7 +105,7 @@ describe('MultiselectViewActions', () => {
       const mockNavigatorShareFunc = jest.fn()
       const { getByRole } = setup({
         allMultiSelection: [
-          { file: { _id: '00', type: 'file', name: 'File00' } }
+          { file: { _id: '00', type: 'file', name: 'File00' }, page: null }
         ],
         isMobile: true,
         mockNavigate,
@@ -118,7 +118,7 @@ describe('MultiselectViewActions', () => {
       await waitFor(() => {
         expect(mockNavigate).toHaveBeenCalledWith({
           pathname: 'forward',
-          search: '?fileIds=00'
+          search: '?fileId=00&page=null'
         })
       })
     })
