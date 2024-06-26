@@ -37,6 +37,16 @@
  */
 
 /**
+ * @typedef {Object} AllMultiSelection
+ * @property {import('cozy-client/types/types').IOCozyFile} file
+ * @property {string|null} page
+ */
+
+/**
+ * @typedef {import('react').Dispatch<import('react').SetStateAction<AllMultiSelection[]>>} AllMultiSelectionSetter
+ */
+
+/**
  * @typedef {Object} SearchResult
  * @property {boolean} loading
  * @property {boolean} hasResult

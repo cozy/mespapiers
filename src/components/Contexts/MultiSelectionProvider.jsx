@@ -6,6 +6,9 @@ const MultiSelectionContext = createContext()
 export const MultiSelectionProvider = ({ children }) => {
   const location = useLocation()
   const isMultiSelectionActive = location.pathname.includes('multiselect')
+  /**
+   * @type {[import('../../types').AllMultiSelection[], import('../../types').AllMultiSelectionSetter]}
+   */
   const [allMultiSelectionFiles, setAllMultiSelectionFiles] = useState([])
   const [currentMultiSelectionFiles, setCurrentMultiSelectionFiles] = useState(
     []
@@ -14,7 +17,7 @@ export const MultiSelectionProvider = ({ children }) => {
     useState(null)
 
   const confirmCurrentMultiSelectionFiles = () => {
-    addMultiSelectionFiles(currentMultiSelectionFiles)
+    addMultiSelectionFiles(currentMultiSelectionFiles.map(file => ({ file })))
     removeAllCurrentMultiSelectionFiles()
   }
 
@@ -36,13 +39,21 @@ export const MultiSelectionProvider = ({ children }) => {
     setCurrentMultiSelectionFiles([])
   }
 
-  const addMultiSelectionFiles = filesToAdd => {
-    setAllMultiSelectionFiles(files => [...files, ...filesToAdd])
+  /**
+   * Adds items to the multi-selection state
+   * @param {{ file: import('cozy-client/types/types').IOCozyFile, page: string|null }[]} items - Files to add to the multi-selection state
+   */
+  const addMultiSelectionFiles = items => {
+    setAllMultiSelectionFiles(prev => [...prev, ...items])
   }
 
+  /**
+   * Removes a file from the multi-selection state
+   * @param {number} fileToRemoveIndex - Index of the file to remove
+   */
   const removeMultiSelectionFile = fileToRemoveIndex => {
-    setAllMultiSelectionFiles(files => {
-      return files.filter((_, idx) => fileToRemoveIndex !== idx)
+    setAllMultiSelectionFiles(items => {
+      return items.filter((_, idx) => fileToRemoveIndex !== idx)
     })
   }
 

@@ -15,7 +15,7 @@ export const select = ({ hideActionsMenu, addMultiSelectionFiles }) => {
       hideActionsMenu && hideActionsMenu()
       docs.length > 0 &&
         addMultiSelectionFiles &&
-        addMultiSelectionFiles([docs[0]])
+        addMultiSelectionFiles([{ file: docs[0] }])
     },
     Component: withLocales(
       // eslint-disable-next-line react/display-name
