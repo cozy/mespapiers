@@ -312,3 +312,23 @@ export const onPickForwardedPage = (selectedChoice, file) => {
   return searchParams
 }
 
+/**
+ * Pick the selected page
+ * @param {{value: string, label: string}[]} selectedChoice - Selected choice
+ * @param {import('cozy-client/types/types').IOCozyFile} file - io.cozy.file object
+ * @returns {{file: import('cozy-client/types/types').IOCozyFile, page: string|null}[]} - List of files with their page
+ */
+export const onPickSelectedPage = (selectedChoice, file) => {
+  const frontSide = selectedChoice.find(el => el.value === 'front')?.value
+  const backSide = selectedChoice.find(el => el.value === 'back')?.value
+
+  if (frontSide && backSide) {
+    return [
+      { file, page: frontSide },
+      { file, page: backSide }
+    ]
+  }
+
+  const page = frontSide ? frontSide : backSide ? backSide : null
+  return [{ file, page }]
+}
