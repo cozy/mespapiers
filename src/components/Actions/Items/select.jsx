@@ -1,4 +1,6 @@
 import React, { forwardRef } from 'react'
+import { handleFileSelecting } from 'src/components/Actions/handleFileSelecting'
+import { normalizeFilesWithPage } from 'src/components/Actions/utils'
 import withLocales from 'src/locales/withLocales'
 
 import { generateWebLink, useClient } from 'cozy-client'
@@ -8,14 +10,25 @@ import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-export const select = ({ hideActionsMenu, addMultiSelectionItems }) => {
+export const select = ({
+  hideActionsMenu,
+  addMultiSelectionItems,
+  pushModal,
+  popModal,
+  t
+}) => {
   return {
     name: 'select',
-    action: docs => {
+    action: (docs, { client }) => {
       hideActionsMenu && hideActionsMenu()
-      docs.length > 0 &&
-        addMultiSelectionItems &&
-        addMultiSelectionItems([{ file: docs[0] }])
+      handleFileSelecting({
+        client,
+        filesWithPage: normalizeFilesWithPage(docs),
+        addMultiSelectionItems,
+        pushModal,
+        popModal,
+        t
+      })
     },
     Component: withLocales(
       // eslint-disable-next-line react/display-name
