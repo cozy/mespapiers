@@ -9,7 +9,8 @@ const MultiselectViewActions = () => {
   const allMultiSelectionFiles = allMultiSelection.map(({ file }) => file)
 
   const actions = useActions(allMultiSelectionFiles, {
-    isActionBar: true
+    isActionBar: true,
+    actionsOptions: { allMultiSelection }
   })
 
   return <ActionsBar actions={actions} docs={allMultiSelectionFiles} />

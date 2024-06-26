@@ -9,10 +9,18 @@ import Divider from 'cozy-ui/transpiled/react/Divider'
 import List from 'cozy-ui/transpiled/react/List'
 import Paper from 'cozy-ui/transpiled/react/Paper'
 
+const pagePickerDefaultOptions = [
+  [
+    { value: 'front', label: 'Multiselect.page.front' },
+    { value: 'back', label: 'Multiselect.page.back' }
+  ],
+  [{ value: 'split', label: 'PagePickerModal.splitFile', master: true }]
+]
+
 export const PagePickerModal = ({
   onClose,
   file,
-  options,
+  options = pagePickerDefaultOptions,
   onClick,
   textAction
 }) => {
@@ -98,7 +106,7 @@ PagePickerModal.propTypes = {
         master: PropTypes.bool
       })
     )
-  ).isRequired,
+  ),
   textAction: PropTypes.string.isRequired,
   file: PropTypes.object.isRequired
 }

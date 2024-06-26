@@ -247,6 +247,15 @@ export const removeQualification = async ({ client, files, showAlert, t }) => {
 }
 
 /**
+ * Transform the list of files into a list of objects with file and page attributes (page is null)
+ * @param {import('cozy-client/types/types').IOCozyFile[]} files - List of io.cozy.file
+ * @returns {{file: import('cozy-client/types/types').IOCozyFile, page: null}[]} - List of files with their page
+ */
+export const normalizeFilesWithPage = files => {
+  return files.map(file => ({ file, page: null }))
+}
+
+/**
  * Pick the selected page to forward
  * @param {{value: string, label: string}[]} selectedChoice - Selected choice
  * @param {import('cozy-client/types/types').IOCozyFile} file - io.cozy.file object
