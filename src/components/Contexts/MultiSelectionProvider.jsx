@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect, useContext } from 'react'
 import { useLocation } from 'react-router-dom'
+import { handleFileSelecting } from 'src/components/Actions/handleFileSelecting'
+import { normalizeFilesWithPage } from 'src/components/Actions/utils'
 import { useModal } from 'src/components/Contexts/ModalProvider'
-import { PagePickerModal } from 'src/components/PagePickerModal/PagePickerModal'
-import { is2SidedFile } from 'src/helpers/is2SidedFile'
 
 import { useClient } from 'cozy-client'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
@@ -26,50 +26,14 @@ export const MultiSelectionProvider = ({ children }) => {
     useState(null)
 
   const confirmCurrentMultiSelectionFiles = async () => {
-    for (const currFile of currentMultiSelectionFiles) {
-      const isFileWith2side = await is2SidedFile(client, currFile)
-      if (isFileWith2side) {
-        pushModal(
-          <PagePickerModal
-            file={currFile}
-            textAction={t('common.ok')}
-            onClick={selectedChoice => {
-              const frontSide = selectedChoice.find(
-                el => el.value === 'front'
-              )?.value
-              const backSide = selectedChoice.find(
-                el => el.value === 'back'
-              )?.value
-
-              if (frontSide && backSide) {
-                addMultiSelectionItems([
-                  {
-                    file: currFile,
-                    page: frontSide
-                  },
-                  {
-                    file: currFile,
-                    page: backSide
-                  }
-                ])
-                return
-              }
-
-              const page = frontSide ? frontSide : backSide ? backSide : null
-              addMultiSelectionItems([
-                {
-                  file: currFile,
-                  page
-                }
-              ])
-            }}
-            onClose={popModal}
-          />
-        )
-      } else {
-        addMultiSelectionItems([{ file: currFile }])
-      }
-    }
+    await handleFileSelecting({
+      client,
+      filesWithPage: normalizeFilesWithPage(currentMultiSelectionFiles),
+      addMultiSelectionItems,
+      pushModal,
+      popModal,
+      t
+    })
     removeAllCurrentMultiSelectionFiles()
   }
 
