@@ -19,7 +19,7 @@ const SelectFileButton = ({ file }) => {
 
   const handleClick = () => {
     navigate(`/paper/multiselect`)
-    addMultiSelectionFiles([file])
+    addMultiSelectionFiles([{ file }])
   }
 
   if (isDesktop) {
