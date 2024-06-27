@@ -43,6 +43,19 @@
  */
 
 /**
+ * @typedef {Object} PagePickerOption
+ * @property {string} labelKey - i18n Key of the label.
+ * @property {string} value - Value of the option.
+ * @property {boolean} [master] - Enables or disables other options
+ */
+
+/**
+ * @typedef {Object} FileWithPage
+ * @property {import('cozy-client/types/types').IOCozyFile} file - io.cozy.file object.
+ * @property {'front'|'back'|null} page - Page of the file.
+ */
+
+/**
  * @typedef {import('react').Dispatch<import('react').SetStateAction<AllMultiSelection[]>>} AllMultiSelectionSetter
  */
 

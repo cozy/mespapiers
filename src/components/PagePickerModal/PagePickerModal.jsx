@@ -9,12 +9,15 @@ import Divider from 'cozy-ui/transpiled/react/Divider'
 import List from 'cozy-ui/transpiled/react/List'
 import Paper from 'cozy-ui/transpiled/react/Paper'
 
+/**
+ * @type {import('../../types').PagePickerOption[][]}
+ */
 const pagePickerDefaultOptions = [
   [
-    { value: 'front', label: 'Multiselect.page.front' },
-    { value: 'back', label: 'Multiselect.page.back' }
+    { value: 'front', labelKey: 'Multiselect.page.front' },
+    { value: 'back', labelKey: 'Multiselect.page.back' }
   ],
-  [{ value: 'split', label: 'PagePickerModal.splitFile', master: true }]
+  [{ value: 'split', labelKey: 'PagePickerModal.splitFile', master: true }]
 ]
 
 export const PagePickerModal = ({
@@ -24,6 +27,9 @@ export const PagePickerModal = ({
   onClick,
   textAction
 }) => {
+  /**
+   * @type {[import('../../types').PagePickerOption[], import('react').Dispatch<import('react').SetStateAction<import('../../types').PagePickerOption[]>>]}
+   */
   const [selectedChoice, setSelectedChoice] = useState([])
   const hasMasterChoice = options.flat().some(option => option.master)
   const disabledConfirm =
@@ -101,7 +107,7 @@ PagePickerModal.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.arrayOf(
       PropTypes.shape({
-        label: PropTypes.string.isRequired,
+        labelKey: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
         master: PropTypes.bool
       })

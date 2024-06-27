@@ -7,7 +7,7 @@ import { is2SidedFile } from 'src/helpers/is2SidedFile'
  * Check if the file has 2 sides, and if so, open a modal to choose which side to forward
  * @param {object} params
  * @param {import('cozy-client/types/CozyClient').default} params.client - CozyClient instance
- * @param {{file: import('cozy-client/types/types').IOCozyFile, page: string|null}[]} params.filesWithPage - List of files with their page to forward
+ * @param {import('../../types').FileWithPage[]} params.filesWithPage - List of files with their page to forward
  * @param {Function} params.pushModal - Function to push a modal
  * @param {Function} params.popModal - Function to pop a modal
  * @param {Function} params.navigate - Function to navigate
