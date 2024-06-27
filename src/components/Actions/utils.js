@@ -27,10 +27,7 @@ const downloadFileError = error => {
 }
 
 /**
- * @param {object} param
- * @param {import('cozy-client/types/types').IOCozyFile} param.file - File to rename
- * @param {string|null} param.page - Page of the file
- * @param {Function} param.t - i18n function
+ * @param {import('../../types').FileWithPage & {t: Function}} param
  * @returns {string} - Final name of the file
  */
 export const makeFilenameWithPage = ({ file, page, t }) => {
@@ -52,7 +49,7 @@ const convertPage = page => {
  * Create a zip folder with the list of files and save it in a desired folder in Drive
  * @param {object} param
  * @param {import('cozy-client/types/CozyClient').default} param.client - Instance of CozyClient
- * @param {{file: import('cozy-client/types/types').IOCozyFile, page: string|null}[]} param.filesWithPage - List of files to zip with their page
+ * @param {import('../../types').FileWithPage[]} param.filesWithPage - List of files to zip with their page
  * @param {string} param.zipFolderName - Desired name of the Zip folder
  * @param {string} param.dirId - Id of the destination folder of the zip
  * @param {Function} param.t - i18n function
@@ -89,7 +86,7 @@ export const createZipFolderJob = async ({
  * @param {object} param
  * @param {import('cozy-client/types/CozyClient').default} param.client - Instance of CozyClient
  * @param {import('cozy-client/types/types').IOCozyContact} param.currentUser - Current user
- * @param {{file: import('cozy-client/types/types').IOCozyFile, page: string|null}[]} param.filesWithPage - List of files to zip with their page
+ * @param {import('../../types').FileWithPage[]} param.filesWithPage - List of files to zip with their page
  * @param {Function} param.t - i18n function
  * @param {Function} param.f - date formatting function
  * @returns
@@ -174,7 +171,7 @@ export const forwardFile = async ({
 }
 
 /**
- * @param {{file: import('cozy-client/types/types').IOCozyFile, page: string|null}[]} filesWithPage - List of files to zip with their page
+ * @param {import('../../types').FileWithPage[]} filesWithPage - List of files to zip with their page
  * @returns {{ids: string[], pages: {id: string, page: string}[]}}
  */
 export const makeCreateArchiveLinkByIdsOptions = filesWithPage => {
@@ -195,7 +192,7 @@ export const makeCreateArchiveLinkByIdsOptions = filesWithPage => {
  *
  * @param {object} options
  * @param {import('cozy-client/types/CozyClient').default} options.client
- * @param {{file: import('cozy-client/types/types').IOCozyFile, page: string|null}[]} param.filesWithPage - List of files to zip with their page
+ * @param {import('../../types').FileWithPage[]} options.filesWithPage - List of files to zip with their page
  * @param {Function} options.showAlert - Function to display an alert
  * @param {Function} options.t i18n function
  */
@@ -323,7 +320,7 @@ export const removeQualification = async ({ client, files, showAlert, t }) => {
 /**
  * Transform the list of files into a list of objects with file and page attributes (page is null)
  * @param {import('cozy-client/types/types').IOCozyFile[]} files - List of io.cozy.file
- * @returns {{file: import('cozy-client/types/types').IOCozyFile, page: null}[]} - List of files with their page
+ * @returns {import('../../types').FileWithPage[]} - List of files with their page
  */
 export const normalizeFilesWithPage = files => {
   return files.map(file => ({ file, page: null }))
@@ -331,7 +328,7 @@ export const normalizeFilesWithPage = files => {
 
 /**
  * Pick the selected page to forward
- * @param {{value: string, label: string}[]} selectedChoice - Selected choice
+ * @param {import('../../types').PagePickerOption[]} selectedChoice - Selected choice
  * @param {import('cozy-client/types/types').IOCozyFile} file - io.cozy.file object
  * @returns {string} - Search parameters
  */
@@ -351,9 +348,9 @@ export const onPickForwardedPage = (selectedChoice, file) => {
 
 /**
  * Pick the selected page
- * @param {{value: string, label: string}[]} selectedChoice - Selected choice
+ * @param {import('../../types').PagePickerOption[]} selectedChoice - Selected choice
  * @param {import('cozy-client/types/types').IOCozyFile} file - io.cozy.file object
- * @returns {{file: import('cozy-client/types/types').IOCozyFile, page: string|null}[]} - List of files with their page
+ * @returns {import('../../types').FileWithPage[]} - List of files with their page
  */
 export const onPickSelectedPage = (selectedChoice, file) => {
   const frontSide = selectedChoice.find(el => el.value === 'front')?.value

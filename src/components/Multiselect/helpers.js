@@ -14,7 +14,7 @@ import {
  * @param {object} params
  * @param {import('cozy-client/types/CozyClient').default} params.client - CozyClient instance
  * @param {Function} params.t - Translate function
- * @param {{file: import('cozy-client/types/types').IOCozyFile, page: string|null}[]} params.filesWithSpecificPage - List of files with their page to keep
+ * @param {import('../../types').FileWithPage[]} params.filesWithSpecificPage - List of files with their page to keep
  * @returns {Promise<import('cozy-client/types/types').IOCozyFile[]>} - List of io.cozy.files
  */
 export const createPdfFileByPage = async ({

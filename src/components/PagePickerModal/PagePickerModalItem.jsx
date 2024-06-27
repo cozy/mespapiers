@@ -33,11 +33,11 @@ export const PagePickerModalItem = ({
       <ListItemIcon>
         <Checkbox
           checked={selectedChoice.some(choice => choice.value === option.value)}
-          name={t(option.label)}
+          name={t(option.labelKey)}
           value={option.value}
         />
       </ListItemIcon>
-      <ListItemText primary={t(option.label)} />
+      <ListItemText primary={t(option.labelKey)} />
     </ListItem>
   )
 }
@@ -47,13 +47,13 @@ PagePickerModalItem.propTypes = {
   onChange: PropTypes.func.isRequired,
   selectedChoice: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string.isRequired,
+      labelKey: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
       master: PropTypes.bool
     })
   ).isRequired,
   option: PropTypes.shape({
-    label: PropTypes.string.isRequired,
+    labelKey: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     master: PropTypes.bool
   }).isRequired
