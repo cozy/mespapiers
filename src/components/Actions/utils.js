@@ -1,7 +1,9 @@
 // TODO Move to cozy-client (files model)
 
 import { FILES_DOCTYPE, JOBS_DOCTYPE } from 'src/constants'
+import { downloadBlob } from 'src/helpers/downloadBlob'
 import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
+import { getPdfPage } from 'src/helpers/getPdfPage'
 import { handleConflictFilename } from 'src/helpers/handleConflictFilename'
 
 import { isReferencedBy } from 'cozy-client'
@@ -172,39 +174,74 @@ export const forwardFile = async ({
 }
 
 /**
+ * @param {{file: import('cozy-client/types/types').IOCozyFile, page: string|null}[]} filesWithPage - List of files to zip with their page
+ * @returns {{ids: string[], pages: {id: string, page: string}[]}}
+ */
+export const makeCreateArchiveLinkByIdsOptions = filesWithPage => {
+  return filesWithPage.reduce(
+    (acc, { file, page }) => {
+      const res = {
+        ...acc,
+        pages: [...acc.pages, { id: file.id, page: convertPage(page) }]
+      }
+      return res
+    },
+    { pages: [] }
+  )
+}
+
+/**
  * downloadFiles - Triggers the download of one or multiple files by the browser
  *
  * @param {object} options
  * @param {import('cozy-client/types/CozyClient').default} options.client
- * @param {import('cozy-client/types/types').IOCozyFile[]} options.files One or more files to download
+ * @param {{file: import('cozy-client/types/types').IOCozyFile, page: string|null}[]} param.filesWithPage - List of files to zip with their page
  * @param {Function} options.showAlert - Function to display an alert
  * @param {Function} options.t i18n function
  */
-export const downloadFiles = async ({ client, files, showAlert, t }) => {
-  const fileCollection = client.collection(FILES_DOCTYPE)
-  if (files.length === 1) {
-    const file = files[0]
+export const downloadFiles = async ({
+  client,
+  filesWithPage,
+  showAlert,
+  t
+}) => {
+  try {
+    const fileCollection = client.collection(FILES_DOCTYPE)
+    if (filesWithPage.length === 1) {
+      const { file, page } = filesWithPage[0]
+      if (filesWithPage[0].page === null) {
+        const filename = file.name
+        const downloadURL = await fileCollection.getDownloadLinkById(
+          file.id,
+          filename
+        )
 
-    try {
-      const filename = file.name
-      const downloadURL = await fileCollection.getDownloadLinkById(
-        file.id,
-        filename
-      )
-
-      fileCollection.forceFileDownload(`${downloadURL}?Dl=1`, filename)
-    } catch (error) {
-      showAlert({
-        message: t(downloadFileError(error)),
-        severity: 'error',
-        variant: 'filled'
-      })
+        return fileCollection.forceFileDownload(`${downloadURL}?Dl=1`, filename)
+      } else {
+        const filename = makeFilenameWithPage({ file, page, t })
+        const bin = await getPdfPage({
+          client,
+          file,
+          // pdf-lib start page count from 0
+          pageIndex: convertPage(page) - 1
+        })
+        const blob = new Blob([bin], { type: 'application/pdf' })
+        return downloadBlob(filename, blob)
+      }
     }
-  } else {
-    const ids = files.map(f => f.id)
-    const href = await fileCollection.getArchiveLinkByIds(ids)
-    const fullpath = `${client.getStackClient().uri}${href}`
-    fileCollection.forceFileDownload(fullpath, 'files.zip')
+
+    if (filesWithPage.length > 0) {
+      const opts = makeCreateArchiveLinkByIdsOptions(filesWithPage)
+      const href = await fileCollection.createArchiveLinkByIds(opts)
+      const fullpath = `${client.getStackClient().uri}${href}`
+      fileCollection.forceFileDownload(fullpath, 'files.zip')
+    }
+  } catch (error) {
+    showAlert({
+      message: t(downloadFileError(error)),
+      severity: 'error',
+      variant: 'filled'
+    })
   }
 }
 
