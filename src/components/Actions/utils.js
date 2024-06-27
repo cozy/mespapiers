@@ -245,3 +245,24 @@ export const removeQualification = async ({ client, files, showAlert, t }) => {
     })
   }
 }
+
+/**
+ * Pick the selected page to forward
+ * @param {{value: string, label: string}[]} selectedChoice - Selected choice
+ * @param {import('cozy-client/types/types').IOCozyFile} file - io.cozy.file object
+ * @returns {string} - Search parameters
+ */
+export const onPickForwardedPage = (selectedChoice, file) => {
+  let searchParams
+  const frontSide = selectedChoice.find(el => el.value === 'front')?.value
+  const backSide = selectedChoice.find(el => el.value === 'back')?.value
+
+  if (frontSide && backSide) {
+    searchParams = `fileId=${file._id}&page=${frontSide}&fileId=${file._id}&page=${backSide}`
+  } else {
+    const page = frontSide ? frontSide : backSide ? backSide : null
+    searchParams = `fileId=${file._id}&page=${page}`
+  }
+  return searchParams
+}
+
