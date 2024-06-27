@@ -120,6 +120,11 @@ const ScanWrapper = ({ currentStep, onClose, onBack }) => {
     }
   }
 
+  console.info(' ')
+  console.info('## ScanWrapper :')
+  console.info('currentFile :', currentFile)
+  console.info(' ')
+
   if (!!fromFlagshipUpload && !currentFile && currentStepIndex === 0) {
     return null
   }

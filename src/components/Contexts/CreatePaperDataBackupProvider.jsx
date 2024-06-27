@@ -5,6 +5,9 @@ import {
   getAndRemoveIndexedStorageData
 } from 'src/helpers/indexedStorage'
 
+/**
+ * useful when creating a paper on the AA and the phone closes the app just long enough to take a photo
+ */
 export const CreatePaperDataBackupProvider = ({ children }) => {
   const navigate = useNavigate()
 

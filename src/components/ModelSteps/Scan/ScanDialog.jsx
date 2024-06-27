@@ -30,6 +30,7 @@ const ScanDialog = ({
           className: 'u-flex u-flex-justify-between u-flex-items-center'
         }
       }}
+      BackdropProps={{ invisible: true }}
       title={<StepperDialogTitle />}
       content={
         <CompositeHeader

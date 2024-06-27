@@ -111,6 +111,11 @@ export const FormDataProvider = ({ children }) => {
     loadCreatePaperDataBackup()
   }, [webviewIntent, isSharedMemoryAvailable, currentStep])
 
+  console.info(' ')
+  console.info('## FormDataProvider')
+  console.info('formData :', formData)
+  console.info(' ')
+
   return (
     <FormDataContext.Provider
       value={{ formData, setFormData, exportFormData, importFormData }}
