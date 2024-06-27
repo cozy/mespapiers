@@ -6,8 +6,7 @@ import {
   createHashRouter
 } from 'react-router-dom'
 import { AppLayout } from 'src/components/AppLayout'
-import { CreatePaperDataBackupProvider } from 'src/components/Contexts/CreatePaperDataBackupProvider'
-import { MultiSelectionProvider } from 'src/components/Contexts/MultiSelectionProvider'
+import { AppProviders } from 'src/components/AppProviders'
 import {
   ForwardByRoute,
   forwardByRouteLoader
@@ -50,102 +49,105 @@ const OutletWrapper = ({ Component }) => (
 
 const makeRoutes = props => [
   {
-    path: 'paper',
     element: (
-      <CreatePaperDataBackupProvider>
-        <MultiSelectionProvider>
-          <AppLayout />
-        </MultiSelectionProvider>
-      </CreatePaperDataBackupProvider>
+      <AppProviders {...props}>
+        <Outlet />
+      </AppProviders>
     ),
-    errorElement: <ErrorBoundary />,
     children: [
       {
-        path: '',
-        element: <OutletWrapper Component={Home} />,
+        path: 'paper',
+        element: <AppLayout />,
+        errorElement: <ErrorBoundary />,
         children: [
           {
-            path: 'editcontact/:fileId',
-            element: <ContactEdit />
+            path: '',
+            element: <OutletWrapper Component={Home} />,
+            children: [
+              {
+                path: 'editcontact/:fileId',
+                element: <ContactEdit />
+              },
+              {
+                path: 'installAppIntent',
+                element: <InstallAppFromIntent />
+              },
+              {
+                path: 'installKonnectorIntent',
+                element: <InstallKonnectorFromIntent />
+              },
+              {
+                path: 'create',
+                element: <PlaceholdersSelector />
+              },
+              {
+                path: 'create/:qualificationLabel',
+                element: <CreatePaperModalWrapper />
+              },
+              {
+                path: 'forward',
+                element: <ForwardByRoute />,
+                loader: routerProps => forwardByRouteLoader(routerProps, props)
+              },
+              {
+                path: 'multiselect',
+                element: <OutletWrapper Component={MultiselectView} />,
+                children: [
+                  {
+                    path: 'forward',
+                    element: <ForwardByRoute />,
+                    loader: routerProps => {
+                      return forwardByRouteLoader(routerProps, props)
+                    }
+                  },
+                  {
+                    path: 'view/:fileId',
+                    element: <OutletWrapper Component={FilesViewerWithQuery} />,
+                    children: fileViewerRoutes(props)
+                  }
+                ]
+              }
+            ]
           },
           {
-            path: 'installAppIntent',
-            element: <InstallAppFromIntent />
-          },
-          {
-            path: 'installKonnectorIntent',
-            element: <InstallKonnectorFromIntent />
-          },
-          {
-            path: 'create',
-            element: <PlaceholdersSelector />
-          },
-          {
-            path: 'create/:qualificationLabel',
-            element: <CreatePaperModalWrapper />
-          },
-          {
-            path: 'forward',
-            element: <ForwardByRoute />,
-            loader: routerProps => forwardByRouteLoader(routerProps, props)
-          },
-          {
-            path: 'multiselect',
-            element: <OutletWrapper Component={MultiselectView} />,
+            path: 'files/:qualificationLabel',
+            element: <OutletWrapper Component={ConditionnalPapersList} />,
             children: [
               {
                 path: 'forward',
                 element: <ForwardByRoute />,
-                loader: routerProps => {
-                  return forwardByRouteLoader(routerProps, props)
-                }
+                loader: routerProps => forwardByRouteLoader(routerProps, props)
               },
               {
-                path: 'view/:fileId',
+                path: 'editcontact/:fileId',
+                element: <ContactEdit />
+              },
+              {
+                path: 'installAppIntent',
+                element: <InstallAppFromIntent />
+              },
+              {
+                path: 'installKonnectorIntent',
+                element: <InstallKonnectorFromIntent />
+              },
+              {
+                path: 'create',
+                element: <PlaceholdersSelector />
+              },
+              {
+                path: 'create/:qualificationLabel',
+                element: <CreatePaperModalWrapper />
+              },
+              {
+                path: ':fileId',
                 element: <OutletWrapper Component={FilesViewerWithQuery} />,
                 children: fileViewerRoutes(props)
+              },
+              {
+                path: 'harvest/:connectorSlug/*',
+                element: <HarvestRoutes />
               }
             ]
-          }
-        ]
-      },
-      {
-        path: 'files/:qualificationLabel',
-        element: <OutletWrapper Component={ConditionnalPapersList} />,
-        children: [
-          {
-            path: 'forward',
-            element: <ForwardByRoute />,
-            loader: routerProps => forwardByRouteLoader(routerProps, props)
-          },
-          {
-            path: 'editcontact/:fileId',
-            element: <ContactEdit />
-          },
-          {
-            path: 'installAppIntent',
-            element: <InstallAppFromIntent />
-          },
-          {
-            path: 'installKonnectorIntent',
-            element: <InstallKonnectorFromIntent />
-          },
-          {
-            path: 'create',
-            element: <PlaceholdersSelector />
-          },
-          {
-            path: 'create/:qualificationLabel',
-            element: <CreatePaperModalWrapper />
-          },
-          {
-            path: ':fileId',
-            element: <OutletWrapper Component={FilesViewerWithQuery} />,
-            children: fileViewerRoutes(props)
-          },
-          {
-            path: 'harvest/:connectorSlug/*',
-            element: <HarvestRoutes />
           }
         ]
       }
@@ -159,5 +161,6 @@ const makeRoutes = props => [
 
 export const AppRouter = props => {
   const router = createHashRouter(makeRoutes(props))
+
   return <RouterProvider router={router} />
 }

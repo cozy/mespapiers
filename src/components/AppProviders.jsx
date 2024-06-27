@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
+import { CreatePaperDataBackupProvider } from 'src/components/Contexts/CreatePaperDataBackupProvider'
 import { ErrorProvider } from 'src/components/Contexts/ErrorProvider'
 import FileSharingProvider from 'src/components/Contexts/FileSharingProvider'
 import { ModalProvider } from 'src/components/Contexts/ModalProvider'
+import { MultiSelectionProvider } from 'src/components/Contexts/MultiSelectionProvider'
 import PapersCreatedProvider from 'src/components/Contexts/PapersCreatedProvider'
 import { PapersDefinitionsProvider } from 'src/components/Contexts/PapersDefinitionsProvider'
 import { PaywallProvider } from 'src/components/Contexts/PaywallProvider'
@@ -33,7 +35,7 @@ const generateClassName = createGenerateClassName({
   disableGlobal: true
 })
 
-const Providers = ({ client, lang, polyglot, children }) => {
+export const AppProviders = ({ client, lang, polyglot, children }) => {
   useEffect(() => {
     const launch = async () => {
       launchMetadataMigrationJob(client)
@@ -42,43 +44,44 @@ const Providers = ({ client, lang, polyglot, children }) => {
   }, [client])
 
   return (
-    <WebviewIntentProvider>
-      <StylesProvider generateClassName={generateClassName}>
-        <CozyProvider client={client}>
-          <I18n lang={lang} polyglot={polyglot}>
-            <CozyTheme>
-              <BreakpointsProvider>
-                <BarProvider>
-                  <PapersCreatedProvider>
-                    <AlertProvider>
-                      <PaywallProvider>
-                        <ScannerI18nProvider>
-                          <FileSharingProvider>
-                            <SearchProvider
-                              doctypes={[FILES_DOCTYPE, CONTACTS_DOCTYPE]}
-                            >
-                              <PapersDefinitionsProvider>
-                                <ModalProvider>{children}</ModalProvider>
-                              </PapersDefinitionsProvider>
-                            </SearchProvider>
-                          </FileSharingProvider>
-                        </ScannerI18nProvider>
-                      </PaywallProvider>
-                    </AlertProvider>
-                  </PapersCreatedProvider>
-                </BarProvider>
-              </BreakpointsProvider>
-            </CozyTheme>
-          </I18n>
-        </CozyProvider>
-      </StylesProvider>
-    </WebviewIntentProvider>
-  )
-}
-export const AppProviders = props => {
-  return (
     <ErrorProvider>
-      <Providers {...props} />
+      <WebviewIntentProvider>
+        <StylesProvider generateClassName={generateClassName}>
+          <CozyProvider client={client}>
+            <I18n lang={lang} polyglot={polyglot}>
+              <CozyTheme>
+                <BreakpointsProvider>
+                  <BarProvider>
+                    <PapersCreatedProvider>
+                      <AlertProvider>
+                        <PaywallProvider>
+                          <ScannerI18nProvider>
+                            <FileSharingProvider>
+                              <SearchProvider
+                                doctypes={[FILES_DOCTYPE, CONTACTS_DOCTYPE]}
+                              >
+                                <PapersDefinitionsProvider>
+                                  <ModalProvider>
+                                    <CreatePaperDataBackupProvider>
+                                      <MultiSelectionProvider>
+                                        {children}
+                                      </MultiSelectionProvider>
+                                    </CreatePaperDataBackupProvider>
+                                  </ModalProvider>
+                                </PapersDefinitionsProvider>
+                              </SearchProvider>
+                            </FileSharingProvider>
+                          </ScannerI18nProvider>
+                        </PaywallProvider>
+                      </AlertProvider>
+                    </PapersCreatedProvider>
+                  </BarProvider>
+                </BreakpointsProvider>
+              </CozyTheme>
+            </I18n>
+          </CozyProvider>
+        </StylesProvider>
+      </WebviewIntentProvider>
     </ErrorProvider>
   )
 }
