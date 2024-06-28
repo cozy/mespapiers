@@ -3,7 +3,6 @@ import React from 'react'
 import Backdrop from 'cozy-ui/transpiled/react/Backdrop'
 import { LinearProgress } from 'cozy-ui/transpiled/react/Progress'
 import Typography from 'cozy-ui/transpiled/react/Typography'
-import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 import { makeStyles } from 'cozy-ui/transpiled/react/styles'
 
 const useStyles = makeStyles(theme => ({
@@ -24,16 +23,17 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const MultiselectBackdrop = () => {
-  const { t } = useI18n()
+export const LinearBackdrop = ({ text }) => {
   const classes = useStyles()
 
   return (
     <Backdrop classes={{ root: classes.backdropRoot }} open>
       <div className="u-w-100 u-mh-2 u-ta-center">
-        <Typography classes={{ root: classes.barText }} className="u-mb-1">
-          {t('Multiselect.backdrop')}
-        </Typography>
+        {text && (
+          <Typography classes={{ root: classes.barText }} className="u-mb-1">
+            {text}
+          </Typography>
+        )}
         <LinearProgress
           classes={{
             root: classes.bar,
@@ -45,5 +45,3 @@ const MultiselectBackdrop = () => {
     </Backdrop>
   )
 }
-
-export default MultiselectBackdrop
