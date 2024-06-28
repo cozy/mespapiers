@@ -7,6 +7,7 @@ import {
   forwardTo,
   rename,
   select,
+  print,
   trash,
   open,
   viewInDrive
@@ -18,7 +19,6 @@ import { isFile, isNote } from 'cozy-client/dist/models/file'
 import { useWebviewIntent } from 'cozy-intent'
 import {
   makeActions,
-  print,
   divider
 } from 'cozy-ui/transpiled/react/ActionsMenu/Actions'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
