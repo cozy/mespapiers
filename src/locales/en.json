@@ -552,5 +552,13 @@
   },
   "PagePickerModal": {
     "splitFile": "Split file"
+  },
+  "PreviewConfirm": {
+    "title": "Overview of the 2 sides of the document",
+    "text": "The 2 sides of the document will be displayed in this preview. Don't worry, when the document is transmitted, <b>only the selected side will be shown</b>.",
+    "actions": {
+      "cancel": "Cancel",
+      "ok": "I understand"
+    }
   }
 }

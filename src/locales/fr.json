@@ -552,5 +552,13 @@
   },
   "PagePickerModal": {
     "splitFile": "Séparer le document"
+  },
+  "PreviewConfirm": {
+    "title": "Aperçu des 2 faces du document",
+    "text": "Les 2 faces du documents seront affichées dans cet aperçu. Pas d’inquiétude, à la transmission, <b>le document comportera uniquement la face sélectionnée</b>.",
+    "actions": {
+      "cancel": "Annuler",
+      "ok": "J'ai compris"
+    }
   }
 }
