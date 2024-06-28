@@ -130,7 +130,9 @@
     "choice": "Conserver l'élément sur Drive ? |||| Conserver les éléments sur Drive ?",
     "delete": "Supprimer",
     "title": "Êtes-vous sûr de vouloir supprimer ce document ? |||| Êtes-vous sûr de vouloir supprimer ces documents ?",
-    "text": "Il sera supprimé de l’application Mes Papiers et Drive. |||| Ils seront supprimés de l’application Mes Papiers et Drive."
+    "titleWithFace": "Supprimer ces documents avec toutes leurs faces ?",
+    "text": "Il sera supprimé de l’application Mes Papiers et Drive. |||| Ils seront supprimés de l’application Mes Papiers et Drive.",
+    "textWithFace": "La suppression s’appliquera à tous les fichiers sélectionnés et toutes leurs faces, <b>même si une seule face a été sélectionnée</b>."
   },
   "ForwardModal": {
     "action": {

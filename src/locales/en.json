@@ -130,7 +130,9 @@
     "choice": "Keep item on Drive?",
     "delete": "Remove",
     "title": "Are you sure you want to delete this document?",
-    "text": "It will be deleted from the My Papers and Drive app."
+    "titleWithFace": "Delete these documents with all their sides?",
+    "text": "It will be deleted from the My Papers and Drive app.",
+    "textWithFace": "Deletion will apply to all selected files and all their sides, <b>even if only one side has been selected</b>."
   },
   "ForwardModal": {
     "action": {
