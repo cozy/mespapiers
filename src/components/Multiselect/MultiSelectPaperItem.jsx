@@ -80,6 +80,18 @@ export const MultiSelectPaperItem = ({
     </>
   )
 
+  const renderImageLoader = ({ src, hasPage }) => {
+    if (hasPage) {
+      return <Icon icon="file-type-pdf" />
+    }
+
+    return src ? (
+      <img src={src} alt="" />
+    ) : (
+      <Skeleton variant="rect" animation="wave" />
+    )
+  }
+
   return (
     <ListItem
       button
@@ -95,11 +107,7 @@ export const MultiSelectPaperItem = ({
           render={src => {
             return (
               <Thumbnail>
-                {src ? (
-                  <img src={src} alt="" />
-                ) : (
-                  <Skeleton variant="rect" animation="wave" />
-                )}
+                {renderImageLoader({ src, hasPage: !!page })}
               </Thumbnail>
             )
           }}
