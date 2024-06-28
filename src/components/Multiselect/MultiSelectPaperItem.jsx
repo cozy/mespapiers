@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { makeFilenameWithPage } from 'src/components/Actions/utils'
 import { RemindersAnnotation } from 'src/components/Papers/RemindersAnnotation'
 import { generateReturnUrlToNotesIndex } from 'src/components/Papers/helpers'
 import { APPS_DOCTYPE } from 'src/constants'
@@ -32,6 +33,7 @@ export const MultiSelectPaperItem = ({
   const { pathname } = useLocation()
   const { isMobile } = useBreakpoints()
   const { file, page } = item
+  const filename = makeFilenameWithPage({ file, page, t })
 
   const paperDate = file?.metadata?.datetime
     ? f(file?.metadata?.datetime, 'DD/MM/YYYY')
@@ -107,13 +109,13 @@ export const MultiSelectPaperItem = ({
             midEllipsis={isMobile}
             filename={
               splitFilename({
-                name: file.name,
+                name: filename,
                 type: 'file'
               }).filename
             }
             extension={
               splitFilename({
-                name: file.name,
+                name: filename,
                 type: 'file'
               }).extension
             }
