@@ -2,6 +2,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { makeFilenameWithPage } from 'src/components/Actions/utils'
+import { useModal } from 'src/components/Contexts/ModalProvider'
+import { PreviewConfirm } from 'src/components/Multiselect/PreviewConfirm'
 import { RemindersAnnotation } from 'src/components/Papers/RemindersAnnotation'
 import { generateReturnUrlToNotesIndex } from 'src/components/Papers/helpers'
 import { APPS_DOCTYPE } from 'src/constants'
@@ -29,6 +31,7 @@ export const MultiSelectPaperItem = ({
 }) => {
   const { t, f } = useI18n()
   const client = useClient()
+  const { pushModal, popModal } = useModal()
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const { isMobile } = useBreakpoints()
@@ -40,6 +43,10 @@ export const MultiSelectPaperItem = ({
     : null
 
   const handleClick = async () => {
+    const goPreview = () => {
+      navigate(`view/${file._id}`)
+      popModal()
+    }
     if (isNote(file)) {
       const { data: apps } = await client.query(Q(APPS_DOCTYPE))
       const isNoteAppInstalled = !!isInstalled(apps, { slug: 'notes' })
@@ -52,8 +59,11 @@ export const MultiSelectPaperItem = ({
       }
       const webLink = await generateReturnUrlToNotesIndex(client, file)
       window.open(webLink, '_self')
+    }
+    if (page) {
+      pushModal(<PreviewConfirm onClick={goPreview} onClose={popModal} />)
     } else {
-      navigate(`/paper/multiselect/view/${file._id}`)
+      goPreview()
     }
   }
 
