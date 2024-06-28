@@ -7,7 +7,7 @@ import Icon from 'cozy-ui/transpiled/react/Icon'
 import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 
-export const trash = ({ t, pushModal, popModal }) => {
+export const trash = ({ t, pushModal, popModal, allMultiSelection = [] }) => {
   const label = t('action.trash')
   const icon = 'trash'
 
@@ -16,10 +16,18 @@ export const trash = ({ t, pushModal, popModal }) => {
     label,
     icon,
     disabled: docs => docs.length === 0,
-    action: (docs, { isLast }) =>
+    action: (docs, { isLast }) => {
+      const hasFaceSelected = allMultiSelection.some(item => item.page)
+
       pushModal(
-        <DeleteConfirm files={docs} isLast={isLast} onClose={popModal} />
-      ),
+        <DeleteConfirm
+          files={docs}
+          isLast={isLast}
+          hasFaceSelected={hasFaceSelected}
+          onClose={popModal}
+        />
+      )
+    },
     Component: withLocales(
       // eslint-disable-next-line react/display-name
       forwardRef((props, ref) => {

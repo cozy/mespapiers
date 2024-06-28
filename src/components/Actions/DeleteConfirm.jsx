@@ -14,7 +14,13 @@ import Button from 'cozy-ui/transpiled/react/deprecated/Button'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-const DeleteConfirm = ({ files, isLast, onClose, children }) => {
+const DeleteConfirm = ({
+  files,
+  isLast,
+  hasFaceSelected,
+  onClose,
+  children
+}) => {
   const { t } = useI18n()
   const client = useClient()
   const { isMultiSelectionActive } = useMultiSelection()
@@ -54,19 +60,27 @@ const DeleteConfirm = ({ files, isLast, onClose, children }) => {
     ['drive', 'cozy-desktop'].includes(getCreatedByApp(file))
   )
 
+  const title = hasFaceSelected
+    ? t('DeleteConfirm.titleWithFace')
+    : t('DeleteConfirm.title', files.length)
+
+  const contentText = hasFaceSelected
+    ? t('DeleteConfirm.textWithFace')
+    : t('DeleteConfirm.text', {
+        name: files[0].name,
+        smart_count: files.length
+      })
+
   return (
     <ConfirmDialog
       open
       onClose={onClose}
-      title={t('DeleteConfirm.title', files.length)}
+      title={title}
       content={
         <Stack>
           <Typography
             dangerouslySetInnerHTML={{
-              __html: t('DeleteConfirm.text', {
-                name: files[0].name,
-                smart_count: files.length
-              })
+              __html: contentText
             }}
           />
           {createdByDriveOrDesktop && (
