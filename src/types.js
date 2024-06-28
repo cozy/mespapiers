@@ -45,8 +45,7 @@
 /**
  * @typedef {Object} PagePickerOption
  * @property {string} labelKey - i18n Key of the label.
- * @property {string} value - Value of the option.
- * @property {boolean} [master] - Enables or disables other options
+ * @property {string} name - Name of the option.
  */
 
 /**

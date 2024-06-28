@@ -7,34 +7,19 @@ import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-export const PagePickerModalItem = ({
-  option,
-  hasMasterChoice,
-  selectedChoice,
-  onChange
-}) => {
+export const PagePickerModalItem = ({ option, selectedFaces, onChange }) => {
   const { t } = useI18n()
-  const disabledChoiceOption =
-    hasMasterChoice &&
-    !option.master &&
-    !selectedChoice.some(choice => choice.master)
 
   const handleChange = () => {
     onChange(option)
   }
 
   return (
-    <ListItem
-      button
-      size="large"
-      onClick={handleChange}
-      disabled={disabledChoiceOption}
-    >
+    <ListItem button size="large" onClick={handleChange}>
       <ListItemIcon>
         <Checkbox
-          checked={selectedChoice.some(choice => choice.value === option.value)}
-          name={t(option.labelKey)}
-          value={option.value}
+          checked={selectedFaces.some(face => face.name === option.name)}
+          name={option.name}
         />
       </ListItemIcon>
       <ListItemText primary={t(option.labelKey)} />
@@ -43,18 +28,15 @@ export const PagePickerModalItem = ({
 }
 
 PagePickerModalItem.propTypes = {
-  hasMasterChoice: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
-  selectedChoice: PropTypes.arrayOf(
+  selectedFaces: PropTypes.arrayOf(
     PropTypes.shape({
       labelKey: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      master: PropTypes.bool
+      name: PropTypes.string.isRequired
     })
   ).isRequired,
   option: PropTypes.shape({
     labelKey: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    master: PropTypes.bool
+    name: PropTypes.string.isRequired
   }).isRequired
 }
