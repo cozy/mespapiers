@@ -1,24 +1,27 @@
 import PropTypes from 'prop-types'
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useReducer, useState } from 'react'
 import { PagePickerModalContentHeader } from 'src/components/PagePickerModal/PagePickerModalContentHeader'
 import { PagePickerModalItem } from 'src/components/PagePickerModal/PagePickerModalItem'
 
 import Button from 'cozy-ui/transpiled/react/Buttons'
+import Checkbox from 'cozy-ui/transpiled/react/Checkbox'
 import { ConfirmDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import Divider from 'cozy-ui/transpiled/react/Divider'
 import List from 'cozy-ui/transpiled/react/List'
 import Paper from 'cozy-ui/transpiled/react/Paper'
+import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 /**
- * @type {import('../../types').PagePickerOption[][]}
+ * @type {import('../../types').PagePickerOption[]}
  */
 const pagePickerDefaultOptions = [
-  [
-    { value: 'front', labelKey: 'Multiselect.page.front' },
-    { value: 'back', labelKey: 'Multiselect.page.back' }
-  ],
-  [{ value: 'split', labelKey: 'PagePickerModal.splitFile', master: true }]
+  { name: 'front', labelKey: 'Multiselect.page.front' },
+  { name: 'back', labelKey: 'Multiselect.page.back' }
 ]
+const splitFileOption = {
+  name: 'split',
+  labelKey: 'PagePickerModal.splitFile'
+}
 
 export const PagePickerModal = ({
   onClose,
@@ -30,32 +33,36 @@ export const PagePickerModal = ({
   /**
    * @type {[import('../../types').PagePickerOption[], import('react').Dispatch<import('react').SetStateAction<import('../../types').PagePickerOption[]>>]}
    */
-  const [selectedChoice, setSelectedChoice] = useState([])
-  const hasMasterChoice = options.flat().some(option => option.master)
-  const disabledConfirm =
-    hasMasterChoice &&
-    selectedChoice.length === 1 &&
-    selectedChoice.some(selChoice => selChoice.master)
+  const [selectedFaces, setSelectedFaces] = useState(pagePickerDefaultOptions)
+  const allFacesSelected =
+    selectedFaces.length === pagePickerDefaultOptions.length
+  const [splitFileCheck, toggleSplitFileCheck] = useReducer(
+    splitFileOption => !splitFileOption && allFacesSelected,
+    false
+  )
+  const { t } = useI18n()
+  const disabledConfirm = selectedFaces.length === 0
 
-  const handleChange = option => {
-    if (selectedChoice.some(selChoice => selChoice.value === option.value)) {
-      if (option.master) {
-        return setSelectedChoice([])
+  const handleFaceChange = option => {
+    if (selectedFaces.some(selChoice => selChoice.name === option.name)) {
+      if (allFacesSelected) {
+        toggleSplitFileCheck()
       }
-      setSelectedChoice(prevChoices =>
-        prevChoices.filter(choice => option.value !== choice.value)
+      setSelectedFaces(prevChoices =>
+        prevChoices.filter(choice => option.name !== choice.name)
       )
     } else {
-      if (option.master) {
-        return setSelectedChoice(options.flat())
-      }
-      setSelectedChoice(choices => [...choices, option])
+      setSelectedFaces(choices => [...choices, option])
     }
   }
 
   const handleConfirm = () => {
-    onClick(selectedChoice)
-    setSelectedChoice([])
+    const options = splitFileCheck
+      ? [splitFileOption, ...selectedFaces]
+      : selectedFaces
+
+    onClick(options)
+    setSelectedFaces([])
     onClose()
   }
 
@@ -66,26 +73,31 @@ export const PagePickerModal = ({
       content={
         <>
           <PagePickerModalContentHeader file={file} />
-          <div className="u-stack-m">
-            {options.map((optionGr, indexOptGr) => (
-              <Paper key={indexOptGr}>
-                <List className="u-p-0">
-                  {optionGr.map((option, indexOption) => (
-                    <Fragment key={`'${indexOptGr}${indexOption}`}>
-                      <PagePickerModalItem
-                        option={option}
-                        hasMasterChoice={hasMasterChoice}
-                        selectedChoice={selectedChoice}
-                        onChange={handleChange}
-                      />
-                      {indexOption !== optionGr.length - 1 && (
-                        <Divider component="li" variant="inset" />
-                      )}
-                    </Fragment>
-                  ))}
-                </List>
-              </Paper>
-            ))}
+          <div className="u-stack-xs">
+            <Paper>
+              <List className="u-p-0">
+                {options.map((option, indexOption) => (
+                  <Fragment key={indexOption}>
+                    <PagePickerModalItem
+                      option={option}
+                      selectedFaces={selectedFaces}
+                      onChange={handleFaceChange}
+                    />
+                    {indexOption !== options.length - 1 && (
+                      <Divider component="li" variant="inset" />
+                    )}
+                  </Fragment>
+                ))}
+              </List>
+            </Paper>
+            <Checkbox
+              className="u-ml-0"
+              checked={splitFileCheck}
+              disabled={!allFacesSelected}
+              label={t(splitFileOption.labelKey)}
+              name={splitFileOption.name}
+              onChange={toggleSplitFileCheck}
+            />
           </div>
         </>
       }
@@ -108,8 +120,7 @@ PagePickerModal.propTypes = {
     PropTypes.arrayOf(
       PropTypes.shape({
         labelKey: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired,
-        master: PropTypes.bool
+        name: PropTypes.string.isRequired
       })
     )
   ),

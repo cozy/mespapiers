@@ -333,17 +333,20 @@ export const normalizeFilesWithPage = files => {
  * @returns {string} - Search parameters
  */
 export const onPickForwardedPage = (selectedChoice, file) => {
-  let searchParams
-  const frontSide = selectedChoice.find(el => el.value === 'front')?.value
-  const backSide = selectedChoice.find(el => el.value === 'back')?.value
+  const frontSide = selectedChoice.find(el => el.name === 'front')?.name
+  const backSide = selectedChoice.find(el => el.name === 'back')?.name
+  const doSplit = selectedChoice.find(el => el.name === 'split')?.name
 
   if (frontSide && backSide) {
-    searchParams = `fileId=${file._id}&page=${frontSide}&fileId=${file._id}&page=${backSide}`
-  } else {
-    const page = frontSide ? frontSide : backSide ? backSide : null
-    searchParams = `fileId=${file._id}&page=${page}`
+    if (doSplit) {
+      return `fileId=${file._id}&page=${frontSide}&fileId=${file._id}&page=${backSide}`
+    } else {
+      return `fileId=${file._id}&page=${null}`
+    }
   }
-  return searchParams
+  const page = frontSide ? frontSide : backSide ? backSide : null
+
+  return `fileId=${file._id}&page=${page}`
 }
 
 /**
@@ -353,16 +356,21 @@ export const onPickForwardedPage = (selectedChoice, file) => {
  * @returns {import('../../types').FileWithPage[]} - List of files with their page
  */
 export const onPickSelectedPage = (selectedChoice, file) => {
-  const frontSide = selectedChoice.find(el => el.value === 'front')?.value
-  const backSide = selectedChoice.find(el => el.value === 'back')?.value
+  const frontSide = selectedChoice.find(el => el.name === 'front')?.name
+  const backSide = selectedChoice.find(el => el.name === 'back')?.name
+  const doSplit = selectedChoice.find(el => el.name === 'split')?.name
 
   if (frontSide && backSide) {
-    return [
-      { file, page: frontSide },
-      { file, page: backSide }
-    ]
+    if (doSplit) {
+      return [
+        { file, page: frontSide },
+        { file, page: backSide }
+      ]
+    } else {
+      return [{ file, page: null }]
+    }
   }
-
   const page = frontSide ? frontSide : backSide ? backSide : null
+
   return [{ file, page }]
 }
