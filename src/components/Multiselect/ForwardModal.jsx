@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { forwardFile, makeZipFolder } from 'src/components/Actions/utils'
 import { ForwardModalContent } from 'src/components/Multiselect/ForwardModalContent'
+import { LinearBackdrop } from 'src/components/Multiselect/LinearBackdrop'
 import { createPdfFileByPage } from 'src/components/Multiselect/helpers'
 import { copyToClipboard } from 'src/helpers/copyToClipboard'
 import { makeTTL } from 'src/helpers/makeTTL'
@@ -81,36 +82,39 @@ export const ForwardModal = ({
     : t('ForwardModal.action.mobile')
 
   return (
-    <ConfirmDialog
-      open
-      onClose={onClose}
-      data-testid="ForwardModal"
-      content={
-        <ForwardModalContent
-          filesWithPage={filesWithPage}
-          currentUser={currentUser}
-          setIsValidPassword={setIsValidPassword}
-          setIsValidDate={setIsValidDate}
-          helperTextDate={helperTextDate}
-          helperTextPassword={helperTextPassword}
-          dateToggle={dateToggle}
-          setDateToggle={setDateToggle}
-          passwordToggle={passwordToggle}
-          setPasswordToggle={setPasswordToggle}
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-          password={password}
-          setPassword={setPassword}
-        />
-      }
-      actions={
-        <Button
-          label={textAction}
-          onClick={handleClick}
-          disabled={!isValidDate || !isValidPassword || isBusy}
-        />
-      }
-    />
+    <>
+      <ConfirmDialog
+        open
+        onClose={onClose}
+        data-testid="ForwardModal"
+        content={
+          <ForwardModalContent
+            filesWithPage={filesWithPage}
+            currentUser={currentUser}
+            setIsValidPassword={setIsValidPassword}
+            setIsValidDate={setIsValidDate}
+            helperTextDate={helperTextDate}
+            helperTextPassword={helperTextPassword}
+            dateToggle={dateToggle}
+            setDateToggle={setDateToggle}
+            passwordToggle={passwordToggle}
+            setPasswordToggle={setPasswordToggle}
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
+            password={password}
+            setPassword={setPassword}
+          />
+        }
+        actions={
+          <Button
+            label={textAction}
+            onClick={handleClick}
+            disabled={!isValidDate || !isValidPassword || isBusy}
+          />
+        }
+      />
+      {isBusy && <LinearBackdrop />}
+    </>
   )
 }
 
