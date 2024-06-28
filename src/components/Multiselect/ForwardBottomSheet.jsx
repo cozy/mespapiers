@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFileSharing } from 'src/components/Contexts/FileSharingProvider'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
+import { LinearBackdrop } from 'src/components/Multiselect/LinearBackdrop'
 import {
   createPdfFileByPage,
   removeFilesPermanently
@@ -24,6 +25,7 @@ import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 const log = minilog('ForwardBottomSheet')
 
 export const ForwardBottomSheet = ({ onClose, filesWithPage, shareByLink }) => {
+  const [showBackdrop, setShowBackdrop] = useState(false)
   const { t } = useI18n()
   const navigate = useNavigate()
   const { showAlert } = useAlert()
@@ -36,6 +38,7 @@ export const ForwardBottomSheet = ({ onClose, filesWithPage, shareByLink }) => {
   } = filterWithRemaining(filesWithPage, ({ page }) => page)
 
   const shareAsAttachment = async () => {
+    setShowBackdrop(true)
     const fileIds = filesWithoutSpecificPage.map(({ file }) => file._id)
     try {
       if (filesWithSpecificPage.length > 0) {
@@ -61,6 +64,7 @@ export const ForwardBottomSheet = ({ onClose, filesWithPage, shareByLink }) => {
         severity: 'success',
         variant: 'filled'
       })
+
       if (isMultiSelectionActive) {
         navigate('/paper', { replace: true })
       } else {
@@ -80,28 +84,32 @@ export const ForwardBottomSheet = ({ onClose, filesWithPage, shareByLink }) => {
         severity: 'error',
         variant: 'filled'
       })
+      onClose()
     }
   }
 
   return (
-    <BottomSheet backdrop onClose={onClose}>
-      <BottomSheetItem disableGutters>
-        <List>
-          <ListItem button onClick={shareAsAttachment}>
-            <ListItemIcon>
-              <Icon icon="attachment" />
-            </ListItemIcon>
-            <ListItemText primary={t('ShareBottomSheet.attachment')} />
-          </ListItem>
-          <ListItem button onClick={shareByLink}>
-            <ListItemIcon>
-              <Icon icon="link" />
-            </ListItemIcon>
-            <ListItemText primary={t('ShareBottomSheet.link')} />
-          </ListItem>
-        </List>
-      </BottomSheetItem>
-    </BottomSheet>
+    <>
+      <BottomSheet backdrop onClose={onClose}>
+        <BottomSheetItem disableGutters>
+          <List>
+            <ListItem button onClick={shareAsAttachment}>
+              <ListItemIcon>
+                <Icon icon="attachment" />
+              </ListItemIcon>
+              <ListItemText primary={t('ShareBottomSheet.attachment')} />
+            </ListItem>
+            <ListItem button onClick={shareByLink}>
+              <ListItemIcon>
+                <Icon icon="link" />
+              </ListItemIcon>
+              <ListItemText primary={t('ShareBottomSheet.link')} />
+            </ListItem>
+          </List>
+        </BottomSheetItem>
+      </BottomSheet>
+      {showBackdrop && <LinearBackdrop />}
+    </>
   )
 }
 
