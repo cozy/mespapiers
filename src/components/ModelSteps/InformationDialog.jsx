@@ -120,7 +120,10 @@ const InformationDialog = ({ currentStep, onClose, onBack, onSubmit }) => {
                 >
                   <Component
                     attrs={attrs}
-                    formDataValue={get(formData, `metadata[${attrs.name}]`)}
+                    formDataValue={get(
+                      newFormData,
+                      `metadata["${doctype}"][${attrs.name}]`
+                    )}
                     currentDefinition={currentDefinition}
                     setValue={setValue}
                     setValidInput={setValidInput}
