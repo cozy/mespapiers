@@ -1,11 +1,15 @@
 import { PDFDocument } from 'pdf-lib'
+import React from 'react'
 import { FILES_DOCTYPE } from 'src/constants'
 import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
+import { makeFileLinksURL } from 'src/helpers/makeFileLinksURL'
 
 import {
   uploadFileWithConflictStrategy,
-  splitFilename
+  splitFilename,
+  isNote
 } from 'cozy-client/dist/models/file'
+import Icon from 'cozy-ui/transpiled/react/Icon'
 
 /**
  * Create a new PDF file with a specific page from another PDF file
@@ -64,4 +68,28 @@ export const removeFilesPermanently = async (client, tempFileIds) => {
   for (const tempFileId of tempFileIds) {
     await client.collection(FILES_DOCTYPE).deleteFilePermanently(tempFileId)
   }
+}
+
+export const renderImage = ({ client, file, hasPage, isMultipleFile }) => {
+  if (isMultipleFile) {
+    return <Icon icon="file-type-zip" size={64} />
+  }
+  if (hasPage) {
+    return <Icon icon="file-type-pdf" size={64} />
+  }
+  if (isNote(file)) {
+    return <Icon icon="file-type-note" size={64} />
+  }
+
+  const src = makeFileLinksURL({
+    client,
+    file,
+    linkType: 'tiny'
+  })
+
+  return src ? (
+    <img src={src} alt="" className="u-mah-3 u-maw-3" />
+  ) : (
+    <Icon icon="file-type-files" size={64} />
+  )
 }

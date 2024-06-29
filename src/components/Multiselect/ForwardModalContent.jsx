@@ -4,23 +4,13 @@ import React from 'react'
 import { makeFilenameWithPage } from 'src/components/Actions/utils'
 import BoxDate from 'src/components/Multiselect/BoxDate'
 import BoxPassword from 'src/components/Multiselect/BoxPassword'
+import { renderImage } from 'src/components/Multiselect/helpers'
 
 import { useClient } from 'cozy-client'
 import { getDisplayName } from 'cozy-client/dist/models/contact'
-import { isNote } from 'cozy-client/dist/models/file'
 import { isMobile } from 'cozy-device-helper'
-import { FileImageLoader } from 'cozy-ui/transpiled/react/FileImageLoader'
-import Icon from 'cozy-ui/transpiled/react/Icon'
-import Skeleton from 'cozy-ui/transpiled/react/Skeleton'
 import Typography from 'cozy-ui/transpiled/react/Typography'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-
-const styles = {
-  image: {
-    maxHeight: 64,
-    maxWidth: 64
-  }
-}
 
 const PASSWORD_MIN_LENGTH = 4
 
@@ -90,32 +80,12 @@ export const ForwardModalContent = ({
   return (
     <>
       <div className="u-ta-center u-mb-1">
-        {!isMultipleFile ? (
-          <FileImageLoader
-            client={client}
-            file={filesWithPage[0].file}
-            linkType="tiny"
-            render={src => {
-              return src ? (
-                <img src={src} alt="" style={styles.image} />
-              ) : (
-                <Skeleton variant="rect" animation="wave" />
-              )
-            }}
-            renderFallback={() => (
-              <Icon
-                icon={
-                  isNote(filesWithPage[0].file)
-                    ? 'file-type-note'
-                    : 'file-type-files'
-                }
-                size={64}
-              />
-            )}
-          />
-        ) : (
-          <Icon icon="file-type-zip" size={64} />
-        )}
+        {renderImage({
+          client,
+          file: filesWithPage[0].file,
+          hasPage: !!filesWithPage[0].page,
+          isMultipleFile
+        })}
         <Typography variant="h5" className="u-mv-1">
           {displayName}
         </Typography>
