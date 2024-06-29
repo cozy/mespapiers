@@ -34,7 +34,7 @@ export const useCurrentEditInformations = (fileId, model) => {
   const currentStep = makeCurrentStep({ paperDef, model, metadataName })
 
   return {
-    file: files[0],
+    file: files?.[0],
     paperDef,
     currentStep,
     searchParams: { metadataName },
