@@ -88,7 +88,7 @@
     "cozy-keys-lib": "^6.0.0",
     "cozy-logger": "^1.10.4",
     "cozy-minilog": "^3.3.1",
-    "cozy-notifications": "^0.15.0",
+    "cozy-notifications": "^0.16.3",
     "cozy-realtime": "^5.0.0",
     "cozy-sharing": "^15.0.0",
     "cozy-ui": "^110.1.0",
