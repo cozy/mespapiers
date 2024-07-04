@@ -3,6 +3,11 @@ import React, { useState } from 'react'
 import { useScannerI18n } from 'src/components/Contexts/ScannerI18nProvider'
 import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import ConfirmReplaceFile from 'src/components/ModelSteps/widgets/ConfirmReplaceFile'
+import {
+  updateMetadata,
+  removeIsBlank,
+  createPDFBytes
+} from 'src/components/ModelSteps/widgets/helpers'
 import { FILES_DOCTYPE, KEYS } from 'src/constants'
 import { createPdfAndSave } from 'src/helpers/createPdfAndSave'
 import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
@@ -31,6 +36,10 @@ const SubmitButton = ({ onSubmit, disabled, formData }) => {
   const { showAlert } = useAlert()
 
   const cozyFiles = formData.data.filter(d => d.file.from === 'cozy')
+  const blankFiles = formData.data.filter(d => d.file.isBlank)
+  const wasInitiallyBlank =
+    formData.metadata[FILES_DOCTYPE]?.paperProps?.isBlank ?? false
+
   const isDisabled = disabled || isBusy
 
   const submit = async () => {
@@ -77,12 +86,37 @@ const SubmitButton = ({ onSubmit, disabled, formData }) => {
     submit()
   }
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (cozyFiles.length > 0) {
-      setConfirmReplaceFileModal(true)
-    } else {
-      submit()
+      return setConfirmReplaceFileModal(true)
     }
+
+    if (wasInitiallyBlank) {
+      // if paper was blank
+      if (blankFiles.length > 0) {
+        // and still blank at the end
+        const updatedMetadata = updateMetadata(formData, formData.file)
+
+        await client
+          .collection(FILES_DOCTYPE)
+          .updateMetadataAttribute(formData.file._id, updatedMetadata)
+      } else {
+        // but new images are added
+        const pdfBytes = await createPDFBytes(formData)
+        const updatedMetadata = updateMetadata(formData, formData.file)
+        removeIsBlank(updatedMetadata)
+
+        await client.collection(FILES_DOCTYPE).updateFile(pdfBytes, {
+          fileId: formData.file._id,
+          name: formData.file.name,
+          metadata: updatedMetadata
+        })
+      }
+
+      return onSubmit()
+    }
+
+    return submit()
   }
 
   const handleKeyDown = ({ key }) => {
