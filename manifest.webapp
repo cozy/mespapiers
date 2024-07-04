@@ -31,8 +31,20 @@
       "folder": "/",
       "index": "index.html",
       "public": false
+    },
+    "/intents": {
+      "folder": "/intents",
+      "index": "index.html",
+      "public": false
     }
   },
+  "intents": [
+    {
+      "action": "OPEN",
+      "type": ["io.cozy.files.paper"],
+      "href": "/intents"
+    }
+  ],
   "services": {
     "expiration": {
       "type": "node",
