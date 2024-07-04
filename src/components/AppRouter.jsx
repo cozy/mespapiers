@@ -15,6 +15,7 @@ import InstallAppFromIntent from 'src/components/InstallAppFromIntent/InstallApp
 import InstallKonnectorFromIntent from 'src/components/InstallKonnectorFromIntent/InstallKonnectorFromIntent'
 import ContactEdit from 'src/components/Views/ContactEdit'
 import CreatePaperModalWrapper from 'src/components/Views/CreatePaperModal'
+import EditWrapper from 'src/components/Views/Edit'
 import ErrorBoundary from 'src/components/Views/ErrorBoundary'
 import FilesViewerWithQuery from 'src/components/Views/FileViewerWithQuery'
 import HarvestRoutes from 'src/components/Views/HarvestRoutes'
@@ -137,6 +138,10 @@ const makeRoutes = props => [
               {
                 path: 'create/:qualificationLabel',
                 element: <CreatePaperModalWrapper />
+              },
+              {
+                path: 'edit/:fileId',
+                element: <EditWrapper />
               },
               {
                 path: ':fileId',
