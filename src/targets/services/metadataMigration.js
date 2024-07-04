@@ -38,8 +38,7 @@ export const migrateMetadata = async () => {
   logService('info', 'Start metadata migration service')
   const client = CozyClient.fromEnv(process.env, { schema })
 
-  const filesSettings = await fetchAppSetting(client)
-  const appSettings = filesSettings?.data?.[0]
+  const appSettings = await fetchAppSetting(client)
   let lastProcessedFileDate = null
   let lastRunningMigrateMetadataService = null
 
