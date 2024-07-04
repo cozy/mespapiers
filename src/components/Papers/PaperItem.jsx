@@ -123,6 +123,9 @@ const PaperItem = ({
     </>
   )
 
+  // If the file was created without explicit selection of a binary.
+  const isBlankFile = paper.metadata?.paperProps?.isBlank ?? false
+
   return (
     <>
       <ListItem
@@ -143,29 +146,36 @@ const PaperItem = ({
           />
         )}
         <ListItemIcon className={cx({ 'u-mh-1': withCheckbox })}>
-          <FileImageLoader
-            client={client}
-            file={paper}
-            linkType="tiny"
-            render={src => {
-              return (
+          {isBlankFile ? (
+            <Thumbnail>
+              {/* Displays a thumbnail at its "normal" size (as if an icon were present) */}
+              <div />
+            </Thumbnail>
+          ) : (
+            <FileImageLoader
+              client={client}
+              file={paper}
+              linkType="tiny"
+              render={src => {
+                return (
+                  <Thumbnail>
+                    {src ? (
+                      <img src={src} alt="" />
+                    ) : (
+                      <Skeleton variant="rect" animation="wave" />
+                    )}
+                  </Thumbnail>
+                )
+              }}
+              renderFallback={() => (
                 <Thumbnail>
-                  {src ? (
-                    <img src={src} alt="" />
-                  ) : (
-                    <Skeleton variant="rect" animation="wave" />
-                  )}
+                  <Icon
+                    icon={isNote(paper) ? 'file-type-note' : 'file-type-text'}
+                  />
                 </Thumbnail>
-              )
-            }}
-            renderFallback={() => (
-              <Thumbnail>
-                <Icon
-                  icon={isNote(paper) ? 'file-type-note' : 'file-type-text'}
-                />
-              </Thumbnail>
-            )}
-          />
+              )}
+            />
+          )}
         </ListItemIcon>
         {isRenaming ? (
           <RenameInput file={paper} onClose={() => setIsRenaming(false)} />
