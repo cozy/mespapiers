@@ -10,6 +10,7 @@ import {
   print,
   trash,
   open,
+  modify,
   viewInDrive
 } from 'src/components/Actions/Items'
 import { useModal } from 'src/components/Contexts/ModalProvider'
@@ -53,6 +54,7 @@ export const useActions = (docs, { isActionBar, actionsOptions } = {}) => {
           !isActionBar && open,
           !isActionBar && divider,
           !isActionBar && rename,
+          !isActionBar && modify,
           !isActionBar && hasNoteDoc && editContact,
           !isActionBar && divider,
           !isActionBar && viewInDrive,
