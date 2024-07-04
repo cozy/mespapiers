@@ -11,9 +11,11 @@ import { isSomePaperStepsCompliantWithOCR } from 'src/helpers/isSomePaperStepsCo
 export const filterSteps = async ({
   steps,
   webviewIntent,
+  isEdit,
   fromFlagshipUpload
 }) => {
   const isOCR =
+    !isEdit &&
     !fromFlagshipUpload &&
     isSomePaperStepsCompliantWithOCR(steps) &&
     (await isFlagshipOCRAvailable(webviewIntent))
