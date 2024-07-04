@@ -2,6 +2,7 @@ import cx from 'classnames'
 import React, { useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import CompositeHeaderImage from 'src/components/CompositeHeader/CompositeHeaderImage'
+import { useFormData } from 'src/components/Contexts/FormDataProvider'
 import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import OcrProcessingDialog from 'src/components/ModelSteps/ScanResult/OcrProcessingDialog'
 import ScanResultCard from 'src/components/ModelSteps/ScanResult/ScanResultCard'
@@ -46,6 +47,7 @@ const ScanResultDialog = ({
     allCurrentSteps,
     currentDefinition
   } = useStepperDialog()
+  const { formData } = useFormData()
 
   const fromFlagshipUpload = searchParams.get('fromFlagshipUpload')
   let currentFileRotated
@@ -109,16 +111,23 @@ const ScanResultDialog = ({
       title={<StepperDialogTitle />}
       content={
         <div className={cx('u-flex u-flex-column u-flex-justify-center')}>
-          <ScanResultTitle />
-          {tooltip && (
-            <PointerAlert
-              className="u-mb-1"
-              icon={
-                <CompositeHeaderImage icon={illustration} iconSize="small" />
-              }
-            >
-              {t(`Acquisition.${device}.tooltip.${page}`)}
-            </PointerAlert>
+          {!formData.data?.[0]?.file?.isBlank && (
+            <>
+              <ScanResultTitle />
+              {tooltip && (
+                <PointerAlert
+                  className="u-mb-1"
+                  icon={
+                    <CompositeHeaderImage
+                      icon={illustration}
+                      iconSize="small"
+                    />
+                  }
+                >
+                  {t(`Acquisition.${device}.tooltip.${page}`)}
+                </PointerAlert>
+              )}
+            </>
           )}
           <ScanResultCard
             currentFile={currentFile}
