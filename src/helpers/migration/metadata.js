@@ -27,12 +27,19 @@ const NEW_METADATA_ATTRIBUTE = 'number'
  * Fetch the io.cozy.mespapiers.settings document
  *
  * @param {import('cozy-client/types/CozyClient').default} client - The CozyClient instance
+ * @returns {Promise<object>} The io.cozy.mespapiers.settings document
  */
 export const fetchAppSetting = async client => {
   logService('info', 'Start fetchAppSetting')
   const appSettingQuery = buildAppSettingQuery()
+  const { data } = await client.query(appSettingQuery.definition)
 
-  return client.query(appSettingQuery.definition)
+  if (data.length === 0) {
+    const { data: doc } = await client.create(APP_SETTINGS_DOCTYPE, {})
+    return doc
+  }
+
+  return data[0]
 }
 
 /**
@@ -223,8 +230,7 @@ export const getFilesWithMetadata = files => {
 export const launchMetadataMigrationJob = async client => {
   try {
     logService('info', 'Start launchMetadataMigrationJob')
-    const { data } = await fetchAppSetting(client)
-    const settings = data?.[0] || {}
+    const settings = await fetchAppSetting(client)
 
     if (
       settings?.lastRunningMigrateMetadataService &&
