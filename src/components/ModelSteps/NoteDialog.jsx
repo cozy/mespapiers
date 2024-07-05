@@ -30,7 +30,7 @@ const NoteDialog = ({ onClose, onBack }) => {
     )
     const { data: fileCreated } = await saveFileQualification(
       client,
-      data,
+      data[0],
       qualification
     )
     const normalizedFile = normalize(fileCreated)
