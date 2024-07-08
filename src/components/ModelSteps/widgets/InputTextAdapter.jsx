@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import InputMask from 'react-input-mask'
-import { makeInputAdornment } from 'src/components/ModelSteps/widgets/helpers'
+import { makeInputAdornment } from 'src/components/ModelSteps/widgets/makeInputAdornment'
 import { defaultProptypes } from 'src/components/ModelSteps/widgets/proptypes'
 import {
   checkConstraintsOfIinput,

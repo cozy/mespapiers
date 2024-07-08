@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import RadioAdapterItem from 'src/components/ModelSteps/widgets/RadioAdapterItem'
-import { makeInputAdornment } from 'src/components/ModelSteps/widgets/helpers'
+import { makeInputAdornment } from 'src/components/ModelSteps/widgets/makeInputAdornment'
 import { defaultProptypes } from 'src/components/ModelSteps/widgets/proptypes'
 
 import Divider from 'cozy-ui/transpiled/react/Divider'
