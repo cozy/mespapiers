@@ -1,4 +1,3 @@
-import merge from 'lodash/merge'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import OcrProcessingIcon from 'src/assets/images/OcrProcessing.svg'
@@ -10,8 +9,10 @@ import {
   getDefaultSelectedVersion,
   getFormDataFilesForOcr,
   getOcrFromFlagship,
-  makeMetadataFromOcr
+  makeMetadataFromOcr,
+  normalizeFormdataMetadata
 } from 'src/components/ModelSteps/helpers'
+import { FILES_DOCTYPE } from 'src/constants'
 
 import { useWebviewIntent } from 'cozy-intent'
 import { Dialog } from 'cozy-ui/transpiled/react/CozyDialogs'
@@ -62,7 +63,12 @@ const OcrProcessingDialog = ({ onBack, rotatedFile }) => {
       )
 
       const metadataFromOcr = makeMetadataFromOcr(attributesFound)
-      setFormData(prev => merge({}, prev, { metadata: metadataFromOcr }))
+      const newFormData = normalizeFormdataMetadata({
+        formData,
+        newMetadata: metadataFromOcr,
+        doctype: FILES_DOCTYPE
+      })
+      setFormData(newFormData)
 
       nextStep()
     }
