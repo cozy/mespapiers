@@ -9,7 +9,10 @@ import {
   useStepperDialog
 } from 'src/components/Contexts/StepperDialogProvider'
 import ScanResultDialog from 'src/components/ModelSteps/ScanResult/ScanResultDialog'
-import { getAttributesFromOcr } from 'src/components/ModelSteps/helpers'
+import {
+  getAttributesFromOcr,
+  makeMetadataFromOcr
+} from 'src/components/ModelSteps/helpers'
 import { FLAGSHIP_SCAN_TEMP_FILENAME } from 'src/constants'
 import { isFlagshipOCRAvailable } from 'src/helpers/isFlagshipOCRAvailable'
 import AppLike from 'test/components/AppLike'
@@ -60,6 +63,7 @@ const setup = ({
   mockIsFlagshipOCRAvailable = false,
   mockGetAttributesFromOcr = jest.fn()
 } = {}) => {
+  makeMetadataFromOcr.mockReturnValue({})
   getAttributesFromOcr.mockImplementation(mockGetAttributesFromOcr)
   isFlagshipOCRAvailable.mockReturnValue(mockIsFlagshipOCRAvailable)
   useStepperDialog.mockReturnValue({
