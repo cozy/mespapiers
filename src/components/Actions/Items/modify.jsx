@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
 
 import { isFromKonnector } from 'cozy-client/dist/models/file'
+import { getCreatedByApp } from 'cozy-client/dist/models/utils'
 import ActionsMenuItem from 'cozy-ui/transpiled/react/ActionsMenu/ActionsMenuItem'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
@@ -15,7 +16,10 @@ export const modify = ({ t, navigate }) => {
     label,
     icon,
     disabled: docs => docs.length === 0,
-    displayCondition: docs => docs.length === 1 && !isFromKonnector(docs[0]),
+    displayCondition: docs =>
+      docs.length === 1 &&
+      !isFromKonnector(docs[0]) &&
+      getCreatedByApp(docs[0]) === 'mespapiers',
     action: docs => {
       navigate(`edit/${docs[0]._id}`)
     },
