@@ -13,7 +13,9 @@ export const updateMetadata = (formData, file) => {
 }
 
 export const removeIsBlank = metadata => {
-  if (metadata.paperProps?.isBlank) {
+  if (!metadata.paperProps) return
+
+  if (metadata.paperProps.isBlank != null) {
     delete metadata.paperProps.isBlank
   }
   if (Object.keys(metadata.paperProps).length === 0) {
