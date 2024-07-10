@@ -32,7 +32,7 @@ const SubmitButton = ({ onSubmit, disabled, formData }) => {
   const client = useClient()
   const { t, f } = useI18n()
   const scannerT = useScannerI18n()
-  const { currentDefinition, stepperDialogTitle } = useStepperDialog()
+  const { currentDefinition, stepperDialogTitle, isEdit } = useStepperDialog()
   const { showAlert } = useAlert()
 
   const cozyFiles = formData.data.filter(d => d.file.from === 'cozy')
@@ -91,7 +91,7 @@ const SubmitButton = ({ onSubmit, disabled, formData }) => {
       return setConfirmReplaceFileModal(true)
     }
 
-    if (wasInitiallyBlank) {
+    if (wasInitiallyBlank || isEdit) {
       // if paper was blank
       if (blankFiles.length > 0) {
         // and still blank at the end
