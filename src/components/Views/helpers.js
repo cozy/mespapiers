@@ -1,4 +1,5 @@
 import { filterWithRemaining } from 'src/helpers/filterWithRemaining'
+import { getAllPdfPages } from 'src/helpers/getPdfPage'
 
 import { getAccountName } from 'cozy-client/dist/models/account'
 
@@ -84,4 +85,36 @@ export const buildURLSearchParamsForInstallKonnectorFromIntent = (
   }
 
   return new URLSearchParams(paramsObj).toString()
+}
+
+/**
+ * @param {object} param
+ * @param {import('cozy-client/types/CozyClient').default} param.client - CozyClient instance
+ * @param {import('cozy-client/types/types').IOCozyFile} param.file - io.cozy.file
+ * @param {boolean} param.isMultipage - Is the file multipage
+ * @returns {Promise<{ file: File, stepIndex: number, fileMetadata: { multipage: boolean } }[]>} - Array of file, stepIndex and fileMetadata
+ */
+export const makeDataOfEditFormData = async ({
+  client,
+  ioCozyFile,
+  isMultipage
+}) => {
+  const fileBinaries = await getAllPdfPages({
+    client,
+    file: ioCozyFile
+  })
+
+  return fileBinaries.map((fileBin, index) => {
+    const newFile = new File([fileBin], ioCozyFile.name, {
+      type: ioCozyFile.mime
+    })
+    if (ioCozyFile.metadata?.paperProps?.isBlank != null) {
+      newFile.isBlank = ioCozyFile.metadata.paperProps.isBlank
+    }
+    return {
+      file: newFile,
+      stepIndex: index,
+      fileMetadata: { multipage: isMultipage }
+    }
+  })
 }

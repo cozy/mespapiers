@@ -6,7 +6,7 @@ import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProv
 import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import useReferencedContact from 'src/components/Hooks/useReferencedContact'
 import StepperDialogWrapper from 'src/components/StepperDialog/StepperDialogWrapper'
-import { FILES_DOCTYPE } from 'src/constants'
+import { makeDataOfEditFormData } from 'src/components/Views/helpers'
 import { buildFileQueryById } from 'src/queries'
 
 import { useQuery, isQueryLoading, useClient } from 'cozy-client'
@@ -25,24 +25,15 @@ const EditPaperModal = ({ ioCozyFile, contacts, onClose, onSubmit }) => {
   // so no need for dependencies on useEffect
   useEffect(() => {
     const init = async () => {
-      const binaryFile = await client
-        .collection(FILES_DOCTYPE)
-        .fetchFileContentById(ioCozyFile._id)
-
-      const file = new File([binaryFile], ioCozyFile.name, {
-        type: ioCozyFile.mime
+      const data = await makeDataOfEditFormData({
+        client,
+        ioCozyFile,
+        isMultipage: multipage
       })
-      file.isBlank = ioCozyFile.metadata?.paperProps?.isBlank
 
       setFormData({
         file: ioCozyFile,
-        data: [
-          {
-            file,
-            stepIndex: 0,
-            fileMetadata: { multipage }
-          }
-        ],
+        data,
         metadata: { [ioCozyFile._type]: ioCozyFile.metadata },
         contacts
       })
@@ -70,8 +61,6 @@ export const EditLoader = ({ onClose, onSubmit }) => {
   )
   const { contacts, isLoadingContacts } = useReferencedContact(files || [])
 
-  const ioCozyFile = files?.[0]
-
   if (isQueryLoading(filesQueryResult) || isLoadingContacts)
     return <Spinner className="u-m-0" size="xxlarge" middle color="white" />
 
@@ -79,7 +68,7 @@ export const EditLoader = ({ onClose, onSubmit }) => {
     <StepperDialogProvider isEdit={true}>
       <FormDataProvider>
         <EditPaperModal
-          ioCozyFile={ioCozyFile}
+          ioCozyFile={files[0]}
           contacts={contacts}
           onClose={onClose}
           onSubmit={onSubmit}
