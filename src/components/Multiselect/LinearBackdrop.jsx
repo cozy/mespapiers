@@ -28,7 +28,7 @@ export const LinearBackdrop = ({ text }) => {
 
   return (
     <Backdrop classes={{ root: classes.backdropRoot }} open>
-      <div className="u-w-100 u-mh-2 u-ta-center">
+      <div className="u-w-6 u-w-100-s u-mh-2 u-ta-center">
         {text && (
           <Typography classes={{ root: classes.barText }} className="u-mb-1">
             {text}
