@@ -151,6 +151,9 @@
     "date": {
       "input": "Deadline",
       "text": "Remove access after a deadline"
+    },
+    "error": {
+      "init": "File preparation encountered an error"
     }
   },
   "ShareBottomSheet": {
