@@ -151,6 +151,9 @@
     "date": {
       "input": "Date limite",
       "text": "Supprimer l'accès après une date limite"
+    },
+    "error": {
+      "init": "La préparation du fichier a rencontrée une erreur"
     }
   },
   "ShareBottomSheet": {
