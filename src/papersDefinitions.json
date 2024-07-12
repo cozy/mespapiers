@@ -616,7 +616,7 @@
         },
         {
           "model": "information",
-          "illustration": "IlluDriverLicenseNumberHelp.png",
+          "illustration": "IlluGenericInputText.svg",
           "text": "PaperJSON.driverLicense.number.text",
           "attributes": [
             {
