@@ -56,8 +56,8 @@ export const updateMetadata = ({
   return {
     ...metadata,
     [FILES_DOCTYPE]: {
-      ...metadata[FILES_DOCTYPE],
       ...addCountryValueByQualification(qualification),
+      ...metadata[FILES_DOCTYPE],
       qualification: {
         ...qualification
       },
