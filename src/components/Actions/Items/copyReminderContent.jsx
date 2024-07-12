@@ -10,10 +10,10 @@ import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-export const copyReminderContent = () => {
+export const copyReminderContent = ({ showAlert, t }) => {
   return {
     name: 'copyReminderContent',
-    action: async (docs, { client, noteContent, t, showAlert }) => {
+    action: async (docs, { client, noteContent }) => {
       const data = isMobile()
         ? noteContent
         : await client.stackClient.fetchJSON(
