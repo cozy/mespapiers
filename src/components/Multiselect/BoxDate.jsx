@@ -52,6 +52,7 @@ const BoxDate = ({ isValid, onChange, date, toggle, onToggle, helperText }) => {
       {toggle && (
         <div className="u-pt-half u-ph-1 u-pb-1">
           <DatePicker
+            className="u-w-100"
             label={t('ForwardModal.date.input')}
             placeholder={format(new Date(), formatDate)}
             value={date}
