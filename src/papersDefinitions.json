@@ -616,13 +616,14 @@
         },
         {
           "model": "information",
-          "illustration": "IlluGenericInputDate.svg",
-          "text": "PaperJSON.generic.foreign.obtentionDate.text",
+          "illustration": "IlluDriverLicenseNumberHelp.png",
+          "text": "PaperJSON.driverLicense.number.text",
           "attributes": [
             {
-              "name": "obtentionDate",
-              "type": "date",
-              "inputLabel": "PaperJSON.generic.foreign.obtentionDate.inputLabel"
+              "name": "number",
+              "type": "text",
+              "maxLength": 255,
+              "inputLabel": "PaperJSON.driverLicense.number.inputLabel"
             }
           ]
         },
