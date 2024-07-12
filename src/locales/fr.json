@@ -157,7 +157,7 @@
     }
   },
   "ShareBottomSheet": {
-    "link": "Envoyer par lien",
+    "link": "Envoyer un lien de partage",
     "attachment": "Envoyer en pièce jointe",
     "attachmentResponse": {
       "error": "Une erreur s'est produite.",

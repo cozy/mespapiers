@@ -157,7 +157,7 @@
     }
   },
   "ShareBottomSheet": {
-    "link": "Share by link",
+    "link": "Send a share link",
     "attachment": "Share as attachment",
     "attachmentResponse": {
       "error": "An error has occurred.",
