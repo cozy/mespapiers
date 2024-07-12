@@ -21,7 +21,11 @@ export const modify = ({ t, navigate }) => {
       !isFromKonnector(docs[0]) &&
       getCreatedByApp(docs[0]) === 'mespapiers',
     action: docs => {
-      navigate(`edit/${docs[0]._id}`)
+      const country = docs[0].metadata.country?.toLowerCase()
+      navigate({
+        pathname: `edit/${docs[0]._id}`,
+        ...(country && { search: `?country=${country}` })
+      })
     },
     // eslint-disable-next-line react/display-name
     Component: forwardRef((props, ref) => {
