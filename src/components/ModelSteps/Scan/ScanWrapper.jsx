@@ -1,8 +1,11 @@
+import { PDFDocument } from 'pdf-lib'
 import React, { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { PaperDefinitionsStepPropTypes } from 'src/PaperDefinitionsPropTypes'
 import { useFormData } from 'src/components/Contexts/FormDataProvider'
+import { useModal } from 'src/components/Contexts/ModalProvider'
 import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
+import EncryptedPDFModal from 'src/components/ModelSteps/Scan/EncryptedPDFModal'
 import ScanDialog from 'src/components/ModelSteps/Scan/ScanDialog'
 import ScanResultDialog from 'src/components/ModelSteps/ScanResult/ScanResultDialog'
 import {
@@ -17,14 +20,21 @@ import {
   storeCreatePaperDataBackup
 } from 'src/helpers/paperDataBackup'
 
-import { useClient, models } from 'cozy-client'
+import { useClient } from 'cozy-client'
+import { fetchBlobFileById } from 'cozy-client/dist/models/file'
 import { useWebviewIntent } from 'cozy-intent'
 import minilog from 'cozy-minilog'
 import FilePicker from 'cozy-ui/transpiled/react/FilePicker'
 
 const log = minilog('ScanWrapper')
 
-const { fetchBlobFileById } = models.file
+const isFileEncryptedPDF = async file => {
+  if (!file.type || file.type !== 'application/pdf') return false
+
+  const arrayBuffer = await file.arrayBuffer()
+  const pdf = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true })
+  return pdf.isEncrypted
+}
 
 const ScanWrapper = ({ currentStep, onClose, onBack }) => {
   const client = useClient()
@@ -36,6 +46,7 @@ const ScanWrapper = ({ currentStep, onClose, onBack }) => {
   const [currentFile, setCurrentFile] = useState(null)
   const [isFilePickerModalOpen, setIsFilePickerModalOpen] = useState(false)
   const webviewIntent = useWebviewIntent()
+  const { pushModal, popModal } = useModal()
 
   const fromFlagshipUpload = searchParams.get('fromFlagshipUpload')
   useEffect(() => {
@@ -45,9 +56,12 @@ const ScanWrapper = ({ currentStep, onClose, onBack }) => {
     }
   }, [formData, currentStepIndex])
 
-  const onChangeFile = (file, { replace = false } = {}) => {
+  const onChangeFile = async (file, { replace = false } = {}) => {
     // TODO : Integrate the values recovered by the OCR
     if (file) {
+      if (await isFileEncryptedPDF(file)) {
+        return pushModal(<EncryptedPDFModal onClose={popModal} />)
+      }
       if (replace) {
         setFormData(prev => ({
           ...prev,
@@ -87,7 +101,7 @@ const ScanWrapper = ({ currentStep, onClose, onBack }) => {
       name: cozyFileId,
       from: 'cozy'
     })
-    onChangeFile(file)
+    await onChangeFile(file)
   }
 
   const onOpenFlagshipScan = async () => {
@@ -114,7 +128,7 @@ const ScanWrapper = ({ currentStep, onClose, onBack }) => {
         name: FLAGSHIP_SCAN_TEMP_FILENAME,
         type: 'image/png'
       })
-      onChangeFile(file)
+      await onChangeFile(file)
     } catch (error) {
       log.error('Flagship scan error', error)
     }

@@ -559,6 +559,11 @@
   "PagePickerModal": {
     "splitFile": "Séparer le document"
   },
+  "EncryptedPDFModal": {
+    "title": "Fichier incompatible",
+    "content": "Vous avez sélectionné un fichier PDF chiffré. Les éléments chiffrés ne peuvent pas être importés dans l'application Mes Papiers",
+    "action": "J'ai compris"
+  },
   "PreviewConfirm": {
     "title": "Aperçu des 2 faces du document",
     "text": "Les 2 faces du documents seront affichées dans cet aperçu. Pas d’inquiétude, à la transmission, <b>le document comportera uniquement la face sélectionnée</b>.",
