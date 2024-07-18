@@ -559,6 +559,11 @@
   "PagePickerModal": {
     "splitFile": "Split file"
   },
+  "EncryptedPDFModal": {
+    "title": "Incompatible file",
+    "content": "You have selected an encrypted PDF file. Encrypted items cannot be imported into My Papers.",
+    "action": "I understand"
+  },
   "PreviewConfirm": {
     "title": "Overview of the 2 sides of the document",
     "text": "The 2 sides of the document will be displayed in this preview. Don't worry, when the document is transmitted, <b>only the selected side will be shown</b>.",
