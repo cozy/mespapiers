@@ -1,4 +1,30 @@
+# 3.7.0
+
 # 3.6.0
+
+### ✨ Features
+
+* Don't save `page` metadata anymore by @Merkur39 in https://github.com/cozy/mespapiers/pull/618
+* Split 2-sided files by @Merkur39 in https://github.com/cozy/mespapiers/pull/640
+* Adjustments to face selection by @Merkur39 in https://github.com/cozy/mespapiers/pull/643
+* Add edit paper feature by @JF-Cozy in https://github.com/cozy/mespapiers/pull/646
+* Ensure the app settings document exists when the app is loaded by @Merkur39 in https://github.com/cozy/mespapiers/pull/645
+* ForwardModal: Asynchronous processing before share validation by @Merkur39 in https://github.com/cozy/mespapiers/pull/651
+* paperDef: Change information step for foreign driver license paper by @Merkur39 in https://github.com/cozy/mespapiers/pull/652
+* feat: Show message if imported pdf is encrypted by @JF-Cozy in https://github.com/cozy/mespapiers/pull/654
+
+### 🐛 Bug Fixes
+* NoteDialog: Note creation returns a 404 when trying to save by @Merkur39 in https://github.com/cozy/mespapiers/pull/647
+* Rename helpers file to makeInputAdornment by @Merkur39 in https://github.com/cozy/mespapiers/pull/648
+* OCR: Set metadata in the correct place by @Merkur39 in https://github.com/cozy/mespapiers/pull/649
+* Edit paper feature by @Merkur39 in https://github.com/cozy/mespapiers/pull/650
+* Actions/modify: Open the correct modification procedure by @Merkur39 in https://github.com/cozy/mespapiers/pull/653
+
+### 🔧 Tech
+* Use specific nvm version to match default one in travis distro by @JF-Cozy in https://github.com/cozy/mespapiers/pull/642
+* refactor: Reorganize providers to put them all at the same place by @Merkur39 in https://github.com/cozy/mespapiers/pull/644
+
+**Full Changelog**: https://github.com/cozy/mespapiers/compare/3.5.0...3.6.0-beta.1
 
 # 3.5.0
 
