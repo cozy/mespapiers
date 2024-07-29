@@ -402,6 +402,36 @@ describe('getPaperDefinitionByFile', () => {
       expect(res).toMatchObject({ label: 'driver_license', country: 'fr' })
     })
 
+    it('should return the paperDefinition "driver_license", with the country "fr"', () => {
+      const fakeFile = makeFakeFile({
+        qualificationLabel: 'driver_license',
+        country: 'FR'
+      })
+      const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
+
+      expect(res).toMatchObject({ label: 'driver_license', country: 'fr' })
+    })
+
+    it('should return the paperDefinition "driver_license", with the country "fr" even when lowercase', () => {
+      const fakeFile = makeFakeFile({
+        qualificationLabel: 'driver_license',
+        country: 'fr'
+      })
+      const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
+
+      expect(res).toMatchObject({ label: 'driver_license', country: 'fr' })
+    })
+
+    it('should return the paperDefinition "driver_license", with the country "fr" if undefined', () => {
+      const fakeFile = makeFakeFile({
+        qualificationLabel: 'driver_license',
+        country: undefined
+      })
+      const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
+
+      expect(res).toMatchObject({ label: 'driver_license', country: 'fr' })
+    })
+
     it('should return the paperDefinition "driver_license", with the country "foreign" if defined', () => {
       const fakeFile = makeFakeFile({
         qualificationLabel: 'driver_license',
@@ -413,6 +443,16 @@ describe('getPaperDefinitionByFile', () => {
         label: 'driver_license',
         country: 'foreign'
       })
+    })
+
+    it('should return the paperDefinition "driver_license", with the country "foreign" for unsupported country metadata', () => {
+      const fakeFile = makeFakeFile({
+        qualificationLabel: 'driver_license',
+        country: 'moon'
+      })
+      const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
+
+      expect(res).toMatchObject({ label: 'driver_license', country: 'foreign' })
     })
 
     it('should return the paperDefinition "driver_license", with the country "fr" if it empty in file', () => {
