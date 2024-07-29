@@ -395,76 +395,73 @@ describe('getPaperDefinitionByFile', () => {
   })
 
   describe('paperDefinition has a country defined', () => {
-    it('should return the paperDefinition "driver_license", with the country "fr" as default', () => {
-      const fakeFile = makeFakeFile({ qualificationLabel: 'driver_license' })
-      const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
+    describe('it should return fr driver_license', () => {
+      it('for undefined country in file', () => {
+        const fakeFile = makeFakeFile({ qualificationLabel: 'driver_license' })
+        const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
 
-      expect(res).toMatchObject({ label: 'driver_license', country: 'fr' })
-    })
-
-    it('should return the paperDefinition "driver_license", with the country "fr"', () => {
-      const fakeFile = makeFakeFile({
-        qualificationLabel: 'driver_license',
-        country: 'FR'
+        expect(res).toMatchObject({ label: 'driver_license', country: 'fr' })
       })
-      const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
 
-      expect(res).toMatchObject({ label: 'driver_license', country: 'fr' })
-    })
+      it('for empty country in file', () => {
+        const fakeFile = makeFakeFile({
+          qualificationLabel: 'driver_license',
+          country: ''
+        })
+        const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
 
-    it('should return the paperDefinition "driver_license", with the country "fr" even when lowercase', () => {
-      const fakeFile = makeFakeFile({
-        qualificationLabel: 'driver_license',
-        country: 'fr'
+        expect(res).toMatchObject({
+          label: 'driver_license',
+          country: 'fr'
+        })
       })
-      const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
 
-      expect(res).toMatchObject({ label: 'driver_license', country: 'fr' })
-    })
+      it('for "FR" country in file', () => {
+        const fakeFile = makeFakeFile({
+          qualificationLabel: 'driver_license',
+          country: 'FR'
+        })
+        const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
 
-    it('should return the paperDefinition "driver_license", with the country "fr" if undefined', () => {
-      const fakeFile = makeFakeFile({
-        qualificationLabel: 'driver_license',
-        country: undefined
+        expect(res).toMatchObject({ label: 'driver_license', country: 'fr' })
       })
-      const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
 
-      expect(res).toMatchObject({ label: 'driver_license', country: 'fr' })
-    })
+      it('for "fr" country in file', () => {
+        const fakeFile = makeFakeFile({
+          qualificationLabel: 'driver_license',
+          country: 'fr'
+        })
+        const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
 
-    it('should return the paperDefinition "driver_license", with the country "foreign" if defined', () => {
-      const fakeFile = makeFakeFile({
-        qualificationLabel: 'driver_license',
-        country: 'EN'
-      })
-      const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
-
-      expect(res).toMatchObject({
-        label: 'driver_license',
-        country: 'foreign'
+        expect(res).toMatchObject({ label: 'driver_license', country: 'fr' })
       })
     })
 
-    it('should return the paperDefinition "driver_license", with the country "foreign" for unsupported country metadata', () => {
-      const fakeFile = makeFakeFile({
-        qualificationLabel: 'driver_license',
-        country: 'moon'
+    describe('it should return foreign driver_license', () => {
+      it('for "EN" in file', () => {
+        const fakeFile = makeFakeFile({
+          qualificationLabel: 'driver_license',
+          country: 'EN'
+        })
+        const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
+
+        expect(res).toMatchObject({
+          label: 'driver_license',
+          country: 'foreign'
+        })
       })
-      const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
 
-      expect(res).toMatchObject({ label: 'driver_license', country: 'foreign' })
-    })
+      it('for unsupported country metadata', () => {
+        const fakeFile = makeFakeFile({
+          qualificationLabel: 'driver_license',
+          country: 'moon'
+        })
+        const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
 
-    it('should return the paperDefinition "driver_license", with the country "fr" if it empty in file', () => {
-      const fakeFile = makeFakeFile({
-        qualificationLabel: 'driver_license',
-        country: ''
-      })
-      const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
-
-      expect(res).toMatchObject({
-        label: 'driver_license',
-        country: 'fr'
+        expect(res).toMatchObject({
+          label: 'driver_license',
+          country: 'foreign'
+        })
       })
     })
   })
