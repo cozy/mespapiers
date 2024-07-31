@@ -34,7 +34,7 @@ export const download = ({
     label,
     icon,
     disabled: docs => docs.length === 0,
-    action: async (docs, { client }) => {
+    action: async (docs, { client, webviewIntent }) => {
       const fromMultiSelection = allMultiSelection.length > 0
       const normalizedDocs =
         allMultiSelection.length > 0
@@ -48,7 +48,8 @@ export const download = ({
         showAlert,
         t,
         pushModal,
-        popModal
+        popModal,
+        webviewIntent
       })
       isMultiSelectionActive && navigate('..')
     },
