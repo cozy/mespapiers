@@ -1,4 +1,15 @@
+# 3.8.0
+
 # 3.7.0
+
+### 🐛 Bug Fixes
+
+* Paper model was incorrect for french driver license by @JF-Cozy in https://github.com/cozy/mespapiers/pull/656
+
+### 🔧 Tech
+
+* Remove node 16 from tests and stages in CI by @zatteo in https://github.com/cozy/mespapiers/pull/655
+* Upgrade packages by @JF-Cozy in https://github.com/cozy/mespapiers/pull/657
 
 # 3.6.0
 
