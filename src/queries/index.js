@@ -108,16 +108,17 @@ export const buildFilesQueryByLabel = label => ({
   definition: () =>
     Q(FILES_DOCTYPE)
       .where({
-        'metadata.qualification': {
-          label: label
-        }
+        created_at: {
+          $gt: null
+        },
+        'metadata.qualification.label': label
       })
       .partialIndex({
         type: 'file',
         trashed: false,
         'cozyMetadata.createdByApp': { $exists: true }
       })
-      .indexFields(['created_at', 'metadata.qualification'])
+      .indexFields(['created_at', 'metadata.qualification.label'])
       .sortBy([{ created_at: 'desc' }]),
   options: {
     as: `${FILES_DOCTYPE}/${label}`,
