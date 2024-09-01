@@ -4159,10 +4159,10 @@ babel-preset-cozy-app@1.9.2:
     browserslist-config-cozy "^0.3.1"
     lodash "4.17.19"
 
-babel-preset-cozy-app@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/babel-preset-cozy-app/-/babel-preset-cozy-app-2.0.2.tgz#057da4ac68b1340a58cde18dbd40e67e04f3b998"
-  integrity sha512-D7+LE5zVDFhD9fxfhjERr2qxfxf+pc8w6RWe5mV/bS5Hz2iULNlScslg2Pbz+U5gHQtxysxmwQYz8ufjZmfFbg==
+babel-preset-cozy-app@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/babel-preset-cozy-app/-/babel-preset-cozy-app-2.1.0.tgz#0375a8e0e722bb254eddf95197b2a86756968d96"
+  integrity sha512-w3fuo6OzfBtq6kG91vUbwo430es9+6qmNHJVvFApHSHlf8NCrUi5cVRADeB7WLwkrPnbWUVkQeLt6vn/crtWmw==
   dependencies:
     "@babel/core" "7.16.12"
     "@babel/eslint-parser" "^7.16.3"
@@ -4174,7 +4174,7 @@ babel-preset-cozy-app@2.0.2:
     "@babel/preset-react" "^7.16.0"
     "@babel/preset-typescript" "^7.16.0"
     "@babel/runtime" "^7.16.3"
-    browserslist-config-cozy "^0.4.0"
+    browserslist-config-cozy "^0.5.0"
     lodash "^4.17.21"
     typescript "^4.5.2"
 
@@ -4485,10 +4485,10 @@ browserslist-config-cozy@^0.3.1:
   resolved "https://registry.yarnpkg.com/browserslist-config-cozy/-/browserslist-config-cozy-0.3.2.tgz#0a06ed1357480e4e90bbe826aa3159c7e8bc85b3"
   integrity sha512-d3wUIrKK8OYUPpgY3FJdb2I3xoDLtia7s2hhNfVUvQMldhw/xivmbtrPlkDdtsOjXa/SXKNhJT45uiS1QOhqVg==
 
-browserslist-config-cozy@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/browserslist-config-cozy/-/browserslist-config-cozy-0.4.0.tgz#0b3fd831ce59c69e70b799a4e57a206535468878"
-  integrity sha512-t2q4UoWotfnT9Zw/GKXgSh0nMyvUCQEji+EObSQXsUCnEwhac8Ae3AJYd2ySsEHZ/ufEX8f6kR6jPbWJqBpUUw==
+browserslist-config-cozy@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/browserslist-config-cozy/-/browserslist-config-cozy-0.5.0.tgz#e62ba62dcef91fde9742faa7dec98e08bf8c0d51"
+  integrity sha512-R3l2v6LqWuoUEDIt0U3dFtObOcBgkCrs6YUB4GLF3C1oE26ltJEBpz3DUQRmIcWrjKQOTKlGHe9MgDsqyuxFNA==
 
 browserslist@^4.11.1, browserslist@^4.16.6, browserslist@^4.3.4:
   version "4.16.6"
