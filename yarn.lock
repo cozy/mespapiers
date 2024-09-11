@@ -5406,10 +5406,10 @@ cozy-bi-auth@0.0.25:
     lodash "^4.17.20"
     node-jose "^1.1.4"
 
-cozy-client@^48.17.0:
-  version "48.17.0"
-  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-48.17.0.tgz#2be81f9589cabc9b248c8dcfa46a274d168d34e2"
-  integrity sha512-t/bjydRZVA079ujrWKMShOYqusen8wSzvSOMKR1Jp1XQAEF+yPOzaAirh2NBqbt5Vad3NLgb8uZ6sBvd7EI2Sg==
+cozy-client@^48.20.0:
+  version "48.20.0"
+  resolved "https://registry.yarnpkg.com/cozy-client/-/cozy-client-48.20.0.tgz#7410530cd474a563de2b72f3a15b1d517606c5c8"
+  integrity sha512-ebYidK5tBdSYWzCAT+B1Y+MugWxVymIzj5mHM0G8RkAY0SYY051JrnXBecn74wQiaM2NeafAZTbOq2ORFmy/zQ==
   dependencies:
     "@cozy/minilog" "1.0.0"
     "@types/jest" "^26.0.20"
