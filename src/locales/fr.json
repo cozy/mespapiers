@@ -493,7 +493,11 @@
       "phone": "Numéro de téléphone",
       "email": "Adresse email",
       "birthday": "Date de naissance",
-      "address": "Adresse"
+      "address": "Adresse",
+      "nationalHealthInsuranceCard": {
+        "custom1": "Numéro d'inscription au répertoire des personnes physiques",
+        "custom2": "NIR"
+      }
     }
   },
   "Harvest": {

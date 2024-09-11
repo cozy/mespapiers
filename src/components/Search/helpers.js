@@ -142,7 +142,7 @@ export const makeContactTags = contact => {
   return contactTags
 }
 
-export const makeFileFlexsearchProps = ({ doc, scannerT }) => ({
+export const makeFileFlexsearchProps = ({ doc, t, scannerT }) => ({
   tag: makeFileTags(doc),
   translated: {
     qualificationLabel: scannerT(`items.${doc.metadata.qualification.label}`),
@@ -215,6 +215,12 @@ export const makeFileFlexsearchProps = ({ doc, scannerT }) => ({
       'national_health_insurance_card' && {
       nationalHealthInsuranceCard: scannerT(
         'qualification.information.title.national_health_insurance_card.number'
+      ),
+      nationalHealthInsuranceCardCustom1: t(
+        'Search.attributeLabel.nationalHealthInsuranceCard.custom1'
+      ),
+      nationalHealthInsuranceCardCustom2: t(
+        'Search.attributeLabel.nationalHealthInsuranceCard.custom2'
       )
     }),
     ...(doc.metadata.qualification?.label === 'residence_permit' && {
