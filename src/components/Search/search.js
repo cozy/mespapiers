@@ -23,6 +23,8 @@ const flexsearchIndex = [
   'flexsearchProps:translated:vehicleRegistration', // io.cozy.files
   'flexsearchProps:translated:nationalIdCard', // io.cozy.files
   'flexsearchProps:translated:nationalHealthInsuranceCard', // io.cozy.files
+  'flexsearchProps:translated:nationalHealthInsuranceCardCustom1', // io.cozy.files
+  'flexsearchProps:translated:nationalHealthInsuranceCardCustom2', // io.cozy.files
   'flexsearchProps:translated:bankDetails', // io.cozy.files
   'flexsearchProps:translated:paySheet', // io.cozy.files
   'flexsearchProps:translated:passport', // io.cozy.files
@@ -71,13 +73,13 @@ export const index = new Document({
   }
 })
 
-export const addFileDoc = ({ index, doc, scannerT }) => {
+export const addFileDoc = ({ index, doc, t, scannerT }) => {
   if (!scannerT) return null
 
   if (hasQualifications(doc)) {
     return index.add({
       ...doc,
-      flexsearchProps: makeFileFlexsearchProps({ doc, scannerT })
+      flexsearchProps: makeFileFlexsearchProps({ doc, t, scannerT })
     })
   }
 }
@@ -91,7 +93,7 @@ export const addContactDoc = ({ index, doc, t }) => {
 
 export const addDoc = ({ index, doc, scannerT, t }) => {
   if (isFile(doc)) {
-    addFileDoc({ index, doc, scannerT })
+    addFileDoc({ index, doc, t, scannerT })
   } else if (isContact(doc)) {
     addContactDoc({ index, doc, t })
   }
