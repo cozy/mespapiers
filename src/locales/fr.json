@@ -432,8 +432,8 @@
     },
     "nationalHealthInsuranceCard": {
       "number": {
-        "inputLabel": "Numéro de la carte vitale",
-        "text": "Saisissez le numéro de la carte vitale"
+        "inputLabel": "Numéro de sécurité sociale",
+        "text": "Saisissez le numéro de sécurité sociale"
       }
     }
   },
