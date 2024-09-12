@@ -5652,15 +5652,15 @@ cozy-scripts@^8.3.0:
     webpack-dev-server "3.10.3"
     webpack-merge "4.2.2"
 
-cozy-sharing@^15.0.0:
-  version "15.0.0"
-  resolved "https://registry.yarnpkg.com/cozy-sharing/-/cozy-sharing-15.0.0.tgz#d21c5557e3275f2945995a972f7b52cb1fd265bb"
-  integrity sha512-FN6FK3WJWjVMYFquKsBItn/0/spZVjtxRBaxFxeG9oiDaGALCY2UXqJBfdq6sC8x2y+PXyNZx2050oz5Uxx7iw==
+cozy-sharing@^15.0.3:
+  version "15.0.3"
+  resolved "https://registry.yarnpkg.com/cozy-sharing/-/cozy-sharing-15.0.3.tgz#15aca9ff92565bf1055d2f3ae720525d0721dd0a"
+  integrity sha512-4aTLqyHEyyE54+L68lZrLYtG8z0N8Fb1vaMKKzGB6WKaMrdlMAYNe9WdhwkbsoTI/XmBh0BxyY1i+gYIPtxsjw==
   dependencies:
     "@cozy/minilog" "^1.0.0"
     classnames "^2.2.6"
     cozy-device-helper "^3.0.0"
-    cozy-doctypes "^1.90.0"
+    cozy-doctypes "^1.91.1"
     lodash "^4.17.19"
     react-autosuggest "^10.1.0"
     react-tooltip "^3.11.1"
