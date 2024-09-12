@@ -5,10 +5,7 @@ import FileViewerLoading from 'src/components/Viewer/FileViewerLoading'
 
 import { Q, useClient } from 'cozy-client'
 import { isIOSApp } from 'cozy-device-helper'
-import Viewer, {
-  FooterActionButtons,
-  ToolbarButtons
-} from 'cozy-ui/transpiled/react/Viewer'
+import Viewer, { FooterActionButtons, ToolbarButtons } from 'cozy-viewer'
 
 const styleStatusBar = switcher => {
   if (window.StatusBar && isIOSApp()) {
