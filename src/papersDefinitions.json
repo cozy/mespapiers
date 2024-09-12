@@ -3244,43 +3244,6 @@
       ]
     },
     {
-      "label": "library_card",
-      "icon": "people",
-      "featureDate": "referencedDate",
-      "maxDisplay": 4,
-      "acquisitionSteps": [
-        {
-          "model": "scan",
-          "page": "front",
-          "illustration": "IlluGenericNewPage.svg",
-          "text": "PaperJSON.card.front.text"
-        },
-        {
-          "model": "scan",
-          "page": "back",
-          "illustration": "IlluGenericNewPage.svg",
-          "text": "PaperJSON.card.back.text"
-        },
-        {
-          "model": "information",
-          "illustration": "IlluGenericInputDate.svg",
-          "text": "PaperJSON.generic.referencedDate.text",
-          "attributes": [
-            {
-              "name": "referencedDate",
-              "type": "date",
-              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
-            }
-          ]
-        },
-        {
-          "illustration": "Account.svg",
-          "model": "contact",
-          "text": "PaperJSON.generic.owner.text"
-        }
-      ]
-    },
-    {
       "label": "real_estate_tax",
       "icon": "bill",
       "featureDate": "referencedDate",

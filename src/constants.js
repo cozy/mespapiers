@@ -34,6 +34,5 @@ export const TWO_SIDED_FILE_QUALIFICATION_LABELS = [
   'driver_license',
   'residence_permit',
   'transport_card',
-  'fidelity_card',
-  'library_card'
+  'fidelity_card'
 ]
