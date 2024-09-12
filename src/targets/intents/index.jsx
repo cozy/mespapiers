@@ -10,6 +10,7 @@ import {
 
 import 'cozy-ui/transpiled/react/stylesheet.css'
 import 'cozy-ui/dist/cozy-ui.utils.min.css'
+import 'cozy-viewer/dist/stylesheet.css'
 import 'cozy-bar/dist/stylesheet.css'
 
 import 'src/styles/index.styl'

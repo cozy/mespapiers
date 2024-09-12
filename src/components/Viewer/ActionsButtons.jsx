@@ -8,8 +8,8 @@ import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvide
 import SelectFileButton from 'src/components/Viewer/SelectFileButton'
 
 import { useClient } from 'cozy-client'
-import { ForwardButton } from 'cozy-ui/transpiled/react/Viewer'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
+import { ForwardButton } from 'cozy-viewer'
 
 const ActionsButtons = ({ file, toolbar }) => {
   const navigate = useNavigate()
