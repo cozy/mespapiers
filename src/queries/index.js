@@ -69,6 +69,7 @@ export const buildFilesQueryWithQualificationLabel = () => {
     ...KNOWN_DATE_METADATA_NAMES.map(x => `metadata.${x}`),
     ...KNOWN_INFORMATION_METADATA_NAMES.map(x => `metadata.${x}`),
     'metadata.noticePeriod',
+    'metadata.hideExpirationAlert',
     'metadata.qualification.label',
     'metadata.title',
     'metadata.version',
