@@ -2,7 +2,7 @@
   "papersDefinitions": [
     {
       "label": "diploma",
-      "icon": "people",
+      "icon": "school",
       "featureDate": "referencedDate",
       "filenameModel": [
         "labelGivenByUser"
@@ -82,7 +82,7 @@
     },
     {
       "label": "birth_certificate",
-      "icon": "people",
+      "icon": "child",
       "maxDisplay": 5,
       "acquisitionSteps": [
         {
@@ -99,7 +99,7 @@
     },
     {
       "label": "bank_details",
-      "icon": "bank",
+      "icon": "bank-check",
       "maxDisplay": 5,
       "acquisitionSteps": [
         {
@@ -195,7 +195,7 @@
     },
     {
       "label": "bank_statement",
-      "icon": "bank",
+      "icon": "exchange",
       "featureDate": "referencedDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -681,7 +681,7 @@
     },
     {
       "label": "energy_invoice",
-      "icon": "bill",
+      "icon": "lightning",
       "featureDate": "referencedDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -817,7 +817,7 @@
     {
       "label": "isp_invoice",
       "placeholderIndex": 5,
-      "icon": "bill",
+      "icon": "telecom",
       "featureDate": "referencedDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -1214,7 +1214,7 @@
     },
     {
       "label": "personal_sporting_licence",
-      "icon": "compass",
+      "icon": "fitness",
       "featureDate": "referencedDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -1609,7 +1609,7 @@
     },
     {
       "label": "other_work_document",
-      "icon": "company",
+      "icon": "work",
       "filenameModel": [
         "labelGivenByUser"
       ],
@@ -1657,7 +1657,7 @@
     },
     {
       "label": "work_contract",
-      "icon": "company",
+      "icon": "work",
       "featureDate": "date",
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -1716,7 +1716,7 @@
     },
     {
       "label": "other_revenue",
-      "icon": "bank",
+      "icon": "benefit",
       "filenameModel": [
         "labelGivenByUser"
       ],
@@ -1764,7 +1764,7 @@
     },
     {
       "label": "pay_sheet",
-      "icon": "bill",
+      "icon": "benefit",
       "featureDate": "referencedDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -1884,7 +1884,7 @@
     },
     {
       "label": "phone_invoice",
-      "icon": "bill",
+      "icon": "telephone",
       "featureDate": "referencedDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -1952,7 +1952,7 @@
     },
     {
       "label": "residence_permit",
-      "icon": "people",
+      "icon": "globe",
       "featureDate": "expirationDate",
       "maxDisplay": 4,
       "acquisitionSteps": [
@@ -2308,7 +2308,7 @@
     },
     {
       "label": "unemployment_benefit",
-      "icon": "collect",
+      "icon": "work",
       "featureDate": "referencedDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -2493,7 +2493,7 @@
     },
     {
       "label": "water_invoice",
-      "icon": "bill",
+      "icon": "water",
       "featureDate": "referencedDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -2527,7 +2527,7 @@
     {
       "label": "passport",
       "placeholderIndex": 4,
-      "icon": "people",
+      "icon": "plane",
       "featureDate": "expirationDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -2902,7 +2902,7 @@
     },
     {
       "label": "transport_invoice",
-      "icon": "bill",
+      "icon": "car",
       "featureDate": "referencedDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -2934,7 +2934,7 @@
     },
     {
       "label": "employment_center_certificate",
-      "icon": "collect",
+      "icon": "work",
       "featureDate": "referencedDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -2967,7 +2967,7 @@
     },
     {
       "label": "electoral_card",
-      "icon": "people",
+      "icon": "gouv",
       "featureDate": "referencedDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -3383,7 +3383,7 @@
     },
     {
       "label": "expense_claim",
-      "icon": "bill",
+      "icon": "remboursement",
       "featureDate": "referencedDate",
       "filenameModel": [
         "labelGivenByUser"
