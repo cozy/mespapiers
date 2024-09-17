@@ -252,7 +252,7 @@
     },
     {
       "label": "work_disability_recognition",
-      "icon": "carbonCopy",
+      "icon": "people",
       "featureDate": "referencedDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
