@@ -5,6 +5,7 @@
     "node": "~16 || ~20"
   },
   "scripts": {
+    "analyze": "COZY_SCRIPTS_ANALYZER=true yarn build",
     "build": "cs build --browser --barV7 false",
     "cozyPublish": "cozy-app-publish --token $REGISTRY_TOKEN --prepublish downcloud --postpublish mattermost --space mespapiers",
     "deploy": "git-directory-deploy --directory build/ --branch ${DEPLOY_BRANCH:-build} --repo=${DEPLOY_REPOSITORY:-https://$GITHUB_TOKEN@github.com/cozy/mespapiers.git}",
