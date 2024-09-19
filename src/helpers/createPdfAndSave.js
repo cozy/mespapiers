@@ -3,7 +3,10 @@ import { BILLS_DOCTYPE, CONTACTS_DOCTYPE, FILES_DOCTYPE } from 'src/constants'
 import { buildFilename } from 'src/helpers/buildFilename'
 
 import { uploadFileWithConflictStrategy } from 'cozy-client/dist/models/file'
-import { addFileToPdf } from 'cozy-ui/transpiled/react/ActionsMenu/Actions/helpers'
+import {
+  addFileToPdf,
+  fileToArrayBuffer
+} from 'cozy-ui/transpiled/react/ActionsMenu/Actions/helpers'
 
 /**
  * @param {import('cozy-client/types/types').IOCozyFile} fileCreated
@@ -44,14 +47,14 @@ export const addCountryValueByQualification = qualification => {
  * @param {object} param0.metadata
  * @param {import('cozy-client/types/types').QualificationAttributes} param0.qualification
  * @param {string} param0.featureDate
- * @param {PDFDocument} param0.pdfDoc
+ * @param {string} param0.datetime
  * @returns {object}
  */
 export const updateMetadata = ({
   metadata,
   qualification,
   featureDate,
-  pdfDoc
+  datetime
 }) => {
   return {
     ...metadata,
@@ -61,8 +64,7 @@ export const updateMetadata = ({
       qualification: {
         ...qualification
       },
-      datetime:
-        metadata[FILES_DOCTYPE]?.featureDate ?? pdfDoc.getCreationDate(),
+      datetime,
       datetimeLabel: featureDate || 'datetime'
     }
   }
@@ -87,20 +89,28 @@ export const createPdfAndSave = async ({
   client,
   i18n
 }) => {
+  const hasMultiplePages = formData.data.length > 1
+  const isFirstDocPDF = formData.data[0].file.type === 'application/pdf'
+  const isAlreadyPDFDoc = !hasMultiplePages && isFirstDocPDF
+
   const { t, f, scannerT } = i18n
   const { data, metadata, contacts } = { ...formData }
   const fileCollection = client.collection(FILES_DOCTYPE)
   const { featureDate, label, filenameModel } = currentDefinition
 
   // Created first document of PDFDocument
-  let pdfDoc = await PDFDocument.create()
+  let pdfDoc = isAlreadyPDFDoc ? data[0].file : await PDFDocument.create()
+
+  const datetime = isAlreadyPDFDoc
+    ? pdfDoc.lastModifiedDate.toISOString()
+    : pdfDoc.getCreationDate()
 
   // If present, we wish to keep the value in the metadata as a priority (e.g. foreign driver's license).
   const updatedMetadata = updateMetadata({
     metadata,
     qualification,
     featureDate,
-    pdfDoc
+    datetime: metadata[FILES_DOCTYPE]?.featureDate ?? datetime
   })
 
   const date =
@@ -113,7 +123,9 @@ export const createPdfAndSave = async ({
   let createdFilesList = []
   for (let idx = 0; idx < data.length; idx++) {
     const { file, fileMetadata } = data[idx]
-    const pdfBytes = await addFileToPdf(pdfDoc, file)
+    const pdfBytes = isAlreadyPDFDoc
+      ? await fileToArrayBuffer(data[0].file)
+      : await addFileToPdf(pdfDoc, file)
 
     const paperName = buildFilename({
       filenameModel,
