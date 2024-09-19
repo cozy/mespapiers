@@ -125,11 +125,11 @@ describe('ScanDesktopActions', () => {
     })
   })
 
-  it('should call client.save when click on "No, thanks" button', async () => {
+  it('should call client.save when click on "I understand" button', async () => {
     const clientSaveFn = jest.fn()
     const { getByText } = setup({ clientSaveFn, isLoaded: true })
     await waitFor(() => {
-      const hideButton = getByText('No, thanks')
+      const hideButton = getByText('I understand')
 
       fireEvent.click(hideButton)
 
@@ -137,11 +137,11 @@ describe('ScanDesktopActions', () => {
     })
   })
 
-  it('should not call client.save when click on "No, thanks" button when settings is not loaded', async () => {
+  it('should not call client.save when click on "I understand" button when settings is not loaded', async () => {
     const clientSaveFn = jest.fn()
     const { getByText } = setup({ clientSaveFn, isLoaded: false })
     await waitFor(() => {
-      const hideButton = getByText('No, thanks')
+      const hideButton = getByText('I understand')
 
       fireEvent.click(hideButton)
 

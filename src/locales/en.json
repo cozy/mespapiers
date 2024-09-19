@@ -514,10 +514,10 @@
     }
   },
   "ScanDesktopActionsAlert": {
-    "title": "Scan with the Cozy Cloud app",
-    "text": "Install the Cozy Cloud application on your mobile to take a photo of your documents directly and extract the information.",
+    "title": "Continue with your Mobile",
+    "text": "Use the Cozy Cloud application on your mobile to take a photo of your documents directly and extract the information.",
     "actions": {
-      "hide": "No, thanks",
+      "hide": "I understand",
       "install": "Install the app"
     }
   },
