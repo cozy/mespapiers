@@ -29,10 +29,10 @@ describe('ScanDesktopActionsAlert', () => {
     expect(QRCodeModal).toBeInTheDocument()
   })
 
-  it('should call client.save when click on "No, thanks" button', () => {
+  it('should call client.save when click on "I understand" button', () => {
     const onCloseFn = jest.fn()
     const { getByText } = setup({ onCloseFn })
-    const hideButton = getByText('No, thanks')
+    const hideButton = getByText('I understand')
 
     fireEvent.click(hideButton)
 
