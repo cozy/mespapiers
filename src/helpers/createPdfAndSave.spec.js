@@ -21,10 +21,6 @@ jest.mock('./buildFilename', () => ({
   buildFilename: jest.fn().mockReturnValue('')
 }))
 
-const mockPDFDocument = {
-  getCreationDate: () => 'mockDate'
-}
-
 const mockParams = file => ({
   formData: {
     data: [
@@ -66,8 +62,13 @@ describe('createAndSavePdf', () => {
       { fileId: '1234', qualificationLabel: 'qualificationLabelTest-image/jpg' }
     ]
 
-    const filePDF = new File(['bob'], 'bob.pdf', { type: 'application/pdf' })
-    const fileJPG = new File(['bob'], 'bob.jpg', { type: 'image/jpg' })
+    const filePDF = new File(['bob'], 'bob.pdf', {
+      type: 'application/pdf'
+    })
+    filePDF.lastModifiedDate = new Date()
+    const fileJPG = new File(['bob'], 'bob.jpg', {
+      type: 'image/jpg'
+    })
 
     const resultPDF = await createPdfAndSave(mockParams(filePDF))
     const resultJPG = await createPdfAndSave(mockParams(fileJPG))
@@ -96,7 +97,7 @@ describe('updateMetadata', () => {
     const result = updateMetadata({
       metadata: {},
       qualification: { label: 'birth_certificate' },
-      pdfDoc: mockPDFDocument
+      datetime: 'mockDate'
     })
 
     expect(result).toEqual({
@@ -112,7 +113,7 @@ describe('updateMetadata', () => {
       metadata: { [FILES_DOCTYPE]: { name: 'name' } },
       qualification: { label: 'national_id_card' },
       featureDate: 'referencedDate',
-      pdfDoc: mockPDFDocument
+      datetime: 'mockDate'
     })
 
     expect(result).toEqual({
