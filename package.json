@@ -90,7 +90,7 @@
     "cozy-logger": "^1.10.4",
     "cozy-minilog": "^3.3.1",
     "cozy-notifications": "^0.15.0",
-    "cozy-realtime": "^5.0.0",
+    "cozy-realtime": "^5.0.1",
     "cozy-sharing": "^15.0.0",
     "cozy-ui": "^111.11.0",
     "cozy-viewer": "^1.1.2",
