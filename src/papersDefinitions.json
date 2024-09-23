@@ -3181,7 +3181,7 @@
     {
       "label": "fidelity_card",
       "icon": "people",
-      "featureDate": "referencedDate",
+      "featureDate": "expirationDate",
       "maxDisplay": 4,
       "filenameModel": ["labelGivenByUser", "page"],
       "acquisitionSteps": [
@@ -3226,19 +3226,7 @@
         {
           "model": "information",
           "illustration": "IlluGenericInputDate.svg",
-          "text": "PaperJSON.generic.referencedDate.text",
-          "attributes": [
-            {
-              "name": "referencedDate",
-              "type": "date",
-              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
-            }
-          ]
-        },
-        {
-          "model": "information",
-          "illustration": "IlluGenericInputDate.svg",
-          "text": "PaperJSON.driverLicense.expirationDate.text",
+          "text": "PaperJSON.generic.expirationDate.text",
           "attributes": [
             {
               "name": "expirationDate",
