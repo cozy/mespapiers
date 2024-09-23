@@ -1,6 +1,6 @@
 import schema from 'src/doctypes'
 
-import CozyClient, { FlagshipLink } from 'cozy-client'
+import CozyClient, { WebFlagshipLink } from 'cozy-client'
 import { isFlagshipApp, isFlagshipOfflineSupported } from 'cozy-device-helper'
 import flag from 'cozy-flags'
 import { Intents } from 'cozy-interapp'
@@ -18,7 +18,8 @@ export const makeClient = intent => {
   const protocol = window.location.protocol
   const cozyUrl = `${protocol}//${data.domain}`
 
-  const shouldUseFlagshipLink = isFlagshipApp() && isFlagshipOfflineSupported()
+  const shouldUseWebFlagshipLink =
+    isFlagshipApp() && isFlagshipOfflineSupported()
 
   const client = new CozyClient({
     uri: cozyUrl,
@@ -29,8 +30,8 @@ export const makeClient = intent => {
     },
     schema,
     store: true,
-    links: shouldUseFlagshipLink
-      ? new FlagshipLink({ webviewIntent: intent })
+    links: shouldUseWebFlagshipLink
+      ? new WebFlagshipLink({ webviewIntent: intent })
       : null
   })
 
