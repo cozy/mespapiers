@@ -93,7 +93,7 @@
     "cozy-realtime": "^5.0.0",
     "cozy-sharing": "^16.0.0",
     "cozy-ui": "^111.12.0",
-    "cozy-viewer": "^1.1.2",
+    "cozy-viewer": "^2.0.0",
     "date-fns": "2.23.0",
     "flexsearch": "0.7.31",
     "leaflet": "1.7.1",
