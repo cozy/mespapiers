@@ -1,4 +1,20 @@
+# 3.9.0
+
 # 3.8.0
+
+### ✨ Features
+
+* Rename "numéro de la carte vitale" in "sécurité sociale" by @JF-Cozy in https://github.com/cozy/mespapiers/pull/664
+* Adjust fidelity card and remove library card by @JF-Cozy in https://github.com/cozy/mespapiers/pull/665
+* Add notification badge one homepage for papers about to expire by @JF-Cozy in https://github.com/cozy/mespapiers/pull/666
+* Change icons for some qualification by @JF-Cozy in https://github.com/cozy/mespapiers/pull/667
+* Don't create a new pdf if the selected paper is already one by @JF-Cozy in https://github.com/cozy/mespapiers/pull/668
+* feat: Change wording for ScanDesktopActionsAlert by @JF-Cozy in https://github.com/cozy/mespapiers/pull/669
+* feat: Remove reference date from fidelity_card by @JF-Cozy in https://github.com/cozy/mespapiers/pull/671
+
+### 🔧 Tech
+
+* Upgrade packages
 
 # 3.7.0
 
