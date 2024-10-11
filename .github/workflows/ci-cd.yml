@@ -10,7 +10,7 @@ on:
       - '[0-9]+.[0-9]+.[0-9]+-beta.[0-9]+'
 
 env:
-  MATTERMOST_CHANNEL: '{"dev":"mespapiers","beta":"mespapiers,publication","stable":"mespapiers,publication"}'
+  MATTERMOST_CHANNEL: '{"dev":"app---mes-papiers","beta":"app---mes-papiers,publication","stable":"app---mes-papiers,publication"}'
   MATTERMOST_HOOK_URL: ${{ secrets.MATTERMOST_HOOK_URL }}
   REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
 
