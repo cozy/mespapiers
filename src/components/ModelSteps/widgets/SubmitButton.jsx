@@ -13,7 +13,7 @@ import { createPdfAndSave } from 'src/helpers/createPdfAndSave'
 import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
 
 import { useClient } from 'cozy-client'
-import { models } from 'cozy-client'
+import { Qualification } from 'cozy-client/dist/models/document'
 import minilog from 'cozy-minilog'
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import useEventListener from 'cozy-ui/transpiled/react/hooks/useEventListener'
@@ -21,10 +21,6 @@ import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const log = minilog('SubmitButton')
-
-const {
-  document: { Qualification }
-} = models
 
 const SubmitButton = ({ onSubmit, disabled, formData }) => {
   const [isBusy, setIsBusy] = useState(false)
@@ -35,7 +31,7 @@ const SubmitButton = ({ onSubmit, disabled, formData }) => {
   const { currentDefinition, stepperDialogTitle, isEdit } = useStepperDialog()
   const { showAlert } = useAlert()
 
-  const cozyFiles = formData.data.filter(d => d.file.from === 'cozy')
+  const filesFromCozy = formData.data.filter(d => d.file.cozyId)
   const blankFiles = formData.data.filter(d => d.file.isBlank)
   const wasInitiallyBlank =
     formData.metadata[FILES_DOCTYPE]?.paperProps?.isBlank ?? false
@@ -79,15 +75,15 @@ const SubmitButton = ({ onSubmit, disabled, formData }) => {
 
   const handleReplace = async isFileReplaced => {
     if (isFileReplaced) {
-      for (const { file } of cozyFiles) {
-        await client.destroy({ _id: file.id, _type: FILES_DOCTYPE })
+      for (const { file } of filesFromCozy) {
+        await client.destroy({ _id: file.cozyId, _type: FILES_DOCTYPE })
       }
     }
     submit()
   }
 
   const handleClick = async () => {
-    if (cozyFiles.length > 0) {
+    if (filesFromCozy.length > 0) {
       return setConfirmReplaceFileModal(true)
     }
 
@@ -140,7 +136,7 @@ const SubmitButton = ({ onSubmit, disabled, formData }) => {
         <ConfirmReplaceFile
           onClose={() => setConfirmReplaceFileModal(false)}
           onReplace={handleReplace}
-          cozyFilesCount={cozyFiles.length}
+          cozyFilesCount={filesFromCozy.length}
         />
       )}
     </>

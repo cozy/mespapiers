@@ -19,6 +19,7 @@ import {
   removeCreatePaperDataBackup,
   storeCreatePaperDataBackup
 } from 'src/helpers/paperDataBackup'
+import { buildFileQueryById } from 'src/queries'
 
 import { useClient } from 'cozy-client'
 import { fetchBlobFileById } from 'cozy-client/dist/models/file'
@@ -96,10 +97,15 @@ const ScanWrapper = ({ currentStep, onClose, onBack }) => {
   }
 
   const onChangeFilePicker = async cozyFileId => {
+    const buildedFileQueryById = buildFileQueryById(cozyFileId)
+    const { data: fileSelected } = await client.query(
+      buildedFileQueryById.definition,
+      buildedFileQueryById.options
+    )
     const blobFile = await fetchBlobFileById(client, cozyFileId)
     const file = makeFileFromBlob(blobFile, {
-      name: cozyFileId,
-      from: 'cozy'
+      name: fileSelected.name,
+      cozyId: cozyFileId
     })
     await onChangeFile(file)
   }

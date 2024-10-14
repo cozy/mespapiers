@@ -76,7 +76,7 @@ describe('ContactDialog', () => {
     const mockFormSubmit = jest.fn()
     const mockFetchCurrentUser = jest.fn(() => ({ _id: '1234' }))
     const cozyFile = new File([{}], 'cozyFile')
-    cozyFile.from = 'cozy'
+    cozyFile.cozyId = '1234'
     const { findByTestId, queryByTestId } = setup({
       formData: mockFormData({ data: [{ file: cozyFile }] }),
       mockFetchCurrentUser,
