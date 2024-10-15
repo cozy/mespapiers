@@ -13,6 +13,7 @@ import { is2SidedFile } from 'src/helpers/is2SidedFile'
  * @param {Function} params.showAlert - Function to show an alert
  * @param {Function} params.t - Translation function
  * @param {boolean} [params.fromMultiSelection] - Whether the action is from a multi-selection
+ * @param {WebviewService | undefined} [params.webviewIntent] - WebviewIntent used to call methods on FlagshipApp (when hosted in a WebView)
  */
 export const handleFileDownloading = async ({
   client,
@@ -21,7 +22,8 @@ export const handleFileDownloading = async ({
   pushModal,
   popModal,
   t,
-  fromMultiSelection
+  fromMultiSelection,
+  webviewIntent
 }) => {
   if (
     filesWithPage.length === 1 &&
@@ -37,18 +39,24 @@ export const handleFileDownloading = async ({
           textAction={t('action.download')}
           onClick={selectedChoice => {
             const selected = onPickSelectedPage(selectedChoice, file)
-            downloadFiles({ client, t, filesWithPage: selected, showAlert })
+            downloadFiles({
+              client,
+              t,
+              filesWithPage: selected,
+              showAlert,
+              webviewIntent
+            })
           }}
           onClose={popModal}
         />
       )
     } else {
-      downloadFiles({ client, t, filesWithPage, showAlert })
+      downloadFiles({ client, t, filesWithPage, showAlert, webviewIntent })
     }
     return
   }
 
   if (filesWithPage.length > 0) {
-    downloadFiles({ client, t, filesWithPage, showAlert })
+    downloadFiles({ client, t, filesWithPage, showAlert, webviewIntent })
   }
 }
