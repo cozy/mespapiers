@@ -47,7 +47,7 @@
     "@typescript-eslint/parser": "5.54.0",
     "babel-preset-cozy-app": "2.0.2",
     "bundlemon": "1.4.0",
-    "compare-versions": "5.0.1",
+    "compare-versions": "5.0.3",
     "cozy-scripts": "^8.3.0",
     "cozy-tsconfig": "1.2.0",
     "enzyme-adapter-react-16": "1.15.6",
