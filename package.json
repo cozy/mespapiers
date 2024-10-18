@@ -50,7 +50,7 @@
     "compare-versions": "5.0.1",
     "cozy-scripts": "^8.3.0",
     "cozy-tsconfig": "1.2.0",
-    "enzyme-adapter-react-16": "1.15.6",
+    "enzyme-adapter-react-16": "1.15.8",
     "eslint": "8.35.0",
     "eslint-config-cozy-app": "^6.1.0",
     "eslint-config-prettier": "8.6.0",
