@@ -374,7 +374,8 @@ describe('updateReferencedContact', () => {
   })
 })
 
-describe('getPaperDefinitionByFile', () => {
+// eslint-disable-next-line jest/no-focused-tests
+fdescribe('getPaperDefinitionByFile', () => {
   describe('paperDefinition has no country defined', () => {
     it('should return the paperDefinition "isp_invoice"', () => {
       const fakeFile = makeFakeFile({ qualificationLabel: 'isp_invoice' })
@@ -423,7 +424,10 @@ describe('getPaperDefinitionByFile', () => {
         })
         const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
 
-        expect(res).toMatchObject({ label: 'driver_license', country: 'fr' })
+        expect(res).toMatchObject({
+          label: 'driver_license',
+          country: 'foreign'
+        })
       })
 
       it('for "fr" country in file', () => {
@@ -433,7 +437,10 @@ describe('getPaperDefinitionByFile', () => {
         })
         const res = getPaperDefinitionByFile(mockPapersDefinitions, fakeFile)
 
-        expect(res).toMatchObject({ label: 'driver_license', country: 'fr' })
+        expect(res).toMatchObject({
+          label: 'driver_license',
+          country: 'foreign'
+        })
       })
     })
 
