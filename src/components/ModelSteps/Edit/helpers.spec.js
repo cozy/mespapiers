@@ -374,8 +374,7 @@ describe('updateReferencedContact', () => {
   })
 })
 
-// eslint-disable-next-line jest/no-focused-tests
-fdescribe('getPaperDefinitionByFile', () => {
+describe('getPaperDefinitionByFile', () => {
   describe('paperDefinition has no country defined', () => {
     it('should return the paperDefinition "isp_invoice"', () => {
       const fakeFile = makeFakeFile({ qualificationLabel: 'isp_invoice' })
