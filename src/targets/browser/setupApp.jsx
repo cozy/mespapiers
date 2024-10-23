@@ -1,6 +1,7 @@
 import { CaptureConsole } from '@sentry/integrations'
 import * as Sentry from '@sentry/react'
 import memoize from 'lodash/memoize'
+import { createRoot } from 'react-dom/client'
 import { makeClient } from 'src/targets/browser/makeClient'
 
 import flag from 'cozy-flags'
@@ -16,8 +17,9 @@ const getDataOrDefault = (data, defaultData) =>
  * Memoize this function in its own file so that it is correctly memoized
  */
 const setupApp = memoize(() => {
-  const root = document.querySelector('[role=application]')
-  const locale = JSON.parse(root.dataset.cozy)?.locale
+  const container = document.querySelector('[role=application]')
+  const root = createRoot(container)
+  const locale = JSON.parse(container.dataset.cozy)?.locale
   const lang = getDataOrDefault(locale, 'en')
   const polyglot = initTranslation(lang, lang => require(`locales/${lang}`))
   const client = makeClient()

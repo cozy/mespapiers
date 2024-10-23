@@ -1,6 +1,5 @@
 /* eslint-disable import/order */
 import React from 'react'
-import { render } from 'react-dom'
 
 import 'cozy-ui/transpiled/react/stylesheet.css'
 import 'cozy-ui/dist/cozy-ui.utils.min.css'
@@ -15,7 +14,7 @@ import { AppRouter } from 'src/components/AppRouter'
 const init = () => {
   const { root, ...rest } = setupApp()
 
-  render(<AppRouter {...rest} />, root)
+  root.render(<AppRouter {...rest} />)
 }
 
 registerServiceWorker()
