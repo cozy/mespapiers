@@ -40,6 +40,7 @@ export const ForwardBottomSheet = ({ onClose, filesWithPage, shareByLink }) => {
   const shareAsAttachment = async () => {
     setShowBackdrop(true)
     const fileIds = filesWithoutSpecificPage.map(({ file }) => file._id)
+    const fileIdsToRemove = []
     try {
       if (filesWithSpecificPage.length > 0) {
         const newFiles = await createPdfFileByPage({
@@ -49,11 +50,12 @@ export const ForwardBottomSheet = ({ onClose, filesWithPage, shareByLink }) => {
         })
         const tempFileIds = newFiles.map(file => file._id)
         fileIds.push(...tempFileIds)
+        fileIdsToRemove.push(...tempFileIds)
       }
 
       await shareFiles(fileIds)
 
-      removeFilesPermanently(client, fileIds).catch(error => {
+      removeFilesPermanently(client, fileIdsToRemove).catch(error => {
         log.error(`Error while removing files: ${error}`)
       })
 
@@ -73,8 +75,8 @@ export const ForwardBottomSheet = ({ onClose, filesWithPage, shareByLink }) => {
     } catch (error) {
       if (error.message === 'User did not share') return
 
-      if (fileIds.length > 0) {
-        removeFilesPermanently(client, fileIds).catch(error => {
+      if (fileIdsToRemove.length > 0) {
+        removeFilesPermanently(client, fileIdsToRemove).catch(error => {
           log.error(`Error while removing files in catch: ${error}`)
         })
       }
