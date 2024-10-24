@@ -101,8 +101,9 @@ export const createPdfAndSave = async ({
   // Created first document of PDFDocument
   let pdfDoc = isAlreadyPDFDoc ? data[0].file : await PDFDocument.create()
 
+  // On Firefox, the lastModifiedDate doesn't exist, prefer the lastModified attribute
   const datetime = isAlreadyPDFDoc
-    ? pdfDoc.lastModifiedDate.toISOString()
+    ? new Date(pdfDoc.lastModified).toISOString()
     : pdfDoc.getCreationDate()
 
   // If present, we wish to keep the value in the metadata as a priority (e.g. foreign driver's license).

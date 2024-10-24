@@ -65,7 +65,6 @@ describe('createAndSavePdf', () => {
     const filePDF = new File(['bob'], 'bob.pdf', {
       type: 'application/pdf'
     })
-    filePDF.lastModifiedDate = new Date()
     const fileJPG = new File(['bob'], 'bob.jpg', {
       type: 'image/jpg'
     })
