@@ -73,20 +73,24 @@ export const ForwardBottomSheet = ({ onClose, filesWithPage, shareByLink }) => {
         navigate('..', { replace: true })
       }
     } catch (error) {
-      if (error.message === 'User did not share') return
-
       if (fileIdsToRemove.length > 0) {
         removeFilesPermanently(client, fileIdsToRemove).catch(error => {
           log.error(`Error while removing files in catch: ${error}`)
         })
       }
 
-      showAlert({
-        message: t('ShareBottomSheet.attachmentResponse.error'),
-        severity: 'error',
-        variant: 'filled'
-      })
-      onClose()
+      // On Android, due to a bug in the library we use, the flagship app always throws "User did not share" error
+      // even if user did share. So in this case we prefer to close the bottom sheet without showing an error.
+      if (error.message === 'User did not share') {
+        onClose()
+      } else {
+        showAlert({
+          message: t('ShareBottomSheet.attachmentResponse.error'),
+          severity: 'error',
+          variant: 'filled'
+        })
+        onClose()
+      }
     }
   }
 
