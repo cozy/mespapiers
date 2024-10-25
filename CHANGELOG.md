@@ -1,4 +1,29 @@
+# 3.10.0
+
 # 3.9.0
+
+### ✨ Features
+
+* Upgrade React to v18 by @Merkur39 in https://github.com/cozy/mespapiers/pull/682
+
+### 🐛 Bug Fixes
+
+* Save a new paper from the Cozy filePicker by @Merkur39 in https://github.com/cozy/mespapiers/pull/674
+* Style of InformationEdit Dialog by @Merkur39 in https://github.com/cozy/mespapiers/pull/676
+* Open country selection for FR papers by @Merkur39 in https://github.com/cozy/mespapiers/pull/681
+* Paper creation from the Cozy by @Merkur39 in https://github.com/cozy/mespapiers/pull/683
+* Do not remove all shared files by @Merkur39 in https://github.com/cozy/mespapiers/pull/684
+* Always keep the Viewer modal behind the others by @Merkur39 in https://github.com/cozy/mespapiers/pull/686
+* Infinite load when sharing on Android by @zatteo in https://github.com/cozy/mespapiers/pull/685
+
+### 🔧 Tech
+
+* Add CI with Github Actions by @Merkur39 in https://github.com/cozy/mespapiers/pull/672
+* Fix GA for mattermost by @Merkur39 in https://github.com/cozy/mespapiers/pull/673
+* Upgrade Bundlemon to 3.1.0 by @Merkur39 in https://github.com/cozy/mespapiers/pull/680
+
+
+**Full Changelog**: https://github.com/cozy/mespapiers/compare/3.8.0...3.9.0-beta.1
 
 # 3.8.0
 
