@@ -23,9 +23,6 @@ import Spinner from 'cozy-ui/transpiled/react/Spinner'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-// Keep the Dialog above the Viewer
-const fixedDialogStyle = { zIndex: 'var(--zIndex-modal-footer)' }
-
 const InformationEdit = () => {
   const { fileId } = useParams()
   const client = useClient()
@@ -112,7 +109,6 @@ const InformationEdit = () => {
     <FixedDialog
       open
       onClose={onClose}
-      style={fixedDialogStyle}
       title={dialogTitle}
       content={
         <div
