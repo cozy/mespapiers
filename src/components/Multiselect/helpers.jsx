@@ -1,6 +1,7 @@
 import { PDFDocument } from 'pdf-lib'
 import React from 'react'
 import { FILES_DOCTYPE } from 'src/constants'
+import { filterWithRemaining } from 'src/helpers/filterWithRemaining'
 import getOrCreateAppFolderWithReference from 'src/helpers/getFolderWithReference'
 import { makeFileLinksURL } from 'src/helpers/makeFileLinksURL'
 
@@ -9,7 +10,92 @@ import {
   splitFilename,
   isNote
 } from 'cozy-client/dist/models/file'
+import minilog from 'cozy-minilog'
 import Icon from 'cozy-ui/transpiled/react/Icon'
+const log = minilog('ForwardBottomSheet')
+
+/**
+ * Share files as attachment
+ * @param {object} params
+ * @param {import('cozy-client/types/CozyClient').default} params.client - CozyClient instance
+ * @param {import('../../types').FileWithPage[]} params.filesWithPage - List of files with their page to keep
+ * @param {Function} params.shareFiles - Function to share files
+ * @param {Function} params.showAlert - Function to show an alert
+ * @param {Function} params.t - Translate function
+ * @param {Function} params.navigate - Function to navigate
+ * @param {Function} params.onClose - Function to close the bottom sheet
+ * @param {boolean} params.isMultiSelectionActive - Whether the multi selection is active
+ * @returns {Promise<void>}
+ */
+export const shareAsAttachment = async ({
+  client,
+  filesWithPage,
+  shareFiles,
+  showAlert,
+  t,
+  navigate,
+  onClose,
+  isMultiSelectionActive
+}) => {
+  const {
+    itemsFound: filesWithSpecificPage,
+    remainingItems: filesWithoutSpecificPage
+  } = filterWithRemaining(filesWithPage, ({ page }) => !!page)
+  const fileIds = filesWithoutSpecificPage.map(({ file }) => file._id)
+  const fileIdsToRemove = []
+
+  try {
+    if (filesWithSpecificPage.length > 0) {
+      const newFiles = await createPdfFileByPage({
+        client,
+        t,
+        filesWithSpecificPage
+      })
+      const tempFileIds = newFiles.map(file => file._id)
+      fileIds.push(...tempFileIds)
+      fileIdsToRemove.push(...tempFileIds)
+    }
+
+    await shareFiles(fileIds)
+
+    removeFilesPermanently(client, fileIdsToRemove).catch(error => {
+      log.error(`Error while removing files: ${error.message}`)
+    })
+
+    showAlert({
+      message: t('ShareBottomSheet.attachmentResponse.success', {
+        smart_count: fileIds.length
+      }),
+      severity: 'success',
+      variant: 'filled'
+    })
+
+    if (isMultiSelectionActive) {
+      navigate('/paper', { replace: true })
+    } else {
+      navigate('..', { replace: true })
+    }
+  } catch (error) {
+    if (fileIdsToRemove.length > 0) {
+      removeFilesPermanently(client, fileIdsToRemove).catch(error => {
+        log.error(`Error while removing files in catch: ${error.message}`)
+      })
+    }
+
+    // On Android, due to a bug in the library we use, the flagship app always throws "User did not share" error
+    // even if user did share. So in this case we prefer to close the bottom sheet without showing an error.
+    if (error.message === 'User did not share') {
+      onClose()
+    } else {
+      showAlert({
+        message: t('ShareBottomSheet.attachmentResponse.error'),
+        severity: 'error',
+        variant: 'filled'
+      })
+      onClose()
+    }
+  }
+}
 
 /**
  * Create a new PDF file with a specific page from another PDF file

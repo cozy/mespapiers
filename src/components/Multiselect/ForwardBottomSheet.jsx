@@ -4,14 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import { useFileSharing } from 'src/components/Contexts/FileSharingProvider'
 import { useMultiSelection } from 'src/components/Contexts/MultiSelectionProvider'
 import { LinearBackdrop } from 'src/components/Multiselect/LinearBackdrop'
-import {
-  createPdfFileByPage,
-  removeFilesPermanently
-} from 'src/components/Multiselect/helpers'
-import { filterWithRemaining } from 'src/helpers/filterWithRemaining'
+import { shareAsAttachment } from 'src/components/Multiselect/helpers'
 
 import { useClient } from 'cozy-client'
-import minilog from 'cozy-minilog'
 import BottomSheet, {
   BottomSheetItem
 } from 'cozy-ui/transpiled/react/BottomSheet'
@@ -22,7 +17,6 @@ import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
-const log = minilog('ForwardBottomSheet')
 
 export const ForwardBottomSheet = ({ onClose, filesWithPage, shareByLink }) => {
   const [showBackdrop, setShowBackdrop] = useState(false)
@@ -32,66 +26,19 @@ export const ForwardBottomSheet = ({ onClose, filesWithPage, shareByLink }) => {
   const client = useClient()
   const { shareFiles } = useFileSharing()
   const { isMultiSelectionActive } = useMultiSelection()
-  const {
-    itemsFound: filesWithSpecificPage,
-    remainingItems: filesWithoutSpecificPage
-  } = filterWithRemaining(filesWithPage, ({ page }) => page)
 
-  const shareAsAttachment = async () => {
+  const handleShare = async () => {
     setShowBackdrop(true)
-    const fileIds = filesWithoutSpecificPage.map(({ file }) => file._id)
-    const fileIdsToRemove = []
-    try {
-      if (filesWithSpecificPage.length > 0) {
-        const newFiles = await createPdfFileByPage({
-          client,
-          t,
-          filesWithSpecificPage
-        })
-        const tempFileIds = newFiles.map(file => file._id)
-        fileIds.push(...tempFileIds)
-        fileIdsToRemove.push(...tempFileIds)
-      }
-
-      await shareFiles(fileIds)
-
-      removeFilesPermanently(client, fileIdsToRemove).catch(error => {
-        log.error(`Error while removing files: ${error}`)
-      })
-
-      showAlert({
-        message: t('ShareBottomSheet.attachmentResponse.success', {
-          smart_count: fileIds.length
-        }),
-        severity: 'success',
-        variant: 'filled'
-      })
-
-      if (isMultiSelectionActive) {
-        navigate('/paper', { replace: true })
-      } else {
-        navigate('..', { replace: true })
-      }
-    } catch (error) {
-      if (fileIdsToRemove.length > 0) {
-        removeFilesPermanently(client, fileIdsToRemove).catch(error => {
-          log.error(`Error while removing files in catch: ${error}`)
-        })
-      }
-
-      // On Android, due to a bug in the library we use, the flagship app always throws "User did not share" error
-      // even if user did share. So in this case we prefer to close the bottom sheet without showing an error.
-      if (error.message === 'User did not share') {
-        onClose()
-      } else {
-        showAlert({
-          message: t('ShareBottomSheet.attachmentResponse.error'),
-          severity: 'error',
-          variant: 'filled'
-        })
-        onClose()
-      }
-    }
+    await shareAsAttachment({
+      client,
+      filesWithPage,
+      shareFiles,
+      showAlert,
+      t,
+      navigate,
+      onClose,
+      isMultiSelectionActive
+    })
   }
 
   return (
@@ -99,7 +46,7 @@ export const ForwardBottomSheet = ({ onClose, filesWithPage, shareByLink }) => {
       <BottomSheet backdrop onClose={onClose}>
         <BottomSheetItem disableGutters>
           <List>
-            <ListItem button onClick={shareAsAttachment}>
+            <ListItem button onClick={handleShare}>
               <ListItemIcon>
                 <Icon icon="attachment" />
               </ListItemIcon>
