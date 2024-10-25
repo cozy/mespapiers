@@ -9,8 +9,8 @@ const mockStringInArray = ['scan', 'information', 'owner']
 
 describe('filterWithRemaining', () => {
   it('should be return correct value with "owner" object filter', () => {
-    const testFunction = ({ model }) => {
-      return model === 'owner'
+    const testFunction = (item: { model: string }): boolean => {
+      return item.model === 'owner'
     }
     const res = filterWithRemaining(mockObjectInArray, testFunction)
 
@@ -21,8 +21,8 @@ describe('filterWithRemaining', () => {
   })
 
   it('should be return correct value with "owner" & "scan" object filter', () => {
-    const testFunction = ({ model }) => {
-      return model === 'owner' || model === 'scan'
+    const testFunction = (item: { model: string }): boolean => {
+      return item.model === 'owner' || item.model === 'scan'
     }
     const res = filterWithRemaining(mockObjectInArray, testFunction)
 
@@ -33,7 +33,7 @@ describe('filterWithRemaining', () => {
   })
 
   it('should be return correct value with filter by index', () => {
-    const testFunction = (_, index) => index === 1
+    const testFunction = (_: unknown, index: number): boolean => index === 1
     const res = filterWithRemaining(mockObjectInArray, testFunction)
 
     expect(res).toStrictEqual({
@@ -43,7 +43,7 @@ describe('filterWithRemaining', () => {
   })
 
   it('should be return correct value with "owner" string filter', () => {
-    const testFunction = item => item === 'owner'
+    const testFunction = (item: string): boolean => item === 'owner'
     const res = filterWithRemaining(mockStringInArray, testFunction)
 
     expect(res).toStrictEqual({
