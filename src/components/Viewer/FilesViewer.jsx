@@ -21,6 +21,9 @@ const styleStatusBar = switcher => {
   }
 }
 
+// Keep the Dialog behind the others Dialogs
+const viewerStyle = { zIndex: 'calc(var(--zIndex-modal) - 1)' }
+
 const FilesViewer = ({ filesQuery, files, fileId, onClose, onChange }) => {
   const [currentFile, setCurrentFile] = useState(null)
   const [fetchingMore, setFetchingMore] = useState(false)
@@ -122,6 +125,12 @@ const FilesViewer = ({ filesQuery, files, fileId, onClose, onChange }) => {
 
   return (
     <Viewer
+      componentsProps={{
+        modalProps: {
+          open: true,
+          style: viewerStyle
+        }
+      }}
       files={viewerFiles}
       currentIndex={viewerIndex}
       onChangeRequest={handleOnChange}
