@@ -1,0 +1,173 @@
+{
+  "name": "Mes Papiers",
+  "slug": "mespapiers",
+  "icon": "icon.svg",
+  "categories": [],
+  "version": "3.10.0",
+  "licence": "AGPL-3.0",
+  "editor": "Cozy",
+  "source": "https://github.com/cozy/mespapiers.git@build",
+  "developer": {
+    "name": "Cozy Cloud",
+    "url": "https://cozy.io"
+  },
+  "screenshots": [
+    "screenshots/fr/screenshot01.png",
+    "screenshots/fr/screenshot02.png",
+    "screenshots/fr/screenshot03.png"
+  ],
+  "locales": {
+    "en": {
+      "short_description": "A digital wallet to secure, store and use all your papers easily.",
+      "long_description": "MyPapers app is your digital wallet. It allows you to secure and use all your administrative documents easily.\n\nIt helps you to <u>group together what is important</u> in your personal Cloud:\n\n- **Scan** your papers (car registration document, diplomas, ...)\n- Storage of **your pdf documents** (school certificates, insurance certificates)\n- **Automatic recovery** of the latest versions thanks to connectors (proof of address, tax notices, etc.)\n- **Automatic classification and storage**\n\nIt <u>facilitates your procedures</u>:\n\n- **Quick search** by domain, name, holder (child, spouse, etc.)\n- Easy access to all these **administrative numbers** (driving licence number, IBAN, etc.)\n- **Simplified grouping and sending** by your favorite app (mail, chat, sms, ...)\n- **Sharing and collaboration** (spouses, children, grandparents who are not very comfortable with digital technology, etc.)\n- … and soon **the automation of administrative procedures**\n\nFully **integrated into your Personal Cloud**, all your documents remain accessible after burglary, fire or loss of your phone. Always accessible from your smartphone, or a computer, even temporarily without internet as simple files stored in your PC (if you synchronise it with [Cozy Drive for computer](https://cozy.io/en/download/#desktop)).\n\n<u>Progress and Acknowledgements</u>:\n\n**Development** is still ongoing, and new features are regularly added. Give us your feedback via the help form!.\n\nIt's **financed largely by France Relance and the Metropolis of Lyon**, which is working to promote digital inclusion and individualized social support through this app."
+    },
+    "fr": {
+      "short_description": "Un portefeuille numérique pour sécuriser, ranger et utiliser tous vos papiers facilement.",
+      "long_description": "L’application MesPapiers est votre portefeuille numérique. Elle vous permet de sécuriser et d'utiliser tous vos documents administratifs facilement.\n\nElle vous aide à regrouper ce qui est important dans votre Cloud Personnel :\n\n- **Scan** de vos papiers (carte grise, diplômes, …)\n- Rangement de **vos documents pdf** (certificats de scolarité, attestations d’assurance)\n- **Automatisation de la récupération** des dernières versions grâce aux connecteurs (justificatif de domicile, avis d’impositions, etc…)\n- **Classification et rangement automatique**\n\nElle <u>facilite vos démarches</u> :\n\n- **Recherche rapide** par domaine, nom, titulaire (enfant, conjoint, …)\n- Accès facile à tous vos **numéros administratifs** (numéro de permis de conduire, IBAN, …)\n- **Regroupement et envoi simplifié** via vos applications favorites (mail, chat, sms, …)\n- **Partage et collaboration** (conjoints, enfants, grands parents peu à l’aise avec le numérique…)\n- … et bientôt **l'aide à la préparation de démarches administratives**\n\nEntièrement **intégrés à votre Cloud Personnel**, tous vos documents restent accessibles après cambriolage, incendie ou perte de votre téléphone. Toujours accessibles depuis votre smartphone, ou un ordinateur, même temporairement sans internet comme de simples fichiers rangés dans votre PC (si vous le synchronisez avec l'application [Cozy Drive pour ordinateur](https://cozy.io/fr/download/#desktop)).\n\n <u>Avancement et Remerciements</u> :\n\nLe **développement** est toujours en cours, de nouvelles fonctionnalités sont régulièrement mise en place. Faites-nous part de vos retours via le formulaire d’aide ! \n\n Les évolutions en cours de Mes Papiers sont pour une part importante, **financées par France Relance, et la Métropole de Lyon** qui travaille notamment à favoriser l’inclusion numérique et l’accompagnement social individualisé grâce à cette application."
+    }
+  },
+  "routes": {
+    "/": {
+      "folder": "/",
+      "index": "index.html",
+      "public": false
+    },
+    "/intents": {
+      "folder": "/intents",
+      "index": "index.html",
+      "public": false
+    }
+  },
+  "intents": [
+    {
+      "action": "OPEN",
+      "type": [
+        "io.cozy.files.paper"
+      ],
+      "href": "/intents"
+    }
+  ],
+  "services": {
+    "expiration": {
+      "type": "node",
+      "file": "services/expiration/mespapiers.js",
+      "trigger": "@daily between 7am and 8pm"
+    },
+    "metadataMigration": {
+      "type": "node",
+      "file": "services/metadataMigration/mespapiers.js"
+    }
+  },
+  "notifications": {
+    "expiration": {
+      "description": "Notifies the user when a document is about to expire",
+      "collapsible": false,
+      "stateful": false,
+      "multiple": false,
+      "default_priority": "normal",
+      "templates": {}
+    }
+  },
+  "permissions": {
+    "apps": {
+      "description": "Required by the cozy-bar to display the icons of the apps",
+      "type": "io.cozy.apps",
+      "verbs": [
+        "GET"
+      ]
+    },
+    "contacts": {
+      "description": "Required to access the contacts",
+      "type": "io.cozy.contacts.*",
+      "verbs": [
+        "GET",
+        "POST"
+      ]
+    },
+    "files": {
+      "description": "Required to access the files",
+      "type": "io.cozy.files",
+      "verbs": [
+        "ALL"
+      ]
+    },
+    "bills": {
+      "description": "Required to access the bills",
+      "type": "io.cozy.bills",
+      "verbs": [
+        "ALL"
+      ]
+    },
+    "sharings": {
+      "description": "Required to have access to the sharings in realtime",
+      "type": "io.cozy.sharings",
+      "verbs": [
+        "ALL"
+      ]
+    },
+    "settings": {
+      "description": "Required by the cozy-bar to display Claudy and know which applications are coming soon",
+      "type": "io.cozy.settings",
+      "verbs": [
+        "GET"
+      ]
+    },
+    "mespapiers.settings": {
+      "description": "Used to manage your papers settings",
+      "type": "io.cozy.mespapiers.settings",
+      "verbs": [
+        "GET",
+        "POST",
+        "PUT"
+      ]
+    },
+    "permissions": {
+      "description": "Required to run the konnectors",
+      "type": "io.cozy.permissions",
+      "verbs": [
+        "ALL"
+      ]
+    },
+    "konnectors": {
+      "description": "Required to display additional information in the viewer for files automatically retrieved by services",
+      "type": "io.cozy.konnectors",
+      "verbs": [
+        "GET"
+      ]
+    },
+    "jobs": {
+      "description": "Used in services to start other services",
+      "type": "io.cozy.jobs"
+    },
+    "accounts": {
+      "description": "Required to display additional information in the viewer for files automatically retrieved by services",
+      "type": "io.cozy.accounts"
+    },
+    "triggers": {
+      "description": "Required to display additional information in the viewer and for the notification service",
+      "type": "io.cozy.triggers"
+    },
+    "create-a-zip-archive": {
+      "description": "Required to create a zip archive inside the cozy",
+      "type": "io.cozy.jobs",
+      "verbs": [
+        "POST"
+      ],
+      "selector": "worker",
+      "values": [
+        "zip"
+      ]
+    }
+  },
+  "accept_from_flagship": true,
+  "accept_documents_from_flagship": {
+    "accepted_mime_types": [
+      "application/pdf",
+      "image/jpeg",
+      "image/png"
+    ],
+    "max_number_of_files": 1,
+    "max_size_per_file_in_MB": 10,
+    "route_to_upload": "/#/paper/create?fromFlagshipUpload=true"
+  }
+}
