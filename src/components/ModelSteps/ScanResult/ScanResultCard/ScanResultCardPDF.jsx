@@ -10,12 +10,14 @@ import Typography from 'cozy-ui/transpiled/react/Typography'
 
 const ScanResultCardPDF = props => {
   const { currentFile, handleSelectedFile } = props
+  // Replace all "_" with a space in the filename for better readability
+  const fileName = currentFile.name.replaceAll('_', ' ')
 
   return (
     <Card className="u-ta-center u-p-1 u-flex u-flex-column u-flex-justify-between">
       <div className={styles['image-container']}>
         <PdfOverview file={currentFile} />
-        <Typography className="u-mt-half">{currentFile.name}</Typography>
+        <Typography className="u-mt-half">{fileName}</Typography>
       </div>
       <Box display="flex" gridGap="1rem" marginTop="1rem">
         <ScanResultCardPDFActions onCancel={handleSelectedFile} />
