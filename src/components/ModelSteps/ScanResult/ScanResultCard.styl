@@ -2,17 +2,15 @@
   width 100%
   padding-top 100%
   position relative
-
-.image-container:before
-  content ""
-  display block
-  margin-top -100%
-
-.image-container
   display flex
   flex-direction column
   align-items center
   justify-content center
+
+  &:before
+    content ""
+    display block
+    margin-top -100%
 
   & > img
     position absolute
