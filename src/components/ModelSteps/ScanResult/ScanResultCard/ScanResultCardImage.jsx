@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState, forwardRef } from 'react'
 import styles from 'src/components/ModelSteps/ScanResult/ScanResultCard/ScanResultCard.styl'
-import ScanResultCardActions from 'src/components/ModelSteps/ScanResult/ScanResultCard/ScanResultCardActions'
+import ScanResultCardImageActions from 'src/components/ModelSteps/ScanResult/ScanResultCard/ScanResultCardImageActions'
 import RotateImage from 'src/components/ModelSteps/widgets/RotateImage'
 
 import Box from 'cozy-ui/transpiled/react/Box'
@@ -42,7 +42,7 @@ const ScanResultCardImage = forwardRef((props, ref) => {
         />
       </div>
       <Box display="flex" gridGap="1rem" marginTop="1rem">
-        <ScanResultCardActions
+        <ScanResultCardImageActions
           onRotate={handleRotate}
           onCancel={handleSelectedFile}
           isImageRotating={isImageRotating}

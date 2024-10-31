@@ -18,7 +18,11 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const ScanResultCardActions = ({ onRotate, onCancel, isImageRotating }) => {
+const ScanResultCardImageActions = ({
+  onRotate,
+  onCancel,
+  isImageRotating
+}) => {
   const classes = useStyles()
   const { t } = useI18n()
   const { isDesktop } = useBreakpoints()
@@ -49,10 +53,10 @@ const ScanResultCardActions = ({ onRotate, onCancel, isImageRotating }) => {
   )
 }
 
-ScanResultCardActions.propTypes = {
+ScanResultCardImageActions.propTypes = {
   onCancel: PropTypes.func,
   onRotate: PropTypes.func,
   isImageRotating: PropTypes.bool
 }
 
-export default ScanResultCardActions
+export default ScanResultCardImageActions

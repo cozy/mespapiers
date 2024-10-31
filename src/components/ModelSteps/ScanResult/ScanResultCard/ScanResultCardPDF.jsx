@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from 'src/components/ModelSteps/ScanResult/ScanResultCard/ScanResultCard.styl'
-import ScanResultCardActions from 'src/components/ModelSteps/ScanResult/ScanResultCard/ScanResultCardActions'
+import ScanResultCardPDFActions from 'src/components/ModelSteps/ScanResult/ScanResultCard/ScanResultCardPDFActions'
 
 import Box from 'cozy-ui/transpiled/react/Box'
 import Card from 'cozy-ui/transpiled/react/Card'
@@ -18,7 +18,7 @@ const ScanResultCardPDF = props => {
         <Typography className="u-mt-half">{currentFile.name}</Typography>
       </div>
       <Box display="flex" gridGap="1rem" marginTop="1rem">
-        <ScanResultCardActions onCancel={handleSelectedFile} />
+        <ScanResultCardPDFActions onCancel={handleSelectedFile} />
       </Box>
     </Card>
   )
