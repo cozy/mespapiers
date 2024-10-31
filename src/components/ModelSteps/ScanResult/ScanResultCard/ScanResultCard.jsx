@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 import { useFormData } from 'src/components/Contexts/FormDataProvider'
 import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
-import ScanResultCardImage from 'src/components/ModelSteps/ScanResult/ScanResultCardImage'
-import ScanResultCardPDF from 'src/components/ModelSteps/ScanResult/ScanResultCardPDF'
+import ScanResultCardImage from 'src/components/ModelSteps/ScanResult/ScanResultCard/ScanResultCardImage'
+import ScanResultCardPDF from 'src/components/ModelSteps/ScanResult/ScanResultCard/ScanResultCardPDF'
 import {
   getLastFormDataFile,
   isSameFile
