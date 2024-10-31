@@ -44,6 +44,7 @@
     "@testing-library/jest-dom": "6.6.2",
     "@testing-library/react": "16.0.1",
     "@testing-library/react-hooks": "8.0.1",
+    "@types/react-pdf": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "5.54.0",
     "@typescript-eslint/parser": "5.54.0",
     "babel-preset-cozy-app": "2.0.2",
@@ -105,6 +106,7 @@
     "react-dom": "18.2.0",
     "react-input-mask": "3.0.0-alpha.2",
     "react-inspector": "5.1.1",
+    "react-pdf": "^5.7.2",
     "react-router-dom": "6.23.1",
     "terser-webpack-plugin": "1.4.5"
   }
