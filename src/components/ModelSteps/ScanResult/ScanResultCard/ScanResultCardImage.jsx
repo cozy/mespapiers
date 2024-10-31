@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState, forwardRef } from 'react'
-import styles from 'src/components/ModelSteps/ScanResult/ScanResultCard.styl'
-import ScanResultCardActions from 'src/components/ModelSteps/ScanResult/ScanResultCardActions'
+import styles from 'src/components/ModelSteps/ScanResult/ScanResultCard/ScanResultCard.styl'
+import ScanResultCardActions from 'src/components/ModelSteps/ScanResult/ScanResultCard/ScanResultCardActions'
 import RotateImage from 'src/components/ModelSteps/widgets/RotateImage'
 
 import Box from 'cozy-ui/transpiled/react/Box'

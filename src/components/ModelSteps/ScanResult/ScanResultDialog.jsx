@@ -5,7 +5,7 @@ import CompositeHeaderImage from 'src/components/CompositeHeader/CompositeHeader
 import { useFormData } from 'src/components/Contexts/FormDataProvider'
 import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import OcrProcessingDialog from 'src/components/ModelSteps/ScanResult/OcrProcessingDialog'
-import ScanResultCard from 'src/components/ModelSteps/ScanResult/ScanResultCard'
+import ScanResultCard from 'src/components/ModelSteps/ScanResult/ScanResultCard/ScanResultCard'
 import ScanResultTitle from 'src/components/ModelSteps/ScanResult/ScanResultTitle'
 import { makeFileFromBase64 } from 'src/components/ModelSteps/helpers'
 import StepperDialogTitle from 'src/components/StepperDialog/StepperDialogTitle'
