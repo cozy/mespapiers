@@ -1,4 +1,11 @@
+# 3.11.0
+
 # 3.10.0
+
+### ✨ Features
+
+* View PDF document preview when adding a document by @Merkur39 in https://github.com/cozy/mespapiers/pull/689
+* Intents target must be migrate too by @Merkur39 in https://github.com/cozy/mespapiers/pull/690
 
 # 3.9.0
 
