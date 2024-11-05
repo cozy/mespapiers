@@ -1,6 +1,5 @@
 /* eslint-disable import/order */
 import React from 'react'
-import { render } from 'react-dom'
 import {
   RouterProvider,
   createHashRouter,
@@ -74,5 +73,5 @@ document.addEventListener('DOMContentLoaded', () => {
   const intentId = new URLSearchParams(window.location.search).get('intent')
   const router = createHashRouter(makeRoutes({ client, intentId, ...rest }))
 
-  render(<RouterProvider router={router} />, root)
+  root.render(<RouterProvider router={router} />)
 })
