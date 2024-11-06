@@ -1,4 +1,5 @@
 import cx from 'classnames'
+import propTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import CompositeHeaderImage from 'src/components/CompositeHeader/CompositeHeaderImage'
@@ -8,6 +9,7 @@ import OcrProcessingDialog from 'src/components/ModelSteps/ScanResult/OcrProcess
 import ScanResultCard from 'src/components/ModelSteps/ScanResult/ScanResultCard/ScanResultCard'
 import ScanResultTitle from 'src/components/ModelSteps/ScanResult/ScanResultTitle'
 import { makeFileFromBase64 } from 'src/components/ModelSteps/helpers'
+import SubmitButton from 'src/components/ModelSteps/widgets/SubmitButton'
 import StepperDialogTitle from 'src/components/StepperDialog/StepperDialogTitle'
 import { FLAGSHIP_SCAN_TEMP_FILENAME, KEYS } from 'src/constants'
 import { isFlagshipOCRAvailable } from 'src/helpers/isFlagshipOCRAvailable'
@@ -22,11 +24,22 @@ import useEventListener from 'cozy-ui/transpiled/react/hooks/useEventListener'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
+/**
+ * @param {object} props
+ * @param {object} props.currentStep
+ * @param {Function} props.onClose
+ * @param {Function} props.onBack
+ * @param {Function} props.onChangeFile
+ * @param {Function} props.onSubmit
+ * @param {object} props.currentFile
+ * @param {Function} props.setCurrentFile
+ */
 const ScanResultDialog = ({
   currentStep,
   onClose,
   onBack,
   onChangeFile,
+  onSubmit,
   currentFile,
   setCurrentFile
 }) => {
@@ -96,6 +109,7 @@ const ScanResultDialog = ({
       <OcrProcessingDialog rotatedFile={currentFileRotated} onBack={onBack} />
     )
   }
+  const SubmitButtonComponent = isLastStep() ? SubmitButton : null
 
   return (
     <FixedDialog
@@ -140,12 +154,16 @@ const ScanResultDialog = ({
       }
       actions={
         <>
-          <Button
-            data-testid="next-button"
-            fullWidth
-            label={t('common.next')}
-            onClick={handleNextStep}
-          />
+          {SubmitButtonComponent ? (
+            <SubmitButtonComponent formData={formData} onSubmit={onSubmit} />
+          ) : (
+            <Button
+              data-testid="next-button"
+              fullWidth
+              label={t('common.next')}
+              onClick={handleNextStep}
+            />
+          )}
           {multipage && (
             <ButtonLink
               className="u-ml-0 u-mb-half"
@@ -162,6 +180,16 @@ const ScanResultDialog = ({
       actionsLayout="column"
     />
   )
+}
+
+ScanResultDialog.propTypes = {
+  currentStep: propTypes.object.isRequired,
+  onClose: propTypes.func.isRequired,
+  onBack: propTypes.func.isRequired,
+  onChangeFile: propTypes.func.isRequired,
+  currentFile: propTypes.object.isRequired,
+  setCurrentFile: propTypes.func.isRequired,
+  onSubmit: propTypes.func.isRequired
 }
 
 export default ScanResultDialog

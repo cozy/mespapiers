@@ -18,7 +18,13 @@ import { useWebviewIntent } from 'cozy-intent'
 
 const StepperDialogContext = createContext()
 
-export const StepperDialogProvider = ({ children, isEdit }) => {
+/**
+ * @param {object} props
+ * @param {React.ReactNode} props.children
+ * @param {boolean} props.isEdit - True if the dialog is in edit mode
+ * @param {function} props.stepFilterFn - The filter function to apply on the steps
+ */
+export const StepperDialogProvider = ({ children, isEdit, stepFilterFn }) => {
   const [stepperDialogTitle, setStepperDialogTitle] = useState('')
   const [allCurrentSteps, setAllCurrentSteps] = useState([])
   const [currentStepIndex, setCurrentStepIndex] = useState(-1)
@@ -68,6 +74,7 @@ export const StepperDialogProvider = ({ children, isEdit }) => {
             steps: allCurrentStepsDefinitions,
             webviewIntent,
             isEdit,
+            stepFilterFn,
             fromFlagshipUpload
           })
           setAllCurrentSteps(filteredSteps)
@@ -75,7 +82,13 @@ export const StepperDialogProvider = ({ children, isEdit }) => {
       }
       buildAllCurrentSteps()
     }
-  }, [webviewIntent, currentDefinition, fromFlagshipUpload, isEdit])
+  }, [
+    webviewIntent,
+    currentDefinition,
+    fromFlagshipUpload,
+    isEdit,
+    stepFilterFn
+  ])
 
   useEffect(() => {
     const loadCreatePaperDataBackup = async () => {

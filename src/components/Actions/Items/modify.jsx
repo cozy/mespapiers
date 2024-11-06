@@ -22,9 +22,14 @@ export const modify = ({ t, navigate }) => {
       getCreatedByApp(docs[0]) === 'mespapiers',
     action: docs => {
       const country = docs[0].metadata.country?.toLowerCase()
+      const searchParams = new URLSearchParams({
+        model: 'scan',
+        ...(country && { country })
+      }).toString()
+
       navigate({
         pathname: `edit/${docs[0]._id}`,
-        ...(country && { search: `?country=${country}` })
+        search: searchParams
       })
     },
     // eslint-disable-next-line react/display-name

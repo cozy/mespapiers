@@ -1,4 +1,5 @@
 import { PDFDocument } from 'pdf-lib'
+import propTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { PaperDefinitionsStepPropTypes } from 'src/PaperDefinitionsPropTypes'
@@ -37,7 +38,7 @@ const isFileEncryptedPDF = async file => {
   return pdf.isEncrypted
 }
 
-const ScanWrapper = ({ currentStep, onClose, onBack }) => {
+const ScanWrapper = ({ currentStep, onClose, onBack, onSubmit }) => {
   const client = useClient()
   const [searchParams] = useSearchParams()
   const { qualificationLabel } = useParams()
@@ -153,6 +154,7 @@ const ScanWrapper = ({ currentStep, onClose, onBack }) => {
         onChangeFile={onChangeFile}
         onClose={onClose}
         onBack={onBack}
+        onSubmit={onSubmit}
       />
     )
   }
@@ -180,7 +182,10 @@ const ScanWrapper = ({ currentStep, onClose, onBack }) => {
 }
 
 ScanWrapper.propTypes = {
-  currentStep: PaperDefinitionsStepPropTypes
+  currentStep: PaperDefinitionsStepPropTypes,
+  onClose: propTypes.func.isRequired,
+  onBack: propTypes.func.isRequired,
+  onSubmit: propTypes.func.isRequired
 }
 
 export default ScanWrapper

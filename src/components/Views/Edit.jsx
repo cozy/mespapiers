@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { FormDataProvider } from 'src/components/Contexts/FormDataProvider'
 import { useFormData } from 'src/components/Contexts/FormDataProvider'
 import { StepperDialogProvider } from 'src/components/Contexts/StepperDialogProvider'
@@ -51,7 +51,14 @@ const EditPaperModal = ({ ioCozyFile, contacts, onClose, onSubmit }) => {
   return <StepperDialogWrapper onClose={onClose} onSubmit={onSubmit} />
 }
 
-export const EditLoader = ({ onClose, onSubmit }) => {
+/**
+ * Also used with the intent
+ * @param {object} props
+ * @param {Function} props.onClose
+ * @param {Function} props.onSubmit
+ * @param {Function} props.stepFilterFn
+ */
+export const EditLoader = ({ onClose, onSubmit, stepFilterFn }) => {
   const { fileId } = useParams()
 
   const buildedFilesQuery = buildFileQueryById(fileId)
@@ -61,11 +68,12 @@ export const EditLoader = ({ onClose, onSubmit }) => {
   )
   const { contacts, isLoadingContacts } = useReferencedContact(files || [])
 
-  if (isQueryLoading(filesQueryResult) || isLoadingContacts)
+  if (isQueryLoading(filesQueryResult) || isLoadingContacts) {
     return <Spinner className="u-m-0" size="xxlarge" middle color="white" />
+  }
 
   return (
-    <StepperDialogProvider isEdit={true}>
+    <StepperDialogProvider isEdit={true} stepFilterFn={stepFilterFn}>
       <FormDataProvider>
         <EditPaperModal
           ioCozyFile={files[0]}
@@ -80,11 +88,21 @@ export const EditLoader = ({ onClose, onSubmit }) => {
 
 const EditWrapper = () => {
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+  const stepModel = searchParams.get('model')
+
+  const stepFilterFn = step => {
+    if (!stepModel) {
+      return true
+    }
+    return step.model === stepModel
+  }
 
   return (
     <EditLoader
       onClose={() => navigate('..')}
       onSubmit={() => navigate('..')}
+      stepFilterFn={stepFilterFn}
     />
   )
 }

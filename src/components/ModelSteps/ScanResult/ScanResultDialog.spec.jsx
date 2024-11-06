@@ -126,6 +126,17 @@ describe('AcquisitionResult component:', () => {
     expect(btn).toBeDefined()
   })
 
+  describe('Submit', () => {
+    it('should submit button must exist if this is the last step.', async () => {
+      const { findByTestId } = setup({
+        currentFile: mockFile({ name: 'test.pdf' }),
+        isLastStep: jest.fn(() => true)
+      })
+      const btn = await findByTestId('ButtonSave')
+      expect(btn).toBeDefined()
+    })
+  })
+
   describe('setCurrentFile', () => {
     it('should setCurrentFile must be called once with null when restarting the file selection', async () => {
       const mockSetCurrentFile = jest.fn()
@@ -245,7 +256,7 @@ describe('AcquisitionResult component:', () => {
         const { getByTestId } = setup({
           currentFile: mockFile({ name: 'test.pdf' }),
           mockIsFlagshipOCRAvailable: true,
-          isLastStep: jest.fn(() => true),
+          isLastStep: jest.fn(() => false),
           currentDefinition: { ocrAttributes: [] },
           allCurrentSteps: [{ isDisplayed: 'ocr' }]
         })
@@ -262,7 +273,7 @@ describe('AcquisitionResult component:', () => {
         const { findByTestId } = setup({
           currentFile: mockFile({ name: FLAGSHIP_SCAN_TEMP_FILENAME }),
           mockIsFlagshipOCRAvailable: true,
-          isLastStep: jest.fn(() => true),
+          isLastStep: jest.fn(() => false),
           mockGetAttributesFromOcr,
           currentDefinition: { ocrAttributes: [] },
           allCurrentSteps: [{ isDisplayed: 'ocr' }]
