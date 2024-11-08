@@ -432,3 +432,10 @@ export const normalizeFormdataMetadata = ({
 
   return merge({}, formData, metadataNormalized)
 }
+
+/**
+ * Check if a file is a PDF file
+ * @param {File} file - File object
+ * @returns {boolean}
+ */
+export const isPDFFile = file => file.type === 'application/pdf'
