@@ -8,7 +8,10 @@ import { useStepperDialog } from 'src/components/Contexts/StepperDialogProvider'
 import OcrProcessingDialog from 'src/components/ModelSteps/ScanResult/OcrProcessingDialog'
 import ScanResultCard from 'src/components/ModelSteps/ScanResult/ScanResultCard/ScanResultCard'
 import ScanResultTitle from 'src/components/ModelSteps/ScanResult/ScanResultTitle'
-import { makeFileFromBase64 } from 'src/components/ModelSteps/helpers'
+import {
+  isPDFFile,
+  makeFileFromBase64
+} from 'src/components/ModelSteps/helpers'
 import SubmitButton from 'src/components/ModelSteps/widgets/SubmitButton'
 import StepperDialogTitle from 'src/components/StepperDialog/StepperDialogTitle'
 import { FLAGSHIP_SCAN_TEMP_FILENAME, KEYS } from 'src/constants'
@@ -21,7 +24,6 @@ import { FixedDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import PointerAlert from 'cozy-ui/transpiled/react/PointerAlert'
 import { ButtonLink } from 'cozy-ui/transpiled/react/deprecated/Button'
 import useEventListener from 'cozy-ui/transpiled/react/hooks/useEventListener'
-import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 /**
@@ -47,15 +49,14 @@ const ScanResultDialog = ({
   const { t } = useI18n()
   const webviewIntent = useWebviewIntent()
   const [searchParams] = useSearchParams()
-  const { isDesktop } = useBreakpoints()
 
-  const device = isDesktop ? 'desktop' : 'mobile'
   const imageRef = useRef(null)
   const [rotationImage, setRotationImage] = useState(0)
   const [ocrProcessing, setOcrProcessing] = useState(false)
   const {
     currentStepIndex,
     nextStep,
+    isEdit,
     isLastStep,
     allCurrentSteps,
     currentDefinition
@@ -110,6 +111,12 @@ const ScanResultDialog = ({
     )
   }
   const SubmitButtonComponent = isLastStep() ? SubmitButton : null
+  const isEditStatusChanged =
+    !isEdit || (isEdit && currentFile.name !== formData.file.name)
+
+  const tooltipKey = t(
+    `Acquisition.${isPDFFile(currentFile) ? 'pdf' : 'image'}.tooltip.${page}`
+  )
 
   return (
     <FixedDialog
@@ -127,7 +134,9 @@ const ScanResultDialog = ({
         <div className={cx('u-flex u-flex-column u-flex-justify-center')}>
           {!formData.data?.[0]?.file?.isBlank && (
             <>
-              <ScanResultTitle />
+              {isEditStatusChanged && (
+                <ScanResultTitle currentFile={currentFile} />
+              )}
               {tooltip && (
                 <PointerAlert
                   className="u-mb-1"
@@ -138,7 +147,7 @@ const ScanResultDialog = ({
                     />
                   }
                 >
-                  {t(`Acquisition.${device}.tooltip.${page}`)}
+                  {tooltipKey}
                 </PointerAlert>
               )}
             </>

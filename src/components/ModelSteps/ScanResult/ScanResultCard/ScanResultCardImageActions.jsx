@@ -4,7 +4,6 @@ import React from 'react'
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import IconButton from 'cozy-ui/transpiled/react/IconButton'
-import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 import { makeStyles } from 'cozy-ui/transpiled/react/styles'
 
@@ -25,15 +24,12 @@ const ScanResultCardImageActions = ({
 }) => {
   const classes = useStyles()
   const { t } = useI18n()
-  const { isDesktop } = useBreakpoints()
-
-  const device = isDesktop ? 'desktop' : 'mobile'
 
   return (
     <>
       <Button
         data-testid="retry-button"
-        label={t(`Acquisition.${device}.retry`)}
+        label={t('Acquisition.image.edit')}
         fullWidth
         variant="secondary"
         onClick={onCancel}
@@ -43,8 +39,8 @@ const ScanResultCardImageActions = ({
         classes={classes}
         size="small"
         onClick={onRotate}
-        aria-label={t('Acquisition.rotate')}
-        title={t('Acquisition.rotate')}
+        aria-label={t('Acquisition.image.rotate')}
+        title={t('Acquisition.image.rotate')}
         disabled={isImageRotating}
       >
         <Icon icon="rotate-left" />
