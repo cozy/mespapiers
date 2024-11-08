@@ -18,8 +18,9 @@ export const modify = ({ t, navigate }) => {
     disabled: docs => docs.length === 0,
     displayCondition: docs =>
       docs.length === 1 &&
-      !isFromKonnector(docs[0]) &&
-      getCreatedByApp(docs[0]) === 'mespapiers',
+      (isFromKonnector(docs[0]) ||
+        (!isFromKonnector(docs[0]) &&
+          getCreatedByApp(docs[0]) === 'mespapiers')),
     action: docs => {
       const country = docs[0].metadata.country?.toLowerCase()
       const searchParams = new URLSearchParams({
