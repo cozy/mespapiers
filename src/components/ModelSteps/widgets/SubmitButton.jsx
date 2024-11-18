@@ -109,6 +109,12 @@ const SubmitButton = ({ onSubmit, disabled, formData }) => {
         })
       }
 
+      showAlert({
+        message: t('common.saveFile.success'),
+        severity: 'success',
+        variant: 'filled'
+      })
+
       return onSubmit()
     }
 

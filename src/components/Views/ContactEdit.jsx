@@ -8,6 +8,8 @@ import { updateReferencedContact } from 'src/components/ModelSteps/Edit/helpers'
 import { useClient } from 'cozy-client'
 import Backdrop from 'cozy-ui/transpiled/react/Backdrop'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
+import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 import { makeStyles } from 'cozy-ui/transpiled/react/styles'
 
 const useStyles = makeStyles({
@@ -21,6 +23,8 @@ const ContactEdit = () => {
   const navigate = useNavigate()
   const client = useClient()
   const classes = useStyles()
+  const { t } = useI18n()
+  const { showAlert } = useAlert()
 
   const currentEditInformation = useCurrentEditInformations(fileId, 'contact')
   const { isLoadingContacts, contacts } = useReferencedContact([
@@ -61,6 +65,11 @@ const ContactEdit = () => {
       client,
       currentFile: currentEditInformation.file,
       contactIdsSelected
+    })
+    showAlert({
+      message: t('common.saveFile.success'),
+      severity: 'success',
+      variant: 'filled'
     })
     onClose()
   }
