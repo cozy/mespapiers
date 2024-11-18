@@ -20,6 +20,7 @@ import { isIOS } from 'cozy-device-helper'
 import Button from 'cozy-ui/transpiled/react/Buttons'
 import { FixedDialog } from 'cozy-ui/transpiled/react/CozyDialogs'
 import Spinner from 'cozy-ui/transpiled/react/Spinner'
+import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
@@ -30,6 +31,7 @@ const InformationEdit = () => {
   const { isMobile } = useBreakpoints()
   const scannerT = useScannerI18n()
   const navigate = useNavigate()
+  const { showAlert } = useAlert()
 
   const [value, setValue] = useState({})
   const [validInput, setValidInput] = useState({})
@@ -85,6 +87,11 @@ const InformationEdit = () => {
         .collection(FILES_DOCTYPE)
         .updateMetadataAttribute(fileId, newMetadata)
     }
+    showAlert({
+      message: t('common.saveFile.success'),
+      severity: 'success',
+      variant: 'filled'
+    })
 
     navigate('..')
   }
