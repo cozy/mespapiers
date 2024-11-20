@@ -1,4 +1,13 @@
+# 3.12.0
+
 # 3.11.0
+
+### ✨ Features
+
+* Update deps to get cozy-viewer update by @zatteo in https://github.com/cozy/mespapiers/pull/692
+* Edit only Scan step in Modify action by @Merkur39 in https://github.com/cozy/mespapiers/pull/693
+* Add Modify option to konnector files by @Merkur39 in https://github.com/cozy/mespapiers/pull/694
+* Add success message when confirming editing by @Merkur39 in https://github.com/cozy/mespapiers/pull/695
 
 # 3.10.0
 
