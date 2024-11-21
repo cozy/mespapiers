@@ -17,7 +17,7 @@ import {
 import { BarComponent, BarCenter } from 'cozy-bar'
 import { RealTimeQueries } from 'cozy-client'
 import { useClient } from 'cozy-client'
-import CozyDevTools from 'cozy-client/dist/devtools'
+import CozyDevTools from 'cozy-devtools'
 import flag from 'cozy-flags'
 import IconSprite from 'cozy-ui/transpiled/react/Icon/Sprite'
 import { Layout, Main, Content } from 'cozy-ui/transpiled/react/Layout'
