@@ -5613,10 +5613,10 @@ cozy-tsconfig@1.2.0:
   resolved "https://registry.yarnpkg.com/cozy-tsconfig/-/cozy-tsconfig-1.2.0.tgz#17e61f960f139fae4d26cbac2254b9ab632b269e"
   integrity sha512-TRHnY9goF3FzVlUbP7BcHxuN2XAA4AmppT4fHHZmTKaSwYTByVR1Al+riFMDbce94kJZ1wzl9WNLWQuqzGZ6Cw==
 
-cozy-ui@^112.3.0:
-  version "112.3.0"
-  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-112.3.0.tgz#2272d5c1d4be8742cf5dec6a71cf7a9a6f9f1fd7"
-  integrity sha512-7c39UJM6YAHBD5LovkVC+ZIc+sqqAixcr+NbVzl6ZX4OM42yfOvUrzGBv0MXeNAVpxpXOLW+lXqtwaTbS9HsDw==
+cozy-ui@^113.4.0:
+  version "113.4.0"
+  resolved "https://registry.yarnpkg.com/cozy-ui/-/cozy-ui-113.4.0.tgz#bee10a460372e9bfe0e9d9c7000170911a5d8fa3"
+  integrity sha512-Dfzq2Z9wo7on0ynSZ7UCF3FSbAbMKvst1LiYFl72gBB4DXU6wZ/tL4lnBkKgI00fXIBwZi1ZML3Yhd+wOk5pSw==
   dependencies:
     "@babel/runtime" "^7.3.4"
     "@material-ui/core" "4.12.3"
@@ -5643,10 +5643,10 @@ cozy-ui@^112.3.0:
     react-swipeable-views "^0.13.3"
     rooks "^5.11.2"
 
-cozy-viewer@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/cozy-viewer/-/cozy-viewer-2.3.1.tgz#462fb58b84ca0f7dc0adfdc17181c697db58e732"
-  integrity sha512-dOhpTp8YPzSpNVMVJFIYzLa+Gc+tFL/F/eON2xEiASUXr9rq1WmeGMlOLsd2xpZAN30OmwBkpJLhfyL0Ty94aw==
+cozy-viewer@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/cozy-viewer/-/cozy-viewer-3.0.0.tgz#0e7cd77cb9b9c708ae7cd0e7115eb5440c2edeb8"
+  integrity sha512-pmSlb5KzQ8JITRuVRh+oAls6BotP6vFYITNBR+WcdB82tpEvwlvNyW/cs0xHbx88Musq54tNR93JouF3+bYLNA==
   dependencies:
     classnames "^2.2.5"
     hammerjs "^2.0.8"
@@ -11446,9 +11446,9 @@ msgpack5@^4.0.2:
     readable-stream "^2.3.6"
     safe-buffer "^5.1.2"
 
-"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
