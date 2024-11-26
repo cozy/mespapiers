@@ -1,4 +1,11 @@
+# 3.13.0
+
 # 3.12.0
+
+### ✨ Features
+
+* [PRD-538] feat: Upgrade cozy-bar for new flag by @paultranvan in https://github.com/cozy/mespapiers/pull/697
+* feat: Upgrade cozy-viewer by @JF-Cozy in https://github.com/cozy/mespapiers/pull/698
 
 # 3.11.0
 
