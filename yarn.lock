@@ -5374,12 +5374,12 @@ cozy-doctypes@^1.91.1:
     lodash "^4.17.19"
     prop-types "^15.7.2"
 
-cozy-doctypes@^1.94.1:
-  version "1.94.1"
-  resolved "https://registry.yarnpkg.com/cozy-doctypes/-/cozy-doctypes-1.94.1.tgz#a4da30740afecb83e6280f90fc6a75a5732f5b74"
-  integrity sha512-bs0NxUR/qsccmmvFrZUr4ojvv3IDvf3onTyR8Hrd3Td5b3dZUT1OhLDbyzOUtdF2jPFexpYToZ6ofaY4gDbAyA==
+cozy-doctypes@^1.97.1:
+  version "1.97.1"
+  resolved "https://registry.yarnpkg.com/cozy-doctypes/-/cozy-doctypes-1.97.1.tgz#115b0ad53c0135f4bce7b23a7107d884b9961161"
+  integrity sha512-8E9fn6U+IabV6vdsbBHbe09px+PV/utMvfmSheWCYt7nekAyTawiUZk0/kYXf1rRu0Hl7gaP6QfycccZDte4iQ==
   dependencies:
-    cozy-logger "^1.13.1"
+    cozy-logger "^1.16.1"
     date-fns "^1.30.1"
     es6-promise-pool "^2.5.0"
     lodash "^4.17.19"
@@ -5392,16 +5392,16 @@ cozy-flags@^3.2.2:
   dependencies:
     microee "^0.0.6"
 
-cozy-harvest-lib@^30.3.1:
-  version "30.3.1"
-  resolved "https://registry.yarnpkg.com/cozy-harvest-lib/-/cozy-harvest-lib-30.3.1.tgz#9d8377e2254bdd238f6a78de1e15296eb4dd6707"
-  integrity sha512-LR6u0fgwwzfy9TuKX3XGt/CrANVwHYeprzWzUSuV0Ic0Ie4QXJ1SjzMWqLuoEDOKGe4JLoYAhCa8XJTcHenbDg==
+cozy-harvest-lib@^30.8.1:
+  version "30.8.1"
+  resolved "https://registry.yarnpkg.com/cozy-harvest-lib/-/cozy-harvest-lib-30.8.1.tgz#5176dae4f80efc1b6a4ca71bcb71b934e1d0ed83"
+  integrity sha512-A9H1ZUuokDBusP+/j5XQs9Do36tDQUuKt8ZUC/KEPdmgCbL8tZvAIbtfNKMJZ79eo5mZKghomuptDdGcSnyKOw==
   dependencies:
     "@cozy/minilog" "^1.0.0"
     classnames "^2.3.1"
     cozy-bi-auth "0.0.25"
-    cozy-doctypes "^1.94.1"
-    cozy-logger "^1.13.1"
+    cozy-doctypes "^1.97.1"
+    cozy-logger "^1.16.1"
     date-fns "^1.30.1"
     final-form "^4.18.5"
     lodash "^4.17.19"
@@ -5469,10 +5469,10 @@ cozy-logger@^1.10.4:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
 
-cozy-logger@^1.13.1:
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/cozy-logger/-/cozy-logger-1.13.1.tgz#70b1e2f17772d63386aad337bd7f64a22352bab1"
-  integrity sha512-8FsY0m5l02v1wtl4o8HOm/9UxAj9T0N9hEMkiioYX/npz5e/L6CecSt7yTfRqpa74+kachfJ7VpwkyedTJKlVw==
+cozy-logger@^1.16.1:
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/cozy-logger/-/cozy-logger-1.16.1.tgz#f2ce38711ce71287908fb1efaae3c7274bf6c7fa"
+  integrity sha512-ntzxu3vEwwSZqgGG3d6EnFoG8nfL4+dzCYOspmgg+S1BvHk9+nctq2SybOk5eB9P4ccrBNYQNJ4WtrZuCJRUVw==
   dependencies:
     chalk "^2.4.2"
     json-stringify-safe "5.0.1"
@@ -5643,10 +5643,10 @@ cozy-ui@^113.4.0:
     react-swipeable-views "^0.13.3"
     rooks "^5.11.2"
 
-cozy-viewer@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/cozy-viewer/-/cozy-viewer-3.0.0.tgz#0e7cd77cb9b9c708ae7cd0e7115eb5440c2edeb8"
-  integrity sha512-pmSlb5KzQ8JITRuVRh+oAls6BotP6vFYITNBR+WcdB82tpEvwlvNyW/cs0xHbx88Musq54tNR93JouF3+bYLNA==
+cozy-viewer@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/cozy-viewer/-/cozy-viewer-4.0.0.tgz#23847e0f1b2fd50dce88b17d9d7493e6d2067ac6"
+  integrity sha512-3g60GhEhBVFxPzfITmEZKfNI+sBlcykut1dZfrLcTlf9IELd/EiYY3Rj4NzTkt2JFZugKZh9a/7VxSmaLEKoPw==
   dependencies:
     classnames "^2.2.5"
     hammerjs "^2.0.8"
@@ -11446,9 +11446,9 @@ msgpack5@^4.0.2:
     readable-stream "^2.3.6"
     safe-buffer "^5.1.2"
 
-"mui-bottom-sheet@git+https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
+"mui-bottom-sheet@https://github.com/cozy/mui-bottom-sheet.git#v1.0.9":
   version "1.0.8"
-  resolved "git+https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
+  resolved "https://github.com/cozy/mui-bottom-sheet.git#3dc4c2a245ab39079bc2f73546bccf80847be14c"
   dependencies:
     "@juggle/resize-observer" "^3.1.3"
     jest-environment-jsdom-sixteen "^1.0.3"
