@@ -2,6 +2,7 @@ import set from 'lodash/set'
 import { CONTACTS_DOCTYPE, FILES_DOCTYPE } from 'src/constants'
 
 import { getReferencedBy } from 'cozy-client'
+import { isForeignPaper } from 'cozy-client/dist/models/paper'
 
 /**
  * Checks if the edition of the metadata of type "Information" is permitted
@@ -117,8 +118,10 @@ export const updateReferencedContact = async ({
 export const getPaperDefinitionByFile = (papersDefinitions, file) => {
   return papersDefinitions.find(paper => {
     const countryCondition =
-      file.metadata.country && paper.country
-        ? paper.country === 'foreign'
+      Object.keys(file.metadata).includes('country') && paper.country
+        ? isForeignPaper(file)
+          ? paper.country === 'foreign'
+          : paper.country === 'fr'
         : true
 
     return paper.label === file.metadata.qualification.label && countryCondition

@@ -425,7 +425,7 @@ describe('getPaperDefinitionByFile', () => {
 
         expect(res).toMatchObject({
           label: 'driver_license',
-          country: 'foreign'
+          country: 'fr'
         })
       })
 
@@ -438,7 +438,7 @@ describe('getPaperDefinitionByFile', () => {
 
         expect(res).toMatchObject({
           label: 'driver_license',
-          country: 'foreign'
+          country: 'fr'
         })
       })
     })
