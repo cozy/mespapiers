@@ -24,17 +24,19 @@ import setupApp from 'src/targets/browser/setupApp'
 import { EditLoader } from 'src/components/Views/Edit'
 import { AppProviders } from 'src/components/AppProviders'
 import ErrorBoundary from 'src/components/Views/ErrorBoundary'
+import ContactEdit from 'src/components/Views/ContactEdit'
+import InformationEdit from 'src/components/Views/InformationEdit'
 
-export const IntentWrapper = () => {
+export const IntentWrapper = ({ Component }) => {
   const { service } = useIntent()
 
-  return <EditLoader onClose={service.cancel} onSubmit={service.terminate} />
+  return <Component onClose={service.cancel} onSubmit={service.terminate} />
 }
 
 const IntentLoader = () => {
   const { data } = useIntent()
 
-  return <Navigate to={`${data.qualificationLabel}/${data.fileId}`} replace />
+  return <Navigate to={data.path} replace />
 }
 
 const makeRoutes = ({ client, intentId, ...rest }) => [
@@ -57,7 +59,17 @@ const makeRoutes = ({ client, intentId, ...rest }) => [
       },
       {
         path: ':qualificationLabel/:fileId',
-        element: <IntentWrapper />,
+        element: <IntentWrapper Component={EditLoader} />,
+        errorElement: <ErrorBoundary />
+      },
+      {
+        path: ':qualificationLabel/:fileId/edit/information',
+        element: <IntentWrapper Component={InformationEdit} />,
+        errorElement: <ErrorBoundary />
+      },
+      {
+        path: ':qualificationLabel/:fileId/edit/contact',
+        element: <IntentWrapper Component={ContactEdit} />,
         errorElement: <ErrorBoundary />
       }
     ]
