@@ -26,7 +26,7 @@ export const filterSteps = async ({
     if (isOCR) {
       return step.isDisplayed === 'all' || step.isDisplayed === 'ocr'
     } else {
-      return step?.isDisplayed !== 'ocr'
+      return step?.isDisplayed !== 'ocr' && step?.isDisplayed !== 'none'
     }
   })
 

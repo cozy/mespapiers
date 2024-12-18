@@ -60,7 +60,7 @@ The `front` and `back` entries have exactly the same structure and attributes.
   - `[multipage]`: {boolean} Allows to add as many files as the user wants.
   - `illustration`: {string} Name of the illustration used on the step (with extension).
   - `text`: {string} Translation key for the text of the step.
-  - `[isDisplayed]`: {`ocr`|`all`} Determine if the step should be shown.
+  - `[isDisplayed]`: {`ocr`|`all`|`none`} Determine if the step should be shown.
 
 <br>
 
@@ -76,7 +76,7 @@ The `front` and `back` entries have exactly the same structure and attributes.
     - [`radio`](#information-field-attributes): {object} Fields used to enter a radio list.
     - [`contact`](#information-field-attributes): {object} Fields used to select a contact.
     - `country`: {string} Displays a list of countries with search fields.
-  - `[isDisplayed]`: {`ocr`|`all`} Determine if the step should be shown.
+  - `[isDisplayed]`: {`ocr`|`all`|`none`} Determine if the step should be shown.
 
 <br>
 
@@ -84,23 +84,24 @@ The `front` and `back` entries have exactly the same structure and attributes.
   - `model`: {string} Model used for the step (`contact`).
   - `text`: {string} Translation key for the text of the step.
   - `[multiple]`: {boolean} Allows you to add multiple contacts.
-  - `[isDisplayed]`: {`ocr`|`all`} Determine if the step should be shown.
+  - `[isDisplayed]`: {`ocr`|`all`|`none`} Determine if the step should be shown.
 
 <br>
 
 - ### Step `note`:
   - `model`: {string} Model used for the step (`note`)
-  - `[isDisplayed]`: {`ocr`|`all`} Determine if the step should be shown.
+  - `[isDisplayed]`: {`ocr`|`all`|`none`} Determine if the step should be shown.
 
 ***
 
 ## Manage the display of informations
 
-The `isDisplayed` property manages the display of steps. Its different values display the step according to the context:
+The `isDisplayed` property manages the display of steps in the paper creation flow. Its different values display the step according to the context:
 
-- `ocr` displayes the step when OCR is activated
+- `ocr` displayes the step only when OCR is activated
 - `undefined` always shows the step
-- `all` displayes the step in any case
+- `all` displayes the step in any case (OCR and not OCR)
+- `none` never shows the step. Usefull to get the step in the edition process, but not in the creation flow.
 
 ## Information field attributes:
 
