@@ -24,7 +24,7 @@ import { useAlert } from 'cozy-ui/transpiled/react/providers/Alert'
 import useBreakpoints from 'cozy-ui/transpiled/react/providers/Breakpoints'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
-const InformationEdit = () => {
+const InformationEdit = ({ onClose }) => {
   const { fileId } = useParams()
   const client = useClient()
   const { t } = useI18n()
@@ -59,8 +59,12 @@ const InformationEdit = () => {
     ? scannerT(`items.${currentEditInformations.paperDef.label}`)
     : ''
 
-  const onClose = () => {
-    navigate('..')
+  const _onClose = () => {
+    if (onClose) {
+      onClose()
+    } else {
+      navigate('..')
+    }
   }
 
   const onConfirm = async () => {
@@ -93,14 +97,18 @@ const InformationEdit = () => {
       variant: 'filled'
     })
 
-    navigate('..')
+    _onClose()
   }
 
   if (
     !currentEditInformations.isLoading &&
     !isInformationEditPermitted(currentEditInformations)
   ) {
-    return <Navigate to=".." />
+    if (onClose) {
+      onClose()
+    } else {
+      return <Navigate to=".." />
+    }
   }
 
   const fallbackIcon =
@@ -115,7 +123,7 @@ const InformationEdit = () => {
   return (
     <FixedDialog
       open
-      onClose={onClose}
+      onClose={_onClose}
       title={dialogTitle}
       content={
         <div

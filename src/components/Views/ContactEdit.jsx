@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   }
 })
 
-const ContactEdit = () => {
+const ContactEdit = ({ onClose }) => {
   const { fileId } = useParams()
   const navigate = useNavigate()
   const client = useClient()
@@ -32,8 +32,12 @@ const ContactEdit = () => {
   ])
   const [isBusy, setIsBusy] = useState(false)
 
-  const onClose = () => {
-    navigate('..')
+  const _onClose = () => {
+    if (onClose) {
+      onClose()
+    } else {
+      navigate('..')
+    }
   }
 
   const onConfirm = async contactSelected => {
@@ -71,12 +75,16 @@ const ContactEdit = () => {
       severity: 'success',
       variant: 'filled'
     })
-    onClose()
+    _onClose()
   }
   const isLoading = currentEditInformation.isLoading || isLoadingContacts
 
   if (!isLoading && !currentEditInformation.file) {
-    return <Navigate to=".." />
+    if (onClose) {
+      onClose()
+    } else {
+      return <Navigate to=".." />
+    }
   }
 
   return isLoading ? (
@@ -88,7 +96,7 @@ const ContactEdit = () => {
       contacts={contacts}
       currentEditInformation={currentEditInformation}
       onConfirm={onConfirm}
-      onClose={onClose}
+      onClose={_onClose}
       isBusy={isBusy}
     />
   )
