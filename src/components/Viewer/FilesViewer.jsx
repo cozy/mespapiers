@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import ActionsButtons from 'src/components/Viewer/ActionsButtons'
 import FileViewerLoading from 'src/components/Viewer/FileViewerLoading'
 
@@ -28,12 +27,6 @@ const FilesViewer = ({ filesQuery, files, fileId, onClose, onChange }) => {
   const [currentFile, setCurrentFile] = useState(null)
   const [fetchingMore, setFetchingMore] = useState(false)
   const client = useClient()
-  const { pathname } = useLocation()
-
-  const editPathByModelProps = {
-    information: `#${pathname}/edit/information?metadata=__NAME__`,
-    contact: `#${pathname}/edit/contact`
-  }
 
   const handleOnClose = () => {
     if (onClose) onClose()
@@ -135,7 +128,6 @@ const FilesViewer = ({ filesQuery, files, fileId, onClose, onChange }) => {
       currentIndex={viewerIndex}
       onChangeRequest={handleOnChange}
       onCloseRequest={handleOnClose}
-      editPathByModelProps={editPathByModelProps}
     >
       <ToolbarButtons>
         <ActionsButtons toolbar />
