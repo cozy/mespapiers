@@ -39,7 +39,7 @@ export const MultiSelectPaperItem = ({
   const filename = makeFilenameWithPage({ file, page, t })
 
   const paperDate = file?.metadata?.datetime
-    ? f(file?.metadata?.datetime, 'DD/MM/YYYY')
+    ? f(file?.metadata?.datetime, 'dd/LL/yyyy')
     : null
 
   const handleClick = async () => {

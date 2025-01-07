@@ -41,7 +41,7 @@ export const ForwardModalContent = ({
     isMultipleFile && currentUser
       ? t('Multiselect.folderZipName', {
           contactName: getDisplayName(currentUser),
-          date: f(Date.now(), 'YYYY.MM.DD')
+          date: f(Date.now(), 'yyyy.LL.dd')
         })
       : makeFilenameWithPage({
           file: filesWithPage[0].file,

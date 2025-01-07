@@ -100,7 +100,7 @@ export const makeZipFolder = async ({
 }) => {
   const defaultZipFolderName = t('Multiselect.folderZipName', {
     contactName: getDisplayName(currentUser),
-    date: f(Date.now(), 'YYYY.MM.DD')
+    date: f(Date.now(), 'yyyy.LL.dd')
   })
 
   const { _id: parentFolderId } = await getOrCreateAppFolderWithReference(

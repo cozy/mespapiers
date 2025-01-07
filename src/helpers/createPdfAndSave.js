@@ -116,7 +116,7 @@ export const createPdfAndSave = async ({
 
   const date =
     updatedMetadata[FILES_DOCTYPE][featureDate] &&
-    f(updatedMetadata[FILES_DOCTYPE][featureDate], 'YYYY.MM.DD')
+    f(updatedMetadata[FILES_DOCTYPE][featureDate], 'yyyy.LL.dd')
 
   // If all files are to be considered as one.
   const isMultiPage = data.some(({ fileMetadata }) => fileMetadata.multipage)
