@@ -64,7 +64,7 @@ const PaperItem = ({
   const isMultiSelectionChoice = withCheckbox && isMultiSelectionActive
   const paperTheme = paper?.metadata?.qualification?.label
   const paperDate = paper?.metadata?.datetime
-    ? f(paper?.metadata?.datetime, 'DD/MM/YYYY')
+    ? f(paper?.metadata?.datetime, 'dd/LL/yyyy')
     : null
 
   const handleClick = async () => {
