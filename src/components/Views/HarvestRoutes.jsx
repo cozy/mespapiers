@@ -7,10 +7,10 @@ import {
 } from 'src/queries'
 
 import { useQuery } from 'cozy-client'
-import { Routes } from 'cozy-harvest-lib'
+import { HarvestRoutes } from 'cozy-harvest-lib'
 import datacardOptions from 'cozy-harvest-lib/dist/datacards/datacardOptions'
 
-const HarvestRoutes = () => {
+const Routes = () => {
   const { connectorSlug } = useParams()
   const navigate = useNavigate()
 
@@ -41,7 +41,7 @@ const HarvestRoutes = () => {
   const onDismiss = () => navigate('..')
 
   return (
-    <Routes
+    <HarvestRoutes
       konnector={konnectorWithTriggers}
       konnectorSlug={connectorSlug}
       datacardOptions={datacardOptions}
@@ -54,4 +54,4 @@ const HarvestRoutes = () => {
   )
 }
 
-export default HarvestRoutes
+export default Routes
