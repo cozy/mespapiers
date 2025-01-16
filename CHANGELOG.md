@@ -1,4 +1,15 @@
+# 3.14.0
+
 # 3.13.0
+
+### ✨ Features
+
+* feat: Upgrade packages
+* Add intents to edit qualification metadata by @JF-Cozy in https://github.com/cozy/mespapiers/pull/703
+
+### 🐛 Bug Fixes
+* Country metadata qualification wasn't correctly editable by @JF-Cozy in https://github.com/cozy/mespapiers/pull/704
+* fix: Color scheme was missing in for intents by @JF-Cozy in https://github.com/cozy/mespapiers/pull/708
 
 # 3.12.0
 
