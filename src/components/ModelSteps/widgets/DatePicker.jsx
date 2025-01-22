@@ -37,7 +37,9 @@ export const DatePicker = ({
   useEffect(() => {
     let isMounted = true
     ;(async () => {
-      const src = require(`date-fns/locale/${lang}/index.js`)
+      const src = require(`date-fns/locale/${
+        lang === 'en' ? 'en-US' : lang
+      }/index.js`)
       isMounted && setLocales(src)
     })()
 
@@ -86,6 +88,8 @@ export const DatePicker = ({
     'aria-label': label,
     ...KeyboardButtonProps
   }
+
+  if (!locales) return null
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locales}>
