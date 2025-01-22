@@ -9,7 +9,7 @@ import { handleConflictFilename } from 'src/helpers/handleConflictFilename'
 import { isReferencedBy } from 'cozy-client'
 import { getDisplayName } from 'cozy-client/dist/models/contact'
 import { splitFilename } from 'cozy-client/dist/models/file'
-import { getSharingLink } from 'cozy-client/dist/models/sharing'
+import { makeSharingLink } from 'cozy-client/dist/models/sharing'
 
 export const isAnyFileReferencedBy = (files, doctype) => {
   for (let i = 0, l = files.length; i < l; ++i) {
@@ -147,7 +147,7 @@ export const forwardFile = async ({
   try {
     // We currently support only one file at a time
     const file = files[0]
-    const url = await getSharingLink(client, [file._id], { ttl, password })
+    const url = await makeSharingLink(client, [file._id], { ttl, password })
     const isZipFile = file.class === 'zip'
     const shareData = {
       title: t('viewer.shareData.title', {
