@@ -9,7 +9,7 @@ import { copyToClipboard } from 'src/helpers/copyToClipboard'
 import { makeTTL } from 'src/helpers/makeTTL'
 
 import { useClient } from 'cozy-client'
-import { getSharingLink } from 'cozy-client/dist/models/sharing'
+import { makeSharingLink } from 'cozy-client/dist/models/sharing'
 import { isMobile } from 'cozy-device-helper'
 import minilog from 'cozy-minilog'
 import Button from 'cozy-ui/transpiled/react/Buttons'
@@ -95,7 +95,7 @@ export const ForwardModal = ({
   const handleClick = async () => {
     const ttl = makeTTL(dateToggle && selectedDate)
     if (isDesktopOrMobileWithoutShareAPI) {
-      const url = await getSharingLink(client, [forwardedFile._id], {
+      const url = await makeSharingLink(client, [forwardedFile._id], {
         ttl,
         password
       })
