@@ -695,7 +695,7 @@
     {
       "label": "energy_invoice",
       "icon": "lightning",
-      "featureDate": "referencedDate",
+      "featureDate": "issueDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
         {
@@ -708,12 +708,12 @@
         {
           "model": "information",
           "illustration": "IlluGenericInputDate.svg",
-          "text": "PaperJSON.invoice.referencedDate.text",
+          "text": "PaperJSON.generic.issueDate.text",
           "attributes": [
             {
-              "name": "referencedDate",
+              "name": "issueDate",
               "type": "date",
-              "inputLabel": "PaperJSON.invoice.referencedDate.inputLabel"
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
             }
           ]
         },
@@ -831,7 +831,7 @@
       "label": "isp_invoice",
       "placeholderIndex": 5,
       "icon": "telecom",
-      "featureDate": "referencedDate",
+      "featureDate": "issueDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
         {
@@ -844,12 +844,12 @@
         {
           "model": "information",
           "illustration": "IlluGenericInputDate.svg",
-          "text": "PaperJSON.invoice.referencedDate.text",
+          "text": "PaperJSON.generic.issueDate.text",
           "attributes": [
             {
-              "name": "referencedDate",
+              "name": "issueDate",
               "type": "date",
-              "inputLabel": "PaperJSON.invoice.referencedDate.inputLabel"
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
             }
           ]
         },
@@ -1910,7 +1910,7 @@
     {
       "label": "phone_invoice",
       "icon": "telephone",
-      "featureDate": "referencedDate",
+      "featureDate": "issueDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
         {
@@ -1923,12 +1923,12 @@
         {
           "model": "information",
           "illustration": "IlluGenericInputDate.svg",
-          "text": "PaperJSON.invoice.referencedDate.text",
+          "text": "PaperJSON.generic.issueDate.text",
           "attributes": [
             {
-              "name": "referencedDate",
+              "name": "issueDate",
               "type": "date",
-              "inputLabel": "PaperJSON.invoice.referencedDate.inputLabel"
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
             }
           ]
         },
@@ -2519,7 +2519,7 @@
     {
       "label": "water_invoice",
       "icon": "water",
-      "featureDate": "referencedDate",
+      "featureDate": "issueDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
         {
@@ -2532,12 +2532,12 @@
         {
           "model": "information",
           "illustration": "IlluGenericInputDate.svg",
-          "text": "PaperJSON.invoice.referencedDate.text",
+          "text": "PaperJSON.generic.issueDate.text",
           "attributes": [
             {
-              "name": "referencedDate",
+              "name": "issueDate",
               "type": "date",
-              "inputLabel": "PaperJSON.invoice.referencedDate.inputLabel"
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
             }
           ]
         },
@@ -2851,7 +2851,7 @@
     {
       "label": "other_invoice",
       "icon": "bill",
-      "featureDate": "referencedDate",
+      "featureDate": "issueDate",
       "filenameModel": ["labelGivenByUser"],
       "maxDisplay": 5,
       "acquisitionSteps": [
@@ -2878,12 +2878,12 @@
         {
           "model": "information",
           "illustration": "IlluGenericInputDate.svg",
-          "text": "PaperJSON.invoice.referencedDate.text",
+          "text": "PaperJSON.generic.issueDate.text",
           "attributes": [
             {
-              "name": "referencedDate",
+              "name": "issueDate",
               "type": "date",
-              "inputLabel": "PaperJSON.invoice.referencedDate.inputLabel"
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
             }
           ]
         },
@@ -2928,7 +2928,7 @@
     {
       "label": "transport_invoice",
       "icon": "car",
-      "featureDate": "referencedDate",
+      "featureDate": "issueDate",
       "maxDisplay": 5,
       "acquisitionSteps": [
         {
@@ -2940,12 +2940,12 @@
         {
           "model": "information",
           "illustration": "IlluGenericInputDate.svg",
-          "text": "PaperJSON.generic.referencedDate.text",
+          "text": "PaperJSON.generic.issueDate.text",
           "attributes": [
             {
-              "name": "referencedDate",
+              "name": "issueDate",
               "type": "date",
-              "inputLabel": "PaperJSON.generic.referencedDate.inputLabel"
+              "inputLabel": "PaperJSON.generic.issueDate.inputLabel"
             }
           ]
         },
