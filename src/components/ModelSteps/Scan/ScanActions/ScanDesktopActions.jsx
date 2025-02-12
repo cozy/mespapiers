@@ -38,7 +38,7 @@ const ScanDesktopActions = ({ onOpenFilePickerModal, onChangeFile }) => {
   const showAlert = flag('mespapiers.aa-suggestion.disabled')
     ? false
     : isLoadedSettings
-    ? settingsData[0].showScanDesktopActionsAlert ?? true
+    ? settingsData[0]?.showScanDesktopActionsAlert ?? true
     : true
 
   const handleKeyDown = ({ key }) => {

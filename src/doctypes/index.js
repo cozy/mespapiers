@@ -4,7 +4,7 @@ import { QueryDefinition, HasMany } from 'cozy-client'
 
 class HasManyBills extends HasMany {
   get data() {
-    const refs = this.target.relationships.referenced_by.data
+    const refs = this.target.relationships.referenced_by?.data
     return refs
       ? refs
           .map(ref => {

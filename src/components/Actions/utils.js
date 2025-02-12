@@ -8,7 +8,7 @@ import { handleConflictFilename } from 'src/helpers/handleConflictFilename'
 
 import { isReferencedBy } from 'cozy-client'
 import { getDisplayName } from 'cozy-client/dist/models/contact'
-import { splitFilename } from 'cozy-client/dist/models/file'
+import { downloadFile, splitFilename } from 'cozy-client/dist/models/file'
 import { makeSharingLink } from 'cozy-client/dist/models/sharing'
 
 export const isAnyFileReferencedBy = (files, doctype) => {
@@ -200,20 +200,15 @@ export const downloadFiles = async ({
   client,
   filesWithPage,
   showAlert,
-  t
+  t,
+  webviewIntent
 }) => {
   try {
     const fileCollection = client.collection(FILES_DOCTYPE)
     if (filesWithPage.length === 1) {
       const { file, page } = filesWithPage[0]
       if (filesWithPage[0].page === null) {
-        const filename = file.name
-        const downloadURL = await fileCollection.getDownloadLinkById(
-          file.id,
-          filename
-        )
-
-        return fileCollection.forceFileDownload(`${downloadURL}?Dl=1`, filename)
+        return await downloadFile({ client, file, webviewIntent })
       } else {
         const filename = makeFilenameWithPage({ file, page, t })
         const bin = await getPdfPage({
