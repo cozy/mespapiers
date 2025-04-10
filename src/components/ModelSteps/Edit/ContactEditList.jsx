@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import ContactEditItem from 'src/components/ModelSteps/Edit/ContactEditItem'
 
-import Avatar from 'cozy-ui/transpiled/react/Avatar'
 import ContactsListModal from 'cozy-ui/transpiled/react/ContactsListModal'
 import Divider from 'cozy-ui/transpiled/react/Divider'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -10,6 +9,7 @@ import ListItem from 'cozy-ui/transpiled/react/ListItem'
 import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import Paper from 'cozy-ui/transpiled/react/Paper'
+import Avatar from 'cozy-ui/transpiled/react/legacy/Avatar'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const AvatarStyle = {
