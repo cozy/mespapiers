@@ -100,7 +100,7 @@
     "cozy-viewer": "^22.0.0",
     "date-fns": "2.30.0",
     "flexsearch": "0.7.31",
-    "leaflet": "1.7.1",
+    "leaflet": "1.9.4",
     "localforage": "1.10.0",
     "lodash": "4.17.21",
     "node-fetch": "2.6.1",
