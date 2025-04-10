@@ -3,7 +3,6 @@ import React, { useState, useMemo } from 'react'
 import { useSessionstorage } from 'src/components/Hooks/useSessionstorage'
 import Contact from 'src/components/ModelSteps/Contact'
 
-import Avatar from 'cozy-ui/transpiled/react/Avatar'
 import ContactsListModal from 'cozy-ui/transpiled/react/ContactsListModal'
 import Divider from 'cozy-ui/transpiled/react/Divider'
 import Icon from 'cozy-ui/transpiled/react/Icon'
@@ -11,6 +10,7 @@ import List from 'cozy-ui/transpiled/react/List'
 import ListItem from 'cozy-ui/transpiled/react/ListItem'
 import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
+import Avatar from 'cozy-ui/transpiled/react/legacy/Avatar'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const styleAvatar = {

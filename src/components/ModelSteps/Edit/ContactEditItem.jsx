@@ -1,13 +1,13 @@
 import React from 'react'
 
 import { getDisplayName } from 'cozy-client/dist/models/contact'
-import Avatar from 'cozy-ui/transpiled/react/Avatar'
 import Checkbox from 'cozy-ui/transpiled/react/Checkbox'
 import ListItem from 'cozy-ui/transpiled/react/ListItem'
 import ListItemIcon from 'cozy-ui/transpiled/react/ListItemIcon'
 import ListItemSecondaryAction from 'cozy-ui/transpiled/react/ListItemSecondaryAction'
 import ListItemText from 'cozy-ui/transpiled/react/ListItemText'
 import Radio from 'cozy-ui/transpiled/react/Radios'
+import Avatar from 'cozy-ui/transpiled/react/legacy/Avatar'
 import { useI18n } from 'cozy-ui/transpiled/react/providers/I18n'
 
 const AvatarStyle = {
